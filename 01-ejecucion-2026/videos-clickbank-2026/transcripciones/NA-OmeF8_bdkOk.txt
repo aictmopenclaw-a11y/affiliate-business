@@ -1,0 +1,855 @@
+[00:00] If you're interested in making money with affiliate marketing
+[00:03] and you're asking how do I get started with ClickBank,
+[00:06] then this video is for you.
+[00:08] We're gonna take you from what even is affiliate marketing
+[00:11] to having your first tracking link ready to start
+[00:13] earning your first commissions in under 30 minutes.
+[00:17] You'll learn how to sign up for ClickBank step-by-step,
+[00:21] find great affiliate offers to promote
+[00:23] and set yourself up to make money online
+[00:26] with ClickBank as an affiliate
+[00:28] who promotes other people's products,
+[00:30] a seller with your own product to sell, or both.
+[00:34] That's right, we're also gonna walk through
+[00:35] the latest ClickBank features,
+[00:37] including the updated ClickBank Marketplace,
+[00:39] new sales reporting, advanced tracking parameters,
+[00:42] server-to-server integrations,
+[00:44] verify ID, and a whole lot more.
+[00:46] And if you stick around to the end,
+[00:48] we'll also tease the ClickBank Platinum program.
+[00:51] What it means to become a platinum
+[00:53] and some of the biggest benefits
+[00:55] are top affiliates get access to.
+[00:57] And that's the good stuff.
+[00:59] By the way, I'm Kirsten, an account strategist
+[01:01] for ClickBank School Descent program.
+[01:03] Why help up-and-coming sellers navigate
+[01:06] and scale the ClickBank platform.
+[01:08] And I'm Chris, Senior Director for Marketing.
+[01:10] We are both part of the ClickBank team
+[01:13] and we've helped thousands of affiliates
+[01:15] get started on the ClickBank platform over the years.
+[01:18] So if you're ready to get set up
+[01:20] for success on ClickBank, let's dive in.
+[01:26] Okay, before we click on anything,
+[01:27] let's make sure we're on the same page
+[01:29] about affiliate marketing as a concept and a business model.
+[01:32] Oh, and on another note, we're going to start
+[01:34] from the perspective of an affiliate marketer first
+[01:37] and then cover the seller POV second.
+[01:39] But you can jump around to any of this video
+[01:41] using the chapter markers.
+[01:43] Chris, what is affiliate marketing?
+[01:46] Okay, affiliate marketing, it's actually pretty simple.
+[01:49] A seller or a brand has created a product they sell,
+[01:52] right, which could be anything from an e-book
+[01:54] to a supplement or maybe software subscription
+[01:57] or any kind of gadget.
+[01:58] Whatever they're selling, say this product owner
+[02:00] needs a little help reaching more customers
+[02:03] and making more sales.
+[02:05] They can do that by recruiting third-party marketers,
+[02:08] in this case, performance affiliates
+[02:10] and agreeing to pay a commission,
+[02:12] either flat fee or percentage,
+[02:14] for every sale that affiliate brings.
+[02:16] Now, if you're watching this,
+[02:17] chances are good that you wanna be one of those affiliates.
+[02:21] And what's cool about being an affiliate
+[02:23] is you don't have to build a brand
+[02:24] or launch your own product to make money online.
+[02:27] Your only job as an affiliate
+[02:29] is to promote someone else's product
+[02:31] through a special tracking link that's unique to you.
+[02:34] When someone clicks your link and buys that product,
+[02:37] you earn a commission on the sale.
+[02:39] And if you can do that enough times, you're in.
+[02:42] You'll be able to make a serious income
+[02:44] through affiliate marketing.
+[02:45] That's exactly right, Chris.
+[02:47] So think of it as a four-step flow.
+[02:49] Choose a profitable affiliate product to promote.
+[02:52] Generate your own unique affiliate link
+[02:55] and then promote your link online
+[02:57] by sending traffic from sources like social media,
+[03:00] email, YouTube, blogs, or paid ads.
+[03:03] Earn a commission on every sale and get paid.
+[03:06] And again, as the affiliate,
+[03:08] you don't have to deal with product creation,
+[03:10] customer support, inventory, managing payments on your own,
+[03:14] none of that overhead or those headaches.
+[03:17] You just step in as a helpful and expert marketer
+[03:20] who can send qualified traffic to the product owner
+[03:23] and you introduce a quality solution to the end customer
+[03:27] to help them solve whatever problem they're having.
+[03:29] It's honestly a win, win, win.
+[03:32] And what makes ClickBank powerful
+[03:34] is that we host thousands of products you can promote
+[03:37] in almost any niche, from health and fitness,
+[03:41] finance, relationships, hobbies, spirituality,
+[03:45] to pets, and a whole lot more.
+[03:47] So if affiliate marketing has sounded vague
+[03:51] up to this point,
+[03:52] keep this in mind throughout the entire video.
+[03:54] As an affiliate, your job is to get the right people
+[03:58] to the right offer using your link
+[04:01] or putting it another way, just sell the click.
+[04:04] That's all there is to it.
+[04:05] If you're able to get enough people
+[04:06] to click your tracking link and go buy a quality offer,
+[04:10] you will be well on your way to affiliate success.
+[04:15] So we've talked about affiliate marketing
+[04:17] and how it works,
+[04:18] but how does ClickBank fit into this picture?
+[04:21] If you're new to ClickBank,
+[04:22] we are a long-standing popular affiliate marketplace
+[04:25] with a ton of helpful e-commerce or seller features
+[04:29] for anyone who wants to grow their sales online,
+[04:31] affiliates and sellers alike.
+[04:33] We are truly the real deal in affiliate marketing.
+[04:36] We've been around since 1998,
+[04:38] coming up on 30 years now,
+[04:41] which as you know is almost as old as the internet itself.
+[04:44] But more importantly,
+[04:45] we have paid out more than 7 billion, 7.2 billion.
+[04:49] That's with a bead in commissions
+[04:51] to our clients over that time
+[04:53] and we have never missed a payment.
+[04:55] As we mentioned,
+[04:56] one side of the equation features the sellers,
+[04:59] individuals or brands who list their physical
+[05:01] or digital products in our marketplace
+[05:04] to get help making more sales from top affiliates.
+[05:07] Then there's the affiliate
+[05:09] who promote those products for a commission.
+[05:12] Ultimately, ClickBank is the hub that connects
+[05:15] all of the parties involved in a transaction on ClickBank.
+[05:19] Real quick,
+[05:20] let's walk through what a ClickBank transaction looks like.
+[05:24] Don't worry if you don't fully understand
+[05:26] all the math at this point.
+[05:27] The main takeaway is that when you get sales on the product,
+[05:31] ClickBank makes sure you get paid
+[05:33] for what you're owed every time.
+[05:35] In a nutshell, ClickBank hosts the affiliate products,
+[05:39] tracks all impressions, clicks
+[05:41] and sales for those products.
+[05:43] Processes all sales as a merchant of record,
+[05:46] routes the agreed upon funds to affiliates
+[05:48] and sellers provides additional helpful tools
+[05:51] like sales analytics, in-depth tracking parameters,
+[05:55] fraud protection and software integrations
+[05:58] with popular ad platforms and third party tools.
+[06:01] And the best part with ClickBank,
+[06:02] you can be an affiliate, a seller or both.
+[06:05] It's all possible by creating one or more nickname accounts
+[06:09] inside your profile,
+[06:11] which we call you our master or primary account.
+[06:13] One more thing.
+[06:14] If you think you know what ClickBank is all about
+[06:18] because you had an account with us back in 2011
+[06:21] or even 2021, well, you're wrong.
+[06:24] We're not just a marketplace for eBooks
+[06:26] or low ticket digital products,
+[06:28] although we do have those in spades.
+[06:31] We also have a thriving supplement
+[06:33] and physical consumable segment.
+[06:35] We have electronic gadgets, we have software
+[06:39] and we have high ticket membership and coaching offers.
+[06:42] You get the idea.
+[06:43] That's right.
+[06:44] There's a ton of variety in the products
+[06:45] that sell on our platform,
+[06:46] including physical and digital,
+[06:48] one time sales or recurring slash subscription
+[06:51] and a whole lot more
+[06:52] across 23 distinct product categories.
+[06:55] For now, let's dive more
+[06:56] into how it all works as an affiliate.
+[06:59] Then we'll show you how to create a seller account
+[07:01] in case you ever wanna launch
+[07:02] your own product on ClickBank.
+[07:07] Follow along with me to set up
+[07:08] your free ClickBank account in less than 15 minutes.
+[07:11] Start by going to clickbank.com,
+[07:14] click on any of the start here buttons to begin.
+[07:17] Once you click, you'll see a short onboarding flow
+[07:19] that asks a few questions like,
+[07:21] what's your experience level?
+[07:23] Are you planning to be an affiliate, a seller or both?
+[07:26] You can answer those to help tailor your experience
+[07:29] or skip ahead if you wanna go straight
+[07:31] to the free account signup form.
+[07:33] Once on the signup form,
+[07:34] you'll enter your country, name and phone number,
+[07:37] email address, a password,
+[07:39] then read and agree to the terms
+[07:41] and click join ClickBank.
+[07:44] Once you're in,
+[07:44] you can hand inside your main ClickBank profile.
+[07:47] Here you'll see prompts to complete your profile,
+[07:49] set up how you wanna get paid
+[07:51] and complete the VerifyD verification
+[07:53] before you can fully access payments.
+[07:55] Quick note, Verify is our identity verification partner.
+[07:59] It's there to protect you and our other sellers
+[08:01] and cut down on fraud
+[08:02] and keep the ClickBank marketplace healthy and secure.
+[08:06] We're here to make bank, okay?
+[08:07] So to get paid,
+[08:08] you've gotta complete your profile
+[08:09] and finish that VerifyD verification.
+[08:12] Now we're gonna get into the fun stuff.
+[08:14] We're gonna create what's called
+[08:15] an account nickname or nickname account.
+[08:17] This is what ClickBank uses
+[08:19] to track your affiliate activity
+[08:21] and honestly do so much more.
+[08:23] It's like a small command center
+[08:25] for each individual business.
+[08:27] From your main dashboard,
+[08:28] look in the sidebar for an option called accounts.
+[08:32] Then hit create a nickname.
+[08:34] Here you will see a dialog box that pops up
+[08:37] and you can choose your account type,
+[08:39] either affiliate or affiliate and seller combo.
+[08:42] Next, you'll fill in a new nickname.
+[08:44] I recommend picking a nickname
+[08:46] that's simple, professional and easy to recognize.
+[08:49] Something like Chris Affiliate or Chris AF 2026
+[08:52] is better than XXMONEY XX996929.
+[08:57] Yeah, that's because nicknames are permanent.
+[08:59] So choose something you won't be embarrassed
+[09:01] to share with people.
+[09:02] Keep in mind that your nickname
+[09:04] may be your first impression with many sellers
+[09:06] and some sellers only let you promote their products
+[09:09] once you're manually approved or whitelisted.
+[09:12] So it's definitely a good idea to put a little thought
+[09:15] into the nickname that will reflect well
+[09:17] on you and your affiliate business.
+[09:19] Now, once you're happy with the nickname you've chosen
+[09:22] and you found one that's available,
+[09:23] click sign up and congrats.
+[09:25] You now have an affiliate account
+[09:27] inside your ClickBank profile
+[09:29] and you're officially ready to start promoting products.
+[09:33] Note that you can always add a separate seller account
+[09:35] as a new nickname later
+[09:36] or even more an additional affiliate accounts.
+[09:39] For now, let's go find that product.
+[09:43] Now comes the fun part.
+[09:45] Let's look at the ClickBank affiliate marketplace
+[09:47] where you'll find thousands of quality products to promote
+[09:50] that you can earn tens or even hundreds of thousands
+[09:53] of dollars in affiliate commissions per year.
+[09:56] There's two ways to access the marketplace
+[09:58] directly from your master account on the left-hand side
+[10:01] or from inside your affiliate nickname account at the top.
+[10:04] Either way, find affiliate marketplace in the menu.
+[10:07] It'll have a little storefront icon.
+[10:09] Click on that.
+[10:10] You should land in the marketplace
+[10:11] and check out that upper right corner
+[10:13] to see your name to confirm that you're logged in.
+[10:16] Perfect.
+[10:17] Now that you're inside the ClickBank marketplace,
+[10:19] you have a few different options for how to navigate it
+[10:22] and find a winning product to promote.
+[10:24] At the top, you'll see a search bar.
+[10:26] In there, you can type keywords like keto,
+[10:28] dog training, supplements,
+[10:30] anything that you want to promote.
+[10:32] You can also search for a specific product name
+[10:35] or leave it blank
+[10:36] and click on the magnifying glass icon
+[10:38] to automatically see top offers on the platform.
+[10:42] On the left-hand side, under all,
+[10:44] you'll see the various marketplace categories.
+[10:47] So if you want to focus on, say, health and fitness,
+[10:50] eBiz and eMarketing or self-help,
+[10:52] you can drill down into those niches
+[10:54] and even their sub-niches
+[10:56] to find exactly what you're looking for.
+[10:58] One recent improvement in our marketplace
+[11:00] is the amazing data you can now view
+[11:02] for each affiliate offer.
+[11:04] In addition to the current snapshot
+[11:05] of stats in the main marketplace listing,
+[11:08] watch what happens when we click on the product name.
+[11:11] We can see long-term performance trends
+[11:13] for the following stats,
+[11:15] average dollars per conversion,
+[11:17] what affiliates earn on average per sale,
+[11:20] initial commission and recurring revenue,
+[11:22] turn rate, combined refund and chargeback rates
+[11:25] when available,
+[11:26] overall rank and gravity scores.
+[11:28] Basically, rank is where it sits
+[11:31] in the marketplace for total sales.
+[11:33] And gravity is a composite score
+[11:35] for how many affiliates are making sales
+[11:37] and how recent those sales are.
+[11:39] Lastly, you can see other offers
+[11:41] on the marketplace listed by the same seller.
+[11:43] So if you have a solid history with one seller
+[11:46] or offer owner promoting more of their products,
+[11:49] is a great way to keep that relationship up.
+[11:52] Obviously, this wealth of data helps you quickly see,
+[11:55] does this offer pay me enough?
+[11:57] Are other affiliates actually making money with it now?
+[12:00] Is it a one-time sale
+[12:02] or does it have recurring revenue built in
+[12:04] in the form of what we call rebuilds?
+[12:06] I also want to point out
+[12:08] that we regularly post top offers updates
+[12:10] on our YouTube channel and blog.
+[12:13] Now these feature hand-picked offers
+[12:15] from our own affiliate management team.
+[12:17] So if you're on the lookout for new offers to promote,
+[12:20] our top offers content is another great way
+[12:22] to find some solid ideas.
+[12:24] And of course, you can always jump back
+[12:26] into the marketplace to dive deeper
+[12:29] into any offer you hear about on the street
+[12:31] or in our content and make sure it meets your standards.
+[12:34] Okay, let's click into one example offer,
+[12:37] energy revolution system.
+[12:39] In the main marketplace listing,
+[12:40] you'll see the product name and description.
+[12:43] You'll also see an affiliate page.
+[12:44] This is where the seller often gives you email swipes,
+[12:47] ad angles, banners and more.
+[12:49] You'll have a support contact.
+[12:50] Usually this is an email where you can ask questions
+[12:53] and there's more detailed stats and categories.
+[12:56] That's right.
+[12:57] If you're brand new to affiliate marketing,
+[12:59] I don't think you need to obsess
+[13:01] over every single metric.
+[13:02] In general, I've got just a few rules of thumb
+[13:05] or big things to look out for.
+[13:07] Look for affiliate offers with a solid average payout.
+[13:10] Anything above 50 for a digital product
+[13:12] like an ebook or course is honestly great
+[13:15] or 120-ish, $120 for a supplement, solid.
+[13:19] Now look for reasonable gravity and performance.
+[13:21] You don't want zero or low single digits
+[13:23] because then there's no proof
+[13:24] the product is converting recently,
+[13:26] but you don't wanna necessarily go
+[13:28] after the highest gravity, most competitive stuff either.
+[13:31] A gravity score between 20 and 100
+[13:33] is actually a pretty good sweet spot for newer affiliates.
+[13:37] And lastly, this is important.
+[13:38] Look for niches that you're actually interested
+[13:41] in creating content or ads around.
+[13:43] Just because other affiliates are getting sales
+[13:45] doesn't automatically mean you will,
+[13:47] especially if you know your audience.
+[13:49] It helps a lot to really understand
+[13:51] the niche and audience you're going after.
+[13:53] Okay, at this point you should have a good idea
+[13:55] of how to navigate the ClickBank marketplace
+[13:57] and evaluate different affiliate offers.
+[14:00] So take a minute, pause this video
+[14:01] and spend some time exploring the marketplace.
+[14:04] Maybe even save a few offers that catch your eye.
+[14:07] Just click the little heart icon
+[14:08] so it's easy to view and your favorite offer is later.
+[14:12] You don't have to commit to anything yet,
+[14:14] but it's smart to get to know what's available.
+[14:17] And now that you know how ClickBank works
+[14:19] for affiliates, let's turn our attention
+[14:22] over to the seller side.
+[14:25] Look up, hop, hop, hop, hop, hop, hop, hop, hop.
+[14:28] Do, do, do, do chapter six.
+[14:30] Let's talk sellers.
+[14:31] Remember our little visual of a ClickBank transaction?
+[14:35] Well, we've talked about what it means
+[14:36] to be an affiliate who promotes other people's products,
+[14:39] but what if you already have a product to sell,
+[14:41] an idea for a product, or even an existing audience
+[14:44] you want to monetize with a product?
+[14:47] Well, in those cases,
+[14:48] you may want to list your product on ClickBank.
+[14:51] That's right, I work with a lot
+[14:53] of up and coming sellers on ClickBank.
+[14:55] So take my word for it,
+[14:56] becoming a ClickBank seller
+[14:58] will take more upfront time, money,
+[15:01] and expertise than becoming an affiliate.
+[15:03] So you're responsible for things like product delivery,
+[15:07] product creation, customer support, operations,
+[15:10] fulfillment, logistics for physical products,
+[15:13] and this may sound like a negative,
+[15:15] but it's really just about deciding
+[15:17] what your goals are in business
+[15:19] and making sure you're ready to take that step.
+[15:22] So while it may be more difficult
+[15:24] to become a seller upfront,
+[15:25] it's also why you have much less competition
+[15:27] than affiliates do.
+[15:28] There are just way fewer sellers
+[15:30] with a product list on ClickBank
+[15:32] than there are affiliates looking to promote those products.
+[15:35] So if you're ready to take control of your online income
+[15:38] and get top affiliates to bring you sales
+[15:40] of your physical or digital product,
+[15:42] then let's talk through the next four steps
+[15:44] for getting started as a seller.
+[15:46] Create a compelling affiliate product.
+[15:49] Optimize your affiliate tools.
+[15:51] Attract top affiliates and scale your sales.
+[15:55] First, creating compelling affiliate product.
+[15:58] What makes this tricky is that you actually have to have
+[16:00] two different audiences to think about.
+[16:03] So you have your end customer and you have your affiliate base.
+[16:07] Speaking to the end customer,
+[16:08] you wanna create a unique selling proposition
+[16:11] and as for the affiliate base,
+[16:13] you can probably guess what they care about.
+[16:15] Remember when we toured the marketplace a little bit ago?
+[16:18] It just comes down to a few key numbers.
+[16:20] We've got conversion rate, average payout value.
+[16:23] This is how much money an affiliate will earn
+[16:24] every time they get a sale to hire the better.
+[16:27] Earnings per click and one more factor is the refund rate.
+[16:31] Once you have a solid product ready to list on ClickBank,
+[16:34] you'll have to get started with a seller account.
+[16:37] Chris?
+[16:38] Oh, I can help.
+[16:40] You got your CR, your RR, you got your EPC and your APV.
+[16:43] So from there on your main profile,
+[16:45] click accounts again, but this time,
+[16:48] choose account type seller or that combination account type
+[16:51] to make a seller nickname
+[16:53] and you're gonna go through a similar flow.
+[16:55] Confirm your business and individual details,
+[16:57] provide any required tax documentation,
+[17:00] set up your payment preferences as a seller,
+[17:02] everything that you need to actually transact.
+[17:05] Inside the seller account,
+[17:06] you see tools for creating products and offers,
+[17:09] managing pricing and upsells,
+[17:11] approving or managing affiliate relationships
+[17:13] and viewing seller side analytics.
+[17:15] And overall, there's a seller funnel that looks like this.
+[17:18] If you're keeping track at home,
+[17:20] we've identified four rough steps in the seller process.
+[17:23] The first was launching a product
+[17:25] and then we had optimize your affiliate tools,
+[17:28] attract top affiliates and then scale your sales.
+[17:32] We're not gonna be able to go deep
+[17:33] into the rest of these steps for ClickBank sellers
+[17:35] in this sort of beginner video,
+[17:37] but it's important to know that ClickBank
+[17:39] can be both your partner for recruiting
+[17:41] and managing affiliates
+[17:42] and also your payment processor
+[17:44] for handling all the sales
+[17:46] and splits and commission payouts.
+[17:48] So if this is something you're interested in pursuing,
+[17:51] we have a lot of available resources to help,
+[17:53] including an onboarding optimizer we will link to below.
+[17:57] One other resource is a video I created
+[17:59] that goes into detail about how to onboard a product
+[18:01] on ClickBank as a seller.
+[18:03] We'll link that in the description for you as well.
+[18:06] For now,
+[18:10] for now, let's head back
+[18:11] into the ClickBank dashboard talk analytics.
+[18:15] It's time for everybody's favorite step
+[18:17] or at least a very important one,
+[18:19] creating an affiliate tracking link.
+[18:21] This is how you get paid, so stick around till the end.
+[18:24] In this section, we're gonna cover
+[18:26] how to use that Get Affiliate Link button
+[18:29] inside the ClickBank marketplace
+[18:30] to start promoting products,
+[18:32] how to add tracking parameters to your links,
+[18:35] which is one of our most important new features
+[18:36] for affiliates,
+[18:38] and how to work with the latest sales reporting
+[18:40] and analytics dashboard on ClickBank
+[18:42] so you can track and optimize your traffic
+[18:45] and earnings data in basically real time.
+[18:48] Okay, now to create your very own affiliate link.
+[18:52] Assuming you've picked an offer you like
+[18:54] in the marketplace,
+[18:55] just click that big Get Affiliate Link button
+[18:57] inside the product listing on the right-hand side.
+[19:00] You'll see a link generator pop up
+[19:02] where you'll confirm your affiliate nickname.
+[19:05] The seller nickname of the product you're promoting
+[19:07] will be added there automatically,
+[19:08] and then you hit Continue.
+[19:10] Depending on the product,
+[19:11] you'll have the option to choose the hop link
+[19:13] for a direct tracking link or just a standard hop link.
+[19:16] Optionally, you'll add some tracking parameters.
+[19:19] We'll cover those in a minute.
+[19:20] Click Copy to copy the tracking link
+[19:23] to your computer's clipboard,
+[19:25] and now you can paste it directly
+[19:26] into your landing page, content,
+[19:28] or just keep it on hand in the notes app for future use.
+[19:31] And that's all there is to it,
+[19:33] or at least to get started,
+[19:34] because you now have a unique encrypted link
+[19:37] to place wherever you're gonna promote this product,
+[19:40] and this is the foundation
+[19:41] of your affiliate marketing success.
+[19:43] Whenever someone clicks that link
+[19:45] and goes on to purchase the product,
+[19:47] ClickBank will automatically attribute the sale
+[19:50] to your nickname, and that's how you get your earnings.
+[19:53] Now let me briefly explain tracking parameters.
+[19:56] Let's say you paste your tracking link
+[19:57] onto a page without parameters.
+[20:00] That's just the basic tracking link.
+[20:02] What that does is successfully report back to ClickBank
+[20:04] when someone clicks your link and makes a purchase
+[20:07] so we can credit you with the sale,
+[20:08] but this doesn't add any additional information
+[20:11] about that user or your campaign.
+[20:14] This might be the traffic source they came from
+[20:16] when they clicked or which individual ad
+[20:18] or page they came from.
+[20:19] This gives you key information
+[20:21] so that you can enhance and optimize your performance.
+[20:24] Here's a must-know tip.
+[20:26] You have a couple of ways to track
+[20:27] where your clicks and sales come from.
+[20:30] You have the tracking ID.
+[20:31] This is a short code you can add
+[20:33] in the Hoplink Generator or create yourself
+[20:35] with the question mark TID equals
+[20:38] custom affiliate tracking parameters
+[20:39] you can append to your links
+[20:41] or set up right when you generate a link for the first time.
+[20:45] That's right, that's right.
+[20:45] So yeah, let's say you want to track YouTube traffic
+[20:49] versus TikTok traffic.
+[20:51] You might do something like this.
+[20:53] Use a tracking ID or TID,
+[20:55] like YT2026 on one link
+[20:58] and then another TID like TT2026 on a different link.
+[21:03] Depending on the offer and tools you're using,
+[21:05] you can also pass a URL parameter
+[21:07] like TID equals YT2026
+[21:10] or even your own UTM structure
+[21:12] if you're tracking inside tools like Google Analytics.
+[21:15] That's right, yeah.
+[21:16] So let's say you want to track YouTube traffic
+[21:18] versus TikTok traffic on your Hoplink.
+[21:21] On one, you might use a tracking ID or TID
+[21:23] like YT2026 for YouTube
+[21:26] and on the other add a TID like TT2026 for TikTok.
+[21:31] So that's just using the TID parameter.
+[21:33] We also have inside the link generator
+[21:36] or that you can add on your own
+[21:37] a bunch of additional traffic parameters
+[21:40] that you can easily read and parse in your links
+[21:42] like traffic source and traffic type.
+[21:44] So that might be traffic source equals TikTok,
+[21:47] traffic type equals paid
+[21:49] so that you when you come back
+[21:50] to check your campaign performance
+[21:52] already can know and really easily spot
+[21:55] that you're running TikTok with this link on paid,
+[21:57] TikTok organic on this link, Facebook paid on this.
+[22:00] You can even add things like campaign ID
+[22:03] if you have a select number of campaigns you're running
+[22:06] the type of creative if you're testing different creatives
+[22:09] basically as granular as you want to get
+[22:11] so that at a glance inside click make analytics
+[22:14] you can see the whole host of your promotional efforts
+[22:16] and what's performing best.
+[22:18] All right, now we need to test your link.
+[22:21] You don't want to put it out there
+[22:22] without making sure it works.
+[22:24] So you copy this into a new browser window
+[22:27] and you go through the order form,
+[22:29] scroll down and look for a line
+[22:31] that shows your affiliate attribution.
+[22:33] Often something like affiliate equals your nickname
+[22:36] or more likely a series of random letters and numbers.
+[22:40] This is an encrypted affiliate ID
+[22:42] to protect your identity against competing affiliates.
+[22:45] Now, the goal with this step
+[22:47] is to confirm that when you click on your hop link
+[22:50] it loads correctly.
+[22:51] When you get to the order form
+[22:52] it shows the correct product
+[22:54] and when you scroll down to the bottom of the order form
+[22:56] through that encrypted ID
+[22:58] you see that the sale will be credited
+[23:00] to your affiliate account.
+[23:01] If anything looks off
+[23:03] you can double check your nickname,
+[23:05] your affiliate tracking ID and other parameters
+[23:07] or even regenerate your tracking link
+[23:09] from the ClickBank marketplace.
+[23:10] Now real quick, let's talk you through
+[23:12] how to decode that encrypted affiliate ID
+[23:14] so that you can make sure it's tied up
+[23:16] to your actual account.
+[23:18] So again, the correct affiliate ID
+[23:20] is referenced on the order form
+[23:21] after clicking through from your link
+[23:23] to the pitch page and through the vendors by button.
+[23:26] You can copy that affiliate ID
+[23:27] which is at the very bottom of the order form.
+[23:29] You'll bring that over into your primary account
+[23:31] and you'll see affiliate tools on the left side
+[23:33] and you can decode it right there.
+[23:35] That's right.
+[23:36] After you've copied and pasted that affiliate ID
+[23:38] into the affiliate tools and decoded
+[23:40] if it all looks good, correct affiliate nickname,
+[23:43] correct seller nickname, you are in business
+[23:46] and you can be certain that you'll get credit
+[23:48] for any sales that come through your link.
+[23:51] Here you can see the following details.
+[23:53] Clicks on your tracking links
+[23:54] knows hops and clipping privilege.
+[23:57] Order form impressions for users
+[23:58] who have clicked on the buy now button
+[24:00] on the vendors sales page and saw the order form.
+[24:03] Sales and refunds, how many initial sales did you earn?
+[24:07] Hop conversion rates, the conversion rate you saw
+[24:09] from hops, the clicks on your tracking link,
+[24:12] compared to your total initial sales
+[24:15] and your earnings over different date ranges.
+[24:17] That's right.
+[24:18] Within your primary account,
+[24:20] if you have multiple nicknames,
+[24:21] you can filter by account nickname, date,
+[24:24] even tracking ID or other parameters
+[24:26] depending on the report that you choose here.
+[24:29] This entire section really is a command center
+[24:32] dashboard that helps you see which traffic sources
+[24:35] and offers in your various campaigns
+[24:37] are actually leading to sales and earnings,
+[24:39] which is the most important data to have.
+[24:42] Now all these numbers are cool,
+[24:43] but they really matter most
+[24:45] if they actually translate to money, right?
+[24:47] I mean, of course.
+[24:47] So let's talk about how you go from
+[24:50] the numbers to getting paid on ClickBank.
+[24:54] Now here's the part everyone cares most about,
+[24:56] making bank.
+[24:57] A lot goes into getting paid on ClickBank,
+[25:00] including payment settings, taxes, settlement
+[25:02] and various business entities.
+[25:04] I know these probably aren't the most exciting topics,
+[25:07] but trust me, it's important
+[25:09] so you wanna pay attention.
+[25:10] If you do this stuff right,
+[25:12] it'll allow you to get money from ClickBank,
+[25:14] drop directly into your bank account
+[25:16] up to two times a week on autopilot
+[25:19] without ever even having to think about it again.
+[25:22] So, payment settings.
+[25:24] Inside your main ClickBank profile,
+[25:26] go to account in the sidebar
+[25:28] and click your nickname account.
+[25:30] From there, look for account settings in the top menu.
+[25:32] Here you'll choose your payment threshold.
+[25:35] This is the minimum amount you want to earn
+[25:37] before ClickBank sends you a paycheck.
+[25:40] Payment methods like direct deposit,
+[25:42] where supported or check.
+[25:45] And your payment frequency.
+[25:46] This is weekly or bi-weekly, twice a week,
+[25:50] depending on options available.
+[25:52] If you choose direct deposit,
+[25:54] this is where you enter your financial institution.
+[25:57] If you choose a check,
+[25:58] you'll specify the mailing address,
+[26:00] where the check will get sent.
+[26:01] I mean, for most people,
+[26:03] I really recommend direct deposit.
+[26:05] It's probably the easiest and fastest way to get paid.
+[26:08] Otherwise, I mean, we gotta sign those checks,
+[26:10] we gotta mail them out.
+[26:11] Sometimes I might sleep on the job.
+[26:13] You like the envelopes?
+[26:14] Takes a minute.
+[26:15] So make sure your bank details are accurate.
+[26:18] My tongue is numb.
+[26:19] I'm licking all these checks.
+[26:22] You also see sections to enter your tax information.
+[26:25] Let me show you that real quick.
+[26:27] This varies by country to country,
+[26:29] but generally in the US,
+[26:30] this might be a social security number
+[26:32] for individuals or EIN for businesses.
+[26:36] Outside of the US,
+[26:36] there might be different tax ID requirements or forms.
+[26:39] Yeah, we're not here to give you legal or tax advice.
+[26:42] Frankly, I don't know if you'd want it from us.
+[26:45] But don't skip this step,
+[26:46] because ClickBank, like every legitimate platform out there,
+[26:49] needs accurate tax information to pay you
+[26:52] and to comply with all the various federal regulations.
+[26:55] The question we get a lot is,
+[26:57] do I need an LLC or a company to start?
+[27:00] No, as a seller or affiliate,
+[27:02] I mean the simple answer is no,
+[27:03] you can sign up with your personal details
+[27:05] and get paid as an individual.
+[27:06] You don't have to have a business entity
+[27:08] to start promoting.
+[27:09] Most people actually begin as individuals,
+[27:11] but later, if they find success
+[27:13] and as your income starts to grow,
+[27:16] you might wanna talk to a tax professional
+[27:18] about setting up an LLC or corporation,
+[27:21] changing your payee name to your business name,
+[27:23] optimizing your tax situation.
+[27:25] That's all stuff that as you find success
+[27:28] and grow your income,
+[27:30] you may wanna consider down the road.
+[27:32] We also have partners that handle this
+[27:34] and are the experts in doing this,
+[27:35] so check out our partnership page
+[27:37] to find experts that can walk you through this.
+[27:40] For now, the key is use your real information,
+[27:44] keep your account details up to date
+[27:46] and make sure you understand
+[27:48] how ClickBank will pay you and in which currency.
+[27:51] Okay, we made it through.
+[27:54] I know some of this was probably a little dry,
+[27:56] like a good, hard cider from our home
+[27:58] in the Pacific Northwest,
+[28:00] but it is important information.
+[28:02] And now we're gonna talk about what to aim at
+[28:04] once you've got all this stuff set up
+[28:06] and working for you and that flywheel is in motion.
+[28:10] And that is Platinum Statter.
+[28:13] All right, you've seen how to get everything up
+[28:16] and started, but once you really start cooking
+[28:18] as an affiliate, seller, or both,
+[28:20] what does the next level look like?
+[28:22] Well, I happen to be the account strategist
+[28:24] for our Gold Ascend program.
+[28:26] I help up incoming ClickBank clients
+[28:28] who are usually around revenue of 25K per year.
+[28:32] It's a great program for anyone
+[28:34] who's serious about affiliate marketing
+[28:36] and making it to the next level.
+[28:38] So if you qualify for it today or in the future,
+[28:41] keep an eye out for an invitation to join.
+[28:43] Yes, Kirsten and our Gold Ascend program team
+[28:47] provide a great stepping stone
+[28:49] for a lot of the rising stars in our space.
+[28:51] And what they're all ultimately aiming for
+[28:53] is something called the ClickBank Platinum program.
+[28:56] Platinum is our VIP program for affiliates and sellers
+[29:00] who hit at least $250,000 in gross sales on platform
+[29:05] in the last 12 months or in a calendar year.
+[29:08] I know that sounds like a lot,
+[29:09] but once you know how to promote products
+[29:12] and generate consistent sales on the daily,
+[29:15] it's totally doable.
+[29:16] In fact, there are hundreds of Platinums
+[29:18] on ClickBank right now,
+[29:19] many of them having achieved Platinum status
+[29:22] year after year after year.
+[29:24] And if you play your cards right,
+[29:26] you can totally be one of them.
+[29:27] And you'll want to be one of them.
+[29:29] When you reach Platinum status,
+[29:31] you unlock some of the serious perks,
+[29:33] including things like one-on-one account management,
+[29:35] introductions, VIP support, priority access
+[29:39] to exclusive ClickBank product features,
+[29:41] invitations to exclusive events
+[29:43] and networking opportunities
+[29:44] with top affiliates and sellers,
+[29:46] including the famous ClickBank Platinum Summit
+[29:49] and greater visibility inside the ClickBank ecosystem.
+[29:52] It is totally worth it to reach Platinum status.
+[29:55] And I know a lot of people look at Platinum
+[29:57] as the big goal, the ultimate goal.
+[29:59] But in reality, it's kind of the start.
+[30:01] You unlock so much opportunity
+[30:03] as a ClickBank Platinum client
+[30:05] that it's kind of like
+[30:06] you're just barely getting started again.
+[30:07] It's a new level of momentum.
+[30:09] And with that said,
+[30:10] we see Platinum level affiliates
+[30:12] and sellers doing a few things especially well.
+[30:15] They treat their time on ClickBank like a true business,
+[30:18] not just a side hustle or potential lottery ticket.
+[30:21] They build audiences and systems,
+[30:24] email lists, content, ads that run consistently
+[30:28] and they leverage the latest technologies
+[30:30] to help them achieve scale.
+[30:32] They understand their numbers using analytics
+[30:34] and tracking parameters and split testing
+[30:37] to actually find and then double down on what works.
+[30:41] Now, if you're curious about Platinum, don't worry.
+[30:43] In a separate video,
+[30:44] we're going to break down a step-by-step
+[30:46] affiliate marketing roadmap
+[30:48] to going from beginner to Platinum.
+[30:50] That includes the traffic strategies
+[30:52] and mindset shifts you need.
+[30:54] We'll link to it in the description once it's out.
+[30:56] Holy smokes, we have covered a metric ship load, is the term.
+[31:01] And here's a quick recap of everything we've discussed
+[31:03] in this quick guide to making money online.
+[31:06] We talked about what affiliate marketing is
+[31:09] and how you can fit into that picture
+[31:10] as an affiliate or seller,
+[31:12] what ClickBank is in the middle
+[31:14] and how affiliates and sellers use it,
+[31:16] how to create your ClickBank account
+[31:18] and your affiliate nickname account.
+[31:20] We gave a tour of our updated marketplace,
+[31:23] including some of the new and powerful offer statistics.
+[31:26] We talked about how to set up a seller account
+[31:28] if you want to launch your own product.
+[31:30] We showed you how to create a tracking link,
+[31:32] even adding additional tracking parameters
+[31:35] and working inside our analytics and reporting dashboard.
+[31:38] We talked how to get paid on ClickBank
+[31:40] with some basics on taxes and business entities.
+[31:42] And we gave a sneak peek at the ClickBank Platinum
+[31:45] program and what's possible
+[31:48] if you stick with affiliate marketing for the long haul.
+[31:51] Your next move is simple.
+[31:52] Create a login to your ClickBank account,
+[31:54] set up your payment info and go through verification.
+[31:57] You choose one niche and one product to start with.
+[32:00] Generate your first affiliate tracking link.
+[32:03] Start driving traffic,
+[32:04] even as just some simple content on a few platforms.
+[32:08] And with that, you're well on your way
+[32:10] to making money with ClickBank.
+[32:11] If this walkthrough helped you
+[32:13] or if you learned anything,
+[32:15] hit like so maybe more people see it.
+[32:17] Maybe even aspiring affiliates or sellers like you
+[32:20] who could become your most valuable connection in the future.
+[32:23] Trust me, it happens all the time.
+[32:25] Also subscribe so you're first to know
+[32:27] when our next videos drop,
+[32:29] including step-by-step affiliate traffic strategies,
+[32:32] real world funnel examples,
+[32:35] and a deeper dive into affiliate marketing trends.
+[32:38] And of course, if you want to go deeper right now,
+[32:41] we have linked a free ClickBank resource
+[32:43] in the description that actually walks you
+[32:45] through building your first affiliate funnel.
+[32:48] Thanks for hanging out with us.
+[32:49] I'm Kirsten.
+[32:50] I'm Chris.
+[32:51] We'll see you in the next video.
+[32:52] Until next time, happy scaling.

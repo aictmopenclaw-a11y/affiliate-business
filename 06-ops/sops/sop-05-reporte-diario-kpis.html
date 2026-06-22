@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP 05 · Reporte Diario de KPIs (Automatizado) · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">06-ops / sops · 3 min · 614 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#setup-inicial-one-time-cris" class="">Setup inicial (one-time · Cris)</a></li><li><a href="#1-acceso-a-apis" class="h3">1. Acceso a APIs</a></li><li><a href="#2-script-base" class="h3">2. Script base</a></li><li><a href="#3-routine-en-claude-code" class="h3">3. Routine en Claude Code</a></li><li><a href="#plantilla-del-reporte-diario" class="">Plantilla del reporte diario</a></li><li><a href="#workflow-diario-humano" class="">Workflow diario (humano)</a></li><li><a href="#900-am" class="h3">9:00 AM</a></li><li><a href="#905-910-am" class="h3">9:05-9:10 AM</a></li><li><a href="#910-am" class="h3">9:10 AM</a></li><li><a href="#triggers-automáticos-del-script" class="">Triggers automáticos del script</a></li><li><a href="#checklist-setup-inicial" class="">Checklist setup inicial</a></li><li><a href="#historial" class="">Historial</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>sop-05-reporte-diario-kpis.md</span><span>614 palabras</span><span>~3 min</span></div>
+<h1 id="sop-05-reporte-diario-de-kpis-automatizado">SOP 05 · Reporte Diario de KPIs (Automatizado)</h1>
+<p><strong>Owner:</strong> Cris <strong>Frecuencia:</strong> Diario · 9AM (automatizado vía Claude Code routine) <strong>Tiempo:</strong> 5 min revisión humana <strong>Inputs:</strong> Meta Ads API, ClickBank API <strong>Output:</strong> post auto en Slack #datos + archivo en <code>05-data/daily/YYYY-MM-DD.md</code></p>
+<hr>
+<h2 id="setup-inicial-one-time-cris">Setup inicial (one-time · Cris)<a class="anchor" href="#setup-inicial-one-time-cris">#</a></h2>
+<h3 id="1-acceso-a-apis">1. Acceso a APIs<a class="anchor" href="#1-acceso-a-apis">#</a></h3>
+<ul>
+<li><strong>Meta Marketing API:</strong> crear app en developers.facebook.com, obtener access token con permisos <code>ads_read</code></li>
+<li><strong>ClickBank API:</strong> Account → API Keys → generar API key + Developer key</li>
+<li>Guardar en <code>.env</code> (NUNCA en código):</li>
+</ul>
+<p>``<code> META_ACCESS_TOKEN=xxx META_AD_ACCOUNT_ID=act_xxx CLICKBANK_API_KEY=xxx CLICKBANK_DEVELOPER_KEY=xxx SLACK_WEBHOOK_URL=https://hooks.slack.com/... </code>``</p>
+<h3 id="2-script-base">2. Script base<a class="anchor" href="#2-script-base">#</a></h3>
+<p>Crear <code>04-tech/scripts/daily-report.py</code>:</p>
+<pre><code class="language-python"># Pseudo-código — implementación completa cuando Cris lo monte
+import os
+from datetime import datetime, timedelta
+
+def fetch_meta_data(account_id, date):
+    # GET /v19.0/{account_id}/insights
+    # campos: spend, impressions, clicks, cpc, ctr, cpm, conversions
+    pass
+
+def fetch_clickbank_data(date):
+    # GET /1.3/orders/list?startDate=X&amp;endDate=X
+    pass
+
+def generate_markdown_report(meta_data, cb_data):
+    # estructura abajo
+    pass
+
+def post_to_slack(report, webhook):
+    # POST con summary
+    pass
+
+if __name__ == "__main__":
+    yesterday = datetime.now() - timedelta(days=1)
+    meta = fetch_meta_data(os.getenv("META_AD_ACCOUNT_ID"), yesterday)
+    cb = fetch_clickbank_data(yesterday)
+    report = generate_markdown_report(meta, cb)
+    
+    # Guardar archivo
+    fname = f"05-data/daily/{yesterday.strftime('%Y-%m-%d')}.md"
+    with open(fname, "w") as f:
+        f.write(report)
+    
+    # Post a Slack
+    post_to_slack(report, os.getenv("SLACK_WEBHOOK_URL"))</code></pre>
+<h3 id="3-routine-en-claude-code">3. Routine en Claude Code<a class="anchor" href="#3-routine-en-claude-code">#</a></h3>
+<ul>
+<li><code>~/.claude/commands/affiliate-daily-report.md</code> o setup vía cron</li>
+<li>Ejecutar diario 8:55 AM</li>
+<li>Si falla 2x seguidas → alerta urgente Slack + email Cris</li>
+</ul>
+<hr>
+<h2 id="plantilla-del-reporte-diario">Plantilla del reporte diario<a class="anchor" href="#plantilla-del-reporte-diario">#</a></h2>
+<pre><code class="language-markdown"># Reporte Diario · YYYY-MM-DD
+
+## Resumen ejecutivo
+- 💰 Spend total: $XXX USD
+- 📊 Conversiones: X
+- 🎯 ROAS: X.XX
+- 📈 vs día anterior: +/- X%
+- ⚠️ Flags: [si hay anomalías]
+
+## Por campaña
+| Campaña | Spend | Conv | CPA | ROAS | Status |
+|---|---|---|---|---|---|
+| oferta-001-angle1 | $25 | 3 | $8.33 | 1.8 | ✅ healthy |
+| oferta-001-angle2 | $25 | 1 | $25.00 | 0.6 | 🔴 kill candidate |
+
+## Por creativo (top 5)
+| Creativo | Impressions | CTR | CPA | Frequency |
+|---|---|---|---|---|
+| ... | ... | ... | ... | ... |
+
+## ClickBank
+- Vendidos: X
+- Comisión total: $X USD
+- Refunds: X (-$X USD)
+- Net: $X USD
+
+## Acción sugerida
+- [Auto-detectada por script: scale X · kill Y · investigar Z]</code></pre>
+<hr>
+<h2 id="workflow-diario-humano">Workflow diario (humano)<a class="anchor" href="#workflow-diario-humano">#</a></h2>
+<h3 id="900-am">9:00 AM<a class="anchor" href="#900-am">#</a></h3>
+<ul>
+<li>Routine corre, post aparece en Slack #datos</li>
+<li>Cris recibe ping push</li>
+</ul>
+<h3 id="905-910-am">9:05-9:10 AM<a class="anchor" href="#905-910-am">#</a></h3>
+<ul>
+<li>Revisión 5 min:</li>
+<li>¿Métricas OK o hay anomalía?</li>
+<li>¿Algún ROAS >2.5x → notificar Dali para más variantes?</li>
+<li>¿Algún CPA 2x baseline → notificar Romi?</li>
+<li>¿Frequency > 3 en algún creativo → trigger SOP 09 (refresh)?</li>
+</ul>
+<h3 id="910-am">9:10 AM<a class="anchor" href="#910-am">#</a></h3>
+<ul>
+<li>Marcar en Slack: <span class="badge badge-ok">OK</span> revisado / <span class="badge badge-warn">!</span> requiere discusión</li>
+</ul>
+<hr>
+<h2 id="triggers-automáticos-del-script">Triggers automáticos del script<a class="anchor" href="#triggers-automáticos-del-script">#</a></h2>
+<ul>
+<li><strong>CPA > 2x baseline durante 24h</strong> → tag urgente a Romi</li>
+<li><strong>ROAS > 2.5x sostenido 48h</strong> → tag a Dali (más variantes)</li>
+<li><strong>Frequency > 3 en creativo</strong> → tag a Dali (SOP 09 refresh)</li>
+<li><strong>Spend $0 en cuenta cuando debería gastar</strong> → tag urgente Cris (problema de pago / pixel / bid)</li>
+<li><strong>Meta warning recibido</strong> → tag urgente Cris</li>
+</ul>
+<hr>
+<h2 id="checklist-setup-inicial">Checklist setup inicial<a class="anchor" href="#checklist-setup-inicial">#</a></h2>
+<ul>
+<li><input type="checkbox"  disabled>Meta API access token obtenido</li>
+<li><input type="checkbox"  disabled>ClickBank API keys obtenidas</li>
+<li><input type="checkbox"  disabled><code>.env</code> configurado con todas las vars</li>
+<li><input type="checkbox"  disabled>Script <code>daily-report.py</code> testeado manualmente</li>
+<li><input type="checkbox"  disabled>Routine programada Claude Code (8:55 AM)</li>
+<li><input type="checkbox"  disabled>Webhook Slack #datos configurado</li>
+<li><input type="checkbox"  disabled>Test de end-to-end: routine genera reporte → Slack notifica</li>
+<li><input type="checkbox"  disabled>Backup: si script falla, alerta urgente</li>
+</ul>
+<hr>
+<h2 id="historial">Historial<a class="anchor" href="#historial">#</a></h2>
+<ul>
+<li><strong>v0.1 · 2026-04-28</strong> — estructura inicial</li>
+<li><strong>v1.0</strong> — pendiente · cuando Cris implemente script real</li>
+</ul>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: sop-05-reporte-diario-kpis.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

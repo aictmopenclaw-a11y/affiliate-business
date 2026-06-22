@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cruce avatares × consciencia × ángulos · Kerassentials (hongos en uñas) · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">07-learning / cruce-angulos-avatares · 46 min · 9,285 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#1-contexto-del-nicho-ampliado" class="">1. Contexto del nicho ampliado</a></li><li><a href="#11-el-mercado-de-la-onicomicosis-lo-que-sabemos-del-nicho" class="h3">1.1 El mercado de la onicomicosis (lo que sabemos del nicho)</a></li><li><a href="#12-estacionalidad-fuerte-el-driver-de-timing-más-importante-del-nicho" class="h3">1.2 Estacionalidad fuerte (el driver de timing más importante del nicho)</a></li><li><a href="#13-por-qué-la-gente-no-va-al-médico-la-fricción-que-abre-el-mercado-affiliate" class="h3">1.3 Por qué la gente no va al médico (la fricción que abre el mercado affiliate)</a></li><li><a href="#14-sensibilidad-de-meta-para-este-nicho" class="h3">1.4 Sensibilidad de Meta para este nicho</a></li><li><a href="#2-los-avatares-en-mucho-detalle-5-buyer-personas-hipótesis-de-trabajo" class="">2. Los avatares en MUCHO detalle (5 buyer personas · hipótesis de trabajo)</a></li><li><a href="#avatar-a-diane-la-que-esconde-los-pies-en-verano-48" class="h3">Avatar A · Diane · "La que esconde los pies en verano" (48)</a></li><li><a href="#avatar-b-robert-el-que-ya-probó-lamisil-y-nada-57" class="h3">Avatar B · Robert · "El que ya probó Lamisil y nada" (57)</a></li><li><a href="#avatar-c-carmen-la-cuidadora-preocupada-por-que-empeore-62" class="h3">Avatar C · Carmen · "La cuidadora preocupada por que empeore" (62)</a></li><li><a href="#avatar-d-mike-el-activo-que-no-quiere-que-esto-lo-frene-44" class="h3">Avatar D · Mike · "El activo que no quiere que esto lo frene" (44)</a></li><li><a href="#avatar-e-sandra-la-que-compra-para-su-pareja-56-el-comprador-indirecto" class="h3">Avatar E · Sandra · "La que compra para su pareja" (56) · el comprador indirecto</a></li><li><a href="#3-los-5-niveles-de-consciencia-para-hongos-en-profundidad" class="">3. Los 5 niveles de consciencia para hongos, en profundidad</a></li><li><a href="#nivel-1-inconsciente-20" class="h3">Nivel 1 · Inconsciente (~20%)</a></li><li><a href="#nivel-2-problema-40-el-grueso" class="h3">Nivel 2 · Problema (~40%, el grueso)</a></li><li><a href="#nivel-3-solución-30" class="h3">Nivel 3 · Solución (~30%)</a></li><li><a href="#nivel-4-producto-7-sobre-todo-retargeting" class="h3">Nivel 4 · Producto (~7%, sobre todo retargeting)</a></li><li><a href="#nivel-5-decisión-3-retargeting-caliente" class="h3">Nivel 5 · Decisión (~3%, retargeting caliente)</a></li><li><a href="#4-la-matriz-extendida-avatar-nivel-ángulo-hooks-propios-cta-riesgo" class="">4. LA MATRIZ EXTENDIDA · avatar × nivel → ángulo + hooks propios + CTA + riesgo</a></li><li><a href="#41-diane-esconde-los-pies-nivel-2-problema-ángulo-vergüenza-social-situación-griesgo-bajo" class="h3">4.1 Diane (esconde los pies) · nivel 2 Problema · ángulo Vergüenza social / situación · {g}Riesgo bajo</a></li><li><a href="#42-diane-carmen-nivel-12-inconscienteproblema-ángulo-listicle-educativo-griesgo-bajo" class="h3">4.2 Diane / Carmen · nivel 1→2 Inconsciente/Problema · ángulo Listicle educativo · {g}Riesgo bajo</a></li><li><a href="#43-diane-carmen-mike-nivel-1-3-ángulo-pregunta-quiz-entry-griesgo-bajo" class="h3">4.3 Diane / Carmen / Mike · nivel 1-3 · ángulo Pregunta / Quiz entry · {g}Riesgo bajo</a></li><li><a href="#44-robert-probó-lamisil-nivel-3-solución-ángulo-comparación-anti-fármaco-ariesgo-medio-alto" class="h3">4.4 Robert (probó Lamisil) · nivel 3 Solución · ángulo Comparación anti-fármaco · {a}Riesgo medio-alto</a></li><li><a href="#45-robert-mike-nivel-3-solución-ángulo-mecanismo-con-nombre-ariesgo-medio" class="h3">4.5 Robert / Mike · nivel 3 Solución · ángulo Mecanismo con nombre · {a}Riesgo medio</a></li><li><a href="#46-mike-activo-nivel-3-solución-ángulo-practicidad-situación-vestuario-griesgo-bajo" class="h3">4.6 Mike (activo) · nivel 3 Solución · ángulo Practicidad + situación vestuario · {g}Riesgo bajo</a></li><li><a href="#47-carmen-cuidadora-nivel-2-3-ángulo-educativo-cuidado-natural-griesgo-bajo" class="h3">4.7 Carmen (cuidadora) · nivel 2-3 · ángulo Educativo + cuidado natural · {g}Riesgo bajo</a></li><li><a href="#48-sandra-compra-para-su-pareja-nivel-3-solución-ángulo-cuidador-emocional-griesgo-bajo" class="h3">4.8 Sandra (compra para su pareja) · nivel 3 Solución · ángulo Cuidador emocional · {g}Riesgo bajo</a></li><li><a href="#49-todos-nivel-4-5-productodecisión-retargeting-ángulo-garantía-prueba-social-griesgo-bajo" class="h3">4.9 Todos · nivel 4-5 Producto/Decisión (retargeting) · ángulo Garantía + prueba social · {g}Riesgo bajo</a></li><li><a href="#410-resumen-de-la-matriz-por-riesgo-y-entrada-en-frío" class="h3">4.10 Resumen de la matriz por riesgo y entrada en frío</a></li><li><a href="#5-mensajería-desarrollada-los-3-cruces-prioritarios-guión-completo-ad-bridge" class="">5. Mensajería desarrollada · los 3 cruces prioritarios (guión completo ad + bridge)</a></li><li><a href="#51-cruce-prioritario-1-diane-problema-2-situación-social-el-ancla-de-verano" class="h3">5.1 CRUCE PRIORITARIO 1 · Diane × Problema (2) × Situación social · el ancla de verano</a></li><li><a href="#52-cruce-prioritario-2-mike-solución-3-practicidadmecanismo-el-de-menor-riesgo-del-lado-masculino" class="h3">5.2 CRUCE PRIORITARIO 2 · Mike × Solución (3) × Practicidad/mecanismo · el de menor riesgo del lado masculino</a></li><li><a href="#53-cruce-prioritario-3-robert-solución-3-anti-fármacomecanismo-el-de-mayor-roas-y-mayor-riesgo" class="h3">5.3 CRUCE PRIORITARIO 3 · Robert × Solución (3) × Anti-fármaco/mecanismo · el de mayor ROAS y mayor riesgo</a></li><li><a href="#6-secuencia-de-funnel-por-avatar-frío-bridge-oferta-retargeting" class="">6. Secuencia de funnel por avatar (frío → bridge → oferta → retargeting)</a></li><li><a href="#61-diane-verano-nivel-2" class="h3">6.1 Diane (verano, nivel 2)</a></li><li><a href="#62-robert-anti-fármaco-nivel-34" class="h3">6.2 Robert (anti-fármaco, nivel 3→4)</a></li><li><a href="#63-carmen-cuidadora-nivel-1-2" class="h3">6.3 Carmen (cuidadora, nivel 1-2)</a></li><li><a href="#64-mike-activo-nivel-3" class="h3">6.4 Mike (activo, nivel 3)</a></li><li><a href="#65-sandra-compra-para-él-nivel-3" class="h3">6.5 Sandra (compra para él, nivel 3)</a></li><li><a href="#7-plan-de-testing-orden-de-ángulos-killscale" class="">7. Plan de testing (orden de ángulos · kill/scale)</a></li><li><a href="#71-orden-de-lotes" class="h3">7.1 Orden de lotes</a></li><li><a href="#72-reglas-kill-scale" class="h3">7.2 Reglas kill / scale</a></li><li><a href="#73-qué-validar-con-la-data-real-los-porcentajes-de-este-doc-son-hipótesis" class="h3">7.3 Qué validar con la data real (los porcentajes de este doc son hipótesis)</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>03-kerassentials.md</span><span>9,285 palabras</span><span>~46 min</span></div>
+<h1 id="cruce-avatares-consciencia-ángulos-kerassentials-hongos-en-uñas">Cruce avatares × consciencia × ángulos · Kerassentials (hongos en uñas)</h1>
+<div class="box box-critico"><div class="box-label">Crítico</div><p>Documento estratégico EXTENDIDO para correr Kerassentials (aceite tópico antihongos para uñas / onicomicosis) como afiliado ClickBank en Meta Ads. Mercado USA, adultos 40-65. Cruza: AVATARES (buyer personas) × NIVELES DE CONSCIENCIA (Schwartz) × ÁNGULOS reales del swipe. Doctrina base: <code>cursos-cruzados/felipe-vergara-m04-aplicado.md</code> (Triángulo Dorado, niveles, 10 artes, templates) · <code>cursos-cruzados/cruce-cursos-aplicado.md</code> (definidor de audiencias Fauadzk, Aha Moment, 7 maletas). Ángulos y hooks reales: <code>swipe-bridge-landers/03-templates-ads-angulos.md</code> (8 ángulos + 4 plantillas) · <code>swipe-bridge-landers/06-swipe-ads-reales-finalistas.md</code> (hooks vivos Ad Library). Compliance: <code>swipe-bridge-landers/05-compliance-meta-nutra.md</code> (las 10 reglas no negociables).</p>
+<p><strong>Nota metodológica (leer antes de usar).</strong> Los avatares son <strong>hipótesis de trabajo razonadas</strong> a partir de la categoría (onicomicosis, perfil demográfico 40-65, dolores conocidos del nicho y los hooks que ya corren en la Ad Library). <strong>No son data de clientes ni de encuesta.</strong> Validar y ajustar contra el comportamiento real de las campañas en los primeros 7-14 días. Los hooks propuestos están <strong>inspirados</strong> en el swipe pero reescritos para evitar copia literal y reducir riesgo de compliance: situación, no condición; cero claims de cura. Los porcentajes de tráfico por nivel son estimaciones marcadas como hipótesis, sirven para priorizar producción creativa, no para reportar.</p>
+<p>Fecha: 2026-06-18</p></div>
+<hr>
+<h2 id="1-contexto-del-nicho-ampliado">1. Contexto del nicho ampliado<a class="anchor" href="#1-contexto-del-nicho-ampliado">#</a></h2>
+<p>Kerassentials es un aceite tópico antihongos para uñas (onicomicosis) que se vende vía VSL ClickBank con garantía de 60 días. A diferencia de próstata (dolor funcional) o dental (dolor mixto), el dolor de la uña con hongo es <strong>90% estético y social, 10% médico percibido</strong>: la uña amarilla, gruesa, descascarada o con olor avergüenza, pero el prospecto rara vez la vive como "enfermedad". Esto define todo lo demás.</p>
+<div class="kpi-strip"><div class="stat"><div class="stat-value">40-65</div><div class="stat-label">Rango de edad foco del nicho</div></div><div class="stat"><div class="stat-value">16</div><div class="stat-label">Ads activos Kerassentials (Ad Library US, jun-2026)</div></div><div class="stat"><div class="stat-value">~90%</div><div class="stat-label">Peso del dolor estético/social vs médico (hipótesis)</div></div><div class="stat"><div class="stat-value">60 días</div><div class="stat-label">Garantía money-back del vendor (booster de oferta)</div></div></div>
+<h3 id="11-el-mercado-de-la-onicomicosis-lo-que-sabemos-del-nicho">1.1 El mercado de la onicomicosis (lo que sabemos del nicho)<a class="anchor" href="#11-el-mercado-de-la-onicomicosis-lo-que-sabemos-del-nicho">#</a></h3>
+<ul>
+<li><strong>Prevalencia alta y creciente con la edad.</strong> La onicomicosis afecta a una porción grande de adultos y su incidencia sube fuerte después de los 40-50 (circulación reducida, uñas más gruesas, más años de exposición). El target 40-65 es exactamente la franja donde el problema aparece o se agrava. La demografía base se inclina ligeramente femenina por el componente estético, pero el hongo de uña masculino (gym, zapatos cerrados, deporte) es un segmento real y menos competido.</li>
+<li><strong>Es crónico y recurrente percibido.</strong> El prospecto suele llevar <strong>meses o años</strong> con la misma uña. No es un dolor agudo que lo empuje a actuar hoy; es una molestia de fondo que escondió y normalizó. Esto pesa en el funnel: hay que <strong>reactivar la urgencia dormida</strong>, no solo presentar una solución.</li>
+<li><strong>Categoría de "vergüenza silenciosa".</strong> Casi nadie habla de su hongo de uña. No lo comenta con amigos, a veces ni con la pareja. Esto significa: (a) baja prueba social orgánica (no hay "boca a boca"), lo que sube el valor de la prueba social que nosotros construimos; (b) el prospecto investiga <strong>solo, de noche, en el teléfono</strong>, lo que favorece el formato advertorial/listicle que se consume en privado.</li>
+</ul>
+<h3 id="12-estacionalidad-fuerte-el-driver-de-timing-más-importante-del-nicho">1.2 Estacionalidad fuerte (el driver de timing más importante del nicho)<a class="anchor" href="#12-estacionalidad-fuerte-el-driver-de-timing-más-importante-del-nicho">#</a></h3>
+<div class="timeline"><div class="tl-item"><div class="tl-when">Ene-Mar</div><div class="tl-what">Temporada baja. Pies tapados (invierno US). El problema está "escondido" y la urgencia dormida. CPL más barato pero conversión más lenta.</div></div><div class="tl-item"><div class="tl-when">Abr-May</div><div class="tl-what">Despertar de la urgencia. Empieza a acercarse el verano, las sandalias, la piscina. El prospecto empieza a notar que "se acerca el momento de mostrar los pies". Ventana de pre-venta.</div></div><div class="tl-item"><div class="tl-when">Jun-Ago</div><div class="tl-what">Pico de demanda. Verano US: sandalias, piscina, playa, bodas, vacaciones. La uña fea pasa de molestia de fondo a problema visible y urgente. Mejor ventana de ROAS del año.</div></div><div class="tl-item"><div class="tl-when">Sep-Oct</div><div class="tl-what">Cola del verano + bodas de otoño. Aún hay demanda, declinando. Buen momento para retargeting de quienes no compraron en verano.</div></div><div class="tl-item"><div class="tl-when">Nov-Dic</div><div class="tl-what">Temporada baja de nuevo. Ángulo de cambio: "empieza ahora para tener los pies listos en primavera" (el tratamiento tópico tarda semanas/meses en mostrar uña nueva).</div></div></div>
+<p><strong>Implicancia operativa:</strong> la curva de demanda no es plana. El presupuesto de prospecting debe concentrarse abril-agosto, con el hook de <strong>situación estacional</strong> ("este verano", "antes de la temporada de sandalias") como ángulo estrella de esa ventana. En invierno, pivotear al ángulo de <strong>anticipación</strong> ("la uña sana tarda meses en crecer, empieza ahora") y al de <strong>mecanismo/anti-fármaco</strong> (que no dependen del verano). Re-leer este documento al cambiar de estación.</p>
+<h3 id="13-por-qué-la-gente-no-va-al-médico-la-fricción-que-abre-el-mercado-affiliate">1.3 Por qué la gente no va al médico (la fricción que abre el mercado affiliate)<a class="anchor" href="#13-por-qué-la-gente-no-va-al-médico-la-fricción-que-abre-el-mercado-affiliate">#</a></h3>
+<p>Entender esto es clave porque define el dolor que agitamos y la objeción que rebatimos:</p>
+<ol>
+<li><strong>Vergüenza.</strong> Mostrarle el pie a un desconocido en bata es exactamente lo que el prospecto lleva años evitando. El podólogo/dermatólogo es la versión amplificada de la pedicura que ya dejó de ir.</li>
+<li><strong>Lo percibe como estético, no médico.</strong> "No voy a ir al doctor por una uña fea." No siente que califique para ocupar tiempo médico.</li>
+<li><strong>Mala experiencia previa con el sistema.</strong> Quien sí fue, muchas veces salió con un antifúngico oral (terbinafina/Lamisil) que trae advertencias hepáticas en la letra chica, o un esmalte medicado caro y lento que "no hizo nada". Quedó resignado y desconfiado.</li>
+<li><strong>Costo y tiempo.</strong> Consulta + posibles exámenes de laboratorio (cultivo de la uña) + meses de tratamiento. Mucha fricción para un problema "estético".</li>
+<li><strong>Cultura de auto-tratamiento.</strong> El target 40-65 US, sobre todo el segmento que valora "lo natural", prefiere resolverlo en casa con algo que pueda comprar sin receta.</li>
+</ol>
+<p>Este conjunto de fricciones es <strong>precisamente el hueco que ocupa una oferta tópica de venta directa</strong>: sin doctor, sin vergüenza, sin receta, en casa, "natural". Nuestro mensaje debe pararse en ese hueco sin nombrar la enfermedad.</p>
+<h3 id="14-sensibilidad-de-meta-para-este-nicho">1.4 Sensibilidad de Meta para este nicho<a class="anchor" href="#14-sensibilidad-de-meta-para-este-nicho">#</a></h3>
+<p>La onicomicosis es una <strong>condición médica diagnosticable</strong>, lo que la pone de lleno bajo las políticas de salud de Meta (<code>05-compliance-meta-nutra.md</code>):</p>
+<ul>
+<li><strong>No se puede nombrar la condición del usuario</strong> ni siquiera de forma neutra ("para los que tienen hongos en las uñas" = rechazo por atributos personales, regla más violada del doc 05).</li>
+<li><strong>Cero claims de cura/tratamiento.</strong> Nada de "elimina el hongo", "cura la onicomicosis". Solo estructura-función suave ("apoya el cuidado de la uña", "ayuda a que las uñas luzcan más sanas").</li>
+<li><strong>Clasificación H&W automática</strong> posible si la URL o el Pixel tocan páginas de condición médica → desde enero 2025 esas cuentas <strong>no optimizan a compra</strong>, deben optimizar a <strong>Landing Page Views</strong> o Engagement. Afecta la estructura técnica de la campaña, no solo el copy.</li>
+<li><strong>Before/after de la uña = alto riesgo.</strong> Meta tiene política explícita contra transformación física visible. La foto "uña fea → uña sana" es exactamente lo que la IA de Meta marca.</li>
+<li><strong>Ventaja relativa del nicho:</strong> el hongo de uña es menos "grave" que diabetes o BPH (que nombran enfermedades crónicas serias). El ángulo de <strong>situación social</strong> ("esconder los pies") es de los más seguros de todo el portafolio nutra porque habla de una vivencia cotidiana, no de una patología. Ese es nuestro punto de apoyo.</li>
+</ul>
+<p><strong>La regla que manda todo el documento:</strong> hablar de la <strong>situación</strong> ("esconder los pies en la piscina", "guardar las sandalias en el fondo del clóset"), nunca de la <strong>condición</strong> del usuario ("tienes hongos"), y cero claims de cura.</p>
+<hr>
+<h2 id="2-los-avatares-en-mucho-detalle-5-buyer-personas-hipótesis-de-trabajo">2. Los avatares en MUCHO detalle (5 buyer personas · hipótesis de trabajo)<a class="anchor" href="#2-los-avatares-en-mucho-detalle-5-buyer-personas-hipótesis-de-trabajo">#</a></h2>
+<blockquote><p>5 avatares. Tres del lado estético/social (Diane, Mike, y la nueva Brenda) y dos del lado funcional/cuidado (Robert el escéptico anti-fármaco, Carmen la cuidadora). El quinto avatar, <strong>Sandra la compradora indirecta</strong>, es el hallazgo transversal del documento de índice: la mujer 50-62 que compra para su pareja, fuera de la competencia directa y de bajo riesgo de compliance.</p></blockquote>
+<div class="compare"><div class="compare-card"><div class="compare-name">Diane · esconde los pies en verano (48)</div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Consciencia dominante</span><span class="cm-val">Problema (nivel 2)</span></div><div class="cm-track"><div class="cm-fill" style="width:90%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Driver principal</span><span class="cm-val">Vergüenza social estética</span></div><div class="cm-track"><div class="cm-fill" style="width:95%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Disposición a comprar hoy</span><span class="cm-val">Media (sube en verano)</span></div><div class="cm-track"><div class="cm-fill" style="width:55%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Riesgo del ángulo que necesita</span><span class="cm-val">Bajo</span></div><div class="cm-track"><div class="cm-fill" style="width:20%"></div></div></div></div><div class="compare-card"><div class="compare-name">Robert · ya probó Lamisil y nada (57)</div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Consciencia dominante</span><span class="cm-val">Solución frustrada (3→4)</span></div><div class="cm-track"><div class="cm-fill" style="width:85%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Driver principal</span><span class="cm-val">Frustración + miedo al fármaco</span></div><div class="cm-track"><div class="cm-fill" style="width:90%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Disposición a comprar hoy</span><span class="cm-val">Alta</span></div><div class="cm-track"><div class="cm-fill" style="width:80%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Riesgo del ángulo que necesita</span><span class="cm-val">Medio-alto (anti-fármaco)</span></div><div class="cm-track"><div class="cm-fill" style="width:80%"></div></div></div></div><div class="compare-card"><div class="compare-name">Carmen · cuidadora preocupada (62)</div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Consciencia dominante</span><span class="cm-val">Problema / inconsciente del riesgo (1-2)</span></div><div class="cm-track"><div class="cm-fill" style="width:70%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Driver principal</span><span class="cm-val">Miedo a que empeore / contagio</span></div><div class="cm-track"><div class="cm-fill" style="width:80%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Disposición a comprar hoy</span><span class="cm-val">Media</span></div><div class="cm-track"><div class="cm-fill" style="width:50%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Riesgo del ángulo que necesita</span><span class="cm-val">Bajo</span></div><div class="cm-track"><div class="cm-fill" style="width:20%"></div></div></div></div><div class="compare-card"><div class="compare-name">Mike · activo que no quiere parar (44)</div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Consciencia dominante</span><span class="cm-val">Solución (nivel 3)</span></div><div class="cm-track"><div class="cm-fill" style="width:75%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Driver principal</span><span class="cm-val">Vergüenza en vestuario + practicidad</span></div><div class="cm-track"><div class="cm-fill" style="width:70%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Disposición a comprar hoy</span><span class="cm-val">Media-alta</span></div><div class="cm-track"><div class="cm-fill" style="width:65%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Riesgo del ángulo que necesita</span><span class="cm-val">Bajo</span></div><div class="cm-track"><div class="cm-fill" style="width:25%"></div></div></div></div><div class="compare-card"><div class="compare-name">Sandra · compra para su pareja (56)</div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Consciencia dominante</span><span class="cm-val">Solución (nivel 3)</span></div><div class="cm-track"><div class="cm-fill" style="width:70%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Driver principal</span><span class="cm-val">Resolver por él, discretamente</span></div><div class="cm-track"><div class="cm-fill" style="width:75%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Disposición a comprar hoy</span><span class="cm-val">Media-alta</span></div><div class="cm-track"><div class="cm-fill" style="width:60%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Riesgo del ángulo que necesita</span><span class="cm-val">Bajo</span></div><div class="cm-track"><div class="cm-fill" style="width:15%"></div></div></div></div></div>
+<hr>
+<h3 id="avatar-a-diane-la-que-esconde-los-pies-en-verano-48">Avatar A · Diane · "La que esconde los pies en verano" (48)<a class="anchor" href="#avatar-a-diane-la-que-esconde-los-pies-en-verano-48">#</a></h3>
+<p><strong>Retrato + demografía + situación.</strong> Diane tiene 48, vive en un suburbio de Atlanta, trabaja en administración en una oficina. Casada, una hija adolescente. Clase media. Smartphone-first, compra online con confianza media, lee blogs de belleza y autocuidado, sigue cuentas de skincare. Hace dos veranos que no usa sandalias abiertas ni va a la pedicura: tiene la uña del dedo gordo del pie derecho amarillenta y engrosada que la avergüenza profundamente. No lo considera "una enfermedad" ni iría al médico por eso; lo vive como un <strong>defecto estético que esconde</strong>. Es la representante del grueso del tráfico frío.</p>
+<p><strong>Un día en su vida (cómo aparece el problema).</strong> En la mañana se viste para la oficina y, sin pensarlo, elige zapatos cerrados (lo hace en automático desde hace dos años). En el almuerzo, una compañera propone ir el sábado a la piscina del club con las familias; Diane sonríe y dice "veo si puedo", ya sabiendo que va a inventar una excusa o que va a ir pero <strong>sin sacarse las zapatillas</strong>. En la noche, mientras hace scroll en el teléfono en la cama, ve un anuncio de pedicura y siente una punzada de nostalgia y vergüenza: extraña ese ritual. Antes de dormir se mira la uña, se pone un esmalte oscuro para taparla (otra vez), y piensa "el verano que viene la arreglo". Lleva tres veranos pensando lo mismo.</p>
+<p><strong>Historia con el problema.</strong> Empezó hace ~3 años con una mancha amarilla pequeña que ignoró. Creció. Probó <strong>esmaltes de farmacia que prometían "uñas sanas"</strong> (solo taparon), un par de <strong>remedios caseros</strong> que leyó online (vinagre, aceite de árbol de té suelto, sin constancia), y una vez compró un <strong>esmalte antihongos OTC</strong> que abandonó a las dos semanas porque "no veía nada". Nunca fue al médico. Su modelo mental: "esto se arregla cuando me decida, pero todo lo que probé no sirve".</p>
+<p><strong>Voz del cliente (frases textuales hipotéticas).</strong></p>
+<ul>
+<li>"No me he puesto sandalias en dos veranos."</li>
+<li>"Me da una vergüenza horrible que alguien me vea la uña."</li>
+<li>"El esmalte solo lo tapa, no lo arregla."</li>
+<li>"No voy a ir al doctor por una uña, qué exagerada."</li>
+<li>"Ya probé de todo y nada funciona de verdad."</li>
+<li>"Extraño ir a hacerme los pies."</li>
+<li>"Cada verano digo que lo voy a solucionar y nunca lo hago."</li>
+</ul>
+<p><strong>Dolores / enojos / deseos / miedos.</strong></p>
+<ul>
+<li><strong>Dolores:</strong> uña fea y amarilla; no poder mostrar los pies; evitar la pedicura por vergüenza; sentirse "sucia" aunque cuide su higiene; esconder un detalle que la hace sentir descuidada.</li>
+<li><strong>Enojos:</strong> que los esmaltes solo tapen y no resuelvan; gastar en pedicuras o productos que no arreglan el fondo; sentir que es la única a la que le pasa.</li>
+<li><strong>Deseos:</strong> volver a usar sandalias sin pensarlo; pies "presentables"; recuperar la pedicura como ritual de autocuidado; sentirse arreglada de pies a cabeza.</li>
+<li><strong>Miedos:</strong> que la juzguen; que empeore; que el problema sea permanente; que alguien lo note en la piscina o en una boda.</li>
+</ul>
+<p><strong>Creencias y objeciones (con rebate).</strong></p>
+<ul>
+<li><em>"Ya probé esmaltes y no funcionan."</em> → Rebate: no era el mismo enfoque; lo que probaste tapaba la superficie, este es un aceite que se aplica en la uña y alrededor con una rutina distinta. (Sin claim de cura: "un enfoque distinto al del esmalte que tapa".)</li>
+<li><em>"¿Esto es otro producto que solo cubre?"</em> → Rebate: mostrar el mecanismo (aceite que penetra vs esmalte que recubre) y la garantía de 60 días para probarlo sin riesgo.</li>
+<li><em>"¿Es seguro?"</em> → Rebate: enfoque tópico, natural, garantía money-back, disclaimer FDA en la bridge.</li>
+<li><em>"Comprar online en USA me da desconfianza."</em> → Rebate: garantía 60 días + reembolso accesible + prueba social.</li>
+</ul>
+<p><strong>Disparadores de compra.</strong> Proximidad de un evento con pies expuestos (verano, vacaciones, boda, piscina). Ver prueba social de "alguien como yo" que lo resolvió. La garantía de 60 días que baja el riesgo de "otra compra inútil". El reframe de que su problema tiene una salida que no probó.</p>
+<p><strong>Targeting Meta detallado.</strong> Advantage+ con señal de creativo femenino estético. Plataformas: Facebook feed + Instagram feed + Stories. Intereses semilla (si se usa detallada de respaldo): belleza/autocuidado, skincare, pedicura, marcas tipo Sephora/Ulta, recetas, mom-content, contenido de bienestar femenino. Edad 45-55, mujer. Estacionalidad: subir presupuesto abril-agosto. Mejor entrada por contenido estético-empático, no por oferta.</p>
+<p><strong>Nivel de consciencia dominante: Problema (2).</strong> Sabe que tiene "el problema feo" pero no piensa en categorías de solución ni conoce el producto. Necesita que le nombren la <strong>situación</strong> (esconder los pies) y le abran que hay una salida.</p>
+<hr>
+<h3 id="avatar-b-robert-el-que-ya-probó-lamisil-y-nada-57">Avatar B · Robert · "El que ya probó Lamisil y nada" (57)<a class="anchor" href="#avatar-b-robert-el-que-ya-probó-lamisil-y-nada-57">#</a></h3>
+<p><strong>Retrato + demografía + situación.</strong> Robert tiene 57, ex deportista amateur (corría maratones en sus 30), vive en Ohio, casado, hijos grandes, trabaja medio tiempo o semi-retirado. Clase media. Usa Facebook activamente (grupos de salud natural, noticias, autos). Una o dos uñas de los pies gruesas y descoloridas <strong>desde hace años</strong>. Fue al doctor en su momento, le recetaron un antifúngico oral o un esmalte medicado, <strong>lo dejó por los efectos secundarios o porque no hizo nada</strong>. Está resignado pero todavía buscando, y desconfía profundamente de "lo que le venden los doctores". Es el avatar de mayor disposición a comprar y el más escéptico a la vez.</p>
+<p><strong>Un día en su vida.</strong> En la mañana se pone las medias y nota, como cada día, la uña gruesa que ya forma parte del paisaje. En el grupo de Facebook de "salud natural" comparte un artículo sobre los riesgos de cierto medicamento común; le da "me gusta" a un comentario anti-Big Pharma. En la tarde, en la ferretería, conversa con un amigo que también "tiene la misma uña" y ambos se quejan de que "los doctores solo te dan pastillas". En la noche ve un video de YouTube de "men's health natural" y, cuando aparece un anuncio de algo "natural para las uñas", <strong>se detiene</strong>: es justo lo que viene buscando, pero su primer pensamiento es "a ver con qué me quieren estafar ahora".</p>
+<p><strong>Historia con el problema.</strong> Lleva ~6-8 años con la uña. Hace ~4 años fue al doctor: le ofrecieron <strong>terbinafina oral (Lamisil)</strong> y le advirtieron sobre el hígado (le hicieron o le iban a hacer análisis de sangre), lo que lo asustó; o le dieron un <strong>esmalte medicado (ciclopirox)</strong> carísimo que aplicó meses sin ver resultado. Conclusión que sacó: "el tratamiento de verdad no funcionó y encima es peligroso". Desde entonces probó algún <strong>spray OTC</strong> y desconfía de todo, pero sigue mirando opciones "naturales" porque la uña le sigue molestando y porque no se resigna del todo.</p>
+<p><strong>Voz del cliente.</strong></p>
+<ul>
+<li>"El doctor me quería dar una pastilla que te arruina el hígado."</li>
+<li>"Ya probé el medicamento de verdad y no hizo nada."</li>
+<li>"No vuelvo a tomar algo con esa letra chica."</li>
+<li>"Si la pastilla cara no sirvió, ¿por qué un aceite sí?"</li>
+<li>"Quiero algo natural, no más químicos."</li>
+<li>"Los doctores solo te recetan y te mandan a casa."</li>
+<li>"A ver, demuéstrame cómo funciona esto."</li>
+</ul>
+<p><strong>Dolores / enojos / deseos / miedos.</strong></p>
+<ul>
+<li><strong>Dolores:</strong> la uña no mejora hace años; ya gastó plata y tiempo; el recuerdo del miedo a los efectos secundarios; la sensación de que "nada funciona".</li>
+<li><strong>Enojos:</strong> el doctor le dio una pastilla con advertencias aterradoras; el tratamiento caro no sirvió; siente que lo mandaron a casa sin solución real; el sistema médico lo empujó a algo que rechazó.</li>
+<li><strong>Deseos:</strong> una alternativa que no le dañe el hígado; resolver de una vez; no tener que volver al doctor; sentir que él tiene el control.</li>
+<li><strong>Miedos:</strong> efectos secundarios del antifúngico oral; que sea crónico para siempre; gastar otra vez en algo inútil; que "lo natural" también sea humo.</li>
+</ul>
+<p><strong>Creencias y objeciones (con rebate).</strong></p>
+<ul>
+<li><em>"Ya probé el medicamento de verdad y no funcionó, ¿por qué un aceite sí?"</em> → Rebate (el rebate central de este avatar): no es lo mismo; el oral actúa por dentro y tarda meses en que crezca la uña nueva; este es un enfoque tópico distinto que se aplica directo. (Sin afirmar superioridad clínica: "un enfoque distinto al de la pastilla".)</li>
+<li><em>"Lo natural también es marketing."</em> → Rebate: mecanismo + ingredientes reconocidos + garantía 60 días para que <strong>él</strong> lo juzgue, no nosotros.</li>
+<li><em>"Esto me va a dañar como la pastilla."</em> → Rebate: tópico, no oral; no pasa por el hígado de la misma forma; enfoque suave.</li>
+<li><em>"Demuéstrame."</em> → Rebate: prueba social de hombres como él + mecanismo explicado + garantía.</li>
+</ul>
+<p><strong>Disparadores de compra.</strong> Un mecanismo creíble que sienta que "descubrió algo que el doctor no le explicó". La comparación con el fármaco que ya le falló (posicionamiento de alternativa). Prueba social de pares (hombres 50+, perfil natural). La garantía como prueba de que "no me están estafando".</p>
+<p><strong>Targeting Meta detallado.</strong> Facebook feed dominante. Retargeting de quienes vieron la bridge. Intereses (detallada de respaldo): salud natural, remedios naturales, suplementos, "alternative medicine", contenido anti-Big Pharma, men's health. Edad 54-63, hombre. <strong>Ojo compliance:</strong> este avatar pide el ángulo más riesgoso (anti-fármaco); reservar para cuenta con historial limpio. No estacional (su urgencia es funcional/identitaria, no de verano).</p>
+<p><strong>Nivel de consciencia dominante: Solución frustrada (3) tendiendo a 4.</strong> Conoce las categorías de solución (fármaco, esmaltes), las probó, no conoce este producto. Es el más escéptico y el que más necesita <strong>mecanismo + prueba</strong>. Se mueve mejor en retargeting que en frío puro.</p>
+<hr>
+<h3 id="avatar-c-carmen-la-cuidadora-preocupada-por-que-empeore-62">Avatar C · Carmen · "La cuidadora preocupada por que empeore" (62)<a class="anchor" href="#avatar-c-carmen-la-cuidadora-preocupada-por-que-empeore-62">#</a></h3>
+<p><strong>Retrato + demografía + situación.</strong> Carmen tiene 62, abuela, perfil posiblemente hispano-US (bilingüe o español dominante), retirada o medio tiempo, foco total en la familia. Cuida su salud y la de los suyos. Facebook intensivo (familia, salud, fe, recetas, grupos de la comunidad). Compra online con cautela, a veces con ayuda de una hija. Notó la uña engrosada y le preocupa <strong>más el riesgo que la estética</strong>: que se extienda a otras uñas, que contagie a su nieto, que sea "señal de algo". Busca algo <strong>suave, natural, que no le sume químicos fuertes</strong> a su edad.</p>
+<p><strong>Un día en su vida.</strong> En la mañana revisa Facebook con el café: ve un post de salud sobre "señales que no debes ignorar después de los 60" y lo guarda. Cuida a su nieto en la tarde; cuando le lava los pies después de jugar, piensa en su propia uña y le da un poco de inquietud sobre el contagio ("¿y si le pego algo al niño?"). En la noche le comenta a su hija por WhatsApp que "tengo esta uña rara y no sé si debería preocuparme"; la hija le dice que lo busque. Carmen busca, encuentra contenido alarmante y contenido tranquilizador a partes iguales, y se queda con ganas de algo <strong>simple y natural</strong> que pueda usar sin riesgo.</p>
+<p><strong>Historia con el problema.</strong> La uña apareció hace 1-2 años. No la vivió como estética sino como <strong>señal de alerta</strong>. Le preguntó a una amiga, que le dijo "eso es hongo, se contagia". Eso le subió la preocupación. Probó algún <strong>remedio casero</strong> (aceite de árbol de té, ajo, lo que circula en grupos de la comunidad) sin constancia. Considera ir al doctor pero le da pereza/costo y prefiere primero algo natural de venta libre. Su modelo mental: "esto puede ir a más y tengo que cuidarlo antes de que sea grave, pero suave".</p>
+<p><strong>Voz del cliente.</strong></p>
+<ul>
+<li>"Tengo miedo de que se me pase a las otras uñas."</li>
+<li>"¿Y si le contagio algo a mi nieto?"</li>
+<li>"Quiero algo natural, no más químicos a mi edad."</li>
+<li>"Nadie me explica bien por qué pasa esto."</li>
+<li>"Prefiero cuidarme antes de que sea algo serio."</li>
+<li>"¿Esto es seguro para alguien de mi edad?"</li>
+</ul>
+<p><strong>Dolores / enojos / deseos / miedos.</strong></p>
+<ul>
+<li><strong>Dolores:</strong> preocupación de que empeore o se extienda; miedo al contagio familiar; incomodidad con el aspecto (secundaria a la preocupación).</li>
+<li><strong>Enojos:</strong> que nadie le explique bien por qué pasa; soluciones agresivas; sentir que la dejan sola con la duda.</li>
+<li><strong>Deseos:</strong> frenar el avance; proteger a la familia; una rutina simple y natural de cuidado; tranquilidad.</li>
+<li><strong>Miedos:</strong> que sea grave; contagiar; depender de químicos fuertes; el qué dirán.</li>
+</ul>
+<p><strong>Creencias y objeciones (con rebate).</strong></p>
+<ul>
+<li><em>"¿Es seguro a mi edad?"</em> → Rebate: enfoque tópico y suave, ingredientes de origen natural, sin la carga de un oral; disclaimer FDA y garantía.</li>
+<li><em>"¿Es natural?"</em> → Rebate: posicionar el enfoque natural sin usar "sin químicos" como claim absoluto (riesgo de compliance) → "enfoque de origen natural para el cuidado de la uña".</li>
+<li><em>"Necesito que alguien me explique."</em> → Rebate: contenido educativo, tono cuidador, no urgencia agresiva. Carmen responde a "X cosas que conviene saber", no a "compra ya".</li>
+</ul>
+<p><strong>Disparadores de compra.</strong> Educación que la tranquiliza y a la vez la mueve ("conviene cuidarla antes de que vaya a más"). Tono cálido, no alarmista. La idea de proteger a la familia. La suavidad/naturalidad del enfoque. El reaseguro (garantía, seguridad).</p>
+<p><strong>Targeting Meta detallado.</strong> Facebook feed + Stories. Creativo cálido, educativo, posiblemente en español para el segmento hispano-US. Intereses: bienestar 60+, salud familiar, remedios naturales, fe/familia, recetas. Edad 58-65, mujer. Tono cuidador, no de oferta.</p>
+<p><strong>Nivel de consciencia dominante: Problema (2), con zonas de inconsciente (1)</strong> respecto a la causa y el riesgo real. Responde a educación ("X señales de que tu uña necesita atención") y a tono cuidador. Necesita ser movida de "preocupación difusa" a "rutina de cuidado concreta".</p>
+<hr>
+<h3 id="avatar-d-mike-el-activo-que-no-quiere-que-esto-lo-frene-44">Avatar D · Mike · "El activo que no quiere que esto lo frene" (44)<a class="anchor" href="#avatar-d-mike-el-activo-que-no-quiere-que-esto-lo-frene-44">#</a></h3>
+<p><strong>Retrato + demografía + situación.</strong> Mike tiene 44, va al gym 4-5 veces por semana, corre, usa zapatillas cerradas muchas horas (trabajo + entrenamiento). Vive en una ciudad mediana, soltero o en pareja, ingreso medio-alto. Instagram + Facebook, contenido fitness, deporte, productividad, wellness masculino. Notó una uña descolorida y le molesta sobre todo porque <strong>le da vergüenza en el vestuario del gym</strong> y porque afea un cuerpo que cuida. Quiere algo <strong>rápido, fácil de aplicar, discreto</strong>, que no le cambie la rutina. Es práctico y decide rápido si lo convencen.</p>
+<p><strong>Un día en su vida.</strong> En la mañana entrena; en el vestuario, a la hora de ducharse, <strong>se las arregla para no quedar mucho rato descalzo a la vista</strong> o gira el pie para que no se note la uña. Le frustra que un detalle chico arruine la imagen de alguien que se cuida tanto. En el trabajo pasa el día con zapatos cerrados (el ambiente húmedo no ayuda). En la noche, haciendo scroll en Instagram entre contenido fitness, ve un Reel sobre "el detalle que arruina los pies de los que entrenan" y se identifica al toque. Quiere resolverlo ya, pero "que sea práctico, no quiero un proceso de meses complicado".</p>
+<p><strong>Historia con el problema.</strong> Apareció hace ~1-2 años, probablemente por el ambiente húmedo de zapatillas + duchas de gym + microtraumas de correr. Probó un <strong>spray o polvo antihongos de farmacia</strong> que usó sin constancia. Lo vive como un tema de <strong>imagen y practicidad</strong>, no de salud. No fue al médico (no le parece "para tanto" y no quiere perder tiempo). Modelo mental: "necesito algo rápido y discreto que funcione sin frenarme".</p>
+<p><strong>Voz del cliente.</strong></p>
+<ul>
+<li>"Me da cosa que me vean el pie en el vestuario."</li>
+<li>"Cuido todo el cuerpo y esta uña lo arruina."</li>
+<li>"¿Funciona de verdad o es puro marketing?"</li>
+<li>"Necesito algo práctico, no un proceso eterno."</li>
+<li>"No quiero que huela feo ni que manche."</li>
+<li>"Si es rápido de aplicar, lo pruebo."</li>
+</ul>
+<p><strong>Dolores / enojos / deseos / miedos.</strong></p>
+<ul>
+<li><strong>Dolores:</strong> vergüenza en el vestuario/piscina del gym; incomodidad física; una uña que afea un físico que cuida.</li>
+<li><strong>Enojos:</strong> que un detalle chico arruine su imagen; no encontrar algo práctico; productos que huelen feo o manchan.</li>
+<li><strong>Deseos:</strong> solución discreta y rápida; seguir entrenando sin pensarlo; pies presentables; eficiencia.</li>
+<li><strong>Miedos:</strong> que se extienda; que lo noten; perder la comodidad social del vestuario/sauna.</li>
+</ul>
+<p><strong>Creencias y objeciones (con rebate).</strong></p>
+<ul>
+<li><em>"¿Funciona de verdad o es marketing?"</em> → Rebate: mecanismo claro + prueba social masculina + garantía 60 días (él valora poder devolverlo).</li>
+<li><em>"¿Es práctico de usar a diario?"</em> → Rebate: aceite que se aplica en segundos, encaja en la rutina, discreto.</li>
+<li><em>"No quiero algo que huela o manche."</em> → Rebate: enfoque tópico limpio (apoyarse en lo que el vendor diga, sin inventar).</li>
+</ul>
+<p><strong>Disparadores de compra.</strong> Practicidad ("30 segundos al día, no cambia tu rutina"). Encaje con la identidad de "tipo que se cuida". Prueba social de hombres activos. Decisión rápida si mecanismo + practicidad + garantía cierran.</p>
+<p><strong>Targeting Meta detallado.</strong> Instagram Reels + feed dominante, Facebook de respaldo. Creativo dinámico, masculino, contexto gym/deporte. Intereses: fitness, gym, running, deporte, wellness masculino, marcas deportivas. Edad 40-48, hombre. Formato video corto (Reels) es su zona.</p>
+<p><strong>Nivel de consciencia dominante: Solución (3).</strong> Busca activamente algo que funcione, abierto a probar, decide rápido si el mecanismo y la practicidad lo convencen.</p>
+<hr>
+<h3 id="avatar-e-sandra-la-que-compra-para-su-pareja-56-el-comprador-indirecto">Avatar E · Sandra · "La que compra para su pareja" (56) · el comprador indirecto<a class="anchor" href="#avatar-e-sandra-la-que-compra-para-su-pareja-56-el-comprador-indirecto">#</a></h3>
+<p><strong>Retrato + demografía + situación.</strong> Sandra tiene 56, casada con un "Robert" o un señor que tiene la uña con hongo desde hace años y <strong>no hace nada al respecto</strong>. Ella es la cuidadora de facto de la salud del hogar: la que compra los suplementos, la que agenda los chequeos, la que investiga online. Activa en Facebook (grupos de salud, familia, recetas). Compra wellness online con confianza, confía en reseñas. Es el <strong>hallazgo transversal</strong> del documento de índice: un avatar que el swipe de la competencia casi no explota, de <strong>bajo riesgo de compliance</strong> (el copy le habla a ella, no nombra la condición de ella) y de audiencia más barata y menos saturada.</p>
+<p><strong>Un día en su vida.</strong> En la mañana ve la uña de su esposo cuando él se pone las medias y vuelve a pensar "tendría que hacer algo con eso, pero él no quiere ni hablarlo". En la piscina del vecindario en verano nota que él <strong>nunca se saca las zapatillas</strong> y le da un poco de pena por él. En la noche, haciendo scroll, ve un anuncio que dice algo como "si alguien que quieres esconde los pies en verano, esto le puede interesar" y siente que le hablan directo a ella: ella es la que puede resolverlo sin que él tenga que admitir nada ni ir al doctor. Hace clic.</p>
+<p><strong>Historia con el problema.</strong> Lleva años viendo la uña de su pareja sin que él actúe. Le ha sugerido ir al doctor (él se niega o lo posterga). Quizás le compró alguna vez un producto de farmacia que él no usó. Su modelo mental: "yo lo resuelvo, le compro algo fácil que él use en casa sin tener que ir a ningún lado ni sentirse mal".</p>
+<p><strong>Voz del cliente.</strong></p>
+<ul>
+<li>"Mi marido tiene esa uña hace años y no hace nada."</li>
+<li>"No quiere ir al doctor por orgullo."</li>
+<li>"Si le compro algo fácil, capaz lo usa."</li>
+<li>"Quiero ayudarlo sin que se sienta mal."</li>
+<li>"En verano ni se saca las zapatillas, me da pena."</li>
+<li>"Yo me encargo de la salud de la casa."</li>
+</ul>
+<p><strong>Dolores / enojos / deseos / miedos.</strong></p>
+<ul>
+<li><strong>Dolores:</strong> ver a su pareja esconder los pies o resignado; que él no se cuide; preocupación de fondo por si empeora.</li>
+<li><strong>Enojos:</strong> que él minimice o evite resolverlo; que sea "terco" con el tema.</li>
+<li><strong>Deseos:</strong> que él resuelva el problema sin drama; ayudarlo discretamente; verlo cómodo de nuevo (sandalias, piscina, sin esconderse).</li>
+<li><strong>Miedos:</strong> que sea algo más serio; comprar algo que él no use o que no sirva.</li>
+</ul>
+<p><strong>Creencias y objeciones (con rebate).</strong></p>
+<ul>
+<li><em>"Él no va a usar nada."</em> → Rebate: es fácil y rápido de aplicar en casa, no requiere ir al doctor ni admitir nada; baja la barrera de orgullo.</li>
+<li><em>"¿Y si no sirve?"</em> → Rebate: garantía 60 días, lo devuelve sin riesgo.</li>
+<li><em>"¿Le va a molestar que yo compre esto?"</em> → Rebate: el framing es "para alguien que quieres", cuidado, no señalamiento.</li>
+</ul>
+<p><strong>Disparadores de compra.</strong> El framing "para alguien que amas / que quieres". La discreción (resolver sin que él tenga que exponerse). La garantía. La estacionalidad (verano, verlo esconderse otra vez la activa).</p>
+<p><strong>Targeting Meta detallado.</strong> Advantage+ con señales femeninas 50-62. Facebook feed + Stories. Intereses: wellness, suplementos, salud familiar, cuidado de la pareja, recetas. Edad 50-62, mujer. Hook desde el ángulo "para alguien que amas". <strong>Bajo riesgo de compliance</strong> porque el copy no toca la condición de ella ni de él directamente. Audiencia fuera de la competencia directa → CPM potencialmente más barato.</p>
+<p><strong>Nivel de consciencia dominante: Solución (3).</strong> Busca activamente algo que ayude a su pareja; el producto le es nuevo. Decide por practicidad + garantía + el ángulo emocional.</p>
+<hr>
+<h2 id="3-los-5-niveles-de-consciencia-para-hongos-en-profundidad">3. Los 5 niveles de consciencia para hongos, en profundidad<a class="anchor" href="#3-los-5-niveles-de-consciencia-para-hongos-en-profundidad">#</a></h2>
+<blockquote><p>Marco Schwartz aplicado al nicho onicomicosis (doctrina <code>felipe-vergara-m04-aplicado.md</code>). Porcentajes = <strong>hipótesis</strong> de distribución del tráfico FRÍO de Meta para este nicho, no dato de cuenta. Sirven para priorizar producción creativa. Se ajustan tras los primeros 7-14 días según dónde convierten los creativos. La estacionalidad mueve estos porcentajes: en verano más gente pasa de nivel 1 a nivel 2-3 porque la situación (pies expuestos) activa la urgencia.</p></blockquote>
+<div class="bars"><div class="bar-row"><div class="bar-label">Nivel 2 · Problema (el grueso)</div><div class="bar-track"><div class="bar-fill c-green" style="width:100.0%"></div></div><div class="bar-value">40</div></div><div class="bar-row"><div class="bar-label">Nivel 3 · Solución</div><div class="bar-track"><div class="bar-fill c-green" style="width:75.0%"></div></div><div class="bar-value">30</div></div><div class="bar-row"><div class="bar-label">Nivel 1 · Inconsciente</div><div class="bar-track"><div class="bar-fill c-blue" style="width:50.0%"></div></div><div class="bar-value">20</div></div><div class="bar-row"><div class="bar-label">Nivel 4 · Producto (retargeting)</div><div class="bar-track"><div class="bar-fill c-red" style="width:17.5%"></div></div><div class="bar-value">7</div></div><div class="bar-row"><div class="bar-label">Nivel 5 · Decisión (retargeting)</div><div class="bar-track"><div class="bar-fill c-red" style="width:7.5%"></div></div><div class="bar-value">3</div></div></div>
+<h3 id="nivel-1-inconsciente-20">Nivel 1 · Inconsciente (~20%)<a class="anchor" href="#nivel-1-inconsciente-20">#</a></h3>
+<ul>
+<li><strong>Qué piensa:</strong> "Mi uña está rara/amarilla pero es normal con la edad / no es para tanto / a todos les pasa." No conecta que tiene una solución ni que califica para actuar. La uña es parte del paisaje.</li>
+<li><strong>Qué busca:</strong> nada activamente. Solo se detiene ante contenido que lo agarra desprevenido.</li>
+<li><strong>Mensaje/ángulo:</strong> curiosidad o señal inesperada. Reframe: "una uña engrosada no siempre es solo cosa de la edad". Educar sin alarmar. Listicle de señales. <strong>Caro de mover</strong>, no es donde empezar el grueso del presupuesto.</li>
+<li><strong>Hook tipo:</strong> "X señales de que tus uñas de los pies te están pidiendo atención (la 2 sorprende)."</li>
+<li><strong>% hipótesis:</strong> ~20% del tráfico frío. Avatares: Carmen (zona inconsciente), algo de Diane temprana.</li>
+</ul>
+<h3 id="nivel-2-problema-40-el-grueso">Nivel 2 · Problema (~40%, el grueso)<a class="anchor" href="#nivel-2-problema-40-el-grueso">#</a></h3>
+<ul>
+<li><strong>Qué piensa:</strong> "Tengo esta uña fea/gruesa y me da vergüenza, pero no sé qué hacer ni a quién recurrir. Todo lo que probé no sirvió." Siente el dolor estético/social con claridad.</li>
+<li><strong>Qué busca:</strong> validación de que no es la única, y alguna salida que no sea "ir al doctor".</li>
+<li><strong>Mensaje/ángulo:</strong> nombrar la <strong>situación</strong> (esconder los pies, evitar sandalias, no ir a la pedicura) + abrir que hay una salida. Empatía pura. Este es el corazón del nicho.</li>
+<li><strong>Hook tipo:</strong> "Si este verano vuelves a guardar las sandalias en el fondo del clóset, esto es para ti."</li>
+<li><strong>% hipótesis:</strong> ~40%. Es donde va la mayor parte del presupuesto de prospecting. Avatares: Diane (principal), Carmen.</li>
+</ul>
+<h3 id="nivel-3-solución-30">Nivel 3 · Solución (~30%)<a class="anchor" href="#nivel-3-solución-30">#</a></h3>
+<ul>
+<li><strong>Qué piensa:</strong> "Sé que existen tratamientos (fármaco, esmaltes medicados, remedios naturales), los probé o los conozco, pero no conozco este o me fallaron." Compara.</li>
+<li><strong>Qué busca:</strong> el enfoque distinto, el diferencial, el mecanismo que no probó.</li>
+<li><strong>Mensaje/ángulo:</strong> presentar el <strong>mecanismo/ingrediente</strong> como enfoque distinto. Comparar con lo que ya falló (esmalte que tapa vs aceite que penetra; oral que tarda meses vs tópico) <strong>sin nombrar la enfermedad</strong>. Beneficios directos.</li>
+<li><strong>Hook tipo:</strong> "El motivo por el que el esmalte solo tapa el problema y no llega a donde realmente empieza."</li>
+<li><strong>% hipótesis:</strong> ~30%. Avatares: Robert, Mike, Sandra.</li>
+</ul>
+<h3 id="nivel-4-producto-7-sobre-todo-retargeting">Nivel 4 · Producto (~7%, sobre todo retargeting)<a class="anchor" href="#nivel-4-producto-7-sobre-todo-retargeting">#</a></h3>
+<ul>
+<li><strong>Qué piensa:</strong> "Vi Kerassentials / aceites de estos, no estoy convencido." Conoce el producto pero no compró. Vive casi siempre en retargeting (visitó la bridge/VSL y se fue).</li>
+<li><strong>Qué busca:</strong> razones para confiar y decidir: prueba, diferencial, garantía.</li>
+<li><strong>Mensaje/ángulo:</strong> prueba social, autoridad (con cuidado de compliance), garantía 60 días, diferencial. "Por qué cada vez más personas suman este paso."</li>
+<li><strong>Hook tipo:</strong> "Lo que muchos buscan después de que el esmalte de farmacia los dejó igual."</li>
+<li><strong>% hipótesis:</strong> ~7%. Avatares: Robert (escéptico que volvió), cualquiera en retargeting.</li>
+</ul>
+<h3 id="nivel-5-decisión-3-retargeting-caliente">Nivel 5 · Decisión (~3%, retargeting caliente)<a class="anchor" href="#nivel-5-decisión-3-retargeting-caliente">#</a></h3>
+<ul>
+<li><strong>Qué piensa:</strong> "Quiero comprarlo, dame la oferta / el empujón final." Casi todo retargeting de carrito/VSL.</li>
+<li><strong>Qué busca:</strong> oferta, garantía, envío, una razón para hacerlo hoy.</li>
+<li><strong>Mensaje/ángulo:</strong> oferta del vendor, garantía 60 días, envío, urgencia <strong>real</strong> (no countdown falso, doc 05). No agredir nunca al frío con esto.</li>
+<li><strong>Hook tipo:</strong> "60 días para probarlo. Si tus uñas no lucen distintas, te devuelven cada dólar."</li>
+<li><strong>% hipótesis:</strong> ~3%. Avatares: cualquiera en retargeting caliente.</li>
+</ul>
+<p><strong>Lectura operativa (error fatal a evitar, M04).</strong> ~70% del tráfico frío vive en niveles 2-3. El grueso de los creativos debe atacar <strong>Problema (situación social)</strong> y <strong>Solución (mecanismo + comparación con el fármaco/esmalte)</strong>. Lanzar hooks de nivel 5 ("compra ahora con descuento") al frío es desperdicio de spend garantizado: el target ni sabe que tiene una solución disponible. Niveles 4-5 se trabajan <strong>solo en retargeting</strong> (visitó la bridge/VSL, no compró). La longitud del copy sigue la regla M04: niveles 1-2 copy más largo (educar), nivel 3 medio (beneficios), niveles 4-5 corto (ya te conocen).</p>
+<hr>
+<h2 id="4-la-matriz-extendida-avatar-nivel-ángulo-hooks-propios-cta-riesgo">4. LA MATRIZ EXTENDIDA · avatar × nivel → ángulo + hooks propios + CTA + riesgo<a class="anchor" href="#4-la-matriz-extendida-avatar-nivel-ángulo-hooks-propios-cta-riesgo">#</a></h2>
+<blockquote><p>Hooks <strong>originales</strong>, inspirados en el swipe (<code>06-swipe-ads-reales-finalistas.md</code>: "Read This If You Hide Your Feet At Pool Parties", "Read This Before Your Next Lamisil Prescription", "Top 5 Fungus Treatment Reviews") pero reescritos para no copiar literal. Regla: <strong>situación, no condición</strong>. Cero "tienes hongos / cura". Riesgo de compliance en la columna semáforo según <code>05-compliance-meta-nutra.md</code>. Cada cruce trae 3-5 hooks para alimentar el testing volumétrico (Entity ID, M05): se prueba volumen, no se apuesta a uno.</p></blockquote>
+<h3 id="41-diane-esconde-los-pies-nivel-2-problema-ángulo-vergüenza-social-situación-griesgo-bajo">4.1 Diane (esconde los pies) · nivel 2 Problema · ángulo Vergüenza social / situación · {g}Riesgo bajo<a class="anchor" href="#41-diane-esconde-los-pies-nivel-2-problema-ángulo-vergüenza-social-situación-griesgo-bajo">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Hook propio (modelar, no copiar)</th>
+<th>CTA</th>
+</tr></thead><tbody>
+<tr>
+<td>"Si este verano vuelves a guardar las sandalias en el fondo del clóset, esto es para ti."</td>
+<td>"Mira por qué"</td>
+</tr>
+<tr>
+<td>"Cuántos veranos llevas eligiendo el zapato cerrado sin siquiera pensarlo."</td>
+<td>"Descubre qué cambió para miles de mujeres"</td>
+</tr>
+<tr>
+<td>"El momento incómodo de la piscina cuando todos se sacan las sandalias menos tú."</td>
+<td>"Mira la salida"</td>
+</tr>
+<tr>
+<td>"Hay un detalle en tus pies que llevas dos veranos escondiendo. No tienes que seguir haciéndolo."</td>
+<td>"Descubre cómo"</td>
+</tr>
+<tr>
+<td>"Volver a la pedicura sin que te dé vergüenza. Empieza por entender esto."</td>
+<td>"Lee más"</td>
+</tr>
+</tbody></table></div>
+<h3 id="42-diane-carmen-nivel-12-inconscienteproblema-ángulo-listicle-educativo-griesgo-bajo">4.2 Diane / Carmen · nivel 1→2 Inconsciente/Problema · ángulo Listicle educativo · {g}Riesgo bajo<a class="anchor" href="#42-diane-carmen-nivel-12-inconscienteproblema-ángulo-listicle-educativo-griesgo-bajo">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Hook propio</th>
+<th>CTA</th>
+</tr></thead><tbody>
+<tr>
+<td>"3 señales de que tus uñas de los pies te están pidiendo atención (la 2 sorprende)."</td>
+<td>"Lee las 3 señales"</td>
+</tr>
+<tr>
+<td>"5 cosas sobre las uñas de los pies después de los 45 que casi nadie te explica."</td>
+<td>"Ver las 5"</td>
+</tr>
+<tr>
+<td>"Una uña amarilla o engrosada no siempre es solo cosa de la edad. Esto conviene saber."</td>
+<td>"Infórmate aquí"</td>
+</tr>
+<tr>
+<td>"Lo que toda persona después de los 50 debería saber sobre el cuidado de las uñas de los pies."</td>
+<td>"Aprende cómo cuidarlas"</td>
+</tr>
+</tbody></table></div>
+<h3 id="43-diane-carmen-mike-nivel-1-3-ángulo-pregunta-quiz-entry-griesgo-bajo">4.3 Diane / Carmen / Mike · nivel 1-3 · ángulo Pregunta / Quiz entry · {g}Riesgo bajo<a class="anchor" href="#43-diane-carmen-mike-nivel-1-3-ángulo-pregunta-quiz-entry-griesgo-bajo">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Hook propio</th>
+<th>CTA</th>
+</tr></thead><tbody>
+<tr>
+<td>"¿Llevas más de un verano escondiendo los pies?"</td>
+<td>"Descubre tu caso"</td>
+</tr>
+<tr>
+<td>"¿Eliges el zapato cerrado aunque haga calor? No eres la única."</td>
+<td>"Mira por qué pasa"</td>
+</tr>
+<tr>
+<td>"¿Tus pies te frenan en el vestuario, la piscina o la pedicura?"</td>
+<td>"Toma el test"</td>
+</tr>
+</tbody></table></div>
+<h3 id="44-robert-probó-lamisil-nivel-3-solución-ángulo-comparación-anti-fármaco-ariesgo-medio-alto">4.4 Robert (probó Lamisil) · nivel 3 Solución · ángulo Comparación anti-fármaco · {a}Riesgo medio-alto<a class="anchor" href="#44-robert-probó-lamisil-nivel-3-solución-ángulo-comparación-anti-fármaco-ariesgo-medio-alto">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Hook propio</th>
+<th>CTA</th>
+<th>Nota de compliance</th>
+</tr></thead><tbody>
+<tr>
+<td>"Antes de renovar esa receta para tus uñas, lee esto."</td>
+<td>"Conoce el enfoque"</td>
+<td>No nombrar enfermedad; "para tus uñas", no diagnóstico</td>
+</tr>
+<tr>
+<td>"Pasé años con lo que me dio el doctor para las uñas. Esto fue lo que terminé buscando."</td>
+<td>"Mira la alternativa"</td>
+<td>Experiencia propia, tono informativo</td>
+</tr>
+<tr>
+<td>"La pastilla actúa por dentro y tarda meses. Hay un enfoque que se aplica directo en la uña."</td>
+<td>"Mira el mecanismo"</td>
+<td>"Actúa/se aplica", no "cura"; sin superioridad clínica</td>
+</tr>
+<tr>
+<td>"Si lo que te recetaron te dejó igual (o te asustó la letra chica), esto te puede interesar."</td>
+<td>"Conoce la opción"</td>
+<td>Sin nombrar el fármaco por marca en el copy del ad</td>
+</tr>
+</tbody></table></div>
+<h3 id="45-robert-mike-nivel-3-solución-ángulo-mecanismo-con-nombre-ariesgo-medio">4.5 Robert / Mike · nivel 3 Solución · ángulo Mecanismo con nombre · {a}Riesgo medio<a class="anchor" href="#45-robert-mike-nivel-3-solución-ángulo-mecanismo-con-nombre-ariesgo-medio">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Hook propio</th>
+<th>CTA</th>
+<th>Nota de compliance</th>
+</tr></thead><tbody>
+<tr>
+<td>"El motivo por el que el esmalte solo tapa y no llega a donde realmente empieza el problema."</td>
+<td>"Mira el mecanismo"</td>
+<td>"Apoya/favorece el cuidado", no "elimina"</td>
+</tr>
+<tr>
+<td>"No es la superficie de la uña. Es por debajo, donde el esmalte nunca llega."</td>
+<td>"Descubre el enfoque"</td>
+<td>Mecanismo, sin claim de cura</td>
+</tr>
+<tr>
+<td>"Un aceite que penetra la uña en vez de recubrirla por encima."</td>
+<td>"Cómo funciona"</td>
+<td>Descriptivo del producto, no del resultado clínico</td>
+</tr>
+</tbody></table></div>
+<h3 id="46-mike-activo-nivel-3-solución-ángulo-practicidad-situación-vestuario-griesgo-bajo">4.6 Mike (activo) · nivel 3 Solución · ángulo Practicidad + situación vestuario · {g}Riesgo bajo<a class="anchor" href="#46-mike-activo-nivel-3-solución-ángulo-practicidad-situación-vestuario-griesgo-bajo">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Hook propio</th>
+<th>CTA</th>
+</tr></thead><tbody>
+<tr>
+<td>"Lo que cuidas en el gym no debería arruinarse por un detalle en los pies."</td>
+<td>"Mira la solución"</td>
+</tr>
+<tr>
+<td>"El paso de 30 segundos al día que cuida tus uñas sin cambiar tu rutina de entrenamiento."</td>
+<td>"Cómo se aplica"</td>
+</tr>
+<tr>
+<td>"El detalle que los que entrenan esconden en el vestuario (y cómo cuidarlo)."</td>
+<td>"Mira cómo"</td>
+</tr>
+</tbody></table></div>
+<h3 id="47-carmen-cuidadora-nivel-2-3-ángulo-educativo-cuidado-natural-griesgo-bajo">4.7 Carmen (cuidadora) · nivel 2-3 · ángulo Educativo + cuidado natural · {g}Riesgo bajo<a class="anchor" href="#47-carmen-cuidadora-nivel-2-3-ángulo-educativo-cuidado-natural-griesgo-bajo">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Hook propio</th>
+<th>CTA</th>
+<th>Nota de compliance</th>
+</tr></thead><tbody>
+<tr>
+<td>"Una rutina simple y de origen natural para cuidar tus uñas, sin complicarte."</td>
+<td>"Conoce la rutina"</td>
+<td>Evitar "sin químicos" absoluto → "de origen natural"</td>
+</tr>
+<tr>
+<td>"Lo que conviene saber sobre cuidar las uñas de los pies antes de que el tema vaya a más."</td>
+<td>"Aprende cómo"</td>
+<td>Sin alarmar, sin claim de prevención de enfermedad</td>
+</tr>
+<tr>
+<td>"Cuidar tus uñas con un enfoque suave, pensado para después de los 60."</td>
+<td>"Mira el enfoque"</td>
+<td>"Suave", "cuidado", nunca "tratamiento"</td>
+</tr>
+</tbody></table></div>
+<h3 id="48-sandra-compra-para-su-pareja-nivel-3-solución-ángulo-cuidador-emocional-griesgo-bajo">4.8 Sandra (compra para su pareja) · nivel 3 Solución · ángulo Cuidador emocional · {g}Riesgo bajo<a class="anchor" href="#48-sandra-compra-para-su-pareja-nivel-3-solución-ángulo-cuidador-emocional-griesgo-bajo">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Hook propio</th>
+<th>CTA</th>
+</tr></thead><tbody>
+<tr>
+<td>"Si alguien que quieres esconde los pies cada verano, esto le puede ayudar a cuidarlos."</td>
+<td>"Mira qué es"</td>
+</tr>
+<tr>
+<td>"Él no va a ir al doctor por una uña. Pero quizás use esto en casa."</td>
+<td>"Descubre la opción"</td>
+</tr>
+<tr>
+<td>"La forma discreta de ayudar a tu pareja a cuidar sus uñas, sin que tenga que ir a ningún lado."</td>
+<td>"Conoce cómo"</td>
+</tr>
+<tr>
+<td>"A veces el que tiene el problema no actúa. El que lo quiere, sí."</td>
+<td>"Mira la solución"</td>
+</tr>
+</tbody></table></div>
+<h3 id="49-todos-nivel-4-5-productodecisión-retargeting-ángulo-garantía-prueba-social-griesgo-bajo">4.9 Todos · nivel 4-5 Producto/Decisión (retargeting) · ángulo Garantía + prueba social · {g}Riesgo bajo<a class="anchor" href="#49-todos-nivel-4-5-productodecisión-retargeting-ángulo-garantía-prueba-social-griesgo-bajo">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Hook propio</th>
+<th>CTA</th>
+</tr></thead><tbody>
+<tr>
+<td>"60 días para probarlo. Si tus uñas no lucen distintas, te devuelven cada dólar."</td>
+<td>"Pídelo con garantía"</td>
+</tr>
+<tr>
+<td>"Por qué cada vez más personas suman este paso simple a su cuidado de pies."</td>
+<td>"Por qué lo eligen"</td>
+</tr>
+<tr>
+<td>"Lo estuviste mirando. Viene con 60 días de garantía para que lo pruebes sin riesgo."</td>
+<td>"Pruébalo sin riesgo"</td>
+</tr>
+</tbody></table></div>
+<h3 id="410-resumen-de-la-matriz-por-riesgo-y-entrada-en-frío">4.10 Resumen de la matriz por riesgo y entrada en frío<a class="anchor" href="#410-resumen-de-la-matriz-por-riesgo-y-entrada-en-frío">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Cruce</th>
+<th>Avatar</th>
+<th>Nivel</th>
+<th>Ángulo</th>
+<th>Riesgo</th>
+<th>Cuándo lanzar</th>
+</tr></thead><tbody>
+<tr>
+<td>4.1</td>
+<td>Diane</td>
+<td>2</td>
+<td>Situación social</td>
+<td class="sg-green">Bajo</td>
+<td>Lote 1 (verano: prioridad #1)</td>
+</tr>
+<tr>
+<td>4.2</td>
+<td>Diane/Carmen</td>
+<td>1-2</td>
+<td>Listicle</td>
+<td class="sg-green">Bajo</td>
+<td>Lote 1</td>
+</tr>
+<tr>
+<td>4.3</td>
+<td>Diane/Carmen/Mike</td>
+<td>1-3</td>
+<td>Pregunta/quiz</td>
+<td class="sg-green">Bajo</td>
+<td>Lote 1</td>
+</tr>
+<tr>
+<td>4.6</td>
+<td>Mike</td>
+<td>3</td>
+<td>Practicidad</td>
+<td class="sg-green">Bajo</td>
+<td>Lote 1-2</td>
+</tr>
+<tr>
+<td>4.7</td>
+<td>Carmen</td>
+<td>2-3</td>
+<td>Educativo cuidado</td>
+<td class="sg-green">Bajo</td>
+<td>Lote 1-2</td>
+</tr>
+<tr>
+<td>4.8</td>
+<td>Sandra</td>
+<td>3</td>
+<td>Cuidador emocional</td>
+<td class="sg-green">Bajo</td>
+<td>Lote 2 (audiencia nueva)</td>
+</tr>
+<tr>
+<td>4.5</td>
+<td>Robert/Mike</td>
+<td>3</td>
+<td>Mecanismo</td>
+<td class="sg-amber">Medio</td>
+<td>Lote 2</td>
+</tr>
+<tr>
+<td>4.4</td>
+<td>Robert</td>
+<td>3</td>
+<td>Anti-fármaco</td>
+<td class="sg-amber">Medio-alto</td>
+<td>Lote 3 (cuenta curtida)</td>
+</tr>
+<tr>
+<td>4.9</td>
+<td>Todos</td>
+<td>4-5</td>
+<td>Garantía/prueba</td>
+<td class="sg-green">Bajo</td>
+<td>Retargeting siempre</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="5-mensajería-desarrollada-los-3-cruces-prioritarios-guión-completo-ad-bridge">5. Mensajería desarrollada · los 3 cruces prioritarios (guión completo ad + bridge)<a class="anchor" href="#5-mensajería-desarrollada-los-3-cruces-prioritarios-guión-completo-ad-bridge">#</a></h2>
+<blockquote><p>Para los 3 cruces de mayor fit con el tráfico frío y mejor relación riesgo/retorno. Cada uno: guión completo del ad (hook situacional → agitación → mecanismo → prueba → CTA, estructura UGC del doc 03 de la biblioteca) + cómo continúa la narrativa en la bridge page (coherencia ad-lander, regla 6 del doc 05). Todo respeta: situación no condición, verbos estructura-función, disclaimers.</p></blockquote>
+<h3 id="51-cruce-prioritario-1-diane-problema-2-situación-social-el-ancla-de-verano">5.1 CRUCE PRIORITARIO 1 · Diane × Problema (2) × Situación social · el ancla de verano<a class="anchor" href="#51-cruce-prioritario-1-diane-problema-2-situación-social-el-ancla-de-verano">#</a></h3>
+<p><strong>Por qué primero:</strong> mayor fit con el grueso del tráfico (nivel 2), riesgo más bajo del portafolio, replica el ángulo real que ya corre ("Hide Your Feet At Pool Parties"), y monta directo sobre la estacionalidad de verano. Es el creativo que más volumen debe recibir abril-agosto.</p>
+<p><strong>Formato:</strong> UGC video 30-35 seg (mujer 45-55, tono conversacional, casa) + variante imagen estática con texto overlay para diversificar Entity ID.</p>
+<p><strong>Guión completo del ad (video):</strong></p>
+<ul>
+<li><strong>Hook (0-3 seg):</strong> "Llevo dos veranos guardando mis sandalias favoritas en el fondo del clóset." (Mujer a cámara, pies fuera de cuadro. Subtítulo quemado.)</li>
+<li><strong>Agitación (3-12 seg):</strong> "Cada vez que alguien proponía ir a la piscina, yo ya sabía que iba a inventar una excusa. Dejé de ir a la pedicura, que era mi momento favorito. Y lo peor: probé esmaltes, lo tapé mil veces, pero por dentro seguía igual."</li>
+<li><strong>Mecanismo / giro (12-22 seg):</strong> "Hasta que entendí algo: el esmalte solo cubre la superficie. Nunca llega a donde realmente empieza el problema. Lo que cambió mi rutina fue un aceite que se aplica directo en la uña y alrededor, todos los días, en segundos." (Sin claim de cura: "cambió mi rutina", "se aplica".)</li>
+<li><strong>Prueba (22-30 seg):</strong> "No fue de un día para otro, estas cosas toman semanas. Pero por primera vez en mucho tiempo volví a sentirme cómoda mostrando los pies." (Disclaimer en pantalla: "Resultados individuales pueden variar.")</li>
+<li><strong>CTA (30-35 seg):</strong> "Si llevas veranos escondiendo los pies, mira el enlace de abajo. Viene con 60 días de garantía." (Una sola acción.)</li>
+</ul>
+<p><strong>Continuación en la bridge page (advertorial):</strong></p>
+<ul>
+<li><strong>Titular:</strong> mantiene el ángulo situacional, no escala el claim. Ej: "Por qué tantas mujeres dejaron de esconder los pies este verano (y qué cambiaron en su rutina)."</li>
+<li><strong>Apertura:</strong> historia en primera persona que recoge la misma agitación del ad (sandalias guardadas, pedicura abandonada). Identificación.</li>
+<li><strong>El villano:</strong> el esmalte que solo tapa, las soluciones de superficie que no llegan al fondo.</li>
+<li><strong>El mecanismo (la llave):</strong> el aceite tópico y su rutina, posicionado como enfoque distinto. Estructura-función: "apoya el cuidado de la uña", nunca "elimina el hongo".</li>
+<li><strong>Prueba social:</strong> citas de "usuarias reales" con nombre + ciudad + disclaimer "results may vary". Número de usuarios si el vendor lo da.</li>
+<li><strong>Oferta + CTA:</strong> lleva al VSL del vendor. Garantía 60 días destacada (booster, M04). Disclaimer FDA prominente, privacy/terms/contacto/reembolso, disclosure "Advertisement" antes del fold.</li>
+</ul>
+<p><strong>Compliance check del cruce:</strong> {g}Bajo. No nombra la condición. Habla de situación. No promete cura. El único punto a vigilar: que el video no muestre la uña en primer plano (transformación física visible = riesgo). Mostrar pies cómodos/sandalias, no el "antes" clínico.</p>
+<hr>
+<h3 id="52-cruce-prioritario-2-mike-solución-3-practicidadmecanismo-el-de-menor-riesgo-del-lado-masculino">5.2 CRUCE PRIORITARIO 2 · Mike × Solución (3) × Practicidad/mecanismo · el de menor riesgo del lado masculino<a class="anchor" href="#52-cruce-prioritario-2-mike-solución-3-practicidadmecanismo-el-de-menor-riesgo-del-lado-masculino">#</a></h3>
+<p><strong>Por qué segundo:</strong> abre el segmento masculino (menos competido en el estético), riesgo bajo, y Mike decide rápido. El ángulo de practicidad ("30 segundos, no cambia tu rutina") esquiva por completo el terreno médico.</p>
+<p><strong>Formato:</strong> Reel 20-30 seg (hombre 40-48, contexto gym/casa, dinámico) + imagen estática para feed.</p>
+<p><strong>Guión completo del ad (Reel):</strong></p>
+<ul>
+<li><strong>Hook (0-3 seg):</strong> "Entreno 5 días a la semana y había un solo detalle que no lograba tener bajo control." (Hombre, zapatillas en mano, vestuario o casa.)</li>
+<li><strong>Agitación (3-10 seg):</strong> "En el vestuario giraba el pie para que no se notara. Cuido la alimentación, el entrenamiento, todo. Y una uña descolorida arruinaba la foto."</li>
+<li><strong>Mecanismo / giro (10-20 seg):</strong> "Lo que probé en la farmacia no me duró ni dos semanas porque era un lío de usar. Esto es distinto: un aceite que se aplica en 30 segundos en la noche, directo en la uña. No huele, no mancha, no me cambia la rutina."</li>
+<li><strong>Prueba (20-27 seg):</strong> "Lo sumé como un paso más, igual que el desodorante. Semanas después, dejé de girar el pie en el vestuario." (Disclaimer: "Resultados individuales pueden variar.")</li>
+<li><strong>CTA (27-30 seg):</strong> "Si te pasa lo mismo, está en el enlace. 60 días de garantía." (Una acción.)</li>
+</ul>
+<p><strong>Continuación en la bridge page:</strong></p>
+<ul>
+<li><strong>Titular:</strong> "El paso de 30 segundos que los hombres activos están sumando a su cuidado de pies."</li>
+<li><strong>Apertura:</strong> identificación con el tipo que se cuida y al que un detalle le arruina la imagen.</li>
+<li><strong>El villano:</strong> los productos de farmacia poco prácticos que se abandonan; el ambiente húmedo de zapatillas y duchas de gym.</li>
+<li><strong>El mecanismo:</strong> aceite tópico, rápido, discreto. Estructura-función.</li>
+<li><strong>Prueba social:</strong> testimonios masculinos, perfil activo, disclaimer.</li>
+<li><strong>Oferta + CTA:</strong> VSL del vendor, garantía 60 días destacada, disclaimers completos.</li>
+</ul>
+<p><strong>Compliance check:</strong> {g}Bajo. Practicidad y situación de vestuario. Sin condición, sin cura. Vigilar: no mostrar la uña en primer plano "antes/después".</p>
+<hr>
+<h3 id="53-cruce-prioritario-3-robert-solución-3-anti-fármacomecanismo-el-de-mayor-roas-y-mayor-riesgo">5.3 CRUCE PRIORITARIO 3 · Robert × Solución (3) × Anti-fármaco/mecanismo · el de mayor ROAS y mayor riesgo<a class="anchor" href="#53-cruce-prioritario-3-robert-solución-3-anti-fármacomecanismo-el-de-mayor-roas-y-mayor-riesgo">#</a></h3>
+<p><strong>Por qué tercero (y vigilado):</strong> replica el ángulo de mayor poder de conversión del swipe real ("Read This Before Your Next Lamisil Prescription"), pero es el de mayor riesgo de compliance (roza atributos personales y comparación con tratamiento médico). <strong>Lanzar solo en Lote 3, con cuenta de historial limpio y bridge blindada.</strong> Su retorno justifica el riesgo si se ejecuta con disciplina.</p>
+<p><strong>Formato:</strong> UGC video 30-40 seg (hombre 54-63, tono informativo/testimonial, casa) + advertorial fuerte como bridge.</p>
+<p><strong>Guión completo del ad (video):</strong></p>
+<ul>
+<li><strong>Hook (0-3 seg):</strong> "Antes de renovar la receta que te dieron para las uñas, hay algo que ojalá alguien me hubiera dicho antes." (Hombre a cámara, tono de "te cuento mi experiencia".)</li>
+<li><strong>Agitación (3-14 seg):</strong> "A mí me ofrecieron una pastilla con una lista de advertencias que me asustó, y un esmalte carísimo que usé meses sin ver nada. Terminé resignado, pensando que no había otra cosa." (No nombra la marca ni la enfermedad. "La receta que te dieron para las uñas".)</li>
+<li><strong>Mecanismo / giro (14-26 seg):</strong> "Lo que no me explicaron: la pastilla actúa por dentro y tarda meses, porque la uña crece lento. Lo que terminé buscando fue un enfoque distinto, que se aplica directo en la uña, todos los días." (Comparación de mecanismos, no de eficacia clínica.)</li>
+<li><strong>Prueba (26-35 seg):</strong> "No es magia y toma tiempo. Pero por fin sentí que estaba haciendo algo en mis términos, no en los del consultorio." (Disclaimer "results may vary".)</li>
+<li><strong>CTA (35-40 seg):</strong> "Si la solución de farmacia te dejó igual, mira esto. 60 días de garantía para que lo juzgues tú." (Una acción.)</li>
+</ul>
+<p><strong>Continuación en la bridge page (advertorial, blindada):</strong></p>
+<ul>
+<li><strong>Titular:</strong> "Lo que muchos buscan después de que la solución de farmacia para las uñas los dejó igual." (No nombra enfermedad ni marca.)</li>
+<li><strong>Apertura:</strong> historia de la mala experiencia con el tratamiento convencional (en tono informativo, primera persona).</li>
+<li><strong>El villano:</strong> la solución convencional que actúa lento / asusta por la letra chica / es cara y no resolvió.</li>
+<li><strong>El mecanismo:</strong> el aceite tópico como enfoque alternativo. Estructura-función estricta.</li>
+<li><strong>Prueba social:</strong> testimonios masculinos perfil natural + disclaimer.</li>
+<li><strong>Oferta + CTA:</strong> VSL, garantía 60 días, <strong>disclaimers reforzados</strong> (FDA prominente, "Advertisement" antes del fold, results may vary). Coherencia total: el ad dice "enfoque distinto", la página no puede decir "elimina el hongo".</li>
+</ul>
+<p><strong>Compliance check:</strong> {a}Medio-alto. Riesgos: (1) la comparación con el tratamiento médico roza la política; mitigación: nunca nombrar la enfermedad, nunca la marca del fármaco en el ad, hablar de experiencia propia en tono informativo. (2) No mostrar la uña en primer plano. (3) La bridge debe ser impecable porque este ángulo atrae revisión manual. <strong>Este cruce solo entra cuando la cuenta ya sobrevivió a los lotes 1-2.</strong></p>
+<hr>
+<h2 id="6-secuencia-de-funnel-por-avatar-frío-bridge-oferta-retargeting">6. Secuencia de funnel por avatar (frío → bridge → oferta → retargeting)<a class="anchor" href="#6-secuencia-de-funnel-por-avatar-frío-bridge-oferta-retargeting">#</a></h2>
+<blockquote><p>Estructura técnica según <code>felipe-vergara-m05-aplicado.md</code> (cuenta nueva: 3 conjuntos / cuenta con historial: abierta dominante) y H&W del doc 05 (optimizar a Landing Page Views, no a compra, hasta tener aprobación). La bridge page es obligatoria en todos los casos. El VSL/checkout es del vendor.</p></blockquote>
+<div class="funnel"><div class="funnel-row"><div class="funnel-meta">Ad frío (situación/listicle/pregunta)</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%">5</div></div><div class="funnel-drop"></div></div><div class="funnel-row"><div class="funnel-meta">Bridge page advertorial (educa + disclaimers)</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:80%">4</div></div><div class="funnel-drop">-20%</div></div><div class="funnel-row"><div class="funnel-meta">VSL del vendor (cierra la venta)</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:60%">3</div></div><div class="funnel-drop">-25%</div></div><div class="funnel-row"><div class="funnel-meta">Checkout ClickBank (garantía 60 días)</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:40%">2</div></div><div class="funnel-drop">-33%</div></div><div class="funnel-row"><div class="funnel-meta">Retargeting de quien no compró</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:20%">1</div></div><div class="funnel-drop">-50%</div></div></div>
+<h3 id="61-diane-verano-nivel-2">6.1 Diane (verano, nivel 2)<a class="anchor" href="#61-diane-verano-nivel-2">#</a></h3>
+<ul>
+<li><strong>Frío:</strong> ad de situación social (cruce 5.1) → optimizar a Landing Page Views.</li>
+<li><strong>Bridge:</strong> advertorial estético-empático (sandalias, pedicura, esmalte que tapa).</li>
+<li><strong>Oferta:</strong> VSL del vendor + garantía 60 días destacada.</li>
+<li><strong>Retargeting:</strong> quien vio la bridge/VSL y no compró → ángulo garantía + prueba social (cruce 4.9). Subir presión suave en plena temporada.</li>
+</ul>
+<h3 id="62-robert-anti-fármaco-nivel-34">6.2 Robert (anti-fármaco, nivel 3→4)<a class="anchor" href="#62-robert-anti-fármaco-nivel-34">#</a></h3>
+<ul>
+<li><strong>Frío:</strong> ad mecanismo (5.2/4.5) en Lote 2; anti-fármaco (5.3) solo Lote 3.</li>
+<li><strong>Bridge:</strong> advertorial fuerte de mecanismo + experiencia con el convencional.</li>
+<li><strong>Oferta:</strong> VSL + garantía (su rebate clave es "júzgalo tú").</li>
+<li><strong>Retargeting:</strong> prueba social masculina perfil natural + autoridad suave + garantía. Es donde mejor convierte (escéptico que volvió).</li>
+</ul>
+<h3 id="63-carmen-cuidadora-nivel-1-2">6.3 Carmen (cuidadora, nivel 1-2)<a class="anchor" href="#63-carmen-cuidadora-nivel-1-2">#</a></h3>
+<ul>
+<li><strong>Frío:</strong> listicle educativo / pregunta suave (4.2/4.7) → educar primero.</li>
+<li><strong>Bridge:</strong> advertorial educativo, tono cálido, no alarmista (en español para el segmento hispano-US).</li>
+<li><strong>Oferta:</strong> VSL + garantía + reaseguro de seguridad.</li>
+<li><strong>Retargeting:</strong> reaseguro + suavidad ("cuidar antes de que vaya a más") + garantía.</li>
+</ul>
+<h3 id="64-mike-activo-nivel-3">6.4 Mike (activo, nivel 3)<a class="anchor" href="#64-mike-activo-nivel-3">#</a></h3>
+<ul>
+<li><strong>Frío:</strong> Reel practicidad/situación vestuario (5.2/4.6).</li>
+<li><strong>Bridge:</strong> advertorial práctico, masculino, rápido de leer.</li>
+<li><strong>Oferta:</strong> VSL + garantía (valora poder devolver).</li>
+<li><strong>Retargeting:</strong> prueba social masculina + practicidad reforzada.</li>
+</ul>
+<h3 id="65-sandra-compra-para-él-nivel-3">6.5 Sandra (compra para él, nivel 3)<a class="anchor" href="#65-sandra-compra-para-él-nivel-3">#</a></h3>
+<ul>
+<li><strong>Frío:</strong> ad cuidador emocional "para alguien que quieres" (4.8) → audiencia femenina 50-62, fuera de competencia.</li>
+<li><strong>Bridge:</strong> advertorial con framing de cuidado a la pareja, discreción, sin señalar.</li>
+<li><strong>Oferta:</strong> VSL + garantía (su rebate: "si no lo usa, lo devuelvo").</li>
+<li><strong>Retargeting:</strong> recordatorio emocional + garantía + estacionalidad ("se acerca el verano, ayúdalo ahora").</li>
+</ul>
+<hr>
+<h2 id="7-plan-de-testing-orden-de-ángulos-killscale">7. Plan de testing (orden de ángulos · kill/scale)<a class="anchor" href="#7-plan-de-testing-orden-de-ángulos-killscale">#</a></h2>
+<blockquote><p>Doctrina: velocidad sobre perfección (CLAUDE.md), datos primero, Entity ID / diversificación creativa (M05: mínimo 3 avatares + 3 tipos de arte + 2 formatos por lote), regla 3x Kill y +30% scale (M01/M07). Empezar por los ángulos de <strong>bajo riesgo</strong> (situación / listicle / pregunta) para validar audiencia y mensaje sin arriesgar la cuenta, y dejar el anti-fármaco (mayor ROAS, mayor riesgo) para cuando la cuenta tenga historial limpio.</p></blockquote>
+<h3 id="71-orden-de-lotes">7.1 Orden de lotes<a class="anchor" href="#71-orden-de-lotes">#</a></h3>
+<div class="timeline"><div class="tl-item"><div class="tl-when">Lote 1 · Validar (riesgo bajo)</div><div class="tl-what">Cruces 5.1 (Diane situación), 4.2 (listicle), 4.3 (pregunta), 4.6 (Mike practicidad). Avatares Diane/Carmen/Mike. Formatos: UGC video + imagen estática + listicle/carrusel. Optimizar a Landing Page Views (H&W). Objetivo: encontrar qué situación y qué avatar enganchan más barato.</div></div><div class="tl-item"><div class="tl-when">Lote 2 · Ampliar (riesgo bajo-medio)</div><div class="tl-what">Cruces 5.2 (Mike mecanismo), 4.5 (mecanismo con nombre), 4.7 (Carmen cuidado), 4.8 (Sandra compradora indirecta). Sumar el segmento masculino y la audiencia femenina compradora. Mecanismo entra con verbos estructura-función.</div></div><div class="tl-item"><div class="tl-when">Lote 3 · Escalar el de mayor ROAS (vigilado)</div><div class="tl-what">Cruce 5.3 (Robert anti-fármaco) + autoridad suave en retargeting. Solo con cuenta de historial limpio y bridge blindada. Vigilancia manual diaria de aprobaciones.</div></div><div class="tl-item"><div class="tl-when">Retargeting · Siempre activo</div><div class="tl-what">Cruce 4.9 (garantía + prueba social) para todo el que tocó bridge/VSL sin comprar. Niveles 4-5.</div></div></div>
+<h3 id="72-reglas-kill-scale">7.2 Reglas kill / scale<a class="anchor" href="#72-reglas-kill-scale">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Señal</th>
+<th>Acción</th>
+<th>Fuente</th>
+</tr></thead><tbody>
+<tr>
+<td>ROAS < 1.0 a 5 días con los 3 vértices OK (oferta/audiencia/mensaje)</td>
+<td class="sg-red">Kill</td>
+<td>M04 Triángulo Dorado</td>
+</tr>
+<tr>
+<td>Gastó 3× el CPA target sin conversión</td>
+<td class="sg-red">Kill inmediato (3x Kill)</td>
+<td>M01</td>
+</tr>
+<tr>
+<td>Ad disapproved 2 veces en el mismo ángulo</td>
+<td class="sg-red">Pausar ese ángulo, revisar bridge</td>
+<td>Doc 05</td>
+</tr>
+<tr>
+<td>ROAS > 2.0 + frequency < 2.5</td>
+<td class="sg-green">Scale +30% por movida, esperar 3-5 días</td>
+<td>M07</td>
+</tr>
+<tr>
+<td>Winner detectado (ROAS > 2.5)</td>
+<td class="sg-green">Floor de presupuesto, no bajar bajo el nuevo baseline</td>
+<td>Pricing floor (Fauadzk)</td>
+</tr>
+<tr>
+<td>Frequency > 3</td>
+<td class="sg-amber">Refresh creativo (rotar hook, mismo cuerpo)</td>
+<td>M07 fatiga</td>
+</tr>
+<tr>
+<td>Antes de killear: revisar los 3 vértices</td>
+<td>Diagnóstico, no culpar solo al creativo</td>
+<td>M04</td>
+</tr>
+</tbody></table></div>
+<h3 id="73-qué-validar-con-la-data-real-los-porcentajes-de-este-doc-son-hipótesis">7.3 Qué validar con la data real (los porcentajes de este doc son hipótesis)<a class="anchor" href="#73-qué-validar-con-la-data-real-los-porcentajes-de-este-doc-son-hipótesis">#</a></h3>
+<ul>
+<li>Confirmar dónde vive de verdad el tráfico (¿realmente 70% en niveles 2-3?). Ajustar el peso de producción.</li>
+<li>Confirmar qué avatar convierte más barato (hipótesis: Diane en verano, Sandra como sorpresa de bajo costo).</li>
+<li>Confirmar si el segmento masculino (Mike) y la compradora indirecta (Sandra) rinden como se espera.</li>
+<li>Recalibrar la estacionalidad: medir el lift real de verano vs invierno y reasignar presupuesto.</li>
+</ul>
+<hr>
+<p><em>Fuentes internas: doctrina Felipe Vergara M04/M05/M07 (<code>cursos-cruzados/</code>), definidor de audiencias + Aha Moment + pricing floor de Fauadzk (<code>cruce-cursos-aplicado.md</code>), swipe real Ad Library US 2026-06-16/17 (<code>06-swipe-ads-reales-finalistas.md</code>), biblioteca de 8 ángulos + 4 plantillas (<code>03-templates-ads-angulos.md</code>), compliance nutra (<code>05-compliance-meta-nutra.md</code>). Avatares = hipótesis de trabajo razonadas, validar contra data de campaña. Hooks inspirados en el swipe pero reescritos para evitar copia literal y reducir riesgo de compliance. Re-verificar los hooks vivos en la Meta Ad Library antes de modelar: cambian a diario. La estacionalidad del nicho exige re-leer este documento al cambiar de temporada.</em></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 03-kerassentials.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

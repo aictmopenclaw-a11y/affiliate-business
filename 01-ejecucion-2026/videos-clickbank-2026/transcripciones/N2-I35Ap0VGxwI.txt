@@ -1,0 +1,619 @@
+[00:00] What's going on? It's Thomas. And in this video, I want to share with you the TPS framework
+[00:07] Test prove scale and how we use that to go from spending a couple hundred dollars per day to
+[00:14] Scaling into tens of thousands of dollars per day. So let's jump in
+[00:19] So just to to lay the foundation
+[00:23] For those of you who are new to the channel for those of you who are new to me and don't know who I am
+[00:29] My name is Thomas Owen. I'm a super affiliate and have been running affiliate
+[00:36] Facebook ads since 2020
+[00:39] Have generated well over 25 million dollars in affiliate commissions have scaled
+[00:45] multiple multiple offers into five figures and even six figures per day and
+[00:52] Have achieved clickbank diamond three times as well as multiple other awards by God's legends max web
+[00:59] Gold partner etc etc
+[01:03] Now I'm really working on helping others achieve the same success following a proven path
+[01:10] So let's jump into it
+[01:13] Okay
+[01:13] So the the TPS framework is a framework that I've used for several years now
+[01:18] And obviously I sprinkle different bits and I sort of you know
+[01:23] Adapt and and I do have different structures that I use and have used it more recently that I've been really good
+[01:30] However, what I find is I always revert back to this the TPS framework or method is
+[01:37] Nothing new
+[01:38] Multiple affiliates multiple media buyers use the same or a very similar structure
+[01:45] In fact
+[01:46] I'll give a very quick shout out to Jason Kitasi because there's a few things that I took from from his structure
+[01:53] That I've adapted to my own and I'm seeing really good results from it
+[01:58] And I'll share with you that in just a second
+[02:01] But you know nothing that I've ever done and I've never claimed
+[02:06] That is mine directly that I've you know really created this from the ground up. No one else does this
+[02:11] I don't think anybody has really sort of had
+[02:16] Something that's just been you know brand new from the ground up some kind of structure or strategy
+[02:22] It's always just implementing what they've learned and seen others do and sort of merging it into one
+[02:27] And ultimately that's what I've done. So test-proof scale is very very simple when broken down
+[02:33] The first thing we do is we test
+[02:36] We need to test ads creatives concepts messaging angles a whole bunch of different things, right?
+[02:45] We need to test then we need to prove
+[02:48] Can what looks good, you know the ads that look good
+[02:52] Can they hold a higher budget and that's where we prove and then we scale now?
+[02:58] We've proved we've tested and proved this is a winning ad and it can handle higher budgets
+[03:03] Can it scale and that's ultimately what we're doing in this TPS framework test prove scale
+[03:10] Obviously, there's a bunch of stuff that goes into it
+[03:12] So I thought what better way then to actually walk through a very recent and
+[03:19] ongoing live campaign that was launched just a couple of days ago
+[03:23] I've got a data you can see on my screen right now. We're inside red track
+[03:26] By the way, there's a link below in the description for red track by far in my opinion the best tracking platform out there
+[03:35] For multiple reasons, which I won't go into but I do have a video if I remember I'll put it somewhere on this video
+[03:42] But don't hold me to it
+[03:44] You might have to actually go search through my videos where I go a bit deeper into red track and why I like it so much
+[03:49] anyway
+[03:51] To go back to this this this TPS
+[03:54] There's a couple of things that I think are super important and when I'm working directly one-on-one with with clients and students
+[04:01] I see this mistake happening quite a lot and that is there's no variety in their ads and for me
+[04:10] variety is key
+[04:11] Okay, one. I don't want to be solely dependent on videos. I want to have videos. I want to have images
+[04:17] That's one thing that we can sort of increase our creative output and have variety instead of just having the same type of video
+[04:25] UGC script or AI actor, whatever arc ads
+[04:29] Instead of just having that one type of ad that one concept. Let's have a UGC
+[04:34] So if I have I can authority figure B roll script
+[04:37] Let's also have a first-person view recipe video. Let's also have some quad images
+[04:43] Let's also have some, you know, like I want to mix it up
+[04:46] I want variety because to test and only have one concept or creative style as a test in your ads
+[04:55] is really leaving a lot of money on the table potentially because
+[04:59] You you don't know what concept what angle what ad what creative style is going to resonate
+[05:07] Best with your audience for this particular offer
+[05:11] So it's really important and one thing that I see missed
+[05:15] So many times
+[05:16] So for me, obviously, you know to to revert back to the beginning
+[05:21] The first step is finding an offer and I'm not going to go too much into that in this video
+[05:26] But we we want a good offer. We need to find a hot offer and offer that converts well
+[05:31] And I have some, you know benchmarks that I'm looking for
+[05:35] They're not set in stone and I think that's really important to point out my benchmarks are never set in stone, you know, I want
+[05:44] A certain conversion rate on the offer. I want a certain check out to purchase ratio
+[05:49] I want a certain offer visitor to check out. I want a certain cpa. I want a certain ROI
+[05:55] I want a certain ad click-through rate landing page click-through rate
+[05:59] But ultimately I'm after one thing and that's green numbers
+[06:04] I want profit
+[06:05] so if my click-through rate is
+[06:08] 50% of what I actually want, but my profit is great
+[06:13] I don't really care
+[06:15] If my landing page click-through rate is 30% but my benchmarks 50, but my profit's good
+[06:21] I don't really care like so like although I have these benchmarks and metrics that I'm aiming for
+[06:28] they're not important
+[06:30] As the actual
+[06:32] real thing right cpa how much am I paying?
+[06:36] Right to acquire a conversion or a purchase in my case. We run purchase campaigns and then also
+[06:44] I mean, there's a couple of different metrics that we can go into
+[06:47] But for me cpa is one of the most important because we run static cpa payouts
+[06:53] So like if my payout is 150
+[06:56] Then maybe I want to get purchases for less than 110
+[07:00] What's my cpa? It's $100. Fantastic
+[07:04] What's my cpa? It's 130. Okay. We need to look at it. Right. So like that's really important metric and can be really sort of
+[07:12] What's the cpa? What's the payout? What's the difference? That's the profit, right?
+[07:17] So really important metrics
+[07:19] You could also go with EPC, which I know a lot of people do. What's my EPC? What's my CPC?
+[07:26] Okay, what's the difference? Is it profitable? Is it not?
+[07:30] So, you know, there's there's a few different things that you can look at for me
+[07:33] I just prefer cpa and and obviously ROI or ROAS
+[07:38] So
+[07:39] With that, you know, so again just to go back into the offer
+[07:43] I'm looking for offers and ideally I want to see, you know, at least a 1% conversion rate
+[07:50] And obviously you might not be able to get that data if you have no leverage
+[07:54] No connection already with the vendor or the affiliate manager or whatever it is
+[07:59] But I want to see a 1% conversion rate
+[08:03] I also want to see a payout of ideally 140 plus
+[08:08] Now let's add a caveat
+[08:12] Again, they're not set in stone
+[08:15] Okay, like if I
+[08:17] Have an offer that converts
+[08:20] at 0.8%
+[08:22] But has a payout of $200
+[08:24] Well, if that payout offsets the lower conversion rate
+[08:29] I don't really care, right and vice versa if I have an offer that pays out $100
+[08:38] But a conversion rate of 2%
+[08:41] I don't really care because if it's profitable, that's all that matters
+[08:45] Okay, so I think and the reason why I'm going so deep into this is because I I have, you know
+[08:52] Friends or you know students clients and and they can really become especially the beginners they can become really stuck and
+[08:59] You know obvious reasons, okay, they're new to it. They're not really sure what's going on
+[09:04] They can become very stuck and well, you know the click through rate. It's not 5% like
+[09:09] It's okay. Like what's the rest of the funnel saying right like what, you know
+[09:13] That's not the primary metric that we're looking at here. The primary metric is always always profit
+[09:19] You know, are we making money? Yes or no, that's the primary metric
+[09:25] Everything else is secondary
+[09:27] It's good to have but it's not essential. So so I just want to point that out and make that clear
+[09:33] You know, obviously spent a little bit too much time there, but if you know me or have followed my content
+[09:38] You know the tangents always come heavy and hard. All right, so
+[09:43] Not going too much into the offer although we did
+[09:46] You find your offer right and for me
+[09:49] I have a rule where I want to test a 10x payout
+[09:53] So for me if my offer let's go back to that 150 example is $150 payout
+[10:00] I'm going to set aside 1500 of test budget
+[10:05] That's what I'm willing to spend to get data to determine whether we continue with this offer
+[10:11] Does this offer have legs?
+[10:13] Now in saying that I might spend 800 dollars and decide this offer is not really converting
+[10:20] Let's cut it. Okay. So I'm not always spending that 1500 dollars if I can see that this offer is not going to work
+[10:28] Now going back to the beginning
+[10:31] We're testing variety. I'm not dependent on one ad style on one video script
+[10:37] I'm testing multiple usually three or five different scripts or concepts
+[10:44] Like I said before I like to mix videos and images
+[10:47] So let's actually dive into what we're looking at here, right?
+[10:51] So this is the campaign that was recently launched. I think two or three days ago
+[10:55] And we have data. Okay. So we can see the cost
+[10:59] 2415
+[11:01] $2,415 spent
+[11:04] With we don't have the revenue
+[11:07] Um in this picture, but we can scroll to the right and we can see revenue of 2750
+[11:14] And we can scroll back to the left. You can see all the different things, right?
+[11:18] I've got custom metrics added because I track different things
+[11:21] Really, I just want to pay attention to these on the left
+[11:24] That we have the conversion 22 conversions. We've had, you know our investment so far
+[11:31] And we're profitable overall
+[11:33] So the payout was so so there's a few things that's happened in this campaign
+[11:37] And you know, I'm not going to go into too much depth, but we tested two different offers
+[11:43] Okay, we just rotated and this is another interesting point that I've had with a
+[11:48] An existing client is one of my one-to-one clients
+[11:52] Is the importance of rotating offers and and always, you know being able to have that ability is really important
+[11:59] Red track gives that ability
+[12:00] I think most trackers do if they don't and that for me is that a red flag as to why not to use them
+[12:07] One of many red flags
+[12:08] But like I want to be able to rotate offers easily without having to switch links or or dropping one offer to to focus on another
+[12:16] I want to be able to just rotate and meaning
+[12:19] One click goes there one click goes there second, you know, so that that an even split or however
+[12:25] I decide to wait the offer
+[12:28] Or the offers like the traffic splits between them. Okay. That's really what I want
+[12:33] Again, it's not essential
+[12:34] But it's a good option to have
+[12:36] If the offer that you choose isn't really hitting it
+[12:38] You could literally just rotate another offer in the same niche
+[12:42] Although maybe the messaging isn't exactly
+[12:45] Congruent with this new offer you can at least see if this new offer has legs
+[12:50] And then be able to to make your messaging and ad creative and ads
+[12:54] Suitable to that new offer if it shows promise. Okay
+[12:58] So again tangent in a way, but we've spent $2,400. Okay, we've made back 27 whatever it is
+[13:05] We've got a profit and that's a really good sign at this early stage. That's what I'm looking for now
+[13:12] You know
+[13:13] When I when I'm going back to that 10x payout
+[13:16] I'm setting that aside. Now that doesn't mean I want to be profitable in that 10x
+[13:21] What it means is I want to make sure the offer's got legs. Remember, I'm testing different variations
+[13:26] I'm testing a variety of ads of messaging of angles of concepts
+[13:31] So I know if I've got 20 different ads individual unique ads running
+[13:36] And I've spent $2,400 and made back 27
+[13:41] I know when I drill down. I'm going to have some real good pockets of profit
+[13:46] It's a really good quote or saying pockets of profit
+[13:50] That's what we're looking for at this early test stage
+[13:53] Where are the pockets of profit add seven add nine add one right?
+[13:59] There's the pockets of profit
+[14:01] Now can we isolate those pockets of profit and prove them right?
+[14:05] So remember we've got the test phase, which is what you're seeing here
+[14:09] Five different campaigns
+[14:12] ABO
+[14:14] Where we can isolate the testing we can control the testing
+[14:18] Okay
+[14:19] Do I always use this? No, sometimes I go straight into CBO
+[14:23] It depends on
+[14:24] You know what data I have on the offer on the niche on my creators my angles
+[14:29] Lots of different things
+[14:30] But I think for beginners or people well beginners through to advance
+[14:35] This is a really good structure to sort of test
+[14:38] Prove and scale it really is it works for everyone
+[14:42] Whereas big budget CBOs straight out the door. I think are more for advanced people
+[14:47] I want to make content that's more suitable to those that can you know beginners through to advance, right?
+[14:54] So we have our five campaigns each one is a different creative
+[14:58] So we've got Johnny we've got drake. We've got quad kuk and peanut
+[15:02] They all mean different things some of them quite obvious some of them maybe not so much
+[15:07] But for me and my team we know exactly what is being tested or what the angle or concept is here, right?
+[15:13] So if we break down Johnny, which we can see overall is spent the most by far
+[15:18] Because we're already proving in this campaign. Okay, so we've got an overall ROI of 12
+[15:25] Which isn't amazing, but when we drill down remember we're looking for pockets of profit now we see
+[15:32] All right, Johnny shocked this original one
+[15:35] 53 percent ROI for conversions at their purchases
+[15:40] Then we've got Johnny v2. This is already we're testing variations of our initial concept. Okay
+[15:45] So the initial concept was just Johnny on its own
+[15:49] We saw Johnny shocked, which is an angle of the the primary text
+[15:54] We saw Johnny shocked was getting really good results. So it got four conversions really good conversion rate
+[16:01] Decent ROI. This is ticking a lot of boxes
+[16:04] Okay, let's now create some iterations
+[16:08] another where you know where I see a lot of affiliates
+[16:13] both
+[16:14] You know people who I work with and who I I see just out there
+[16:19] They really
+[16:20] Want to a big way where they go wrong is they don't have creative output. Okay, they they whip up their first batch of creatives
+[16:28] And they maybe find some winners
+[16:31] But they don't continue to test
+[16:34] meaning when that add
+[16:36] Eventually fatigues which could be within a couple of days couple of weeks couple of months at some point it will
+[16:42] But when it does when it doesn't continue to get results
+[16:46] They've got nothing to fall back on it's back to the drawing board. They need to start from scratch
+[16:52] so
+[16:54] What I recommend is you constantly put out new creative
+[16:59] And you do it two ways you iterate winners
+[17:03] Johnny v2 we have a winning concept here
+[17:06] And although this isn't like there's not enough data to be you know from Johnny v1. We'll call it
+[17:13] To be like, oh, yeah, this is definitely a winner. The early signs were there. Okay
+[17:18] Interesting the audiences resonating with this ad
+[17:21] Let's create some iterations as a new test and we did Johnny v2 came out boom
+[17:27] You know Johnny v2 in the locker
+[17:30] Bash free conversions
+[17:32] 168 percent ROI. Is this enough data to confirm as a winner? No, but it's heading in the right direction
+[17:39] It's heading towards proof, right?
+[17:42] So this is why it's important to have very variety
+[17:46] Because here's the pockets of profit like if you can find ads that spit out these kind of numbers
+[17:51] Then especially if you can find three four or five that you can scale
+[17:59] You're looking at a very good campaign. Okay. Now on the back of that you want to have
+[18:05] New iterations of those winners coming out every week. Okay
+[18:10] Take what's winning for the past week
+[18:12] Have your team or yourself or outsource to wherever create iterations based on the creative
+[18:18] Based on the script based on the the the angle and produce new variations
+[18:24] That's the easiest way
+[18:26] And and for us probably 80 percent is just creating iterations of what we see working
+[18:34] The other 20 percent is brand new tests. So new angles brand new concepts brand new, you know messaging
+[18:42] And by doing that we're able to continuously pump out
+[18:46] New winners, right? So it's very very important that you do it
+[18:50] Don't get stuck and just stop producing creative or putting out creative
+[18:55] Once you've found a couple of winners because you will become unstuck. Okay
+[19:01] So let's let's dive into it. I know we're gonna have to
+[19:06] I'm gonna just try and shrink
+[19:08] I wonder if I can knock oh kind of a little bit actually there we go
+[19:12] So and you know, I can play around with these a little bit
+[19:16] I just want to make things a little bit smaller so we can
+[19:20] See the ads as well, right?
+[19:23] So we've got this johnny campaign
+[19:25] Okay, and now we can see at the ad set level
+[19:27] We've got a proof ad set and it's based off of this ad set here, right?
+[19:32] This was one of the originals and it this was only launched a couple of days ago
+[19:36] And it got off to such a good start
+[19:39] It met all our criteria usually what I'd like is I'd like to have it run for three days
+[19:45] Which it was I think it has been three or four days now
+[19:49] But ideally I want it to run for 72 hours
+[19:53] 48 hours minimum to allow me to to get an idea of is this going to hold because what I don't want to do
+[19:59] And what I see a lot of people do is they
+[20:03] Make decisions based off one day's worth of data and for me
+[20:07] That's not the right thing to do. You don't want to
+[20:12] Make your decision based off one day. I think anyone who's ran ads
+[20:16] Has seen day one amazing day two terrible, right? Because day one facebook finds a low hanging through
+[20:24] You know
+[20:25] Gives you really good results gets you really, you know hyped up this campaign is going to crush day two
+[20:32] Right, so we don't want to fall into that trap
+[20:34] The way that we don't fall into that trap is we allow it to run. We don't touch anything
+[20:39] Okay, that that offer that ad got five sales like it's 200 percent ROI
+[20:44] I'm going to leave it what's day two look like and and for all we know it might balance things out
+[20:50] And at that point, maybe you need to allow day three to run to decide whether you move that into a proof ad set
+[20:56] So there's a couple of things to take away from that don't get
+[21:00] premature, okay
+[21:03] Day one, even if it does have amazing results, let it run a couple of days. Just let it sink. Okay, let it let it stabilize
+[21:12] Obviously we want to capitalize on performance, right? That's you know, definitely what we want to do
+[21:18] But we don't want to prematurely scale an ad
+[21:22] When it could fall to shit, right? It just may have just got off to a really good day on day one
+[21:27] Which a lot of ads seem to do because of the low hanging fruit and then it goes to shit, right?
+[21:33] So we want to be careful of that
+[21:35] so
+[21:36] Back to the campaign we have this Johnny original which for me the the metrics that I'm looking at
+[21:42] I'm looking at checkouts, which is our our far left. We had 13 checkouts at
+[21:48] $15 each now what I'll do is I'll just break down the ad set as well
+[21:53] Give us even clearer indication that this all came from one ad sins five. Okay primary text two headline two each of these ad sets
+[22:01] Is or the original ad sets if I open comparison and locker
+[22:06] You can see they all have five two three, okay
+[22:09] They all have primary text or a different primary text
+[22:13] One primary text in here comparison two in
+[22:16] Shocked and three in locker. Okay, so they're all different
+[22:20] The only difference between these three ads is there's a different hook. Okay, same body same script different hook
+[22:28] Very very important. That's how I like to keep it because I don't want to have
+[22:32] Completely different ads in here. I want to keep it to a certain degree similar
+[22:37] So I know what the difference is sins five the hooks are different that hook for sin five
+[22:43] Is obviously the hook that's resonating best
+[22:46] We're for facebook to show it to audience
+[22:48] So facebook has belief that that ad that hook is is going to resonate best and convert to to purchases and to more auctions
+[22:56] and then also that
+[22:59] You know the the audience is is is reacting to it better, right? So we can see when we break it down to this ad level
+[23:07] We have an 82 percent ROI
+[23:09] We have four conversions. We have 13 checkouts. So check this 13 checkouts at $13 each
+[23:16] So if we were to go back to our benchmarks, does that hit 100 it hits?
+[23:21] You know benchmarks hit again the benchmarks are set in stone because we can offset them with different things
+[23:27] but
+[23:28] At the grand scheme. Yeah, like maybe our checkout our cost per checkout
+[23:33] If we look at our cpr, which is checkout to purchase ratio
+[23:37] Usually we want to be around 20 to 30 percent
+[23:41] Meaning one in five to one in three people convert from checkout to purchase
+[23:48] So when we know that
+[23:50] Going through our profit predictor, which is a google sheet that we have a calculator sheet
+[23:54] Where we before we even run an ad or or run an offer we we predict
+[24:00] Cost we predict the cpm. We predict the ctr. We predict the the checkout the cpr
+[24:06] We predict the the conversion rate of the offer does this line up?
+[24:09] What's our payout? What's our cpm?
+[24:12] Gives us the idea of what our cost per clicks going to be what our landing page click-through rates going to be or our
+[24:17] Landing page cost per clicks going to be and then what our conversion rates going to be
+[24:23] Based off our predictions. Is this offer going to back out?
+[24:27] It's a very important thing to do. Does it always hold true? Nope
+[24:31] Probably more times no than yes because we don't know exactly what the cpm is going to be
+[24:37] I have a good idea because we run in multiple niches
+[24:40] My you know what? I'm in the trenches every single day running ads
+[24:45] So I have a you know my finger on the pulse, right?
+[24:49] But we don't know if there's going to be a certain keyword that flags a high cpm a certain creative
+[24:55] Maybe the the the offer is really saturated or the niche is really saturated
+[25:00] Which can have an in you know an impact on our cpm. So we don't always know exactly what's going to happen
+[25:05] We we just need to predict and have a baseline, right?
+[25:09] So
+[25:10] for me
+[25:11] If we're getting checkouts at $13
+[25:14] And our checkout to purchase ratio is what this is which is roughly around 30 percent
+[25:20] I know we're going to be super freaking profitable
+[25:23] Okay, and so like initially after these few days worth of data I can see
+[25:30] This is looking good, right again. Is it a confirm winner? No, we have nowhere near enough data to confirm that
+[25:36] But I do have enough data to say all right
+[25:39] Well, this is worth sending into a prove ad set and you can see up here
+[25:43] We have this ad set prove and there's only one ad in it
+[25:46] So there's you know, we don't really need to break it down
+[25:49] But it's this same ad and it's an existing post id. You can see the stringing numbers at the end is the existing post id
+[25:56] so
+[25:57] We take this ad
+[26:00] We grab the post id of that ad and we duplicate it into a new ad set
+[26:05] So what started here at $50 a day? We take into here. I think it's $200 a day
+[26:12] Okay, and now does this ad continue to get sales?
+[26:16] Well, if we look yep, it does
+[26:19] 29 come checkouts
+[26:21] And a really good checkout cost. However, the checkout to purchase ratios dropped
+[26:27] But it's still profitable. Remember. All right, maybe that checkout to purchase ratio. What would that be it be?
+[26:33] again, my maths isn't the best off the top of my head, but
+[26:38] What would that be? Maybe is that I want to see 20 percent, but it's not 20 percent. Is it
+[26:45] Oh, I wish my maths was better. It's maybe 15 percent
+[26:49] Tempt don't shoot me if I get that wrong, but let's just say it's 15 percent. Well, maybe our benchmark's 20 percent
+[26:56] Okay, and it it actually is 20 percent. This doesn't fit. Oh, no. What are we gonna do?
+[27:01] Well, I'm not being funny, but it's profitable. So I'm not gonna do anything, right?
+[27:05] This is still good for me. Do you know what I mean? So
+[27:09] It like I just see again going back so many people just get fixated on well, that doesn't fit the benchmark
+[27:16] Are you profitable? Yeah. Well, does it matter? No, okay
+[27:20] So so don't get weighed down by benchmarks that you need to aim for they're important
+[27:25] the secondary, okay
+[27:28] so
+[27:29] We can see the conversion rate is still pretty good
+[27:31] It's it's hovering at 1% with a little bit of optimization
+[27:36] potentially with with like a little bit more data, maybe some landing page optimization
+[27:41] We can potentially increase this
+[27:44] Okay, so we've we've not talked about landers and I probably won't talk about it too much in in this video
+[27:50] But landers are a very important part of the puzzle and quite often neglected in what I see
+[27:57] We spend so much time optimizing the landing page
+[28:00] And we usually use quizzes because we're able to really twist the knife subconsciously by asking really, you know
+[28:09] pain provoking questions
+[28:11] That they have to click multiple choice and it's all
+[28:15] You know, ultimately it's a micro commitment to them subconsciously admitting something that they have a problem
+[28:21] That they're not happy where they are and ultimately that they need a solution to fix it
+[28:26] Well, if you can do that
+[28:28] That really helps increase the conversion rate of the offer so we can optimize that and again
+[28:33] It's something that we do a lot that I don't see too many talk people talk about or do
+[28:39] You know a lot of time it's just need to do the ad, you know the ad
+[28:44] A lot of time you can help the ad by optimizing the land landing page right by that bridge page
+[28:50] It gets missed so many times
+[28:52] Okay, so we've got that right we've got our
+[28:56] You know our prove ad set running it's off to a great start. It's only been running a day
+[29:00] Maybe this is the second day. So there's you know nowhere near enough data to be like, oh, well, you know, it's
+[29:07] Ready to go again
+[29:08] Like I want to see again at least three days worth of data here to determine whether this ad is going to be
+[29:15] Eligible to be duplicated into a higher ad set a higher budget
+[29:19] Again, I'm just
+[29:20] Reproving okay, we've proved that two hundred dollars a day. What's it going to look like at a thousand dollars a day?
+[29:26] Okay, and that's really going to help us maybe not a thousand dollars maybe five hundred dollars
+[29:31] But that's going to help determine whether we
+[29:34] Move this ad into a scaling cbo. Okay into our scale phase
+[29:39] So we have the test phase which is you know these originals like this is testing
+[29:44] Then we have to prove phase which is is this is the early step off
+[29:48] Then we're going to you know further prove or I like to further prove at a higher budget
+[29:53] And then we've got a scale phase. So the goal is to find you know three four maybe five
+[30:01] ads that we can prove
+[30:04] And move into a cbo and that cbo we have a really high budget
+[30:08] We have bid caps or or cost per result. I prefer bid caps
+[30:12] And quite often at that point
+[30:15] We have enough data that we can start day partying and what I'm looking at is do we have
+[30:21] A six seven eight ten twelve hour block of time
+[30:25] Where the vast majority of those hours are green and they're consecutive hours
+[30:31] I don't want to stop start
+[30:32] I want a consecutive block of hours that I can say I only want to spend money in these hours
+[30:40] That is my favorite optimization is to be able to say well look
+[30:44] What's the point in running outside of these hours when overall we're at a loss of 10 percent?
+[30:49] Let's just put all our budget into these eight hours
+[30:53] Let's say it's you know two a.m. Till 10 a.m. It's just you know, I'm not saying that's what's happening
+[30:58] But I'm just saying it's easy for me to work out that eight hour block
+[31:02] Let's put all our money in there because overall it's 50 plus r y
+[31:08] If we then take all our winning ads and put them in that winning block of time
+[31:14] What are we going to see right with our high budgets?
+[31:18] Hopefully we see scale right and hopefully this is by far that in my opinion
+[31:24] The best and easiest and fastest way to go from a couple hundred dollars a day in test phase
+[31:29] To tens of thousands of dollars a day and hopefully I have this campaign where I can walk you through that process
+[31:36] or at least I'll I'll be adding case studies to
+[31:40] To add profits and my one-on-ones
+[31:45] So might not be as detailed as this which is just like a little bit of a plug to get inside
+[31:53] But yeah to go back to the actual results of what we're seeing
+[31:57] We're seeing some really good things here, right? We also have johnny v2
+[32:00] So our new iteration and this time it's working really well off locker, which is our angle, right?
+[32:06] So with the the locker angle, we don't have any confirmation, but I am looking and I'm saying that's decent man
+[32:13] Seven checkouts is good. Now the one thing that I will say this has only been running. I think this is a second day
+[32:18] So i'm not making too much too hasty a decision just yet
+[32:22] Actually, this isn't the second day. Is it how much has it spent this ad set?
+[32:28] 180 okay 180. So this is actually going into day four
+[32:31] interesting
+[32:33] Now we can see there's an ad here and and this allows me to sort of clarify as well
+[32:38] We've got an ad here because we've not talked about turning things off
+[32:41] Sin six, which is spent a hundred dollars
+[32:44] And it's not got any checkouts. Sorry. It's not got any purchases and the checkouts are quite high
+[32:50] Okay, so now for me although we could get a sale in the next
+[32:54] Few clicks the next ten dollars could bring a sale and that would mean it's profitable
+[32:59] For me, I want to turn this ad off
+[33:01] This isn't an ad that I want the budget to go to because I can see here
+[33:05] I actually have two ads that although they don't have loads of data
+[33:09] They've got a really good cost per checkout and they've got multiple checkouts. Okay, both of these ads
+[33:16] And they've both converted to sales
+[33:18] So I would rather turn this ad
+[33:21] Sin six
+[33:22] Off to allow the budget in this ad set to flow through to these two ads that are looking good
+[33:28] That I've got off to a good start. Okay, so that's what one move that I'm going to make
+[33:33] Is turn this ad off if it's not already been caught right? We have automated rules help this
+[33:40] But so this may already be turned off, but I'll double check and then the question is do I deem this
+[33:48] ad
+[33:51] As an ad that I should progress and to prove
+[33:55] For me, I'd like to see a sale
+[33:58] Or two more. I'd like to see a couple purchases more ideally three or four purchases for me to determine that
+[34:05] However, if I want to make a little bit more of a more aggressive move
+[34:10] And and part of media buying by the way, although, you know, I think logistical methodical is is important
+[34:17] Also gut reactions important and quite often not talked about for me. I'm a I'm a very sort of
+[34:23] I guess emotionally driven media buyer
+[34:27] Which isn't always the best thing by the way. I don't think emotional decisions are very wise
+[34:32] So with with ones where I think this is a bit risky
+[34:35] I want to back it up with data where the methodical side comes in. However
+[34:40] Sometimes with this if I'm feeling aggressive if I'm feeling like well, I just want to get some more
+[34:45] You know prove some more winning ads. I may move ads prematurely
+[34:50] And then it's a 50 50. Did they pay off? Did they not? Well, if they pay off fantastic
+[34:55] If they don't all right. Well, I took the risk. I rolled the dice. It didn't pay off
+[35:00] So sometimes I will make moves prematurely
+[35:03] But that's all part and part of being a media buyer or at least a media buyer
+[35:07] Sometimes you have to go with your gut
+[35:10] And I'm not always wait for the data
+[35:13] And obviously it's wise to get the accurate data to make sure it's significant
+[35:17] But sometimes you just need to make that move
+[35:20] Okay, so for me, I might look at scaling or not scaling but proven since seven
+[35:25] Um, and then, you know, I'm not going to go into too much depth in the other ones. We can see we've got drake
+[35:30] um
+[35:32] The drake campaign which you know, I did actually try and move and hit here's a really good example
+[35:38] Here's a fantastic example
+[35:40] We had this drake locker. Okay
+[35:43] And we had drake free obviously I'm assuming this is the only
+[35:51] Hmm. I wonder if there's
+[35:53] It says the 11th on the campaign. So let's just change that
+[35:58] Just see if we've got okay. That would make more sense. So we have
+[36:04] Okay, so we have the drake locker, right
+[36:08] So drake free
+[36:10] Has two sales that this is a fantastic example of what I was just talking about
+[36:15] two sales
+[36:17] Really good ROI
+[36:19] Good checkout or not
+[36:22] Amazing, but a few checkouts really good checkout to purchase ratio, but not a lot of data
+[36:27] So not significant not an accurate decision to be made here with our methodical mindset
+[36:33] But gut reaction. Do we roll the dice for me? I decided to roll the dice
+[36:38] Did it pay off? Well
+[36:40] Yeah, I don't know. I honestly don't know. We've only spent $123 in this new ad set. So it only went live
+[36:46] I think it must have gone live yesterday
+[36:49] And and it's not spent much so potentially this could pay off. It's not paid off straight off the back
+[36:56] But it's got sales. It's got two sales. It's got, you know, checkouts
+[37:00] But look at that checkout to purchase ratio, right? It's not really that great, right?
+[37:04] And again, don't ask me to give you the percentage
+[37:07] It's further down. I can scroll across on the ad on the red track to find out what the percentage is
+[37:13] But it's definitely not great. Okay, you know, it's probably maybe 12 percent or something. Maybe
+[37:19] Yeah, 12 because 20 checkouts and two sales would be 10
+[37:25] So it's gonna hover maybe maybe it's 15 percent. I don't know. Stop asking me
+[37:29] Um, but it's not great. Okay, but the conversion rate. Yeah, it falls in it falls in
+[37:34] So we'll see we'll see how this pans out. But yeah early start not the best
+[37:40] But it's not losing money and that's the main thing. Okay
+[37:43] um
+[37:45] Okay, so
+[37:47] Yeah, that's drake and then we've got ads and ad sets in here that have been turned off
+[37:51] So this has been turned off
+[37:52] It got a sale
+[37:53] But it was with the other offer that we were testing which was a lower payout
+[37:57] I mentioned that we were rotating two offers now
+[38:00] We're only going with one offer because we have significant data to determine that one offer is way more profitable. Okay
+[38:07] So that's what's happening in drake then we got quad
+[38:10] I'm not going to break this down because it's a bit obvious as what we're doing in in the quad breakdown
+[38:14] But you can see like overall
+[38:16] Four sales 20 or 19 checkouts. I'm going to say 20 because it gives me a better
+[38:21] You know ability to work out check out to purchase 20 percent. There we go. Um
+[38:27] Really good cost per check out
+[38:29] Four sales giving us a good check out to purchase ratio
+[38:33] Conversion rate you could argue needs to be higher
+[38:36] but
+[38:39] I don't care
+[38:40] Right and this is going back to you know, don't have things set in stone things are it the great thing about being an affiliate
+[38:48] Is with fluid? Okay
+[38:50] That is probably the the best one of the best things there's multiple good things
+[38:54] But one of the best
+[38:56] Things about being an affiliate is with fluid. We're not tied to an offer and that's actually an interesting thing
+[39:02] I did some content for my community recently, which was
+[39:07] One of the biggest mistakes you can make as an affiliate is becoming married to an offer
+[39:12] Not being able to drop the offer not knowing when to drop the offer. It's a really really
+[39:17] Important thing to avoid and you know, I'm talking from experience. I've done it
+[39:23] I've become married to an offer and it's you know lost me money in the long run
+[39:28] So you need to know when to drop it. So again sort of off on a tangent there, but
+[39:32] Yeah, this is a really good start to this campaign. This was only introduced once it's spent 230
+[39:39] And there's four ad sets in here. So or three ad sets. Sorry. So it's 150 a day
+[39:44] So we're second or it's been two maybe three days now that it's been running
+[39:48] Really good start here. I haven't delved into it too much to determine whether there's stuff that we can
+[39:55] Prove there might be so that's another step
+[39:58] And then we've got these two other campaigns that you can see haven't spent that much
+[40:02] Don't have sales, but I can see the peanut campaign has a couple more checkouts
+[40:09] I'm going to let these two run and see what happens. But overall, you know, we're 9% ROI 10% ROI, which is great
+[40:17] Again, we're at the early stage of testing. So we're not, you know, we're not losing money
+[40:21] Which is fantastic. And now we're starting to pull
+[40:24] Outliers out
+[40:26] So we've got two at the moment
+[40:27] I think we're going to have you know, hopefully three or four that we can do
+[40:32] But you can see, you know, like if we can pull these out and hold at scale
+[40:36] We're really looking good. So there we go
+[40:40] Again to recap we test
+[40:43] And ideally with a variety of concepts. So for me, I like to have different angles different creative concepts
+[40:49] I like to have, you know, an image or an image a style of image or maybe a couple of styles of image
+[40:55] I like to have a few different video styles UGC authority b-roll, etc
+[41:01] First person making a recipe or a drink that type of thing. And then also we have different angles within the copy
+[41:09] Okay, different messaging within the copy and by doing this, we're able to really
+[41:14] Dig down and again, remember if you're going to follow this type of a framework
+[41:19] It's really important that we're focused on pockets of profit
+[41:24] We're not don't get, you know, don't get
+[41:27] dissuade or
+[41:29] Disheartened by your overall campaign number. Okay dig down and see what's going on, right?
+[41:36] The the the priority here that the number one goal in the test phase
+[41:42] is two things
+[41:43] test the offer
+[41:45] to determine that the offer has legs
+[41:47] And we can continue to run it and we do that by obviously seeing if it has sales
+[41:52] What the conversion rate is and then digging down into the pockets of profit, right?
+[41:57] By testing multiple angles multiple creatives multiple ad copies
+[42:01] That allows us to really dig down and find those pockets of profit and then
+[42:06] Apart again, you know, I mentioned it briefly. We have landing pages
+[42:09] So I like to rotate two landers at a time often
+[42:12] I'll rotate the same lander but change the headline
+[42:15] Maybe change the opening question and big on quizzes really big on quizzes
+[42:20] I just see it's such a needle mover to be able to take someone from maybe problem aware
+[42:26] To solution aware to product aware like it's a really good way of getting them to subconsciously admit
+[42:32] They have a problem and then also that they need a solution
+[42:36] It's a really good way and again I go into it in more depth when when I talk one on one with my clients
+[42:42] Which leads me on to the final thing and that is I do have space
+[42:47] Within my one-to-one program where you will work one-on-one with me. We jump on one-to-one calls
+[42:54] We're not group calls. Okay. We do have another
+[42:57] Product that does have group calls
+[42:59] But for me as an affiliate when I was starting out
+[43:04] I was desperate for a one-on-one mentor
+[43:06] I was different desperate for to have that one-on-one private time away from prying eyes
+[43:13] The issue with group coaching although is great and very valuable
+[43:18] You don't want to share your ads
+[43:20] You don't want people to see your page your url your lander
+[43:24] Because then that opens you up to people coming and ripping your ads or coming and looking exactly what you're doing
+[43:29] What off you're running it creates competition
+[43:32] And it definitely creates people the lazy ones who will just come and rip your ads and just run it as their own
+[43:38] and you know
+[43:40] They're the worst right the lazy ones
+[43:43] So instead
+[43:44] I think one-to-one is super important within the affiliate industry
+[43:49] Hence why I've decided to open that up
+[43:53] So if you're in the market if you're an affiliate already or maybe you're a media buyer
+[43:57] That's just sick and tired of client work, which I was
+[44:01] Back when I had my agency. I was just burned out
+[44:05] I decided to transition to affiliate and it was the best move I ever made you can read more
+[44:09] You know look through my youtube channel
+[44:11] Check out my clickbank podcast that I did a diamond summit a year or two ago
+[44:17] Bit more of my story there
+[44:20] And you're able to see who I am and what I'm about
+[44:23] But for me, I needed that one-on-one support
+[44:25] So if you want one-on-one help, there's a call below a call below a link below in the description
+[44:31] You can book a call with either myself or or alfred my right-hand man
+[44:36] And we'll discuss whether our program is is a suit for you if it's going to suit you it's definitely not cheap
+[44:43] Okay, it's definitely expensive. So be aware
+[44:47] I think it's ideal for people that are maybe running 500 to a few thousand dollars per day
+[44:52] And they just want to get to the next level. Okay, they want to get to five figure days
+[44:57] Even six figure days
+[44:58] So if that's you if you have experience if you've or if you're already running
+[45:03] Multiple hundreds or thousands per day and you really want that next step up
+[45:07] You want someone to be able to bounce ideas off you want to jump on a call with me and help optimize your campaign
+[45:14] you want
+[45:15] An introduction into my circle
+[45:18] Vendors and and you know service providers and and team of you know creative designers and and everything else
+[45:25] Agency accounts then obviously I'm going to be able to help you do that
+[45:29] You also get 24 seven access to me
+[45:31] So if if that sounds like a good move then book a call below choose a day in time
+[45:37] You'll talk to either myself or alf
+[45:39] And we'll make sure that this is right for you and we'll also rain down some really good insight
+[45:44] To help you whether this isn't the right thing for you
+[45:47] Anyway, we'll still make sure that you walk away from that call with an absolute bucket load of value
+[45:53] So again jump down below book that call and I'll speak to you soon

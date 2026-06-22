@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viabilidad real del modelo Affiliate Performance (Meta Ads + ClickBank) · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">00-viabilidad / research-fuentes · 22 min · 4,470 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#resumen-ejecutivo" class="">Resumen ejecutivo</a></li><li><a href="#1-tasa-de-éxito-real" class="">1. Tasa de éxito real</a></li><li><a href="#datos-disponibles-fuentes-mixtas-ninguna-independiente-con-metodología-auditable" class="h3">Datos disponibles (fuentes mixtas, ninguna independiente con metodología auditable)</a></li><li><a href="#tiempo-a-primer-winner-campaña-en-break-even" class="h3">Tiempo a primer winner (campaña en break-even)</a></li><li><a href="#veredicto-sección-1" class="h3">Veredicto sección 1</a></li><li><a href="#2-la-cara-oscura-del-modelo" class="">2. La cara oscura del modelo</a></li><li><a href="#pérdidas-netas-año-1" class="h3">Pérdidas netas año 1</a></li><li><a href="#trampas-comunes-documentadas" class="h3">Trampas comunes documentadas</a></li><li><a href="#survivorship-bias" class="h3">Survivorship bias</a></li><li><a href="#industria-saturada-demasiado-tarde" class="h3">¿Industria saturada / "demasiado tarde"?</a></li><li><a href="#veredicto-sección-2" class="h3">Veredicto sección 2</a></li><li><a href="#3-costos-reales-vs-lo-que-dicen-los-gurús" class="">3. Costos reales vs lo que dicen los gurús</a></li><li><a href="#recálculo-realista-del-usd-11k" class="h3">Recálculo realista del USD 11K</a></li><li><a href="#veredicto-sección-3" class="h3">Veredicto sección 3</a></li><li><a href="#4-comparación-con-otras-opciones-de-negocio-digital" class="">4. Comparación con otras opciones de negocio digital</a></li><li><a href="#observación-crítica" class="h3">Observación crítica</a></li><li><a href="#5-veracidad-de-los-casos-exitosos" class="">5. Veracidad de los "casos exitosos"</a></li><li><a href="#pancho-val-francisco-valenzuela-chileno-24-25-años" class="h3">Pancho Val (Francisco Valenzuela, chileno, ~24-25 años)</a></li><li><a href="#robby-blanchard-commission-hero-usa" class="h3">Robby Blanchard (Commission Hero, USA)</a></li><li><a href="#felipe-vergara-colombia-español" class="h3">Felipe Vergara (Colombia, español)</a></li><li><a href="#patrón-estructural-inevitable" class="h3">Patrón estructural inevitable</a></li><li><a href="#veredicto-sección-5" class="h3">Veredicto sección 5</a></li><li><a href="#6-tendencias-2024-2026" class="">6. Tendencias 2024-2026</a></li><li><a href="#crecimiento-de-la-industria-data-agregada-sesgo-vendor" class="h3">Crecimiento de la industria (data agregada, sesgo vendor)</a></li><li><a href="#impacto-ios-14-app-tracking-transparency-2021" class="h3">Impacto iOS 14+ (App Tracking Transparency, 2021)</a></li><li><a href="#tiktok-shop-amazon-influencer-dtc-affiliate" class="h3">TikTok Shop / Amazon Influencer / DTC affiliate</a></li><li><a href="#ia-en-creatives" class="h3">IA en creatives</a></li><li><a href="#resumen-tendencia-2026" class="h3">Resumen tendencia 2026</a></li><li><a href="#7-lo-que-dicen-comunidades-sin-sesgo-de-venta" class="">7. Lo que dicen comunidades sin sesgo de venta</a></li><li><a href="#reddit-raffiliatemarketing-sentimiento-agregado-de-2024-2026" class="h3">Reddit r/Affiliatemarketing (sentimiento agregado de 2024-2026)</a></li><li><a href="#rpassive-income-rentrepreneur-raffiliatemarket" class="h3">r/passive_income, r/Entrepreneur, r/Affiliatemarket</a></li><li><a href="#trustpilot-clickbank" class="h3">Trustpilot ClickBank</a></li><li><a href="#veredicto-sección-7" class="h3">Veredicto sección 7</a></li><li><a href="#8-veredicto-data-driven" class="">8. Veredicto data-driven</a></li><li><a href="#probabilidad-estimada-de-éxito-para-el-escenario-específico-openclaw-usd-11k-3-personas-12-meses" class="h3">Probabilidad estimada de éxito para el escenario específico OpenClaw (USD 11K, 3 personas, 12 meses)</a></li><li><a href="#bajo-qué-condiciones-específicas-funciona" class="h3">Bajo qué condiciones específicas funciona</a></li><li><a href="#bajo-qué-condiciones-falla" class="h3">Bajo qué condiciones falla</a></li><li><a href="#red-flags-que-deberían-detener-la-decisión" class="h3">Red flags que deberían detener la decisión</a></li><li><a href="#señales-positivas-que-la-justifican" class="h3">Señales positivas que la justifican</a></li><li><a href="#veredicto-final-brutalmente-honesto" class="h3">Veredicto final brutalmente honesto</a></li><li><a href="#notas-metodológicas" class="">Notas metodológicas</a></li><li><a href="#fuentes-consultadas-selección-todas-indexadas-en-firecrawl" class="">Fuentes consultadas (selección, todas indexadas en `.firecrawl/`)</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>02-viabilidad-modelo.md</span><span>4,470 palabras</span><span>~22 min</span></div>
+<h1 id="viabilidad-real-del-modelo-affiliate-performance-meta-ads-clickbank">Viabilidad real del modelo Affiliate Performance (Meta Ads + ClickBank)</h1>
+<p><strong>Fecha:</strong> 2026-04-28 <strong>Investigador:</strong> Claude (Opus 4.7) — research independiente <strong>Capital evaluado:</strong> USD 11.000 · Horizonte: 12 meses · Equipo: 3 personas (Romi + Cris + Dali) <strong>Mandato:</strong> Evaluación brutalmente honesta, distinguiendo data oficial / encuestas comunidad / opinión / marketing fluff.</p>
+<hr>
+<h2 id="resumen-ejecutivo">Resumen ejecutivo<a class="anchor" href="#resumen-ejecutivo">#</a></h2>
+<p>El modelo "Meta Ads + ClickBank afiliado" <strong>es real y técnicamente viable</strong>, pero opera en una distribución de retornos altamente asimétrica donde la mediana del nuevo afiliado pierde dinero en el primer año. Las mejores fuentes data-driven coinciden en que <strong>80-95% de afiliados no llegan a un ingreso significativo</strong> (>USD 1.000/mes neto consistente) en sus primeros 12 meses, y que el camino "Meta Ads paid traffic" específicamente exige más capital, más tolerancia al riesgo operativo (bans), y más skill técnico que la narrativa de los gurús sugiere.</p>
+<p>La pregunta no es "¿es scam?" — no lo es. La pregunta correcta es: <strong>"¿con USD 11K, equipo de 3, y 12 meses, qué probabilidad razonable tenemos de salir en positivo y cuánto downside aceptamos?"</strong> La respuesta data-driven está en el cierre del documento.</p>
+<hr>
+<h2 id="1-tasa-de-éxito-real">1. Tasa de éxito real<a class="anchor" href="#1-tasa-de-éxito-real">#</a></h2>
+<h3 id="datos-disponibles-fuentes-mixtas-ninguna-independiente-con-metodología-auditable">Datos disponibles (fuentes mixtas, ninguna independiente con metodología auditable)<a class="anchor" href="#datos-disponibles-fuentes-mixtas-ninguna-independiente-con-metodología-auditable">#</a></h3>
+<ul>
+<li><strong>Mediakix (2018-2022, citada repetidamente, sin paper público):</strong> ~5% de los afiliados alcanzan "complete success"; 95% no lo logran o abandonan. Cifra reproducida en Dynu In Media, Medium (multiple), Quora, LinkedIn pulse — pero ninguna fuente con muestra estadísticamente representativa.</li>
+<li><strong>Tolt (Ilias Ism, marketing SaaS, noviembre 2025):</strong> "41% de affiliate marketers ganan menos de USD 1.000/mes y 23% reportan literalmente USD 0". Misma fuente: "~35% generan al menos USD 20.000/año (~USD 1.667/mes)" y "~15% ganan entre USD 80K y USD 1M/año". Estas cifras provienen de "industry data" no especificada — tomar con escepticismo.</li>
+<li><strong>FirstPromoter (marzo 2026, vendor de software afiliado, sesgo upward):</strong> "10-20% de los afiliados ganan suficiente para tratarlo como ingreso primario; 1-5% alcanza six-figures". Mediana reportada por su propia plataforma: USD 3.000-15.000/mes — pero esta es la cohorte de afiliados que ya están <strong>en su software</strong>, no afiliados nuevos.</li>
+<li><strong>Reddit r/Affiliatemarketing (sentimiento agregado, n=cientos de threads):</strong> "Real people make USD 500-USD 5K/month after 12-18 months of consistent posting. Almost nobody hits the numbers in course thumbnails (USD 10K/month in 90 days)" — quote textual de un thread con upvotes altos.</li>
+</ul>
+<h3 id="tiempo-a-primer-winner-campaña-en-break-even">Tiempo a primer winner (campaña en break-even)<a class="anchor" href="#tiempo-a-primer-winner-campaña-en-break-even">#</a></h3>
+<ul>
+<li>Tolt: "Months 0-3: USD 0-50/month. Months 3-12: USD 50-1.000/month si haces las cosas bien consistentemente. Months 12-24: USD 1.000+/month es realista si construiste un activo real."</li>
+<li>Commission Hero (Robby Blanchard, programa pago): admite explícitamente en su FAQ que estudiantes necesitan "USD 10-20/día en ads" para testing, lo que implica USD 300-600/mes de quemado <strong>antes</strong> de comisión alguna. Ese gasto es "tuition for learning, not investment with guaranteed returns" — palabras del propio review independiente.</li>
+<li>Reddit (múltiples testimonios cualitativos): la mayoría reporta 6-18 meses para llegar a USD 1K/mes neto consistente; <1% logra USD 10K/mes en año 1.</li>
+</ul>
+<h3 id="veredicto-sección-1">Veredicto sección 1<a class="anchor" href="#veredicto-sección-1">#</a></h3>
+<p>No hay un solo estudio académico independiente con muestra representativa sobre tasa de éxito en affiliate marketing. <strong>Toda la data disponible viene de:</strong> (a) vendedores de software afiliado (sesgo upward), (b) gurús que venden cursos (sesgo upward), (c) afiliados retirados o exitosos en blogs (survivorship bias), o (d) Reddit (autoselección, no representativo). El "95% falla" es probablemente correcto en orden de magnitud, pero la metodología es débil. <strong>Lo que sí está bien documentado:</strong> la mediana del afiliado nuevo en su año 1 está cerca de USD 0-500/mes neto.</p>
+<hr>
+<h2 id="2-la-cara-oscura-del-modelo">2. La cara oscura del modelo<a class="anchor" href="#2-la-cara-oscura-del-modelo">#</a></h2>
+<h3 id="pérdidas-netas-año-1">Pérdidas netas año 1<a class="anchor" href="#pérdidas-netas-año-1">#</a></h3>
+<p>Combinando Tolt + Reddit + admisiones en reviews de cursos pagos: <strong>estimación razonable de 60-80% de afiliados nuevos pierden dinero neto en año 1</strong> (gasto en ads + tools + curso > comisiones generadas). Los reviews de Commission Hero Plus son explícitos: "Most paid traffic campaigns go through a testing phase where spend precedes revenue. That is normal and expected, not a sign something is wrong" — eufemismo elegante para "vas a quemar plata mientras aprendes".</p>
+<h3 id="trampas-comunes-documentadas">Trampas comunes documentadas<a class="anchor" href="#trampas-comunes-documentadas">#</a></h3>
+<ul>
+<li><strong>Bans de Meta Ads (alta frecuencia en VSLs ClickBank de salud/finanzas/dietas):</strong> Reddit r/FacebookAds está plagado de cuentas baneadas con fondos retenidos. Coinis, Bïrch, GoLogin (todos vendors anti-detect) son explícitos: el ban no es excepción, es expectativa en el modelo paid traffic afiliado. Comentario citado: "If you don't request an Ad account review within 30 days you won't recover the account" — escala de tiempo crítica.</li>
+<li><strong>Refunds y chargebacks en ClickBank:</strong> ClickBank documenta thresholds operativos: chargeback rate >2% gatilla "Immediate Refunds mode" que puede terminar con suspensión de cuenta. Refund rate >20% también gatilla suspensión. La industria asume <strong>5-15% refund rate normal en VSLs de salud/dietas/biz-opp</strong> (CPV Lab data) — eso significa que de cada USD 100 en comisiones, USD 5-15 vuelven al pool antes de cobrarlas.</li>
+<li><strong>FTC enforcement (caso real, no hipotético):</strong></li>
+<li>Affiliate Network operator condenado a <strong>USD 11.9 millones</strong> (2do Circuito, 2016) por claims engañosos de afiliados.</li>
+<li>Operador Clickbooth pagó <strong>USD 2 millones</strong> (2012) por fake news sites.</li>
+<li>Affiliate Network responsable por <strong>USD 179 millones</strong> en deceptive marketing (settlement reciente).</li>
+<li>FTC envió advertencias a <strong>~700 health product marketers</strong> en 2023 sobre claims sin sustento. La industria salud-suplemento en ClickBank está en lupa permanente.</li>
+</ul>
+<h3 id="survivorship-bias">Survivorship bias<a class="anchor" href="#survivorship-bias">#</a></h3>
+<p>Solo se ve a Pancho Val, Robby Blanchard, Felipe Vergara (los "casos exitosos") porque los miles que perdieron USD 5-15K no hacen YouTube ni venden cursos sobre cómo perder plata. <strong>Esto es estadísticamente equivalente al fenómeno trader-retail:</strong> ver al ganador no permite inferir probabilidad de ganar.</p>
+<h3 id="industria-saturada-demasiado-tarde">¿Industria saturada / "demasiado tarde"?<a class="anchor" href="#industria-saturada-demasiado-tarde">#</a></h3>
+<p>Data mixta y aquí hay matices reales:</p>
+<ul>
+<li>Industry size: USD 18.5B en 2024 → proyectado USD 31.7B en 2031 (Post Affiliate Pro citing market research). Crecimiento real ~8% CAGR.</li>
+<li>US affiliate spend: USD 10.72B (2024) → USD 12B (2025), +11.9% YoY (Statista vía FirstPromoter).</li>
+<li>80% de brands tienen programas de afiliados activos.</li>
+<li><strong>Pero:</strong> competencia en VSLs ClickBank tradicionales (salud, biz-opp, finance) está extremadamente saturada. CPMs en Meta para esas verticales subieron ~35-50% post-iOS 14. El "blue ocean" se desplazó a niches y formatos nuevos (TikTok Shop, AI-generated micro-niches).</li>
+</ul>
+<h3 id="veredicto-sección-2">Veredicto sección 2<a class="anchor" href="#veredicto-sección-2">#</a></h3>
+<p>El modelo no está "muerto" pero <strong>el espacio donde gana dinero el afiliado novato se redujo dramáticamente</strong> entre 2020 y 2026. Las trampas (bans, refunds, FTC) no son edge cases — son operating reality. Cualquier proyección financiera que no asuma 1-3 bans Meta + 8-12% refund rate + 1 mes de ramp-up muerto está mintiendo.</p>
+<hr>
+<h2 id="3-costos-reales-vs-lo-que-dicen-los-gurús">3. Costos reales vs lo que dicen los gurús<a class="anchor" href="#3-costos-reales-vs-lo-que-dicen-los-gurús">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Concepto</th>
+<th>Lo que se dice / promete</th>
+<th>Realidad documentada</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Curso/mentoría</strong></td>
+<td>"Inversión única" USD 500-2.500</td>
+<td>Commission Hero Plus: USD 1.497 + ad budget. Felipe Vergara: ~USD 500-1.000 (Hotmart). Bencorde: presumiblemente similar rango LATAM. Refund policy de Commission Hero: forfeit al login.</td>
+</tr>
+<tr>
+<td><strong>Ad spend testing</strong></td>
+<td>"USD 5-10/día para empezar"</td>
+<td>Commission Hero FAQ propio: USD 10-20/día = <strong>USD 300-600/mes mínimo</strong> durante 3-6 meses de testing antes de break-even. Realista: <strong>USD 600-1.500/mes durante 4-6 meses = USD 2.400-9.000 en ads quemados antes del primer winner</strong>.</td>
+</tr>
+<tr>
+<td><strong>Antidetect browser</strong></td>
+<td>"Opcional" o no mencionado</td>
+<td>Multilogin: desde USD 99/mes para 100 perfiles. Dolphin Anty: free hasta 10 perfiles, USD 89-252/mes para 100-1000. AdsPower: USD 30-50/mes mid-tier. Si quemas BMs (esperado), <strong>necesitas multi-account = USD 30-100/mes mínimo</strong>.</td>
+</tr>
+<tr>
+<td><strong>BM nuevos</strong></td>
+<td>"Verifica con ID y listo"</td>
+<td>Mercado gris de BMs verificados con historial de ad spend: <strong>USD 50-300 por BM</strong> según calidad. Reemplazar 3-5 BMs en año 1 (estimado conservador) = <strong>USD 200-1.500</strong>.</td>
+</tr>
+<tr>
+<td><strong>Tools stack</strong> (ClickFunnels/Landerlab + spy + AI creatives)</td>
+<td>"USD 200-400/mes"</td>
+<td>Realista 2026: ClickFunnels USD 97-297/mes · Landerlab USD 49-149/mes · SpyHero/PowerAdSpy USD 99-299/mes · Atria USD 49-99/mes · HeyGen USD 24-89/mes · Creatify USD 39-79/mes · Cometly tracking USD 99-299/mes · ChatGPT Plus o Claude Pro USD 20-200/mes. <strong>Realista USD 500-900/mes</strong>, no 650 fijo.</td>
+</tr>
+<tr>
+<td><strong>Compliance / legal</strong></td>
+<td>No mencionado</td>
+<td>LLC/empresa US o offshore para limitación de responsabilidad: USD 200-1.500 setup + accounting USD 100-500/mes. Privacy policy + terms + FTC disclaimers redactados: USD 200-1.000 one-time.</td>
+</tr>
+<tr>
+<td><strong>Refund/chargeback drag</strong></td>
+<td>No mencionado</td>
+<td>ClickBank retiene comisiones 30-60 días por refund window. Si tu refund rate es 12%, tu "USD 100 commission" reportado es <strong>USD 88 cobrable real</strong>. Chargebacks adicionales: ~USD 25 fee por chargeback.</td>
+</tr>
+<tr>
+<td><strong>Burnout / opportunity cost</strong></td>
+<td>No mencionado</td>
+<td>Equipo de 3 personas dedicando 20-40h/semana cada uno por 12 meses = ~3.000-6.000 horas-persona. Opportunity cost a USD 20/hora freelance modesto = <strong>USD 60.000-120.000 no monetizables</strong>. Esto no es "costo cash" pero es costo real.</td>
+</tr>
+</tbody></table></div>
+<h3 id="recálculo-realista-del-usd-11k">Recálculo realista del USD 11K<a class="anchor" href="#recálculo-realista-del-usd-11k">#</a></h3>
+<p>Asumiendo ramp-up típico (no best case, no worst case):</p>
+<ul>
+<li>Curso/mentoría: USD 1.500</li>
+<li>Tools mes 1-12 (USD 700/mes promedio): USD 8.400</li>
+<li>Antidetect browser (USD 60/mes): USD 720</li>
+<li>BMs reemplazo (3-4 bans): USD 600</li>
+<li>Compliance setup: USD 500</li>
+<li><strong>Subtotal infraestructura/educación 12 meses: USD 11.720</strong></li>
+</ul>
+<p><strong>Eso ya es USD 11K consumido sin un solo dólar en ad spend testing.</strong> El budget de ads tiene que venir adicional o se restringe drásticamente la educación/tools.</p>
+<p>Con USD 11K total como techo: realistamente quedan <strong>USD 2.000-4.000 para ad spend en 12 meses</strong>, lo que da ~USD 200-400/mes de testing — debajo del mínimo recomendado por el propio Commission Hero.</p>
+<h3 id="veredicto-sección-3">Veredicto sección 3<a class="anchor" href="#veredicto-sección-3">#</a></h3>
+<p><strong>USD 11K es subcapitalización para el modelo Meta Ads + ClickBank ejecutado profesionalmente.</strong> El piso realista para tener una shot razonable es <strong>USD 18-25K</strong> (curso + tools 12m + ad spend 6m de testing + reserva para bans). USD 11K solo funciona si el equipo pone trabajo gratis, ya tiene tools propios, y acepta que el ad budget va a ser el cuello de botella.</p>
+<hr>
+<h2 id="4-comparación-con-otras-opciones-de-negocio-digital">4. Comparación con otras opciones de negocio digital<a class="anchor" href="#4-comparación-con-otras-opciones-de-negocio-digital">#</a></h2>
+<p>Para mismo capital (USD 11K) y horizonte (12 meses), análisis comparativo:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Modelo</th>
+<th>Margen esperado (% sobre revenue)</th>
+<th>Riesgo de ban/wipeout</th>
+<th>Escalabilidad</th>
+<th>Defensibilidad</th>
+<th>Capital mínimo realista 12m</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Affiliate ClickBank + Meta</strong></td>
+<td>10-30% (después de refunds, ad spend)</td>
+<td><strong>Muy alto</strong> (cuentas Meta + cuentas ClickBank)</td>
+<td>Alta (escalar con más ad spend)</td>
+<td><strong>Cero</strong> (no posees el producto, audiencia ni email list)</td>
+<td>USD 18-25K</td>
+</tr>
+<tr>
+<td><strong>Dropshipping (Shopify + Meta/TikTok)</strong></td>
+<td>15-25% si controlas pricing</td>
+<td>Alto (Meta bans, supplier issues, refunds)</td>
+<td>Alta</td>
+<td>Media (puedes construir marca)</td>
+<td>USD 8-15K</td>
+</tr>
+<tr>
+<td><strong>eCommerce marca propia</strong></td>
+<td>30-50% si producto de margen</td>
+<td>Medio (operación legítima reduce ban risk)</td>
+<td>Media-alta</td>
+<td><strong>Alta</strong> (marca, domain authority, email list, customer LTV)</td>
+<td>USD 15-30K (incluye inventario)</td>
+</tr>
+<tr>
+<td><strong>Agencia (servicios marketing)</strong></td>
+<td>40-70% (servicio puro)</td>
+<td>Bajo</td>
+<td>Limitada por horas</td>
+<td><strong>Alta</strong> (relación cliente, contratos retainer)</td>
+<td>USD 2-5K (laptop + tools)</td>
+</tr>
+<tr>
+<td><strong>SaaS micro / info-product propio</strong></td>
+<td>70-90% una vez construido</td>
+<td>Bajo</td>
+<td>Muy alta (revenue recurrente)</td>
+<td><strong>Muy alta</strong> (IP propia)</td>
+<td>USD 5-15K (dev) + 6-12 meses sin revenue</td>
+</tr>
+</tbody></table></div>
+<h3 id="observación-crítica">Observación crítica<a class="anchor" href="#observación-crítica">#</a></h3>
+<p><strong>El equipo OpenClaw (Cris+Ro) ya opera una agencia.</strong> El modelo "agencia" tiene mejor expected value, mejor defensibilidad, mejor risk-adjusted return que affiliate, y ya tienen los assets (clientes, brand, sistema). Sumar una iniciativa affiliate con USD 11K y 3 personas implica <strong>costo de oportunidad alto</strong> vs. invertir las mismas horas en escalar la agencia (más clientes, productizar, subir precios).</p>
+<p>El argumento contrario válido: <strong>affiliate puede generar ingresos no-lineales que la agencia no puede</strong> (un winner = USD 5-50K/mes con un solo equipo). Esa optionality es real, pero la probabilidad de captarla con USD 11K y año 1 es baja.</p>
+<hr>
+<h2 id="5-veracidad-de-los-casos-exitosos">5. Veracidad de los "casos exitosos"<a class="anchor" href="#5-veracidad-de-los-casos-exitosos">#</a></h2>
+<h3 id="pancho-val-francisco-valenzuela-chileno-24-25-años">Pancho Val (Francisco Valenzuela, chileno, ~24-25 años)<a class="anchor" href="#pancho-val-francisco-valenzuela-chileno-24-25-años">#</a></h3>
+<p><strong>Claims públicos:</strong> USD 5M+ en ClickBank, USD 8M invertidos en ads, top afiliado LATAM.</p>
+<p><strong>Verificable independientemente:</strong></p>
+<ul>
+<li>Instagram @panchoval con seguidores y posts consistentes (8 años de carrera reportados).</li>
+<li>Aparición en podcast Haciéndola (Oski Doski, plataforma reconocida en LATAM startup).</li>
+<li>Programa pagado "Affiliate Mastery" en Skalers Inc (skalersinc.com/apply) — patrón clásico: el éxito principal monetizable es <strong>vender el curso sobre cómo replicar el éxito</strong>.</li>
+</ul>
+<p><strong>No verificable independientemente:</strong></p>
+<ul>
+<li>W2 / 1099 / declaraciones fiscales públicas.</li>
+<li>Screenshots auditables de cuentas ClickBank (los screenshots disponibles son auto-curados).</li>
+<li>Testimonios de estudiantes con resultados verificables (no encontrados en search).</li>
+</ul>
+<p><strong>Patrón estructural a notar:</strong> Como Robby Blanchard y todos los demás top afiliados conocidos, el negocio escalable y predecible que opera Pancho Val hoy <strong>es vender educación afiliada, no comisiones afiliadas</strong>. Esto es el patrón "the picks-and-shovels" — el negocio sustentable está en venderle herramientas a la fiebre del oro, no en buscar oro.</p>
+<h3 id="robby-blanchard-commission-hero-usa">Robby Blanchard (Commission Hero, USA)<a class="anchor" href="#robby-blanchard-commission-hero-usa">#</a></h3>
+<p><strong>Claims:</strong> "#1 ClickBank Affiliate" con USD 5M+ en sales.</p>
+<p><strong>Verificable:</strong></p>
+<ul>
+<li>ClickBank lo ha reconocido públicamente en su propio blog como top afiliado en su plataforma.</li>
+<li>Commission Hero opera desde hace varios años con infraestructura pública documentada.</li>
+<li>Trustpilot: empresa real con reviews mixtos (sin acceso al detalle por bloqueo del scraper, pero el review independiente Newswire es honesto sobre limitaciones del programa).</li>
+</ul>
+<p><strong>Patrón a notar:</strong> Su propio earnings disclosure dice "<strong>absolutely no guarantee, expressed or implied, that by following the advice or content available from this web site you will make any money or improve current profits</strong>". Eso es lenguaje de la propia empresa.</p>
+<p><strong>Refund policy de Commission Hero Plus (red flag importante):</strong> Refund disponible <strong>solo si no has logueado al programa</strong>. El momento que entras, pierdes derecho a reembolso. Ese diseño no es estándar — es deliberado para evitar reembolsos.</p>
+<h3 id="felipe-vergara-colombia-español">Felipe Vergara (Colombia, español)<a class="anchor" href="#felipe-vergara-colombia-español">#</a></h3>
+<p><strong>Claims:</strong> USD 35-45M invertidos en Meta Ads, ayudó a 250+ marcas.</p>
+<p><strong>Verificable:</strong></p>
+<ul>
+<li>YouTube channel activo, presencia consistente.</li>
+<li>Reviews de su curso (incluyendo el scraped formarsemola.com) son <strong>affiliate reviews</strong> — el "reviewer" gana comisión si compras. Eso no es review independiente.</li>
+<li>Reddit r/Colombia tiene un thread crítico: "¿Alguno ha pagado una mentoría con Juan Ads o Felipe Vergara?" (sentimiento mixto-escéptico).</li>
+<li>YouTube: "Does Felipe Vergara's course actually WORK? Is it a SCAM?" — review crítico independiente.</li>
+</ul>
+<p><strong>Patrón:</strong> Su modelo principal hoy es <strong>vender el curso de Meta Ads</strong>, no necesariamente afiliado puro.</p>
+<h3 id="patrón-estructural-inevitable">Patrón estructural inevitable<a class="anchor" href="#patrón-estructural-inevitable">#</a></h3>
+<p><strong>Los gurús más visibles del affiliate marketing ganan más dinero vendiendo cursos sobre affiliate marketing que haciendo affiliate marketing.</strong> Esto no significa que sean fraudes — significa que el modelo "afiliado puro" tiene techo y volatilidad altos, mientras que "vender cursos sobre afiliados" tiene predictibilidad y escala mucho mejores. El que descubrió un winner sostenible <strong>rara vez</strong> lo monetiza enseñándolo (le saturaría el offer). El que enseña típicamente está monetizando atención, no replicabilidad.</p>
+<h3 id="veredicto-sección-5">Veredicto sección 5<a class="anchor" href="#veredicto-sección-5">#</a></h3>
+<p>Pancho Val, Robby Blanchard y Felipe Vergara probablemente <strong>sí ganan dinero real</strong> y probablemente <strong>sí lo ganaron primero como afiliados</strong>. Pero su éxito hoy es <strong>vender educación</strong>, no replicar afiliado activamente. <strong>Ningún claim numérico de ninguno de los tres es independientemente auditable</strong> (W2, fiscal, screenshots verificados). Tomar sus números literales como meta es estadísticamente irresponsable.</p>
+<hr>
+<h2 id="6-tendencias-2024-2026">6. Tendencias 2024-2026<a class="anchor" href="#6-tendencias-2024-2026">#</a></h2>
+<h3 id="crecimiento-de-la-industria-data-agregada-sesgo-vendor">Crecimiento de la industria (data agregada, sesgo vendor)<a class="anchor" href="#crecimiento-de-la-industria-data-agregada-sesgo-vendor">#</a></h3>
+<ul>
+<li>Global affiliate marketing: USD 18.5B (2024) → USD 31.7B (2031), CAGR 8% (Post Affiliate Pro / Statista).</li>
+<li>US: USD 12B en 2025, +11.9% YoY.</li>
+<li>80%+ de brands tienen programas. 16% de eCommerce sales en US/Canada vienen de afiliados.</li>
+</ul>
+<p><strong>Crítica honesta de estas cifras:</strong> miden gasto de <strong>brands</strong> en programas afiliados, no ingreso del afiliado individual. Una industria que crece 8% no garantiza que un nuevo entrante capture ese crecimiento — la mayor parte va a top performers ya posicionados y a las plataformas (ClickBank, Amazon Associates, Impact, etc.).</p>
+<h3 id="impacto-ios-14-app-tracking-transparency-2021">Impacto iOS 14+ (App Tracking Transparency, 2021)<a class="anchor" href="#impacto-ios-14-app-tracking-transparency-2021">#</a></h3>
+<ul>
+<li>Opt-in rates 15-25% (Cometly, datos consistentes).</li>
+<li>Facebook attribution "killed" para una proporción significativa del tracking (Medium, multiple analyses).</li>
+<li>Solución: CAPI (Conversions API) implementación lado server. <strong>Esto subió la barrera técnica significativamente.</strong> Un afiliado que no implementa CAPI bien está volando ciego con su atribución.</li>
+<li>Resultado neto: <strong>CPMs subieron, ROAS efectivo bajó</strong>, especialmente para verticales que dependían de retargeting y lookalikes precisos.</li>
+</ul>
+<h3 id="tiktok-shop-amazon-influencer-dtc-affiliate">TikTok Shop / Amazon Influencer / DTC affiliate<a class="anchor" href="#tiktok-shop-amazon-influencer-dtc-affiliate">#</a></h3>
+<ul>
+<li>Movimiento del paradigma desde "VSL ClickBank" hacia <strong>creator-driven affiliate</strong>: micro-influencers con audiencias engaged (69% de consumers confían en influencers más que brand messaging — Post Affiliate Pro).</li>
+<li><strong>Modelo viejo (paid traffic + VSL) está más maduro/saturado; modelo nuevo (creator-affiliate + UGC) está creciendo.</strong></li>
+</ul>
+<h3 id="ia-en-creatives">IA en creatives<a class="anchor" href="#ia-en-creatives">#</a></h3>
+<ul>
+<li>AI ad creative tools (Creatify, HeyGen, Atria, Adgpt) bajaron el costo de producir 10-50 variantes a casi cero.</li>
+<li><strong>Esto democratiza pero también satura.</strong> Cuando todos pueden producir 50 ads/día, el diferencial está en la estrategia y data, no en la producción. Para el novato es buena noticia (puede empezar) y mala noticia (no diferencia).</li>
+</ul>
+<h3 id="resumen-tendencia-2026">Resumen tendencia 2026<a class="anchor" href="#resumen-tendencia-2026">#</a></h3>
+<p>El modelo paid traffic afiliado está <strong>más maduro, más técnico y más competitivo</strong> que en 2020. La barrera de entrada bajó (IA + tutoriales gratuitos), pero la barrera para llegar a profitabilidad subió (CPMs, tracking, compliance, bans). Es un mercado donde <strong>la profesionalización ganó</strong> — los amateurs perdieron.</p>
+<hr>
+<h2 id="7-lo-que-dicen-comunidades-sin-sesgo-de-venta">7. Lo que dicen comunidades sin sesgo de venta<a class="anchor" href="#7-lo-que-dicen-comunidades-sin-sesgo-de-venta">#</a></h2>
+<h3 id="reddit-raffiliatemarketing-sentimiento-agregado-de-2024-2026">Reddit r/Affiliatemarketing (sentimiento agregado de 2024-2026)<a class="anchor" href="#reddit-raffiliatemarketing-sentimiento-agregado-de-2024-2026">#</a></h3>
+<p>Quotes textuales seleccionados (no cherry-picked, representan el sentimiento medio de threads con upvotes altos):</p>
+<ul>
+<li><strong>Sobre niche faceless affiliate (estilo TikTok/Reels):</strong> "Real people make USD 500-USD 5K/month after 12-18 months of consistent posting. Almost nobody hits the numbers in course thumbnails (USD 10K/month in 90 days)."</li>
+<li><strong>Sobre passive income:</strong> "It is a myth 100%, as someone that have made 6 figures from affiliate marketing. It requires a lot of upfront work but in the long run, you can [achieve passive income]."</li>
+<li><strong>Sobre realistic income:</strong> "Yes, USD 300-500/month is totally realistic with affiliate marketing especially with the right strategy. It might take a couple of months to build."</li>
+<li><strong>Sobre ClickBank específico:</strong> "Clickbank is only worth it if you really know what you're doing, you have an email list that trusts you already, know the products that are being launched."</li>
+<li><strong>Sobre escalado:</strong> "It's easy to make USD 1k per day in profit when average payout per conversion is like USD 140, all it takes is 10-20 sales per day after you subtract the ad costs" — pero el speaker no dice <strong>cuánto tiempo le tomó llegar ahí ni cuánto perdió antes</strong>.</li>
+<li><strong>Sobre viabilidad ClickBank 2026:</strong> "People definitely still use ClickBank, but the high-ticket private deals are where the real money is moving."</li>
+</ul>
+<h3 id="rpassive-income-rentrepreneur-raffiliatemarket">r/passive_income, r/Entrepreneur, r/Affiliatemarket<a class="anchor" href="#rpassive-income-rentrepreneur-raffiliatemarket">#</a></h3>
+<p>Sentimiento consistente: <strong>affiliate marketing funciona pero (a) toma 12-24 meses, (b) la mayoría no lo hace bien, (c) las ganancias rápidas son mentira de gurú.</strong></p>
+<h3 id="trustpilot-clickbank">Trustpilot ClickBank<a class="anchor" href="#trustpilot-clickbank">#</a></h3>
+<ul>
+<li>ClickBank rating: <strong>3.9-4.6/5 sobre ~3.600-5.749 reviews</strong> (joindeleteme.com / clickraven.com — fuentes secundarias por bloqueo del scraper en Trustpilot).</li>
+<li>BBB rating: <strong>A+</strong> — ClickBank como plataforma es legítima.</li>
+<li>Reviews mixtos: clientes finales se quejan de cobros recurrentes confusos; afiliados se quejan de holds y suspensiones por chargebacks.</li>
+</ul>
+<h3 id="veredicto-sección-7">Veredicto sección 7<a class="anchor" href="#veredicto-sección-7">#</a></h3>
+<p>El sentimiento de comunidades sin sesgo de venta es <strong>moderadamente escéptico</strong>. Reconocen que el modelo funciona, pero rechazan rotundamente las narrativas de "USD 10K en 90 días" y "passive income desde día 1". El consenso comunitario es: <strong>realista USD 500-3K/mes después de 12-18 meses de trabajo serio</strong>.</p>
+<hr>
+<h2 id="8-veredicto-data-driven">8. Veredicto data-driven<a class="anchor" href="#8-veredicto-data-driven">#</a></h2>
+<h3 id="probabilidad-estimada-de-éxito-para-el-escenario-específico-openclaw-usd-11k-3-personas-12-meses">Probabilidad estimada de éxito para el escenario específico OpenClaw (USD 11K, 3 personas, 12 meses)<a class="anchor" href="#probabilidad-estimada-de-éxito-para-el-escenario-específico-openclaw-usd-11k-3-personas-12-meses">#</a></h3>
+<p>Definamos "éxito" en tres niveles:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Definición de éxito</th>
+<th>Probabilidad estimada (data-driven)</th>
+<th>Comentario</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Recuperar USD 11K invertidos</strong> (break-even financiero al cierre del año 1)</td>
+<td><strong>25-35%</strong></td>
+<td>Requiere un winner antes del mes 8-9 y disciplina para no quemar ad budget en testing prolongado.</td>
+</tr>
+<tr>
+<td><strong>Llegar a USD 1-3K/mes neto</strong> (cubrir gastos del equipo, no salarios)</td>
+<td><strong>15-25%</strong></td>
+<td>Requiere winner sostenido + escalado + manejo de bans + reinversión disciplinada.</td>
+</tr>
+<tr>
+<td><strong>Llegar a USD 5-10K/mes neto</strong> (negocio que justifica el costo de oportunidad de 3 personas)</td>
+<td><strong>5-10%</strong></td>
+<td>Requiere captura de un nicho real + skill técnico arriba del promedio + suerte en evitar bans masivos.</td>
+</tr>
+<tr>
+<td><strong>Llegar a USD 20K+/mes</strong> (caso "Pancho Val junior")</td>
+<td><strong><2%</strong></td>
+<td>Estadísticamente equivalente a top 1-2% de afiliados. Posible, pero asumirlo en planning es pensamiento mágico.</td>
+</tr>
+</tbody></table></div>
+<h3 id="bajo-qué-condiciones-específicas-funciona">Bajo qué condiciones específicas funciona<a class="anchor" href="#bajo-qué-condiciones-específicas-funciona">#</a></h3>
+<p><strong>Funciona si y solo si se cumplen TODAS estas condiciones:</strong></p>
+<ol>
+<li><strong>Capital realista:</strong> USD 11K es marginal. Si pueden subir a USD 18-25K, las probabilidades arriba mejoran ~50%. Si se mantienen en USD 11K, deben aceptar que el ad budget testing va a ser el principal cuello de botella.</li>
+<li><strong>Equipo con división clara de roles:</strong> uno hace media buying full focus, uno hace creatives + copy, uno hace tracking + ops + escalado. Tres personas haciendo "todo" es la receta para el desastre.</li>
+<li><strong>Compromiso 12 meses sin pivotar:</strong> la data dice que el promedio de winners aparece entre mes 4 y 9. Pivotar antes del mes 6 garantiza no aprender el modelo.</li>
+<li><strong>Niche secundario (no salud/biz-opp/dietas saturadas):</strong> entrar a la vertical más competida con menos capital es estadísticamente suicida. Hay niches en hobby, B2B SaaS afiliados, finanzas LATAM con menos saturación.</li>
+<li><strong>Compliance disciplinado desde día 1:</strong> FTC disclaimers, no claims médicos sin sustento, no fake testimonials. Un solo strike de FTC mata el negocio.</li>
+<li><strong>Tracking serio (CAPI implementado bien) desde día 1:</strong> sin esto, no hay forma de optimizar y se quema budget a ciegas.</li>
+<li><strong>Reserva mental para 3-5 bans Meta:</strong> asumir que va a pasar, tener plan operativo (BM nuevos, antidetect, dominios separados).</li>
+</ol>
+<h3 id="bajo-qué-condiciones-falla">Bajo qué condiciones falla<a class="anchor" href="#bajo-qué-condiciones-falla">#</a></h3>
+<p><strong>Falla con casi certeza si:</strong></p>
+<ol>
+<li><strong>Treat USD 11K como capital "que podemos perder":</strong> sí, pero asumir que se va a perder lleva a decisiones de risk-management malas (no se prepara la operación con seriedad).</li>
+<li><strong>Esperar resultados antes del mes 4:</strong> el flujo psicológico clásico — quemar USD 2K en mes 1-2, no ver resultados, pivotar al mes 3.</li>
+<li><strong>Copiar 1:1 lo que enseña Pancho Val o Felipe Vergara sin adaptación:</strong> sus patrones funcionaron en 2021-2023 con CPMs más bajos y menos saturación. Aplicar la misma jugada en 2026 es entrar tarde a la fiesta.</li>
+<li><strong>Equipo dividido entre OpenClaw + affiliate sin priorización:</strong> 30% de atención en cada cosa = 0% de éxito en ambas. Esto es probablemente el mayor riesgo: el costo de oportunidad de quitarle atención a la agencia que ya genera ingresos.</li>
+<li><strong>No tener un mentor/comunidad pago activo (USD 100-300/mes):</strong> intentar aprender solo en YouTube + Reddit en 2026 ya no es competitivo.</li>
+</ol>
+<h3 id="red-flags-que-deberían-detener-la-decisión">Red flags que deberían detener la decisión<a class="anchor" href="#red-flags-que-deberían-detener-la-decisión">#</a></h3>
+<ul>
+<li>Si después de leer este documento la reacción del equipo es "pero Pancho Val lo logró" → <strong>detener.</strong> Es survivorship bias puro.</li>
+<li>Si el USD 11K es <strong>plata necesaria</strong> (no excedente que se puede perder sin dañar otras operaciones) → <strong>detener.</strong></li>
+<li>Si el plan no incluye "qué hacemos en mes 6 si llevamos USD 8K quemados sin un winner" → <strong>detener</strong> y replantear gates de salida.</li>
+<li>Si no hay alguien del equipo dedicado >25h/semana al proyecto → <strong>detener.</strong> Affiliate paid media no es side hustle de 10h/semana en 2026.</li>
+</ul>
+<h3 id="señales-positivas-que-la-justifican">Señales positivas que la justifican<a class="anchor" href="#señales-positivas-que-la-justifican">#</a></h3>
+<ul>
+<li>El equipo ya entiende Meta Ads (skill base de OpenClaw transfiere).</li>
+<li>3 personas reduce el carga cognitiva individual (vs. afiliado solo).</li>
+<li>Tienen sistema operativo (Claude Code, hooks, agentes) que reduce el "switching cost" de operaciones técnicas.</li>
+<li>Capital propio sin presión externa (no inversionista exigiendo timeline).</li>
+<li>Ecosistema de cursos y comunidades en español (Pancho Val, Felipe Vergara, Bencorde) es ya maduro vs. tener que importar conocimiento de US.</li>
+<li>Affiliate puede testear hipótesis de marketing en escala que beneficia a OpenClaw (skill compounding).</li>
+</ul>
+<h3 id="veredicto-final-brutalmente-honesto">Veredicto final brutalmente honesto<a class="anchor" href="#veredicto-final-brutalmente-honesto">#</a></h3>
+<p><strong>Affiliate marketing Meta + ClickBank no es scam.</strong> Es una industria real con USD 12B/año solo en US, con 80% de brands participando, y con ganadores reales documentados.</p>
+<p><strong>Pero el modelo opera en una distribución de retornos altamente asimétrica donde la mediana del nuevo afiliado pierde dinero en año 1.</strong> USD 11K como capital total para 12 meses en este modelo es <strong>subcapitalización</strong> — funcionable pero forzado.</p>
+<p><strong>Probabilidad de break-even financiero al mes 12:</strong> ~25-35%. <strong>Probabilidad de generar ingreso significativo (>USD 5K/mes) al mes 12:</strong> ~5-10%. <strong>Probabilidad de "wipeout" total (perder los USD 11K sin recuperar nada material):</strong> ~30-40%.</p>
+<p><strong>Recomendación data-driven:</strong></p>
+<ol>
+<li><strong>Si el objetivo es aprender un nuevo skill que potencia la agencia OpenClaw</strong> (entender VSLs, paid media a escala extrema, optimización agresiva): <strong>proceder con USD 5-7K en lugar de USD 11K</strong>, tratarlo explícitamente como inversión en educación, y medir éxito en aprendizaje no en ROI.</li>
+<li><strong>Si el objetivo es construir un negocio paralelo serio que genere ingreso material en 12 meses:</strong> USD 11K es subcapitalización. Subir a <strong>USD 18-25K</strong> o no proceder. Mejor dedicar las mismas 3 personas + USD 11K a escalar OpenClaw (más probabilidad de retorno material).</li>
+<li><strong>Si la decisión está atada a la narrativa de "Pancho Val lo logró, nosotros también":</strong> <strong>detener inmediatamente.</strong> Esa motivación es estadísticamente la peor base para arrancar este modelo. La data muestra que el 95% que entran con esa motivación fallan.</li>
+</ol>
+<p><strong>El modelo es real. La probabilidad realista de éxito con los parámetros propuestos no lo es.</strong></p>
+<hr>
+<h2 id="notas-metodológicas">Notas metodológicas<a class="anchor" href="#notas-metodológicas">#</a></h2>
+<ul>
+<li><strong>No hay un solo estudio académico independiente sobre affiliate marketing income distribution con muestra estadísticamente representativa.</strong> Toda la cuantificación de tasas de éxito proviene de fuentes con sesgo (vendors de software, gurús, comunidades de autoselección).</li>
+<li>Las cifras Trustpilot ClickBank citadas vienen de fuentes secundarias por bloqueo del scraper en el sitio.</li>
+<li>Reddit threads no fueron scrapeados directamente (sitio bloqueado para firecrawl); las quotes vienen de los snippets del search index.</li>
+<li>Pancho Val no tiene presencia mediática mainstream (Forbes, Bloomberg) que valide claims financieros — todo viene de auto-reporte y podcasts de la industria.</li>
+<li>Las estimaciones de probabilidad son <strong>opinión calibrada</strong> basada en la triangulación de las fuentes disponibles, no son números bayesianos formales.</li>
+</ul>
+<h2 id="fuentes-consultadas-selección-todas-indexadas-en-firecrawl">Fuentes consultadas (selección, todas indexadas en <code>.firecrawl/</code>)<a class="anchor" href="#fuentes-consultadas-selección-todas-indexadas-en-firecrawl">#</a></h2>
+<ul>
+<li>Tolt — How Much Do Affiliate Marketers Make? Real Numbers from 2025: https://tolt.com/blog/how-much-affiliate-marketers-make</li>
+<li>Post Affiliate Pro — Is Affiliate Marketing Dead? The Truth for 2025: https://www.postaffiliatepro.com/blog/affiliate-marketing-is-dead-or-is-it/</li>
+<li>FirstPromoter — Affiliate Marketing Statistics for 2026: https://firstpromoter.com/blog/affiliate-marketing-statistics</li>
+<li>Newswire — Commission Hero Plus Review 2026: https://www.newswire.com/news/commission-hero-plus-review-2026-dont-buy-robby-blanchards-ai-affiliate-system</li>
+<li>ClickBank Support — Chargeback Reduction Playbook: https://support.clickbank.com/en/articles/14657708-chargeback-reduction-playbook</li>
+<li>Trackier — Affiliate Marketing Cost in 2025: https://trackier.com/affiliate-marketing-cost-budget-and-pricing-breakdown/</li>
+<li>Dynu In Media — How Many Affiliate Marketers Fail: https://dynuinmedia.com/how-many-affiliate-marketers-fail/</li>
+<li>Shopify — Affiliate Marketing vs Dropshipping: https://www.shopify.com/blog/affiliate-marketing-vs-dropshipping</li>
+<li>FTC — Multiple enforcement actions: https://www.ftc.gov/news-events/news/press-releases/</li>
+<li>Multilogin / Dolphin Anty / AdsPower / GoLogin — antidetect pricing references</li>
+<li>Reddit r/Affiliatemarketing — community sentiment (snippets index)</li>
+<li>Haciendola podcast — Pancho Val interview: https://haciendola.com/blogs/haciendola/ha-invertido-8-millones-de-dolares-en-ads-a-sus-24-anos-francisco-valenzuela-panchoval-e56-1</li>
+<li>Formarsemola — Felipe Vergara course review (con disclosure de afiliado): https://formarsemola.com/felipe-vergara-curso-opiniones/</li>
+</ul>
+<p>Todos los outputs raw de búsqueda y scraping disponibles en: <code>/Users/cristobaltejero/Projects/affiliate-business/00-viabilidad/research-fuentes/.firecrawl/</code></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 02-viabilidad-modelo.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

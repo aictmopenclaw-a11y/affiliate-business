@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>07. Análisis financiero comparativo: ¿cuál es el costo de oportunidad real de elegir affiliate marketing? · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">00-viabilidad / research-fuentes · 34 min · 6,710 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#tabla-maestra-lectura-rápida-el-resto-del-documento-son-las-defensas" class="">Tabla maestra (lectura rápida — el resto del documento son las defensas)</a></li><li><a href="#1-baseline-affiliate-marketing-clickbank-lo-que-ya-investigamos" class="">1. Baseline: Affiliate Marketing ClickBank (lo que ya investigamos)</a></li><li><a href="#2-dropshipping-shopify-2024-2026" class="">2. Dropshipping Shopify (2024-2026)</a></li><li><a href="#3-ecommerce-dtc-con-marca-propia" class="">3. eCommerce DTC con marca propia</a></li><li><a href="#4-print-on-demand-printfulprintify-etsyshopify" class="">4. Print-on-Demand (Printful/Printify + Etsy/Shopify)</a></li><li><a href="#5-micro-saas-bootstrap" class="">5. Micro-SaaS bootstrap</a></li><li><a href="#6-agencia-digital-lo-que-ya-hacen" class="">6. Agencia digital (lo que ya hacen)</a></li><li><a href="#7-cursos-coaching-educación-digital" class="">7. Cursos / coaching / educación digital</a></li><li><a href="#8-newsletter-monetizada" class="">8. Newsletter monetizada</a></li><li><a href="#9-content-creator-youtube-tiktok-instagram" class="">9. Content creator (YouTube / TikTok / Instagram)</a></li><li><a href="#10-trading-crypto-inversión-activa" class="">10. Trading / crypto / inversión activa</a></li><li><a href="#11-amazon-fba-arbitrage-físico" class="">11. Amazon FBA / arbitrage físico</a></li><li><a href="#12-servicios-profesionales-freelance-consultoría" class="">12. Servicios profesionales freelance / consultoría</a></li><li><a href="#tabla-de-expected-value-comparada" class="">Tabla de Expected Value comparada</a></li><li><a href="#costo-de-oportunidad-real-de-elegir-affiliate" class="">Costo de oportunidad real de elegir affiliate</a></li><li><a href="#skills-match-análisis-cruzado" class="">Skills match — análisis cruzado</a></li><li><a href="#defensibilidad-cross-3-5-años" class="">Defensibilidad cross 3-5 años</a></li><li><a href="#si-yo-fuera-el-equipo-rcd-esto-haría" class="">Si yo fuera el equipo R+C+D, esto haría</a></li><li><a href="#asignación-recomendada-de-los-11k-usd-y-del-año" class="h3">Asignación recomendada de los $11K USD y del año</a></li><li><a href="#por-qué-no-recomiendo-affiliate-como-apuesta-principal" class="h3">Por qué NO recomiendo affiliate como apuesta principal</a></li><li><a href="#por-qué-no-recomiendo-dropshipping-ni-dtc-ni-fba" class="h3">Por qué NO recomiendo dropshipping ni DTC ni FBA</a></li><li><a href="#si-realmente-quieren-validar-affiliate-porque-hay-convicción-o-curiosidad-estratégica" class="h3">Si REALMENTE quieren validar affiliate (porque hay convicción o curiosidad estratégica)</a></li><li><a href="#resumen-ejecutivo-1-página-para-el-equipo" class="">Resumen ejecutivo (1 página para el equipo)</a></li><li><a href="#notas-metodológicas" class="">Notas metodológicas</a></li><li><a href="#fuentes-principales-verificables" class="">Fuentes principales (verificables)</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>07-comparativos-financieros.md</span><span>6,710 palabras</span><span>~34 min</span></div>
+<h1 id="07-análisis-financiero-comparativo-cuál-es-el-costo-de-oportunidad-real-de-elegir-affiliate-marketing">07. Análisis financiero comparativo: ¿cuál es el costo de oportunidad real de elegir affiliate marketing?</h1>
+<p><strong>Fecha del análisis:</strong> 2026-04-28 <strong>Capital base de comparación:</strong> USD $11.000 <strong>Horizonte:</strong> 12 meses <strong>Equipo:</strong> 3 personas — Cris (estrategia + tech + paid media), Romi (contenido + estrategia + copy), Dali (creativo + visual) <strong>Mercados de operación posibles:</strong> Chile (CLP), Australia (AUD), USA/Global (USD)</p>
+<blockquote><p>Este documento se construye sobre la data ya recopilada en este folder (<code>01-clickbank-deep-dive.md</code>, <code>02-viabilidad-modelo.md</code>, <code>03-legal-fiscal-cross-border.md</code>, <code>04-casos-competencia.md</code>) y la complementa con benchmarks externos investigados con firecrawl en abril 2026. La pregunta no es "¿se puede ganar dinero con X?" — todas estas opciones tienen casos exitosos. La pregunta es: <strong>dado un capital fijo, un equipo fijo y un tiempo fijo, ¿cuál tiene el mejor expected value ajustado por riesgo y por skill match?</strong></p></blockquote>
+<blockquote><p><strong>Convenciones de fuentes (clave de lectura):</strong> - <code>[Oficial]</code> — fuente primaria (plataforma, regulador, API, encuesta de la propia plataforma) - <code>[Survey]</code> — encuesta de tercero independiente (Authority Hacker, Indie Hackers, Statista) - <code>[Industry blog]</code> — análisis de medio especializado (puede tener sesgo comercial — se anota cuando aplica) - <code>[Estimación OpenClaw]</code> — cálculo derivado por nosotros con metodología explícita - <code>[Anecdótico]</code> — caso individual (Reddit, Twitter, post de creador) — usar como triangulación, no como base</p></blockquote>
+<hr>
+<h2 id="tabla-maestra-lectura-rápida-el-resto-del-documento-son-las-defensas">Tabla maestra (lectura rápida — el resto del documento son las defensas)<a class="anchor" href="#tabla-maestra-lectura-rápida-el-resto-del-documento-son-las-defensas">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>#</th>
+<th>Modelo</th>
+<th>Inversión inicial realista (USD)</th>
+<th>Tiempo a break-even (mediana)</th>
+<th>Probabilidad de éxito año 1</th>
+<th>Income realista año 1 (USD/mes neto al mes 12)</th>
+<th>Defensibilidad 3-5 años</th>
+<th>Match con equipo R+C+D</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td><strong>Affiliate ClickBank (paid media)</strong></td>
+<td>$8K-15K</td>
+<td>3-9 meses si funciona / nunca si no</td>
+<td>20-30%</td>
+<td>$0-5K (mediana real ~$0-2K, tail $10K+)</td>
+<td>Baja (vendor risk + plataforma risk)</td>
+<td>Alto (Cris paid + Romi copy + Dali video)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Dropshipping Shopify</strong></td>
+<td>$3.5K-8K</td>
+<td>4-8 meses si funciona</td>
+<td>10-20%</td>
+<td>$0-3K (mediana ~$500-2K)</td>
+<td>Muy baja (sin marca, sin moat)</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>eCommerce DTC marca propia</strong></td>
+<td>$15K-50K+</td>
+<td>12-24 meses</td>
+<td>15-25%</td>
+<td>-$2K a +$2K (mayoría aún en pérdida al mes 12)</td>
+<td>Media-alta si construye marca</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Print-on-Demand (Etsy/Shopify)</strong></td>
+<td>$500-2K</td>
+<td>3-9 meses si pega un design hit</td>
+<td>5-15%</td>
+<td>$0-1K (mediana ~$100-500)</td>
+<td>Muy baja (saturado, copia inmediata)</td>
+<td>Alto en diseño (Dali)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Micro-SaaS bootstrap</strong></td>
+<td>$2K-8K (capital) + 1500-3000 hrs dev</td>
+<td>6-18 meses</td>
+<td>10-20% para llegar a $1K MRR</td>
+<td>$0-2K MRR mediana</td>
+<td>Alta (recurring, switching cost)</td>
+<td>Medio-bajo (sin fundador-developer dedicado)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Agencia digital</strong></td>
+<td>$3K-10K</td>
+<td>1-3 meses (ya hay clientes)</td>
+<td>70-85%</td>
+<td>$5K-20K</td>
+<td>Alta (relaciones + casos)</td>
+<td><strong>Muy alto (es lo que ya hacen)</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Cursos / coaching / educación</strong></td>
+<td>$2K-8K</td>
+<td>3-12 meses si hay audiencia</td>
+<td>20-40%</td>
+<td>$1K-15K (huge variance)</td>
+<td>Media (depende de marca personal)</td>
+<td>Alto si capitalizan agency expertise</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Newsletter monetizada</strong></td>
+<td>$500-3K</td>
+<td>12-24 meses</td>
+<td>10-20%</td>
+<td>$100-2K al llegar a 1K subs (~12 meses típico)</td>
+<td>Media-alta (audiencia propia)</td>
+<td>Medio (Romi sí, otros menos)</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Content creator (YT/TikTok/IG)</strong></td>
+<td>$1K-5K (equipo)</td>
+<td>12-36 meses</td>
+<td>5-15%</td>
+<td>$0-2K</td>
+<td>Media-alta (audiencia propia)</td>
+<td>Alto en producción (Dali)</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Trading / crypto activo</strong></td>
+<td>$11K</td>
+<td>N/A — modelo de juego suma cero</td>
+<td>10-20% beat market</td>
+<td>-$11K a +$2K-3K esperado</td>
+<td>N/A (no es negocio)</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Amazon FBA / arbitrage físico</strong></td>
+<td>$5K-15K</td>
+<td>6-18 meses</td>
+<td>10-20%</td>
+<td>$0-3K (60% rentabiliza eventualmente, no en año 1)</td>
+<td>Baja (Amazon controla)</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Servicios freelance/consultoría</strong></td>
+<td>$500-2K</td>
+<td>1-3 meses</td>
+<td>80-95%</td>
+<td>$6K-25K combinado (3 personas)</td>
+<td>Media (dependiente de cada uno)</td>
+<td><strong>Muy alto</strong></td>
+</tr>
+</tbody></table></div>
+<blockquote><p><strong>Lectura rápida:</strong> los dos modelos con mejor probabilidad/skill match son agencia (ya lo hacen) y servicios freelance. Affiliate y dropshipping comparten un perfil similar de "alto upside / alta probabilidad de no-funcionar". DTC, micro-SaaS y newsletter son los modelos de mayor defensibilidad pero requieren más tiempo del que cabe en 12 meses para llegar a break-even.</p></blockquote>
+<hr>
+<h2 id="1-baseline-affiliate-marketing-clickbank-lo-que-ya-investigamos">1. Baseline: Affiliate Marketing ClickBank (lo que ya investigamos)<a class="anchor" href="#1-baseline-affiliate-marketing-clickbank-lo-que-ya-investigamos">#</a></h2>
+<p><strong>Resumen de lo que dice el folder previo</strong> (<code>01-clickbank-deep-dive.md</code>, <code>04-casos-competencia.md</code>):</p>
+<ul>
+<li>ClickBank es real, paga, infraestructura sólida desde 1998. <code>[Oficial — clickbank.com]</code></li>
+<li>Comisiones 50-75% del producto. Ticket promedio del nicho health/wealth: $30-150 USD. <code>[Oficial]</code></li>
+<li>El modelo dominante en 2024-2026 es <strong>paid traffic</strong> (Meta Ads, YouTube Ads, native ads) hacia VSL/landing del vendor.</li>
+<li><strong>Earning data (la parte importante):</strong></li>
+<li>81.2% de affiliate marketers (cualquier red, no solo CB) gana >$20K/año. <code>[Survey AffiliateWP — sample sesgado: solo respondieron quienes facturaban]</code></li>
+<li><strong>Authority Hacker survey (2024):</strong> average $8.038/mes, pero la mediana real es mucho menor; 9.45x diferencia entre +3 años de experiencia vs. principiantes. <code>[Survey Authority Hacker, n=2266]</code></li>
+<li><strong>PostAffiliatePro:</strong> principiantes año 1 ganan <strong>$0-1.000/mes</strong>. <code>[Industry blog — pero coincide con todos los foros]</code></li>
+<li>Caso panchoval (Chile, $5M USD acumulados en CB, vive de esto): outlier público, 2-3 años a tiempo completo + reinvirtiendo $8M+ en ads. <code>[Anecdótico — entrevistas YT y declaraciones propias]</code></li>
+</ul>
+<p><strong>Inversión realista para el equipo R+C+D con $11K USD:</strong></p>
+<ul>
+<li>Test budget Meta/YouTube: $6K-8K en 3-6 meses (200-400 USD/día por 30-90 días)</li>
+<li>Tooling (ClickFunnels/Replug/Voluum tracking/spy tools): $200-500/mes × 6-12 meses = $1.5K-3K</li>
+<li>LLC + EIN + payment infra: $500-1.500</li>
+<li>Buffer / iteración creativa: $1.5K-3K</li>
+<li><strong>Total runway:</strong> $11K alcanza para ~2-4 ciclos de testing. Suficiente para validar 1-2 ofertas si hay disciplina, no para "darse el lujo" de mucho error.</li>
+</ul>
+<p><strong>Probabilidad de break-even año 1:</strong> <strong>20-30%.</strong> Ese rango sale de:</p>
+<ul>
+<li>~10-20% de affiliates con paid traffic logran ofertas profitables sostenidas (consenso foros + Authority Hacker)</li>
+<li>El equipo R+C+D <strong>sube esa base</strong> porque ya domina paid media + creativo + copy (Cris hace esto para clientes, Romi hace copy, Dali hace video). No están aprendiendo desde cero.</li>
+<li>Pero <strong>baja por la curva de aprendizaje del nicho</strong> (CB nicho US health/wealth ≠ ads para clínicas chilenas).</li>
+</ul>
+<p><strong>Income realista año 1 si funciona:</strong> $0-5K USD/mes neto al mes 12. La curva típica es 6-9 meses de pérdida + 3-6 meses de profit creciente. Tail risk al alza: $10K+ USD/mes si encuentran una oferta que escale.</p>
+<p><strong>Defensibilidad:</strong> <strong>Baja.</strong> Riesgos documentados:</p>
+<ul>
+<li>Vendor cambia comisión / pausa la oferta sin aviso (común)</li>
+<li>Ad account bans (Meta es restrictivo con CB nicho)</li>
+<li>Compliance creciente (FTC, ASIC, Sernac — ver <code>03-legal-fiscal-cross-border.md</code>)</li>
+<li>ClickBank puede deplatform (raro pero ocurre)</li>
+</ul>
+<p><strong>Tail al alza:</strong> modelo de agencia de media buying (lo que hace Pancho ahora) — vendor te contrata como buyer interno cobrando rev share. Requiere primero ser top affiliate.</p>
+<p><strong>Expected Value (EV) año 1:</strong></p>
+<ul>
+<li>P(éxito) × Upside esperado: 0.25 × ($30K profit año 1) = <strong>+$7.5K</strong></li>
+<li>P(fracaso) × Capital perdido: 0.75 × ($8K perdidos) = <strong>-$6K</strong></li>
+<li><strong>EV neto ≈ +$1.500 USD</strong> + valor de aprendizaje (skill paid media internacional)</li>
+</ul>
+<blockquote><p>Ojo: este EV no incluye costo de oportunidad del tiempo de las 3 personas. Si Romi, Cris y Dali dedican 50% de su tiempo a esto durante 12 meses, el costo de oportunidad de no facturar agencia/freelance en ese tiempo es <strong>mucho mayor que $11K</strong>.</p></blockquote>
+<hr>
+<h2 id="2-dropshipping-shopify-2024-2026">2. Dropshipping Shopify (2024-2026)<a class="anchor" href="#2-dropshipping-shopify-2024-2026">#</a></h2>
+<p><strong>Tamaño y viabilidad del mercado:</strong></p>
+<ul>
+<li>Mercado global $543B en 2026, proyectado $1.25T en 2030 (CAGR 22%). <code>[Sellers Commerce 2026]</code></li>
+<li>27% de ecommerce mundial usa dropshipping como modelo primario (~7.7M tiendas activas). <code>[Sellers Commerce 2026]</code></li>
+<li>Sigue creciendo, pero entrada cada vez más comoditizada.</li>
+</ul>
+<p><strong>Costo real de arranque (no marketing):</strong></p>
+<ul>
+<li>Shopify Basic: $39/mes USD = $468/año <code>[Oficial Shopify]</code></li>
+<li>Apps imprescindibles (DSers/AutoDS, theme premium, reviews app, email): $80-200/mes <code>[Oficial / industry]</code></li>
+<li>Dominio + email: $50-100/año</li>
+<li>LLC + payment processor setup: $500-1.500</li>
+<li><strong>Subtotal infra: $2K-4K año 1</strong></li>
+</ul>
+<p><strong>Costo de marketing realista (la parte cara):</strong></p>
+<ul>
+<li><strong>Shopify oficial:</strong> punto de partida realista es <strong>$200-300 primer mes</strong> — pero esto es para "una tienda funcionando", no para "tienda profitable". <code>[Oficial Shopify, sesgado a la baja porque vende plataforma]</code></li>
+<li><strong>Reddit r/dropship consenso:</strong> "necesitas $1.500 mínimo solo en ad cost; cada test de producto cuesta $200-300". <code>[Anecdótico pero unánime]</code></li>
+<li><strong>ShipToTheMoon 2026:</strong> budget realista 3 meses de testing = <strong>$3.500-8.000 USD</strong>. <code>[Industry blog]</code></li>
+<li><strong>Printkk 2026:</strong> $2.000-3.500 si product research está bien hecho. <code>[Industry blog]</code></li>
+<li><strong>Estimación OpenClaw:</strong> con $11K, 1 tienda, ~10-15 product tests a $300-500 c/u + escalado del ganador. Razonable.</li>
+</ul>
+<p><strong>Tasa de éxito real:</strong></p>
+<ul>
+<li><strong>Drop Ship Lifestyle (Anton Kraly, autoridad del sector):</strong> "solo 10-20% de tiendas alcanzan rentabilidad consistente". <code>[Industry — autor con curso, sesgo a relativizar el número, pero coincide con literatura]</code></li>
+<li><strong>Sellers Commerce:</strong> mismo rango, 10-20%. <code>[Industry]</code></li>
+<li>Margen típico: <strong>15-30% neto</strong> después de COGS, shipping, ads, fees. <code>[Sellers Commerce + Drop Ship Lifestyle, consenso]</code></li>
+<li>Manufacturers que dropshipean ganan 18% más profit margin que venta directa (12.2% vs 10.3%). <code>[Sellers Commerce, survey 350 manufacturers 2024]</code></li>
+</ul>
+<p><strong>Income año 1 realista:</strong></p>
+<ul>
+<li><strong>Doba (industry blog):</strong> "first-year sellers part-time hacen $6.000-25.000 net profit anual". <code>[Industry — sesgo a la alza, no especifica mediana vs. promedio]</code></li>
+<li><strong>Reddit consenso 2025:</strong> 80%+ de tiendas no llegan a $1K MRR. Las que pegan, llegan a $3K-15K MRR pero requieren scaling capital adicional.</li>
+<li><strong>Estimación realista:</strong> $0-3K USD/mes al mes 12. Mediana probable $500-2K si el equipo no cae en los 80% que abandonan.</li>
+</ul>
+<p><strong>Skills match con R+C+D:</strong> <strong>Alto.</strong></p>
+<ul>
+<li>Cris: paid media (la skill #1 en dropshipping moderno)</li>
+<li>Romi: copy de product page + ad copy</li>
+<li>Dali: creative video (UGC-style ads que funcionan en TikTok/Meta)</li>
+</ul>
+<p><strong>Defensibilidad:</strong> <strong>Muy baja.</strong></p>
+<ul>
+<li>Cero diferenciación de producto (competencia copia tu winning product en 48h via ad spy tools)</li>
+<li>Sin marca, sin lista de email propia robusta</li>
+<li>AliExpress/CJ supplier risk (cambian precio, descontinuan)</li>
+<li>Plataforma risk (Shopify acct bans, Meta acct bans)</li>
+<li>Margen colapsando con CPMs altos</li>
+</ul>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(éxito) × Upside: 0.15 × ($20K profit año 1) = <strong>+$3K</strong></li>
+<li>P(fracaso) × Capital perdido: 0.85 × ($6K perdidos) = <strong>-$5.1K</strong></li>
+<li><strong>EV neto ≈ -$2.100 USD</strong> + skill adquirida en ecommerce ops</li>
+</ul>
+<blockquote><p>Dropshipping tiene <strong>peor EV que affiliate</strong> para este equipo, principalmente porque el upside del ganador es similar pero la probabilidad de fracaso es mayor y agrega complejidad operativa (atención al cliente, reembolsos, supplier issues).</p></blockquote>
+<hr>
+<h2 id="3-ecommerce-dtc-con-marca-propia">3. eCommerce DTC con marca propia<a class="anchor" href="#3-ecommerce-dtc-con-marca-propia">#</a></h2>
+<p><strong>Diferencia clave vs. dropshipping:</strong> producto propio, marca, inventario, brand assets. Tiempo a break-even mucho más largo, defensibilidad real.</p>
+<p><strong>Inversión inicial realista:</strong></p>
+<ul>
+<li><strong>Producto + inventario inicial (small batch MOQ):</strong> $5K-20K dependiendo del vertical</li>
+<li><strong>Branding + packaging + fotografía:</strong> $2K-8K</li>
+<li><strong>Web (Shopify + theme + apps):</strong> $1K-3K año 1</li>
+<li><strong>Inventario buffer + working capital:</strong> $5K-15K (el "hidden cost" más común)</li>
+<li><strong>Ads + content marketing primer 6 meses:</strong> $5K-20K</li>
+<li><strong>Total realista: $20K-50K mínimo para un lanzamiento serio</strong></li>
+</ul>
+<blockquote><p><strong>$11K USD no es suficiente para una marca DTC competitiva.</strong> Permitiría lanzar con MOQ chinos, pero sin runway real para apagar incendios (returns, defective batches, ad scaling).</p></blockquote>
+<p><strong>Tiempo a break-even:</strong></p>
+<ul>
+<li><strong>Common Thread Co + Attn Agency:</strong> "DTC profitability benchmarks 2026" — la mayoría de DTC bootstrapped no es contribution-margin positive hasta el mes 12-18. <code>[Industry blog, autor reputado]</code></li>
+<li><strong>Brookings/maccelerator data:</strong> 73% de DTC brands fallan entre $10M-$50M de revenue por hidden scaling costs (talent $200K-400K/exec, tech $500K+ ERP, working capital). <code>[Industry]</code> — esto es para brands que ya escalaron, no para la fase inicial, pero ilustra cuánto capital requiere el modelo.</li>
+<li><strong>Mediana realista para bootstrap con $11K:</strong> no llegan a break-even en año 1; mejor caso es hacer pre-orders → manufactura → primer batch vendido → reinvertir.</li>
+</ul>
+<p><strong>Probabilidad de éxito año 1:</strong> 15-25% si se define éxito como "revenue >$50K año 1 y tendencia positiva". <5% si éxito = "salario mínimo para los 3 fundadores".</p>
+<p><strong>Income año 1:</strong></p>
+<ul>
+<li>Realista: -$2K a +$2K USD/mes — la mayoría aún en pérdida o break-even.</li>
+<li>Caso bueno: $5K-15K/mes de revenue (no profit) al mes 12.</li>
+</ul>
+<p><strong>Defensibilidad:</strong> <strong>Media-alta</strong> si se construye marca real. Es el único modelo de esta lista que puede valer 3-10x revenue en exit a 5 años (vs. affiliate que vale 0 sin tu activo personal).</p>
+<p><strong>Skills match:</strong> Medio. Falta operations + supply chain skills. Romi en estrategia + Dali en branding ayudan, Cris en paid media para escalar.</p>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(éxito en sentido amplio = base sólida construida) × Valor activo: 0.25 × $30K equity value = <strong>+$7.5K</strong> (no cash, valor empresa)</li>
+<li>P(fracaso) × Capital perdido: 0.75 × ($10K) = <strong>-$7.5K</strong></li>
+<li><strong>EV cash-on-cash ≈ -$5K año 1</strong> + opción real significativa (la marca puede valer mucho año 2-3)</li>
+</ul>
+<blockquote><p>DTC es un juego de <strong>2-3 años</strong>, no de 12 meses. Con $11K es el modelo equivocado.</p></blockquote>
+<hr>
+<h2 id="4-print-on-demand-printfulprintify-etsyshopify">4. Print-on-Demand (Printful/Printify + Etsy/Shopify)<a class="anchor" href="#4-print-on-demand-printfulprintify-etsyshopify">#</a></h2>
+<p><strong>Costo de arranque (la parte buena):</strong></p>
+<ul>
+<li>$0 inventario (el provider imprime on-demand)</li>
+<li>Etsy listing fee: $0.20 por listing</li>
+<li>Shopify si se usa: $39/mes</li>
+<li>Diseño: tiempo de Dali (no cash)</li>
+<li>Marketing: $0 si Etsy SEO + organic / $200-2K/mes si paid</li>
+</ul>
+<p><strong>Total cash burn mínimo para validar:</strong> $500-2.000.</p>
+<p><strong>Margen real:</strong></p>
+<ul>
+<li><strong>Printful (oficial):</strong> "good profit margin 20-40%". <code>[Oficial Printful — sesgo, vende la plataforma]</code></li>
+<li><strong>Reddit r/printondemand consenso:</strong> $25 shirt - $11 print cost - $2 Etsy fees - shipping = <strong>$8-12 ganancia bruta</strong> (~30-40%).</li>
+<li><strong>Realidad:</strong> márgenes razonables si el design es original; <strong>terriblemente saturado</strong> en categorías genéricas (frases motivacionales, animales con sombrero, "funny dad" shirts).</li>
+</ul>
+<p><strong>Income realista año 1:</strong></p>
+<ul>
+<li>Mediana de tiendas POD en Etsy: <strong>$0-100/mes</strong>. La mayoría no logra >10 ventas/mes.</li>
+<li><strong>Top 10% de tiendas:</strong> $1K-5K/mes con 1-3 designs hit.</li>
+<li><strong>Top 1%:</strong> $10K+/mes (ej: tiendas con TikTok orgánico viral).</li>
+</ul>
+<p><strong>Probabilidad año 1:</strong> 5-15% para llegar a $1K/mes neto.</p>
+<p><strong>Saturación 2024-2026:</strong></p>
+<ul>
+<li>Sí, está saturado en categorías obvias. AI-generated designs (MidJourney, DALL-E) inundaron Etsy 2023-2024.</li>
+<li>Aún hay nichos no commodity-zados: micro-comunidades de hobbies, ocupaciones específicas, fandoms locales.</li>
+<li>Etsy ha ido bajando reach orgánico de POD para favorecer "handmade real".</li>
+</ul>
+<p><strong>Skills match:</strong> Alto en diseño (Dali). Bajo retorno por hora — escalar requiere muchos designs (volumen).</p>
+<p><strong>Defensibilidad:</strong> <strong>Muy baja.</strong> Designs se copian en horas (literal). Único moat: marca personal del creador o nicho microsegmentado.</p>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(éxito = $1K+/mes) × Upside: 0.10 × $10K = <strong>+$1K</strong></li>
+<li>P(fracaso) × Capital: 0.90 × ($1.5K) = <strong>-$1.4K</strong></li>
+<li><strong>EV ≈ -$400</strong> pero con muy bajo capital en riesgo.</li>
+</ul>
+<blockquote><p>POD funciona como <strong>side hustle de un solo creador</strong> (Dali en este caso), no como negocio para 3 personas. Mal uso del equipo completo.</p></blockquote>
+<hr>
+<h2 id="5-micro-saas-bootstrap">5. Micro-SaaS bootstrap<a class="anchor" href="#5-micro-saas-bootstrap">#</a></h2>
+<p><strong>Inversión inicial:</strong></p>
+<ul>
+<li>Capital: $2K-8K (hosting, domain, Stripe, tools, ads iniciales)</li>
+<li><strong>Tiempo de developer:</strong> 1.500-3.000 horas para construir + iterar MVP. <strong>Esta es la inversión real.</strong></li>
+</ul>
+<p><strong>Tiempo a $1K MRR (la métrica north star de Indie Hackers):</strong></p>
+<ul>
+<li><strong>Indie Hackers analysis (Stripe-verified data):</strong> mediana 8-9 meses, percentil 25 = 5 meses, percentil 75 = 12 meses. <code>[Survey con datos Stripe verificados, n&gt;1000]</code></li>
+<li>Solo el ~25% de proyectos lanzados llega a $1K MRR. La mayoría muere antes.</li>
+</ul>
+<p><strong>Probabilidad año 1:</strong></p>
+<ul>
+<li>Llegar a $1K MRR: <strong>20-25%</strong> (data Indie Hackers).</li>
+<li>Llegar a $10K MRR: <strong><5%</strong>.</li>
+<li>Llegar a "salario para 3 personas" ($10K+ MRR): <strong><3%</strong> en año 1.</li>
+</ul>
+<p><strong>Income realista año 1:</strong> $0-2K MRR mediana para los que sobreviven.</p>
+<p><strong>Skills match con R+C+D:</strong> <strong>Bajo en el bottleneck crítico.</strong></p>
+<ul>
+<li>Cris hace tech para clientes, pero <strong>no es full-stack developer dedicado a un producto SaaS</strong>.</li>
+<li>Sin developer fundador a tiempo completo, contratar dev = $5K-15K/mes en LATAM, $15K-30K/mes en USA = se come el capital en 1-2 meses.</li>
+<li>Romi y Dali aportan en marketing y diseño, pero el cuello de botella es producto.</li>
+</ul>
+<p><strong>Defensibilidad:</strong> <strong>Alta</strong> si llega a tracción. Recurring revenue, switching costs, posibilidad de exit (Tiny Acquisitions, Microns, etc., compran micro-SaaS por 2-4x ARR).</p>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(éxito) × Upside: 0.20 × ($15K ARR año 1 = ~$1K MRR) = <strong>+$3K</strong></li>
+<li>P(fracaso) × Capital perdido: 0.80 × ($6K + tiempo dev) = <strong>-$5K cash + tiempo</strong></li>
+<li><strong>EV ≈ -$2K + opción real grande (puede convertirse en negocio real año 2-3)</strong></li>
+</ul>
+<blockquote><p>Sin un cofundador-developer, este modelo no aplica para este equipo.</p></blockquote>
+<hr>
+<h2 id="6-agencia-digital-lo-que-ya-hacen">6. Agencia digital (lo que ya hacen)<a class="anchor" href="#6-agencia-digital-lo-que-ya-hacen">#</a></h2>
+<p><strong>Inversión inicial:</strong></p>
+<ul>
+<li>$11K es <strong>mucho más de lo necesario</strong> para arrancar agency. Realista: $3K-10K para tooling, branding, web, primeros ad creatives propios.</li>
+<li>OpenClaw ya está operando: el costo "marginal" de doblar capacidad es esencialmente $0.</li>
+</ul>
+<p><strong>Tiempo a break-even:</strong></p>
+<ul>
+<li>Si ya hay clientes (caso OpenClaw): <strong>break-even desde el mes 1</strong>.</li>
+<li>Para lanzar nueva agency desde 0: <strong>1-3 meses al primer cliente</strong>, 4-6 meses al segundo y tercero.</li>
+</ul>
+<p><strong>Modelo de revenue:</strong></p>
+<ul>
+<li><strong>Retainer mensual:</strong> rango global $1.5K-25K/mes. <code>[InfluenceFlow 2026 — survey global]</code></li>
+<li><strong>Mediana 3 personas en LATAM:</strong> $2K-5K USD/cliente/mes. <code>[Reddit r/DigitalMarketing 2025]</code></li>
+<li><strong>Performance + retainer híbrido:</strong> lo que OpenClaw ya practica.</li>
+<li><strong>CMO fractional:</strong> $4K-10K/mes part-time.</li>
+</ul>
+<p><strong>Tiempo a $10K USD/mes combinado (3 personas):</strong></p>
+<ul>
+<li>2-3 retainers de $3K-5K cada uno = $9K-15K/mes</li>
+<li>Realistic: <strong>3-6 meses si hay outbound activo</strong>.</li>
+</ul>
+<p><strong>Probabilidad de éxito año 1:</strong> <strong>70-85%</strong> llegar a $10K USD/mes facturación con 3 personas full-time. Ya validado por la operación actual.</p>
+<p><strong>Defensibilidad:</strong> <strong>Alta.</strong> Casos, testimonios, relaciones. Switching cost para el cliente es real.</p>
+<p><strong>Skills match:</strong> <strong>Máximo.</strong> Es exactamente lo que el equipo hace. Romi (estrategia + creativo orgánico), Cris (paid + tech), Dali (visual + producción). Es la combinación canónica de marketing performance.</p>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(éxito) × Upside: 0.80 × ($120K facturación año 1, ~$60K profit a 3) = <strong>+$48K</strong></li>
+<li>P(fracaso) × Capital perdido: 0.20 × ($5K) = <strong>-$1K</strong></li>
+<li><strong>EV ≈ +$47K USD año 1</strong></li>
+</ul>
+<blockquote><p>El elephant in the room: <strong>OpenClaw ya tiene EV de $47K+ con la ruta agencia</strong>. Cualquier otra opción debe vencer este número o complementarla, no reemplazarla.</p></blockquote>
+<hr>
+<h2 id="7-cursos-coaching-educación-digital">7. Cursos / coaching / educación digital<a class="anchor" href="#7-cursos-coaching-educación-digital">#</a></h2>
+<p><strong>Inversión inicial:</strong></p>
+<ul>
+<li>Plataforma (Kajabi $149/mes, Teachable $39/mes, Hotmart 9.9% fee): $500-2K año 1</li>
+<li>Producción de curso (video, edición, materiales): $1K-5K si se hace in-house (Dali edita)</li>
+<li>Marketing inicial (ads + content): $3K-8K</li>
+<li><strong>Total realista: $5K-15K</strong></li>
+</ul>
+<p><strong>Tiempo a primera venta:</strong> 1-3 meses si ya hay audiencia. 6-12 meses si hay que construirla.</p>
+<p><strong>Income realista año 1:</strong></p>
+<ul>
+<li><strong>Kajabi (oficial):</strong> "$0 a $50K+/mes; promedio creators exitosos $1K-10K/mes". <code>[Oficial Kajabi, sesgo positivo]</code></li>
+<li><strong>Teachable (oficial):</strong> "full-time creators hasta $10K/mes". <code>[Oficial Teachable]</code></li>
+<li><strong>Realidad LATAM (Hotmart):</strong> muchos creators chilenos/argentinos llegan a $1K-5K USD/mes con audiencias 5K-50K seguidores. <code>[Anecdótico cruzando casos públicos]</code></li>
+<li>Caso ejemplo Reddit: "vendí curso por $6M USD en 2 años" — outlier extremo, requiere marca + tracción previa. <code>[Reddit /Entrepreneur]</code></li>
+</ul>
+<p><strong>Probabilidad año 1:</strong> 20-40% para llegar a $2K-5K USD/mes neto.</p>
+<p><strong>Skills match:</strong> <strong>Alto si capitalizan agency expertise.</strong> OpenClaw ya tiene know-how en performance marketing → curso "agencia desde 0" o "Meta Ads para clínicas LATAM" = activo monetizable. Dali produce video, Romi escribe copy, Cris da expertise.</p>
+<p><strong>Defensibilidad:</strong> Media. Depende de marca personal del creador. Cursos canibalizables (refunds, piratería).</p>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(éxito) × Upside: 0.35 × ($30K facturación año 1) = <strong>+$10.5K</strong></li>
+<li>P(fracaso) × Capital perdido: 0.65 × ($5K) = <strong>-$3.25K</strong></li>
+<li><strong>EV ≈ +$7.25K</strong> + activo (curso) que sigue vendiendo año 2+</li>
+</ul>
+<blockquote><p>Cursos es <strong>complementario</strong> al modelo agencia, no sustituto. Reusan expertise, generan leads, posicionan a los founders como autoridades.</p></blockquote>
+<hr>
+<h2 id="8-newsletter-monetizada">8. Newsletter monetizada<a class="anchor" href="#8-newsletter-monetizada">#</a></h2>
+<p><strong>Inversión inicial:</strong></p>
+<ul>
+<li>Beehiiv (free tier o $49/mes paid) o Substack (10% fee): $0-600/año</li>
+<li>Tiempo de producción: 5-15 hrs/semana de Romi (alta calidad)</li>
+<li>Crecimiento (paid subs growth, cross-promo, Boosts): $500-3K si se acelera</li>
+</ul>
+<p><strong>Tiempo a 1.000 subs paying:</strong></p>
+<ul>
+<li>Newsletter típico: <strong>12-24 meses</strong> para llegar a 1K subscribers totales (no paying), de los cuales 5-20% paga = 50-200 paying subs.</li>
+<li>Casos rápidos (con audiencia social previa): 3-6 meses.</li>
+</ul>
+<p><strong>Income realista al hito 1.000 subs:</strong></p>
+<ul>
+<li><strong>Beehiiv (oficial 2025):</strong> "1K subs = $100-2K/mes con monetización mixta (ads + premium + affiliates)". <code>[Oficial Beehiiv, sesgo a la alza]</code></li>
+<li><strong>Modelo paid premium:</strong> 5-20% conversion × $5-15/mes = $250-3K/mes a 1K subs.</li>
+<li><strong>Modelo ads (Beehiiv Ad Network):</strong> $20-160/mes a 1K subs con buenos opens.</li>
+<li><strong>Realidad:</strong> la mayoría de newsletters de hobbystas no rebasa $200/mes en año 1.</li>
+</ul>
+<p><strong>Casos de referencia:</strong></p>
+<ul>
+<li><strong>Lenny's Newsletter:</strong> $1.5M+/año (estimado público), 10+ años de experiencia previa como PM en Airbnb. <code>[Anecdótico — outlier]</code></li>
+<li><strong>Saeed Ezzati (Beehiiv case study):</strong> $150K/año desde nicho específico. <code>[Beehiiv]</code></li>
+<li><strong>The Hustle (sold to HubSpot $27M):</strong> 7+ años para llegar.</li>
+</ul>
+<p><strong>Probabilidad año 1:</strong> 10-20% llegar a $500+/mes. <5% llegar a "salario digno".</p>
+<p><strong>Skills match:</strong> Medio. Romi tiene la skill (escritura, estrategia editorial). Cris y Dali aportan menos.</p>
+<p><strong>Defensibilidad:</strong> <strong>Media-alta.</strong> Lista propia de email = activo real, transferible, vendible.</p>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(éxito) × Upside: 0.15 × ($6K año 1) = <strong>+$0.9K</strong></li>
+<li>P(fracaso) × Capital perdido: 0.85 × ($1K cash + tiempo Romi) = <strong>-$0.85K</strong></li>
+<li><strong>EV ≈ ~$0</strong> cash, pero <strong>el activo construido vale año 2-3</strong>.</li>
+</ul>
+<blockquote><p>Newsletter es un juego de <strong>2-5 años</strong>. Buena complemento, mal sustituto.</p></blockquote>
+<hr>
+<h2 id="9-content-creator-youtube-tiktok-instagram">9. Content creator (YouTube / TikTok / Instagram)<a class="anchor" href="#9-content-creator-youtube-tiktok-instagram">#</a></h2>
+<p><strong>Inversión inicial:</strong></p>
+<ul>
+<li>Equipo grabación (cámara + micro + iluminación): $1K-3K si se sube nivel</li>
+<li>Edición (Dali ya hace): $0</li>
+<li>Time investment: 15-30 hrs/semana sostenidas</li>
+</ul>
+<p><strong>Tiempo a monetización:</strong></p>
+<ul>
+<li><strong>YouTube YPP (oficial):</strong> 1.000 subs + 4.000 hrs watch time. Realidad: <strong>1-3 años</strong> para creators sin background. <code>[Oficial YouTube + Reddit r/PartneredYoutube consenso]</code></li>
+<li><strong>TikTok Creator Rewards:</strong> 10K followers + 100K views/30 días. Más rápido pero pago bajísimo.</li>
+<li><strong>Patrocinios (la verdadera monetización):</strong> llegan con 10K-50K followers en nicho relevante.</li>
+</ul>
+<p><strong>Income realista año 1:</strong></p>
+<ul>
+<li>Reddit consenso: "después de 2 años monetizado, $15-20/día = $450-600/mes". <code>[Anecdótico unánime]</code></li>
+<li>Sponsorships: $200-2.000/post si llegas a 10K-50K seguidores en nicho.</li>
+<li>Casos rápidos: <5% logran $1K+/mes en año 1.</li>
+</ul>
+<p><strong>Probabilidad año 1:</strong> 5-15% llegar a $1K+/mes.</p>
+<p><strong>Skills match:</strong> Alto en producción (Dali edición, Romi guión, Cris estrategia de growth). <strong>Pero requiere fundador-personaje al frente</strong> — la cámara necesita una cara.</p>
+<p><strong>Defensibilidad:</strong> <strong>Media-alta.</strong> Audiencia es activo propio, pero plataforma risk (cambio de algoritmo) es real.</p>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(éxito) × Upside: 0.10 × ($10K año 1) = <strong>+$1K</strong></li>
+<li>P(fracaso) × Capital perdido: 0.90 × ($2K) = <strong>-$1.8K</strong></li>
+<li><strong>EV ≈ -$0.8K</strong> cash, audiencia construida vale año 2+.</li>
+</ul>
+<blockquote><p>Funciona <strong>sumado a otra cosa</strong> (apoyo a agency o curso), no como negocio principal año 1.</p></blockquote>
+<hr>
+<h2 id="10-trading-crypto-inversión-activa">10. Trading / crypto / inversión activa<a class="anchor" href="#10-trading-crypto-inversión-activa">#</a></h2>
+<p><strong>Realidad documentada (no MLM, no scam):</strong></p>
+<ul>
+<li><strong>Quantified Strategies:</strong> <strong>62-82% de retail CFD traders pierden dinero.</strong> <code>[Industry — recopilación datos brokers oficiales]</code></li>
+<li><strong>AFbis:</strong> profitability rate forex retail <strong><25%, más realista ~10%</strong> en periodos largos. <code>[Industry — meta-análisis]</code></li>
+<li><strong>Goat Funded Trader:</strong> institutionals 8-15% anual; top 25% retail 10-25%; mid retail entre +5% y -20%. <code>[Industry — vendedor de prop accounts, sesgo motivacional]</code></li>
+<li><strong>CFD broker disclosures (regulación EU/Australia):</strong> "68-89% de cuentas pierden dinero" — texto legal obligatorio en cada anuncio. <code>[Oficial regulatorio]</code></li>
+</ul>
+<p><strong>Capital y skills:</strong></p>
+<ul>
+<li>$11K USD permite operar pero con un solo error grande de gestión = -50% de cuenta.</li>
+<li>Aprender trading sostenible serio: 2-3 años de práctica, no 12 meses.</li>
+</ul>
+<p><strong>Income año 1 esperado para el equipo:</strong></p>
+<ul>
+<li><strong>Sharpe ratio realista para principiante disciplinado:</strong> 0.3-0.7 (aceptable pero no genial).</li>
+<li><strong>Retorno esperado año 1:</strong> -50% a +20% del capital. Mediana ~-10% a 0%.</li>
+<li>En USD sobre $11K: <strong>-$5.500 a +$2.200</strong>, mediana <strong>-$1.000 a $0</strong>.</li>
+</ul>
+<p><strong>Skills match:</strong> Bajo. Ninguno del equipo tiene track record verificable.</p>
+<p><strong>Defensibilidad:</strong> N/A. No es negocio, es especulación.</p>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(beat market = +10% real) × Upside: 0.20 × $2K = <strong>+$0.4K</strong></li>
+<li>P(perder) × Capital: 0.80 × $4K perdidos = <strong>-$3.2K</strong></li>
+<li><strong>EV ≈ -$2.8K</strong></li>
+</ul>
+<blockquote><p>Trading no aplica como ruta de negocio para este equipo. <strong>Descartar.</strong></p></blockquote>
+<hr>
+<h2 id="11-amazon-fba-arbitrage-físico">11. Amazon FBA / arbitrage físico<a class="anchor" href="#11-amazon-fba-arbitrage-físico">#</a></h2>
+<p><strong>Inversión inicial:</strong></p>
+<ul>
+<li>Producto + manufactura (private label, MOQ típico 200-500 unidades): $3K-10K</li>
+<li>Shipping + Amazon inbound fees: $500-2K</li>
+<li>Branding + listing photography + creative: $500-1.500</li>
+<li>PPC Amazon Ads inicial: $1K-3K</li>
+<li>Cuenta + LLC + UPC codes + insurance: $500-1.500</li>
+<li><strong>Total: $5K-15K para 1 SKU correctamente lanzado</strong></li>
+</ul>
+<p><strong>Tasa de éxito documentada:</strong></p>
+<ul>
+<li><strong>Panda-Boom 2026:</strong> "60% de sellers eventualmente rentabilizan, pero muchos queman capital antes de llegar". <code>[Industry blog]</code></li>
+<li><strong>Helium 10 / Jungle Scout (2024):</strong> 50% de nuevos sellers que sobreviven primer año hacen $1K-25K/mes; <strong>mediana ~$1.5K/mes</strong>, <strong>38% rentables en primeros 3 meses</strong>, 65% en año 1. <code>[Industry — sesgo a la alza, son tools que venden a sellers]</code></li>
+<li><strong>Realidad Reddit r/AmazonFBATips 2024-2025:</strong> "barrier creciente, fees subiendo, capital required mucho mayor que hace 3 años".</li>
+</ul>
+<p><strong>Income año 1:</strong> $0-3K USD/mes neto, mediana ~$500-1.500.</p>
+<p><strong>Probabilidad año 1:</strong> 10-20% llegar a $2K+/mes neto consistente.</p>
+<p><strong>Skills match:</strong> <strong>Bajo.</strong> Requiere supply chain, sourcing China, listing optimization (SEO Amazon es un mundo aparte). No matchea con skills agency.</p>
+<p><strong>Defensibilidad:</strong> <strong>Baja.</strong> Amazon controla la plataforma. Hijackers, listing suspensions, fee increases. Single-platform risk extremo.</p>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(éxito) × Upside: 0.15 × $15K = <strong>+$2.25K</strong></li>
+<li>P(fracaso) × Capital: 0.85 × $8K = <strong>-$6.8K</strong></li>
+<li><strong>EV ≈ -$4.5K</strong></li>
+</ul>
+<blockquote><p>FBA es peor opción que dropshipping para este equipo. Más capital required, más complejidad operativa, mismo skill mismatch.</p></blockquote>
+<hr>
+<h2 id="12-servicios-profesionales-freelance-consultoría">12. Servicios profesionales freelance / consultoría<a class="anchor" href="#12-servicios-profesionales-freelance-consultoría">#</a></h2>
+<p><strong>Modelo:</strong> cada uno de los 3 facturando proyectos/horas en su skill, con OpenClaw como umbrella opcional.</p>
+<p><strong>Inversión inicial:</strong></p>
+<ul>
+<li>Web personal / portfolio: $200-1K</li>
+<li>LinkedIn Premium + Sales Navigator: $80-150/mes</li>
+<li>CRM lite (Notion, Pipedrive lite): $0-30/mes</li>
+<li><strong>Total realista: $500-2K</strong></li>
+</ul>
+<p><strong>Tarifa realista por persona:</strong></p>
+<ul>
+<li><strong>Cris (paid media + tech):</strong> $50-150/hora en LATAM, $100-250/hora con clientes USA/AU. <code>[Thumbtack, ZipRecruiter, Upwork data 2025]</code></li>
+<li><strong>Romi (estrategia + content):</strong> $40-120/hora.</li>
+<li><strong>Dali (creative + video):</strong> $40-100/hora.</li>
+</ul>
+<p><strong>Income año 1 combinado realista:</strong></p>
+<ul>
+<li>Cada persona facturando 60-100 hrs/mes a $50-100/hora promedio = $3K-10K/mes c/u</li>
+<li><strong>Total 3 personas: $9K-30K USD/mes</strong> una vez que el pipeline está lleno (mes 3-6)</li>
+</ul>
+<p><strong>Probabilidad de éxito año 1:</strong> <strong>80-95%</strong> llegar a $10K USD/mes combinado. Es el modelo de menor riesgo de la lista.</p>
+<p><strong>Skills match:</strong> <strong>Máximo.</strong> Es exactamente lo que ya saben hacer.</p>
+<p><strong>Defensibilidad:</strong> <strong>Media.</strong> Cada freelancer es reemplazable individualmente, pero el conjunto + relaciones + marca personal = activo real.</p>
+<p><strong>EV año 1:</strong></p>
+<ul>
+<li>P(éxito) × Upside: 0.90 × ($150K facturación año 1) = <strong>+$135K</strong></li>
+<li>P(fracaso) × Capital: 0.10 × $1.5K = <strong>-$0.15K</strong></li>
+<li><strong>EV ≈ +$135K USD</strong></li>
+</ul>
+<blockquote><p>Freelance/consulting tiene <strong>el mejor EV de toda la tabla por orden de magnitud</strong>. La diferencia con agencia es que aquí los 3 facturan independiente vs. bajo brand común. Son complementarios.</p></blockquote>
+<hr>
+<h2 id="tabla-de-expected-value-comparada">Tabla de Expected Value comparada<a class="anchor" href="#tabla-de-expected-value-comparada">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>#</th>
+<th>Modelo</th>
+<th>EV año 1 (USD, cash-on-cash)</th>
+<th>Capital expuesto</th>
+<th>Tiempo a primera señal de éxito</th>
+<th>Skill match</th>
+</tr></thead><tbody>
+<tr>
+<td>12</td>
+<td>Servicios freelance</td>
+<td><strong>+$135K</strong></td>
+<td>$1.5K</td>
+<td>1 mes</td>
+<td>Máximo</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Agencia digital</td>
+<td><strong>+$47K</strong></td>
+<td>$5K</td>
+<td>1-3 meses</td>
+<td>Máximo</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Cursos / educación</td>
+<td><strong>+$7.25K</strong></td>
+<td>$5K</td>
+<td>3-6 meses</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Affiliate ClickBank</td>
+<td><strong>+$1.5K</strong></td>
+<td>$8K</td>
+<td>3-9 meses</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Newsletter</td>
+<td><strong>~$0</strong></td>
+<td>$1K</td>
+<td>6-12 meses</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Print-on-Demand</td>
+<td><strong>-$0.4K</strong></td>
+<td>$1.5K</td>
+<td>3-9 meses</td>
+<td>Medio (solo Dali)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Content creator</td>
+<td><strong>-$0.8K</strong></td>
+<td>$2K</td>
+<td>12+ meses</td>
+<td>Alto producción</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Micro-SaaS</td>
+<td><strong>-$2K</strong></td>
+<td>$6K</td>
+<td>6-12 meses</td>
+<td>Bajo (sin dev)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dropshipping</td>
+<td><strong>-$2.1K</strong></td>
+<td>$6K</td>
+<td>4-8 meses</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Trading</td>
+<td><strong>-$2.8K</strong></td>
+<td>$11K</td>
+<td>N/A</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Amazon FBA</td>
+<td><strong>-$4.5K</strong></td>
+<td>$8K</td>
+<td>6-18 meses</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>3</td>
+<td>DTC marca propia</td>
+<td><strong>-$5K cash / +opción real</strong></td>
+<td>$10K+</td>
+<td>12-24 meses</td>
+<td>Medio</td>
+</tr>
+</tbody></table></div>
+<div class="box box-critico"><div class="box-label">Crítico</div><p><strong>Lectura crítica:</strong> todo modelo con EV negativo año 1 puede tener EV positivo a 3-5 años si construye activo (DTC, micro-SaaS, newsletter, content creator, marca affiliate site). El problema es que en este horizonte de 12 meses con capital limitado, no hay margen para apostar a opciones reales sin asegurar runway base.</p></div>
+<hr>
+<h2 id="costo-de-oportunidad-real-de-elegir-affiliate">Costo de oportunidad real de elegir affiliate<a class="anchor" href="#costo-de-oportunidad-real-de-elegir-affiliate">#</a></h2>
+<p><strong>El cálculo honesto:</strong></p>
+<p>Si el equipo dedica 100% de su tiempo a affiliate marketing:</p>
+<ul>
+<li><strong>EV affiliate año 1: +$1.5K</strong></li>
+<li><strong>EV agencia + freelance año 1 que dejarían de hacer: +$135K (freelance) + ~$47K (agencia)</strong></li>
+<li><strong>Costo de oportunidad = ~$180K USD año 1</strong></li>
+</ul>
+<p>Aunque affiliate funcione bien (top quartile = $5K-10K/mes profit al mes 12), el upside máximo realista año 1 ($30K-60K) <strong>ni siquiera empata</strong> lo que el equipo ya puede facturar haciendo lo que sabe hacer.</p>
+<p><strong>Donde affiliate sí compite:</strong></p>
+<ul>
+<li><strong>Año 2-3, no año 1.</strong> Si en año 1 una persona (ej. Cris) dedica 20% del tiempo a aprender el modelo CB con $5K-8K de capital, año 2 puede tener una oferta que escale con CTR/EPC validados.</li>
+<li><strong>Como tercera línea de revenue diversificada</strong>, no como apuesta principal.</li>
+<li><strong>Si el equipo está estancado</strong> y agencia/freelance no están escalando — pero ese no es el caso aquí (OpenClaw está creciendo).</li>
+</ul>
+<hr>
+<h2 id="skills-match-análisis-cruzado">Skills match — análisis cruzado<a class="anchor" href="#skills-match-análisis-cruzado">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Skill</th>
+<th>Romi</th>
+<th>Cris</th>
+<th>Dali</th>
+<th>Mejor uso conjunto</th>
+</tr></thead><tbody>
+<tr>
+<td>Estrategia + planning</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td><span class="badge badge-ok">OK</span></td>
+<td>⚪</td>
+<td>Agencia, consultoría, cursos</td>
+</tr>
+<tr>
+<td>Copy + content escrito</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td>⚪</td>
+<td>⚪</td>
+<td>Newsletter, agencia, cursos, affiliate landing</td>
+</tr>
+<tr>
+<td>Paid media (Meta/Google)</td>
+<td>⚪</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td>⚪</td>
+<td>Agencia, affiliate, dropshipping, DTC</td>
+</tr>
+<tr>
+<td>Tech / scripts / automatización</td>
+<td>⚪</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td>⚪</td>
+<td>Agencia premium, micro-SaaS, ops interna</td>
+</tr>
+<tr>
+<td>Visual / diseño / video</td>
+<td>⚪</td>
+<td>⚪</td>
+<td><span class="badge badge-ok">OK</span></td>
+<td>POD, content creator, agencia, cursos</td>
+</tr>
+<tr>
+<td>Sales / outbound</td>
+<td>⚪</td>
+<td>⚪</td>
+<td>⚪</td>
+<td><strong>Gap</strong> — todos lo evaden</td>
+</tr>
+<tr>
+<td>Operations / supply chain</td>
+<td>⚪</td>
+<td>⚪</td>
+<td>⚪</td>
+<td><strong>Gap</strong> — descalifica DTC y FBA</td>
+</tr>
+</tbody></table></div>
+<p><strong>Modelos donde los 3 perfiles se enchufan al máximo:</strong> Agencia, cursos, affiliate (paid), DTC si tuvieran ops. <strong>Modelos donde 1 persona carga todo:</strong> POD (Dali), Newsletter (Romi), micro-SaaS (Cris). <strong>Modelos que no cuadran con ningún perfil:</strong> Trading, FBA, dropshipping puro a escala.</p>
+<hr>
+<h2 id="defensibilidad-cross-3-5-años">Defensibilidad cross 3-5 años<a class="anchor" href="#defensibilidad-cross-3-5-años">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Modelo</th>
+<th>Activo construido</th>
+<th>Vendible / transferible</th>
+<th>Plataforma risk</th>
+</tr></thead><tbody>
+<tr>
+<td>Agencia</td>
+<td>Cartera clientes + casos + brand</td>
+<td>Sí (3-5x EBITDA típico)</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>Cursos</td>
+<td>Marca personal + lista email + IP curso</td>
+<td>Parcial</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>Newsletter</td>
+<td>Lista email + brand editorial</td>
+<td>Sí (2-5x ARR)</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>DTC</td>
+<td>Marca + datos cliente + producto</td>
+<td>Sí (3-10x revenue)</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>Micro-SaaS</td>
+<td>Código + MRR + customer base</td>
+<td>Sí (2-4x ARR)</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>Content creator</td>
+<td>Audiencia social</td>
+<td>Limitado (audience leakage)</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>Affiliate</td>
+<td>Skill + posiblemente sitio SEO</td>
+<td>Bajo (dependencia vendor)</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>Dropshipping</td>
+<td>Operación + ad accounts</td>
+<td>Bajo (winning product cesa)</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>FBA</td>
+<td>Listing + reviews</td>
+<td>Sí pero condicionado a Amazon</td>
+<td>Muy alto</td>
+</tr>
+<tr>
+<td>POD</td>
+<td>Designs library</td>
+<td>Limitado</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>Freelance</td>
+<td>Skill personal + red contactos</td>
+<td>No transferible</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>Trading</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody></table></div>
+<p><strong>Top 3 por defensibilidad:</strong> Agencia, Newsletter, DTC (con marca real).</p>
+<hr>
+<h2 id="si-yo-fuera-el-equipo-rcd-esto-haría">Si yo fuera el equipo R+C+D, esto haría<a class="anchor" href="#si-yo-fuera-el-equipo-rcd-esto-haría">#</a></h2>
+<p><strong>La recomendación honesta:</strong> no es "elige uno" — es <strong>portfolio inteligente con asimetría a favor del modelo que ya funciona</strong>.</p>
+<h3 id="asignación-recomendada-de-los-11k-usd-y-del-año">Asignación recomendada de los $11K USD y del año<a class="anchor" href="#asignación-recomendada-de-los-11k-usd-y-del-año">#</a></h3>
+<p><strong>80% del capital y tiempo: doblar la apuesta en agencia (OpenClaw)</strong></p>
+<ul>
+<li>$5K en sales/outbound estructurado (LinkedIn Sales Nav, herramientas de cold email, retargeting de prospects)</li>
+<li>$3K en posicionamiento de autoridad (case studies pagados de calidad, web upgrade, paid PR si aplica)</li>
+<li>$1K en operaciones internas (mejor tooling, automatización ahorro tiempo de los 3)</li>
+<li><strong>Meta:</strong> llevar agencia de su nivel actual a $20K-40K USD/mes en 12 meses.</li>
+<li><strong>EV proyectado: +$50K a +$150K incremental.</strong></li>
+</ul>
+<p><strong>15% del capital y tiempo: lanzar curso/educación complementario al expertise agencia</strong></p>
+<ul>
+<li>$1K en producción y plataforma (Dali edita, Romi guiona, Cris da expertise)</li>
+<li>$500 en ads de validación / pre-venta antes de producir</li>
+<li><strong>Meta año 1:</strong> primera versión del curso, $5K-15K facturados. Activo que sigue vendiendo año 2+.</li>
+<li><strong>Bonus:</strong> el curso genera leads de agencia (los alumnos que prefieren contratar antes que aprender).</li>
+</ul>
+<p><strong>5% del capital y tiempo: experimento controlado affiliate (no abandonar la opción)</strong></p>
+<ul>
+<li>$500-800/mes durante 3-4 meses = $2K-3K total</li>
+<li><strong>Una sola persona</strong> (Cris) testea 2-3 ofertas CB en paid Meta/YT con disciplina de stop-loss.</li>
+<li><strong>Meta:</strong> validar si hay tracción REAL antes de escalar capital. Si en 4 meses no hay señal de profitabilidad → kill.</li>
+<li><strong>Si hay señal:</strong> año 2 escalar con $20K-30K de capital reinvertido desde agencia.</li>
+</ul>
+<h3 id="por-qué-no-recomiendo-affiliate-como-apuesta-principal">Por qué NO recomiendo affiliate como apuesta principal<a class="anchor" href="#por-qué-no-recomiendo-affiliate-como-apuesta-principal">#</a></h3>
+<ol>
+<li><strong>EV agencia (+$47K) > EV affiliate (+$1.5K) por 30x.</strong> Matemática básica.</li>
+<li><strong>El equipo ya tiene clientes.</strong> Pasar de "agency en marcha" a "lanzar negocio nuevo" es siempre más caro de lo que se piensa (energía, foco, compliance, infra paralela).</li>
+<li><strong>Affiliate USA tiene fricción legal-fiscal real para LATAM</strong> (ver <code>03-legal-fiscal-cross-border.md</code>). LLC, EIN, US bank, ITIN — no triviales.</li>
+<li><strong>El equipo NO tiene developer dedicado</strong> y eso elimina micro-SaaS como opción defensible. Afilliate es la otra opción "tecnológica" que tampoco juega a sus fortalezas únicas.</li>
+<li><strong>El upside del affiliate (caso panchoval) requirió 2-3 años a tiempo completo + capital para reinvertir 8-figure.</strong> Eso no es plausible en año 1 con $11K.</li>
+</ol>
+<h3 id="por-qué-no-recomiendo-dropshipping-ni-dtc-ni-fba">Por qué NO recomiendo dropshipping ni DTC ni FBA<a class="anchor" href="#por-qué-no-recomiendo-dropshipping-ni-dtc-ni-fba">#</a></h3>
+<ul>
+<li>Dropshipping: peor risk-adjusted que affiliate, más operacional.</li>
+<li>DTC: capital insuficiente, horizonte equivocado.</li>
+<li>FBA: skill mismatch + plataforma risk extrema.</li>
+</ul>
+<h3 id="si-realmente-quieren-validar-affiliate-porque-hay-convicción-o-curiosidad-estratégica">Si REALMENTE quieren validar affiliate (porque hay convicción o curiosidad estratégica)<a class="anchor" href="#si-realmente-quieren-validar-affiliate-porque-hay-convicción-o-curiosidad-estratégica">#</a></h3>
+<p><strong>Test mínimo viable, 90 días, $3K USD máximo:</strong></p>
+<ul>
+<li>Mes 1: setup infra (LLC + bank + ClickBank account + tracking) — $800</li>
+<li>Mes 2: 3 ofertas CB seleccionadas con criterio (gravity 30+, EPC >$1, vendor con VSL fuerte) × $500 ad spend cada una = $1.500</li>
+<li>Mes 3: doblar la mejor oferta o matar todo — $700</li>
+<li><strong>Decision tree:</strong></li>
+<li>Si alguna oferta es ROAS >1.2 sostenido → escalar con $5K más en mes 4-6.</li>
+<li>Si nada llega a ROAS 1.0 → cerrar test, archivar aprendizaje, foco 100% en agencia.</li>
+</ul>
+<p>Esto <strong>NO consume el capital de agencia, NO distrae al equipo completo, y produce data real</strong> para decidir año 2.</p>
+<hr>
+<h2 id="resumen-ejecutivo-1-página-para-el-equipo">Resumen ejecutivo (1 página para el equipo)<a class="anchor" href="#resumen-ejecutivo-1-página-para-el-equipo">#</a></h2>
+<p><strong>Pregunta original:</strong> ¿Affiliate marketing es la mejor opción para los $11K USD y 12 meses?</p>
+<p><strong>Respuesta corta:</strong> No. Hay 2 alternativas con EV materialmente mejor (agencia +$47K, freelance +$135K) y 1 complementaria con buen ratio (cursos +$7.25K).</p>
+<p><strong>Por qué affiliate parece atractivo y por qué engaña:</strong></p>
+<ul>
+<li>Tail risk al alza es real (panchoval existe).</li>
+<li>Pero la mediana de outcomes año 1 es flat-cero, no positiva.</li>
+<li>El costo de oportunidad de no hacer agencia/freelance en ese tiempo es 30-90x el upside esperado de affiliate.</li>
+</ul>
+<p><strong>Recomendación:</strong></p>
+<ol>
+<li><strong>Doblar agencia</strong> (80% recursos) — es donde el equipo ya gana.</li>
+<li><strong>Lanzar curso complementario</strong> (15%) — capitaliza expertise agencia, genera activo.</li>
+<li><strong>Test controlado affiliate</strong> ($3K, 90 días, 1 persona) — para validar opción año 2 sin distraer núcleo.</li>
+<li><strong>Kill list:</strong> dropshipping, DTC año 1, FBA, trading, micro-SaaS sin dev fundador.</li>
+</ol>
+<p><strong>Triggers para reconsiderar:</strong></p>
+<ul>
+<li>Si agencia se estanca 3 meses seguidos sin crecer → reasignar 30% a affiliate o cursos agresivos.</li>
+<li>Si test affiliate de 90 días muestra ROAS >1.5 sostenido → escalar a $20K-30K año 2.</li>
+<li>Si Dali quiere lanzar marca DTC propia (lifestyle visual) → módulo separado, no usa capital agencia.</li>
+</ul>
+<hr>
+<h2 id="notas-metodológicas">Notas metodológicas<a class="anchor" href="#notas-metodológicas">#</a></h2>
+<p><strong>Sobre el cálculo de EV:</strong></p>
+<ul>
+<li>"Upside esperado" = ganancia neta esperada en escenario de éxito (no upside máximo del 1%).</li>
+<li>"Capital perdido" = no asume pérdida total siempre — para modelos con activos parciales (DTC, newsletter) se asume parcial.</li>
+<li>EV es <strong>expected value cash-on-cash año 1</strong>, NO incluye:</li>
+<li>Valor de activo construido (importante en DTC, newsletter, content)</li>
+<li>Costo de oportunidad del tiempo (importante para todos)</li>
+<li>Skill aprendida (importante para affiliate, micro-SaaS)</li>
+<li>Para decisión real, sumar:</li>
+<li>+Activo año 2-3 (DTC, newsletter, content suben +30-100%)</li>
+<li>-Costo oportunidad agencia/freelance (cualquier opción que NO sea agencia/freelance se penaliza otros $50K-150K)</li>
+</ul>
+<p><strong>Sobre las probabilidades de éxito:</strong></p>
+<ul>
+<li>Rangos derivados de meta-análisis de fuentes citadas, ajustados al contexto específico de un equipo con skill marketing pero no skill especifica del modelo (ej. dropshipping operations, FBA sourcing China, trading psychology).</li>
+<li>Asumimos disciplina y dedicación razonable — no perfección, no abandono.</li>
+</ul>
+<p><strong>Sobre los rangos de income:</strong></p>
+<ul>
+<li>Cuando hay mucha varianza, se reporta tanto mediana como tail. La diferencia entre "promedio" y "mediana" en estos modelos es enorme — el promedio está distorsionado por outliers. La mediana es la que importa para decidir.</li>
+</ul>
+<p><strong>Sobre fuentes con sesgo comercial:</strong></p>
+<ul>
+<li>Plataformas (Shopify, Beehiiv, Kajabi, Printful, Helium 10) tienden a inflar números porque venden la herramienta. Se anota cuando aplica y se cruza con foros de practitioners (Reddit, IndieHackers).</li>
+<li>Industry blogs de creators con cursos (Drop Ship Lifestyle, Authority Hacker) tienen sesgo similar. Útiles como direccional, no como verdad.</li>
+</ul>
+<p><strong>Sobre lo que falta investigar más a fondo:</strong></p>
+<ul>
+<li>Casos verificables de equipos LATAM (no USA) en cada modelo — la mayoría de data es US-centric. Realidad LATAM puede tener mejor margen (costo equipo más bajo) pero peor acceso a payment processors y plataformas premium.</li>
+<li>Análisis fiscal específico cliente Chile + Australia + USA combinado para cada modelo — solo cubierto a fondo para affiliate en <code>03-legal-fiscal-cross-border.md</code>.</li>
+<li>Update del documento con data 2026 H2 en 6 meses — varios benchmarks (CPMs Meta, conversion rates) se mueven rápido.</li>
+</ul>
+<hr>
+<h2 id="fuentes-principales-verificables">Fuentes principales (verificables)<a class="anchor" href="#fuentes-principales-verificables">#</a></h2>
+<p><strong>Affiliate:</strong></p>
+<ul>
+<li>Authority Hacker affiliate marketing survey 2024 (n=2.266) — https://www.authorityhacker.com/affiliate-marketing-survey/</li>
+<li>Ahrefs affiliate marketing statistics 2024 — https://ahrefs.com/blog/affiliate-marketing-statistics/</li>
+<li>ClickBank customer stories (panchoval) — https://www.clickbank.com/customer-stories/</li>
+</ul>
+<p><strong>Dropshipping:</strong></p>
+<ul>
+<li>Sellers Commerce 2026 statistics — https://www.sellerscommerce.com/blog/dropshipping-statistics/</li>
+<li>Drop Ship Lifestyle success rate — https://www.dropshiplifestyle.com/dropshipping-success-rate-statistics/</li>
+<li>Shopify oficial cost guide 2026 — https://www.shopify.com/blog/how-much-does-it-cost-to-start-dropshipping</li>
+<li>ShipToTheMoon 2026 budget breakdown — https://www.shiptothemoon.com/dropshipping-startup-costs-breakdown/</li>
+</ul>
+<p><strong>DTC:</strong></p>
+<ul>
+<li>Attn Agency DTC profitability benchmarks 2026 — https://www.attnagency.com/blog/dtc-profitability-benchmarks-2026</li>
+<li>MAccelerator hidden costs of scaling — https://maccelerator.la/en/blog/enterprise/hidden-cost-scaling-dtc-brands/</li>
+<li>Common Thread Co DTC analysis — https://commonthreadco.com/blogs/ecommerce-playbook/dtc-evolution-rebirth-2025</li>
+</ul>
+<p><strong>Print-on-Demand:</strong></p>
+<ul>
+<li>Printful profit margin guide — https://www.printful.com/blog/what-is-a-good-profit-margin-for-print-on-demand</li>
+<li>Printful Etsy profitability 2026 — https://www.printful.com/blog/is-etsy-print-on-demand-profitable</li>
+</ul>
+<p><strong>Micro-SaaS:</strong></p>
+<ul>
+<li>Indie Hackers $1K MRR analysis (Stripe-verified) — https://www.indiehackers.com/post/it-takes-5-months-to-reach-1k-in-mrr-491742f806</li>
+<li>Indie Hackers community founder reports — https://www.indiehackers.com/</li>
+</ul>
+<p><strong>Agencia:</strong></p>
+<ul>
+<li>InfluenceFlow digital marketing agency pricing 2026 — https://influenceflow.io/resources/digital-marketing-agency-pricing-complete-2026-guide-to-costs-models-roi/</li>
+<li>Seven Figure Agency retainer fee models — https://sevenfigureagency.com/5-digital-agency-retainer-fee-models-explained/</li>
+<li>Get Monetizely agency pricing structures — https://www.getmonetizely.com/articles/how-much-should-digital-marketing-retainers-cost-a-complete-guide-to-agency-pricing-structures</li>
+</ul>
+<p><strong>Cursos:</strong></p>
+<ul>
+<li>Kajabi profitability 2025 — https://www.kajabi.com/blog/is-selling-online-courses-profitable</li>
+<li>Teachable creator earnings — https://www.teachable.com/blog/how-much-content-creators-make</li>
+</ul>
+<p><strong>Newsletter:</strong></p>
+<ul>
+<li>Beehiiv 1K subs revenue 2025 — https://www.beehiiv.com/blog/how-much-money-can-you-make-from-1-000-newsletter-subscribers-in-2025</li>
+</ul>
+<p><strong>Content creator:</strong></p>
+<ul>
+<li>Reddit r/PartneredYoutube zero-to-monetized — https://www.reddit.com/r/PartneredYoutube/comments/1qqhii0/people_who_started_youtube_from_zero_how_long_did/</li>
+<li>Digiday creator monetization breakdown — https://digiday.com/marketing/what-it-takes-to-get-paid-by-youtube-tiktok-and-other-social-platforms/</li>
+</ul>
+<p><strong>Trading:</strong></p>
+<ul>
+<li>Quantified Strategies CFD statistics — https://www.quantifiedstrategies.com/cfd-trading-statistics/</li>
+<li>Good Money Guide CFD risk warnings (regulatorio) — https://goodmoneyguide.com/trading/risk-warning-loss-percentages/</li>
+<li>AFbis forex profitability analysis — https://www.afbis.com/what-percentage/</li>
+</ul>
+<p><strong>FBA:</strong></p>
+<ul>
+<li>Panda-Boom Amazon FBA success rate 2026 — https://www.panda-boom.com/resources/blog/amazon-fba-success-rate/</li>
+<li>Helium 10 seller earnings 2024 — https://www.helium10.com/blog/how-much-amazon-sellers-make/</li>
+</ul>
+<p><strong>Freelance:</strong></p>
+<ul>
+<li>ZipRecruiter freelance marketing consultant salary — https://www.ziprecruiter.com/Salaries/Freelance-Marketing-Consultant-Salary</li>
+<li>Twine marketing consultant rates — https://www.twine.net/blog/marketing-consultant-hourly-rates/</li>
+<li>Reddit r/DigitalMarketing freelancer rates 2024 — https://www.reddit.com/r/DigitalMarketing/comments/1ggy7m1/freelancers_whats_your_hourly_rate/</li>
+</ul>
+<hr>
+<p><strong>Próximos pasos sugeridos para el equipo:</strong></p>
+<ol>
+<li>Discutir esta tabla en sesión de equipo (Romi + Cris + Dali + idealmente Pancho como referencia external).</li>
+<li>Si hay desacuerdo sobre las probabilidades, ajustarlas y recomputar EV — la metodología está documentada para iterar.</li>
+<li>Si se decide ir por la opción <strong>agencia + curso + test affiliate controlado</strong>, redactar OKRs Q2-Q4 2026 con los thresholds de "kill" para el experimento affiliate (ROAS, plazo).</li>
+<li>Volver a leer este documento en 90 días para validar predicciones.</li>
+</ol>
+<p>[PENDIENTE]: Caso de equipo LATAM 3 personas que haya hecho transición agencia → cursos exitosamente — buscar 2-3 ejemplos verificables (Daniel Bonifaz / Crehana? Vilma Núñez? Convertkit-style en español?). [PENDIENTE]: Análisis ROI específico curso "Meta Ads para clínicas LATAM" o similar con TAM real estimado.</p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 07-comparativos-financieros.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

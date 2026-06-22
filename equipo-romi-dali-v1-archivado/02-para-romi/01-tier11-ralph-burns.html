@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ralph Burns / Tier 11 · Ficha verificación · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../INDEX.html">← Affiliate Business · Index</a>
+<span class="meta">07-learning / fuentes-confiables-2026 / tier-1 · 5 min · 994 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#1-identidad-verificable" class="">1. Identidad verificable</a></li><li><a href="#2-scoring-8-criterios" class="">2. Scoring (8 criterios)</a></li><li><a href="#3-métricas-reales-snapshot-2026-05-26" class="">3. Métricas reales (snapshot 2026-05-26)</a></li><li><a href="#4-top-5-piezas-de-contenido-más-valiosas" class="">4. Top 5 piezas de contenido más valiosas</a></li><li><a href="#5-tácticas-accionables-para-stack-hispano-us-clickbankmeta" class="">5. Tácticas accionables para stack Hispano-US ClickBank+Meta</a></li><li><a href="#6-red-flags" class="">6. Red flags</a></li><li><a href="#7-próximo-paso-recomendado" class="">7. Próximo paso recomendado</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>01-tier11-ralph-burns.md</span>
+<span>994 palabras</span>
+<span>~5 min lectura</span>
+</div>
+<h1 id="ralph-burns-tier-11-ficha-verificación">Ralph Burns / Tier 11 · Ficha verificación<a class="anchor" href="#ralph-burns-tier-11-ficha-verificación">#</a></h1>
+<p><strong>Fecha investigación:</strong> 2026-05-26 <strong>Investigador:</strong> Claude <strong>Tier asignado:</strong> 1 <strong>Credibility score:</strong> 14/16 <strong>Recomendación equipo:</strong> SEGUIR</p>
+<hr>
+<h2 id="1-identidad-verificable">1. Identidad verificable<a class="anchor" href="#1-identidad-verificable">#</a></h2>
+<ul>
+<li><strong>URL principal:</strong> https://www.tiereleven.com/ y https://perpetualtraffic.com/</li>
+<li><strong>LinkedIn:</strong> https://www.linkedin.com/in/ralphburns/ [VERIFIED - existe, indexado en Google]</li>
+<li><strong>Twitter/X:</strong> @ralphhb (https://x.com/ralphhb) [VERIFIED]</li>
+<li><strong>Empresa:</strong> Tier 11 (digital marketing agency) — Sagamore Beach, Massachusetts. Founded 2010. 100% remoto, equipo en 25+ países. [VERIFIED - Inc.com profile https://www.inc.com/profile/tier-11]</li>
+<li><strong>Cargo:</strong> Founder & CEO Tier 11 + Host Perpetual Traffic podcast</li>
+<li><strong>Co-host actual:</strong> Lauren Petrullo (CEO Mongoose Media) [VERIFIED - rephonic.com listing]</li>
+<li><strong>Libro:</strong> "Virtual Boss: A Practical Guide for Masterfully Leading and Managing Remote Teams" [VERIFIED]</li>
+</ul>
+<hr>
+<h2 id="2-scoring-8-criterios">2. Scoring (8 criterios)<a class="anchor" href="#2-scoring-8-criterios">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>#</th>
+<th>Criterio</th>
+<th>Score</th>
+<th>Evidencia</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>Revenue principal</td>
+<td>2</td>
+<td>Agencia es core. Tier 11 vende servicios de account management, no curso visible. El podcast es marketing del agencia. https://www.tiereleven.com/ [VERIFIED]</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Audiencia auténtica</td>
+<td>2</td>
+<td>Podcast con 8M+ descargas (rephonic.com confirma top decile en su nicho paid media). Top podcast de paid traffic según multiple listings. [VERIFIED]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Evidencia auditable</td>
+<td>2</td>
+<td>Casos compartidos con números específicos (ej. Ep 719: nCAC bajó 25% de $282 a $213 escalando $250K → $500K/mes). Plataforma cliente identificable. https://perpetualtraffic.com/podcast/episode-719-the-8-essential-ad-types-to-kill-it-on-the-new-meta-ads-andromeda-update/ [VERIFIED]</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Coverage non-affiliate</td>
+<td>1</td>
+<td>Inc.com profile (https://www.inc.com/profile/tier-11) y Inspired Insider (https://www.inspiredinsider.com/ralph-burns-interview/). NO encontré coverage Digiday/AdExchanger/Modern Retail [INDUSTRY SIGNAL]</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Especificidad táctica</td>
+<td>2</td>
+<td>Ep 719 da números concretos: 2-3 variaciones por categoría creativa, 7-28 días learning period, frequency thresholds, breakdown del $250K→$500K scaling. https://perpetualtraffic.com/podcast/episode-719-the-8-essential-ad-types-to-kill-it-on-the-new-meta-ads-andromeda-update/ [VERIFIED]</td>
+</tr>
+<tr>
+<td>6</td>
+<td>LinkedIn coherente</td>
+<td>2</td>
+<td>LinkedIn público existente (404 en mi fetch pero indexado en Google, búsquedas devuelven employment Tier 11). Coincide con claims. [VERIFIED via search index]</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Endosos cruzados</td>
+<td>1</td>
+<td>Citado por Andrew Foxwell (independiente, ex-Foxwell Digital), John Moran (interno Tier 11 — no cuenta). Aparece en Hands-Off CEO podcast, Spotlight Social. NO citado directamente por Common Thread o Savannah en mi muestra. [INDUSTRY SIGNAL]</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Actividad reciente</td>
+<td>2</td>
+<td>Episodio 797 publicado 2026-05-26 (semana actual). Episodios sobre Andromeda, CAPI, Advantage+, GEM update aparecen en 2026 (ep 752/753/757/771/793). Frecuencia semanal estable. [VERIFIED]</td>
+</tr>
+</tbody></table></div>
+<p><strong>Total: 14/16</strong></p>
+<hr>
+<h2 id="3-métricas-reales-snapshot-2026-05-26">3. Métricas reales (snapshot 2026-05-26)<a class="anchor" href="#3-métricas-reales-snapshot-2026-05-26">#</a></h2>
+<ul>
+<li><strong>Podcast Perpetual Traffic:</strong> 8M+ descargas históricas; episodios 752-797 publicados en 2026 (frecuencia semanal)</li>
+<li><strong>Tier 11 agencia:</strong> $100M+ annual ad spend bajo manejo (claim sin auditar pero coherente con tamaño portfolio 57 industrias / 100+ team members)</li>
+<li><strong>Episodio más reciente:</strong> Ep 797 (2026-05-26) "What a Live CRO Audit Reveals That Your Design Agency Never Shows You"</li>
+<li><strong>LinkedIn followers:</strong> no fetcheable directamente; perfil indexado y activo</li>
+</ul>
+<hr>
+<h2 id="4-top-5-piezas-de-contenido-más-valiosas">4. Top 5 piezas de contenido más valiosas<a class="anchor" href="#4-top-5-piezas-de-contenido-más-valiosas">#</a></h2>
+<ol>
+<li><strong>Ep 719 · The 8 Essential Ad Types to KILL IT on the New Meta Ads Andromeda Update</strong> (2025-08-01)</li>
+</ol>
+<p>https://perpetualtraffic.com/podcast/episode-719-the-8-essential-ad-types-to-kill-it-on-the-new-meta-ads-andromeda-update/ Breakdown práctico de 8 tipos de ad post-Andromeda (UGC, Founder Story, Face to Camera, Us vs. Them, Product Feature, etc.) con regla 2-3 variaciones por categoría y caso de nCAC $282→$213.</p>
+<ol>
+<li><strong>Ep 757 · The New Meta "Feeder Strategy" That Breaks Andromeda (Full Walkthrough)</strong></li>
+</ol>
+<p>https://perpetualtraffic.com/podcast/episode-757-the-new-meta-feeder-strategy-that-breaks-andromeda-full-walkthrough/ Arquitectura de campaña feeder específica para sobrevivir post-Andromeda. Walkthrough completo.</p>
+<ol>
+<li><strong>Eps 752 + 753 · Meta GEM Update + Andromeda con Andrew Foxwell</strong></li>
+</ol>
+<p>https://perpetualtraffic.com/podcast/episode-752-the-new-meta-gem-update-the-secret-to-metas-andromeda-revealed-with-andrew-foxwell-part-1/ Dos partes con uno de los analistas más respetados de Meta independientes. Detalla mecánica interna del algoritmo.</p>
+<ol>
+<li><strong>Ep 771 · Stop Pausing Winning Ads With Meta Andromeda, Kill Conversions Instead - Part 2</strong></li>
+</ol>
+<p>https://perpetualtraffic.com/podcast/episode-771-stop-pausing-winning-ads-with-meta-andromeda-kill-conversions-instead-part-2/ Cambio fundamental de paradigma: en Andromeda no pausas ads, matas conversions. Aplicable directo a ClickBank scaling.</p>
+<ol>
+<li><strong>Ep 693 · How Meta Ads Are Changing Forever: Advantage+ & cAPI Subterfuge REVEALED!</strong></li>
+</ol>
+<p>https://perpetualtraffic.com/podcast/episode-693-how-meta-ads-are-changing-forever-advantage-capi-subterfuge-revealed/ Deep dive en CAPI import strategy con John Moran. Aplicable para affiliate con server-side tracking.</p>
+<hr>
+<h2 id="5-tácticas-accionables-para-stack-hispano-us-clickbankmeta">5. Tácticas accionables para stack Hispano-US ClickBank+Meta<a class="anchor" href="#5-tácticas-accionables-para-stack-hispano-us-clickbankmeta">#</a></h2>
+<p><strong>Aplicable:</strong></p>
+<ul>
+<li><strong>Regla 2-3 variaciones por categoría creativa</strong> (no saturar con 10 idénticos) — escala 1:1 a VSL pre-landers afiliados</li>
+<li><strong>Feeder strategy post-Andromeda</strong> — usar campaña pequeña que "alimente" datos a la principal, evita reset de learning</li>
+<li><strong>Métodos de kill diferidos:</strong> matar conversions, no ads — Meta penaliza pausas frecuentes en Andromeda</li>
+<li><strong>CAPI import + edge tagging</strong> — patrón directamente replicable con CartFlows/ClickFunnels + Meta CAPI custom</li>
+<li><strong>Threshold de scaling:</strong> subir presupuesto 20-30% cada 3-4 días si CPA mantiene; Andromeda penaliza saltos mayores</li>
+</ul>
+<p><strong>NO aplicable / específica otro stack:</strong></p>
+<ul>
+<li>Casos de e-commerce DTC (Theragun, etc.) no replican VSL ClickBank — modelo de compra diferente</li>
+<li>App subscriber growth (Ep 792) no aplica a affiliate Hispano sin app</li>
+<li>CRO audits para sitios DTC con carrito (Ep 796-797) — ClickBank afiliado usa hoplink, no carrito propio</li>
+<li>Budgets de $250K-$500K/mes — fuera del bootstrap $2-3K. Pero la <strong>lógica</strong> de scaling sí escala desde $200/día</li>
+</ul>
+<p><strong>Verdict bootstrap $2-3K:</strong> la lógica táctica SI aplica (creative diversification, Andromeda mechanics, CAPI). Los <strong>playbooks de scaling</strong> asumen mid-market $50K+/mes — adaptar, no copiar.</p>
+<hr>
+<h2 id="6-red-flags">6. Red flags<a class="anchor" href="#6-red-flags">#</a></h2>
+<ul>
+<li><strong>Ninguno mayor.</strong> Tier 11 es operación verificable, no curso vende-humos.</li>
+<li><strong>Yellow flag menor:</strong> algunos episodios derivan a contenido CRO/general marketing (eps 794-797 sobre comunicación, Chick-fil-A, CRO) en lugar de tácticas paid puras. Ratio paid-vs-otros está bajando un poco en 2026 vs 2025.</li>
+<li><strong>Caveat de aplicabilidad:</strong> Ralph trabaja con cuentas mid-market a enterprise; afiliado bootstrap necesita filtrar 30-40% del contenido.</li>
+</ul>
+<hr>
+<h2 id="7-próximo-paso-recomendado">7. Próximo paso recomendado<a class="anchor" href="#7-próximo-paso-recomendado">#</a></h2>
+<p><strong>SUSCRIBIR</strong> al podcast (Apple/Spotify).</p>
+<p><strong>Watch list específico:</strong></p>
+<ul>
+<li>Re-escuchar eps 719, 757, 771, 752-753, 693 (los 5 del top) y aplicar al stack VSL Hispano</li>
+<li>Si Tier 11 lanza curso/info-product → revaluar criterio 1 (caería a 1)</li>
+<li>Próxima validación: trimestral, revisar últimos 12 episodios</li>
+</ul>
+<p><strong>No suscribir a:</strong> ningún producto pago de Tier 11 — el podcast gratis ya entrega 80% del valor. Su servicio agency arranca en mid-5-figs/mes, fuera de presupuesto bootstrap.</p>
+<hr>
+<p><em>Fuentes principales:</em></p>
+<ul>
+<li>https://www.tiereleven.com/</li>
+<li>https://perpetualtraffic.com/podcast/</li>
+<li>https://www.inc.com/profile/tier-11</li>
+<li>https://www.inspiredinsider.com/ralph-burns-interview/</li>
+<li>https://rephonic.com/podcasts/perpetual-traffic</li>
+</ul>
+<div class="footer">
+Affiliate Business · Generado 2026-05-26<br>
+Fuente: <code>01-tier11-ralph-burns.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

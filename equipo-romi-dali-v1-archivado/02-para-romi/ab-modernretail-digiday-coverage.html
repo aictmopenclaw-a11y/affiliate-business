@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Retail + Digiday · Cobertura affiliate marketing DTC · Ficha verificación · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../INDEX.html">← Affiliate Business · Index</a>
+<span class="meta">07-learning / fuentes-confiables-2026 / tier-1 · 9 min · 1,737 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#1-identidad-verificable" class="">1. Identidad verificable</a></li><li><a href="#2-scoring-como-fuente-trade" class="">2. Scoring como fuente trade</a></li><li><a href="#3-cobertura-editorial-relevante-artículos-clave-2021-2026" class="">3. Cobertura editorial relevante (artículos clave 2021-2026)</a></li><li><a href="#modern-retail" class="h3">Modern Retail</a></li><li><a href="#digiday" class="h3">Digiday</a></li><li><a href="#4-operadores-agencias-mencionados-editorialmente-filtrados" class="">4. Operadores / agencias mencionados editorialmente (filtrados)</a></li><li><a href="#agencias-pr-to-affiliate-emergentes-no-venden-curso-operación-real" class="h3">Agencias PR-to-affiliate emergentes (NO venden curso · operación real)</a></li><li><a href="#creatoraffiliate-platforms-cubiertos-no-se-confunden-con-agencias" class="h3">Creator/affiliate platforms cubiertos (NO se confunden con agencias)</a></li><li><a href="#dtc-brands-con-affiliate-funcionando-benchmarks" class="h3">DTC brands con affiliate funcionando (benchmarks)</a></li><li><a href="#5-tácticas-accionables-para-stack-hispano-us" class="">5. Tácticas accionables para stack Hispano-US</a></li><li><a href="#6-red-flags-limitaciones" class="">6. Red flags / limitaciones</a></li><li><a href="#7-próximo-paso-recomendado" class="">7. Próximo paso recomendado</a></li><li><a href="#verdict" class="">Verdict</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>ab-modernretail-digiday-coverage.md</span>
+<span>1,737 palabras</span>
+<span>~9 min lectura</span>
+</div>
+<h1 id="modern-retail-digiday-cobertura-affiliate-marketing-dtc-ficha-verificación">Modern Retail + Digiday · Cobertura affiliate marketing DTC · Ficha verificación<a class="anchor" href="#modern-retail-digiday-cobertura-affiliate-marketing-dtc-ficha-verificación">#</a></h1>
+<p><strong>Fecha investigación:</strong> 2026-05-26 <strong>Investigador:</strong> Claude <strong>Tier asignado:</strong> 1 (como fuente trade DTC + brand-side affiliate) <strong>Credibility score:</strong> 13/16 <strong>Recomendación equipo:</strong> SEGUIR (lectura periódica · útil para identificar agencias PR-to-affiliate emergentes y benchmarks DTC)</p>
+<blockquote><p><strong>Nota metodológica:</strong> Ambas publicaciones son del mismo grupo (Digiday Media) pero con foco distinto: <strong>Modern Retail</strong> = brand-side DTC operations · <strong>Digiday</strong> = creator/agency/marketplace dynamics. Las trato como una unidad por sinergia editorial. Filtros aplicados: editorial puro (autores identificables, no sponsored content como "State of DTC 2025" sponsored by Klaviyo).</p></blockquote>
+<hr>
+<h2 id="1-identidad-verificable">1. Identidad verificable<a class="anchor" href="#1-identidad-verificable">#</a></h2>
+<ul>
+<li><strong>Modern Retail:</strong> https://www.modernretail.co/ — focus DTC + retail operations</li>
+<li><strong>Digiday:</strong> https://digiday.com/ — focus media buying, agencies, platforms</li>
+<li><strong>Parent:</strong> Digiday Media (privately held, NYC)</li>
+<li><strong>Reporteros affiliate beat (verificables 2024-2026):</strong></li>
+<li>Gabriela Barkho (Modern Retail) — principal en afilliate/DTC coverage</li>
+<li>Anna Hensel (Modern Retail) — DTC Briefing newsletter</li>
+<li>Sam Bradley + Alexander Lee (Digiday) — affiliate + creator marketing</li>
+<li>Sara Guaglione (Digiday) — publishers & affiliate</li>
+<li><strong>Newsletters:</strong> DTC Briefing (Modern Retail, weekly), Media Briefing (Digiday, weekly)</li>
+</ul>
+<hr>
+<h2 id="2-scoring-como-fuente-trade">2. Scoring como fuente trade<a class="anchor" href="#2-scoring-como-fuente-trade">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>#</th>
+<th>Criterio adaptado</th>
+<th>Score</th>
+<th>Evidencia</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>Independencia comercial</td>
+<td>1</td>
+<td>Sponsored content existe pero etiquetado (ej. "The state of DTC marketing in 2025" sponsored by Klaviyo). Editorial firmado por reporters distinguible</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Profundidad técnica</td>
+<td>2</td>
+<td>Casos concretos con números (Dorsey 25% rev de affiliate, Branch Basics 3x ROAS, Fly by Jing 121% MoM growth, Moonboon $1M en 6.5x ROAS)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Verificabilidad fuentes</td>
+<td>2</td>
+<td>Todos los quotes son named (founder, CMO, head of acquisition). Cross-checkeable en LinkedIn + sites de empresas</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Frecuencia + recencia</td>
+<td>2</td>
+<td>Cobertura affiliate continua 2021 → 2026. Mínimo 4-6 artículos sustantivos por año</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Especificidad táctica para afiliados independientes</td>
+<td>1</td>
+<td><strong>Foco brand-side, no afiliado individual.</strong> Pero útil entender qué buscan los brands (= qué ofertas tienen pull)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Coverage de agencias PR-to-affiliate</td>
+<td>2</td>
+<td>Identifica nuevas agencias (Dreamday, KMO Consulting, Dialogue NYC, Jennifer Bett, Iced Media, BrandCycle, Fifty Six) — leads valiosos</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Filtro editorial vs PR</td>
+<td>2</td>
+<td>Distinción clara. "DTC Briefing" y "Media Briefing" son editorial puro. Autores con bylines verificables</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Aplicabilidad stack Hispano-US</td>
+<td>1</td>
+<td>Brands US-EU, no hispano puro. Pero los playbooks PR-to-affiliate aplicables a TheLungo/Kyest+US</td>
+</tr>
+</tbody></table></div>
+<p><strong>Total: 13/16 · supera cutoff 10/16 con holgura</strong></p>
+<hr>
+<h2 id="3-cobertura-editorial-relevante-artículos-clave-2021-2026">3. Cobertura editorial relevante (artículos clave 2021-2026)<a class="anchor" href="#3-cobertura-editorial-relevante-artículos-clave-2021-2026">#</a></h2>
+<h3 id="modern-retail">Modern Retail<a class="anchor" href="#modern-retail">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Fecha</th>
+<th>Título</th>
+<th>Autor</th>
+<th>URL</th>
+<th>Foco</th>
+</tr></thead><tbody>
+<tr>
+<td>Sep 23, 2025</td>
+<td>Brands Briefing: Brands and agencies sharpen their influencer and affiliate strategies for Q4</td>
+<td>Gabriela Barkho</td>
+<td><a href="https://www.modernretail.co/marketing/brands-briefing-brands-and-agencies-sharpen-their-influencer-and-affiliate-strategies-for-q4/" target="_blank" rel="noopener">link</a></td>
+<td>Performance partnerships, creator-affiliate convergence</td>
+</tr>
+<tr>
+<td>Ago 4, 2022</td>
+<td>How the affiliate marketing playbook has evolved for DTC brands</td>
+<td>Gabriela Barkho</td>
+<td><a href="https://www.modernretail.co/marketing/how-the-affiliate-marketing-playbook-has-evolved-for-dtc-brands/" target="_blank" rel="noopener">link</a></td>
+<td>Foundational piece · Dreamday, Dorsey, Branch Basics, Fly by Jing</td>
+</tr>
+<tr>
+<td>Dic 7, 2021</td>
+<td>DTC Briefing: Affiliate marketing gets a second look from brands in time for the holidays</td>
+<td>Anna Hensel</td>
+<td><a href="https://www.modernretail.co/retailers/dtc-briefing-affiliate-marketing-gets-a-second-look-from-brands-in-time-for-the-holidays/" target="_blank" rel="noopener">link</a></td>
+<td>Post-iOS14 pivot, Three Ships case</td>
+</tr>
+<tr>
+<td>Dic 4, 2023</td>
+<td>As affiliate marketing gets competitive, a new brand playbook emerges</td>
+<td>Gabriela Barkho</td>
+<td><a href="https://www.modernretail.co/marketing/as-affiliate-marketing-gets-competitive-a-new-brand-playbook-emerges/" target="_blank" rel="noopener">link</a></td>
+<td>KMO Consulting, Dialogue NYC, Affiliate PR Club training</td>
+</tr>
+<tr>
+<td>(s/f recent)</td>
+<td>Influencer agencies report mixed experiences with TikTok Shop</td>
+<td>—</td>
+<td>https://www.modernretail.co/marketing/influencer-agencies-report-mixed-experiences-with-tiktok-shop/</td>
+<td>TikTok Shop creator-affiliate hybrid</td>
+</tr>
+</tbody></table></div>
+<h3 id="digiday">Digiday<a class="anchor" href="#digiday">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Fecha</th>
+<th>Título</th>
+<th>Autor</th>
+<th>URL</th>
+<th>Foco</th>
+</tr></thead><tbody>
+<tr>
+<td>Jul 24, 2025</td>
+<td>Advertisers expand affiliate efforts as creator marketing matures</td>
+<td>Sam Bradley + Alexander Lee</td>
+<td><a href="https://digiday.com/marketing/advertisers-expand-affiliate-efforts-as-creator-marketing-matures/" target="_blank" rel="noopener">link</a></td>
+<td>$13.2B affiliate spend forecast 2026 · Walmart, Amazon, Captiv8, Influential</td>
+</tr>
+<tr>
+<td>Jun 5, 2025</td>
+<td>Media Briefing: Affiliate isn't dead, say publishers – but it must evolve in the AI era</td>
+<td>Sara Guaglione</td>
+<td><a href="https://digiday.com/media/media-briefing-affiliate-isnt-dead-say-publishers-but-it-must-evolve-in-the-ai-era/" target="_blank" rel="noopener">link</a></td>
+<td>AI search impact en affiliate publisher business</td>
+</tr>
+<tr>
+<td>Feb 28, 2025</td>
+<td>The Honey scandal is a 'wake-up call' for the creator industry's affiliate partnerships</td>
+<td>—</td>
+<td><a href="https://digiday.com/marketing/the-honey-scandal-is-a-wake-up-call-for-the-creator-industrys-affiliate-partnerships/" target="_blank" rel="noopener">link</a></td>
+<td>Cookie hijacking risk</td>
+</tr>
+<tr>
+<td>Ene 10, 2025</td>
+<td>Why creators' pushback against Honey is about more than skimmed affiliate revenue</td>
+<td>—</td>
+<td><a href="https://digiday.com/marketing/why-creators-pushback-against-honey-is-about-more-than-skimmed-affiliate-revenue/" target="_blank" rel="noopener">link</a></td>
+<td>Creator-affiliate tension</td>
+</tr>
+<tr>
+<td>Oct 2, 2025</td>
+<td>The Guardian brings The Filter to the U.S. in affiliate commerce push</td>
+<td>—</td>
+<td><a href="https://digiday.com/media/the-guardian-brings-the-filter-to-the-u-s-in-affiliate-commerce-push/" target="_blank" rel="noopener">link</a></td>
+<td>Publisher commerce expansion</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="4-operadores-agencias-mencionados-editorialmente-filtrados">4. Operadores / agencias mencionados editorialmente (filtrados)<a class="anchor" href="#4-operadores-agencias-mencionados-editorialmente-filtrados">#</a></h2>
+<h3 id="agencias-pr-to-affiliate-emergentes-no-venden-curso-operación-real">Agencias PR-to-affiliate emergentes (NO venden curso · operación real)<a class="anchor" href="#agencias-pr-to-affiliate-emergentes-no-venden-curso-operación-real">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Agencia</th>
+<th>Founder</th>
+<th>Cliente notable</th>
+<th>Performance reportada</th>
+<th>Verificación</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Dreamday PR</strong></td>
+<td>Lauren Kleinman</td>
+<td>Girlfriend Collective, Oui the People, Fly by Jing, Brightland</td>
+<td>Girlfriend Collective: $1M+ affiliate revenue + 300K clicks YTD ; Oui the People: $86K rev / 37% MoM</td>
+<td>[VERIFIED via Modern Retail Ago 2022]</td>
+</tr>
+<tr>
+<td><strong>KMO Consulting</strong></td>
+<td>Kailia O'Connor</td>
+<td>(clients no listados — Cozy Earth, Sakara mentioned in piece)</td>
+<td>Standalone pieces $10K-$35K/article ; trained 200+ PR pros</td>
+<td>[INDUSTRY SIGNAL via Modern Retail Dic 2023]</td>
+</tr>
+<tr>
+<td><strong>Dialogue NYC</strong></td>
+<td>Julianne Fraser</td>
+<td>Apollo, Foria, others</td>
+<td>"Most successful programs require relationship building"</td>
+<td>[VERIFIED]</td>
+</tr>
+<tr>
+<td><strong>Jennifer Bett Communications</strong></td>
+<td>Jennifer Bett Meyer</td>
+<td>(launched affiliate division Abr 2022)</td>
+<td>s/d números</td>
+<td>[INDUSTRY SIGNAL]</td>
+</tr>
+<tr>
+<td><strong>Iced Media</strong></td>
+<td>Ashley Banks (quoted)</td>
+<td>Asset, Hole Serum (40K units sold), Uly Morazan partnership (3.4M views)</td>
+<td>Mueve product real con affiliate-driven TikTok Shop</td>
+<td>[VERIFIED via Modern Retail Sep 2025]</td>
+</tr>
+<tr>
+<td><strong>BrandCycle</strong></td>
+<td>Corinne Travis (quoted)</td>
+<td>s/d clients en pieza</td>
+<td>"Proactive approach to affiliate"</td>
+<td>[INDUSTRY SIGNAL]</td>
+</tr>
+<tr>
+<td><strong>Fifty Six Advertising</strong></td>
+<td>Katelyn Glass</td>
+<td>s/d</td>
+<td>s/d</td>
+<td>[INDUSTRY SIGNAL · Modern Retail Dic 2021]</td>
+</tr>
+</tbody></table></div>
+<h3 id="creatoraffiliate-platforms-cubiertos-no-se-confunden-con-agencias">Creator/affiliate platforms cubiertos (NO se confunden con agencias)<a class="anchor" href="#creatoraffiliate-platforms-cubiertos-no-se-confunden-con-agencias">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Platform</th>
+<th>Cobertura</th>
+</tr></thead><tbody>
+<tr>
+<td>Captiv8 (Krishna Subramanian)</td>
+<td>Digiday Jul 2025 — "affiliate as broader strategy"</td>
+</tr>
+<tr>
+<td>Influential (Ryan Detert · Publicis Groupe)</td>
+<td>Digiday Jul 2025</td>
+</tr>
+<tr>
+<td>Obviously (WPP-owned)</td>
+<td>Digiday Jul 2025</td>
+</tr>
+<tr>
+<td>Viral Nation</td>
+<td>Digiday Jul 2025</td>
+</tr>
+<tr>
+<td>HYDP</td>
+<td>Digiday Jul 2025</td>
+</tr>
+</tbody></table></div>
+<h3 id="dtc-brands-con-affiliate-funcionando-benchmarks">DTC brands con affiliate funcionando (benchmarks)<a class="anchor" href="#dtc-brands-con-affiliate-funcionando-benchmarks">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Brand</th>
+<th>Vertical</th>
+<th>Resultado verificable</th>
+<th>Quoted exec</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Dorsey</strong></td>
+<td>Jewelry</td>
+<td>Affiliate = 25-35% del revenue total</td>
+<td>Meg Strachan (Founder/CEO)</td>
+</tr>
+<tr>
+<td><strong>Fly by Jing</strong></td>
+<td>Food (chili crisp)</td>
+<td>$22K/mes affiliate revenue · 121% MoM growth · collab generó 300% lift sold-out 3 días</td>
+<td>Justin Chan (Director Growth)</td>
+</tr>
+<tr>
+<td><strong>Branch Basics</strong></td>
+<td>Cleaning</td>
+<td>33% del spend en affiliate · 3x ROAS</td>
+<td>Tim Murphy (CEO)</td>
+</tr>
+<tr>
+<td><strong>Three Ships</strong></td>
+<td>Skincare natural</td>
+<td>$10K/mes affiliate Q4 · 20+ gift guide placements</td>
+<td>Connie Lo (Co-founder)</td>
+</tr>
+<tr>
+<td><strong>Moonboon</strong></td>
+<td>Children sleep DTC</td>
+<td>300+ creators / 5 mercados EU / $1M+ rev / 6.5x ROI / 10% net sales</td>
+<td>(citado en inBeat coverage)</td>
+</tr>
+<tr>
+<td><strong>Asset</strong></td>
+<td>Beauty/skincare</td>
+<td>$2.3M DTC sales año fiscal 1</td>
+<td>Chad O'Connell (Founder)</td>
+</tr>
+<tr>
+<td><strong>Walmart Creator</strong></td>
+<td>Marketplace</td>
+<td>"Tens of thousands" creators</td>
+<td>Sarah Henry (Head Social Commerce)</td>
+</tr>
+<tr>
+<td><strong>Away (luggage)</strong></td>
+<td>DTC luggage</td>
+<td>Usa Partnerize VantagePoint</td>
+<td>Christine Rhea (Sr Dir Acquisition)</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="5-tácticas-accionables-para-stack-hispano-us">5. Tácticas accionables para stack Hispano-US<a class="anchor" href="#5-tácticas-accionables-para-stack-hispano-us">#</a></h2>
+<p><strong>Aplicable:</strong></p>
+<ul>
+<li><strong>PR-to-affiliate playbook validado:</strong> Dreamday + KMO + Dialogue prueban que afiliate de calidad = relación PR + comisión, no sólo cupón. Aplicable a TheLungo (lifestyle US) o Kyest+ si expanden a expat hispano US.</li>
+<li><strong>Benchmarks % revenue affiliate:</strong> Dorsey 25-35%, Branch Basics 33%, Moonboon 10% — rangos realistas para DTC bien ejecutados. Útil para sizing expectativa al pitchear modelo.</li>
+<li><strong>ROAS benchmarks:</strong> Branch Basics 3x, Moonboon 6.5x — banda razonable. Si una agencia promete >10x ROAS sostenido = red flag.</li>
+<li><strong>Honey risk awareness (Digiday Ene+Feb 2025):</strong> si trabajamos con creator affiliates en US, exigir tracking que detecte cookie hijacking · validar attribution flow.</li>
+<li><strong>Performance partnerships shift (Digiday Jul 2025):</strong> la wave 2025-2026 es creator-as-affiliate (no creator-as-impression). Implicación: nuestras propuestas DTC deben incorporar TikTok Shop / Walmart Creator / Amazon Inspire.</li>
+</ul>
+<p><strong>NO aplicable / específica otro stack:</strong></p>
+<ul>
+<li>Honey/PayPal coverage — irrelevante operacionalmente (riesgo, no playbook)</li>
+<li>Publisher-side affiliate (The Guardian, Bleacher Report, Business Insider) — modelo distinto a ClickBank affiliate</li>
+<li>Enterprise creator agencies (Influential, Obviously) — costo y mínimo client size fuera de nuestro rango</li>
+<li>AI search attribution (Digiday Jun 2025) — relevante a futuro pero no implementable hoy en stack ClickBank</li>
+</ul>
+<hr>
+<h2 id="6-red-flags-limitaciones">6. Red flags / limitaciones<a class="anchor" href="#6-red-flags-limitaciones">#</a></h2>
+<ul>
+<li><strong>Cero coverage de ClickBank-style affiliate marketing.</strong> Modern Retail/Digiday viven en el universo DTC + creator + publisher. Si buscas inspiración táctica de Meta para nutra → no es acá.</li>
+<li><strong>Sponsored content presente</strong> pero etiquetado. Filtrar: artículos firmados por reporters > "Sponsored by X" piezas.</li>
+<li><strong>Paywall parcial:</strong> Digiday+ tiene contenido tras paywall (Digiday+ Research, Marketing Briefing archive). Algunos artículos requerirán suscripción para acceso completo.</li>
+<li><strong>No cubre LATAM ni mercado hispano específicamente:</strong> los brands cubiertos son US y EU. Generaliza pero hay que validar transferibilidad.</li>
+<li><strong>Bias hacia DTC "buzz brands"</strong> (Olipop, Ghia, Topicals) — riesgo de sesgo survivorship al elegir benchmarks.</li>
+</ul>
+<hr>
+<h2 id="7-próximo-paso-recomendado">7. Próximo paso recomendado<a class="anchor" href="#7-próximo-paso-recomendado">#</a></h2>
+<ul>
+<li><strong>Newsletter subscription gratis:</strong></li>
+<li>DTC Briefing (Modern Retail, weekly)</li>
+<li>Media Briefing (Digiday, weekly)</li>
+<li>Configurar filtro Gmail para etiquetar como "Industry Trade"</li>
+<li><strong>Búsqueda recurrente trimestral:</strong> <code>site:modernretail.co affiliate</code> + <code>site:digiday.com affiliate</code> last 90 days</li>
+<li><strong>Deep dives candidatos (agencias PR-to-affiliate como Tier 2):</strong></li>
+<li><strong>Dreamday PR / Lauren Kleinman</strong> — performance verificada, founder-led, sin curso visible</li>
+<li><strong>Iced Media / Ashley Banks</strong> — TikTok Shop sales reales, brands específicas</li>
+<li><strong>NO buscar acá:</strong> operadores ClickBank, copy específica, Meta tactics nutra · para eso → ClickBank Affiliated podcast (eps 204, 218, 215) + Felipe Vergara</li>
+<li><strong>Cross-reference benchmarks:</strong> usar los % affiliate-of-revenue de DTC brands como sanity check al modelar oportunidades para Kyest, TheLungo, Powerlink</li>
+</ul>
+<hr>
+<h2 id="verdict">Verdict<a class="anchor" href="#verdict">#</a></h2>
+<p><strong>Fuente legítima Tier 1 para contexto brand-side DTC affiliate.</strong> Identifica agencias PR-to-affiliate emergentes (candidatas a Tier 2 deep dive), da benchmarks de revenue % y ROAS verificables, y mantiene rigor editorial. Complementa AdExchanger (infraestructura) y ClickBank podcast (operadores individuales) — los tres juntos cubren el espectro: macro plataformas → meso agencias brand-side → micro operadores individuales.</p>
+<hr>
+<p><em>Ficha v1.0 · 2026-05-26 · re-validar Q4 2026</em></p>
+<div class="footer">
+Affiliate Business · Generado 2026-05-26<br>
+Fuente: <code>ab-modernretail-digiday-coverage.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,568 @@
+[00:00] Until quite recently, you could look at a video on your TikTok or your Instagram feed
+[00:04] and you could tell pretty quickly that it was AI.
+[00:07] But this, this is where things start to get a little bit scary.
+[00:10] This stuff tastes so good.
+[00:12] Every time I drink this, I'm in shock that it has zero calories in it.
+[00:16] They have more than 25 flavors and not a single one has any sweeteners.
+[00:20] If you've never tried hint, you need to grab some today.
+[00:22] While most people are debating whether these videos are real or they're fake,
+[00:27] the real operators are already making moves.
+[00:30] They're using AI generated video to make ads and ride the wave right into revenue.
+[00:37] And in this video, I'm going to be showing you exactly how to make ads like this using nothing,
+[00:42] but Arcads AI.
+[00:44] So Arcads is mostly known for their AI UGC models,
+[00:48] which I've done a video previously on the channel,
+[00:50] but they've recently just integrated a lot of the major AI video models into Arcads.
+[00:55] The one that we're going to be focusing on today,
+[00:57] I think is the most impressive and that is Sora 2.
+[00:59] So I'm almost certain that you've already seen a bunch of the videos that people have made on Sora 2
+[01:04] because there's an app and they make it incredibly easy to generate any kind of video.
+[01:09] However, almost all of them come with that Sora watermark,
+[01:13] which basically makes it impossible to use for anything other than like a viral TikTok.
+[01:17] And there has been a lot of viral TikToks.
+[01:19] My favorite is the one of Stephen Hawkins coming down the halfpipe.
+[01:22] Just good, wholesome AI fun.
+[01:25] But Arcads have actually made the pro version available,
+[01:27] which gets rid of that watermark and makes it way more powerful.
+[01:31] So let's jump directly into Arcads and let's have a look.
+[01:34] So this is the project that I've been kind of working on kind of slowly for a little while now,
+[01:38] which is what we're going to be focusing on.
+[01:39] The product is hint water.
+[01:41] I thought this was a good example because it has a lot of detail in the product.
+[01:45] And so this will really show whether AI is capable of that or not.
+[01:48] So I've already gone ahead and generated a ton of videos just to save some time,
+[01:52] but I really want to show you how simple it is to do this.
+[01:55] So this was a street interview clip that I generated using Sora for one of our clients.
+[02:00] And this honestly is hard to tell whether it's AI or not.
+[02:03] What's your secret for weight loss?
+[02:04] Honestly, this natural ozempic had me dropping pounds like crazy.
+[02:08] No way.
+[02:08] I swear, I'm eating the same just lighter every week.
+[02:11] At a first glance, that is insane how good that is.
+[02:14] There are a couple of things that kind of give it away when you watch it multiple times.
+[02:17] But at first glance as an ad on the feed, this is going to pass.
+[02:21] And the crazy thing is I wrote this prompt basically using ChatGPT.
+[02:25] So I gave ChatGPT the script and the idea and it went ahead and it wrote me a prompt for Sora too.
+[02:30] So you can see this is quite a detailed prompt.
+[02:32] Sometimes detailed prompts are needed to get exactly what you need,
+[02:35] but I'll show you in a second how simple the prompts can be.
+[02:38] So this is an example of a video where all you need is a small, simple prompt
+[02:42] and the output can be pretty incredible.
+[02:48] So the idea of this video was I wanted a larger guy wearing one of our clients' clothes
+[02:54] and then I wanted them to be walking down the fairway holding a golf club towards the sunset.
+[02:59] It was very specific what I wanted.
+[03:01] We ended up not using this clip in a video.
+[03:03] But if I show you the behind the scenes, you can see how simple this was.
+[03:06] Big guy wearing a Sunday swagger polo shirt walking down a golf fairway at sunset away from camera.
+[03:13] I didn't give this any reference images.
+[03:15] I think that's really important to note here is I didn't tell it what shirt I wanted it to wear.
+[03:20] I just said a Sunday Swagger golf polo shirt.
+[03:23] So the AI has gone and searched Sunday Swagger.
+[03:26] It's found a golf shirt and now it's imported it into the video.
+[03:30] With that simple prompt, had that output. Absolutely insane.
+[03:34] This was another one that I did with a bit more of a complicated prompt.
+[03:37] But essentially what I wanted is like a conference speaker speaking and this was the output.
+[03:43] And you're smoking addiction in seven days.
+[03:46] That's really, really good.
+[03:48] And because of this type of format, it's kind of forgiven that it might be a little more lower quality
+[03:54] because it's you know, it's filmed from a conference.
+[03:56] This is insane.
+[03:57] Like as like expert driven material, you can see how useful this would be.
+[04:01] But the reason why Sora 2 and Arkads in general are so important for performance creative
+[04:07] is that we need to act really quickly.
+[04:09] We have a massive studio here and we have the ability to basically film whatever we want.
+[04:14] However, it takes time and often time means money.
+[04:17] And particularly when you're very busy like during Black Friday, for example,
+[04:20] you might not have time to jump in the studio and to record this stuff or to hire actors.
+[04:25] This stuff that takes both production time and people's time.
+[04:28] And so Sora 2 can help you get almost like a version one of something so that you can test it.
+[04:33] And then if it works, then you can invest further down the line.
+[04:37] That's one way that we've been using it at Fraggle.
+[04:39] We've been using it like AI shots and AI UGC and voiceovers.
+[04:43] We've been using that to very rapidly test things so that then we know when we do them for real,
+[04:49] they go into perform.
+[04:50] So let's jump back into our test project here and I'll break down exactly what you can do in Arkads
+[04:56] because like I mentioned, they have a ton of tools that are available.
+[04:59] So obviously Arkads is known for their AI UGC.
+[05:03] We still have a ton of those in here.
+[05:05] That's one real great benefit and these can be basically kind of as long as you want,
+[05:09] which is really fantastic, which often Sora has limits on like how long the videos can be that you generate.
+[05:15] So AI avatars are great for that stuff.
+[05:18] However, they also have all these new features as well.
+[05:21] So they've got like Nano Banana Pro is built in here.
+[05:23] You can replace an actor.
+[05:25] So replace the subject with a reference character.
+[05:27] That's insanely powerful.
+[05:29] They have unboxing POV stuff in here.
+[05:31] You can show your app.
+[05:33] We've actually been using this recently super powerful as well.
+[05:36] But what we are going to be doing of course is we're going to be using Sora to pro mostly here.
+[05:42] But also I've done one using the Sora pro actors, which we'll go through in a second.
+[05:46] But as you can see here, one tool loads of different features inside one tool.
+[05:49] So your team or you aren't jumping around to different places to get what you want.
+[05:53] And that is what I've been struggling the most with AI recently and this is the solve.
+[05:57] So my idea for what I wanted to create using this was I wanted to pick a product.
+[06:02] First of all, that was rather difficult to replicate with AI.
+[06:06] So I went for a bottle that has liquid in which notoriously is difficult for any computer to generate.
+[06:11] Also lots of text.
+[06:13] Again, very difficult for AI to generate.
+[06:16] And also I wanted to make sure that we have the right size of things.
+[06:19] Because again, proportion is something which is very difficult for AI to figure out.
+[06:23] So as you can see, I've already generated a ton of clips.
+[06:25] So let's break them down and then let's throw them into Premiere.
+[06:28] And let's start to build a bit of an ad.
+[06:29] The goal of this ad, I want a kind of like UGC mashup style ad.
+[06:34] Something where we can hear from different people, different voices.
+[06:37] And we're able to mash them all together to make an ad.
+[06:40] I feel like that's probably something that lends itself very well to AI type of ads.
+[06:44] Because before the user knows it's AI, it's already off the screen and it's gone.
+[06:48] I think some of the worst cases of AI video that I've seen is when it's like a shot of an AI person for like a minute, 30 seconds.
+[06:55] It gives the user enough time to really look into detail into this stuff.
+[06:59] So wherever you can cover things up with B-roll or you can put some music under it, all this kind of stuff really helps.
+[07:04] So let's break down how we actually prompt these.
+[07:07] So what you might find is that quite a lot of these that I have here start with this random frame.
+[07:13] This is the reference image that I gave to Sora.
+[07:16] So when it comes to generating videos in our cards via Sora, this is the best way that I found to do it and include your product.
+[07:23] The first thing you need to do is find a reference image of your product.
+[07:26] As you can see by some of these, I just have like a really simple e-commerce product image.
+[07:30] So for example, like this, this is like a white background image.
+[07:34] All I need to do is open that into Sora.
+[07:36] I just found that on Google and then you've added the image which you can then reference.
+[07:40] And then you can also change your model down here if you want to use like Kling maybe or VO 3.1.
+[07:46] I want to use Sora 2 Pro.
+[07:48] I think that's the best one, your aspect ratio.
+[07:50] It's important and also your length 12, 8 and 4.
+[07:53] I usually use 4 if it's like a little b-roll shot and I usually use 8 or 12 if it's like a talking to camera piece.
+[07:59] And of course you want your resolution as well as high as possible and also how many generations of this do you want to do.
+[08:05] So if we go to like this example that I made here, you can see the first frame is the reference image that we made.
+[08:10] Very easy to just cut out later, but my prompt is so ridiculously easy.
+[08:14] A female influencer holds up a bottle of hint water and says this stuff tastes so good and the best part it has zero calories.
+[08:22] Perfect for a summer's day. No background music.
+[08:25] Sora has this really annoying habit unfortunately of just adding in random bits that you don't ask it to.
+[08:31] So background music is one thing that I definitely do not want in there so I specified no background music.
+[08:36] And let's see what the output is.
+[08:38] This stuff tastes so good and the best part it has zero calories. Perfect for a summer's day.
+[08:45] The first time that I saw this I was absolutely blown away so you can see here we have a couple of seconds where she's just kind of doing nothing.
+[08:51] So like she actually says her stuff like well under 8 seconds and I generated a 12 second video so for the rest kind of nothing happened.
+[08:59] So that's my fault. I selected the wrong time but I wasn't sure how long it was going to take her to say this.
+[09:05] But look how good this is. Not only does it like look real like you cannot deny this doesn't look real but also like the bottle.
+[09:13] Look she holds it up and we can see the details. We can see it says tangerine. We can see everything. It's incredible.
+[09:20] And we can also see like the bubbles here. There are a couple of artifacts like this clearly isn't a tangerine right.
+[09:25] Like it's a weird mix between a lime and a tangerine doesn't quite match the reference. However it is passable.
+[09:31] And now the next one I actually used a little hack with the reference images. We can essentially use that as almost like a start frame.
+[09:38] So what I did was I went and I found on Google a review image that someone had left of hint water which is this first frame here.
+[09:45] Like this first frame is the reference image. It was somebody that had picked up some hint water from Costco and they took a photo holding it.
+[09:52] So what I did was I used that and I said a female influencer holds the bottle of hints in her hand and says I'm not kidding.
+[09:58] I cannot stop drinking this stuff. No background music. This is what it made.
+[10:04] I'm not kidding. I cannot stop drinking this stuff.
+[10:07] Now this looks insanely real and the reason this does is because we're basing it off a real image.
+[10:12] If your customers are leaving review images then you can just download them and use them as reference images for your Sora 2 videos.
+[10:20] Making them feel way more realistic.
+[10:23] So I think these are great for like little mashup bits where they're holding the product and they're like talking behind the camera. Super smart.
+[10:28] And then again this one I found a picture that someone had taken of hint bottles inside a fridge.
+[10:33] And so I said POV filmed on a phone. Someone opening up their fridge and it's full of bottles of hints.
+[10:39] This is only a four second one. Pulls out loads of bottles of hint.
+[10:43] That's really great. Super like. This is really good. I think this is going to make like a pretty good hook.
+[10:49] There's a couple of different ways there that you can use Sora to generate different types of videos.
+[10:54] So we have ones where you can use a reference image. You have ones where you can just like just do it.
+[10:58] And also we have this other option which is using nano banana to generate an image that then you can animate.
+[11:05] So I headed over to Google Gemini. You can do this inside Arcads.
+[11:08] I got this image off Instagram. I searched hint water. I took a screenshot and I literally said pouring a bottle of hint water into a glass in 9x16.
+[11:16] This was the output. Really great. Downloaded that and then I put that into Arcads.
+[11:21] And then this is what we get from here. Pouring a bottle of hint water into a glass.
+[11:25] I press play. It kind of looks slo-mo but it's definitely usable. We can use that.
+[11:32] So that's a really great scenario there of using two AI tools together to make the video better.
+[11:38] Normally always when I'm generating any kind of AI video I normally try and start with some kind of start frame that I've generated using AI.
+[11:45] It just means that you're not like completely shooting in the dark which often happens with AI video.
+[11:50] Now another feature that they have is these Sora 2 actors.
+[11:55] So basically what this does is it uses the remix to awaken remix an existing Sora video.
+[12:02] And they've already generated you like all these creators basically like these fake creators in different scenarios.
+[12:08] These are really really good. Like this one for example.
+[12:11] I'm one of the AI actors on Arcads. This is just the base. You can remix it with your own idea, your brand, your tone. Make it sound.
+[12:19] You cannot tell me that doesn't feel and sound real. That is insane. This is the one that we ended up using.
+[12:25] Hey, I'm one of the AI actors on Arcads. This is just the base you can remix.
+[12:29] You've got one of someone cooking.
+[12:30] Hey, I'm one of the AI actors on Arcads.
+[12:32] Like it's ludicrously good. So you literally just like select it basically and then you can see it down here that you're remixing this.
+[12:39] So it's going to use all the ingredients almost from that video and then it's going to add it into yours.
+[12:43] So what I did was I took this video here using the AI actor.
+[12:48] Influenced speaking in the car to the camera saying they have more than 25 flavors without any sweeteners.
+[12:53] They taste amazing. And this was the output.
+[12:56] They have more than 25 flavors and not a single one has any sweeteners. Seriously. Just pure flavor and they taste amazing.
+[13:06] It's actually gone a little bit further than I wanted and it's almost like added filler words and it's added little bits to make it seem more natural.
+[13:12] Which just blows my mind every single time because normally when AI would do that I'd be really furious because it screwed up but it didn't.
+[13:18] Like that's made the clip 10 times better than it already was.
+[13:21] And again, this is all done inside Arcads.
+[13:23] So now when I've got the shots that I want I just click download.
+[13:26] It downloads them at full res and now I can use them inside my projects.
+[13:30] So what I'm going to do is I'm going to pick all the clips that I want to use inside my video that I've generated
+[13:35] and then we're going to put them into Premiere.
+[13:37] So I think I'm going to use this one here.
+[13:39] I really want to use this one because I think this is solid.
+[13:41] So I'm just going to click download that one there.
+[13:44] I want to use this one of someone holding it.
+[13:47] So again, just going to press download there and it's going to start downloading.
+[13:51] I think I'm going to give this one a miss here.
+[13:53] I do want to use this one as well.
+[13:54] This is another one that I did.
+[13:56] This one was a guy walking on the street.
+[13:58] So let's download that one.
+[14:00] I want to use this one for the hook as well.
+[14:02] So again, let's download it.
+[14:03] I want to use this one.
+[14:04] Let's download this one as well.
+[14:05] So there's a lot of really usable ones.
+[14:07] This is another one that I generated here.
+[14:10] This was just a reference image you can see from the top there.
+[14:13] So let's download that again.
+[14:15] This was an Instagram image that I print screened and put it in POV iPhone footage,
+[14:19] film and iPhone shopping cart full of him water bottles.
+[14:22] Let's download that one as well.
+[14:24] We'll download this one also.
+[14:26] Okay.
+[14:27] So we're in a fresh Premiere Pro project.
+[14:29] I'm just going to import all this media here.
+[14:31] So these are all the high res ones that I've just downloaded.
+[14:34] I also got some music before off art list as well.
+[14:37] So I'm going to pop that in there.
+[14:39] Now the first place that I always start is obviously we need to make a sequence.
+[14:43] So let's just go here.
+[14:44] Let's make a social media portrait sequence done.
+[14:47] I'm just going to call this ad.
+[14:49] Obviously I would normally organize this a little bit better.
+[14:52] Let's start with some kind of hook.
+[14:53] So what I was thinking was we want some bubble text and we want it to say like POV,
+[14:57] you're addicted to him water or something.
+[14:59] So I think our choices are we that have this one, which I think kind of makes sense.
+[15:03] And I think it's a better generation arguably than the fridge one.
+[15:06] Let's have a look.
+[15:07] But again, that could make a really nice variation, couldn't it?
+[15:09] Right.
+[15:10] So you can see these aren't the right size for the project.
+[15:13] Easy fix.
+[15:14] Let's just scale this up.
+[15:17] We just scale it up.
+[15:18] There we go.
+[15:19] Now I'm just going to go and grab my TikTok bubble text,
+[15:22] my little template here that I use in the text as well,
+[15:25] because I'm smart and I am prepared ahead of time.
+[15:27] Okay.
+[15:28] Boom, dawn, POV, you're addicted to hint.
+[15:31] And I'm going to put that in the middle.
+[15:33] I'm going to chop this down here.
+[15:36] So how long have we got?
+[15:37] We've got about four seconds of this, don't we?
+[15:39] Man, this is such a good shot.
+[15:40] Like look at how the water is like bubbling around.
+[15:44] That is crazy.
+[15:47] Like that does not, I'm sorry, that does not look AI generated in the slightest.
+[15:51] And because we've based it off that initial image,
+[15:53] it hasn't really had to generate much.
+[15:55] It's just had to like generate some movement,
+[15:57] which means it all kind of looks real.
+[15:59] That's the best way I've found to make really good B-roll
+[16:02] for Sora with Arkads.
+[16:04] Okay.
+[16:05] So we've got that.
+[16:06] Now we need like an opening line or something, I think.
+[16:10] So let's go for one of these talking head ones.
+[16:13] We've got this girl here that we could potentially use.
+[16:16] This stuff tastes so good.
+[16:18] Yeah.
+[16:19] Let's use that one.
+[16:20] So we're just going to snip off that starting frame there.
+[16:22] We're just going to do a little bit of jiggery pokery there.
+[16:25] Obviously we're going to snip off all this end bit because we don't need it.
+[16:28] And again, we're just going to give this a little scale up.
+[16:30] There we go.
+[16:31] Okay.
+[16:32] So let's see what we've got so far.
+[16:33] Probably make the hook a little bit shorter.
+[16:35] Yeah.
+[16:36] Definitely make it a bit shorter.
+[16:37] Let's shorten that.
+[16:38] So now a little editing tip here to make things seem a little more natural.
+[16:41] If you have the audio from the clip that you're about to go into start
+[16:46] beforehand in the previous clip, it just makes it feel a little bit neater.
+[16:49] These are called J and L cuts.
+[16:51] There's a little filmmaking terminology for you there.
+[16:53] But you can see this is probably going to sound much more natural.
+[16:56] This stuff tastes...
+[16:58] We can probably do a little bit more actually.
+[17:01] Obviously this background noise is a little bit loud as well.
+[17:04] So let's let's remove that a little bit.
+[17:07] Tastes so good.
+[17:08] Nice.
+[17:09] And then I think what might be nice then is to potentially go to like one of these.
+[17:15] So this is actually something that I really wanted to mention that this is done,
+[17:18] which is really funny.
+[17:19] So I generated this way too long than what it should have been.
+[17:22] It is quite important, I think, to pick the right length.
+[17:24] So maybe give your script a couple of read-throughs.
+[17:26] Time yourself to see how long that is going to take.
+[17:29] So let's pop that in there.
+[17:31] I'm not kidding.
+[17:32] I can...
+[17:33] Yep.
+[17:34] Cool.
+[17:35] That's really nice.
+[17:36] Again, we're just going to zoom in just a smidge here.
+[17:39] Just so we get rid of those black bars.
+[17:42] Cool.
+[17:43] Let's move on to the next one.
+[17:44] You can see we're literally just layering clips on top of each other.
+[17:46] So I think this clip I'm going to use at the end.
+[17:48] Don't store or online.
+[17:49] You'll never drink normal water again.
+[17:51] It's got zero calories, zero sweeteners.
+[17:53] Just that little splash of watermelon.
+[17:55] I'm obsessed.
+[17:56] Get yourself a bottle and thank you later.
+[17:58] If you've never...
+[17:59] Yeah.
+[18:00] I think I'm going to use that one for the end because it feels quite a natural resolution.
+[18:04] We have this one of this guy here.
+[18:06] Let's grab this one.
+[18:07] And you can see that I've asked like Arkads and Sora to do these text things
+[18:11] where they're saying things and they're walking down the street.
+[18:14] Because I think that allows it to look a little more convincing
+[18:17] because you have more to look at
+[18:19] and there's more going on in the frame that takes it away
+[18:21] and makes it look less AI generated, I think.
+[18:24] I cannot stop drinking this stuff.
+[18:26] Alright, so let's block that in there.
+[18:28] Let's start this clip.
+[18:29] Every time I drink this...
+[18:30] Alright, we're getting there.
+[18:34] I'm in shock that it has zero calories in it.
+[18:36] That's...
+[18:38] Okay, I'm in shock.
+[18:39] It's got zero calories in it.
+[18:41] Let's cut that little end bit off there.
+[18:44] We don't want that.
+[18:45] And now let's find what's the next clip we're going to use.
+[18:48] We could always use this car one.
+[18:50] Potentially, we're on 15 seconds currently.
+[18:52] Calories in it.
+[18:53] They have more...
+[18:54] So this one, she's not actually holding the bottle, right?
+[18:56] Because this was an AI character.
+[18:58] So I don't think we could do that.
+[19:00] Potentially you could do.
+[19:01] So what I've done is I've just got her to say something very generic
+[19:03] and I'm going to overlay some of that B-roll that we did.
+[19:06] They have more than 25 flavors
+[19:08] and not a single one has any sweeteners.
+[19:11] That's really cool.
+[19:12] I like that.
+[19:13] Let's add a little cut here.
+[19:14] Seriously.
+[19:15] Just pure...
+[19:16] Pure flavor.
+[19:17] And they taste amazing.
+[19:20] Alright, okay.
+[19:21] We don't need that little cut there.
+[19:22] So let's just remove that bit there.
+[19:24] We're just going to add a little bit of that B-roll.
+[19:26] What have we got here?
+[19:27] We've got...
+[19:28] We can generate way more if we want.
+[19:29] We could go and find some more product images.
+[19:31] There's plenty of options here of what we could do.
+[19:33] I think this clip might be a little bit long, you know?
+[19:35] They have more than 25 flavors
+[19:37] and not a single one has any sweeteners.
+[19:40] Any sweeteners.
+[19:43] Seriously.
+[19:44] Just pure flavor.
+[19:46] Pure flavor.
+[19:48] Pure flavor.
+[19:49] Pure flavor.
+[19:50] Pure flavor.
+[19:51] Pure flavor.
+[19:52] Pure flavor.
+[19:53] Pure flavor.
+[19:54] And they taste amazing.
+[19:55] I don't think that's too bad actually.
+[19:57] Let's keep that.
+[19:58] We can probably add a little more B-roll here.
+[20:00] So let's add this fridge one if we can find it.
+[20:02] There it is.
+[20:03] Let's pop that fridge one on there as well
+[20:05] so that we're not staying on her face for too long.
+[20:08] We do need to zoom in on here as well.
+[20:11] 25 flavors and not a single one has any...
+[20:15] See, this actually looks pretty good now
+[20:17] that it's mixed in with other stuff.
+[20:18] Seriously.
+[20:21] Zoom in on here.
+[20:21] Just pure flavor.
+[20:25] Zoom in on this.
+[20:32] Nice, we are getting somewhere now.
+[20:34] You can see how simply you can pull all this together
+[20:36] to make a really quick ad.
+[20:37] Like you can pump out tons of these
+[20:39] with different hooks as well really quickly.
+[20:41] So let's get our end clip here,
+[20:42] which is this one,
+[20:43] and I'm just gonna pop this on here.
+[20:45] And you've never tried.
+[20:46] Let's zoom in a little bit.
+[20:47] This might need a little bit of tidying up this one
+[20:49] because I think there was a bit of a glitch
+[20:51] when this was downloaded.
+[20:52] Go in store or online.
+[20:53] You'll never drink normal water.
+[20:54] The frame rate changes a little bit.
+[20:55] It's got zero calories.
+[20:57] It's not a massive deal.
+[20:58] So let's stick with it for now.
+[20:59] Never drink normal water again.
+[21:01] It's got zero calories, zero sweeteners.
+[21:03] Just that little splash of watermelon.
+[21:04] I'm obsessed.
+[21:05] Get yourself a bottle and thank me later.
+[21:07] Really, really, really great.
+[21:09] So now let's whack on some music.
+[21:12] I literally just found like one of the first tracks
+[21:14] that I could find here.
+[21:15] So it might not be super fitting,
+[21:17] but let's see.
+[21:18] Of course you could even use an AI tool
+[21:20] to generate the music as well.
+[21:21] You could really go full AI here.
+[21:24] This stuff tastes so good and the best part?
+[21:27] It has zero calories.
+[21:29] Perfect for a summer's day.
+[21:31] I'm not kidding.
+[21:32] I cannot stop drinking this stuff.
+[21:33] Every time I drink this,
+[21:34] I'm in shock that it has zero calories.
+[21:36] Absolutely wild how powerful this tool is.
+[21:39] Like crazy.
+[21:40] Now what we can do is I want to add some captions here.
+[21:42] So I'm just going to give that a quick save
+[21:43] in case we crash.
+[21:44] Now I'm just going to use the in-built caption thing here.
+[21:48] So I'm just going to transcribe this whole sequence.
+[21:50] Adobe Premiere is going to go away
+[21:51] and it's going to do all this for us.
+[21:53] Here we go.
+[21:55] And now we just need to change the caption settings.
+[21:58] My usual caption settings do change a little bit,
+[22:01] but I like to keep it single lined.
+[22:03] The character's quite low,
+[22:04] so it all kind of stays on one line.
+[22:05] We generate that.
+[22:06] I don't quite know what it's doing here.
+[22:09] So I want these to look like
+[22:10] kind of like organic TikTok captions.
+[22:12] So a little hack here.
+[22:14] If you get the font Proximanova,
+[22:17] and you use the semi-bold type,
+[22:21] if we can find it,
+[22:23] there we go.
+[22:23] This is pretty much the exact text
+[22:25] that TikTok used for their subtitles.
+[22:27] So we want to make sure this is in the safe zone.
+[22:29] So I normally go to the middle there
+[22:30] and I just kind of knock it down a little bit.
+[22:33] I kind of have the safe zones
+[22:34] like memorized in my head at this point.
+[22:36] And then another thing to do here
+[22:37] is we don't have a shadow on TikTok.
+[22:39] We have a black stroke,
+[22:42] which is usually yet about right there.
+[22:45] So let's give this a play
+[22:46] and see what we've got so far.
+[22:48] This stuff tastes so good.
+[22:49] It's kind of screwed up this a little bit.
+[22:51] So let's change this.
+[22:52] She starts dark in here.
+[22:53] So let's make it start there.
+[22:55] This stuff tastes so good.
+[22:57] And the best part, it has zero calories.
+[23:00] Perfect for a summer's day.
+[23:02] I'm not kidding.
+[23:03] I cannot stop drinking this stuff.
+[23:04] Every time I drink this,
+[23:05] I'm in shock that it has zero calories in it.
+[23:08] They have more than 25 flavors
+[23:10] and not a single one has any sweeteners.
+[23:12] Seriously, just pure flavor.
+[23:15] And they taste amazing.
+[23:18] If you've never tried...
+[23:18] We didn't cut out the starting frame.
+[23:20] That's bad on us.
+[23:21] That is bad on us.
+[23:22] So let's sort that one out there.
+[23:25] If you've never tried Hint,
+[23:26] If you've never tried him,
+[23:28] that's not right.
+[23:28] Hint.
+[23:29] Hint, you need to grab some today.
+[23:31] Go in store or online.
+[23:32] You'll never drink normal water again.
+[23:34] It's got zero calories, zero sweeteners.
+[23:36] Just that little splash of watermelon.
+[23:37] I'm obsessed.
+[23:38] Get yourself a bottle and think me later.
+[23:40] Like we are absolutely cooked.
+[23:42] Like this is insane how good this is.
+[23:45] So I think we just need to do a little more work
+[23:47] on the subtitles
+[23:48] because they don't quite look right yet.
+[23:49] That could be a font size problem, maybe.
+[23:51] That's really good.
+[23:52] Nice.
+[23:53] And there we go.
+[23:54] We have gone from having absolutely nothing
+[23:56] to now having a finished ad.
+[23:59] Let's play the ad in its entirety one more time.
+[24:02] This stuff tastes so good.
+[24:04] And the best part, it has zero calories.
+[24:07] Perfect for a summer's day.
+[24:09] I'm not kidding.
+[24:10] I cannot stop drinking this stuff.
+[24:12] Every time I drink this, I'm in shock
+[24:13] that it has zero calories in it.
+[24:15] They have more than 25 flavors
+[24:17] and not a single one has any sweeteners.
+[24:20] Seriously, just pure flavor and they taste amazing.
+[24:24] If you've never tried hint, you need to grab some today.
+[24:27] Go in store or online.
+[24:28] You'll never drink normal water again.
+[24:30] It's got zero calories, zero sweeteners.
+[24:32] Just that little splash of watermelon.
+[24:33] I'm obsessed.
+[24:34] Get yourself a bottle and think me later.
+[24:36] And remember, you don't need to generate
+[24:38] complete ads using Sora and Arcads.
+[24:42] You can just do a hook if you want
+[24:44] or you can use it for voiceovers,
+[24:46] b-roll, whatever you want.
+[24:48] At Fraggle, we use AI hooks all the time, wherever we can
+[24:51] because they're really great at attracting attention
+[24:53] to make the impossible possible.
+[24:55] And I think Arcads is possibly one of the best tools
+[24:57] that you can use to do that.
+[24:58] If you do want to sign up with Arcads
+[24:59] and you want to try it, there is a link down below.
+[25:01] Give it a shot.
+[25:02] Like I said, so many tools in there
+[25:04] that you can use to make
+[25:06] converting performance creative.
+[25:07] Go and test it and see what you think
+[25:09] and while you're down there,
+[25:10] why not give the channel a little subscribe
+[25:12] and leave a comment with how you are using AI
+[25:15] in your workflow.
+[25:16] And of course, if you happen to be spending over 70,000
+[25:18] on your paid media,
+[25:19] then make sure that you scan the QR code on the screen
+[25:21] or book a link down below
+[25:23] and have a chat with me because my agency
+[25:24] would love to make ads for you.
+[25:26] So until next time, enjoy creating
+[25:28] and I'll see you soon.
+[25:29] Bye-bye.

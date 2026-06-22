@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP 00 · Crear cuenta ClickBank (afiliado · Chile · no-US) · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">06-ops / sops · 6 min · 1,123 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#antes-de-empezar-ten-esto-a-mano" class="">Antes de empezar · ten esto a mano</a></li><li><a href="#paso-0-el-nickname-decisión-irreversible" class="">Paso 0 · El nickname (decisión irreversible)</a></li><li><a href="#paso-1-signup-10-min-formulario-real-verificado-2026-06-14" class="">Paso 1 · Signup (10 min) · FORMULARIO REAL VERIFICADO 2026-06-14</a></li><li><a href="#paso-2-crear-el-nickname-account-5-min" class="">Paso 2 · Crear el nickname / account (5 min)</a></li><li><a href="#paso-3-configurar-pagos-10-min" class="">Paso 3 · Configurar pagos (10 min)</a></li><li><a href="#3a-payment-threshold" class="h3">3a · Payment threshold</a></li><li><a href="#3b-payment-method" class="h3">3b · Payment method</a></li><li><a href="#3c-payment-frequency" class="h3">3c · Payment frequency</a></li><li><a href="#paso-4-tax-form-w-8ben-10-min-crítico" class="">Paso 4 · Tax form W-8BEN (10 min · CRÍTICO)</a></li><li><a href="#paso-5-configurar-el-hoplink-test-5-min" class="">Paso 5 · Configurar el HopLink test (5 min)</a></li><li><a href="#checklist-final" class="">Checklist final</a></li><li><a href="#lo-que-no-hacer" class="">Lo que NO hacer</a></li><li><a href="#recordatorios-post-creación-customer-distribution-requirement" class="">Recordatorios post-creación (Customer Distribution Requirement)</a></li><li><a href="#dormant-account-fees" class="h3">Dormant account fees</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>sop-00-crear-cuenta-clickbank.md</span><span>1,123 palabras</span><span>~6 min</span></div>
+<h1 id="sop-00-crear-cuenta-clickbank-afiliado-chile-no-us">SOP 00 · Crear cuenta ClickBank (afiliado · Chile · no-US)</h1>
+<blockquote><p><strong>Owner:</strong> Cris <strong>Frecuencia:</strong> una vez (setup inicial) <strong>Tiempo:</strong> 30-45 min <strong>Prerequisito:</strong> Wise Personal con cuenta USD activa (routing + account number USA) <strong>Mercado:</strong> USA inglés · operamos como afiliados (no vendors)</p>
+<p>Última actualización: 2026-06-14 · validar detalles finos contra videos oficiales ClickBank en <code>videos-clickbank-2026/transcripciones/</code></p></blockquote>
+<hr>
+<h2 id="antes-de-empezar-ten-esto-a-mano">Antes de empezar · ten esto a mano<a class="anchor" href="#antes-de-empezar-ten-esto-a-mano">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Dato</th>
+<th>Valor</th>
+<th>Notas</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Nombre legal</strong></td>
+<td>(como aparece en cédula)</td>
+<td>Debe coincidir EXACTO para W-8BEN</td>
+</tr>
+<tr>
+<td><strong>Email dedicado</strong></td>
+<td>recomendado uno aparte de OpenClaw</td>
+<td>Aislamiento</td>
+</tr>
+<tr>
+<td><strong>Teléfono</strong></td>
+<td>+56 9 XXXX XXXX</td>
+<td>Con código país</td>
+</tr>
+<tr>
+<td><strong>Dirección</strong></td>
+<td>la de cédula</td>
+<td>Para W-8BEN</td>
+</tr>
+<tr>
+<td><strong>Account nickname</strong></td>
+<td><code>truenorth</code> (backups: <code>harbor</code>, <code>meridian</code>)</td>
+<td><strong>PERMANENTE · no cambiable</strong></td>
+</tr>
+<tr>
+<td><strong>Wise USD</strong></td>
+<td>routing + account number USA</td>
+<td>Para recibir pagos</td>
+</tr>
+<tr>
+<td><strong>País del beneficiario</strong></td>
+<td>Chile</td>
+<td>Para tratado tributario</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="paso-0-el-nickname-decisión-irreversible">Paso 0 · El nickname (decisión irreversible)<a class="anchor" href="#paso-0-el-nickname-decisión-irreversible">#</a></h2>
+<p>El <strong>account nickname</strong> es tu affiliate ID. Reglas:</p>
+<ul>
+<li>5-10 caracteres alfanuméricos, minúsculas</li>
+<li><strong>No se puede cambiar nunca</strong></li>
+<li>Aparece visible en cada HopLink (<code>hop.clickbank.net/?affiliate=NICKNAME&amp;...</code>)</li>
+<li>El comprador puede verlo en la URL del navegador</li>
+</ul>
+<p><strong>Por eso:</strong> neutro, sin revelar oferta/marca/estrategia.</p>
+<p>Puedes crear hasta <strong>10 nicknames</strong> dentro de la misma cuenta master (útil después para segmentar por niche/canal).</p>
+<p><strong>Nickname elegido:</strong> <code>truenorth</code> (si está tomado al crear: <code>harbor</code>, luego <code>meridian</code>)</p>
+<hr>
+<h2 id="paso-1-signup-10-min-formulario-real-verificado-2026-06-14">Paso 1 · Signup (10 min) · FORMULARIO REAL VERIFICADO 2026-06-14<a class="anchor" href="#paso-1-signup-10-min-formulario-real-verificado-2026-06-14">#</a></h2>
+<p>URL directa: <strong>accounts.clickbank.com/signup/</strong></p>
+<p>El formulario tiene un aviso clave arriba:</p>
+<blockquote><p><em>"All fields are mandatory. Accurate information is required. Inaccurate information could result in a declined account."</em></p></blockquote>
+<p>→ Por eso el nombre debe ser EXACTO al de la cédula. Info falsa = cuenta rechazada.</p>
+<p>Campos en orden (todos obligatorios):</p>
+<ol>
+<li><strong>Country:</strong> cambiar de "United States of America" (default) a <strong>Chile</strong> (sí está en la lista)</li>
+<li><strong>First Name:</strong> nombre legal</li>
+<li><strong>Last Name:</strong> apellido legal</li>
+<li><strong>Phone Number:</strong> cambiar el prefijo de +1 (default US) a <strong>+56</strong> · luego el número</li>
+<li><strong>Email Address:</strong> el dedicado</li>
+<li><strong>Password:</strong> requisitos REALES y estrictos de ClickBank:</li>
+<li>Mínimo <strong>2 minúsculas</strong></li>
+<li>Mínimo <strong>2 mayúsculas</strong></li>
+<li>Mínimo <strong>2 números</strong></li>
+<li>Mínimo <strong>2 caracteres especiales</strong> (<code>!@#$%^&amp;*/</code>)</li>
+<li><strong>Máximo 32 caracteres</strong></li>
+<li><strong>Sin espacios</strong></li>
+<li>Ejemplo válido: <code>TruHealth26!!aB</code> (guardar en 1Password)</li>
+<li>Click <strong>"Continue to Terms and Conditions"</strong></li>
+<li>Se habilita el checkbox <strong>"I have read and agree to the Terms and Conditions"</strong> → marcarlo</li>
+<li>Click <strong>"Join ClickBank!"</strong></li>
+<li><strong>Verificar email</strong> (link que llega al correo)</li>
+</ol>
+<div class="box box-warning"><div class="box-label">Atención</div><p><span class="badge badge-warn">!</span> ClickBank a veces pide verificación adicional para no-US. Si pide documento, subir cédula. Normal. <span class="badge badge-warn">!</span> Hacer esto desde TU navegador con IP chilena (no automatización · no VPN). El anti-fraud de ClickBank flaggea sesiones raras.</p></div>
+<hr>
+<h2 id="paso-2-crear-el-nickname-account-5-min">Paso 2 · Crear el nickname / account (5 min)<a class="anchor" href="#paso-2-crear-el-nickname-account-5-min">#</a></h2>
+<p>Tras primer login, ClickBank pide crear tu primer <strong>account nickname</strong>:</p>
+<ol>
+<li>Ir a la sección de cuentas / "Create Account"</li>
+<li>Ingresar el <strong>nickname</strong> decidido en Paso 0</li>
+<li>Seleccionar tipo: <strong>Affiliate</strong> (no Vendor · vendor cuesta $49.95 setup)</li>
+<li>Confirmar</li>
+</ol>
+<blockquote><p>El nickname queda creado. Ya puedes generar HopLinks técnicamente, pero falta configurar pagos + tax para cobrar.</p></blockquote>
+<hr>
+<h2 id="paso-3-configurar-pagos-10-min">Paso 3 · Configurar pagos (10 min)<a class="anchor" href="#paso-3-configurar-pagos-10-min">#</a></h2>
+<p>Ir a <strong>Settings → My Account → Payment Information</strong> (o "Account Settings"):</p>
+<h3 id="3a-payment-threshold">3a · Payment threshold<a class="anchor" href="#3a-payment-threshold">#</a></h3>
+<ul>
+<li>Mínimo: $10 USD</li>
+<li>Default: $100 USD</li>
+<li><strong>Recomendado arranque:</strong> $50 USD (cobrar antes, validar que el flujo funciona)</li>
+</ul>
+<h3 id="3b-payment-method">3b · Payment method<a class="anchor" href="#3b-payment-method">#</a></h3>
+<p>ClickBank por defecto usa <strong>cheque</strong>. Cambiar a:</p>
+<ul>
+<li><strong>Direct Deposit</strong> si Chile estuviera en la lista (NO está · solo México en LATAM)</li>
+<li><strong>Wire transfer</strong> (funciona pero cobra fee ~$15-30)</li>
+<li><strong>Payoneer</strong> (partner oficial ClickBank · alternativa sólida)</li>
+<li><strong>Workaround Wise USD ACH:</strong> ingresar el routing + account number USA de Wise como si fuera cuenta US (documentado funcionando 2026)</li>
+</ul>
+<blockquote><p><strong>Para nuestro caso:</strong> intentar primero Wise USD ACH (routing + account number). Si ClickBank lo rechaza por validación de dirección US, fallback a Payoneer.</p></blockquote>
+<h3 id="3c-payment-frequency">3c · Payment frequency<a class="anchor" href="#3c-payment-frequency">#</a></h3>
+<ul>
+<li>Weekly o Biweekly</li>
+<li><strong>Recomendado:</strong> Weekly (cash flow más rápido)</li>
+</ul>
+<hr>
+<h2 id="paso-4-tax-form-w-8ben-10-min-crítico">Paso 4 · Tax form W-8BEN (10 min · CRÍTICO)<a class="anchor" href="#paso-4-tax-form-w-8ben-10-min-crítico">#</a></h2>
+<p>Sin esto, ClickBank retiene <strong>30% de cada pago</strong> (withholding IRS).</p>
+<ol>
+<li>En Account Settings → buscar <strong>Tax Information</strong> / <strong>Tax Form</strong></li>
+<li>Seleccionar <strong>W-8BEN</strong> (persona natural no-US · NO W-8BEN-E que es para empresas)</li>
+<li>Llenar:</li>
+<li><strong>Name:</strong> nombre legal exacto</li>
+<li><strong>Country of citizenship:</strong> Chile</li>
+<li><strong>Permanent address:</strong> dirección de cédula (Chile)</li>
+<li><strong>Foreign Tax ID:</strong> tu RUT (sin puntos, con guión · ej 12345678-9)</li>
+<li><strong>Treaty claim:</strong> Chile (tratado USA-Chile vigente desde feb 2024)</li>
+<li><strong>Article / rate:</strong> el formulario suele autocompletar la tasa reducida del tratado</li>
+<li><strong>Firma:</strong> nombre + fecha</li>
+<li>Submit</li>
+</ol>
+<blockquote><p>El tratado USA-Chile reduce el withholding. Sin W-8BEN = 30% retenido. Con W-8BEN = tasa reducida del tratado (mucho menor o 0% según tipo de ingreso).</p></blockquote>
+<hr>
+<h2 id="paso-5-configurar-el-hoplink-test-5-min">Paso 5 · Configurar el HopLink test (5 min)<a class="anchor" href="#paso-5-configurar-el-hoplink-test-5-min">#</a></h2>
+<p>Para confirmar que la cuenta funciona:</p>
+<ol>
+<li>Ir a <strong>Marketplace</strong></li>
+<li>Buscar cualquier oferta (ej. categoría Health & Fitness)</li>
+<li>Click <strong>"Promote"</strong> → genera HopLink con tu nickname</li>
+<li>Verificar que el HopLink tiene formato: <code>https://NICKNAME.VENDOR.hop.clickbank.net</code> o <code>hop.clickbank.net/?affiliate=NICKNAME&amp;vendor=VENDOR</code></li>
+</ol>
+<blockquote><p>Esto confirma que el nickname está activo. NO necesitas promover esta oferta · es solo test.</p></blockquote>
+<hr>
+<h2 id="checklist-final">Checklist final<a class="anchor" href="#checklist-final">#</a></h2>
+<ul>
+<li><input type="checkbox"  disabled>Cuenta creada + email verificado</li>
+<li><input type="checkbox"  disabled>Nickname permanente decidido y creado</li>
+<li><input type="checkbox"  disabled>Payment method configurado (Wise USD o Payoneer)</li>
+<li><input type="checkbox"  disabled>Payment threshold $50</li>
+<li><input type="checkbox"  disabled><strong>W-8BEN completado</strong> (sin esto pierdes 30%)</li>
+<li><input type="checkbox"  disabled>HopLink test generado OK</li>
+</ul>
+<hr>
+<h2 id="lo-que-no-hacer">Lo que NO hacer<a class="anchor" href="#lo-que-no-hacer">#</a></h2>
+<ul>
+<li><span class="badge badge-no">NO</span> Nickname que revele marca/oferta (es visible en URLs)</li>
+<li><span class="badge badge-no">NO</span> Saltarse el W-8BEN (30% retención)</li>
+<li><span class="badge badge-no">NO</span> Usar cuenta Vendor (cuesta $49.95 · no la necesitamos como afiliados)</li>
+<li><span class="badge badge-no">NO</span> Nombre que no coincida con cédula (rechazo W-8BEN)</li>
+<li><span class="badge badge-no">NO</span> Mezclar con cuentas/datos de OpenClaw</li>
+</ul>
+<hr>
+<h2 id="recordatorios-post-creación-customer-distribution-requirement">Recordatorios post-creación (Customer Distribution Requirement)<a class="anchor" href="#recordatorios-post-creación-customer-distribution-requirement">#</a></h2>
+<p>ClickBank no paga el primer payout hasta cumplir el <strong>CDR</strong>:</p>
+<ul>
+<li>Mínimo <strong>5 ventas</strong></li>
+<li>Con al menos <strong>2 métodos de pago distintos</strong> entre los compradores (ej. 2 con Visa + 1 Mastercard + 2 PayPal)</li>
+<li>Después, esperar el ciclo de pago</li>
+</ul>
+<p>Esto es normal · planificar cash flow asumiendo 2-4 semanas de lag desde la primera venta.</p>
+<h3 id="dormant-account-fees">Dormant account fees<a class="anchor" href="#dormant-account-fees">#</a></h3>
+<p>Si no hay ventas:</p>
+<ul>
+<li>90 días sin venta → $1/pay period</li>
+<li>180 días → $5/pay period</li>
+<li>365 días → $50/pay period</li>
+</ul>
+<p>Plan: vender en mes 1 o pausar/cerrar cuenta si el test no avanza.</p>
+<hr>
+<p><em>SOP 00 · validar flujo exacto contra videos oficiales ClickBank cuando terminen de transcribir.</em></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: sop-00-crear-cuenta-clickbank.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

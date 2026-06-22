@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Felipe Vergara · Módulo 5 · Lanzando Campañas Desde Cero — Aplicado al Affiliate · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">07-learning / cursos-cruzados · 13 min · 2,671 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#las-3-partes-fundamentales-de-una-campaña-meta-clase-02" class="">Las 3 Partes Fundamentales de una Campaña Meta (clase 02)</a></li><li><a href="#estructura-jerárquica" class="h3">Estructura jerárquica</a></li><li><a href="#aplicación-al-affiliate" class="h3">Aplicación al affiliate</a></li><li><a href="#las-4-situaciones-de-campaña-clase-03" class="">Las 4 Situaciones de Campaña (clase 03)</a></li><li><a href="#variantes-de-affiliate-adicionales" class="h3">Variantes de affiliate adicionales</a></li><li><a href="#las-4-ias-de-meta-andromeda-3-más-clase-05" class="">Las 4 IAs de Meta · Andromeda + 3 más (clase 05)</a></li><li><a href="#implicancia-para-affiliate" class="h3">Implicancia para affiliate</a></li><li><a href="#clave-1-diversificación-creativa-clase-06-la-más-importante" class="">Clave 1: Diversificación Creativa (clase 06) — la más importante</a></li><li><a href="#principio-clave" class="h3">Principio clave</a></li><li><a href="#el-concepto-entity-id-huella-digital" class="h3">El concepto "Entity ID" (huella digital)</a></li><li><a href="#cambios-pequeños-vs-significativos" class="h3">Cambios pequeños vs significativos</a></li><li><a href="#aplicación-al-affiliate-crítico-para-dali" class="h3">Aplicación al affiliate (CRÍTICO para Dali)</a></li><li><a href="#cómo-lograr-verdadera-diversificación-creativa" class="h3">Cómo lograr verdadera diversificación creativa</a></li><li><a href="#clave-2-datos-de-calidad-clase-07" class="">Clave 2: Datos de Calidad (clase 07)</a></li><li><a href="#3-métodos-para-enviar-datos-de-calidad" class="h3">3 métodos para enviar datos de calidad</a></li><li><a href="#método-1-pixel-capi-página-web" class="h4">Método 1: Pixel + CAPI (página web)</a></li><li><a href="#método-2-crm-sync" class="h4">Método 2: CRM Sync</a></li><li><a href="#método-3-whatsapp-business-tags-no-aplica-para-nosotros" class="h4">Método 3: WhatsApp Business Tags (no aplica para nosotros)</a></li><li><a href="#implicancia-operativa" class="h3">Implicancia operativa</a></li><li><a href="#clave-3-estructura-correcta-clase-08-la-más-larga-y-rica" class="">Clave 3: Estructura Correcta (clase 08) — la más larga y rica</a></li><li><a href="#lo-que-nunca-hacer-estructura-1-1-1" class="h3">Lo que NUNCA hacer: estructura 1-1-1</a></li><li><a href="#las-2-posturas-extremas-ambas-erróneas" class="h3">Las 2 posturas extremas (ambas erróneas)</a></li><li><a href="#pregunta-diagnóstica-clave" class="h3">Pregunta diagnóstica clave</a></li><li><a href="#estructura-para-cuenta-nueva-ideal-para-nosotros-en-fase-1" class="h3">Estructura para CUENTA NUEVA (ideal para nosotros en Fase 1)</a></li><li><a href="#campaña-1-presentación-tráfico-frío" class="h4">Campaña 1: Presentación / Tráfico Frío</a></li><li><a href="#campaña-2-evaluación-retargeting" class="h4">Campaña 2: Evaluación / Retargeting</a></li><li><a href="#estructura-para-cuenta-con-historial-fase-2-3-cuando-ya-tengamos-data" class="h3">Estructura para CUENTA CON HISTORIAL (Fase 2-3 cuando ya tengamos data)</a></li><li><a href="#campaña-1-presentación" class="h4">Campaña 1: Presentación</a></li><li><a href="#campaña-2-evaluación" class="h4">Campaña 2: Evaluación</a></li><li><a href="#campaña-3-si-tráfico-alto-conversión" class="h4">Campaña 3 (si tráfico alto): Conversión</a></li><li><a href="#aplicación-al-affiliate-por-fase-del-roadmap" class="h3">Aplicación al affiliate por fase del roadmap</a></li><li><a href="#fase-1-mes-1-cuenta-nueva" class="h4">Fase 1 (mes 1) — cuenta nueva</a></li><li><a href="#fase-2-3-cuando-primer-winner-valida-roas-15x" class="h4">Fase 2-3 (cuando primer winner valida ROAS > 1.5x)</a></li><li><a href="#las-exclusiones-cuándo-sí-cuándo-no" class="h3">Las exclusiones (cuándo sí, cuándo no)</a></li><li><a href="#cómo-calcular-el-presupuesto-clase-10-framework-crítico" class="">Cómo Calcular el Presupuesto (clase 10) — framework crítico</a></li><li><a href="#el-framework-de-felipe" class="h3">El framework de Felipe</a></li><li><a href="#ejemplo-aplicado-al-affiliate" class="h3">Ejemplo aplicado al affiliate</a></li><li><a href="#tabla-aplicada-a-3-escenarios" class="h3">Tabla aplicada a 3 escenarios</a></li><li><a href="#reglas-operativas-derivadas" class="h3">Reglas operativas derivadas</a></li><li><a href="#tres-preguntas-que-la-cuenta-debe-responder-antes-de-cualquier-decisión" class="">Tres preguntas que la cuenta debe responder antes de cualquier decisión</a></li><li><a href="#1-cuánto-presupuesto-tengo" class="h3">1. ¿Cuánto presupuesto tengo?</a></li><li><a href="#2-qué-historial-tiene-la-cuenta" class="h3">2. ¿Qué historial tiene la cuenta?</a></li><li><a href="#3-qué-objetivo-persigo" class="h3">3. ¿Qué objetivo persigo?</a></li><li><a href="#aplicación-equipo" class="h3">Aplicación equipo</a></li><li><a href="#cambios-concretos-a-nuestras-sops-derivados-de-m05" class="">Cambios concretos a nuestras SOPs derivados de M05</a></li><li><a href="#cambios-a-sop-01-selección-oferta" class="h3">Cambios a SOP 01 (Selección oferta)</a></li><li><a href="#cambios-a-sop-04-setup-funnel" class="h3">Cambios a SOP 04 (Setup funnel)</a></li><li><a href="#cambios-a-sop-06-análisis-semanal" class="h3">Cambios a SOP 06 (Análisis semanal)</a></li><li><a href="#cambios-a-sop-07-producción-creativos" class="h3">Cambios a SOP 07 (Producción creativos)</a></li><li><a href="#cambios-al-skill-affiliate-funnel-structuremd" class="h3">Cambios al skill `affiliate-funnel-structure.md`</a></li><li><a href="#pendientes-cuando-completen-las-44-transcripciones-restantes-de-m05" class="">Pendientes cuando completen las 44 transcripciones restantes de M05</a></li><li><a href="#insight-maestro-de-m05" class="">Insight maestro de M05</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>felipe-vergara-m05-aplicado.md</span><span>2,671 palabras</span><span>~13 min</span></div>
+<h1 id="felipe-vergara-módulo-5-lanzando-campañas-desde-cero-aplicado-al-affiliate">Felipe Vergara · Módulo 5 · Lanzando Campañas Desde Cero — Aplicado al Affiliate</h1>
+<blockquote><p><strong>Curso:</strong> Cómo Vender por Meta Ads (Felipe Vergara) <strong>Módulo 5:</strong> "Lanzando Campañas Desde Cero" (56 clases · ~25% transcrito al momento de esta síntesis) <strong>Fecha síntesis:</strong> 2026-04-28 <strong>Audiencia:</strong> Cris (setup principal), Romi (estrategia campaña)</p>
+<p>Este documento extrae los frameworks accionables de M05 y los aplica al stack affiliate ClickBank + Meta Ads + hispano-US. Se actualizará cuando se completen las transcripciones restantes.</p></blockquote>
+<hr>
+<h2 id="las-3-partes-fundamentales-de-una-campaña-meta-clase-02">Las 3 Partes Fundamentales de una Campaña Meta (clase 02)<a class="anchor" href="#las-3-partes-fundamentales-de-una-campaña-meta-clase-02">#</a></h2>
+<h3 id="estructura-jerárquica">Estructura jerárquica<a class="anchor" href="#estructura-jerárquica">#</a></h3>
+<pre><code>CAMPAÑA          → ¿QUÉ quieres? (objetivo)
+   ↓
+CONJUNTO DE ANUNCIOS → ¿QUIÉN, DÓNDE, CUÁNTO, CUÁNDO?
+   ↓
+ANUNCIOS         → ¿CÓMO se ve? (creativo, copy, link, CTA)</code></pre>
+<h3 id="aplicación-al-affiliate">Aplicación al affiliate<a class="anchor" href="#aplicación-al-affiliate">#</a></h3>
+<p><strong>Nivel Campaña (objetivo):</strong> Para affiliate ClickBank con landing intermedia → <strong>Sales (Ventas)</strong> con conversion event = Purchase (vía CAPI postback) o como fallback Initiate Checkout.</p>
+<p><strong>Nivel Conjunto de Anuncios:</strong></p>
+<ul>
+<li><strong>Quién:</strong> Advantage+ Audience por defecto</li>
+<li><strong>Dónde:</strong> Advantage Placements (Meta decide)</li>
+<li><strong>Cuánto:</strong> $50/día por conjunto al iniciar (ver SOP 04)</li>
+<li><strong>Cuándo:</strong> Continuo (no programar fechas iniciales)</li>
+</ul>
+<p><strong>Nivel Anuncio:</strong></p>
+<ul>
+<li><strong>FB Page + IG Account:</strong> los del proyecto affiliate (jamás reusar de otros proyectos)</li>
+<li><strong>Texto:</strong> copy según nivel de consciencia (ver M04 doc)</li>
+<li><strong>Arte:</strong> uno de los 10 tipos de creativos</li>
+<li><strong>Link:</strong> landing intermedia (NO HopLink directo)</li>
+<li><strong>CTA:</strong> "Más información" o "Ver más" (NO "Comprar ahora" para frío)</li>
+</ul>
+<hr>
+<h2 id="las-4-situaciones-de-campaña-clase-03">Las 4 Situaciones de Campaña (clase 03)<a class="anchor" href="#las-4-situaciones-de-campaña-clase-03">#</a></h2>
+<p>Felipe define 4 escenarios típicos. Para affiliate aplica el #2 (eCommerce) con landing intermedia.</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Situación</th>
+<th>Tipo de campaña</th>
+<th>Aplica a affiliate?</th>
+</tr></thead><tbody>
+<tr>
+<td>1. WhatsApp / DMs</td>
+<td>Interaction</td>
+<td>No (affiliate no responde DMs)</td>
+</tr>
+<tr>
+<td>2. eCommerce</td>
+<td><strong>Sales (Ventas)</strong></td>
+<td><strong>SÍ — nuestro caso default</strong></td>
+</tr>
+<tr>
+<td>3. Lead Gen</td>
+<td>Lead Generation</td>
+<td>A veces (si pre-vendemos via webinar/quiz)</td>
+</tr>
+<tr>
+<td>4. Tienda física</td>
+<td>Reach + Map</td>
+<td>No</td>
+</tr>
+</tbody></table></div>
+<p><strong>Nota:</strong> Felipe menciona que más adelante hace clases específicas para affiliate marketing — esas son las que más nos interesan (módulos posteriores).</p>
+<h3 id="variantes-de-affiliate-adicionales">Variantes de affiliate adicionales<a class="anchor" href="#variantes-de-affiliate-adicionales">#</a></h3>
+<p>Felipe menciona 4 industrias específicas:</p>
+<ul>
+<li>Cursos online</li>
+<li><strong>Marketing de afiliados (la nuestra)</strong></li>
+<li>Dropshipping</li>
+<li>Print on demand</li>
+</ul>
+<p>Cuando se transcriban esas clases específicas, agregar aquí lo aplicable.</p>
+<hr>
+<h2 id="las-4-ias-de-meta-andromeda-3-más-clase-05">Las 4 IAs de Meta · Andromeda + 3 más (clase 05)<a class="anchor" href="#las-4-ias-de-meta-andromeda-3-más-clase-05">#</a></h2>
+<p>Felipe destaca que <strong>Andromeda</strong> es la IA principal — la que decide a quién mostrar cada ad. Las otras 3 trabajan para optimizar otros aspectos (placement, conversion prediction, audience).</p>
+<h3 id="implicancia-para-affiliate">Implicancia para affiliate<a class="anchor" href="#implicancia-para-affiliate">#</a></h3>
+<p>Lo importante es que <strong>toda la estructura post-2024 de Meta favorece dejar al algoritmo decidir.</strong></p>
+<ul>
+<li>Advantage+ Audience > Detailed</li>
+<li>Advantage Placements > Manual</li>
+<li>Lowest Cost > Bidcap (al inicio · ver M07 cuando aplica Bidcap)</li>
+</ul>
+<hr>
+<h2 id="clave-1-diversificación-creativa-clase-06-la-más-importante">Clave 1: Diversificación Creativa (clase 06) — la más importante<a class="anchor" href="#clave-1-diversificación-creativa-clase-06-la-más-importante">#</a></h2>
+<blockquote><p>"Diferentes personas responden a diferentes anuncios. Si quieres que tus campañas den buenos resultados, diseña anuncios diferentes entre sí."</p></blockquote>
+<h3 id="principio-clave">Principio clave<a class="anchor" href="#principio-clave">#</a></h3>
+<p>Andromeda categoriza tus anuncios y los muestra a diferentes "grupos de usuarios". Si todos tus anuncios son iguales, <strong>te mantienes en un grupo pequeño</strong>. Si son diversos, desbloqueas más grupos.</p>
+<h3 id="el-concepto-entity-id-huella-digital">El concepto "Entity ID" (huella digital)<a class="anchor" href="#el-concepto-entity-id-huella-digital">#</a></h3>
+<p><strong>Crítico que entendamos esto:</strong></p>
+<ul>
+<li>En el Ads Manager cada ad tiene su propio ID</li>
+<li>Pero en el back-end (Andromeda), si 2 ads son <strong>muy similares</strong>, los consolida en la misma "huella digital"</li>
+<li>Anuncios con la misma huella → mismo grupo de audiencia → no escalas</li>
+</ul>
+<h3 id="cambios-pequeños-vs-significativos">Cambios pequeños vs significativos<a class="anchor" href="#cambios-pequeños-vs-significativos">#</a></h3>
+<p><strong>Cambios pequeños (NO funcionan — misma huella):</strong></p>
+<ul>
+<li>Cambiar solo el texto del CTA en el ad</li>
+<li>Cambiar solo el headline manteniendo imagen</li>
+<li>Mismo creator de UGC con misma toma cambiando solo el opening</li>
+</ul>
+<p><strong>Cambios significativos (SÍ funcionan — nueva huella):</strong></p>
+<ul>
+<li>Cambiar el formato (foto vs video vs reel)</li>
+<li>Cambiar el creator de contenido</li>
+<li>Cambiar el ángulo estratégico</li>
+<li>Mostrar producto vs lifestyle vs testimonio</li>
+</ul>
+<h3 id="aplicación-al-affiliate-crítico-para-dali">Aplicación al affiliate (CRÍTICO para Dali)<a class="anchor" href="#aplicación-al-affiliate-crítico-para-dali">#</a></h3>
+<p><strong>Regla operativa para SOP 07 producción de creativos:</strong></p>
+<p>Cuando Dali produce 10 variantes para un brief, NO deben ser:</p>
+<ul>
+<li><span class="badge badge-no">NO</span> Misma persona HeyGen con 10 voice-overs distintos</li>
+<li><span class="badge badge-no">NO</span> Mismo creativo con 10 textos overlay distintos</li>
+<li><span class="badge badge-no">NO</span> Misma escena con 10 cortes ligeramente distintos</li>
+</ul>
+<p>DEBEN ser:</p>
+<ul>
+<li><span class="badge badge-ok">OK</span> 3 personas diferentes en HeyGen (avatares distintos)</li>
+<li><span class="badge badge-ok">OK</span> 3 escenas distintas (cocina / sala / parque)</li>
+<li><span class="badge badge-ok">OK</span> Mix de formatos: 3 reels 9:16 + 3 feed 1:1 + 3 stories</li>
+<li><span class="badge badge-ok">OK</span> Mix de tipos de arte: 2 demostración + 2 testimonio + 2 aspiracional</li>
+</ul>
+<p><strong>Test sencillo de diversificación:</strong> si pongo dos creativos lado a lado y "se sienten iguales", no son diversos.</p>
+<h3 id="cómo-lograr-verdadera-diversificación-creativa">Cómo lograr verdadera diversificación creativa<a class="anchor" href="#cómo-lograr-verdadera-diversificación-creativa">#</a></h3>
+<p>Felipe identifica 4 fuentes:</p>
+<ol>
+<li><strong>Entender al cliente</strong> (M03 del curso) → diferentes razones de compra</li>
+<li><strong>Usar niveles de consciencia</strong> (M04) → 5 ads por mismo producto</li>
+<li><strong>Usar los 10 tipos de artes</strong> (M04) → variedad estructural</li>
+<li><strong>Usar IA para acelerar producción</strong> (M09)</li>
+</ol>
+<p><strong>Para affiliate:</strong> combinar las 4 estrategias en cada brief de Dali.</p>
+<hr>
+<h2 id="clave-2-datos-de-calidad-clase-07">Clave 2: Datos de Calidad (clase 07)<a class="anchor" href="#clave-2-datos-de-calidad-clase-07">#</a></h2>
+<blockquote><p>"Los datos son la sangre que alimenta tus campañas. Sin buenos datos, Meta no entiende quiénes son tus clientes."</p></blockquote>
+<h3 id="3-métodos-para-enviar-datos-de-calidad">3 métodos para enviar datos de calidad<a class="anchor" href="#3-métodos-para-enviar-datos-de-calidad">#</a></h3>
+<h4 id="método-1-pixel-capi-página-web">Método 1: Pixel + CAPI (página web)<a class="anchor" href="#método-1-pixel-capi-página-web">#</a></h4>
+<p><strong>Eventos críticos que debe disparar nuestra landing affiliate:</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Evento</th>
+<th>Cuándo</th>
+<th>Quién dispara</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>PageView</strong></td>
+<td>Carga de página</td>
+<td>Pixel automático</td>
+</tr>
+<tr>
+<td><strong>ViewContent</strong></td>
+<td>Scroll 50%</td>
+<td>JS custom</td>
+</tr>
+<tr>
+<td><strong>InitiateCheckout</strong></td>
+<td>Click en CTA al VSL</td>
+<td>JS custom</td>
+</tr>
+<tr>
+<td><strong>AddPaymentInfo</strong></td>
+<td>(no aplica · es del vendor)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Purchase</strong></td>
+<td>Cuando ClickBank confirma venta</td>
+<td><strong>CAPI postback (servidor)</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>Crítico:</strong> sin el Purchase event vía CAPI, Meta no sabe quién convirtió, Andromeda no aprende, ROAS calculado es ficticio.</p>
+<p><strong>Solución técnica:</strong></p>
+<ul>
+<li>ClickBank manda webhook/postback a nuestro servidor</li>
+<li>Servidor (Vercel / Cloudflare Workers) hashea email del comprador</li>
+<li>POST a Meta CAPI con event="Purchase" + value + currency</li>
+</ul>
+<p>Esto debe ser <strong>prioridad absoluta para Cris</strong> en SOP 04 paso 10.</p>
+<h4 id="método-2-crm-sync">Método 2: CRM Sync<a class="anchor" href="#método-2-crm-sync">#</a></h4>
+<p>Felipe recomienda 3 CRMs según contexto:</p>
+<ul>
+<li><strong>Klaviyo</strong> — ecommerce (pero NO aplica directo a affiliate sin email capture)</li>
+<li><strong>ActiveCampaign</strong> — servicios B2B</li>
+<li><strong>Kommo</strong> — WhatsApp (LATAM)</li>
+</ul>
+<p><strong>Aplicación affiliate:</strong> Si en Fase 3+ decidimos capturar emails (quiz pre-VSL, lead magnet), Klaviyo sería el indicado, sincronizado con Meta para crear públicos similares y excluir compradores.</p>
+<h4 id="método-3-whatsapp-business-tags-no-aplica-para-nosotros">Método 3: WhatsApp Business Tags (no aplica para nosotros)<a class="anchor" href="#método-3-whatsapp-business-tags-no-aplica-para-nosotros">#</a></h4>
+<p>Nuestro modelo no usa WhatsApp como canal de venta.</p>
+<h3 id="implicancia-operativa">Implicancia operativa<a class="anchor" href="#implicancia-operativa">#</a></h3>
+<p>Sin Purchase event a Meta vía CAPI, <strong>toda la diversificación creativa del mundo no nos sirve.</strong> Andromeda optimiza ciegamente.</p>
+<p><strong>Acción:</strong> SOP 04 paso 10 (CAPI postback) NO es opcional — es bloqueante para escalar.</p>
+<hr>
+<h2 id="clave-3-estructura-correcta-clase-08-la-más-larga-y-rica">Clave 3: Estructura Correcta (clase 08) — la más larga y rica<a class="anchor" href="#clave-3-estructura-correcta-clase-08-la-más-larga-y-rica">#</a></h2>
+<blockquote><p>"No hay una estructura que aplique al 100% de los casos. La respuesta más honesta es: depende."</p></blockquote>
+<h3 id="lo-que-nunca-hacer-estructura-1-1-1">Lo que NUNCA hacer: estructura 1-1-1<a class="anchor" href="#lo-que-nunca-hacer-estructura-1-1-1">#</a></h3>
+<p><strong>1 campaña + 1 conjunto + 1 anuncio = lineación perdedora.</strong></p>
+<blockquote><p>"Tristemente veo que la mayoría de empresas que me escriben usan esta estructura. No le dan al algoritmo nada con qué optimizar."</p></blockquote>
+<h3 id="las-2-posturas-extremas-ambas-erróneas">Las 2 posturas extremas (ambas erróneas)<a class="anchor" href="#las-2-posturas-extremas-ambas-erróneas">#</a></h3>
+<p><strong>Postura A — "ser super específico":</strong> crear muchas campañas, conjuntos micro-segmentados, intereses muy estrechos. <strong>Ya no funciona</strong> con las IAs actuales.</p>
+<p><strong>Postura B — "darle libertad total al algoritmo":</strong> una sola campaña con un conjunto y todo abierto. <strong>Tampoco funciona</strong> consistentemente para empresas reales (solo para gurús que enseñan cursos sobre cursos).</p>
+<p><strong>La verdad está en el medio</strong>, y depende de si la cuenta es nueva o tiene historial.</p>
+<h3 id="pregunta-diagnóstica-clave">Pregunta diagnóstica clave<a class="anchor" href="#pregunta-diagnóstica-clave">#</a></h3>
+<blockquote><p>"¿Tu cuenta es nueva o tiene historial?"</p></blockquote>
+<p>Esto define la estructura.</p>
+<h3 id="estructura-para-cuenta-nueva-ideal-para-nosotros-en-fase-1">Estructura para CUENTA NUEVA (ideal para nosotros en Fase 1)<a class="anchor" href="#estructura-para-cuenta-nueva-ideal-para-nosotros-en-fase-1">#</a></h3>
+<p><strong>2 campañas siempre:</strong></p>
+<h4 id="campaña-1-presentación-tráfico-frío">Campaña 1: Presentación / Tráfico Frío<a class="anchor" href="#campaña-1-presentación-tráfico-frío">#</a></h4>
+<ul>
+<li><strong>3 conjuntos de anuncios</strong> probando los 3 tipos de público:</li>
+<li>Conjunto A: <strong>Segmentación Detallada</strong> (intereses)</li>
+<li>Conjunto B: <strong>Públicos Similares (Lookalike)</strong> (después de ~50 conversiones)</li>
+<li>Conjunto C: <strong>Segmentación Abierta</strong> (sin intereses)</li>
+<li>En cada conjunto: <strong>3-5 anuncios diferentes</strong> (diversificación creativa)</li>
+</ul>
+<h4 id="campaña-2-evaluación-retargeting">Campaña 2: Evaluación / Retargeting<a class="anchor" href="#campaña-2-evaluación-retargeting">#</a></h4>
+<ul>
+<li><strong>1 conjunto</strong> con públicos personalizados:</li>
+<li>Visitantes web últimos 30 días</li>
+<li>Engagers FB/IG últimos 30 días</li>
+<li>Video viewers 50%+ últimos 30 días</li>
+<li>5-6 anuncios variados (diversificación creativa)</li>
+</ul>
+<h3 id="estructura-para-cuenta-con-historial-fase-2-3-cuando-ya-tengamos-data">Estructura para CUENTA CON HISTORIAL (Fase 2-3 cuando ya tengamos data)<a class="anchor" href="#estructura-para-cuenta-con-historial-fase-2-3-cuando-ya-tengamos-data">#</a></h3>
+<blockquote><p>"Cuando ya hay 50+ conversiones, la segmentación abierta tiende a funcionar mejor."</p></blockquote>
+<h4 id="campaña-1-presentación">Campaña 1: Presentación<a class="anchor" href="#campaña-1-presentación">#</a></h4>
+<ul>
+<li>1-2 conjuntos con <strong>segmentación abierta</strong></li>
+<li>Diferentes ideas de anuncios por conjunto (para escalar pruebas)</li>
+<li>Mantener algún conjunto con intereses si funcionó bien</li>
+</ul>
+<h4 id="campaña-2-evaluación">Campaña 2: Evaluación<a class="anchor" href="#campaña-2-evaluación">#</a></h4>
+<ul>
+<li>Públicos personalizados (igual que cuenta nueva)</li>
+</ul>
+<h4 id="campaña-3-si-tráfico-alto-conversión">Campaña 3 (si tráfico alto): Conversión<a class="anchor" href="#campaña-3-si-tráfico-alto-conversión">#</a></h4>
+<ul>
+<li>Carrito abandonado / Initiate Checkout sin Purchase</li>
+<li>Anuncios de urgencia + recordatorio</li>
+</ul>
+<h3 id="aplicación-al-affiliate-por-fase-del-roadmap">Aplicación al affiliate por fase del roadmap<a class="anchor" href="#aplicación-al-affiliate-por-fase-del-roadmap">#</a></h3>
+<h4 id="fase-1-mes-1-cuenta-nueva">Fase 1 (mes 1) — cuenta nueva<a class="anchor" href="#fase-1-mes-1-cuenta-nueva">#</a></h4>
+<p><strong>Estructura para primera oferta TEST:</strong></p>
+<pre><code>Campaña Presentación · Sales · Budget $50/día
+├── Conjunto A: Detailed (intereses nutra hispano-US)
+│   ├── Ad 1: Demostración (HeyGen avatar producto)
+│   ├── Ad 2: Testimonio (foto cliente + frase)
+│   └── Ad 3: Aspiracional (lifestyle)
+├── Conjunto B: Lookalike (post-50 conversiones)
+│   └── (mismos anuncios)
+└── Conjunto C: Open (sin segmentación)
+    └── (mismos anuncios)
+
+Campaña Evaluación · Sales · Budget $20/día
+└── Conjunto: Visitantes web 30d + engagers FB/IG
+    ├── Ad 1: Recordatorio + garantía
+    ├── Ad 2: Testimonio fuerte
+    └── Ad 3: Beneficio diferencial</code></pre>
+<h4 id="fase-2-3-cuando-primer-winner-valida-roas-15x">Fase 2-3 (cuando primer winner valida ROAS > 1.5x)<a class="anchor" href="#fase-2-3-cuando-primer-winner-valida-roas-15x">#</a></h4>
+<p><strong>Migrar a:</strong></p>
+<pre><code>Campaña Presentación · Budget $200-500/día
+├── Conjunto A: Open (segmentación abierta, ya validada)
+│   └── 5-7 anuncios variados
+├── Conjunto B: Open con otra paleta de creativos
+│   └── 5-7 anuncios DIFERENTES
+└── Conjunto C: Detailed con intereses validados
+    └── 3-5 anuncios
+
+Campaña Evaluación · Budget $50-100/día
+└── (igual a Fase 1, escalado)
+
+Campaña Conversión · Budget $30-50/día
+└── Carrito abandonado / IC sin Purchase
+    └── Ads de urgencia + garantía</code></pre>
+<h3 id="las-exclusiones-cuándo-sí-cuándo-no">Las exclusiones (cuándo sí, cuándo no)<a class="anchor" href="#las-exclusiones-cuándo-sí-cuándo-no">#</a></h3>
+<blockquote><p>"Las exclusiones son depende. A nivel general, empezar con exclusiones y luego quitarlas si las campañas no funcionan."</p></blockquote>
+<p><strong>Aplicación affiliate:</strong></p>
+<ul>
+<li><strong>SÍ excluir:</strong> compradores pasados (sincronizar via Klaviyo en Fase 3+)</li>
+<li><strong>SÍ excluir:</strong> quienes hicieron Purchase en últimos 14 días</li>
+<li><strong>NO excluir</strong> demasiado en cuenta nueva — limita el aprendizaje</li>
+</ul>
+<hr>
+<h2 id="cómo-calcular-el-presupuesto-clase-10-framework-crítico">Cómo Calcular el Presupuesto (clase 10) — framework crítico<a class="anchor" href="#cómo-calcular-el-presupuesto-clase-10-framework-crítico">#</a></h2>
+<h3 id="el-framework-de-felipe">El framework de Felipe<a class="anchor" href="#el-framework-de-felipe">#</a></h3>
+<pre><code>Paso 1: Meta de Ventas
+   ¿Cuánto quieres vender este mes? → $X USD
+
+Paso 2: Ticket Promedio
+   ¿Cuánto te compra el cliente promedio? → $Y USD
+
+Paso 3: Número de Ventas Necesarias
+   X / Y = Z ventas
+
+Paso 4: % del Margen para Adquisición
+   ¿Qué % de tu margen estás dispuesto a invertir en adquirir cliente? → 10-30%
+
+Paso 5: Inversión en Publicidad
+   X × % = Inversión en ads</code></pre>
+<h3 id="ejemplo-aplicado-al-affiliate">Ejemplo aplicado al affiliate<a class="anchor" href="#ejemplo-aplicado-al-affiliate">#</a></h3>
+<p><strong>Supuesto inicial — primera oferta TEST:</strong></p>
+<ul>
+<li>Oferta ClickBank: AOV $147 USD, comisión 75% = <strong>$110 USD/venta neta para nosotros</strong></li>
+<li>Conv rate landing → VSL → checkout estimada: 1.5%</li>
+<li>Meta de ventas mes 2 (primer winner): $3,000 USD revenue (= ~27 ventas)</li>
+<li>% del margen para reinversión: ClickBank afiliados típicamente reinvierten 60-70% del primer dólar (sin retener tanto margen al inicio)</li>
+</ul>
+<p><strong>Cálculo:</strong></p>
+<ul>
+<li>27 ventas × $110 = $2,970 revenue</li>
+<li>Si reinvertimos 60% → $1,782 USD ad spend</li>
+<li>$1,782 / 30 días = <strong>$60/día budget total</strong></li>
+</ul>
+<p><strong>Comparación con los $50/día sugeridos en SOP 04:</strong> alineado.</p>
+<h3 id="tabla-aplicada-a-3-escenarios">Tabla aplicada a 3 escenarios<a class="anchor" href="#tabla-aplicada-a-3-escenarios">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Escenario</th>
+<th>Revenue mes</th>
+<th>Reinversión</th>
+<th>Daily budget</th>
+<th>Ventas necesarias</th>
+</tr></thead><tbody>
+<tr>
+<td>Conservador (Fase 1)</td>
+<td>$1,500</td>
+<td>60% = $900</td>
+<td>$30/día</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Validación (Fase 2)</td>
+<td>$3,000</td>
+<td>65% = $1,950</td>
+<td>$65/día</td>
+<td>27</td>
+</tr>
+<tr>
+<td>Escalado inicial (Fase 3)</td>
+<td>$10,000</td>
+<td>70% = $7,000</td>
+<td>$230/día</td>
+<td>91</td>
+</tr>
+<tr>
+<td>Operación madura (Fase 4)</td>
+<td>$30,000+</td>
+<td>60% = $18,000</td>
+<td>$600/día</td>
+<td>273+</td>
+</tr>
+</tbody></table></div>
+<h3 id="reglas-operativas-derivadas">Reglas operativas derivadas<a class="anchor" href="#reglas-operativas-derivadas">#</a></h3>
+<ol>
+<li><strong>Nunca lanzar campaña sin esta math hecha</strong> (parte de SOP 01)</li>
+<li><strong>Documentar en <code>02-offers/[oferta-XX]/economics.md</code></strong> los 5 pasos del framework</li>
+<li><strong>Si la math no cierra</strong> (ej: necesitas $10/click pero CPC industria es $3), <strong>NO lanzar</strong></li>
+</ol>
+<hr>
+<h2 id="tres-preguntas-que-la-cuenta-debe-responder-antes-de-cualquier-decisión">Tres preguntas que la cuenta debe responder antes de cualquier decisión<a class="anchor" href="#tres-preguntas-que-la-cuenta-debe-responder-antes-de-cualquier-decisión">#</a></h2>
+<p>Felipe es enfático sobre el "depende" — para resolverlo, sus 3 preguntas filtro:</p>
+<h3 id="1-cuánto-presupuesto-tengo">1. ¿Cuánto presupuesto tengo?<a class="anchor" href="#1-cuánto-presupuesto-tengo">#</a></h3>
+<ul>
+<li>< $30/día → cuenta nueva, estructura conservadora</li>
+<li>$30-100/día → estructura validación</li>
+<li>$100-500/día → escalar lo que funciona</li>
+<li>$500+/día → multi-campaña, segmentación abierta dominante</li>
+</ul>
+<h3 id="2-qué-historial-tiene-la-cuenta">2. ¿Qué historial tiene la cuenta?<a class="anchor" href="#2-qué-historial-tiene-la-cuenta">#</a></h3>
+<ul>
+<li>0 conversiones → estructura cuenta nueva (3 conjuntos + retargeting)</li>
+<li>50-100 conversiones → empezar a usar segmentación abierta</li>
+<li>100+ conversiones → segmentación abierta dominante</li>
+</ul>
+<h3 id="3-qué-objetivo-persigo">3. ¿Qué objetivo persigo?<a class="anchor" href="#3-qué-objetivo-persigo">#</a></h3>
+<ul>
+<li>Validar oferta nueva → pequeño budget, múltiples conjuntos</li>
+<li>Escalar winner → grande budget, pocos conjuntos optimizados</li>
+<li>Recuperar carritos → budget pequeño, retargeting agresivo</li>
+</ul>
+<h3 id="aplicación-equipo">Aplicación equipo<a class="anchor" href="#aplicación-equipo">#</a></h3>
+<p><strong>Romi/Cris en SOP 06 (decisión semanal):</strong> antes de cualquier scale/kill, responder estas 3 preguntas explícitamente en el weekly report. Esto previene decisiones por feeling.</p>
+<hr>
+<h2 id="cambios-concretos-a-nuestras-sops-derivados-de-m05">Cambios concretos a nuestras SOPs derivados de M05<a class="anchor" href="#cambios-concretos-a-nuestras-sops-derivados-de-m05">#</a></h2>
+<h3 id="cambios-a-sop-01-selección-oferta">Cambios a SOP 01 (Selección oferta)<a class="anchor" href="#cambios-a-sop-01-selección-oferta">#</a></h3>
+<p><strong>Agregar en paso 7 (math de economics):</strong> usar el framework de 5 pasos de Felipe (clase 10). Documentar en <code>02-offers/[oferta-XX]/economics.md</code> con esa estructura.</p>
+<h3 id="cambios-a-sop-04-setup-funnel">Cambios a SOP 04 (Setup funnel)<a class="anchor" href="#cambios-a-sop-04-setup-funnel">#</a></h3>
+<p><strong>Reescribir paso 8 (Cuenta publicitaria Meta):</strong> estructura inicial debe ser:</p>
+<ul>
+<li>Campaña Presentación con <strong>3 conjuntos</strong> (no 1)</li>
+<li>Cada conjunto con <strong>3-5 anuncios</strong> diversificados (no 1)</li>
+<li>Campaña Evaluación con 1 conjunto retargeting</li>
+</ul>
+<p><strong>Elevar prioridad paso 10 (CAPI postback):</strong> <strong>bloqueante</strong> para considerar setup completo.</p>
+<h3 id="cambios-a-sop-06-análisis-semanal">Cambios a SOP 06 (Análisis semanal)<a class="anchor" href="#cambios-a-sop-06-análisis-semanal">#</a></h3>
+<p><strong>Agregar checklist pre-decisión:</strong></p>
+<ul>
+<li><input type="checkbox"  disabled>¿Qué presupuesto disponible para próxima semana?</li>
+<li><input type="checkbox"  disabled>¿Cuántas conversiones acumulé en cuenta?</li>
+<li><input type="checkbox"  disabled>¿Qué objetivo es prioritario (validar / escalar / convertir)?</li>
+</ul>
+<p><strong>Agregar regla:</strong> si ROAS de un conjunto está bien pero el aprendizaje aún no está completo (< 50 conversiones), <strong>NO killear</strong> aunque el ROAS individual fluctúe.</p>
+<h3 id="cambios-a-sop-07-producción-creativos">Cambios a SOP 07 (Producción creativos)<a class="anchor" href="#cambios-a-sop-07-producción-creativos">#</a></h3>
+<p><strong>Agregar regla de diversificación:</strong> cada batch de 10 creativos debe pasar el "test entity ID":</p>
+<ul>
+<li>Mínimo 3 personas/avatares distintos</li>
+<li>Mínimo 3 tipos de artes (de los 10 de M04)</li>
+<li>Mínimo 2 formatos (9:16 + 1:1 mínimo)</li>
+</ul>
+<p>Si todos se "sienten iguales", regenerar antes de entregar a Cris.</p>
+<h3 id="cambios-al-skill-affiliate-funnel-structuremd">Cambios al skill <code>affiliate-funnel-structure.md</code><a class="anchor" href="#cambios-al-skill-affiliate-funnel-structuremd">#</a></h3>
+<p><strong>Agregar sección "Pixel + CAPI":</strong> el postback es bloqueante, no opcional. <strong>Agregar referencia:</strong> este documento + framework de presupuesto de Felipe.</p>
+<hr>
+<h2 id="pendientes-cuando-completen-las-44-transcripciones-restantes-de-m05">Pendientes cuando completen las 44 transcripciones restantes de M05<a class="anchor" href="#pendientes-cuando-completen-las-44-transcripciones-restantes-de-m05">#</a></h2>
+<p>Clases que aún esperan ser transcritas y que probablemente añadirán valor:</p>
+<ul>
+<li><strong>Cómo configurar campañas paso a paso</strong> (las 4 situaciones)</li>
+<li><strong>Investigación de mercado y sesgos psicológicos</strong> (parcial, hay 1 clase)</li>
+<li><strong>Rastreador de actividad de campañas</strong></li>
+<li><strong>Cómo nombrar campañas / conjuntos / anuncios</strong> (en proceso)</li>
+<li><strong>Actualizar públicos</strong> (en proceso)</li>
+<li><strong>Optimizar retargeting</strong></li>
+<li><strong>Probar nuevos tipos de anuncios</strong> (rendimiento de creativos)</li>
+<li><strong>Diferentes objetivos detallados</strong> (ASC, Sales, Lead Gen)</li>
+</ul>
+<p><strong>Cuando estén listas, actualizar este documento.</strong></p>
+<hr>
+<h2 id="insight-maestro-de-m05">Insight maestro de M05<a class="anchor" href="#insight-maestro-de-m05">#</a></h2>
+<p>Toda esta estructura se reduce a:</p>
+<blockquote><p>"Tu trabajo no es controlar al algoritmo. Tu trabajo es <strong>alimentarlo bien</strong> (data + creatividades diversas) y <strong>darle el espacio correcto</strong> (estructura adecuada según historial). Andromeda hace el resto."</p></blockquote>
+<p><strong>Aplicado al affiliate:</strong> nuestro éxito o fracaso lo define más:</p>
+<ul>
+<li>La oferta elegida (Romi en SOP 01)</li>
+<li>La diversificación creativa (Dali en SOP 07)</li>
+<li>El postback CAPI funcionando (Cris en SOP 04)</li>
+</ul>
+<p><strong>Que NO lo define:</strong></p>
+<ul>
+<li>Micro-segmentaciones de intereses</li>
+<li>"Trucos" de configuración</li>
+<li>Bidcap vs Lowest Cost (al inicio)</li>
+</ul>
+<hr>
+<p><em>Este documento se actualizará después de transcribir las 44 clases pendientes de M05 + comparar con realidad operativa después de aplicar 30 días.</em></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: felipe-vergara-m05-aplicado.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

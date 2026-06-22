@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filosofía Operativa · Affiliate Business · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../INDEX.html">← Affiliate Business · Index</a>
+<span class="meta">00-meta · 4 min · 861 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#la-frase-explicada" class="">La frase explicada</a></li><li><a href="#los-5-principios-operativos-derivados" class="">Los 5 principios operativos derivados</a></li><li><a href="#1-velocidad-de-iteración-perfección-de-ejecución" class="h3">1. Velocidad de iteración > perfección de ejecución</a></li><li><a href="#2-la-data-dicta-no-el-gusto" class="h3">2. La data dicta · no el gusto</a></li><li><a href="#3-el-próximo-test-puede-ser-el-winner" class="h3">3. El próximo test puede ser el winner</a></li><li><a href="#4-mediocre-live-brillante-en-draft" class="h3">4. Mediocre & live > brillante & en draft</a></li><li><a href="#5-cada-kill-es-información-no-fracaso" class="h3">5. Cada kill es información · no fracaso</a></li><li><a href="#cómo-se-integra-en-el-día-a-día" class="">Cómo se integra en el día a día</a></li><li><a href="#en-el-equipo-cultural" class="h3">En el equipo (cultural)</a></li><li><a href="#en-el-repo-operacional" class="h3">En el repo (operacional)</a></li><li><a href="#en-decisiones-financieras" class="h3">En decisiones financieras</a></li><li><a href="#lo-que-la-frase-no-significa" class="">Lo que la frase NO significa</a></li><li><a href="#conexión-con-el-playbook-existente" class="">Conexión con el playbook existente</a></li><li><a href="#auditoría-cada-retro-mensual" class="">Auditoría · cada retro mensual</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>filosofia.md</span>
+<span>861 palabras</span>
+<span>~4 min lectura</span>
+</div>
+<h1 id="filosofía-operativa-affiliate-business">Filosofía Operativa · Affiliate Business<a class="anchor" href="#filosofía-operativa-affiliate-business">#</a></h1>
+<blockquote><p><strong>El mantra:</strong> <em>"Estás a un anuncio de cambiar tu vida."</em></p>
+<p>Esta frase resume por qué hacemos affiliate marketing + paid media: un solo anuncio que funcione bien puede transformar resultados. No es esperanza · es matemática.</p></blockquote>
+<hr>
+<h2 id="la-frase-explicada">La frase explicada<a class="anchor" href="#la-frase-explicada">#</a></h2>
+<p>En affiliate marketing performance, <strong>un solo creativo ganador</strong> puede:</p>
+<ul>
+<li>Ir de ROAS 0.5x a 3x+ en días</li>
+<li>Generar más revenue en 1 semana que 6 meses de tests fallidos</li>
+<li>Validar un funnel completo de golpe</li>
+<li>Desbloquear escalado a niveles que no se habían intentado</li>
+</ul>
+<p><strong>Pero también:</strong> el próximo anuncio puede ser ese.</p>
+<p>Esto significa:</p>
+<ul>
+<li>Cada test que ejecutamos <strong>podría ser el winner</strong></li>
+<li>Cada kill nos enseña qué NO probar de nuevo</li>
+<li>Cada iteración nos acerca matemáticamente al siguiente winner</li>
+<li><strong>Nunca tratar un test como "el último intento"</strong></li>
+</ul>
+<hr>
+<h2 id="los-5-principios-operativos-derivados">Los 5 principios operativos derivados<a class="anchor" href="#los-5-principios-operativos-derivados">#</a></h2>
+<h3 id="1-velocidad-de-iteración-perfección-de-ejecución">1. Velocidad de iteración > perfección de ejecución<a class="anchor" href="#1-velocidad-de-iteración-perfección-de-ejecución">#</a></h3>
+<p>No esperamos al creativo perfecto. Lanzamos 5 mediocres antes que 1 obra maestra. La data dicta cuál funciona, no nuestro gusto.</p>
+<p><strong>Aplicación práctica:</strong> SOP 07 producción creativos · 10-15 variantes/sprint sin pulir cada uno.</p>
+<h3 id="2-la-data-dicta-no-el-gusto">2. La data dicta · no el gusto<a class="anchor" href="#2-la-data-dicta-no-el-gusto">#</a></h3>
+<p>Cris no escala/killea por feeling. Reglas duras:</p>
+<ul>
+<li>ROAS <1.0 después de 5 días → kill automático</li>
+<li>ROAS >2.0 + frequency <2.5 → scale +30%</li>
+<li>Frequency >3 → refresh creativo (SOP 09)</li>
+</ul>
+<p><strong>Aplicación práctica:</strong> SOPs 05 (daily report) y 06 (weekly decisions) son matemáticas, no debate.</p>
+<h3 id="3-el-próximo-test-puede-ser-el-winner">3. El próximo test puede ser el winner<a class="anchor" href="#3-el-próximo-test-puede-ser-el-winner">#</a></h3>
+<p>Nunca tratar un test como "el último intento". Mientras tengamos:</p>
+<ul>
+<li>Capital disponible (>$300 USD para próximo test)</li>
+<li>Aprendizaje del último kill capturado</li>
+<li>Una hipótesis no probada</li>
+</ul>
+<p><strong>Seguimos testeando.</strong></p>
+<p><strong>Aplicación práctica:</strong> roadmap 90 días asume 4-6 micro-tests, no 1 apuesta concentrada.</p>
+<h3 id="4-mediocre-live-brillante-en-draft">4. Mediocre & live > brillante & en draft<a class="anchor" href="#4-mediocre-live-brillante-en-draft">#</a></h3>
+<p>Un creativo mediocre LIVE genera data. Un creativo brillante en draft no genera nada.</p>
+<p><strong>Aplicación práctica:</strong> Dali entrega lo bueno-suficiente, no lo perfecto. Romi escribe briefs accionables en 45 min, no en 4 horas.</p>
+<h3 id="5-cada-kill-es-información-no-fracaso">5. Cada kill es información · no fracaso<a class="anchor" href="#5-cada-kill-es-información-no-fracaso">#</a></h3>
+<p>Un test killado con ROAS 0.3x nos enseñó:</p>
+<ul>
+<li>Esta oferta no resonó con esta audiencia</li>
+<li>Este ángulo no convierte en este formato</li>
+<li>Este precio no funciona para este avatar</li>
+</ul>
+<p>Ese aprendizaje vale el spend perdido <strong>si lo capturamos</strong>.</p>
+<p><strong>Aplicación práctica:</strong></p>
+<ul>
+<li>Cada kill → post-mortem obligatorio en <code>02-offers/[oferta]/postmortem.md</code></li>
+<li>Aprendizaje cross-oferta consolidado en <code>07-learning/patrones-cross-oferta.md</code></li>
+<li>En retrospectiva mensual: revisar patrones para informar próximos tests</li>
+</ul>
+<hr>
+<h2 id="cómo-se-integra-en-el-día-a-día">Cómo se integra en el día a día<a class="anchor" href="#cómo-se-integra-en-el-día-a-día">#</a></h2>
+<h3 id="en-el-equipo-cultural">En el equipo (cultural)<a class="anchor" href="#en-el-equipo-cultural">#</a></h3>
+<ul>
+<li><strong>Romi:</strong> después de cada kill, en lugar de "no funcionó" → "qué aprendimos"</li>
+<li><strong>Cris:</strong> no protege ofertas malas por sunk cost · stop-loss es ley</li>
+<li><strong>Dali:</strong> producción volumen sobre perfección · cada batch alimenta el siguiente test</li>
+</ul>
+<h3 id="en-el-repo-operacional">En el repo (operacional)<a class="anchor" href="#en-el-repo-operacional">#</a></h3>
+<ul>
+<li>Header del dashboard HTML (cuando se construya) muestra la frase mantra</li>
+<li>Footer de cada postmortem cierra con: "Esta oferta no fue. Estamos a un anuncio de la siguiente."</li>
+<li>SOPs usan lenguaje de testing, no de validación defensiva</li>
+</ul>
+<h3 id="en-decisiones-financieras">En decisiones financieras<a class="anchor" href="#en-decisiones-financieras">#</a></h3>
+<ul>
+<li>Capital test ≠ capital de "esperanza"</li>
+<li>Cada $300 USD es 1 oportunidad de winner</li>
+<li>Asignación racional: 4-6 oportunidades en 90 días, no 1 apuesta</li>
+</ul>
+<hr>
+<h2 id="lo-que-la-frase-no-significa">Lo que la frase NO significa<a class="anchor" href="#lo-que-la-frase-no-significa">#</a></h2>
+<p><strong>NO significa:</strong></p>
+<ul>
+<li>"Cualquier anuncio te cambiará la vida" (falso · 95% no funcionan)</li>
+<li>"Es fácil" (es brutal · 41% de afiliados ganan <$1K/mes)</li>
+<li>"Tienes que apostar todo" (subcapitalización = wipeout)</li>
+<li>"Confía en tu intuición" (la data manda · ver principio 2)</li>
+<li>"Hazlo sin planning" (sin SOPs y stop-loss, los anuncios queman dinero)</li>
+</ul>
+<p><strong>SÍ significa:</strong></p>
+<ul>
+<li>"Sigue iterando con disciplina"</li>
+<li>"El próximo test importa porque puede ser el correcto"</li>
+<li>"Mata rápido lo que no funciona para liberar capital para lo que sí"</li>
+<li>"Captura aprendizajes para que cada kill alimente el siguiente test"</li>
+<li>"Mantén la cabeza · este es un juego de probabilidades, no de azar"</li>
+</ul>
+<hr>
+<h2 id="conexión-con-el-playbook-existente">Conexión con el playbook existente<a class="anchor" href="#conexión-con-el-playbook-existente">#</a></h2>
+<p>Esta filosofía complementa los 3 principios originales del playbook:</p>
+<ol>
+<li><strong>Un sistema repetible vence a cualquier hack</strong> (Pancho Val · ya en CLAUDE.md)</li>
+<li><strong>Velocidad de iteración sobre perfección</strong> (refuerzo principio 1 de filosofía)</li>
+<li><strong>Documentar mientras hacemos, no después</strong> (habilita principio 5: capturar aprendizajes)</li>
+<li><strong>NUEVO: Estamos a un anuncio del próximo aprendizaje</strong> ← agregar a CLAUDE.md</li>
+</ol>
+<p>Los 4 juntos forman el sistema cultural completo del equipo.</p>
+<hr>
+<h2 id="auditoría-cada-retro-mensual">Auditoría · cada retro mensual<a class="anchor" href="#auditoría-cada-retro-mensual">#</a></h2>
+<p>Preguntas para confirmar que vivimos la filosofía:</p>
+<ul>
+<li><input type="checkbox"  disabled>¿Algún miembro del equipo defendió una oferta perdedora más allá del stop-loss?</li>
+<li><input type="checkbox"  disabled>¿Algún kill ocurrió sin postmortem documentado?</li>
+<li><input type="checkbox"  disabled>¿Algún test esperó >7 días en draft por perfeccionismo?</li>
+<li><input type="checkbox"  disabled>¿Algún aprendizaje cross-oferta no se capturó en <code>patrones-cross-oferta.md</code>?</li>
+<li><input type="checkbox"  disabled>¿Algún post de Dali se trabó por perfeccionismo > volumen?</li>
+<li><input type="checkbox"  disabled>¿Algún miembro habló de "fracaso" en lugar de "información"?</li>
+</ul>
+<p>Si alguna es SÍ → ajustar comportamiento próximo sprint.</p>
+<hr>
+<p><em>Filosofía v1.0 · 2026-04-29 · vive en <code>00-meta/filosofia.md</code> · referenciada en CLAUDE.md</em></p>
+<div class="footer">
+Affiliate Business · Generado 2026-05-26<br>
+Fuente: <code>filosofia.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClickBank "Affiliated" Podcast · Ficha verificación · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../INDEX.html">← Affiliate Business · Index</a>
+<span class="meta">07-learning / fuentes-confiables-2026 / tier-1 · 7 min · 1,384 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#1-identidad-verificable" class="">1. Identidad verificable</a></li><li><a href="#2-scoring-8-criterios-con-evidencia" class="">2. Scoring (8 criterios con evidencia)</a></li><li><a href="#3-métricas-reales-snapshot-2026-05-26" class="">3. Métricas reales (snapshot 2026-05-26)</a></li><li><a href="#4-top-5-episodios-más-valiosos-foco-operadores-reales-no-relleno-motivacional" class="">4. Top 5 episodios más valiosos (foco operadores reales, no relleno motivacional)</a></li><li><a href="#5-diamond-platinum-operators-identificados-sub-tabla-operadores-verificables" class="">5. Diamond / Platinum operators identificados (sub-tabla operadores verificables)</a></li><li><a href="#operadores-solo-agencia-media-buying-sin-curso-visible-investigar-más" class="h3">Operadores SOLO agencia / media buying (sin curso visible · investigar más)</a></li><li><a href="#operadores-con-sospecha-de-venta-de-curso-red-flag-descartar-o-verificar" class="h3">Operadores con sospecha de venta de curso (red flag · descartar o verificar)</a></li><li><a href="#hosts-non-diamond-pero-útiles" class="h3">Hosts / non-Diamond pero útiles</a></li><li><a href="#6-tácticas-accionables-para-stack-hispano-us-clickbank-meta" class="">6. Tácticas accionables para stack Hispano-US (ClickBank + Meta)</a></li><li><a href="#7-red-flags-identificados" class="">7. Red flags identificados</a></li><li><a href="#8-próximo-paso-recomendado" class="">8. Próximo paso recomendado</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>03-clickbank-affiliated-podcast.md</span>
+<span>1,384 palabras</span>
+<span>~7 min lectura</span>
+</div>
+<h1 id="clickbank-affiliated-podcast-ficha-verificación">ClickBank "Affiliated" Podcast · Ficha verificación<a class="anchor" href="#clickbank-affiliated-podcast-ficha-verificación">#</a></h1>
+<p><strong>Fecha investigación:</strong> 2026-05-26 <strong>Investigador:</strong> Claude <strong>Tier asignado:</strong> 1 <strong>Credibility score:</strong> 14/16 <strong>Recomendación equipo:</strong> SEGUIR (con filtro selectivo de episodios)</p>
+<hr>
+<h2 id="1-identidad-verificable">1. Identidad verificable<a class="anchor" href="#1-identidad-verificable">#</a></h2>
+<ul>
+<li><strong>URL oficial:</strong> https://www.clickbank.com/affiliate-marketing-podcast/</li>
+<li><strong>RSS feed:</strong> https://feed.podbean.com/affiliated/feed.xml</li>
+<li><strong>Spotify:</strong> https://open.spotify.com/show/0Ba2ZedN6nSU20ewXq20JI</li>
+<li><strong>Apple Podcasts:</strong> https://podcasts.apple.com/us/podcast/affiliated-clickbanks-official-affiliate-marketing/id1547482335</li>
+<li><strong>Hosts:</strong> Thomas McMahon (Sr. Business Development · ClickBank) + Kyle Kostechka (despidiéndose Mar 2026 · ep 236)</li>
+<li><strong>Operador:</strong> ClickBank Inc. (Boise, Idaho) · plataforma de afiliación con >US$ 6.2B en comisiones pagadas históricas</li>
+<li><strong>Frecuencia:</strong> Semanal · 236 episodios publicados (Mar 2026)</li>
+</ul>
+<hr>
+<h2 id="2-scoring-8-criterios-con-evidencia">2. Scoring (8 criterios con evidencia)<a class="anchor" href="#2-scoring-8-criterios-con-evidencia">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>#</th>
+<th>Criterio</th>
+<th>Score</th>
+<th>Evidencia</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>Revenue principal</td>
+<td>2</td>
+<td>ClickBank no vende curso — es plataforma de afiliación; podcast es educación/branding</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Audiencia auténtica</td>
+<td>2</td>
+<td>Distribución multi-plataforma (Spotify, Apple, Podbean, iHeart, Amazon Music). 236 eps continuos desde 2020</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Evidencia auditable</td>
+<td>2</td>
+<td>Diamond status = filing oficial de ClickBank ($5M+/año en plataforma). Verificable cross-source (LinkedIn de afiliados + entradas en blog ClickBank)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Coverage non-affiliate</td>
+<td>1</td>
+<td>El podcast ES el medio oficial — pero los Diamonds individuales aparecen en Affiliate World Conferences, Affiliate Summit, RedTrack case studies</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Especificidad táctica</td>
+<td>2</td>
+<td>Eps con números reproducibles: Cem Verghese ($50M/año Meta), Steve Clayton ($118M+ vendor), Jen LeCompte ($5M+ YouTube), Tom Bell ($30M+ alumnos native)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>LinkedIn coherente</td>
+<td>2</td>
+<td>Thomas McMahon (LinkedIn público, 6+ años en ClickBank); Kyle Kostechka (LinkedIn público, ClickBank Sr. BD)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Endosos cruzados</td>
+<td>2</td>
+<td>RedTrack publicó case study oficial de Venture Beyond ($4M+ en Meta). Cem Verghese es speaker en Affiliate World Conferences</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Actividad reciente</td>
+<td>1</td>
+<td>Activo (ep 236 Mar 2026), pero los últimos 6 eps (231-236) son contenido conversacional sin guests Diamond; Kyle se despide en ep 236, transición a observar</td>
+</tr>
+</tbody></table></div>
+<p><strong>Total: 14/16 · supera el cutoff 10/16 con margen</strong></p>
+<hr>
+<h2 id="3-métricas-reales-snapshot-2026-05-26">3. Métricas reales (snapshot 2026-05-26)<a class="anchor" href="#3-métricas-reales-snapshot-2026-05-26">#</a></h2>
+<ul>
+<li><strong>Episodios totales:</strong> 236 (desde ene 2021)</li>
+<li><strong>Frecuencia:</strong> ~semanal (alta consistencia)</li>
+<li><strong>Listenership:</strong> no público, pero distribución cross-platform sugiere top-tier dentro del nicho affiliate</li>
+<li><strong>Última publicación:</strong> Mar 16, 2026 (ep 236 · Kyle's Farewell)</li>
+<li><strong>Riesgo identificado:</strong> Kyle Kostechka dejó ClickBank en marzo 2026 → calidad post-236 pendiente de evaluar</li>
+</ul>
+<hr>
+<h2 id="4-top-5-episodios-más-valiosos-foco-operadores-reales-no-relleno-motivacional">4. Top 5 episodios más valiosos (foco operadores reales, no relleno motivacional)<a class="anchor" href="#4-top-5-episodios-más-valiosos-foco-operadores-reales-no-relleno-motivacional">#</a></h2>
+<ol>
+<li><strong>Ep. 204 · How to WIN with Meta Ads in 2025 ft. Cem Verghese & Syed Qadri (Venture Beyond)</strong> · <a href="https://www.youtube.com/watch?v=sm-wITguS8Q" target="_blank" rel="noopener">YouTube</a> · Diamond Summit interview · agencia con $50M+/año en Meta health/wellness/beauty · #1 ClickBank en 6 meses · ~$100M lifetime sales</li>
+<li><strong>Ep. 207 · The Good, The Bad, & The Ugly of YouTube Ads ft. Jairet Crum</strong> · YouTube ads 2025 desde Diamond Summit · vertical YouTube performance</li>
+<li><strong>Ep. 218 · From College Dropout to $5M+ ClickBank Diamond Affiliate ft. Francisco Valenzuela</strong> · <a href="https://affiliated.podbean.com/e/ep-218-from-college-dropout-to-5m-clickbank-diamond-affiliate-ft-francisco-valenzuela/" target="_blank" rel="noopener">Podbean</a> · transición de YouTube → Meta · Diamond verificado</li>
+<li><strong>Ep. 215 · The Dark Horse Traffic Source That Generated $30M+ ft. Tom Bell (Revenue Tactics)</strong> · Platinum super affiliate · native advertising · alumnos exceeded $30M</li>
+<li><strong>Ep. 229 · Wisdom & Insights from $118M+ ClickBank Vendor ft. Steve Clayton</strong> · Diamond vendor side (no afiliado) · útil para entender ofertas</li>
+</ol>
+<hr>
+<h2 id="5-diamond-platinum-operators-identificados-sub-tabla-operadores-verificables">5. Diamond / Platinum operators identificados (sub-tabla operadores verificables)<a class="anchor" href="#5-diamond-platinum-operators-identificados-sub-tabla-operadores-verificables">#</a></h2>
+<h3 id="operadores-solo-agencia-media-buying-sin-curso-visible-investigar-más">Operadores SOLO agencia / media buying (sin curso visible · investigar más)<a class="anchor" href="#operadores-solo-agencia-media-buying-sin-curso-visible-investigar-más">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Nombre</th>
+<th>Episodio</th>
+<th>Vertical</th>
+<th>Revenue verificable</th>
+<th>Vende curso</th>
+<th>Notas</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Cem Verghese + Syed Qadri (Venture Beyond)</strong></td>
+<td>204</td>
+<td>Health/Wellness/Beauty Meta</td>
+<td>$50M/año ad spend, ~$100M lifetime sales [INDUSTRY SIGNAL]</td>
+<td>NO visible</td>
+<td>Agencia 40 personas, LinkedIn pública, RedTrack case study oficial. <strong>CANDIDATO TIER 1 DEEP DIVE</strong></td>
+</tr>
+<tr>
+<td><strong>Francisco Valenzuela</strong></td>
+<td>218</td>
+<td>Nutra Meta</td>
+<td>$5M+/año (Diamond status) [VERIFIED via ClickBank]</td>
+<td>NO visible públicamente</td>
+<td>Hispano (potencial alta relevancia stack Hispano-US). Trayectoria YouTube → Meta. <strong>CANDIDATO TIER 1 DEEP DIVE</strong></td>
+</tr>
+<tr>
+<td><strong>Jen LeCompte</strong></td>
+<td>109</td>
+<td>Nutra YouTube → Meta</td>
+<td>$5M+/año (Diamond) [VERIFIED]</td>
+<td>Aparece en case study oficial ClickBank</td>
+<td>Madre 4 hijos · Diamond en 18 meses. Verificar si lanzó curso post-2024</td>
+</tr>
+<tr>
+<td><strong>Izabela Fukano</strong></td>
+<td>(no ep específico capturado)</td>
+<td>Weight loss Facebook Ads</td>
+<td>Platinum (May 2023) [VERIFIED via ClickBank case study]</td>
+<td>Por verificar</td>
+<td>8 años en industria, joined ClickBank 2020</td>
+</tr>
+</tbody></table></div>
+<h3 id="operadores-con-sospecha-de-venta-de-curso-red-flag-descartar-o-verificar">Operadores con sospecha de venta de curso (red flag · descartar o verificar)<a class="anchor" href="#operadores-con-sospecha-de-venta-de-curso-red-flag-descartar-o-verificar">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Nombre</th>
+<th>Episodio</th>
+<th>Por qué red flag</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Marcus Campbell ("The Affiliate Marketing Dude")</strong></td>
+<td>190</td>
+<td>"20+ year veteran" + speaker en ClickBank Summit 2025. Verificar si tiene curso/coaching activo</td>
+</tr>
+<tr>
+<td><strong>Peter Kell ("VSL King")</strong></td>
+<td>195</td>
+<td>Tiene Ember.AI (producto) + es speaker ClickBank Summit · más vendor/tech que operador puro</td>
+</tr>
+<tr>
+<td><strong>Jordan Hall</strong></td>
+<td>222</td>
+<td>"Profit Multipliers mastermind" mencionado en el ep → mastermind = curso/coaching · DESCARTAR como source educativo neutral</td>
+</tr>
+<tr>
+<td><strong>Kevin Trudeau</strong></td>
+<td>217</td>
+<td>Direct response legend, pero antecedentes de FTC en su carrera (verificable en Wikipedia). DESCARTAR</td>
+</tr>
+<tr>
+<td><strong>Tom Bell</strong></td>
+<td>215</td>
+<td>"Students exceeded $30M" implica curso/coaching activo. Verificar</td>
+</tr>
+</tbody></table></div>
+<h3 id="hosts-non-diamond-pero-útiles">Hosts / non-Diamond pero útiles<a class="anchor" href="#hosts-non-diamond-pero-útiles">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Nombre</th>
+<th>Episodio</th>
+<th>Foco</th>
+</tr></thead><tbody>
+<tr>
+<td>Steve Clayton</td>
+<td>229</td>
+<td>$118M+ vendor (no afiliado, otro lado del marketplace)</td>
+</tr>
+<tr>
+<td>Amanda Dobson</td>
+<td>227</td>
+<td>Data analytics para media buyers</td>
+</tr>
+<tr>
+<td>Jhana Li (Spyglass Ops)</td>
+<td>220</td>
+<td>Operations · escalar equipos remotos</td>
+</tr>
+<tr>
+<td>Jeremy Reeves</td>
+<td>235</td>
+<td>LTV / cash flow optimization</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="6-tácticas-accionables-para-stack-hispano-us-clickbank-meta">6. Tácticas accionables para stack Hispano-US (ClickBank + Meta)<a class="anchor" href="#6-tácticas-accionables-para-stack-hispano-us-clickbank-meta">#</a></h2>
+<p><strong>Aplicable directamente:</strong></p>
+<ul>
+<li><strong>Verticales high-AOV:</strong> Confirmar que nutra/health/weight loss son el bulk del marketplace ClickBank (AOV $350+, comisiones hasta $200/venta). Foco prioritario para ofertas a investigar.</li>
+<li><strong>Diamond Summit como filtro de credibilidad:</strong> Si un operador apareció en Diamond Summit (no solo en Platinum), el threshold de revenue es $5M+/año en ClickBank — auditable.</li>
+<li><strong>Venture Beyond playbook:</strong> Health/wellness/beauty en Meta con creative-first + UGC + landing page CRO. Aplicable a TheLungo (lifestyle café) si se expande a Meta US.</li>
+<li><strong>Francisco Valenzuela trayectoria:</strong> YouTube → Meta switch (relevante post-iOS18). Buscar el episodio completo + cualquier follow-up.</li>
+<li><strong>Cody Bramlett (ep 200) fraud playbook:</strong> $300K perdidos a fraud listings Amazon → relevante para vendors propios.</li>
+</ul>
+<p><strong>NO aplicable / específica otro stack:</strong></p>
+<ul>
+<li>Native advertising (Tom Bell, Maverick Media eps 164, 215) — requiere ad spend mínimo y aprobación networks, no aplicable a inicio</li>
+<li>YouTube ads premium (Jairet Crum ep 207) — útil pero requiere creatives video de alta calidad</li>
+<li>Vendor side episodes (229 Steve Clayton, 222 Jordan Hall) — relevante solo cuando lancemos oferta propia, no para affiliate-side</li>
+</ul>
+<hr>
+<h2 id="7-red-flags-identificados">7. Red flags identificados<a class="anchor" href="#7-red-flags-identificados">#</a></h2>
+<ul>
+<li><strong>Kyle Kostechka deja ClickBank Mar 2026</strong> (ep 236) → calidad podcast post-transición pendiente de re-evaluar en Q3 2026</li>
+<li><strong>Episodios "filler" frecuentes:</strong> eps 231-236 son conversacionales hosts-only ("WTF should affiliate marketers do now?!" tono motivacional). Filtrar solo episodios con guest operator verificable.</li>
+<li><strong>Mezcla de operadores reales con vendedores de curso/mastermind</strong> en el mismo feed → aplicar filtro estricto antes de adoptar tactic de un episodio</li>
+<li><strong>Diamond ≠ buen profesor:</strong> ser Diamond demuestra revenue, no necesariamente capacidad pedagógica. Validar utilidad táctica caso por caso.</li>
+<li><strong>Sesgo plataforma:</strong> ClickBank es la plataforma · el podcast nunca criticará prácticas internas o limitaciones de ClickBank vs CB alternativas (Digistore24, BuyGoods, etc)</li>
+</ul>
+<hr>
+<h2 id="8-próximo-paso-recomendado">8. Próximo paso recomendado<a class="anchor" href="#8-próximo-paso-recomendado">#</a></h2>
+<ol>
+<li><strong>Watch list activa:</strong> suscribir RSS feed + monitorear episodios nuevos buscando guests con LinkedIn verificable + agencia/operación (no curso)</li>
+<li><strong>Deep dive prioritario en TIER 1 separado:</strong></li>
+<li><strong>Venture Beyond / Cem Verghese + Syed Qadri</strong> (ep 204) — más prometedor: agencia real, $50M Meta, no curso visible, case study RedTrack independiente</li>
+<li><strong>Francisco Valenzuela</strong> (ep 218) — hispano, Diamond, YouTube→Meta path documentado</li>
+<li><strong>Re-evaluar trimestral:</strong> revisar Q3 2026 si la calidad post-Kyle se mantiene o cae</li>
+<li><strong>Descartar para escuchas:</strong> episodios hosts-only (231-236 patrón), episodios "mastermind" announcements (222), episodios vendor-side puros (229)</li>
+<li><strong>Cross-reference:</strong> todo operador candidato Tier 1 debe pasar las 8 dimensiones individualmente (no basta con aparecer en el podcast)</li>
+</ol>
+<hr>
+<p><em>Ficha v1.0 · 2026-05-26 · re-validar Q3 2026 post-transición Kyle Kostechka</em></p>
+<div class="footer">
+Affiliate Business · Generado 2026-05-26<br>
+Fuente: <code>03-clickbank-affiliated-podcast.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

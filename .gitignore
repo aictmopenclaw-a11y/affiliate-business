@@ -1,0 +1,89 @@
+# Credenciales y secretos
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+secrets/
+credentials.json
+service-account.json
+
+# Outputs sensibles
+04-tech/scripts/*.log
+04-tech/backups/database/
+05-data/raw-exports/*.csv
+05-data/raw-exports/*.xlsx
+
+# Creativos pesados (van a Google Drive, no Git)
+03-creatives/raw-assets/*.mp4
+03-creatives/raw-assets/*.mov
+03-creatives/raw-assets/*.psd
+03-creatives/raw-assets/*.ai
+03-creatives/production/**/*.mp4
+03-creatives/production/**/*.mov
+03-creatives/winners/*.mp4
+03-creatives/winners/*.mov
+
+# Mantener estructura de carpetas vacías
+!.gitkeep
+
+# Imágenes pesadas (>1MB) — usar Drive
+*.tiff
+*.RAW
+*.cr2
+*.nef
+
+# Sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+
+# Python (si Cris agrega scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+.pytest_cache/
+.coverage
+
+# Node (si se agrega tooling)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# Logs
+*.log
+logs/
+
+# HTMLs renderizados: se versionan para publicar el sitio live (GitHub Pages).
+# Regenerar con `python3 .tools/render.py` tras editar cualquier .md.
+
+# Cache de scraping firecrawl (no es parte del sitio)
+**/.firecrawl/
+
+# Audios pesados de transcripción (no van al repo)
+*.m4a
+*.mp3
+*.wav

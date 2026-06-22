@@ -1,0 +1,82 @@
+[00:00] Hey, it's Nathan with CrazyTimeMarketing.com.
+[00:01] In this video, I'm going to show you how to set up the Facebook or Meta conversion API.
+[00:06] And so what this does is it helps you track your conversions on your website and instances
+[00:10] where your Facebook pixel may fail.
+[00:12] So maybe somebody has an ad block or something like that and it's blocking your pixel from
+[00:16] activating.
+[00:17] Well, then the events could still be sent over to Facebook via the API and that
+[00:21] way you can still track your conversions.
+[00:23] So anyway, you want to be over here in your events manager and under data sources
+[00:27] and then you want to go to the same spot where you set up your pixel.
+[00:29] So I'm right here under my SEM training and then we can come over here to settings.
+[00:35] And we want to scroll on down here looking for something specific conversions API right
+[00:41] here.
+[00:42] And we want to scroll down here to set up a direct integration and we want to go ahead
+[00:46] and generate an access token.
+[00:48] So we're going to click this option here and then we're going to go ahead and
+[00:51] copy this right here.
+[00:52] So this is my token right here that connects to the Facebook ad account via the API.
+[00:57] And so now I can go ahead and plug this into my site's plug in and that way I'll start
+[01:01] tracking my events via the API as well.
+[01:03] So I'm going to come back over to my website and I'm going to scroll down to my meta pixel
+[01:09] or formerly Facebook pixel.
+[01:11] Click into here and we see the option for conversion API recommended.
+[01:14] So I'm going to go ahead and paste that in there just like that.
+[01:17] And of course I'm using WordPress with the pixel your site plug in here.
+[01:20] And maybe using a different platform that also accepts the conversion API like
+[01:24] I know ClickFunnels 2.0 accepts a conversion API.
+[01:27] And so the same concept would apply.
+[01:28] You would just put your token into the ClickFunnels 2.0 dashboard and it would function similarly.
+[01:33] Now I can also add a test event code so that way I can make sure that my API and everything
+[01:37] is working.
+[01:38] So I'm going to come back to my events manager here and I'm going to go ahead and
+[01:41] click on test events and I see some options here.
+[01:44] So confirm your server's events are set up correctly and it gives me this test
+[01:47] event code.
+[01:48] I'm going to go ahead and click copy here come back to my website and paste
+[01:52] that code in here like that.
+[01:54] Now one thing to note once you're done testing you want to make sure that you delete this
+[01:57] code out of here.
+[01:58] Otherwise you're going to run into some issues.
+[02:00] So that's just one thing to be reminded of and it says it right here remove it after
+[02:04] testing but really make sure you remove this after testing.
+[02:07] Also if you're using the pixel your site plug in make sure that you enable conversion
+[02:10] API otherwise it's not going to work.
+[02:12] So make sure you flip this switch if you're using the conversion API.
+[02:16] Anyway we're going to come down here and we click on save settings and then I'm
+[02:19] going to go back to the events manager here and I'm going to click on confirm
+[02:23] your website's events are set up correctly and then I'll enter my website URL and open
+[02:28] website and I can see my metapixel helper is showing that there's a pixel here.
+[02:32] So again I've installed my pixel here but I also have my API going on and I was going
+[02:36] to click around a little bit and try and go to some different pages on my website.
+[02:41] So I'm on this other page as well.
+[02:42] Now let's come back to the events manager and I can see the events that are occurring
+[02:46] on my site.
+[02:47] So I can see that I have a page view a subscribe button click and a page view
+[02:51] event.
+[02:52] You can see all of them came from the browser.
+[02:54] So what that means is that they actually came from my pixel and it didn't actually come
+[02:57] through the API.
+[02:58] So I'm going to go back to my website and click around a little bit more and see if
+[03:01] I can get my API to fire off as well.
+[03:04] So the API does have a slight delay but all the events started coming in.
+[03:07] As you can see the I have a server event which is the API and you can see that
+[03:11] it was a duplicate event because the pixel also caught it.
+[03:15] So the pixel and the API both caught it and Facebook was smart enough to know
+[03:18] that it was the same exact event.
+[03:20] So it deduplicated one of the events.
+[03:23] Same concept with the lead over here and another page view and another page view
+[03:26] and so on.
+[03:27] So anywhere that it says server you know that the API worked and it says browser
+[03:32] then you know that the Facebook or meta pixel actually fired off.
+[03:35] And so it looks like both the pixel and conversion API are working.
+[03:39] Let me come back to my site here and I want to make sure that I remove this
+[03:42] test event code out of here.
+[03:43] So that way I'm tracking stuff for real and we'll scroll on down the
+[03:47] bottom and save our settings and now we're done setting up our Facebook
+[03:51] conversion API.
+[03:53] And so that's it for this video.
+[03:54] Hopefully you found it helpful.
+[03:55] If you did I appreciate your likes, comments,
+[03:57] subscribes and or head over to craziermarketing.com and I hope you
+[04:00] have a great rest of the day.

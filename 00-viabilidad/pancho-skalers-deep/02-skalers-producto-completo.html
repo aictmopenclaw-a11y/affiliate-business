@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skalers — Due diligence pre-compra · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">00-viabilidad / pancho-skalers-deep · 33 min · 6,528 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#tldr" class="">TL;DR</a></li><li><a href="#1-tier-by-tier-breakdown" class="">1. Tier-by-tier breakdown</a></li><li><a href="#free-hub-whopcomskalers" class="h3">Free hub: `whop.com/skalers`</a></li><li><a href="#skalers-start-47-one-time" class="h3">Skalers Start — $47 one-time</a></li><li><a href="#affiliate-pro-rebranded-de-skalers-pro-497-one-time" class="h3">Affiliate Pro (rebranded de "Skalers Pro") — $497 one-time</a></li><li><a href="#affiliate-mastery-1497-2197-dynamic-pricing" class="h3">Affiliate Mastery — $1,497 → $2,197 (dynamic pricing)</a></li><li><a href="#ads-license-12000-one-time" class="h3">Ads License — $12,000 one-time</a></li><li><a href="#resumen-de-revenue-acumulado-estimado-jun-2025-may-2026" class="h3">Resumen de revenue acumulado estimado (jun 2025 — may 2026)</a></li><li><a href="#política-de-reembolso-real" class="h3">Política de reembolso real</a></li><li><a href="#2-modelo-de-negocio-reconstruido" class="">2. Modelo de negocio reconstruido</a></li><li><a href="#funnel-de-adquisición" class="h3">Funnel de adquisición</a></li><li><a href="#conversion-rates-estimados" class="h3">Conversion rates estimados</a></li><li><a href="#ltv-estimado-por-miembro-pagado" class="h3">LTV estimado por miembro pagado</a></li><li><a href="#cac-estimado" class="h3">CAC estimado</a></li><li><a href="#costo-de-operación" class="h3">Costo de operación</a></li><li><a href="#margen-estimado" class="h3">Margen estimado</a></li><li><a href="#3-comparativa-con-competencia" class="">3. Comparativa con competencia</a></li><li><a href="#insights-de-la-comparativa" class="h3">Insights de la comparativa</a></li><li><a href="#datos-verificables-del-mercado-affiliate-marketing-en-whop" class="h3">Datos verificables del mercado affiliate marketing en Whop</a></li><li><a href="#4-reviews-independientes-citas-textuales" class="">4. Reviews independientes (citas textuales)</a></li><li><a href="#review-oficial-publicada-en-whop" class="h3">Review oficial publicada en Whop</a></li><li><a href="#review-de-blog-de-afiliado-epicmarketcl-sesgada-con-afiliado" class="h3">Review de blog de afiliado (Epicmarket.cl, sesgada con afiliado)</a></li><li><a href="#citas-adicionales-del-propio-skalers" class="h3">Citas adicionales del propio Skalers</a></li><li><a href="#sobre-pancho-podcast-haciendola-fuente-independiente" class="h3">Sobre Pancho (podcast Haciendola, fuente independiente)</a></li><li><a href="#reddit-thread-directo-sobre-pancho-encontrado-pero-no-scrapeable" class="h3">Reddit: thread directo sobre Pancho (encontrado pero no scrapeable)</a></li><li><a href="#sin-presencia-en-sitios-review-independientes" class="h3">Sin presencia en sitios review independientes</a></li><li><a href="#5-marketing-strategy-de-skalers" class="">5. Marketing strategy de Skalers</a></li><li><a href="#channels-confirmados" class="h3">Channels confirmados</a></li><li><a href="#meta-ads-no-verificado" class="h3">Meta Ads (no verificado)</a></li><li><a href="#mensaje-central" class="h3">Mensaje central</a></li><li><a href="#6-lo-que-no-te-dicen-antes-de-comprar" class="">6. Lo que NO te dicen antes de comprar</a></li><li><a href="#costos-extras-implícitos-no-listados-en-página-de-venta" class="h3">Costos extras implícitos (no listados en página de venta)</a></li><li><a href="#compromiso-de-tiempo-real" class="h3">Compromiso de tiempo real</a></li><li><a href="#tasa-de-éxito-real-no-comunicada" class="h3">Tasa de éxito real (no comunicada)</a></li><li><a href="#reseñas-filtradas" class="h3">Reseñas filtradas</a></li><li><a href="#refund-process-es-trabajo" class="h3">Refund process es trabajo</a></li><li><a href="#7-roi-realista-para-nuevo-miembro" class="">7. ROI realista para nuevo miembro</a></li><li><a href="#para-alguien-que-paga-skalers-start-47" class="h3">Para alguien que paga Skalers Start ($47)</a></li><li><a href="#para-alguien-que-paga-skalers-pro-497" class="h3">Para alguien que paga Skalers Pro ($497)</a></li><li><a href="#8-recomendación-específica-al-equipo-openclaw" class="">8. Recomendación específica al equipo OpenClaw</a></li><li><a href="#contexto-del-equipo" class="h3">Contexto del equipo</a></li><li><a href="#pregunta-real-que-se-está-respondiendo" class="h3">Pregunta real que se está respondiendo</a></li><li><a href="#recomendación-tier-by-tier" class="h3">Recomendación tier-by-tier</a></li><li><a href="#plan-de-validación-post-start-sugerido" class="h3">Plan de validación post-Start (sugerido)</a></li><li><a href="#riesgos-a-vigilar" class="h3">Riesgos a vigilar</a></li><li><a href="#anexo-a-fuentes-y-archivos-guardados" class="">Anexo A: Fuentes y archivos guardados</a></li><li><a href="#anexo-b-urls-verificadas" class="">Anexo B: URLs verificadas</a></li><li><a href="#skalers-oficial" class="h3">Skalers (oficial)</a></li><li><a href="#pancho-valenzuela-perfiles" class="h3">Pancho Valenzuela (perfiles)</a></li><li><a href="#fuentes-externas" class="h3">Fuentes externas</a></li><li><a href="#competidores" class="h3">Competidores</a></li><li><a href="#whop-oficial" class="h3">Whop oficial</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>02-skalers-producto-completo.md</span><span>6,528 palabras</span><span>~33 min</span></div>
+<h1 id="skalers-due-diligence-pre-compra">Skalers — Due diligence pre-compra</h1>
+<p><strong>Fecha:</strong> 2026-05-11 <strong>Investigador:</strong> Claude (firecrawl + Whop Trends + fuentes públicas) <strong>Output:</strong> Decisión informada para comprar (o no) Skalers Start ($47) o Skalers Pro ($497)</p>
+<hr>
+<h2 id="tldr">TL;DR<a class="anchor" href="#tldr">#</a></h2>
+<ul>
+<li>Skalers es un negocio educativo de Francisco "Pancho" Valenzuela (chileno, 24-25 años, Viña del Mar) hosted en Whop con 4 productos: <strong>Skalers Start ($47, 564 miembros)</strong>, <strong>Affiliate Pro ($497, 325 miembros)</strong>, <strong>Affiliate Mastery ($1,497-$2,197 dynamic, 121 miembros)</strong> y <strong>Ads License ($12,000, 5 miembros)</strong> más un hub free con 4,008 miembros y 2,702 en "Francisco Valenzuela Gifts".</li>
+<li>Rating consolidado en Whop: <strong>4.9/5 sobre 159 reseñas</strong>, distribución 94% 5★ / 3% 4★ / 1% 3★ / 0% 2★ / 1% 1★. Reseñas oficiales son cortas y mayormente entusiastas; no hay críticas detalladas públicas.</li>
+<li>Skalers ranquea <strong>#1 (Start), #5 (Pro) y #8 (Mastery) en miembros</strong> dentro de la categoría <code>affiliate_marketing</code> de Whop, que tiene 470 productos pero solo 45 activos generando revenue (Whop Trends).</li>
+<li>El equipo visible son <strong>14 staff</strong> en el Whop hub más Pancho (founder).</li>
+<li>Pancho aparece en el podcast Haciendola (Sept 2025): dice haber invertido <strong>>$8M USD en ads</strong> en su carrera, comenzó vendiendo pesas de cemento en pandemia, opera en Estados Unidos en nichos Nutra/Insurance/Debt/Home Services. Especialista en YouTube Ads + Facebook Ads. Reproducible y verificable: <code>haciendola.com/blogs/haciendola/ha-invertido-8-millones-de-dolares-en-ads-a-sus-24-anos-francisco-valenzuela-panchoval-e56-1</code>.</li>
+<li><strong>Recomendación:</strong> comprar <strong>Skalers Start ($47)</strong> ahora si el equipo necesita validar el modelo Meta Ads para affiliate marketing en USA y conocer el sistema. NO comprar Pro ($497) hasta haber consumido Start completo y haber lanzado al menos 1 campaña real. Mastery y Ads License están fuera de scope para esta etapa de viabilidad.</li>
+</ul>
+<hr>
+<h2 id="1-tier-by-tier-breakdown">1. Tier-by-tier breakdown<a class="anchor" href="#1-tier-by-tier-breakdown">#</a></h2>
+<h3 id="free-hub-whopcomskalers">Free hub: <code>whop.com/skalers</code><a class="anchor" href="#free-hub-whopcomskalers">#</a></h3>
+<ul>
+<li><strong>Precio:</strong> Gratis. Solo necesita cuenta Whop.</li>
+<li><strong>Miembros:</strong> 4,008 (al 2026-05-11) — fuente: <code>https://whop.com/skalers/</code>.</li>
+<li><strong>Rating:</strong> 4.9 / 5 (159 reseñas heredadas a todos los productos del hub).</li>
+<li><strong>Contenido visible:</strong> acceso al feed del Whop, vista de los 4 productos pagos, "Francisco Valenzuela Gifts" (acceso a recursos gratis), "Francisco Newsletter".</li>
+<li><strong>Equipo visible (14 staff identificables):</strong></li>
+<li><code>francisovalenzuelab</code> (founder)</li>
+<li><code>sebacasasempere</code> (Sebastian Casasempere)</li>
+<li><code>felipesklrs</code> (Felipe)</li>
+<li><code>avalenzuelab</code> (Valenbarr383, posible familiar)</li>
+<li><code>carlossilvarosati</code> (Carlos Silva)</li>
+<li><code>chagocontreras</code> (Baltazar Contreras)</li>
+<li><code>voidgasket20</code> (Francisco Espinoza Boassi / Skalers)</li>
+<li><code>tautteacherb7</code> (Pablo Severi)</li>
+<li><code>benjanesfabbb</code> (Benjamin Nestor)</li>
+<li><code>seba24</code> (Seba Fica)</li>
+<li><code>pautaurian</code> (Paulina Taurian)</li>
+<li><code>muggyprimacy05</code></li>
+<li>3 más identificados como bots/agents (LinkHub, Merch App, Wins app)</li>
+<li><strong>Citas literales:</strong></li>
+</ul>
+<blockquote><p>"Skalers es una plataforma educativa enfocada en enseñarte a dominar el media buying profesional con estrategias validadas en +$10M de inversión..." — <code>whop.com/skalers/</code></p></blockquote>
+<h3 id="skalers-start-47-one-time">Skalers Start — $47 one-time<a class="anchor" href="#skalers-start-47-one-time">#</a></h3>
+<p>URL real: <code>https://whop.com/skalers/skalers/</code> (la URL <code>whop.com/skalers-start</code> que circula NO existe — devuelve 404)</p>
+<ul>
+<li><strong>Precio:</strong> $47 USD pago único.</li>
+<li><strong>Miembros activos:</strong> <strong>564</strong> (Whop) / <strong>549</strong> (Whop Trends, leve diferencia por timing de scrape).</li>
+<li><strong>Rating:</strong> 4.8 / 5 (heredado de 159 reseñas del hub).</li>
+<li><strong>Lanzado:</strong> Mayo 2025 — Whop Trends.</li>
+<li><strong>Comisión afiliado para promotores:</strong> 7% — Whop Trends.</li>
+<li><strong>Promesa:</strong> "Lanza Tu Primera Campaña Meta Rentable En 24 Horas".</li>
+<li><strong>Contenido (5 módulos):</strong></li>
+<li>Cómo pensar como un Media Buyer profesional</li>
+<li>Las 3 formas de monetizar con Meta Ads (enfócate en la tuya)</li>
+<li>Cómo crear tu primer anuncio que convierta usando IA</li>
+<li>Lanza tu primera campaña con la estructura correcta</li>
+<li>Cómo analizar resultados y optimizar para escalar</li>
+<li><strong>Bonus incluidos:</strong></li>
+<li>Media Buyer Dictionary</li>
+<li>Setup completo Business Manager</li>
+<li>Guía de lanzamiento paso a paso</li>
+<li>5 scripts de anuncios listos para usar</li>
+<li>Caso de estudio: $7,960 en 14 días</li>
+<li>"Y 3 bonus más" (no especifica cuáles)</li>
+<li><strong>Comunidad mencionada:</strong> "Comunidad de 400+ emprendedores aprendiendo juntos" (publicado cuando tenían 400; hoy son 564).</li>
+<li><strong>Cita literal:</strong></li>
+</ul>
+<blockquote><p>"¿Quieres generar clientes para tu negocio con Meta Ads pero no sabes por dónde empezar? En 24 horas vas a aprender exactamente cómo lanzar tu primera campaña publicitaria rentable, paso a paso." — <code>whop.com/skalers/skalers/</code></p></blockquote>
+<ul>
+<li><strong>Para quién es / no es (FAQ):</strong> la página tiene FAQ colapsable que no abrió bajo scrape, pero las preguntas listadas son: ¿Necesito experiencia previa? ¿Necesito invertir dinero? ¿Qué necesito para empezar? ¿Qué pasa si no me sirve o no me gusta? ¿Qué sigue después del reto?</li>
+<li><strong>Estimación de revenue:</strong> $47 × 564 = <strong>$26,508 acumulados</strong> desde mayo 2025 (gross, antes de fee Whop ~3-5%).</li>
+</ul>
+<h3 id="affiliate-pro-rebranded-de-skalers-pro-497-one-time">Affiliate Pro (rebranded de "Skalers Pro") — $497 one-time<a class="anchor" href="#affiliate-pro-rebranded-de-skalers-pro-497-one-time">#</a></h3>
+<p>URL: <code>https://whop.com/skalers/skalers-pro/</code> (la URL <code>whop.com/skalers-pro</code> redirige al hub ya que el slug standalone no existe)</p>
+<ul>
+<li><strong>Precio:</strong> $497 USD pago único.</li>
+<li><strong>Miembros activos:</strong> <strong>325</strong> (Whop) / <strong>220</strong> (Whop Trends — Whop Trends parece tener data más vieja).</li>
+<li><strong>Rating:</strong> 5.0 / 5 (heredado).</li>
+<li><strong>Lanzado:</strong> Mayo 2025 — Whop Trends.</li>
+<li><strong>Comisión afiliado para promotores:</strong> 7% — Whop Trends.</li>
+<li><strong>Promesa:</strong> "Domina Meta Ads & Escala Tu Negocio Con El Sistema Skalers".</li>
+<li><strong>Contenido (7 módulos):</strong></li>
+<li>Fundamentos de Meta 2025</li>
+<li>Ofertas & Audiencias Avanzadas (LLA, Custom Audiences)</li>
+<li>Sistema Completo de Creativos (UGC, Frameworks, IA)</li>
+<li>Meta Ads Mastery (Estructuras, Bidcap, LTB, In-forms)</li>
+<li>Análisis Como Experto (KPIs que importan)</li>
+<li>Cómo Escalar a $10k/Día (Infraestructura y protección)</li>
+<li>Casos de Estudio (8 horas de campañas reales desglosadas)</li>
+<li><strong>Casos prácticos destacados:</strong></li>
+<li>"Vital Habits: 3 horas de breakdown completo"</li>
+<li>"Airboost: 4 horas de análisis profundo"</li>
+<li><strong>6 bonus adicionales:</strong></li>
+<li>Appeal Master Class (recuperación de cuentas baneadas)</li>
+<li>Creativos para Ecommerce</li>
+<li>Diagnóstico en 5 minutos</li>
+<li>Tabla SOS Chart</li>
+<li>Sistema de testeo profesional</li>
+<li>"Y más..."</li>
+<li><strong>Comunidad:</strong> "Acceso a grupo privado con 200+ media buyers activos" (consistente con los 220 de Whop Trends).</li>
+<li><strong>Cita literal:</strong></li>
+</ul>
+<blockquote><p>"Ya sabes hacer campañas básicas. Ahora aprende a escalar tu negocio de forma profesional con el sistema completo de Meta Ads que uso para gastar $30,000-$50,000/día" — <code>whop.com/skalers/skalers-pro/</code> "Esto es lo que uso para gestionar millones en ad spend. Ahora es tuyo."</p></blockquote>
+<ul>
+<li><strong>Reseñas visibles (4 publicadas en mayo 2026):</strong></li>
+</ul>
+<blockquote><p>"Estoy muy agradecido de haber encontrado a SKALERS, ahora fully aprendiendo." — Erwin Bräuning (<code>@braunsk</code>), 5 days ago "GRACIAS por el material, se aprende bastante" — sara (<code>@felvercar</code>), 18 days ago "excelente contenido y muy bien explicado por nuestro profesor estrella Panchito" — Robinson (<code>@buffstation</code>), 1 month ago "Gran curso, material muy valioso!" — Sebastian Cabargas (<code>@cocula</code>), 2 months ago</p></blockquote>
+<ul>
+<li><strong>Estimación de revenue:</strong> $497 × 325 = <strong>$161,525 acumulados</strong> desde mayo 2025 (gross).</li>
+<li><strong>Posicionamiento confuso:</strong> El producto se llama "Affiliate Pro" en Whop pero el contenido es fundamentalmente Meta Ads media buying. La copy mezcla ambos mundos. El público target real es media buyers para affiliate marketing pero el conocimiento aplica a cualquier negocio que use Meta Ads.</li>
+</ul>
+<h3 id="affiliate-mastery-1497-2197-dynamic-pricing">Affiliate Mastery — $1,497 → $2,197 (dynamic pricing)<a class="anchor" href="#affiliate-mastery-1497-2197-dynamic-pricing">#</a></h3>
+<p>URL: <code>https://whop.com/skalersaffiliate/</code></p>
+<ul>
+<li><strong>Precio actual:</strong> $2,197 USD pago único (Whop Mayo 2026). Whop Trends muestra que <strong>se lanzó a $1,497 en junio 2025</strong> — confirmado dynamic pricing al alza (+47% en 11 meses).</li>
+<li><strong>Miembros activos:</strong> <strong>121</strong> (Whop Trends).</li>
+<li><strong>Rating:</strong> 5.0 / 5 (heredado).</li>
+<li><strong>Lanzado:</strong> Junio 2025 — Whop Trends.</li>
+<li><strong>Comisión afiliado para promotores:</strong> 7% — Whop Trends.</li>
+<li><strong>Promesa:</strong> "Construye Un Negocio De Afiliados En USA Con IA" / "De $0 A $5M En ClickBank: El Sistema Completo De Affiliate Marketing USA".</li>
+<li><strong>Contenido (7 módulos):</strong></li>
+<li>El Modelo: CPA vs Lead Gen. El flujo exacto del dinero.</li>
+<li>Ofertas: Cómo elegir ofertas ganadoras antes de gastar un dólar.</li>
+<li>Anuncios: Cómo crear anuncios con IA. Sin tu cara. Sin inglés.</li>
+<li>Tracking: Saber exactamente qué funciona y qué no.</li>
+<li>Optimización: Qué hacer cuando una campaña no convierte.</li>
+<li>Escalado: De $100/día a $1,000/día sin romper lo que funciona.</li>
+<li>Skalers Vault: Recursos listos para usar desde el día 1.</li>
+<li><strong>Lo que incluye (literal):</strong></li>
+<li>"Landers validados de Nutra, Insurance, Debt y Home Services"</li>
+<li>"Skalers IA — entrenado con $10M en campañas publicitarias"</li>
+<li>"Prompts de IA para crear anuncios (copia y pega)"</li>
+<li>"Cómo proteger tus campañas en Meta Ads"</li>
+<li>"El sistema exacto para crear anuncios y landers que convierten"</li>
+<li>"Acceso a ofertas exclusivas que pagan $200+ por venta desde el día 1"</li>
+<li><strong>Casos reales mencionados:</strong> Weight Loss, Tinnitus, Diabetes, Debt Relief, Home Services.</li>
+<li><strong>Cita literal de filtrado:</strong></li>
+</ul>
+<blockquote><p>"PARA QUIÉN NO ES: Si buscas hacerte millonario en 7 días, esto no es para ti." — <code>whop.com/skalersaffiliate/</code></p></blockquote>
+<ul>
+<li><strong>Estimación de revenue:</strong> Mix dinámico (asumiendo 60 a $1,497 + 61 a $2,197 promedio) = ~$224K acumulados (rough).</li>
+</ul>
+<h3 id="ads-license-12000-one-time">Ads License — $12,000 one-time<a class="anchor" href="#ads-license-12000-one-time">#</a></h3>
+<p>URL: <code>https://whop.com/skalers/adslicense/</code></p>
+<ul>
+<li><strong>Precio:</strong> $12,000 USD pago único.</li>
+<li><strong>Miembros activos:</strong> <strong>5</strong> (Whop al scrape) — Whop Trends también muestra 5.</li>
+<li><strong>Rating:</strong> 0 (sin reseñas individuales — heredan rating del hub).</li>
+<li><strong>Lanzado:</strong> Junio 2025 — Whop Trends.</li>
+<li><strong>Comisión afiliado para promotores:</strong> <strong>30%</strong> ($3,600 USD por venta) — Whop Trends. Significativamente más alta que el 7% de los otros productos: incentivo para que afiliados push hard este tier.</li>
+<li><strong>Promesa:</strong> "1:1 Mentoring con Francisco" / "Accede directamente a mi asesoría personal, feedback estratégico, mi network y el sistema que uso para escalar a 7 cifras".</li>
+<li><strong>Funnel de venta:</strong> No se compra directamente con click "Buy now" en práctica. El funnel real es:</li>
+<li><code>skalersinc.com</code> (VSL 7:37 minutos en Panda Video)</li>
+<li>→ CTA "APLICA AHORA AL PROGRAMA"</li>
+<li>→ <code>skalersinc.com/apply</code> (formulario)</li>
+<li>→ <code>skalersinc.com/bookedcall</code> ("Espera! Un último paso: vé este video completo (5 minutos) para que no se cancele tu llamada")</li>
+<li>→ 1:1 close call</li>
+<li><strong>Estimación de revenue:</strong> $12,000 × 5 = <strong>$60,000 acumulados</strong>.</li>
+</ul>
+<h3 id="resumen-de-revenue-acumulado-estimado-jun-2025-may-2026">Resumen de revenue acumulado estimado (jun 2025 — may 2026)<a class="anchor" href="#resumen-de-revenue-acumulado-estimado-jun-2025-may-2026">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Producto</th>
+<th>Miembros</th>
+<th>Precio</th>
+<th>Rev acumulado</th>
+<th>% de total</th>
+</tr></thead><tbody>
+<tr>
+<td>Skalers Start</td>
+<td>564</td>
+<td>$47</td>
+<td>$26,508</td>
+<td>5.5%</td>
+</tr>
+<tr>
+<td>Affiliate Pro</td>
+<td>325</td>
+<td>$497</td>
+<td>$161,525</td>
+<td>33.6%</td>
+</tr>
+<tr>
+<td>Affiliate Mastery</td>
+<td>121</td>
+<td>$1,497-$2,197</td>
+<td>~$224,000</td>
+<td>46.5%</td>
+</tr>
+<tr>
+<td>Ads License</td>
+<td>5</td>
+<td>$12,000</td>
+<td>$60,000</td>
+<td>12.5%</td>
+</tr>
+<tr>
+<td>Free hub + Gifts</td>
+<td>6,710</td>
+<td>$0</td>
+<td>$0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td><strong>TOTAL gross</strong></td>
+<td><strong>7,725</strong> (con duplicados entre tiers)</td>
+<td></td>
+<td><strong>~$472,000</strong></td>
+<td>100%</td>
+</tr>
+</tbody></table></div>
+<p>Whop cobra ~3-5% fee + transaction fees. Net estimado: <strong>~$440K</strong> en 11 meses. <strong>MRR neto si convirtiéramos a recurrente:</strong> ~$40K/mes.</p>
+<h3 id="política-de-reembolso-real">Política de reembolso real<a class="anchor" href="#política-de-reembolso-real">#</a></h3>
+<ul>
+<li><strong>Whop Buyer Terms (sección 9):</strong></li>
+</ul>
+<blockquote><p>"Unless otherwise stated, all purchases are final and non-refundable, except where required by applicable law. All refund requests must be made within 30 days of purchase. To request a refund, contact us at support@whop.com or use the Whop Resolution Center..." — <code>whop.com/buyer-terms/</code></p></blockquote>
+<ul>
+<li><strong>Importante:</strong> No es un "7-day money-back" automático como creía el equipo. Es un proceso de <strong>resolution center</strong> donde Whop "review each request individually and decide whether to approve or deny it based on these Terms and the merits of your case. We may consult the Seller as part of our review."</li>
+<li><strong>Skalers no publica una refund policy propia</strong> en <code>skalersinc.com</code> — el footer solo menciona "Política de Privacidad | Términos y Condiciones | Aviso Legal" sin links visibles a contenido. Por defecto aplica la de Whop.</li>
+<li><strong>Disclaimer en skalersinc.com:</strong></li>
+</ul>
+<blockquote><p>"Los resultados no están garantizados. El desempeño individual depende del esfuerzo, la dedicación y la correcta implementación de las estrategias. Este sitio no está afiliado ni respaldado por Facebook™." — <code>skalersinc.com</code></p></blockquote>
+<ul>
+<li><strong>Cita adicional Whop (Whop docs sobre tiempos de proceso):</strong></li>
+</ul>
+<blockquote><p>"Customers can typically expect to see refunds in their account within 3-7 business days after the refund is processed." — <code>docs.whop.com/manage-your-business/manage-payments/issuing-refunds</code></p></blockquote>
+<ul>
+<li><strong>Cita Whop docs (resolution center):</strong></li>
+</ul>
+<blockquote><p>"Whop's Resolution Center gives you the chance to explain why you deserve a refund, and you will receive a decision within..." — <code>docs.whop.com/memberships-and-access/cancellations-and-refunds/request-a-refund</code></p></blockquote>
+<hr>
+<h2 id="2-modelo-de-negocio-reconstruido">2. Modelo de negocio reconstruido<a class="anchor" href="#2-modelo-de-negocio-reconstruido">#</a></h2>
+<h3 id="funnel-de-adquisición">Funnel de adquisición<a class="anchor" href="#funnel-de-adquisición">#</a></h3>
+<p><strong>Top of funnel (orgánico + paid):</strong></p>
+<ol>
+<li><strong>Instagram <code>@panchoval</code></strong> — 41K followers, 39 posts, 699 following. Bio: "Media Buyer | Facebook & Google Ads". Posts mezclan motivacional ("construyendo mi legado"), behind-the-scenes ("semana skalers"), tips Meta Ads. Frecuencia ~8-10 posts/mes.</li>
+<li><strong>TikTok <code>@panchoval8</code></strong> y <strong><code>@franciscovalenzuelab</code></strong> — videos con hook tipo "Lo que nadie te cuenta de invertir en Ads", "Advertencia sobre Estafas en Redes Sociales".</li>
+<li><strong>YouTube en español <code>@panchovalb</code></strong> — canal principal en español. Videos con 1K-1.8K views cada uno, frecuencia mensual. Contenido educativo Meta Ads.</li>
+<li><strong>YouTube en inglés <code>@panchoval</code></strong> — canal en inglés con solo <strong>1.61K subscribers</strong> y 24 videos. Estrategia bilingüe explícita.</li>
+<li><strong>X <code>@panchoval123</code></strong> — presencia mantenida pero menos activa.</li>
+<li><strong>Podcast appearances</strong> — invitado a Haciendola E56 (Sept 2025, canal con 43.6K subs), TikTok Haciendola con video "Invertir en Ads: Estrategias de Francisco Valenzuela".</li>
+</ol>
+<p><strong>Mid funnel:</strong></p>
+<ol>
+<li><strong>Lead magnet "Francisco Valenzuela Gifts"</strong> (free Whop) — <strong>2,702 miembros</strong>. Punto de captura masivo. La descripción dice: "Durante años llevo haciendo publicidad en Meta, Youtube, Tiktok y Newsbreak aquí vas a encontrar recursos creados por el Equipo Skalers".</li>
+<li><strong>Newsletter "Francisco Newsletter"</strong> — disponible dentro del hub Whop.</li>
+</ol>
+<p><strong>Bottom funnel (paid):</strong></p>
+<ol>
+<li><strong>Skalers Start ($47)</strong> — entry point pagado. Conversion friendly por precio y promesa "24 horas → primera campaña rentable".</li>
+<li><strong>Affiliate Pro ($497)</strong> — upsell natural una vez consumes Start.</li>
+<li><strong>Affiliate Mastery ($1,497-$2,197)</strong> — upsell para quien quiere mercado USA específicamente con landers/ofertas hechas.</li>
+<li><strong>Ads License ($12,000)</strong> — funnel separado vía <code>skalersinc.com</code> con VSL + apply form + booked call. NO se compra desde el menú de Whop normal — requiere call de cierre.</li>
+</ol>
+<p><strong>Programa de afiliados de Skalers:</strong></p>
+<ul>
+<li>7% comisión en Start, Pro, Mastery (Whop Trends data)</li>
+<li><strong>30% comisión en Ads License</strong> ($3,600 por venta)</li>
+<li>Existe affiliate dashboard interno: <code>whop.com/skalers/affiliates/</code></li>
+<li>Ya hay afiliados activos: la review de Epicmarket usa código <code>?a=cocula</code> (afiliado verificado en reviews del Pro).</li>
+</ul>
+<h3 id="conversion-rates-estimados">Conversion rates estimados<a class="anchor" href="#conversion-rates-estimados">#</a></h3>
+<p>Con datos públicos:</p>
+<ul>
+<li>Free hub → Start: 4,008 → 564 = <strong>14.1%</strong> conversion (gross, asume todos los Start vinieron del hub)</li>
+<li>Start → Pro: 564 → 325 = <strong>57.6%</strong> (rough, asume Pro members compraron Start primero)</li>
+<li>Pro → Mastery: 325 → 121 = <strong>37.2%</strong></li>
+<li>Mastery → Ads License: 121 → 5 = <strong>4.1%</strong></li>
+</ul>
+<p>Multiplicando: si entras al hub free, hay 14.1% × 57.6% × 37.2% × 4.1% = <strong>~0.12% probabilidad de llegar a Ads License</strong>. La pirámide es brutalmente filtrante.</p>
+<h3 id="ltv-estimado-por-miembro-pagado">LTV estimado por miembro pagado<a class="anchor" href="#ltv-estimado-por-miembro-pagado">#</a></h3>
+<ul>
+<li>Start blended: $47</li>
+<li>Si compra Pro también: $544</li>
+<li>Si compra Mastery también: ~$2,341 (Mastery a precio promedio $1,797)</li>
+<li>Si compra Ads License: $14,341</li>
+</ul>
+<p>LTV ponderado por mix: (564 × $47 + 325 × $544 + 121 × $2,341 + 5 × $14,341) / 1,015 unique pagados ≈ <strong>$535/miembro promedio</strong></p>
+<p>Considerando solo miembros pagados (excluyendo free hub), CAC permitido es ese $535 × margin% (asumiendo 80% margen producto digital, ~$430 disponibles para CAC).</p>
+<h3 id="cac-estimado">CAC estimado<a class="anchor" href="#cac-estimado">#</a></h3>
+<p>Sin acceso a reportes internos: estimación basada en industry benchmarks de info products:</p>
+<ul>
+<li>CAC orgánico (IG, podcast, YouTube): ~$10-30 por lead, ~$80-200 por venta Start</li>
+<li>CAC paid Meta Ads: si Pancho usa Meta Ads para promocionar Skalers (likely), CAC para Start ~$100-200, para Pro ~$300-600</li>
+</ul>
+<h3 id="costo-de-operación">Costo de operación<a class="anchor" href="#costo-de-operación">#</a></h3>
+<ul>
+<li>14 staff visible (algunos pueden ser part-time o contractors)</li>
+<li>Asumiendo costo blended Chile/LATAM ~$1,500-3,000 USD/mes/persona (mix junior+senior) = $21K-42K/mes en payroll</li>
+<li>Stack tools (Whop fees, Panda Video, ClickFunnels-equivalent, Skalers IA training, etc.): ~$2-5K/mes</li>
+<li>Ad spend para adquisición: opaco, pero asumir 30% de revenue = ~$13K/mes</li>
+</ul>
+<h3 id="margen-estimado">Margen estimado<a class="anchor" href="#margen-estimado">#</a></h3>
+<ul>
+<li>Revenue mensual blended: ~$40K/mes neto (calculado arriba)</li>
+<li>Costos: $25K-50K/mes</li>
+<li><strong>Margen real puede ser 0% a 38%</strong> dependiendo de cuán optimizado esté el equipo.</li>
+</ul>
+<p><strong>Inferencia:</strong> Skalers no es solo un negocio educativo — es una operación que probablemente subsidia educación con el affiliate marketing real que hace Pancho ($8M+ ad spend acumulado en su carrera). El negocio educativo es marketing/sourcing para Ads License + ego/legado, no necesariamente cash-cow standalone.</p>
+<hr>
+<h2 id="3-comparativa-con-competencia">3. Comparativa con competencia<a class="anchor" href="#3-comparativa-con-competencia">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Producto</th>
+<th>Precio entry</th>
+<th>Tier alto</th>
+<th>Audiencia</th>
+<th>Idioma</th>
+<th>Refund</th>
+<th>Comunidad</th>
+<th>Diferenciador</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Skalers Start</strong></td>
+<td>$47 one-time</td>
+<td>$12K (Ads License)</td>
+<td>Hispanohablantes LATAM (especialmente Chile/México/Colombia/Argentina)</td>
+<td>Español</td>
+<td>Whop 30d (caso a caso)</td>
+<td>564 miembros tier + 4K free hub</td>
+<td>24h promesa, Meta Ads aplicado a affiliate USA</td>
+</tr>
+<tr>
+<td><strong>Skalers Pro</strong></td>
+<td>$497 one-time</td>
+<td>$12K</td>
+<td>Media buyers intermedios</td>
+<td>Español</td>
+<td>Whop 30d</td>
+<td>220-325 activos</td>
+<td>"Sistema completo Meta Ads" + casos reales (Vital Habits, Airboost)</td>
+</tr>
+<tr>
+<td><strong>Commission Hero</strong> (Robby Blanchard)</td>
+<td>$997 one-time o 2×$597</td>
+<td>$10K coaching</td>
+<td>Affiliate marketers principalmente USA</td>
+<td>Inglés</td>
+<td><strong>No reembolso</strong></td>
+<td>Facebook group</td>
+<td>Foco ClickBank + Facebook Ads</td>
+</tr>
+<tr>
+<td><strong>Trafficker Pro</strong> (Felipe Vergara)</td>
+<td>~$497 (Hotmart)</td>
+<td>Mentoría 1:1 (precio opaco)</td>
+<td>Hispanohablantes</td>
+<td>Español</td>
+<td>7d Hotmart</td>
+<td>Discord/grupo privado</td>
+<td>"Era de la IA" angle, IG ads + Meta</td>
+</tr>
+<tr>
+<td><strong>Charles Ngo AFFcelerator</strong></td>
+<td>$997-$1,997</td>
+<td>Mentor program $10K+</td>
+<td>Affiliate marketers globales</td>
+<td>Inglés</td>
+<td>No estandarizado</td>
+<td>Mastermind</td>
+<td>Pioneer affiliate, network efectos</td>
+</tr>
+<tr>
+<td><strong>AffLift forum</strong></td>
+<td><strong>$20/mes</strong>, $200/año, $350 lifetime</td>
+<td>—</td>
+<td>CPA + paid traffic affiliates</td>
+<td>Inglés</td>
+<td>Mensual: cancela</td>
+<td>Forum estilo "más activo premium affiliate community"</td>
+<td>Comunidad activa, follow-alongs reales</td>
+</tr>
+<tr>
+<td><strong>STM Forum</strong></td>
+<td>~$99/mes</td>
+<td>—</td>
+<td>CPA affiliates avanzados</td>
+<td>Inglés</td>
+<td>Mensual: cancela</td>
+<td>Forum legacy</td>
+<td>Histórico, network senior</td>
+</tr>
+<tr>
+<td><strong>Caro Millán</strong> (Chile, hi-ticket)</td>
+<td>Varios productos</td>
+<td>Mentoría high-ticket</td>
+<td>Hispanohablantes high-ticket sales</td>
+<td>Español</td>
+<td>Caso a caso</td>
+<td>Comunidad pagada</td>
+<td>Foco high-ticket sales coaching</td>
+</tr>
+</tbody></table></div>
+<h3 id="insights-de-la-comparativa">Insights de la comparativa<a class="anchor" href="#insights-de-la-comparativa">#</a></h3>
+<ol>
+<li><strong>Skalers Start ($47) es de los entry points más baratos</strong> del mercado affiliate education. Solo AffLift mensual ($20) lo supera, pero AffLift es forum, no curso estructurado.</li>
+<li><strong>Skalers Pro ($497) está 50% por debajo de Commission Hero ($997)</strong> y al mismo nivel que Trafficker Pro de Felipe Vergara. Posicionamiento claro de "competidor más barato y en español".</li>
+<li><strong>Skalers Mastery ($2,197) es el único en el rango medio</strong> entre cursos de $497 y mentorías $10K+. Llena un gap en el mercado hispano.</li>
+<li><strong>Skalers Ads License ($12,000) es competitivo con Commission Hero coaching ($10K)</strong> y Charles Ngo mentor program (~$10K+).</li>
+<li><strong>Diferenciador real de Skalers:</strong> español + LATAM + casos USA reales + sistema "ClickBank con IA sin mostrar la cara". No tienen competidor directo de habla hispana con esa especificidad.</li>
+<li><strong>Riesgo competitivo:</strong> Trafficker Pro de Felipe Vergara tiene 12+ años en el mercado hispano y SEO indexado profundo (review de Formarsemola, opiniones en 5+ blogs hispanos). Skalers tiene <1 año de tracción medible.</li>
+</ol>
+<h3 id="datos-verificables-del-mercado-affiliate-marketing-en-whop">Datos verificables del mercado affiliate marketing en Whop<a class="anchor" href="#datos-verificables-del-mercado-affiliate-marketing-en-whop">#</a></h3>
+<blockquote><p>"The affiliate_marketing category has <strong>470</strong> total products. <strong>425 are inactive or free</strong>, while <strong>45</strong> actively generate revenue ($132.47k monthly). Limited proven winners signals untapped opportunity but higher execution risk." — <code>whoptrends.com/products/skalers</code></p></blockquote>
+<blockquote><p>"Average $2.94k MRR with 15.6% reaching $5K+. Either pricing power untapped or challenging unit economics." — <code>whoptrends.com/products/skalers</code></p></blockquote>
+<blockquote><p>"Total MRR: $132.47k · Avg Revenue: $2.94k/mo · Success Rate: 33.3% · Avg Rating: 2.9/5" — <code>whoptrends.com/categories/affiliate_marketing</code></p></blockquote>
+<blockquote><p>"Fragmented market. No dominant players means distribution and speed-to-market matter more than product perfection. Majority of leaders growing indicates expanding market with rising demand—momentum favors new entrants." — <code>whoptrends.com/products/skalers</code></p></blockquote>
+<blockquote><p>"Skalers Start currently has 549 active members, a 4.8 out of 5 star rating based on 159 reviews and is priced at $47 (one-time payment). Skalers Start offers a 7% affiliate commission for promoters." — <code>whoptrends.com/products/skalers</code></p></blockquote>
+<blockquote><p>"Affiliate Pro currently has 220 active members, a 5.0 out of 5 star rating based on 159 reviews and is priced at $497 (one-time payment). Affiliate Pro offers a 7% affiliate commission for promoters." — <code>whoptrends.com/products/skalers-pro</code></p></blockquote>
+<blockquote><p>"Ads License currently has 5 active members and is priced at $12000 (one-time payment)." — <code>whoptrends.com/products/adslicense</code></p></blockquote>
+<p><strong>Skalers ranking en categoría affiliate_marketing por miembros:</strong></p>
+<ul>
+<li>#1 Skalers Start (549 miembros)</li>
+<li>#5 Affiliate Pro (220 miembros)</li>
+<li>#8 Affiliate Mastery (121 miembros)</li>
+</ul>
+<p>Tres productos de Skalers en top 10 de toda la categoría. Posición dominante en <strong>member count</strong> dentro del nicho.</p>
+<hr>
+<h2 id="4-reviews-independientes-citas-textuales">4. Reviews independientes (citas textuales)<a class="anchor" href="#4-reviews-independientes-citas-textuales">#</a></h2>
+<h3 id="review-oficial-publicada-en-whop">Review oficial publicada en Whop<a class="anchor" href="#review-oficial-publicada-en-whop">#</a></h3>
+<blockquote><p>"Estoy muy agradecido de haber encontrado a SKALERS, ahora fully aprendiendo." — Erwin Bräuning (<code>@braunsk</code>), 5 días, en <code>whop.com/skalers/skalers-pro/</code></p></blockquote>
+<blockquote><p>"GRACIAS por el material, se aprende bastante" — sara (<code>@felvercar</code>), 18 días, en <code>whop.com/skalers/skalers-pro/</code></p></blockquote>
+<blockquote><p>"excelente contenido y muy bien explicado por nuestro profesor estrella Panchito" — Robinson (<code>@buffstation</code>), 1 mes, en <code>whop.com/skalers/skalers-pro/</code></p></blockquote>
+<blockquote><p>"Gran curso, material muy valioso!" — Sebastian Cabargas (<code>@cocula</code>), 2 meses, en <code>whop.com/skalers/skalers-pro/</code></p></blockquote>
+<p>(Nota: <code>@cocula</code> es Sebastian Cabargas y también es afiliado de Skalers — escribe la review de Epicmarket.cl con código <code>?a=cocula</code>. Esto significa que esta reseña en particular tiene <strong>conflicto de interés</strong>.)</p>
+<h3 id="review-de-blog-de-afiliado-epicmarketcl-sesgada-con-afiliado">Review de blog de afiliado (Epicmarket.cl, sesgada con afiliado)<a class="anchor" href="#review-de-blog-de-afiliado-epicmarketcl-sesgada-con-afiliado">#</a></h3>
+<blockquote><p>"Por $47 aprendí más que en cursos de $500. Francisco no vende humo, da resultados reales." — Cita atribuida a comprador de Skalers Start en <code>epicmarket.cl/post/marketing-de-afiliados-chile</code></p></blockquote>
+<blockquote><p>"La información está súper actualizada. Ejemplos reales, números honestos, sin promesas falsas. Mi ROI se multiplicó por 5." — Cita atribuida a Pro Launch System (Skalers Pro) en <code>epicmarket.cl</code></p></blockquote>
+<blockquote><p>"Inversión que se pagó sola en el primer mes. Los landers incluidos valen más que todo el precio del programa." — Cita atribuida a Affiliate Mastery en <code>epicmarket.cl</code></p></blockquote>
+<blockquote><p>"Francisco personalmente revisó mis campañas. En 3 meses pasé de $2K a $25K mensuales. Mejor inversión de mi vida." — Cita atribuida a Ads License en <code>epicmarket.cl</code></p></blockquote>
+<p>(Disclaimer: este blog es 100% afiliado de Skalers, no es review independiente. Los testimoniales no están atribuidos a nombres específicos, no son verificables.)</p>
+<h3 id="citas-adicionales-del-propio-skalers">Citas adicionales del propio Skalers<a class="anchor" href="#citas-adicionales-del-propio-skalers">#</a></h3>
+<blockquote><p>"Sin inventario, sin mostrar tu cara, y sin gastar una fortuna" — slogan principal de <code>skalersinc.com</code></p></blockquote>
+<blockquote><p>"El Sistema De 3 Pasos Para Construir Un Negocio Online Que Genera Comisiones En USD" — headline de <code>skalersinc.com</code></p></blockquote>
+<blockquote><p>"Para Personas Buscando Una Nueva Fuente de Ingresos Online" — subheadline <code>skalersinc.com</code></p></blockquote>
+<blockquote><p>"Esto no solo me funcionó a mi, si no que a todos ellos también" — sobre galería de testimonials, <code>skalersinc.com</code></p></blockquote>
+<blockquote><p>"Espera! Un último paso: Vé este video completo (5 minutos) para que no se cancele tu llamada." — <code>skalersinc.com/bookedcall</code></p></blockquote>
+<blockquote><p>"Acceso inmediato. Empieza hoy mismo. Comunidad de 400+ emprendedores aprendiendo juntos. No necesitas experiencia previa. Solo ganas de aprender la habilidad más valiosa del 2025." — <code>whop.com/skalers/skalers/</code> (Skalers Start)</p></blockquote>
+<blockquote><p>"Esto es lo que uso para gestionar millones en ad spend. Ahora es tuyo." — Pancho en <code>whop.com/skalers/skalers-pro/</code> (cierre Affiliate Pro)</p></blockquote>
+<blockquote><p>"COMUNIDAD: Acceso a grupo privado con 200+ media buyers activos." — Affiliate Pro, <code>whop.com/skalers/skalers-pro/</code></p></blockquote>
+<blockquote><p>"Skalers IA — entrenado con $10M en campañas publicitarias" — bullet de Affiliate Mastery, <code>whop.com/skalersaffiliate/</code></p></blockquote>
+<blockquote><p>"Acceso a ofertas exclusivas que pagan $200+ por venta desde el día 1" — Affiliate Mastery, <code>whop.com/skalersaffiliate/</code></p></blockquote>
+<blockquote><p>"PARA QUIÉN ES: Quieres aprender una habilidad real y estás dispuesto a aprender y ejecutar el sistema paso. PARA QUIÉN NO ES: Si buscas hacerte millonario en 7 días, esto no es para ti." — Affiliate Mastery, <code>whop.com/skalersaffiliate/</code></p></blockquote>
+<blockquote><p>"Accede directamente a mi asesoría personal, feedback estratégico, mi network y el sistema que uso para escalar a 7 cifras." — Ads License, <code>whop.com/skalers/adslicense/</code></p></blockquote>
+<h3 id="sobre-pancho-podcast-haciendola-fuente-independiente">Sobre Pancho (podcast Haciendola, fuente independiente)<a class="anchor" href="#sobre-pancho-podcast-haciendola-fuente-independiente">#</a></h3>
+<blockquote><p>"Mi experiencia me ha permitido decir: 'Yo creo que el problema está por acá, prueba este anuncio, detecta esta cosa que está funcionando y explótala.' Lo importante no es el hack, es tener un sistema repetible, aprender del error y saber cómo analizar los datos." — Francisco Valenzuela, en Haciendola E56 (Sept 2025)</p></blockquote>
+<blockquote><p>"Francisco Valenzuela, más conocido como Pancho Val (@panchoval), es un joven viñamarino que se ha convertido en uno de los principales media buyers de Latinoamérica, invirtiendo más de 8 millones de dólares en campañas publicitarias antes de los 25 años. Comenzó vendiendo pesas de cemento en pandemia y hoy lidera equipos y sistemas de compra de tráfico internacional, especialmente en el mercado de afiliados (affiliate marketing), tanto en Estados Unidos como en otros mercados globales." — <code>haciendola.com</code></p></blockquote>
+<blockquote><p>"Pancho no oculta la crudeza del modelo: todo riesgo y toda recompensa se juega sobre la capacidad de invertir, iterar y nunca quitar el ojo de los números. Prueba y error, cuentas cerradas, campañas que prenden y otras que queman ahorros. Pero también días en que la matemática simple, la perseverancia y el olfato para las buenas ofertas pueden transformar 100 mil dólares de gasto en 250 mil de ingreso." — <code>haciendola.com</code></p></blockquote>
+<p>(Nota: Haciendola es una plataforma educativa ecommerce competidora pero no afiliada de Skalers. Esta es la cita más cercana a "review independiente" que pude encontrar.)</p>
+<h3 id="reddit-thread-directo-sobre-pancho-encontrado-pero-no-scrapeable">Reddit: thread directo sobre Pancho (encontrado pero no scrapeable)<a class="anchor" href="#reddit-thread-directo-sobre-pancho-encontrado-pero-no-scrapeable">#</a></h3>
+<p>URL: <code>https://www.reddit.com/r/AffiliateMarket/comments/1s88rvj/pancho_valenzuela_buena_fuente_o_vende_cursos/</code> Título visible: "Pancho valenzuela buena fuente o vende cursos?" Snippet: "Para los que conocen de marketing de afiliados y media buyers, que opinan de francisco valenzuela..."</p>
+<p>(Reddit bloquea scraping a Firecrawl. La existencia del thread con ese título sugiere que la pregunta está en el aire en la comunidad, lo cual es <strong>señal mixta</strong>: legítimo enough para que pregunten, no obvio enough para tener consenso. Recomiendo abrir el thread manualmente desde browser.)</p>
+<h3 id="sin-presencia-en-sitios-review-independientes">Sin presencia en sitios review independientes<a class="anchor" href="#sin-presencia-en-sitios-review-independientes">#</a></h3>
+<ul>
+<li><strong>eBiz Facts</strong> (<code>ebizfacts.com</code>): No tiene review de Skalers ni Pancho Valenzuela (búsqueda directa). eBiz Facts sí tiene review extenso de Commission Hero — tiene capacidad pero no han revisado Skalers.</li>
+<li><strong>Trustpilot</strong>: No hay perfil de skalersinc.com ni de Skalers en Trustpilot. Skalers tiene 0 reviews fuera del walled garden de Whop.</li>
+<li><strong>BBB (Better Business Bureau)</strong>: No aparece (Skalers Inc no es una entidad US registrada, opera desde Chile).</li>
+<li><strong>YouTube reviews honestas independientes</strong>: No encontré ninguna. Todos los videos sobre Skalers/Pancho son del propio Pancho (sus canales) o entrevistas en podcast. <strong>Cero contenido tipo "Honest Skalers Review by [non-affiliate]"</strong> — anomalía vs Commission Hero que tiene decenas.</li>
+</ul>
+<p><strong>Implicación:</strong> La reputación de Skalers vive 99% dentro del ecosistema Whop + propias redes de Pancho. No hay validación cruzada de terceros independientes. Esto es típico de productos jóvenes (1 año), pero es un dato a considerar.</p>
+<hr>
+<h2 id="5-marketing-strategy-de-skalers">5. Marketing strategy de Skalers<a class="anchor" href="#5-marketing-strategy-de-skalers">#</a></h2>
+<h3 id="channels-confirmados">Channels confirmados<a class="anchor" href="#channels-confirmados">#</a></h3>
+<ol>
+<li><strong>Instagram orgánico</strong> (<code>@panchoval</code>, 41K followers): contenido motivacional + tips Meta Ads + behind-the-scenes Skalers. Se ve esfuerzo de mostrar autoridad ("$8M en ads", "media buyer profesional") + lifestyle.</li>
+<li><strong>TikTok orgánico</strong> (2 cuentas: <code>@panchoval8</code> y <code>@franciscovalenzuelab</code>): hooks corto-formato sobre marketing y advertencias scams (probablemente para reposicionar a Skalers como "el legítimo").</li>
+<li><strong>YouTube long-form</strong> (canal en español <code>@panchovalb</code>): videos educativos. Bajo engagement (1-2K views por video, 24 videos en canal English). Más de "thought leadership" que de adquisición masiva.</li>
+<li><strong>Podcasts como guest</strong> (Haciendola E56): authority building. Probablemente más por audience trust que por funnel directo.</li>
+<li><strong>Free Whop hub</strong> (<code>whop.com/skalers</code>): 4,008 miembros + 2,702 en Gifts = ~6,700 leads warm permanentes con email/Whop notification access.</li>
+<li><strong>Newsletter</strong> (<code>Francisco Newsletter</code> dentro de Whop): drip nurture.</li>
+<li><strong>Skalers Inc website</strong> (<code>skalersinc.com</code>): VSL funnel para Ads License $12K específicamente. Es un "bridge funnel" tipo high-ticket coaching.</li>
+<li><strong>Programa de afiliados</strong>: 7% en cursos / 30% en Ads License — atrae bloggers y promotores LATAM como Epicmarket.cl.</li>
+</ol>
+<h3 id="meta-ads-no-verificado">Meta Ads (no verificado)<a class="anchor" href="#meta-ads-no-verificado">#</a></h3>
+<p>No tengo acceso autenticado a Meta Ads Library para confirmar campañas activas de Skalers Inc o Pancho. Es <strong>altísimamente probable</strong> que corra Meta Ads dado:</p>
+<ul>
+<li>Es media buyer profesional → uso obvio</li>
+<li>Free hub crece a 4K → orgánico solo no explica esa velocidad</li>
+<li>Ad spend reportado $8M acumulado de Pancho — parte va a sus propios productos</li>
+</ul>
+<p><strong>Acción recomendada:</strong> abrir manualmente <code>https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;q=Skalers&amp;search_type=keyword_unordered</code> en browser logged-in para ver ads activos de Skalers Inc / Pancho Valenzuela.</p>
+<h3 id="mensaje-central">Mensaje central<a class="anchor" href="#mensaje-central">#</a></h3>
+<p>"Sin inventario, sin mostrar tu cara, y sin gastar una fortuna" — <code>skalersinc.com</code> (slogan principal del VSL)</p>
+<p>"Para Personas Buscando Una Nueva Fuente de Ingresos Online" — <code>skalersinc.com</code></p>
+<p>Promesa pivot: ganar comisiones en USD = appeal directo a hispanohablantes LATAM en países con monedas devaluadas (Argentina, Venezuela, Colombia, Chile en menor medida).</p>
+<hr>
+<h2 id="6-lo-que-no-te-dicen-antes-de-comprar">6. Lo que NO te dicen antes de comprar<a class="anchor" href="#6-lo-que-no-te-dicen-antes-de-comprar">#</a></h2>
+<h3 id="costos-extras-implícitos-no-listados-en-página-de-venta">Costos extras implícitos (no listados en página de venta)<a class="anchor" href="#costos-extras-implícitos-no-listados-en-página-de-venta">#</a></h3>
+<ol>
+<li><strong>Ad spend para correr campañas:</strong> los cursos enseñan Meta Ads pero no incluyen el budget para anunciar. Estimación realista para validar primer setup: <strong>$300-1,000 USD</strong> para tener data significativa.</li>
+<li><strong>Cuenta Meta Ads / Business Manager:</strong> gratis pero requiere tarjeta de crédito internacional con USD limit suficiente.</li>
+<li><strong>Tools del stack mencionado por Pancho</strong> (no incluidos en Skalers):</li>
+<li>SpyHero (~$50-100/mes), Atria, Creatify (~$30-100/mes), HeyGen ($30-90/mes), Google VEO 3 (subscription Google AI Pro), ClickFunnels (~$97-297/mes), Landerlab, Asana, Upwork (variable)</li>
+<li><strong>Costo realista de stack mensual:</strong> $200-500/mes adicional</li>
+<li><strong>Ofertas de affiliate networks:</strong> algunas requieren application + interview + minimum traffic. ClickBank es libre pero las ofertas premium ($200+/sale Nutra) suelen requerir vetting.</li>
+<li><strong>Tarjeta de crédito con limit USD alto:</strong> las cuentas de ad de Meta queman rápido. Quemar una cuenta de $500/día significa necesitar un límite de tarjeta de <strong>$10K-15K USD mínimo</strong> para escalar.</li>
+<li><strong>Tracking infrastructure:</strong> Voluum (~$199-499/mes) o equivalente para escalar profesionalmente. No mencionado en la copy.</li>
+</ol>
+<h3 id="compromiso-de-tiempo-real">Compromiso de tiempo real<a class="anchor" href="#compromiso-de-tiempo-real">#</a></h3>
+<ul>
+<li>Skalers Start: la promesa es "24 horas para tu primera campaña". La realidad es: consumir contenido (5-8 horas reales) + setup BM (2-4 horas si es la primera vez) + crear creatives (5-10 horas con curva de aprendizaje IA) + lanzar + esperar data 3-7 días.</li>
+<li><strong>Realistic time to first profitable campaign:</strong> 2-4 semanas, no 24 horas.</li>
+<li>Skalers Pro: requiere aplicar el sistema a múltiples campañas, iterar 4-8 semanas mínimo para escalar.</li>
+</ul>
+<h3 id="tasa-de-éxito-real-no-comunicada">Tasa de éxito real (no comunicada)<a class="anchor" href="#tasa-de-éxito-real-no-comunicada">#</a></h3>
+<p>Industry benchmark de affiliate marketing: <strong>80-90% de principiantes pierden dinero en sus primeros 6 meses</strong> y abandonan. Sin data específica de Skalers (no la publican), la tasa de éxito real probable es:</p>
+<ul>
+<li><strong>15-25% genera al menos break-even del curso</strong> en primeros 3 meses</li>
+<li><strong>5-10% logra retorno positivo significativo</strong> (>2x el curso) en 6 meses</li>
+<li><strong><2% escala a $10K+/mes</strong> que es la promesa headline</li>
+</ul>
+<h3 id="reseñas-filtradas">Reseñas filtradas<a class="anchor" href="#reseñas-filtradas">#</a></h3>
+<p>El sistema de reviews de Whop hereda al hub. Las 159 reseñas se reparten entre los 5 productos pero todas se muestran en cada producto. <strong>94% son 5★</strong> lo cual es sospechosamente alto para un curso digital — algo perfectamente normal en cursos info pero técnicamente improbable de manera natural. Posibles explicaciones: (a) Pancho pide reviews activamente a clientes contentos, (b) Whop tiene UX que prompts review post-purchase, (c) los clientes insatisfechos refundean en lugar de dejar 1★.</p>
+<h3 id="refund-process-es-trabajo">Refund process es trabajo<a class="anchor" href="#refund-process-es-trabajo">#</a></h3>
+<ul>
+<li>No hay botón "click to refund". Es: contactar <code>support@whop.com</code> o usar Resolution Center → Whop revisa caso → puede consultar al seller → decide. Tiempo estimado: 5-15 días + posibilidad de denegación.</li>
+<li>Si el seller (Skalers) puede argumentar que "ya consumiste material significativo", el refund puede ser denegado.</li>
+</ul>
+<hr>
+<h2 id="7-roi-realista-para-nuevo-miembro">7. ROI realista para nuevo miembro<a class="anchor" href="#7-roi-realista-para-nuevo-miembro">#</a></h2>
+<h3 id="para-alguien-que-paga-skalers-start-47">Para alguien que paga Skalers Start ($47)<a class="anchor" href="#para-alguien-que-paga-skalers-start-47">#</a></h3>
+<p><strong>Best case (top 10%):</strong></p>
+<ul>
+<li>Consume contenido en 1-2 semanas</li>
+<li>Crea primera campaña con $300-500 ad spend</li>
+<li>Genera $500-2K en commissions affiliate los primeros 30 días</li>
+<li><strong>ROI: 10x-40x el curso</strong>, pero -50% a -100% el ad spend si la primera campaña fracasa</li>
+<li>Pasa a Pro o Mastery cuando valida el modelo</li>
+</ul>
+<p><strong>Median case (50%):</strong></p>
+<ul>
+<li>Consume contenido en 3-4 semanas</li>
+<li>Lanza 2-3 campañas en 60-90 días con $500-1,500 total ad spend</li>
+<li>Genera $0-300 en commissions</li>
+<li><strong>ROI net: -$200 a -$1,000</strong> (curso + ad spend ≫ ingresos)</li>
+<li>Decide si continuar o abandonar</li>
+</ul>
+<p><strong>Worst case (40%):</strong></p>
+<ul>
+<li>Compra el curso, consume 30-60% del contenido</li>
+<li>Nunca lanza una campaña real o lanza 1 que pierde dinero</li>
+<li>Abandona en 30-60 días</li>
+<li><strong>ROI: -100%</strong> (pierde $47)</li>
+<li>Tasa de refund estimada: 5-10% de este grupo (~2-4% del total)</li>
+</ul>
+<p><strong>Time to break-even neto del curso ($47):</strong> Realistic median = nunca breakea solo con Start. Para que Start sea ROI positivo necesita conducir a Pro o Mastery donde se obtienen sistemas más completos. Start es <strong>lead magnet pagado</strong> más que un producto standalone.</p>
+<h3 id="para-alguien-que-paga-skalers-pro-497">Para alguien que paga Skalers Pro ($497)<a class="anchor" href="#para-alguien-que-paga-skalers-pro-497">#</a></h3>
+<p><strong>Asume:</strong> ya validó con Start o ya tenía experiencia básica.</p>
+<p><strong>Probabilidad de break-even ($497 en commissions netas):</strong></p>
+<ul>
+<li>Top 25%: 1-2 meses (si lanza con $1K-2K ad spend y obtiene 1.5-2x ROAS)</li>
+<li>Median 50%: 3-6 meses</li>
+<li>Bottom 25%: nunca / abandona</li>
+</ul>
+<p><strong>Probabilidad de activar Ads License ($12K) después:</strong> estimo <strong>3-5%</strong> de los Pro members. Calculado bottom-up: 5 Ads License members / 121 Mastery members ≈ 4%. Para que un Pro skipee Mastery y vaya directo a Ads License necesita resultados visibles + capital + ego — pequeño grupo.</p>
+<p><strong>Tasa de abandono Pro:</strong> sin data oficial. Industry benchmark 30-40% nunca completa el contenido.</p>
+<hr>
+<h2 id="8-recomendación-específica-al-equipo-openclaw">8. Recomendación específica al equipo OpenClaw<a class="anchor" href="#8-recomendación-específica-al-equipo-openclaw">#</a></h2>
+<h3 id="contexto-del-equipo">Contexto del equipo<a class="anchor" href="#contexto-del-equipo">#</a></h3>
+<p>OpenClaw es agencia de performance marketing operando con:</p>
+<ul>
+<li>Cris (estrategia, paid media, tech, clientes Australia)</li>
+<li>Ro (contenido, orgánico, diseño, clientes Chile)</li>
+<li>Ya cuentan con stack profesional Meta Ads, Google Ads, GSC, GA4</li>
+<li>Ya tienen 7 clientes activos con campañas reales</li>
+</ul>
+<p>El interés en Skalers no es para "aprender Meta Ads" (ya saben), sino para evaluar el modelo affiliate marketing CPA en USA como <strong>negocio paralelo</strong> o <strong>vertical adicional</strong>.</p>
+<h3 id="pregunta-real-que-se-está-respondiendo">Pregunta real que se está respondiendo<a class="anchor" href="#pregunta-real-que-se-está-respondiendo">#</a></h3>
+<p>"¿Vale la pena pagar el curso para acceder al modelo de afiliados USA + landers + ofertas exclusivas + sistema de IA, sin reinventar todo desde cero?"</p>
+<h3 id="recomendación-tier-by-tier">Recomendación tier-by-tier<a class="anchor" href="#recomendación-tier-by-tier">#</a></h3>
+<p><strong>Skalers Start ($47): COMPRAR AHORA — sí</strong></p>
+<p>Razones:</p>
+<ol>
+<li><strong>Costo es trivial</strong> vs el costo de oportunidad de horas del equipo investigando solo. $47 ÷ ($150/hr fully-loaded) = 18 minutos de tiempo. Si Start ahorra 5 horas de research independiente, ya es ROI positivo.</li>
+<li>Da acceso al Whop hub, comunidad, otros materiales free, networking con 564 otros miembros, exposure a casos reales hispanos.</li>
+<li>Permite evaluar la <strong>calidad pedagógica de Pancho</strong> antes de gastar 10x más en Pro.</li>
+<li>Bonus incluyen Caso de Estudio "$7,960 en 14 días" — útil como referencia de números reales.</li>
+<li>Risk reward asimétrico: peor caso pierdes $47, mejor caso obtienes claridad de modelo + decides Pro/Mastery con confianza.</li>
+</ol>
+<p><strong>Quién compra:</strong> Cris (porque va a evaluar el modelo end-to-end y decidir paid media strategy).</p>
+<p><strong>Cuándo:</strong> esta semana. No esperar.</p>
+<p><strong>Qué expectativa:</strong> consumir el curso completo en 1 sesión de 4-6 horas. Salir con respuestas concretas a:</p>
+<ul>
+<li>¿El modelo de IA + sin-cara + landers genéricos realmente convierte en USA?</li>
+<li>¿Qué "ofertas validadas" mencionan? ¿Son ClickBank o redes premium?</li>
+<li>¿Cuánto realmente se necesita para validar 1 oferta?</li>
+<li>¿La "Skalers IA" entrenada con $10M de campañas es accesible solo en Mastery o también en Pro/Start?</li>
+</ul>
+<p><strong>Skalers Pro ($497): NO COMPRAR todavía — esperar</strong></p>
+<p>Razones para esperar:</p>
+<ol>
+<li><strong>No hay refund garantizado</strong>, solo proceso Whop (riesgo de quedarse con $497 sin valor).</li>
+<li><strong>Conocimiento Meta Ads en Pro es 80% lo que ya sabe el equipo</strong> (Andromeda, Advantage+, EMQ, escalado, scaling — cubierto por skill <code>meta-ads-rules</code> interno).</li>
+<li>El <strong>diferenciador real son los casos Vital Habits y Airboost</strong> + comunidad de 220-325 media buyers. Ese acceso vale, pero solo si después de Start el equipo confirma que quiere doblar apuestas en este modelo.</li>
+<li><strong>Mejor ruta:</strong> Start → ejecutar 1 campaña real con $500-1,000 ad spend → si funciona → comprar Pro.</li>
+</ol>
+<p><strong>Cuándo comprar Pro:</strong> después de completar Start + ejecutar mínimo 1 campaña validation con $500+ ad spend + decidir explícitamente "vamos all-in en este modelo".</p>
+<p><strong>Skalers Mastery ($2,197) y Ads License ($12,000): DESCARTADO para esta etapa</strong></p>
+<ul>
+<li>Mastery tiene sentido SOLO si se confirma que se va a operar en ClickBank/affiliate USA seriamente. No es decisión de hoy.</li>
+<li>Ads License es 1:1 mentoring — solo justifica si el equipo ya está gastando $5K+/mes en ad spend afiliado y necesita escalar a $30K+/día. No es la realidad actual.</li>
+</ul>
+<h3 id="plan-de-validación-post-start-sugerido">Plan de validación post-Start (sugerido)<a class="anchor" href="#plan-de-validación-post-start-sugerido">#</a></h3>
+<p><strong>Semana 1:</strong></p>
+<ul>
+<li>Día 1-2: comprar Start, consumir contenido completo (5-8 hrs).</li>
+<li>Día 3-4: documentar en <code>affiliate-business/00-viabilidad/pancho-skalers-deep/03-skalers-start-aprendizajes.md</code> qué aplica al equipo y qué no.</li>
+<li>Día 5-7: identificar 1 oferta inicial validable (ClickBank top gravity en español/inglés según skill del equipo).</li>
+</ul>
+<p><strong>Semana 2-3:</strong></p>
+<ul>
+<li>Setup BM separado con tarjeta dedicada.</li>
+<li>Crear primer creative con frameworks Skalers.</li>
+<li>Lanzar campaña con budget $500.</li>
+<li>Documentar todo en <code>affiliate-business/05-data/</code>.</li>
+</ul>
+<p><strong>Semana 4:</strong></p>
+<ul>
+<li>Análisis: ¿ROAS >1? ¿learnings claros? ¿modelo replicable?</li>
+<li>Decisión: comprar Pro / pivot / abandon vertical.</li>
+</ul>
+<h3 id="riesgos-a-vigilar">Riesgos a vigilar<a class="anchor" href="#riesgos-a-vigilar">#</a></h3>
+<ol>
+<li><strong>Conflicto de interés con clientes existentes:</strong> OpenClaw sirve a marcas de salud (Bestmed, Argos, Onehealthmed, Kyest). El affiliate marketing en Nutra/Health (recomendado por Pancho) puede generar conflictos éticos o competitivos. <strong>Importante:</strong> no usar know-how de Skalers para promocionar productos que compitan con clientes activos.</li>
+<li><strong>Time allocation:</strong> dedicar tiempo a affiliate side-business resta tiempo a clientes. Asegurar que está en hours dedicated, no en hours de cliente.</li>
+<li><strong>Riesgo reputacional:</strong> si OpenClaw se asocia públicamente con affiliate marketing CPA / nutra / debt relief, puede impactar percepción premium en Australia. <strong>Mantener affiliate-business completamente separado de marca OpenClaw</strong>.</li>
+<li><strong>Riesgo de cuenta Meta Ads:</strong> las cuentas de affiliate USA queman frecuentemente. <strong>No usar el mismo BM o tarjeta</strong> que cuentas de clientes — está confirmado en <code>feedback_client_isolation_infra.md</code> ya como regla.</li>
+</ol>
+<hr>
+<h2 id="anexo-a-fuentes-y-archivos-guardados">Anexo A: Fuentes y archivos guardados<a class="anchor" href="#anexo-a-fuentes-y-archivos-guardados">#</a></h2>
+<p>Toda la data scrapeada está en <code>/Users/cristobaltejero/Projects/affiliate-business/00-viabilidad/pancho-skalers-deep/.firecrawl/</code>:</p>
+<ul>
+<li><code>skalersinc-home.md</code> — VSL landing principal</li>
+<li><code>skalersinc-apply.md</code> — formulario apply</li>
+<li><code>skalersinc-bookedcall.md</code> — bridge page pre-call</li>
+<li><code>whop-skalers-free.md</code> — hub gratis con 14 staff y 4008 miembros</li>
+<li><code>whop-skalers-start-real.md</code> — Start ($47, 564 miembros, 5 módulos)</li>
+<li><code>whop-skalers-pro.md</code> — Affiliate Pro ($497, 325 miembros, 7 módulos, 4 reseñas literales)</li>
+<li><code>whop-skalers-mastery.md</code> — Affiliate Mastery ($2,197, 7 módulos)</li>
+<li><code>whop-skalers-adslicense.md</code> — Ads License ($12K, 5 miembros)</li>
+<li><code>whop-skalers-gifts.md</code> — recursos free (2,702 miembros)</li>
+<li><code>whoptrends-start.md</code>, <code>whoptrends-pro.md</code>, <code>whoptrends-mastery.md</code>, <code>whoptrends-adslicense.md</code>, <code>whoptrends-skalers-hub.md</code>, <code>whoptrends-affiliate-cat.md</code> — data semi-pública de Whop Trends</li>
+<li><code>whop-buyer-terms.md</code> — política refund Whop (sección 9)</li>
+<li><code>epicmarket-review.md</code> — review afiliada (sesgada, código <code>?a=cocula</code>)</li>
+<li><code>competitor-commission-hero-ebizfacts.md</code> — comparativa competidor principal en inglés</li>
+<li><code>competitor-trafficker-pro.md</code> — comparativa competidor hispano (Felipe Vergara)</li>
+<li><code>competitor-afflift.md</code>, <code>competitor-afflift-propeller.md</code> — pricing AffLift y benchmark STM</li>
+<li><code>podcast-haciendola.md</code> — entrevista 2-horas con Pancho (Sept 2025)</li>
+<li><code>yt-panchovalb.md</code> — canal YouTube principal Pancho</li>
+</ul>
+<h2 id="anexo-b-urls-verificadas">Anexo B: URLs verificadas<a class="anchor" href="#anexo-b-urls-verificadas">#</a></h2>
+<h3 id="skalers-oficial">Skalers (oficial)<a class="anchor" href="#skalers-oficial">#</a></h3>
+<ul>
+<li><code>https://skalersinc.com</code> — VSL Ads License funnel</li>
+<li><code>https://skalersinc.com/apply</code> — formulario aplicación</li>
+<li><code>https://skalersinc.com/bookedcall</code> — bridge pre-call</li>
+<li><code>https://whop.com/skalers/</code> — hub gratis</li>
+<li><code>https://whop.com/skalers/skalers/</code> — Skalers Start ($47) — URL real</li>
+<li><code>https://whop.com/skalers/skalers-pro/</code> — Affiliate Pro ($497)</li>
+<li><code>https://whop.com/skalersaffiliate/</code> — Affiliate Mastery ($2,197)</li>
+<li><code>https://whop.com/skalers/adslicense/</code> — Ads License ($12,000)</li>
+<li><code>https://whop.com/skalers/francisco-valenzuela-gifts/</code> — recursos free</li>
+<li><code>https://whop.com/skalers/affiliates/</code> — programa de afiliados de Skalers</li>
+</ul>
+<h3 id="pancho-valenzuela-perfiles">Pancho Valenzuela (perfiles)<a class="anchor" href="#pancho-valenzuela-perfiles">#</a></h3>
+<ul>
+<li><code>https://www.instagram.com/panchoval/</code> — 41K followers</li>
+<li><code>https://www.youtube.com/@panchovalb</code> — canal en español</li>
+<li><code>https://www.youtube.com/@panchoval</code> — canal en inglés (1.61K subs)</li>
+<li><code>https://x.com/panchoval123</code> — X</li>
+<li><code>https://www.tiktok.com/@franciscovalenzuelab</code> — TikTok principal</li>
+<li><code>https://www.skool.com/@francisco-valenzuela-8297</code> — Skool profile (sin contenido público visible)</li>
+</ul>
+<h3 id="fuentes-externas">Fuentes externas<a class="anchor" href="#fuentes-externas">#</a></h3>
+<ul>
+<li><code>https://haciendola.com/blogs/haciendola/ha-invertido-8-millones-de-dolares-en-ads-a-sus-24-anos-francisco-valenzuela-panchoval-e56-1</code> — podcast bio Pancho</li>
+<li><code>https://www.youtube.com/watch?v=SCHG41WZhhE</code> — video del podcast</li>
+<li><code>https://www.reddit.com/r/AffiliateMarket/comments/1s88rvj/pancho_valenzuela_buena_fuente_o_vende_cursos/</code> — thread Reddit (no scrapeable, abrir manual)</li>
+<li><code>https://whoptrends.com/products/skalers</code> — Whop Trends Start</li>
+<li><code>https://whoptrends.com/products/skalers-pro</code> — Whop Trends Affiliate Pro</li>
+<li><code>https://whoptrends.com/products/skalersaffiliate</code> — Whop Trends Mastery</li>
+<li><code>https://whoptrends.com/products/adslicense</code> — Whop Trends Ads License</li>
+<li><code>https://whoptrends.com/categories/affiliate_marketing</code> — categoría completa</li>
+</ul>
+<h3 id="competidores">Competidores<a class="anchor" href="#competidores">#</a></h3>
+<ul>
+<li><code>https://ebizfacts.com/commission-hero-review/</code> — review profundo Commission Hero</li>
+<li><code>https://formarsemola.com/felipe-vergara-curso-opiniones/</code> — review Trafficker Pro Felipe Vergara</li>
+<li><code>https://kekeligafatsi.com/afflift-pricing/</code> — pricing AffLift</li>
+<li><code>https://propellerads.com/blog/adv-afflift-review/</code> — AffLift vs STM benchmark</li>
+</ul>
+<h3 id="whop-oficial">Whop oficial<a class="anchor" href="#whop-oficial">#</a></h3>
+<ul>
+<li><code>https://whop.com/buyer-terms/</code> — términos compra y refund (sección 9)</li>
+<li><code>https://docs.whop.com/memberships-and-access/cancellations-and-refunds/request-a-refund</code> — proceso refund</li>
+</ul>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 02-skalers-producto-completo.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

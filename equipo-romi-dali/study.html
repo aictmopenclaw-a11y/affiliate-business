@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate USA · Ro + Dali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: rgba(24,24,21,0.4);
+    --bg-elev: #1c1c1a;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --info: #5da3c9;
+}
+
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+        radial-gradient(circle at 10% 0%, rgba(217, 127, 61, 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 90% 30%, rgba(232, 182, 71, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, rgba(184, 86, 158, 0.04) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+}
+
+.wrap { position: relative; z-index: 2; }
+
+/* PROGRESS BAR */
+.progress {
+    position: fixed; top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100; width: 0%;
+    transition: width 0.1s;
+}
+
+/* NAV PILL FLOTANTE */
+.nav-pill {
+    position: fixed;
+    top: 1.5rem; right: 1.5rem;
+    background: rgba(14,14,12,0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 0.5rem 1.25rem;
+    z-index: 50;
+    display: flex;
+    gap: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.nav-pill a {
+    color: var(--paper-mute);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.nav-pill a:hover { color: var(--accent); }
+@media (max-width: 768px) { .nav-pill { display: none; } }
+
+/* HERO */
+.hero {
+    min-height: 92vh;
+    padding: 6rem 5vw 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+.hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    color: var(--paper);
+}
+.hero h1 em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--accent), var(--romi));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero-sub {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--paper-dim);
+    max-width: 700px;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+}
+.hero-mantra {
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.5rem;
+    background: rgba(232,182,71,0.05);
+    border-radius: 0 8px 8px 0;
+    max-width: 600px;
+}
+.hero-mantra-en {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--paper);
+    margin-bottom: 0.3rem;
+}
+.hero-mantra-es {
+    font-size: 0.95rem;
+    color: var(--paper-mute);
+}
+.hero-bottom {
+    margin-top: 4rem;
+    display: flex;
+    gap: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    flex-wrap: wrap;
+}
+.hero-bottom strong { color: var(--paper); }
+
+/* SECTIONS */
+section {
+    padding: 6rem 5vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+}
+section:last-of-type { border-bottom: none; }
+
+.section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+.section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    line-height: 1.05;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    color: var(--paper);
+    max-width: 800px;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+.section-intro {
+    font-size: 1.15rem;
+    color: var(--paper-dim);
+    max-width: 700px;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+/* TYPOGRAPHY */
+h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--paper);
+    margin: 2.5rem 0 1rem;
+    line-height: 1.3;
+}
+h4 {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 2rem 0 1rem;
+}
+p { margin: 1rem 0; color: var(--paper-dim); }
+p.lead { font-size: 1.15rem; color: var(--paper); }
+strong { color: var(--paper); font-weight: 600; }
+em { color: var(--paper-dim); font-style: italic; }
+ul, ol { margin: 1rem 0 1rem 1.5rem; color: var(--paper-dim); }
+li { margin: 0.5rem 0; }
+ul li::marker { color: var(--accent); }
+
+/* CARDS GRID */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+}
+.card:hover {
+    border-color: var(--line-soft);
+    transform: translateY(-2px);
+}
+.card-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--paper-mute);
+    margin-bottom: 0.75rem;
+}
+.card h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--paper);
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    text-transform: none;
+    letter-spacing: 0;
+}
+.card p {
+    font-size: 0.92rem;
+    margin: 0;
+    color: var(--paper-dim);
+    line-height: 1.55;
+}
+
+/* COMPARISON SPLIT */
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+@media (max-width: 768px) { .split { grid-template-columns: 1fr; } }
+.split-side {
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+}
+.split-side.bad {
+    background: rgba(200,66,31,0.05);
+    border-left: 3px solid var(--danger);
+}
+.split-side.good {
+    background: rgba(107,163,104,0.05);
+    border-left: 3px solid var(--cris);
+}
+.split-side-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+.split-side.bad .split-side-label { color: var(--danger); }
+.split-side.good .split-side-label { color: var(--cris); }
+
+/* QUOTE */
+.quote {
+    margin: 3rem 0;
+    padding: 2rem;
+    border-left: 4px solid var(--accent);
+    background: rgba(232,182,71,0.04);
+    border-radius: 0 12px 12px 0;
+}
+.quote-text {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: var(--paper);
+}
+.quote-text-en {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--paper);
+    margin-bottom: 0.5rem;
+}
+.quote-text-es {
+    font-size: 0.95rem;
+    color: var(--paper-mute);
+    font-style: normal;
+}
+.quote-attr {
+    margin-top: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+}
+
+/* CALLOUT */
+.callout {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(93,163,201,0.08);
+    border-left: 3px solid var(--info);
+    border-radius: 0 8px 8px 0;
+}
+.callout-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--info);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.callout.warn {
+    background: rgba(232,182,71,0.08);
+    border-left-color: var(--accent);
+}
+.callout.warn .callout-label { color: var(--accent); }
+
+/* HOOK EXAMPLE */
+.hook-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+.hook-en {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--paper);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+}
+.hook-why {
+    font-size: 0.9rem;
+    color: var(--paper-mute);
+}
+.hook-why strong { color: var(--paper-dim); }
+
+/* PERSON BLOCK */
+.person-block {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--line);
+}
+@media (max-width: 600px) { .person-block { grid-template-columns: 1fr; } }
+.person-avatar {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.person-avatar.romi { background: rgba(217,127,61,0.2); color: var(--romi); border: 2px solid var(--romi); }
+.person-avatar.dali { background: rgba(184,86,158,0.2); color: var(--dali); border: 2px solid var(--dali); }
+.person-avatar.cris { background: rgba(107,163,104,0.2); color: var(--cris); border: 2px solid var(--cris); }
+.person-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    color: var(--paper);
+    margin-bottom: 0.25rem;
+}
+.person-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--paper-mute);
+    margin-bottom: 0.75rem;
+}
+.person-content { font-size: 0.95rem; color: var(--paper-dim); }
+
+/* TABLE */
+.table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+}
+th {
+    background: var(--bg-elev);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232,182,71,0.03); color: var(--paper); }
+
+/* PHASE TIMELINE */
+.timeline {
+    margin: 3rem 0;
+    position: relative;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--line));
+}
+.phase {
+    position: relative;
+    padding-left: 80px;
+    margin-bottom: 2.5rem;
+}
+.phase::before {
+    content: attr(data-num);
+    position: absolute;
+    left: 0; top: 0;
+    width: 60px; height: 60px;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+    z-index: 2;
+}
+.phase-week {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--paper-mute);
+    margin-bottom: 0.4rem;
+}
+.phase h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    color: var(--paper);
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 0.75rem;
+}
+.phase p { font-size: 0.95rem; margin: 0.4rem 0; }
+
+/* CTA FINAL */
+.cta {
+    padding: 8rem 5vw;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.cta h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: var(--paper);
+}
+.cta h2 em { font-style: italic; color: var(--accent); }
+.cta-sub {
+    font-size: 1.2rem;
+    color: var(--paper-dim);
+    margin-bottom: 3rem;
+    line-height: 1.5;
+}
+.cta-signature {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--cris);
+    margin-top: 3rem;
+}
+
+/* ANEXO */
+.anexo-card {
+    display: block;
+    text-decoration: none;
+    padding: 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    transition: all 0.15s;
+    color: inherit;
+}
+.anexo-card:hover {
+    border-color: var(--accent);
+    background: rgba(232,182,71,0.04);
+    transform: translateX(4px);
+}
+.anexo-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--paper);
+    margin-bottom: 0.25rem;
+}
+.anexo-desc {
+    font-size: 0.85rem;
+    color: var(--paper-mute);
+}
+
+/* SCROLL ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<nav class="nav-pill">
+    <a href="#mantra">Mantra</a>
+    <a href="#plan">Plan</a>
+    <a href="#mercado">Mercado</a>
+    <a href="#metricas">Métricas</a>
+    <a href="#hooks">Hooks</a>
+    <a href="#roles">Roles</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#anexo">+</a>
+</nav>
+
+<div class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-tag">Affiliate USA · Documento de estudio · Ro + Dali</div>
+    <h1>Vamos al mercado <em>gringo</em>.</h1>
+    <p class="hero-sub">Esto no es un curso · es nuestro punto de partida común. Cuando los tres lo leamos, vamos a estar hablando el mismo idioma para arrancar el proyecto.</p>
+    <div class="hero-mantra" id="mantra">
+        <div class="hero-mantra-en">"You're one ad away from changing your life"</div>
+        <div class="hero-mantra-es">Un anuncio que pegue puede cambiar todo. Por eso testeamos volumen · cada kill enseña · el próximo puede ser el correcto.</div>
+    </div>
+    <div class="hero-bottom">
+        <span>Mercado <strong>USA inglés</strong></span>
+        <span>Plataforma <strong>ClickBank</strong></span>
+        <span>Canal <strong>Meta Ads</strong></span>
+        <span>Equipo <strong>Cris · Ro · Dali</strong></span>
+    </div>
+</section>
+
+<!-- PLAN EN 1 MINUTO -->
+<section id="plan">
+    <div class="section-tag">01 · El plan en 1 minuto</div>
+    <h2 class="section-title">Qué <em>vamos a hacer</em>.</h2>
+    <p class="section-intro">El modelo es simple en concepto. Difícil en ejecución. Por eso necesitamos los tres alineados.</p>
+
+    <p class="lead">Compramos tráfico en Meta Ads → mandamos a una landing nuestra → la landing pre-vende → el usuario va al video del vendor de ClickBank → si compra, ClickBank nos paga comisión.</p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-tag">Capital</div>
+            <h4>$2-3K bootstrap o $5K real</h4>
+            <p>El research dice $5K mínimo para tener chance estadística real en USA inglés. $2-3K es modo "aprendizaje caro".</p>
+        </div>
+        <div class="card">
+            <div class="card-tag">Timeline</div>
+            <h4>90 días con stop-loss claro</h4>
+            <p>Día 30, día 60, día 90 son checkpoints. Cada uno con criterios duros. Si no cumple → STOP sin debate.</p>
+        </div>
+        <div class="card">
+            <div class="card-tag">Probabilidad</div>
+            <h4>25-35% break-even año 1</h4>
+            <p>Honestidad: 41% afiliados ganan menos de $1K/mes · 23% ganan $0. No es lotería pero tampoco garantía.</p>
+        </div>
+        <div class="card">
+            <div class="card-tag">Foco</div>
+            <h4>Nutra · sub-niches emergentes</h4>
+            <p>Dental, microbiome, audio-VSL. Evitamos weight loss general (saturado).</p>
+        </div>
+    </div>
+
+    <div class="callout warn">
+        <div class="callout-label">⚠ Realidad</div>
+        <p style="margin:0;color:var(--paper)">Esto NO es passive income. Es un negocio de operación intensa que puede generar buenos retornos si lo hacemos disciplinados. Si esperamos magia, perdemos el dinero. Si lo tratamos como negocio serio, tenemos chance real.</p>
+    </div>
+</section>
+
+<!-- POR QUÉ MERCADO USA -->
+<section id="mercado">
+    <div class="section-tag">02 · El mercado USA</div>
+    <h2 class="section-title">Cómo piensa, habla y compra un <em>americano</em>.</h2>
+    <p class="section-intro">Esta es la sección más distinta a lo que estamos acostumbrados. Internalizar esto antes de escribir cualquier copy es lo que separa anuncios que funcionan de anuncios que arden.</p>
+
+    <h3>La diferencia cultural más fuerte</h3>
+    <p>El gringo descarta un anuncio en menos de 1 segundo si "se siente raro". Y se siente raro cuando suena traducido, falta especificidad, o usa el tono emocional latino.</p>
+
+    <div class="split">
+        <div class="split-side bad">
+            <div class="split-side-label">Hook LATAM (no funciona USA)</div>
+            <p style="color:var(--paper);font-family:'Fraunces',serif;font-style:italic;margin-bottom:0.5rem">"Mira lo que descubrió mi tía después de los 60..."</p>
+            <p style="font-size:0.85rem;margin:0">Story de tercera persona · emocional · sin números · gringo escanea y descarta.</p>
+        </div>
+        <div class="split-side good">
+            <div class="split-side-label">Hook USA equivalente</div>
+            <p style="color:var(--paper);font-family:'Fraunces',serif;font-style:italic;margin-bottom:0.5rem">"I tried this for 30 days and here's what happened"</p>
+            <p style="font-size:0.85rem;margin:0">First-person · time-bound · creible · scroll-stopping.</p>
+        </div>
+    </div>
+
+    <h3>Las 5 reglas culturales</h3>
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-tag">Regla 01</div>
+            <h4>Specificity wins</h4>
+            <p>"23,847 customers" gana a "thousands of people". "$7 supplement" gana a "affordable supplement". Especificidad = credibilidad.</p>
+        </div>
+        <div class="card">
+            <div class="card-tag">Regla 02</div>
+            <h4>First-person beats third-person</h4>
+            <p>"I tried..." gana a "una persona probó...". Cultura confessional · gringos confían en experiencia directa.</p>
+        </div>
+        <div class="card">
+            <div class="card-tag">Regla 03</div>
+            <h4>Anti-establishment vende</h4>
+            <p>"What Big Pharma doesn't want you to know" funciona porque hay desconfianza real en industrias grandes. Compliance flag pero efectivo.</p>
+        </div>
+        <div class="card">
+            <div class="card-tag">Regla 04</div>
+            <h4>Casual > formal</h4>
+            <p>"Honestly, this changed my mornings" gana a "Esta solución transformó mis mañanas". USA es informal hasta en B2B.</p>
+        </div>
+        <div class="card">
+            <div class="card-tag">Regla 05</div>
+            <h4>Self-improvement &gt; family help</h4>
+            <p>LATAM: "para tu familia". USA: "para ti". Cultura individualista · narrativa de transformación personal.</p>
+        </div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Ejercicio</div>
+        <p style="margin:0;color:var(--paper)">Lo más útil que pueden hacer esta semana es consumir 30 min/día de contenido USA en su área: TikTok hashtags #supplements #guthealth #wellnesstips, podcasts USA en inglés (Huberman, Joe Rogan, Modern Wisdom). NO para copiar · para internalizar el ritmo y el tono.</p>
+    </div>
+</section>
+
+<!-- LAS 4 MÉTRICAS -->
+<section id="metricas">
+    <div class="section-tag">03 · La operación</div>
+    <h2 class="section-title">Las <em>4 métricas</em> que importan.</h2>
+    <p class="section-intro">ClickBank muestra muchas métricas. Solo 4 importan para decidir si una oferta vale o no. Las demás son ruido.</p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-tag">Métrica 01</div>
+            <h4>Initial $/sale</h4>
+            <p style="margin-bottom:0.75rem">Lo que entra en la PRIMERA venta · antes de upsells. Mínimo <strong style="color:var(--accent)">$25</strong>.</p>
+            <p style="font-size:0.85rem;color:var(--paper-mute)">Por qué importa: ClickBank necesita 5 ventas antes del primer payout. Initial bajo = cash inmovilizado.</p>
+        </div>
+        <div class="card">
+            <div class="card-tag">Métrica 02</div>
+            <h4>Avg $/sale (AOV)</h4>
+            <p style="margin-bottom:0.75rem">Promedio incluyendo upsells. Mínimo <strong style="color:var(--accent)">$80</strong> · ideal <strong style="color:var(--cris)">$150+</strong>.</p>
+            <p style="font-size:0.85rem;color:var(--paper-mute)">Por qué importa: CPCs USA nutra son $2.50-5.00 · necesitas AOV alto para margen.</p>
+        </div>
+        <div class="card">
+            <div class="card-tag">Métrica 03</div>
+            <h4>Gravity</h4>
+            <p style="margin-bottom:0.75rem">Sweet spot 2026: <strong style="color:var(--accent)">30-150</strong>. Bajo = sin tracción · alto = saturado.</p>
+            <p style="font-size:0.85rem;color:var(--paper-mute)">Por qué importa: medida del momentum reciente · entre cuántos afiliados están vendiendo.</p>
+        </div>
+        <div class="card">
+            <div class="card-tag">Métrica 04</div>
+            <h4>Avg Rebill Total</h4>
+            <p style="margin-bottom:0.75rem">Si hay subscription · <strong style="color:var(--accent)">&gt; $0</strong> es bonus. LTV math.</p>
+            <p style="font-size:0.85rem;color:var(--paper-mute)">Por qué importa: subscription = pagos recurrentes = mejor unit economics.</p>
+        </div>
+    </div>
+
+    <div class="callout warn">
+        <div class="callout-label">Ignorar</div>
+        <p style="margin:0;color:var(--paper)"><strong>EPC (Earnings Per Click)</strong> es la métrica más mentirosa de ClickBank. Está calculada solo con afiliados top · no es replicable para nuevos. Si alguien la cita como argumento principal, sospechar.</p>
+    </div>
+
+    <h3>El math que decide TODO</h3>
+    <p>Antes de pagar 1 click, calculamos esto:</p>
+
+    <div class="hook-card" style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;line-height:1.7">
+        <div style="color:var(--accent);margin-bottom:0.5rem">// Ejemplo · oferta AOV $147, 75% comisión, 1.5% conv rate</div>
+        <div>Net per sale &nbsp;&nbsp;&nbsp;= $147 × 0.75 = $110</div>
+        <div>RPC (rev/click) = $110 × 0.015 = <span style="color:var(--cris)">$1.65</span></div>
+        <div style="margin-top:0.75rem">CPC break-even = <span style="color:var(--cris)">$1.65</span></div>
+        <div>CPC target 1.3x = $1.27</div>
+        <div>CPC target 2.0x = <span style="color:var(--accent)">$0.83</span> ← winner threshold</div>
+        <div style="margin-top:0.75rem;color:var(--paper-mute)">CPC industry USA nutra = $2.50-5.00</div>
+        <div style="color:var(--danger)">→ Esta oferta es BORDERLINE · necesitas AOV mayor</div>
+    </div>
+</section>
+
+<!-- HOOKS USA -->
+<section id="hooks">
+    <div class="section-tag">04 · Creative · hooks</div>
+    <h2 class="section-title">Los <em>5 patrones</em> de hook que funcionan en USA.</h2>
+    <p class="section-intro">Si Ro escribe copy y Dali produce creatives, los dos tienen que conocer estos 5 patrones. Es la base.</p>
+
+    <div class="hook-card">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--paper-mute);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.75rem">Patrón 01 · First-person time-bound</div>
+        <div class="hook-en">"I tried [X] for [Y] days · here's what happened"</div>
+        <div class="hook-why">Cultura confessional. First-person + número específico = credibilidad inmediata. <strong>El más fuerte 2024-2026.</strong></div>
+    </div>
+
+    <div class="hook-card">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--paper-mute);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.75rem">Patrón 02 · Negative command</div>
+        <div class="hook-en">"Stop doing [X] if you want [Y]"</div>
+        <div class="hook-why">Polarización + directness. "Stop" es scroll-stopping. Cuidado compliance con health claims.</div>
+    </div>
+
+    <div class="hook-card">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--paper-mute);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.75rem">Patrón 03 · Authority conspiracy</div>
+        <div class="hook-en">"Why doctors don't want you to know about [X]"</div>
+        <div class="hook-why">Anti-establishment funciona. <strong>El más riesgoso</strong> · Meta y FTC vigilan. Solo con vendor que respalde claims.</div>
+    </div>
+
+    <div class="hook-card">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--paper-mute);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.75rem">Patrón 04 · Specific number transformation</div>
+        <div class="hook-en">"The $7 supplement that fixed my gut in 3 weeks"</div>
+        <div class="hook-why">"$7" es real, "barato" no. "3 weeks" es real, "rápido" no. Especificidad = credibilidad.</div>
+    </div>
+
+    <div class="hook-card">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--paper-mute);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.75rem">Patrón 05 · Curiosity gap</div>
+        <div class="hook-en">"5 signs your gut is screaming for help"</div>
+        <div class="hook-why">List-based domina USA marketing desde era Buzzfeed. "5 signs" / "3 things" es código USA hardcoded.</div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Para escribir copy USA</div>
+        <p style="margin:0;color:var(--paper)">Antes de mandar cualquier copy en inglés: <strong>leerlo en voz alta</strong>. Si suena traducido, lo es. Pasarlo por Claude/AI para review nativo siempre. Eventualmente contratamos copywriter nativo Upwork para landings importantes ($50-100 por landing).</p>
+    </div>
+
+    <h3>Los hooks que NO funcionan en USA</h3>
+    <p>Estos los descartamos · funcionan en LATAM pero fallan en USA:</p>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Hook LATAM</th><th>Por qué falla USA</th></tr></thead>
+            <tbody>
+                <tr><td>"Increíble · te va a sorprender"</td><td>Genérico · USA escanea en 0.5s</td></tr>
+                <tr><td>"Doctor venezolano revela..."</td><td>Country authority irrelevante · puede sonar a scam</td></tr>
+                <tr><td>"Para tu familia"</td><td>USA es self-improvement · no family-help</td></tr>
+                <tr><td>"Compra antes que se acabe"</td><td>Urgencia genérica · USA pide specifics ("47 units left")</td></tr>
+                <tr><td>"Garantizado 100%"</td><td>Es default USA · no diferencia nada</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- LOS 10 ARTES -->
+<section id="artes">
+    <div class="section-tag">05 · Creative · formatos</div>
+    <h2 class="section-title">Los <em>artes</em> que venden (ranking USA).</h2>
+    <p class="section-intro">Felipe Vergara identifica 10 tipos de creativos que funcionan. En USA cambia el ranking respecto a LATAM. Esto define qué prioriza Dali al producir.</p>
+
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Tipo</th><th>USA ranking</th><th>Por qué</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Testimonios</strong></td><td>#1</td><td>USA = "social proof economy" · reviews son religión</td></tr>
+                <tr><td><strong>Educativo (how-to)</strong></td><td>#2</td><td>"How-to" content domina USA YouTube/TikTok</td></tr>
+                <tr><td><strong>Prensa ("As seen on")</strong></td><td>#3</td><td>"As seen on CNN/Forbes" es código USA hardcoded</td></tr>
+                <tr><td>Demostración</td><td>#4</td><td>USA ya vio supplements 1000x · menos impacto</td></tr>
+                <tr><td>Aspiracional</td><td>#5</td><td>OK pero gringos más cínicos</td></tr>
+                <tr><td>Beneficio</td><td>#6</td><td>Necesita combinarse con autoridad</td></tr>
+                <tr><td>Producto</td><td>#7</td><td>Solo para retargeting</td></tr>
+                <tr><td>Promoción</td><td>#8</td><td>Meta detecta más en USA</td></tr>
+                <tr><td>Pantalla dividida (before/after)</td><td><span style="color:var(--danger)">DEAD</span></td><td>Meta USA banea casi siempre</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Dali → priorizar producir <strong>Testimonios + Educativo + Prensa-style</strong> primero. Menos peso en demostración pura. Cero before/after.</p>
+</section>
+
+<!-- ROLES -->
+<section id="roles">
+    <div class="section-tag">06 · Cómo nos repartimos</div>
+    <h2 class="section-title">Quién hace <em>qué</em>.</h2>
+    <p class="section-intro">No queremos solapamiento ni gaps. Cada uno tiene un dominio claro y los otros confiamos en su criterio dentro de ese dominio.</p>
+
+    <div class="person-block">
+        <div class="person-avatar romi">R</div>
+        <div>
+            <div class="person-name">Ro</div>
+            <div class="person-role">Strategy · copy · research</div>
+            <div class="person-content">
+                <p>Investigación + selección de ofertas en ClickBank (con framework de 11 criterios que tenemos). Brief creativo a Dali con copy en inglés (passing por AI review para nativo). Análisis competitivo en Meta Ads Library. Decisiones de qué oferta TEST cada semana. Eres el cerebro estratégico del proyecto.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="person-block">
+        <div class="person-avatar dali">D</div>
+        <div>
+            <div class="person-name">Dali</div>
+            <div class="person-role">Creative · producción visual</div>
+            <div class="person-content">
+                <p>Producción de creativos en HeyGen (avatares hablando), Creatify (UGC sintético), edición final. 20-30 creativos/semana es el target real. Templates Remotion para volumen. Hall of Winners cuando algún creativo pase ROAS 2.5x. Eres el motor del proyecto · sin creativos diversificados, las campañas no funcionan.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="person-block">
+        <div class="person-avatar cris">C</div>
+        <div>
+            <div class="person-name">Cris</div>
+            <div class="person-role">Tech · ads · automation</div>
+            <div class="person-content">
+                <p>Setup técnico (cuentas ClickBank, Meta BM, Wise, Landerlab). CAPI postback con Cloudflare Worker. Automatizaciones con Claude Code (daily reports, dashboard). Decisiones operativas diarias en Meta (scale, kill, refresh). Estructura de cuentas + compliance técnico.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Regla de oro</div>
+        <p style="margin:0;color:var(--paper)">Cuando hay desacuerdo en un dominio, gana el owner. No es democracia · es respeto a la expertise. Si Dali decide que un creativo no va, no va. Si Ro decide saltar una oferta, se salta. Si Cris pausa una campaña por compliance, se pausa.</p>
+    </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+    <div class="section-tag">07 · Cómo arranca</div>
+    <h2 class="section-title">El <em>roadmap</em> en 4 fases.</h2>
+    <p class="section-intro">Cada fase tiene un único objetivo. Si no se cumple → ajustamos o paramos. Sin debate emocional.</p>
+
+    <div class="timeline">
+        <div class="phase" data-num="1">
+            <div class="phase-week">Semana 1</div>
+            <h4>Setup técnico · inversión $0</h4>
+            <p>Cuentas ClickBank · Wise · Meta Business Manager · todo gratis. Empezamos a leer este material. Decidimos capital final y start date.</p>
+        </div>
+        <div class="phase" data-num="2">
+            <div class="phase-week">Semana 2-3</div>
+            <h4>Skalers Start · selección de oferta</h4>
+            <p>Compramos Skalers Start ($47 · única compra mes 1). Ro investiga 20 ofertas · top 5 al scorer · 1 oferta TEST elegida. Cris construye CAPI. Dali produce 3 creativos iniciales.</p>
+        </div>
+        <div class="phase" data-num="3">
+            <div class="phase-week">Semana 4</div>
+            <h4>Primera gota · $100 ad spend</h4>
+            <p>1 conjunto Advantage+ · $10/día x 10 días. Stop-loss día 5: CTR &lt; 0.8% o CPC &gt; $2.50 → pausar. Validation real con dinero mínimo.</p>
+        </div>
+        <div class="phase" data-num="4">
+            <div class="phase-week">Semana 5-12</div>
+            <h4>Iteración · búsqueda winner · escalado</h4>
+            <p>Loop semanal: análisis lunes → producción mar-mié → upload jueves. Stop-loss día 60 (ROAS &lt; 0.5x sostenido) y día 90 (ROAS &lt; 1.3x sostenido). Total max invertido: $2.5K si todo falla.</p>
+        </div>
+    </div>
+
+    <div class="callout warn">
+        <div class="callout-label">No negociable</div>
+        <p style="margin:0;color:var(--paper)">Los stop-loss son automáticos · no hay debate cuando se disparan. La filosofía "estás a un anuncio de cambiar tu vida" significa que el PRÓXIMO test puede ser el winner · no que defendamos uno que ya falló.</p>
+    </div>
+</section>
+
+<!-- ANEXO -->
+<section id="anexo">
+    <div class="section-tag">08 · Cuando quieras profundizar</div>
+    <h2 class="section-title">Material de <em>referencia</em>.</h2>
+    <p class="section-intro">Lo que acabás de leer es suficiente para que arranquemos los tres alineados. Si querés profundizar en algo específico, acá están los documentos completos en la carpeta <code style="color:var(--accent);background:rgba(232,182,71,0.1);padding:0.1rem 0.4rem;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:0.85em">referencia-extendida/</code>.</p>
+
+    <h3>Para Ro · estrategia y copy</h3>
+    <a class="anexo-card" href="referencia-extendida/felipe-vergara-m04-aplicado.html">
+        <div class="anexo-title">Niveles de Consciencia (Felipe Vergara M04)</div>
+        <div class="anexo-desc">El framework de copy más importante · 5 niveles + templates por nivel adaptados USA.</div>
+    </a>
+    <a class="anexo-card" href="referencia-extendida/tactics-aplicables.html">
+        <div class="anexo-title">Tactics convergentes (cross-fuente)</div>
+        <div class="anexo-desc">Lo que dicen TODOS los operadores serios USA · 5 patrones consenso.</div>
+    </a>
+    <a class="anexo-card" href="referencia-extendida/MAESTRO-CLICKBANK-2026.html">
+        <div class="anexo-title">ClickBank 2026 · selección de ofertas</div>
+        <div class="anexo-desc">Framework completo · 11 criterios · top ofertas verificadas mayo 2026.</div>
+    </a>
+    <a class="anexo-card" href="referencia-extendida/01-tier11-ralph-burns.html">
+        <div class="anexo-title">Tier 11 · Ralph Burns (operador puro USA · en inglés)</div>
+        <div class="anexo-desc">El benchmark serio que NO vende cursos · Perpetual Traffic podcast semanal.</div>
+    </a>
+    <a class="anexo-card" href="referencia-extendida/03-clickbank-affiliated-podcast.html">
+        <div class="anexo-title">ClickBank Affiliated Podcast (en inglés)</div>
+        <div class="anexo-desc">Canal oficial ClickBank · 4 Diamonds verificables identificados.</div>
+    </a>
+
+    <h3>Para Dali · creative</h3>
+    <a class="anexo-card" href="referencia-extendida/04-savannah-sanchez.html">
+        <div class="anexo-title">Savannah Sanchez (en inglés)</div>
+        <div class="anexo-desc">Creative strategist USA · 8 principios de ads que pegan en 2026.</div>
+    </a>
+    <a class="anexo-card" href="referencia-extendida/05-barry-hott.html">
+        <div class="anexo-title">Barry Hott · "ugly ads" framework (en inglés)</div>
+        <div class="anexo-desc">Por qué lo crudo y auténtico gana al pulido y producido.</div>
+    </a>
+
+    <h3>Compartido · contexto general</h3>
+    <a class="anexo-card" href="referencia-extendida/VIABILIDAD-MAESTRO.html">
+        <div class="anexo-title">Estudio de viabilidad</div>
+        <div class="anexo-desc">Los riesgos honestos · por qué los hacemos · qué validamos.</div>
+    </a>
+    <a class="anexo-card" href="referencia-extendida/PANCHO-SKALERS-MAESTRO.html">
+        <div class="anexo-title">Pancho Val + Skalers · benchmark</div>
+        <div class="anexo-desc">El caso que estudiamos · qué replicar · qué evitar.</div>
+    </a>
+    <a class="anexo-card" href="referencia-extendida/04-ROADMAP-90-DIAS.html">
+        <div class="anexo-title">Roadmap 90 días completo</div>
+        <div class="anexo-desc">Semana por semana · con tasks y stop-losses detallados.</div>
+    </a>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta">
+    <h2>Cuando terminen de leer · <em>hablamos</em>.</h2>
+    <p class="cta-sub">No hay urgencia ni tiempo sugerido · léanlo cuando tengan cabeza. Si algo no cuadra o tienen dudas, mándenme mensaje sin esperar al sync. Si todo cuadra, agendamos el sync para confirmar capital, start date y arrancar.</p>
+    <div class="cta-signature">— Cris</div>
+</div>
+
+</div>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    document.getElementById('progress').style.width = ((h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100) + '%';
+});
+
+// Reveal on scroll
+const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('section').forEach(s => {
+    s.classList.add('reveal');
+    obs.observe(s);
+});
+</script>
+</body>
+</html>

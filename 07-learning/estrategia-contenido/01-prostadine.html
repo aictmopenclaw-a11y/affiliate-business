@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estrategia de contenido · Prostadine · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">07-learning / estrategia-contenido · 20 min · 4,082 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#0-la-sales-page-real-del-vendor-leída-no-reconstruida" class="">0. La sales page real del vendor (leída, no reconstruida)</a></li><li><a href="#1-matriz-multidimensional-avatar-nivel-ángulo-creativo-big-idea-formato" class="">1. Matriz multidimensional · avatar × nivel × ángulo creativo × big idea × formato</a></li><li><a href="#2-ejercicio-de-coherencia-3-rutas-sales-page-bridge-ad" class="">2. Ejercicio de coherencia · 3 rutas (sales page → bridge → ad)</a></li><li><a href="#ruta-1-el-agua-dura-roberto-solución-3-curiosity-mecanismo-prioridad-alta" class="h3">RUTA 1 · "El agua dura" · Roberto × Solución (3) · Curiosity + mecanismo · prioridad ALTA</a></li><li><a href="#ruta-2-la-cuidadora-linda-solución-3-testimonial-cuidadora-prioridad-alta-bajo-riesgo" class="h3">RUTA 2 · "La cuidadora" · Linda × Solución (3) · Testimonial cuidadora · prioridad ALTA (bajo riesgo)</a></li><li><a href="#ruta-3-otra-vía-frank-soluciónproducto-3-4-anti-fármaco-suave-prioridad-condicional-alto-riesgo-máximo-roas" class="h3">RUTA 3 · "Otra vía" · Frank × Solución/Producto (3-4) · Anti-fármaco suave · prioridad CONDICIONAL (alto riesgo, máximo ROAS)</a></li><li><a href="#3-plan-de-testing-orden-por-lotes-killscale" class="">3. Plan de testing (orden por lotes, kill/scale)</a></li><li><a href="#lote-1-validar-audiencia-mensaje-riesgo-g-bajo-días-1-7" class="h3">Lote 1 · Validar audiencia + mensaje · riesgo {g} bajo (días 1-7)</a></li><li><a href="#lote-2-escalar-el-mensaje-ganador-riesgo-a-medio-días-8-18" class="h3">Lote 2 · Escalar el mensaje ganador · riesgo {a} medio (días 8-18)</a></li><li><a href="#lote-3-el-ganador-del-swipe-riesgo-r-alto-día-18-solo-cuenta-sólida" class="h3">Lote 3 · El ganador del swipe · riesgo {r} alto (día 18+, solo cuenta sólida)</a></li><li><a href="#criterios-kill-scale" class="h3">Criterios kill / scale</a></li><li><a href="#4-notas-operativas" class="">4. Notas operativas</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>01-prostadine.md</span><span>4,082 palabras</span><span>~20 min</span></div>
+<h1 id="estrategia-de-contenido-prostadine">Estrategia de contenido · Prostadine</h1>
+<blockquote><p>Estrategia accionable en dos capas para correr <strong>Prostadine</strong> (suplemento líquido de próstata, hombres 50+) como afiliado ClickBank en <strong>Meta Ads, mercado USA</strong>.</p>
+<p><strong>Capa 1 (Matriz):</strong> avatar × nivel de consciencia × ángulo creativo × ángulo de venta (big idea del vendor) × formato. <strong>Capa 2 (Coherencia):</strong> 3 rutas de campaña donde AD, BRIDGE PAGE y SALES PAGE cuentan la misma historia (message match), sin que el claim escale entre pasos.</p>
+<p><strong>Ancla en doctrina:</strong> <code>cursos-cruzados/felipe-vergara-m04-aplicado.md</code> (Triángulo Dorado, 5 niveles, verbos delatadores), <code>cruce-cursos-aplicado.md</code> (Definidor Fauadzk, 7 maletas, 3x kill, MER), <code>swipe-bridge-landers/01-taxonomia-bridge-landers.md</code>, <code>03-templates-ads-angulos.md</code>, <code>05-compliance-meta-nutra.md</code>, <code>06-swipe-ads-reales-finalistas.md</code>. <strong>Avatares (reusados):</strong> <code>cruce-angulos-avatares/01-prostadine.md</code> (Roberto, Frank, Dave, Linda, George).</p>
+<p>Fecha: 2026-06-18 · Versión: 1.0</p></blockquote>
+<hr>
+<h2 id="0-la-sales-page-real-del-vendor-leída-no-reconstruida">0. La sales page real del vendor (leída, no reconstruida)<a class="anchor" href="#0-la-sales-page-real-del-vendor-leída-no-reconstruida">#</a></h2>
+<blockquote><p>Leída directamente con WebFetch sobre los sitios oficiales <code>web-prostadine.com</code> y <code>prostadene.com</code> (2026-06-18). El big idea, mecanismo y oferta de abajo son <strong>reales del vendor</strong>. Nuestra estrategia se construye HACIA ATRÁS desde esto: nuestra bridge y nuestros ads no pueden prometer más de lo que esta página sostiene, ni cambiar el mecanismo.</p></blockquote>
+<div class="kpi-strip"><div class="stat"><div class="stat-value">agua dura</div><div class="stat-label">El villano del big idea (hard water + toxinas)</div></div><div class="stat"><div class="stat-value">9</div><div class="stat-label">Ingredientes naturales (líquido, dropper)</div></div><div class="stat"><div class="stat-value">$49-69</div><div class="stat-label">Precio por frasco (6 / 1 frasco)</div></div><div class="stat"><div class="stat-value">60 días</div><div class="stat-label">Garantía money-back (estándar honrado, 4.98/5)</div></div></div>
+<p><strong>Big idea (mecanismo único del vendor):</strong> la causa de los problemas de próstata y urinarios no es solo "la edad", sino la <strong>acumulación de toxinas y minerales del agua dura (hard water) y contaminantes ambientales</strong> en el tracto urinario. Cita textual: <em>"environmental toxins and mineral buildup may negatively impact prostate health over time. These harmful compounds can accumulate in the body and contribute to urinary issues, inflammation, and reduced prostate performance"</em> y <em>"Cleanses accumulated toxins from the urinary tract caused by hard water and environmental pollutants"</em>.</p>
+<p><strong>Por qué importa para nosotros:</strong> este es el "mecanismo con nombre" que la doctrina pide (doc 03, patrón #1 del swipe). El agua dura es un villano <strong>externo, concreto y no estigmatizante</strong>: permite hablar del problema sin nombrar la condición médica del usuario (clave de compliance, doc 05). Es nuestro puente narrativo de oro.</p>
+<p><strong>Las 3 pathways que el vendor afirma</strong> (resumir, no exagerar): (1) reduce inflamación, (2) limpia toxinas acumuladas del tracto urinario, (3) regula la función hormonal.</p>
+<p><strong>Promesa central:</strong> apoyar el flujo urinario saludable, reducir las idas frecuentes al baño y apoyar la vitalidad masculina general. (Nota: el vendor usa verbos de soporte, no de cura. Nosotros copiamos ese nivel de promesa, ni un grado más arriba.)</p>
+<p><strong>Ingredientes (9):</strong> Nori Yaki Extract Powder, Wakame Extract, Kelp Powder, Bladderwrack Powder, Saw Palmetto, Pomegranate Extract, Iodine, Shilajit, Neem. Núcleo del relato: ingredientes marinos (algas) + saw palmetto reconocido por la tradición para salud de próstata.</p>
+<p><strong>Estructura de oferta y precio (real):</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Pack</th>
+<th>Precio/frasco</th>
+<th>Total aprox.</th>
+<th>Envío</th>
+<th>Notas</th>
+</tr></thead><tbody>
+<tr>
+<td>1 frasco (30 días)</td>
+<td>$69</td>
+<td>$69</td>
+<td>Gratis</td>
+<td>Entrada</td>
+</tr>
+<tr>
+<td>3 frascos (90 días)</td>
+<td>$59</td>
+<td>$177</td>
+<td>Gratis</td>
+<td>"Save 15%"</td>
+</tr>
+<tr>
+<td>6 frascos (180 días)</td>
+<td>$49</td>
+<td>$294</td>
+<td>Gratis</td>
+<td>"Save 30%" + bonos</td>
+</tr>
+</tbody></table></div>
+<p><strong>Garantía:</strong> 60 días money-back, sin preguntas, "even if the bottles are empty". (Algunos mirrors muestran 90 días; el estándar ClickBank y la reputación verificada es 60 días. Usar <strong>60 días</strong> en nuestro copy para no sobre-prometer.)</p>
+<p><strong>Bonos (con pack de 6):</strong> dos ebooks digitales. "Kidney Reset: The 48-Hour Home Detox Guide" (valor listado $79) y "Unlock Rockstar Stamina in Just 7 Days" (valor listado $79). En mirrors aparecen con nombres/valores levemente distintos (Kidney Cleanse Protocol $59, Alpha Male Vitality Handbook $49): el concepto es estable (detox renal + vitalidad masculina), los valores exactos varían por mirror, así que en bridge decir "bonos digitales de regalo" y dejar el detalle al VSL del vendor.</p>
+<p><strong>Prueba / credibilidad (real):</strong> testimonios con nombre y ciudad; sellos "Made in USA", "FDA registered facility", "GMP Certified", "100% Natural"; reputación 4.98/5 con 19.6K reviews (Trustpilot, verificado en deep-dive). <strong>No</strong> cita número de clientes ni endorsement médico ni estudios clínicos en la página. Implicación: nuestra bridge <strong>no puede inventar</strong> "47.000 hombres" ni "aprobado por urólogos": usar prueba social cualitativa (testimonios tipo) + la reputación real + la garantía.</p>
+<p><strong>Línea de no-cruce (claim ceiling):</strong> la sales page promete <em>apoyar / reducir incomodidades / apoyar el flujo</em>. Nunca dice "cura la próstata agrandada" ni "elimina la nocturia". Ese es nuestro techo: si el ad o la bridge prometen más que la sales page, rompemos message match Y compliance a la vez.</p>
+<hr>
+<h2 id="1-matriz-multidimensional-avatar-nivel-ángulo-creativo-big-idea-formato">1. Matriz multidimensional · avatar × nivel × ángulo creativo × big idea × formato<a class="anchor" href="#1-matriz-multidimensional-avatar-nivel-ángulo-creativo-big-idea-formato">#</a></h2>
+<blockquote><p>Cada fila es una celda accionable. El <strong>ángulo de venta</strong> es siempre una variante del big idea real del vendor (agua dura/toxinas, ingredientes marinos, anti-fármaco, vitalidad). El semáforo marca riesgo de compliance Meta por celda. Verbos siempre de soporte; situación, no condición (doc 05).</p>
+<p>Leyenda riesgo: {g} bajo · {a} medio · {r} alto.</p></blockquote>
+<div class="table-wrap"><table><thead><tr>
+<th>#</th>
+<th>Avatar</th>
+<th>Nivel Schwartz</th>
+<th>Ángulo creativo</th>
+<th>Ángulo de venta (big idea vendor)</th>
+<th>Formato</th>
+<th>Riesgo</th>
+</tr></thead><tbody>
+<tr>
+<td>M1</td>
+<td>Roberto (52)</td>
+<td>2 Problema</td>
+<td>Pregunta / quiz hook</td>
+<td>Situación nocturna: "no siempre es la edad"</td>
+<td>Imagen + overlay / quiz</td>
+<td class="sg-green"></td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Roberto (52)</td>
+<td>2 Problema</td>
+<td>Listicle "X señales"</td>
+<td>Señales nocturnas que se normalizan</td>
+<td>Carrusel / video texto</td>
+<td class="sg-green"></td>
+</tr>
+<tr>
+<td>M3</td>
+<td>Roberto (52)</td>
+<td>3 Solución</td>
+<td>Curiosity + mecanismo</td>
+<td><strong>Agua dura / toxinas acumuladas</strong> como causa oculta</td>
+<td>Video UGC 30s</td>
+<td class="sg-amber"></td>
+</tr>
+<tr>
+<td>M4</td>
+<td>Frank (61)</td>
+<td>3-4 Sol/Producto</td>
+<td>Fear / anti-fármaco</td>
+<td>Dejó la receta por efectos: buscó la vía natural</td>
+<td>Video UGC 35-45s</td>
+<td class="sg-red"></td>
+</tr>
+<tr>
+<td>M5</td>
+<td>Frank (61)</td>
+<td>4 Producto</td>
+<td>Autoridad / experto</td>
+<td>Por qué el enfoque natural gana terreno</td>
+<td>Video UGC autoridad</td>
+<td class="sg-red"></td>
+</tr>
+<tr>
+<td>M6</td>
+<td>Frank (61)</td>
+<td>4 Producto</td>
+<td>Testimonial / social proof</td>
+<td>"Probé saw palmetto y de todo; sumé esto"</td>
+<td>Video UGC 30s</td>
+<td class="sg-amber"></td>
+</tr>
+<tr>
+<td>M7</td>
+<td>Dave (57)</td>
+<td>1 Inconsciente</td>
+<td>News-style / advertorial</td>
+<td>El motivo poco conocido del mal descanso 55+</td>
+<td>Imagen editorial</td>
+<td class="sg-red"></td>
+</tr>
+<tr>
+<td>M8</td>
+<td>Dave (57)</td>
+<td>1-2 Inconsc→Prob</td>
+<td>Curiosity + reframe</td>
+<td>"No es la edad. Hay un motivo concreto"</td>
+<td>Imagen + overlay</td>
+<td class="sg-amber"></td>
+</tr>
+<tr>
+<td>M9</td>
+<td>Dave (57)</td>
+<td>2 Problema</td>
+<td>Listicle</td>
+<td>5 cosas que el cuerpo hace de noche 55+</td>
+<td>Carrusel</td>
+<td class="sg-green"></td>
+</tr>
+<tr>
+<td>M10</td>
+<td>Linda (58)</td>
+<td>3 Solución</td>
+<td>Testimonial cuidadora</td>
+<td>"Si tu pareja se levanta de noche, tú tampoco duermes"</td>
+<td>Imagen lifestyle / video voz fem</td>
+<td class="sg-green"></td>
+</tr>
+<tr>
+<td>M11</td>
+<td>Linda (58)</td>
+<td>3 Solución</td>
+<td>Beneficio / aspiracional</td>
+<td>Recuperar el descanso de los dos</td>
+<td>Imagen lifestyle</td>
+<td class="sg-green"></td>
+</tr>
+<tr>
+<td>M12</td>
+<td>George (55)</td>
+<td>3 Solución</td>
+<td>Beneficio / aspiracional</td>
+<td>"Más presencia, más confianza": adelantarse</td>
+<td>Imagen / video IG</td>
+<td class="sg-green"></td>
+</tr>
+<tr>
+<td>M13</td>
+<td>George (55)</td>
+<td>3 Solución</td>
+<td>Mecanismo con nombre</td>
+<td>Ingredientes marinos + saw palmetto: qué hay en el frasco</td>
+<td>Carrusel ingredientes</td>
+<td class="sg-amber"></td>
+</tr>
+<tr>
+<td>M14</td>
+<td>Frank/Linda/George</td>
+<td>4-5 Producto/Decisión</td>
+<td>Oferta + garantía (retargeting)</td>
+<td>60 días sin riesgo + envío incluido</td>
+<td>Imagen producto / video corto</td>
+<td class="sg-green"></td>
+</tr>
+</tbody></table></div>
+<p><strong>Lecturas de la matriz (priorización de producción):</strong></p>
+<ul>
+<li><strong>Entrada en frío de menor riesgo:</strong> M1, M2, M9, M11, M12 (pregunta, listicle, aspiracional). Aquí arranca el testing (Lote 1).</li>
+<li><strong>Mecanismo diferenciador del vendor (agua dura):</strong> M3, M8, M13. Riesgo medio porque introduce el "porqué" sin nombrar condición. Es el ángulo más alineado con la sales page y el que mejor message match da.</li>
+<li><strong>Ganador del swipe real pero alto riesgo:</strong> M4, M5, M7 (anti-fármaco, autoridad, advertorial news). Reservar para cuenta con historial limpio (Lote 3).</li>
+<li><strong>Audiencias que la competencia ignora:</strong> Linda (M10-M11) y George (M12-M13). Diferenciación competitiva, bajo riesgo. Ventaja sobre quien solo clona el anti-finasteride.</li>
+</ul>
+<hr>
+<h2 id="2-ejercicio-de-coherencia-3-rutas-sales-page-bridge-ad">2. Ejercicio de coherencia · 3 rutas (sales page → bridge → ad)<a class="anchor" href="#2-ejercicio-de-coherencia-3-rutas-sales-page-bridge-ad">#</a></h2>
+<blockquote><p>Núcleo del entregable. Cada ruta se construye HACIA ATRÁS desde la sales page real. Distinto avatar, distinto nivel, distinto ángulo. El CHECK de message match verifica que el claim NO escala entre pasos: sales page = apoya/reduce incomodidades; bridge = mismo nivel; ad = mismo nivel. Semáforo de riesgo por pieza.</p></blockquote>
+<hr>
+<h3 id="ruta-1-el-agua-dura-roberto-solución-3-curiosity-mecanismo-prioridad-alta">RUTA 1 · "El agua dura" · Roberto × Solución (3) · Curiosity + mecanismo · prioridad ALTA<a class="anchor" href="#ruta-1-el-agua-dura-roberto-solución-3-curiosity-mecanismo-prioridad-alta">#</a></h3>
+<blockquote><p>La ruta con mejor message match porque usa el big idea literal del vendor (agua dura/toxinas) como puente. Riesgo medio controlable. Es la ruta que mejor convierte tráfico frío educable sin tocar el anti-fármaco.</p></blockquote>
+<p><strong>Paso 3 · SALES PAGE (vendor, lo real):</strong></p>
+<ul>
+<li>Big idea: toxinas y minerales del <strong>agua dura</strong> se acumulan en el tracto urinario y afectan la próstata con los años.</li>
+<li>Mecanismo: limpia toxinas + reduce inflamación + regula hormonas, vía 9 ingredientes (algas marinas + saw palmetto + shilajit).</li>
+<li>Promesa: apoya flujo urinario, reduce idas frecuentes al baño, apoya vitalidad.</li>
+<li>Oferta: 1/3/6 frascos ($69/$59/$49), envío gratis, bonos con pack 6.</li>
+<li>Prueba: testimonios, sellos Made in USA / GMP, garantía 60 días.</li>
+</ul>
+<p><strong>Paso 2 · BRIDGE PAGE (nuestra) · tipo: Advertorial educativo (doc 01, tipo 1):</strong></p>
+<ul>
+<li><strong>Cómo prepara:</strong> continúa exactamente el reframe del ad. Toma el síntoma (idas de noche) y entrega el "porqué" del vendor (acumulación por agua dura/toxinas), construyendo percepción de valor antes del VSL (regla del por 5, M04). No vende: educa hasta dejar al lector "listo para ver el video".</li>
+<li><strong>Puente narrativo:</strong> ad plantea la pregunta → bridge da la teoría del agua dura como respuesta → CTA al VSL donde el vendor cierra con ingredientes + oferta.</li>
+<li><strong>Estructura:</strong> (1) Titular curiosidad: "Por qué tantos hombres después de los 50 se levantan de noche (y casi nadie lo asocia a esto)". (2) Lead identificable. (3) Reframe: no es solo la edad; el agua que tomamos deja minerales que se acumulan. (4) El enfoque natural: ingredientes marinos + saw palmetto que apoyan la limpieza y el flujo (verbos de soporte). (5) Prueba social cualitativa + garantía 60 días destacada. (6) CTA suave primero ("Ver cómo funciona"), CTA fuerte al cierre (al VSL).</li>
+<li><strong>Opt-in:</strong> opcional, quiz de 3 preguntas de hábitos (no diagnóstico) que entrega "tu resultado" al email y luego al VSL. Sube costo por click, baja al lead. Evaluar en Lote 2.</li>
+<li><strong>Disclaimers:</strong> disclosure "Advertisement" antes del fold (FTC), FDA disclaimer prominente, privacy/terms/contacto/reembolso en footer. Optimizar campaña a <strong>Landing Page Views</strong> (H&W, doc 05).</li>
+</ul>
+<p><strong>Paso 1 · AD:</strong></p>
+<ul>
+<li><strong>Hooks (3 variantes, modeladas, no copiadas):</strong></li>
+<li>"La razón real de las idas al baño de noche no siempre es tomar agua tarde: tiene que ver con lo que el agua deja en tu cuerpo con los años."</li>
+<li>"No es la edad. Hay algo en el agua que tomamos a diario que pocos hombres mayores de 50 asocian con sus noches interrumpidas."</li>
+<li>"¿Y si las idas al baño de noche no fueran por la edad, sino por algo que se acumula sin que lo notes?"</li>
+<li><strong>Cuerpo:</strong> "Después de los 50, muchos hombres normalizan levantarse dos o tres veces por noche. Pero el cuerpo acumula minerales y residuos del agua y el ambiente, y eso pesa en el descanso. Hay un enfoque natural, en gotas, que muchos están sumando a su mañana para apoyar el flujo y la comodidad. Viene con 60 días de garantía."</li>
+<li><strong>CTA:</strong> "Descubre el motivo" / "Mira cómo funciona" → al bridge.</li>
+<li><strong>Formato:</strong> video UGC 30s (hombre 50+ casual en casa) o imagen estática con overlay. Avatar Roberto.</li>
+</ul>
+<p><strong>CHECK message match (semáforo por pieza):</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Pieza</th>
+<th>Claim</th>
+<th>Nivel de promesa</th>
+<th>Avatar</th>
+<th>Riesgo</th>
+</tr></thead><tbody>
+<tr>
+<td>Ad</td>
+<td>"algo que se acumula" + "apoyar el flujo"</td>
+<td>Soporte (no cura)</td>
+<td>Roberto, nivel 3</td>
+<td class="sg-amber"></td>
+</tr>
+<tr>
+<td>Bridge</td>
+<td>"agua dura deja minerales" + "apoya la limpieza"</td>
+<td>Soporte (idéntico)</td>
+<td>Roberto, nivel 3</td>
+<td class="sg-amber"></td>
+</tr>
+<tr>
+<td>Sales page</td>
+<td>"cleanses accumulated toxins" + "support flow"</td>
+<td>Soporte</td>
+<td>mismo</td>
+<td class="sg-green"></td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>Claim NO escala: las 3 piezas se quedan en "apoya/acumulación", ninguna dice "elimina" ni "cura". {g}</li>
+<li>Mismo avatar y nivel (Roberto, Solución) en las 3. {g}</li>
+<li>Mecanismo idéntico (agua dura/toxinas) ad→bridge→sales. {g} Máxima congruencia.</li>
+<li>Riesgo global ruta: {a} medio (el mecanismo "toxinas" puede gatillar revisión; se sostiene con verbos de soporte). Apta para Lote 2.</li>
+</ul>
+<hr>
+<h3 id="ruta-2-la-cuidadora-linda-solución-3-testimonial-cuidadora-prioridad-alta-bajo-riesgo">RUTA 2 · "La cuidadora" · Linda × Solución (3) · Testimonial cuidadora · prioridad ALTA (bajo riesgo)<a class="anchor" href="#ruta-2-la-cuidadora-linda-solución-3-testimonial-cuidadora-prioridad-alta-bajo-riesgo">#</a></h3>
+<blockquote><p>La ruta de menor riesgo y mayor diferenciación: le habla a la esposa-compradora, audiencia que el swipe de Prostadine NO explota. Cero anti-fármaco, tono cálido. Ideal para abrir cuenta con historial limpio.</p></blockquote>
+<p><strong>Paso 3 · SALES PAGE (vendor, lo real):</strong> la misma de arriba. Lo que Linda necesita encontrar al llegar: producto en gotas fácil de incorporar, garantía 60 días (su "¿qué tenemos que perder?"), testimonios, envío gratis.</p>
+<p><strong>Paso 2 · BRIDGE PAGE (nuestra) · tipo: Historia personal / review cálido (doc 01, tipos 4-5):</strong></p>
+<ul>
+<li><strong>Cómo prepara:</strong> valida la frustración de Linda (él no va al médico, ella no duerme), enmarca el producto como <strong>cuidado, no crítica</strong>, y reduce la fricción de adopción (gotas en el café, sin drama). Lleva al VSL donde el vendor cierra.</li>
+<li><strong>Puente narrativo:</strong> ad muestra el problema compartido de la pareja → bridge cuenta "qué cambiamos en casa" → CTA al VSL.</li>
+<li><strong>Estructura:</strong> (1) Titular: "Cómo ayudar a tu pareja a dormir mejor (sin pelear para que vaya al médico)". (2) Apertura empática desde la cuidadora. (3) Reframe: el problema afecta a los dos; resolverlo es cuidado. (4) El enfoque: gotas que se suman al café, ingredientes naturales que apoyan el flujo (sin diagnosticar a él). (5) Prueba social + reseñas + garantía + facilidad de adopción. (6) Disclosure FTC, FDA disclaimer, footer completo.</li>
+<li><strong>Opt-in:</strong> suave, "déjanos tu correo y te mandamos cómo lo incorporaron otras parejas". Opcional.</li>
+<li><strong>Disclaimers:</strong> habla de "él / tu pareja" y del producto, nunca diagnostica. Optimizar a Landing Page Views.</li>
+</ul>
+<p><strong>Paso 1 · AD:</strong></p>
+<ul>
+<li><strong>Hooks (3 variantes):</strong></li>
+<li>"Si tu pareja se levanta varias veces por noche, también interrumpe tu descanso. Esto fue lo que cambiamos en casa."</li>
+<li>"Mi marido no quería ir al médico por sus idas al baño de noche. Encontré otra forma de ayudarlo a dormir mejor."</li>
+<li>"Lo dejé en su velador sin decir mucho. Tres semanas después, los dos dormíamos mejor."</li>
+<li><strong>Cuerpo:</strong> "Te despiertas cuando él se despierta. Lo ves cansado, de mal humor, y no quiere ir al médico. A veces ayudarlo empieza por algo simple en su rutina: un enfoque natural en gotas para la salud de la próstata, que se suma al café de la mañana. Miles de parejas ya lo probaron, y viene con 60 días de garantía."</li>
+<li><strong>CTA:</strong> "Descubre cómo recuperar el descanso de los dos" → al bridge.</li>
+<li><strong>Formato:</strong> imagen lifestyle pareja madura o video suave 30s con voz femenina. Avatar Linda.</li>
+</ul>
+<p><strong>CHECK message match:</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Pieza</th>
+<th>Claim</th>
+<th>Nivel de promesa</th>
+<th>Avatar</th>
+<th>Riesgo</th>
+</tr></thead><tbody>
+<tr>
+<td>Ad</td>
+<td>"ayudarlo a dormir mejor" + "apoya la próstata"</td>
+<td>Soporte</td>
+<td>Linda, nivel 3</td>
+<td class="sg-green"></td>
+</tr>
+<tr>
+<td>Bridge</td>
+<td>"apoya el flujo" + cuidado, no diagnóstico</td>
+<td>Soporte (idéntico)</td>
+<td>Linda, nivel 3</td>
+<td class="sg-green"></td>
+</tr>
+<tr>
+<td>Sales page</td>
+<td>"support urinary flow / male vitality"</td>
+<td>Soporte</td>
+<td>mismo</td>
+<td class="sg-green"></td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>Claim NO escala: "ayudar a dormir mejor / apoyar" en las 3, sin cura. {g}</li>
+<li>Mismo avatar y nivel. {g} El ad habla de la situación de <strong>él</strong> (no de la condición de quien ve el ad, que es ella): doble seguridad de compliance. {g}</li>
+<li>Riesgo global ruta: {g} bajo. La mejor para Lote 1 y para curtir la cuenta.</li>
+</ul>
+<hr>
+<h3 id="ruta-3-otra-vía-frank-soluciónproducto-3-4-anti-fármaco-suave-prioridad-condicional-alto-riesgo-máximo-roas">RUTA 3 · "Otra vía" · Frank × Solución/Producto (3-4) · Anti-fármaco suave · prioridad CONDICIONAL (alto riesgo, máximo ROAS)<a class="anchor" href="#ruta-3-otra-vía-frank-soluciónproducto-3-4-anti-fármaco-suave-prioridad-condicional-alto-riesgo-máximo-roas">#</a></h3>
+<blockquote><p>La ruta del ángulo ganador real del swipe ("The Treatment For The BPH Killed Him", "1 in 7 finasteride users..."). Máxima conversión, máximo riesgo de baneo. Construida en versión SUAVE: experiencia en primera persona, sin nombrar la enfermedad del usuario ni el fármaco específico en titulares. Solo correr con cuenta limpia (Lote 3).</p></blockquote>
+<p><strong>Paso 3 · SALES PAGE (vendor, lo real):</strong> la misma. Lo que Frank busca al llegar: ingredientes y mecanismo (lee etiquetas), diferencial vs. lo que ya probó, garantía 60 días ("ya gasté suficiente"). El VSL del vendor le da el "cómo es distinto".</p>
+<p><strong>Paso 2 · BRIDGE PAGE (nuestra) · tipo: Advertorial testimonial (doc 01, tipos 1+5):</strong></p>
+<ul>
+<li><strong>Cómo prepara:</strong> cuenta la historia del arquetipo Frank (dejó el tratamiento convencional por efectos, buscó natural) en <strong>tono informativo y experiencial</strong>, no como claim médico. Conecta con el mecanismo del vendor (enfoque natural, ingredientes) y lleva al VSL.</li>
+<li><strong>Puente narrativo:</strong> ad = "busqué otra vía" → bridge = historia completa + mecanismo natural → VSL = ingredientes + oferta + garantía.</li>
+<li><strong>Estructura:</strong> (1) Titular: "La vía natural que un hombre eligió después de dejar el tratamiento convencional". (2) Historia en primera persona, SIN nombrar la enfermedad ni el fármaco en titulares indexables. (3) El villano: la frustración con la solución convencional y sus efectos (experiencia, no claim). (4) Mecanismo: el enfoque natural, ingredientes marinos + saw palmetto, formato gotas. (5) Prueba social + disclaimer "results may vary" en CADA testimonial + garantía. (6) Compliance estricto: disclosure FTC, FDA disclaimer, footer completo. CERO claim de cura, CERO atributo personal del lector.</li>
+<li><strong>Disclaimers:</strong> los más estrictos de las tres rutas. Optimizar a Landing Page Views.</li>
+</ul>
+<p><strong>Paso 1 · AD:</strong></p>
+<ul>
+<li><strong>Hooks (3 variantes, modeladas sobre el swipe real, sin nombrar condición del usuario):</strong></li>
+<li>"Pasé 2 años con la receta del urólogo. Los efectos secundarios me hicieron buscar otra vía."</li>
+<li>"Nadie me advirtió de lo que la pastilla le haría a mi vida íntima. Por eso busqué algo natural."</li>
+<li>"Cambié una receta que me dejó peor por un enfoque natural. Esta es mi experiencia."</li>
+<li><strong>Cuerpo:</strong> "La pastilla me ayudaba algo de noche, pero me cambió otras cosas que no estaba dispuesto a aceptar. Cuando se lo dije al médico, la respuesta fue 'es lo que hay'. Empecé a leer sobre enfoques naturales para la salud de la próstata y encontré uno en gotas, con ingredientes reconocidos por la tradición, que sumé a mi café. No prometo milagros y los resultados varían. Lo que puedo decir es que por fin duermo mejor mis noches. Y como viene con 60 días de garantía, no tenía nada que perder."</li>
+<li><strong>CTA:</strong> "Lee mi experiencia completa" → al bridge.</li>
+<li><strong>Formato:</strong> video UGC 35-45s (hombre 60+ en su living, conversacional). Avatar Frank.</li>
+</ul>
+<p><strong>CHECK message match:</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Pieza</th>
+<th>Claim</th>
+<th>Nivel de promesa</th>
+<th>Avatar</th>
+<th>Riesgo</th>
+</tr></thead><tbody>
+<tr>
+<td>Ad</td>
+<td>experiencia 1ª persona + "duermo mejor" + "apoya"</td>
+<td>Soporte + experiencial</td>
+<td>Frank, nivel 3-4</td>
+<td class="sg-red"></td>
+</tr>
+<tr>
+<td>Bridge</td>
+<td>historia + "enfoque natural" + "results may vary"</td>
+<td>Soporte (idéntico)</td>
+<td>Frank, nivel 3-4</td>
+<td class="sg-red"></td>
+</tr>
+<tr>
+<td>Sales page</td>
+<td>"support flow / vitality"</td>
+<td>Soporte</td>
+<td>mismo</td>
+<td class="sg-green"></td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>Claim NO escala: ninguna pieza dice "cura" ni "elimina"; todo es experiencia + soporte. {g}</li>
+<li>Riesgo viene del ÁNGULO (alude a fármaco/efectos), no del claim escalado: por eso es {r} aunque el message match sea limpio.</li>
+<li>Mitigación obligatoria: no nombrar la enfermedad del usuario, no nombrar el fármaco específico en titulares, disclaimer "results may vary" en cada testimonial, cuenta con historial limpio (Lotes 1-2 sin rechazos), bridge blindada (checklist doc 05).</li>
+<li>Riesgo global ruta: {r} alto. Solo Lote 3.</li>
+</ul>
+<hr>
+<h2 id="3-plan-de-testing-orden-por-lotes-killscale">3. Plan de testing (orden por lotes, kill/scale)<a class="anchor" href="#3-plan-de-testing-orden-por-lotes-killscale">#</a></h2>
+<blockquote><p>Conectado a doctrina: 3x kill, +30% escalado vertical, MER > 1.5, diversificación por Entity ID (M05), velocidad sobre perfección. Principio rector (doc avatares §7): empezar por riesgo bajo, escalar el de mayor riesgo último, para no quemar la cuenta con el ángulo que más banea.</p></blockquote>
+<h3 id="lote-1-validar-audiencia-mensaje-riesgo-g-bajo-días-1-7">Lote 1 · Validar audiencia + mensaje · riesgo {g} bajo (días 1-7)<a class="anchor" href="#lote-1-validar-audiencia-mensaje-riesgo-g-bajo-días-1-7">#</a></h3>
+<ul>
+<li><strong>Rutas/celdas:</strong> Ruta 2 completa (Linda) + celdas M1, M2 (Roberto pregunta/listicle), M11 (Linda aspiracional), M12 (George aspiracional).</li>
+<li><strong>Objetivo:</strong> descubrir qué avatar/ángulo engancha y a qué CPC/CPL, sin arriesgar la cuenta.</li>
+<li><strong>Estructura (M05 cuenta nueva):</strong> Campaña Presentación → Landing Page Views. Advantage+ amplio + 1 set de intereses semilla. Diversificación creativa: mínimo 3 avatares (Roberto/Linda/George) × 2 formatos (imagen + video UGC) para no compartir Entity ID.</li>
+<li><strong>Creativos:</strong> por celda, 1 cuerpo + 3-5 hooks. Si se arma en Meta nativo, regla 5x5 (5 primary text + 5 headlines por ad).</li>
+</ul>
+<h3 id="lote-2-escalar-el-mensaje-ganador-riesgo-a-medio-días-8-18">Lote 2 · Escalar el mensaje ganador · riesgo {a} medio (días 8-18)<a class="anchor" href="#lote-2-escalar-el-mensaje-ganador-riesgo-a-medio-días-8-18">#</a></h3>
+<ul>
+<li><strong>Rutas/celdas:</strong> Ruta 1 completa (Roberto agua dura) + M6 (Frank testimonial), M8 (Dave reframe), M13 (George ingredientes).</li>
+<li><strong>Objetivo:</strong> subir conversión con mecanismo (agua dura/ingredientes) y testimonial sobre el avatar que el Lote 1 marcó ganador.</li>
+<li><strong>Disparador:</strong> entrar solo cuando el Lote 1 tenga un avatar/ángulo con señal positiva (buen CPL/CTR, tráfico de calidad a la bridge).</li>
+</ul>
+<h3 id="lote-3-el-ganador-del-swipe-riesgo-r-alto-día-18-solo-cuenta-sólida">Lote 3 · El ganador del swipe · riesgo {r} alto (día 18+, solo cuenta sólida)<a class="anchor" href="#lote-3-el-ganador-del-swipe-riesgo-r-alto-día-18-solo-cuenta-sólida">#</a></h3>
+<ul>
+<li><strong>Rutas/celdas:</strong> Ruta 3 completa (Frank anti-fármaco) + M5 (autoridad), M7 (Dave advertorial news).</li>
+<li><strong>Pre-requisitos no negociables:</strong> cuenta con historial limpio (Lotes 1-2 sin rechazos graves) + bridge 100% blindada (checklist doc 05) + cero claim escalado ad-lander.</li>
+</ul>
+<div class="timeline"><div class="tl-item"><div class="tl-when">Lote 1 (1-7)</div><div class="tl-what">Riesgo bajo: Linda cuidadora + Roberto pregunta/listicle + aspiracional. Validar avatar</div></div><div class="tl-item"><div class="tl-when">Lote 2 (8-18)</div><div class="tl-what">Riesgo medio: agua dura (Roberto) + testimonial sobre el ganador del Lote 1</div></div><div class="tl-item"><div class="tl-when">Lote 3 (18+)</div><div class="tl-what">Riesgo alto: anti-fármaco (Frank) + autoridad + advertorial, solo cuenta limpia</div></div><div class="tl-item"><div class="tl-when">Escalado</div><div class="tl-what">+30% vertical sobre el ganador; horizontal con nuevos avatares/formatos</div></div></div>
+<h3 id="criterios-kill-scale">Criterios kill / scale<a class="anchor" href="#criterios-kill-scale">#</a></h3>
+<div class="kpi-strip"><div class="stat"><div class="stat-value">3x</div><div class="stat-label">Kill rule · gastaste 3x el payout/CPL target sin conversión = kill</div></div><div class="stat"><div class="stat-value">+30%</div><div class="stat-label">Scale vertical máximo por movida, esperar 3-5 días</div></div><div class="stat"><div class="stat-value">1.5</div><div class="stat-label">MER mínimo (comisiones / ad spend) para sostenibilidad</div></div><div class="stat"><div class="stat-value">$202</div><div class="stat-label">Kill threshold por ad (3 × payout ~$67.61, ver deep-dive)</div></div></div>
+<div class="table-wrap"><table><thead><tr>
+<th>Situación</th>
+<th>Acción</th>
+<th>Fuente</th>
+</tr></thead><tbody>
+<tr>
+<td>Ad gastó 3x payout sin conversión</td>
+<td class="sg-red">Kill, sin discusión</td>
+<td>3x kill (M01)</td>
+</tr>
+<tr>
+<td>Buen CTR pero bridge no convierte</td>
+<td class="sg-amber">Diagnosticar los 3 vértices (oferta/audiencia/mensaje) antes de killear</td>
+<td>Triángulo Dorado (M04)</td>
+</tr>
+<tr>
+<td>Ganador con MER sólido + frequency < 2.5</td>
+<td class="sg-green">Escalar +30% vertical, esperar 3-5 días</td>
+<td>+30% (M07)</td>
+</tr>
+<tr>
+<td>Frequency > 3</td>
+<td class="sg-amber">Fatiga: refrescar hook/formato/avatar</td>
+<td>Entity ID (M05)</td>
+</tr>
+<tr>
+<td>Ad rechazado por claim</td>
+<td class="sg-red">Revisar verbos (cura→apoya) y coherencia ad-lander; no reintentar igual</td>
+<td>doc 05</td>
+</tr>
+<tr>
+<td>Warning de policy en la cuenta</td>
+<td class="sg-red">Pausar Lote 3, mantener Lotes 1-2 hasta limpiar</td>
+<td>doc 05</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="4-notas-operativas">4. Notas operativas<a class="anchor" href="#4-notas-operativas">#</a></h2>
+<ul>
+<li><strong>Tracking antes del primer dólar</strong> (deep-dive §3): fbclid en el HopLink + CAPI/postback, validar con compra de $1. Sin Purchase event vía CAPI, Andromeda optimiza ciego (M05).</li>
+<li><strong>Nunca direct link:</strong> siempre bridge propia (modelo lead-gen que controlamos). El direct link a la sales page del vendor no se puede blindar para compliance.</li>
+<li><strong>Aplicar al programa</strong> (requiere approval): <code>affiliates@prostadine-product.com</code>, mencionar Meta US + pedir términos CPA/Direct Tracking + creativos.</li>
+<li><strong>No sobre-prometer la oferta:</strong> garantía 60 días (no 90), envío gratis real, bonos digitales "de regalo" sin fijar valor exacto (varía por mirror).</li>
+<li><strong>Patrón de oro de esta oferta:</strong> el big idea del <strong>agua dura</strong> es un mecanismo con nombre, externo y no estigmatizante. Es nuestra mejor herramienta de message match + compliance. Construir el grueso del Lote 2 alrededor de él.</li>
+</ul>
+<hr>
+<p><em>Sales page leída en <code>web-prostadine.com</code> y <code>prostadene.com</code> (2026-06-18, WebFetch). Big idea y oferta reales del vendor. Avatares = hipótesis de trabajo (Definidor Fauadzk), validar con data de campaña. Hooks modelados sobre swipe real (doc 06), nunca copiados; re-verificar la Ad Library antes de modelar. Todo el copy respeta compliance doc 05: situación no condición, verbos estructura-función, cero claim de cura. Sin voseo, sin em dash.</em></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 01-prostadine.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+[00:00] Sora 2 just got released and it's completely changing the entire AI space.
+[00:04] Because of that, it's transforming how creators make AI UGC videos.
+[00:07] This entire video right here is generated with just one sentence of prompt,
+[00:11] but what's even crazier isn't the video itself.
+[00:13] It's what this means for creators and brand owners.
+[00:16] Until recently, producing high quality UGC ads required actors,
+[00:20] shipping, and days of waiting and editing.
+[00:22] Even with AI tools, you'd spend hours adjusting generations,
+[00:25] adding in B-roll, and working around a few templates to make it look right.
+[00:29] But with Sora 2, you can take whoever you want,
+[00:31] drop them into any setting you can imagine,
+[00:33] and generate results that don't just look realistic.
+[00:36] They feel like they were filmed by a real person.
+[00:38] It adds in all the imperfections that make videos believable,
+[00:41] and it does it from just a few simple sentences.
+[00:43] Now with the latest update, Inside Arcads AI,
+[00:46] you'll find full access to Sora 2 Pro.
+[00:48] Don't mix it up with the regular version.
+[00:50] It's the chatGPT model people pay 200 a month for,
+[00:53] and it's completely watermark-free inside Arcads AI.
+[00:56] In this video, I'm going to show you, step by step,
+[00:58] how to use Sora 2 Pro inside Arcads to create scroll-stopping,
+[01:02] realistic, and high-converting AI UGC ads.
+[01:05] So let's start.
+[01:06] First, sign up to Arcads.
+[01:07] There's a link for that in the description below.
+[01:09] Once you've signed up and locked in, this is what the main page looks like.
+[01:12] Now to start your first project, you just click on this button right here,
+[01:16] that's going to open up the prompting window.
+[01:18] Then up top, click on this little drop-down,
+[01:20] and switch it from talking actors into videos.
+[01:22] You can now use the Sora 2 Pro version right here in Arcads.
+[01:26] I want to make a Get Ready With Me type of video.
+[01:28] So I'll paste my prompt in here, and before I hit Generate,
+[01:31] I'll make sure the duration is set to 12 seconds.
+[01:34] Now this part is really important.
+[01:35] Sora sometimes cuts videos short if you choose a shorter time frame,
+[01:38] so you might end up with something that ends halfway through.
+[01:41] That's why I always recommend going with 12 seconds.
+[01:43] It just gives Sora enough time to actually finish the video properly.
+[01:46] Then I make sure the quality is set to the highest one available,
+[01:49] and I want it to be in portrait mode,
+[01:51] since we're going for a UGC style video.
+[01:53] Once that's done, I just click Generate and wait for it to render.
+[01:57] I like to start with this lightweight moisturizer.
+[01:58] It wakes my skin up without feeling sticky.
+[02:00] Pressing it in just feels so soothing in the mornings.
+[02:03] A little lip balm, and then I decide what to do with my hair.
+[02:05] Today a soft clip, easy and put together.
+[02:08] And yeah, as you can see, the result looks super realistic.
+[02:11] The voice sounds totally human.
+[02:12] The way she puts the cream on her face,
+[02:14] the way she ties up her hair, it all feels so natural.
+[02:17] It's wild how realistic it looks.
+[02:18] Let me show you how much better the Sora 2 Pro model
+[02:21] is compared to the normal version.
+[02:22] And by any means, this one isn't bad.
+[02:24] It's still pretty good in terms of creativity and overall quality,
+[02:28] but the main difference you'll notice right away is the resolution.
+[02:31] It's just not as sharp as the Pro one.
+[02:33] Sora Pro gives you full HD quality, smoother motion,
+[02:36] and the lighting just looks way more natural.
+[02:38] Honestly, both models are really good,
+[02:40] but the Sora 2 Pro model is the one that makes it truly usable
+[02:43] for real ads or client work.
+[02:45] You can use that one right now to make sales for your products
+[02:47] and for your clients.
+[02:48] Now let's move on to something more actionable.
+[02:50] For this one, I'm using a serum bottle image I found online.
+[02:54] Then in the bottom left, I'll upload it as the base image.
+[02:56] Now for the prompt, you actually don't need to overcomplicate it with Sora.
+[03:00] You can go really simple.
+[03:01] So for mine, I'm just going to write a Gen Z woman filming a Get Ready With Me,
+[03:05] applying this serum, and talking about how great it is.
+[03:08] Literally nothing else.
+[03:09] I'll double check that the time frame is 12 seconds,
+[03:11] and once that's ready, I'll hit Generate.
+[03:13] Keep in mind, Sora 2 is pretty packed right now,
+[03:16] so it may take slightly longer to generate compared to other tools.
+[03:19] That's totally normal.
+[03:20] Just give it a little time to do its thing, since it'll be worth it.
+[03:22] But with that being said, let's take a look at the result.
+[03:34] And the result came out looking great.
+[03:36] I'm amazed at how real this Get Ready With Me routine feels.
+[03:39] It doesn't feel AI generated at all.
+[03:41] It looks like a real woman filming herself,
+[03:43] just talking casually while getting ready.
+[03:45] It feels so natural.
+[03:46] It's almost a little creepy.
+[03:47] I'd say the serum bottle looks exactly like the real thing.
+[03:50] Like, she actually bought it and filmed the ad herself.
+[03:52] Now, I want to test something completely different.
+[03:54] For this next one, I've got an image of a binocular holder,
+[03:57] something a lot of hunters use.
+[03:59] I just want to show you how strong Sora 2 is
+[04:01] when it comes to creating totally different scenes and products.
+[04:04] So I'm going to import it the same way as before.
+[04:06] And for the prompt, I'll write,
+[04:08] a hunter filming a hunting vlog with a selfie stick,
+[04:10] promoting this binocular holder,
+[04:12] talking about how great it is and how comfortable it feels.
+[04:15] Same process applies here.
+[04:16] I'll hit Generate, wait a bit,
+[04:18] and let's take a look at the result.
+[04:20] And again, the same thing.
+[04:32] Results are just insanely good.
+[04:33] He looks like a real outdoorsman
+[04:35] who's been hiking through the woods all day,
+[04:36] relaxed, comfortable, and confident.
+[04:38] His gear feels totally authentic,
+[04:40] like he's genuinely out there exploring.
+[04:42] The lighting, the forest backdrop,
+[04:44] even the way he holds himself.
+[04:45] Everything just feels raw and real.
+[04:47] His voice has an easygoing, genuine tone
+[04:49] that really fits his personality.
+[04:51] What really stands out to me is how real it all feels.
+[04:53] Normally, to create an ad like this,
+[04:55] you'd have to hire an actual hunter,
+[04:57] which is a challenge on its own.
+[04:59] Get him out on a real hunt,
+[05:00] and make him film it all manually.
+[05:01] It's wild when you think about the price tag
+[05:03] a production like that would normally have,
+[05:05] but using Sora in arcades,
+[05:07] we created it in just seconds.
+[05:08] The possibilities with this are actually wild.
+[05:11] And while those results are really great,
+[05:13] Sora 2 can handle way more than just some simple
+[05:15] get ready with me routines.
+[05:17] For our next generation,
+[05:18] I wanna make an ad for this watch right here.
+[05:20] I wanna make a viral, visually catchy video
+[05:22] of a guy moving all around his house
+[05:24] from the roof to the basement to his bedroom.
+[05:26] While talking about this watch,
+[05:28] I'll upload my image first,
+[05:29] then I'll write this as my prompt.
+[05:31] A Gen Z guy talks excitedly
+[05:33] about the black LED fitness watch.
+[05:35] Use reference image.
+[05:36] As he speaks, the background keeps changing
+[05:38] from the roof of his house to the basement
+[05:40] to his bedroom and other places.
+[05:42] The camera follows him naturally.
+[05:44] His words stay focused on the watch,
+[05:46] not the background.
+[05:46] The same watch design stays the same in every shot,
+[05:49] clear on his wrist.
+[05:50] And this ad came out looking really cool.
+[05:52] Check this out, this is my new LED fitness watch
+[05:54] and I'm kind of obsessed.
+[05:55] It's super minimal, all matte black,
+[05:56] but the moment you tap the face,
+[05:58] you get that clean digital time right there.
+[05:59] No buttons, no extra fluff,
+[06:00] just a smooth band and a crazy bright display
+[06:02] you can see anywhere.
+[06:03] Right away, I saw how spot on the watch is.
+[06:05] It looks exactly like the product photo.
+[06:07] And I love how natural the guy sounds
+[06:09] when he talks about it.
+[06:10] It's casual as a believable tone
+[06:12] you'd hear from a friend
+[06:13] showing off something he actually bought.
+[06:14] What's crazy is that he even touches
+[06:16] on the key features I had in mind
+[06:18] without me ever writing a word of copy for him.
+[06:20] The settings are perfect too.
+[06:22] He switches between different locations
+[06:24] that all look like normal everyday rooms.
+[06:26] His bedroom looks like someone actually lives in it.
+[06:28] A little messy, LED lights glowing in the corner.
+[06:31] Just super real.
+[06:32] Everything together makes the video look real,
+[06:34] giving the ad a natural fun vibe.
+[06:36] For this next ad,
+[06:37] I wanted to try a completely new angle.
+[06:39] This time I'm going to make an ad for this plane pillow.
+[06:41] For this one, I want to go with a travel vlog style.
+[06:44] So my idea is to have a girl take us on a mini journey,
+[06:46] starting at home while she's packing,
+[06:48] then to the plane, and finally all the way to Bali.
+[06:51] For the prompt, I'm going to write this.
+[06:52] A Gen Z girl films a relaxed travel vlog
+[06:55] about her trip to Bali.
+[06:56] Scene one, in her bedroom,
+[06:58] she packs a suitcase
+[06:59] and shows a soft travel pillow she plans to bring.
+[07:01] Scene two, on the airplane,
+[07:03] she talks casually about how comfortable
+[07:05] the pillow is while resting her head on it.
+[07:07] Scene three, in Bali outside her villa,
+[07:09] she still has the pillow around her neck
+[07:11] and laughs that it's so comfy,
+[07:12] she forgot to take it off.
+[07:14] Each scene plays in order,
+[07:15] with smooth cuts, her outfit,
+[07:17] and pillow stay identical,
+[07:18] and her dialogue naturally fits the setting.
+[07:20] Then I'll hit generate,
+[07:21] and let's take a look at what came out.
+[07:23] I just picked up this super soft travel pillow
+[07:25] and it's definitely coming to Bali with me.
+[07:27] I'm in flight right now
+[07:28] and honestly this thing is saving my neck.
+[07:30] Literally.
+[07:30] It's like a little cloud.
+[07:31] Made it to Bali.
+[07:32] I still have the pillow on
+[07:33] because I forgot it was there.
+[07:34] It's that comfy.
+[07:35] First off, I've got to say,
+[07:37] this one is crazy consistent.
+[07:38] The pillow looks exactly like the one from the image.
+[07:41] It doesn't have any weird morphing
+[07:42] or distortion anywhere.
+[07:43] And visually, everything just matched perfectly.
+[07:46] The bedroom scene looks like a normal American room
+[07:48] and the airplane shop feels completely believable.
+[07:51] Then when she's in that villa in Bali,
+[07:53] the lighting and atmosphere look absolutely perfect.
+[07:56] Everything feels real,
+[07:57] from the shifting light outside the windows
+[07:59] to how her hair moves slightly in the breeze.
+[08:01] If you showed this to someone
+[08:02] without telling them it's AI,
+[08:04] they'd have no idea.
+[08:05] So yeah, another really strong result here.
+[08:07] For the final result,
+[08:08] this is where Sora really shines.
+[08:10] I'm planning an ad where a person's running
+[08:12] and talking about this digital watch I came across online.
+[08:15] But while she's running,
+[08:16] the environment keeps changing from one place to another.
+[08:18] One moment she's running through a forest,
+[08:20] then suddenly she's in a desert,
+[08:22] and in the next shot she's up in snowy mountains,
+[08:24] all while still running and talking about the watch.
+[08:26] Then she finally ends up back in her neighborhood.
+[08:29] Now this idea is a little bit different
+[08:30] from the usual UGC ad,
+[08:32] but it's perfect for showing you
+[08:33] just how much you can do with Sora 2.
+[08:35] So for the prompt, I'm going with this.
+[08:37] Gen Z girl promoting a digital watch while running.
+[08:40] She starts jogging through a quiet American neighborhood.
+[08:42] Then the environment switches.
+[08:43] She's running in a desert,
+[08:45] then in snowy mountains,
+[08:46] and finally ends up back in the neighborhood,
+[08:48] smiling and holding up the watch,
+[08:50] showing the glowing digital display.
+[08:51] Then I'll just hit generate,
+[08:53] and let's take a look at the result.
+[08:54] I run for the headspace, the view,
+[08:56] and the feeling of getting exactly where I need to be.
+[08:59] Whatever the terrain,
+[09:00] quiet streets, desert heat, or mountain cold,
+[09:03] this watch keeps up with me.
+[09:05] And honestly, the result came out
+[09:07] exactly how I imagined it.
+[09:08] The most amazing thing about Sora 2
+[09:10] is how it finally turns what you imagine
+[09:12] into something that looks completely real.
+[09:14] It's not just close, it nails every detail.
+[09:16] From the setting to the lighting,
+[09:18] it feels like I literally pulled a thought
+[09:20] out of my head and turned it into a video.
+[09:22] That's seriously next level.
+[09:23] It makes you appreciate how far this technology has come,
+[09:26] and how much power it gives us creatively.
+[09:28] But the wildest part is
+[09:29] that you can access all this power directly inside ARCADS,
+[09:32] plus all the creative tools that come with it.
+[09:34] You can refine your generations,
+[09:36] using options like unboxing POV,
+[09:38] or try Show Your App,
+[09:39] which lets you upload a product or app image
+[09:41] and show it directly in the video.
+[09:43] Unboxing POV is the go-to for realistic product videos
+[09:46] where a person's seen unboxing your product on camera.
+[09:49] You can pair it with Sora 2 Pro
+[09:50] to make natural finished ad campaigns
+[09:52] that are entirely AI generated.
+[09:54] And when you combine all of this,
+[09:56] Sora 2 Pro, Unboxing POV,
+[09:58] Show Your App, and everything else ARCADS gives you,
+[10:00] you basically have a tool
+[10:01] that can print out AI UGC ads
+[10:03] that look just as good as the real ones,
+[10:05] without ever needing to hire,
+[10:07] or talk to a single UGC creator.
+[10:09] Now you know how to make realistic,
+[10:10] high-converting AI UGC ads with Sora 2 in ARCADS AI.
+[10:14] And honestly, that's the crazy part,
+[10:16] because now this kind of content isn't just for big brands
+[10:19] or people with production teams anymore.
+[10:20] You can create your own ads
+[10:22] that look like genuine creator content,
+[10:24] and it works for pretty much any niche.
+[10:26] Inside ARCADS AI, you get access to Sora 2 Pro,
+[10:28] plus with all the other ARCADS tools,
+[10:30] you can take your ads to the next level
+[10:32] while saving a ton of money.
+[10:33] Rather than paying hundreds for creator-made ads,
+[10:35] you can create nearly the same thing with Sora for less than $10.
+[10:39] So if you want to create UGC ads
+[10:41] that look amazing and actually deliver results,
+[10:43] head to the link below and sign up for ARCADS AI.
+[10:45] And I'll see you in the next one.

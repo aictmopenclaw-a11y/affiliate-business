@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tactics Aplicables · Consolidación Cross-Fuente · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../study.html">← Affiliate Business · Index</a>
+<span class="meta">07-learning / fuentes-confiables-2026 · 8 min · 1,532 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#patrones-convergentes-lo-que-dicen-todos-los-serios" class="">Patrones convergentes (lo que dicen TODOS los serios)</a></li><li><a href="#1-diversificación-creativa-es-el-cuello-de-botella-post-andromeda-2024-2026" class="h3">1. Diversificación creativa es el cuello de botella post-Andromeda 2024-2026</a></li><li><a href="#2-capi-postback-es-obligatorio-no-opcional" class="h3">2. CAPI postback es obligatorio, no opcional</a></li><li><a href="#3-profit-engineering-vanity-roas" class="h3">3. Profit engineering > vanity ROAS</a></li><li><a href="#4-creative-ugly-ads-polished" class="h3">4. Creative "ugly ads" > polished</a></li><li><a href="#5-single-channel-focus-hasta-validar" class="h3">5. Single-channel focus hasta validar</a></li><li><a href="#tácticas-específicas-por-dimensión" class="">Tácticas específicas por dimensión</a></li><li><a href="#selección-de-oferta" class="h3">Selección de oferta</a></li><li><a href="#setup-meta-ads" class="h3">Setup Meta Ads</a></li><li><a href="#capi-tracking" class="h3">CAPI + tracking</a></li><li><a href="#creative-production" class="h3">Creative production</a></li><li><a href="#economics-escalado" class="h3">Economics + escalado</a></li><li><a href="#compliance-risk-management" class="h3">Compliance + risk management</a></li><li><a href="#tactics-no-aplicables-a-nuestro-stack" class="">Tactics NO aplicables a nuestro stack</a></li><li><a href="#lo-que-ninguna-fuente-dice-gap-detectado" class="">Lo que NINGUNA fuente dice (gap detectado)</a></li><li><a href="#resumen-ejecutivo-de-acción" class="">Resumen ejecutivo de acción</a></li><li><a href="#top-10-tactics-a-aplicar-mes-1" class="h3">Top 10 tactics a aplicar mes 1</a></li><li><a href="#tactics-a-evaluar-mes-2-3" class="h3">Tactics a evaluar mes 2-3</a></li><li><a href="#tactics-a-evaluar-mes-4" class="h3">Tactics a evaluar mes 4+</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>tactics-aplicables.md</span>
+<span>1,532 palabras</span>
+<span>~8 min lectura</span>
+</div>
+<h1 id="tactics-aplicables-consolidación-cross-fuente">Tactics Aplicables · Consolidación Cross-Fuente<a class="anchor" href="#tactics-aplicables-consolidación-cross-fuente">#</a></h1>
+<blockquote><p>Síntesis de las tácticas accionables extraídas de las 9 fichas publicadas. Cada táctica clasificada: <strong>Aplicable</strong> / <strong>Adaptable</strong> / <strong>No aplicable</strong> para stack Hispano-US ClickBank + Meta Ads.</p></blockquote>
+<hr>
+<h2 id="patrones-convergentes-lo-que-dicen-todos-los-serios">Patrones convergentes (lo que dicen TODOS los serios)<a class="anchor" href="#patrones-convergentes-lo-que-dicen-todos-los-serios">#</a></h2>
+<h3 id="1-diversificación-creativa-es-el-cuello-de-botella-post-andromeda-2024-2026">1. Diversificación creativa es el cuello de botella post-Andromeda 2024-2026<a class="anchor" href="#1-diversificación-creativa-es-el-cuello-de-botella-post-andromeda-2024-2026">#</a></h3>
+<p><strong>Quién lo dice:</strong> Tier 11, Foxwell, Sanchez, Holiday, Hott <strong>Consenso:</strong> 5 creativos/sem ya no alcanza. Andromeda quema variations 10x más rápido que pre-2024.</p>
+<p><strong>Number convergente:</strong> <strong>20-50 creativos/sem</strong> mínimo para sostener performance estable post-Andromeda.</p>
+<p><strong>Aplicable:</strong> SÍ. <strong>Implicancia para nuestro stack:</strong> Dali debe escalar producción con HeyGen + Creatify para llegar a 20+ variantes/sem. NO es opcional.</p>
+<hr>
+<h3 id="2-capi-postback-es-obligatorio-no-opcional">2. CAPI postback es obligatorio, no opcional<a class="anchor" href="#2-capi-postback-es-obligatorio-no-opcional">#</a></h3>
+<p><strong>Quién lo dice:</strong> Tier 11, Foxwell, ClickBank Affiliated (Venture Beyond ep 204) <strong>Consenso:</strong> sin CAPI, Andromeda optimiza con data incompleta · ROAS calculado por Meta es ficticio.</p>
+<p><strong>Aplicable:</strong> SÍ. <strong>Implicancia para nuestro stack:</strong> SOP 04 setup funnel · paso 10 (CAPI postback) es BLOQUEANTE. Cris debe armar Cloudflare Worker desde día 1. No "lo haremos cuando validemos" · sin esto el resto no sirve.</p>
+<hr>
+<h3 id="3-profit-engineering-vanity-roas">3. Profit engineering > vanity ROAS<a class="anchor" href="#3-profit-engineering-vanity-roas">#</a></h3>
+<p><strong>Quién lo dice:</strong> Taylor Holiday (CTC) principalmente · refuerzo Tier 11 <strong>Consenso:</strong> ROAS bonito sin MER positivo es teatro. Pensar en margin contribution después de fees + refunds + tools.</p>
+<p><strong>Aplicable:</strong> SÍ con adaptación. <strong>Implicancia para nuestro stack:</strong> offer-scorer ya calcula CPA breakeven · agregar checkbox "MER incluye fees ClickBank 7.5%+$1 + refunds 10-15% reservado?" en próxima versión del scorer.</p>
+<hr>
+<h3 id="4-creative-ugly-ads-polished">4. Creative "ugly ads" > polished<a class="anchor" href="#4-creative-ugly-ads-polished">#</a></h3>
+<p><strong>Quién lo dice:</strong> Barry Hott (framework central), Sanchez, Shackelford <strong>Consenso:</strong> ads con producción baja + autenticidad humana superan ads pulidos de agencia 70% del tiempo en DTC.</p>
+<p><strong>Aplicable:</strong> PARCIAL. <strong>Implicancia para nuestro stack:</strong> Dali debe balancear · 70% "ugly real-looking" + 30% polished. NO sobre-producir HeyGen avatares con look comercial. Probar UGC sintético Creatify con setup casero.</p>
+<hr>
+<h3 id="5-single-channel-focus-hasta-validar">5. Single-channel focus hasta validar<a class="anchor" href="#5-single-channel-focus-hasta-validar">#</a></h3>
+<p><strong>Quién lo dice:</strong> Ralph Burns, Taylor Holiday, ClickBank Affiliated speakers <strong>Consenso:</strong> diversificar Meta+TikTok+YouTube en paralelo al inicio = mediocridad en todos.</p>
+<p><strong>Aplicable:</strong> SÍ. <strong>Implicancia para nuestro stack:</strong> Meta Ads como único canal hasta mes 4-6. NO ceder a la tentación de "probar también TikTok Shop". Disciplina.</p>
+<hr>
+<h2 id="tácticas-específicas-por-dimensión">Tácticas específicas por dimensión<a class="anchor" href="#tácticas-específicas-por-dimensión">#</a></h2>
+<h3 id="selección-de-oferta">Selección de oferta<a class="anchor" href="#selección-de-oferta">#</a></h3>
+<p><strong>De Tier 11 / Ralph Burns:</strong></p>
+<ul>
+<li>nCAC framework: track Net CAC con refunds + fees incluidos · target nCAC < AOV × 0.6</li>
+<li>[Aplicable] Aplicar a evaluación pre-test de cada oferta</li>
+</ul>
+<p><strong>De ClickBank Affiliated (Venture Beyond ep 204):</strong></p>
+<ul>
+<li>Focus 1-3 verticales máximo (Venture Beyond solo: health, wellness, beauty)</li>
+<li>[Aplicable] Nosotros: nutra (dental + microbiome + audio-VSL) según research previo</li>
+</ul>
+<p><strong>De Modern Retail / Dreamday PR:</strong></p>
+<ul>
+<li>DTC brands con affiliate hitting 25-35% revenue tienen integración profunda · no solo "links"</li>
+<li>[Adaptable] Para nosotros como afiliados: buscar vendors con tools page robusta + AM responsivo</li>
+</ul>
+<hr>
+<h3 id="setup-meta-ads">Setup Meta Ads<a class="anchor" href="#setup-meta-ads">#</a></h3>
+<p><strong>De Tier 11 (Episode 719 nCAC framework):</strong></p>
+<ul>
+<li>8 ad types principales: Hook variations + UGC + Demo + Listicle + Comparison + Authority + Lifestyle + Direct CTA</li>
+<li>Mix obligatorio: 30% UGC + 25% Demo + 20% Hook variations + resto distribuido</li>
+<li>[Aplicable] Plug directo a SOP 07 producción creativos</li>
+</ul>
+<p><strong>De Foxwell Digital:</strong></p>
+<ul>
+<li>Cuenta Meta organizada con CBO (Campaign Budget Optimization) + Advantage+ Audience por default</li>
+<li>30+ concepts/mes per offer activa (no 10)</li>
+<li>Niche angles > broad audiences</li>
+<li>Organic feed activo como input signal del ad ranking</li>
+<li>[Aplicable] Cris configurar BM con estas reglas desde día 1</li>
+</ul>
+<p><strong>De Hott:</strong></p>
+<ul>
+<li>"Ugly ads" con texto overlay grande + Format vertical 9:16 obligatorio</li>
+<li>Hook visual en 1.5 seg, no 3 seg como pre-2024</li>
+<li>[Aplicable] Brief creativo Romi → Dali debe especificar 1.5 seg hook target</li>
+</ul>
+<hr>
+<h3 id="capi-tracking">CAPI + tracking<a class="anchor" href="#capi-tracking">#</a></h3>
+<p><strong>De Tier 11 + Foxwell convergencia:</strong></p>
+<ul>
+<li>Setup CAPI con Conversions API Gateway (Meta oficial) si no se quiere mantener server propio</li>
+<li>Deduplicación obligatoria entre Pixel + CAPI (event_id match)</li>
+<li>5-7 events trackeados mínimo: PageView, ViewContent, AddToCart, InitiateCheckout, Purchase (+ AddPaymentInfo si aplicable)</li>
+<li>[Aplicable] Cris arma Cloudflare Worker o usa CAPI Gateway Meta · ambos válidos</li>
+</ul>
+<hr>
+<h3 id="creative-production">Creative production<a class="anchor" href="#creative-production">#</a></h3>
+<p><strong>De Sanchez (8 Key Principles):</strong></p>
+<ol>
+<li>Hook = first 1.5 sec (no 3)</li>
+<li>Pattern interrupt visual cada 3-5 sec</li>
+<li>Subtitles always on (85% mobile sin audio)</li>
+<li>UGC > studio (autenticidad bate producción)</li>
+<li>Voiceover natural (no TTS robotic)</li>
+<li>Direct CTA al menos 2 veces (no solo final)</li>
+<li>Format 9:16 vertical priority absoluta</li>
+<li>Length 15-30 sec sweet spot 2025+</li>
+<li>[Aplicable] Dali workflow Mon-Fri framework de Sanchez · adoptar tal cual</li>
+</ol>
+<p><strong>De Hott (ugly ads framework):</strong></p>
+<ul>
+<li>Texto overlay con stroke (no shadow) para legibilidad mobile</li>
+<li>Colores contrastantes saturados (no minimal-aesthetic)</li>
+<li>"Real person filming with phone" look</li>
+<li>Captions hardcoded (no live captions Meta · son inestables)</li>
+<li>[Aplicable] Especificar en SOP 07</li>
+</ul>
+<p><strong>De Shackelford (regulated brands):</strong></p>
+<ul>
+<li>Para health/nutra: testimoniales + disclaimer visible en frame</li>
+<li>Avoid before/after directos (Meta disapproval risk)</li>
+<li>"Lifestyle outcome" approach (mostrar el resultado de vida, no el cambio físico)</li>
+<li>[Aplicable] Crítico para compliance nutra (refuerza <code>affiliate-compliance-nutra.md</code>)</li>
+</ul>
+<hr>
+<h3 id="economics-escalado">Economics + escalado<a class="anchor" href="#economics-escalado">#</a></h3>
+<p><strong>De Taylor Holiday (profit engineering):</strong></p>
+<ul>
+<li>MER (Marketing Efficiency Ratio) = Total Revenue / Total Ad Spend</li>
+<li>Target MER > 3x para DTC sustainable, > 2x para affiliate</li>
+<li>LTV pensar incluso para single-purchase (rebill stacks)</li>
+<li>[Adaptable] En affiliate sin email capture el LTV es del vendor · pensar en repeat por subscription rebill</li>
+</ul>
+<p><strong>De Tier 11 (escalado vertical):</strong></p>
+<ul>
+<li>+30% max por movida budget · esperar 5-7 días learning Meta</li>
+<li>Si ROAS sostenido 14 días > 2x → escalar +50% una vez · luego volver a +30%</li>
+<li>[Aplicable] Plug directo a SOP 06 weekly analysis</li>
+</ul>
+<p><strong>De Foxwell (escalado horizontal):</strong></p>
+<ul>
+<li>4 caminos para escalar horizontal: nuevas creatives, nuevas audiencias, nuevos placements, nuevos canales</li>
+<li>Priorizar nuevas creatives + nuevas audiencias dentro de Meta antes de saltar canal</li>
+<li>[Aplicable] Roadmap mes 4+ cuando validemos winner</li>
+</ul>
+<hr>
+<h3 id="compliance-risk-management">Compliance + risk management<a class="anchor" href="#compliance-risk-management">#</a></h3>
+<p><strong>De Shackelford (regulated brands):</strong></p>
+<ul>
+<li>Backup ad accounts mínimo 2 desde día 1 (no esperar al ban)</li>
+<li>Multilogin obligatorio para Hispano-US (bans 30-50% año 1 expectativa)</li>
+<li>Pre-aprobar versiones "safe" de cada ad antes de versión "aggressive"</li>
+<li>[Aplicable] Refuerza decisión Multilogin en STACK-MINIMO-VIABLE</li>
+</ul>
+<p><strong>De ClickBank Affiliated (varios episodios):</strong></p>
+<ul>
+<li>Refund rate threshold ClickBank: 20% suspende 90 días · presupuestar 10-15% reserva</li>
+<li>Customer Distribution Requirement: 5 ventas + 2 métodos pago + 2 sem wait</li>
+<li>[Aplicable] Confirmado en research ClickBank 2026 previo</li>
+</ul>
+<hr>
+<h2 id="tactics-no-aplicables-a-nuestro-stack">Tactics NO aplicables a nuestro stack<a class="anchor" href="#tactics-no-aplicables-a-nuestro-stack">#</a></h2>
+<p>Importante documentar lo que NO funciona para no perder tiempo:</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Táctica</th>
+<th>Fuente</th>
+<th>Por qué no aplica</th>
+</tr></thead><tbody>
+<tr>
+<td>B2B SaaS growth funnels</td>
+<td>Aazar Ali Shad</td>
+<td>No fit con stack ClickBank nutra</td>
+</tr>
+<tr>
+<td>TikTok Shop affiliate</td>
+<td>Iced Media (lead)</td>
+<td>No es ClickBank · capa adicional de complejidad</td>
+</tr>
+<tr>
+<td>Email marketing nurture flow</td>
+<td>Multiple fuentes DTC</td>
+<td>En affiliate no capturamos email · va al vendor</td>
+</tr>
+<tr>
+<td>Influencer seeding programs</td>
+<td>CTC, Dreamday PR</td>
+<td>Requiere brand propio · no aplica a afiliados</td>
+</tr>
+<tr>
+<td>PR-driven affiliate (Dreamday playbook)</td>
+<td>Modern Retail</td>
+<td>Requiere brand propio · adaptable solo Fase 4+</td>
+</tr>
+<tr>
+<td>Enterprise account-based marketing</td>
+<td>Tier 11 ocasional</td>
+<td>$50K+/mes budget mínimo · no para nosotros</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="lo-que-ninguna-fuente-dice-gap-detectado">Lo que NINGUNA fuente dice (gap detectado)<a class="anchor" href="#lo-que-ninguna-fuente-dice-gap-detectado">#</a></h2>
+<p>Cosas que esperaríamos encontrar pero ninguna fuente cubre profundo:</p>
+<ol>
+<li><strong>Cross-border tax para afiliados LATAM operando US</strong> — solo nuestra <code>affiliate-financial-cross-border.md</code> lo tiene</li>
+<li><strong>W-8BEN-E proceso paso a paso para SpA chilena</strong> — nadie cubre</li>
+<li><strong>CAPI postback con servidor en LATAM</strong> — Tier 11 menciona CAPI Gateway Meta como solución</li>
+<li><strong>Refund rate management con vendor LATAM-friendly</strong> — gap</li>
+<li><strong>Specific Spanish-language Hispano-US benchmarks</strong> — Pancho Val es el único que toca esto</li>
+</ol>
+<p>Estos gaps confirman que nuestro repo aporta valor único en español + cross-border.</p>
+<hr>
+<h2 id="resumen-ejecutivo-de-acción">Resumen ejecutivo de acción<a class="anchor" href="#resumen-ejecutivo-de-acción">#</a></h2>
+<h3 id="top-10-tactics-a-aplicar-mes-1">Top 10 tactics a aplicar mes 1<a class="anchor" href="#top-10-tactics-a-aplicar-mes-1">#</a></h3>
+<ol>
+<li><strong>Producir 20+ creativos/sem (no 5)</strong> — Dali con HeyGen + Creatify [convergente]</li>
+<li><strong>CAPI postback desde día 1</strong> — Cris Cloudflare Worker [convergente]</li>
+<li><strong>Hook visual 1.5 seg, no 3</strong> — Sanchez + Hott</li>
+<li><strong>8 ad types mix obligatorio</strong> — Tier 11 framework</li>
+<li><strong>Multilogin desde día 1 Hispano-US</strong> — Shackelford regulated brands</li>
+<li><strong>2 ad accounts backup minimum</strong> — Shackelford</li>
+<li><strong>MER tracking incluyendo fees ClickBank</strong> — Holiday profit engineering</li>
+<li><strong>nCAC framework con refunds reservados 10-15%</strong> — Tier 11</li>
+<li><strong>30+ concepts/mes per offer activa</strong> — Foxwell</li>
+<li><strong>"Ugly ads" 70% + polished 30% mix</strong> — Hott</li>
+</ol>
+<h3 id="tactics-a-evaluar-mes-2-3">Tactics a evaluar mes 2-3<a class="anchor" href="#tactics-a-evaluar-mes-2-3">#</a></h3>
+<ul>
+<li>Conversions API Gateway vs server propio (Foxwell + Tier 11)</li>
+<li>ASC+ Shopping Campaigns para affiliate (Tier 11 mentioned)</li>
+<li>TikTok Spark Ads como secondary channel (Sanchez mencionado opcionalmente)</li>
+<li>Stable email capture pre-VSL (CTC playbook adaptado)</li>
+</ul>
+<h3 id="tactics-a-evaluar-mes-4">Tactics a evaluar mes 4+<a class="anchor" href="#tactics-a-evaluar-mes-4">#</a></h3>
+<ul>
+<li>Brand propio en lugar de afiliado (Dreamday PR playbook · si validamos affiliate)</li>
+<li>Multi-vendor affiliate diversification (Venture Beyond approach)</li>
+<li>Mid-market consulting offer (Foxwell model post-success)</li>
+</ul>
+<hr>
+<p><em>Tactics-aplicables v1.0 · 2026-04-29 · re-validar mensual con nueva data de tests reales</em></p>
+<div class="footer">
+Affiliate Business · Generado 2026-06-09<br>
+Fuente: <code>tactics-aplicables.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

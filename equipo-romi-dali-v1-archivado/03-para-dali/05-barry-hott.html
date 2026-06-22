@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barry Hott · Ficha verificación · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../INDEX.html">← Affiliate Business · Index</a>
+<span class="meta">07-learning / fuentes-confiables-2026 / tier-1 · 6 min · 1,153 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#1-identidad-verificable" class="">1. Identidad verificable</a></li><li><a href="#2-scoring-8-criterios-con-evidencia" class="">2. Scoring (8 criterios con evidencia)</a></li><li><a href="#3-métricas-reales-snapshot-2026-05-26" class="">3. Métricas reales (snapshot 2026-05-26)</a></li><li><a href="#4-top-5-piezas-de-contenido-más-valiosas" class="">4. Top 5 piezas de contenido más valiosas</a></li><li><a href="#5-tácticas-accionables-para-stack-hispano-us-clickbankmeta" class="">5. Tácticas accionables para stack Hispano-US ClickBank+Meta</a></li><li><a href="#6-red-flags" class="">6. Red flags</a></li><li><a href="#7-próximo-paso-recomendado" class="">7. Próximo paso recomendado</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>05-barry-hott.md</span>
+<span>1,153 palabras</span>
+<span>~6 min lectura</span>
+</div>
+<h1 id="barry-hott-ficha-verificación">Barry Hott · Ficha verificación<a class="anchor" href="#barry-hott-ficha-verificación">#</a></h1>
+<p><strong>Fecha investigación:</strong> 2026-05-26 <strong>Investigador:</strong> Claude <strong>Tier asignado:</strong> 1 <strong>Credibility score:</strong> 13/16 <strong>Recomendación equipo:</strong> SEGUIR (con caveat curso 2025)</p>
+<hr>
+<h2 id="1-identidad-verificable">1. Identidad verificable<a class="anchor" href="#1-identidad-verificable">#</a></h2>
+<ul>
+<li><strong>URL principal:</strong> https://www.hottgrowth.com/ [VERIFIED]</li>
+<li><strong>Sitios secundarios:</strong> https://buildingadswithbarry.com (curso) · https://bhott.com · https://about.me/binghott</li>
+<li><strong>LinkedIn:</strong> https://www.linkedin.com/in/binghott/ (500+ conexiones · 24K followers · Brooklyn NY) [VERIFIED]</li>
+<li><strong>Twitter/X:</strong> @binghott [VERIFIED]</li>
+<li><strong>Facebook:</strong> https://www.facebook.com/binghott/ [VERIFIED]</li>
+<li><strong>Mentor platform:</strong> https://www.mentorpass.co/barryhott</li>
+<li><strong>Empresa:</strong> Hott Growth (consultoría propia) + URL Love It (CEO/Founder)</li>
+<li><strong>Educación:</strong> York College of Pennsylvania</li>
+<li><strong>Estado actividad:</strong> activo · publicando 2025-2026</li>
+</ul>
+<hr>
+<h2 id="2-scoring-8-criterios-con-evidencia">2. Scoring (8 criterios con evidencia)<a class="anchor" href="#2-scoring-8-criterios-con-evidencia">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>#</th>
+<th>Criterio</th>
+<th>Score</th>
+<th>Evidencia</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>Revenue principal</td>
+<td><strong>1/2</strong></td>
+<td>Consultoría 1:1 + retainers visibles en hottgrowth.com ($1200/60min, $650/30min, $400/15min, audits, monthly retainer). PERO en feb 2025 lanzó "Building Ads With Barry" curso cohort-based (~$1,700) — buildingadswithbarry.com [VERIFIED]. Mix curso + consultoría.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Audiencia auténtica</td>
+<td><strong>2/2</strong></td>
+<td>24K followers LinkedIn coherentes con 500+ conexiones. Engagement consistente con posts industry-recognized (testimoniales públicos de Omar Rada/Misen, Dara Denney) [VERIFIED via linkedin.com/in/binghott/]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Evidencia auditable</td>
+<td><strong>1/2</strong></td>
+<td>Featured en AdExchanger (oct 2023, Rotten Candy coverage) — adexchanger.com/commerce-roundup/rotten-to-the-core [VERIFIED]. Modern Retail lo cita como autoridad en "ugly ads" — modernretail.co/marketing/dtc-briefing-why-ugly-ads-are-taking-off [VERIFIED]. NO comparte revenue reports propios con timestamps; cliente list es claim verbal.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Coverage non-affiliate</td>
+<td><strong>2/2</strong></td>
+<td>AdExchanger (Tier-1 trade press) feature 2023 [VERIFIED] + Modern Retail (Digiday Media, Tier-1) feature en ugly ads trend [VERIFIED]. Ambos son medios industry sin relación comercial con Hott.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Especificidad táctica</td>
+<td><strong>2/2</strong></td>
+<td>Concepto "ugly ads" reproducible con ejemplos concretos (Tales interview kit ad performance) — Modern Retail [VERIFIED]. Threads X con análisis de spend ranges ($1-5M/mes, $600M acumulado). Hook rate analysis con frameworks. Recent video "Meta Ads Data Analysis 2025: What Really Works" (youtube.com/watch?v=wRA2VgYIDVs) [VERIFIED]</td>
+</tr>
+<tr>
+<td>6</td>
+<td>LinkedIn coherente</td>
+<td><strong>2/2</strong></td>
+<td>Employment history pública: Unified → Thesis (VP Growth) → Jump 450 (Growth Lead) → Harry's (consultant) → Sheridan Media (VP Growth) → Bedjet (Director Digital Growth) → Lone River/Ranch Water (head of growth, adquirido por Diageo 2021) → Rotten (Head of Growth) → Hott Growth (founder). Coincide con claims en hottgrowth.com [VERIFIED]</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Endosos cruzados</td>
+<td><strong>2/2</strong></td>
+<td>Co-webinar con Andrew Foxwell ("Creative Scaling in 2025") — buildingadswithbarry.com/webinar2 [VERIFIED]. Citado por Dara Denney (Tier 11/independent) en LinkedIn post sobre "ugly ads" [VERIFIED]. Workspace6, Chew On This, The Andrew Faris Podcast lo invitan como guest sin afiliación comercial cruzada.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Actividad reciente</td>
+<td><strong>1/2</strong></td>
+<td>Publica regularmente en X/LinkedIn 2025-2026. YouTube content reciente. PERO: bio LinkedIn enfatiza ahora curso + URL Love It (proyecto SaaS), menos threads tácticos densos que en 2022-2023. Frecuencia tactical content bajó vs peak.</td>
+</tr>
+</tbody></table></div>
+<p><strong>TOTAL: 13/16</strong> — califica para Tier 1 pero NO para TOP 5 final por mix curso/consultoría reciente.</p>
+<hr>
+<h2 id="3-métricas-reales-snapshot-2026-05-26">3. Métricas reales (snapshot 2026-05-26)<a class="anchor" href="#3-métricas-reales-snapshot-2026-05-26">#</a></h2>
+<ul>
+<li><strong>LinkedIn:</strong> 24,000 followers · 500+ conexiones [VERIFIED]</li>
+<li><strong>Twitter/X:</strong> @binghott · número exacto de followers no extraído (sitio bloqueó scrape directo, requirió Payment) [INDUSTRY SIGNAL: top decile DTC paid media Twitter, citado por Modern Retail]</li>
+<li><strong>Engagement:</strong> Tweets con threads tácticos densos tienen retweets/replies en orden cientos (no miles) — coherente con nicho DTC operator vs creator masivo</li>
+<li><strong>Frecuencia:</strong> publicación regular semanal en X + LinkedIn 2025-2026</li>
+<li><strong>Spend manejado declarado:</strong> $600M+ acumulado en FB/IG/Twitter/LinkedIn · $1-5M/mes activo [SELF-DECLARED en hottgrowth.com, no auditado externamente]</li>
+</ul>
+<hr>
+<h2 id="4-top-5-piezas-de-contenido-más-valiosas">4. Top 5 piezas de contenido más valiosas<a class="anchor" href="#4-top-5-piezas-de-contenido-más-valiosas">#</a></h2>
+<ol>
+<li><strong>Modern Retail · "Why DTC brands are finding success with 'ugly ads'"</strong> · https://www.modernretail.co/marketing/dtc-briefing-why-ugly-ads-are-taking-off/ · Establece "ugly ads" como categoría táctica con ejemplos concretos (Tales kit) y cita su frase clave sobre brand guidelines vs performance.</li>
+<li><strong>AdExchanger · "Rotten To The Core – But In The Right Way"</strong> (oct 2023) · https://www.adexchanger.com/commerce-roundup/rotten-to-the-core-%C2%AC-but-in-the-right-way/ · Caso real de DTC con multi-channel testing creative-first.</li>
+<li><strong>YouTube · "Meta Ads Data Analysis in 2025: What Really Works with Barry Hott"</strong> · https://www.youtube.com/watch?v=wRA2VgYIDVs · Frameworks de evaluación creative post-Andromeda.</li>
+<li><strong>The Andrew Faris Podcast · "Ugly Ads Work. Trust Barry Hott (And Me)"</strong> · https://creators.spotify.com/pod/show/andrew-faris6/episodes/Ugly-Ads-Work--Trust-Barry-Hott-And-Me-e2gl6b2 · Defensa profunda del approach con datos.</li>
+<li><strong>Dara Denney LinkedIn post · "Meta Ads Creative Hack: Make Ugly Ads With Barry Hott"</strong> · https://www.linkedin.com/posts/daradenney_meta-ads-creative-hack-make-ugly-ads-with-activity-7142923930847100928-Nrbc · Endoso de operadora independiente.</li>
+</ol>
+<hr>
+<h2 id="5-tácticas-accionables-para-stack-hispano-us-clickbankmeta">5. Tácticas accionables para stack Hispano-US ClickBank+Meta<a class="anchor" href="#5-tácticas-accionables-para-stack-hispano-us-clickbankmeta">#</a></h2>
+<p><strong>Aplicable directamente:</strong></p>
+<ul>
+<li><strong>Framework "ugly ads":</strong> crear creatives que parezcan UGC nativo del feed, no producción agencia. Aplicable 100% a affiliate offers ClickBank donde sobrepulido = banner blindness. Reproducible sin presupuesto producción.</li>
+<li><strong>Hook rate como métrica primaria de evaluación creative:</strong> Barry empuja medir 3-sec view rate por hook variant antes de decidir scale/kill. Aplicable a cualquier ad Meta.</li>
+<li><strong>Interview-style ad format</strong> (su ejemplo Tales con su padre): formato bajo costo, alto hook rate, fácil de replicar para ofertas ClickBank de salud/lifestyle (nicho con storytelling natural).</li>
+<li><strong>"Break brand guidelines for performance"</strong> principle: para affiliate donde no hay brand a proteger, total libertad creativa = ventaja directa.</li>
+</ul>
+<p><strong>NO aplicable / específica otro stack:</strong></p>
+<ul>
+<li>Su experiencia con brands DTC US de $1-5M/mes spend asume budgets que la mayoría de afiliados Hispano-US no manejan — el escalado vertical no se replica directo.</li>
+<li>Retainer agency model y "Billion Dollar Account Audit" son servicios B2B no replicables operativamente.</li>
+<li>Su networking con Tier 11 / Foxwell / Denney es Estados Unidos DTC bubble, no traduce a affiliate Latam.</li>
+</ul>
+<hr>
+<h2 id="6-red-flags">6. Red flags<a class="anchor" href="#6-red-flags">#</a></h2>
+<ul>
+<li><strong>Curso lanzado feb 2025 ("Building Ads With Barry" ~$1,700, 4 semanas, cohort).</strong> Es el riesgo principal: hasta 2024 era 100% consultoría/operación; ahora hay incentivo de presentar tactics de forma más universal de lo justo. Re-evaluar criterio 1 en próxima revisión trimestral.</li>
+<li><strong>No comparte revenue de sus propios negocios</strong> (URL Love It, Adcrate.com) con números auditables — claims solo verbales.</li>
+<li>Reseller sites pirata venden el curso ($1700 → $X en crazecourse.com etc.) → indica curso lo suficientemente buscado para ser pirateado, pero también puede inflar percepción de autoridad.</li>
+</ul>
+<p><strong>No hay auto-descarte:</strong> no headshot stock, LinkedIn auditable, no "passive income" en bio, no "DM me for secret", coverage en medios serios sin pago.</p>
+<hr>
+<h2 id="7-próximo-paso-recomendado">7. Próximo paso recomendado<a class="anchor" href="#7-próximo-paso-recomendado">#</a></h2>
+<p><strong>SEGUIR · watch list activa.</strong></p>
+<ul>
+<li><strong>Suscribirse a su feed X/LinkedIn</strong> para capturar threads tácticos cuando aparezcan (frecuencia bajó pero calidad sigue alta).</li>
+<li><strong>NO inscribir al equipo al curso "Building Ads With Barry"</strong> ($1,700 USD por persona) — el conocimiento se puede destilar de podcasts/threads gratuitos.</li>
+<li><strong>Aplicar framework "ugly ads"</strong> como hipótesis A/B en Kyest + clientes affiliate Hispano-US: 1 ad agency-style vs 1 ad ugly-style con misma oferta, medir hook rate + CTR + CPA.</li>
+<li><strong>Re-validar criterio 1 (revenue principal) en oct 2026:</strong> si curso pasa a ser >50% del mix, bajar a Tier 2.</li>
+<li><strong>Cross-reference con Andrew Foxwell:</strong> ambos hacen webinars juntos, sus frameworks son complementarios (Hott=creative tactic, Foxwell=account structure).</li>
+</ul>
+<hr>
+<p><em>Ficha v1.0 · 2026-05-26 · re-validar 2026-08-26</em></p>
+<div class="footer">
+Affiliate Business · Generado 2026-05-26<br>
+Fuente: <code>05-barry-hott.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

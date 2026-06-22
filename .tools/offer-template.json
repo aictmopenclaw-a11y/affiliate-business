@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "name": "Nombre de la oferta",
+    "vendor": "Vendor name",
+    "vsl_url": "https://...",
+    "tools_page_url": "https://...",
+    "category": "dental | microbiome | audio-vsl | weight-loss | other",
+    "language": "es | en | bilingual",
+    "geo": "us-hispano | us | latam | global"
+  },
+  "metrics": {
+    "initial_per_sale": 47.0,
+    "avg_per_sale": 147.0,
+    "gravity": 65,
+    "avg_rebill": 0.0,
+    "commission_pct": 75.0,
+    "estimated_conv_rate": 1.5
+  },
+  "hard_fails": {
+    "disease_claims": false,
+    "no_paid_traffic": false,
+    "low_aov": false,
+    "low_initial": false,
+    "high_refund": false
+  },
+  "positive_signals": {
+    "vendor_age": true,
+    "vsl_updated": true,
+    "am_responsive": false,
+    "capi_documented": true,
+    "recurring_rebill": false,
+    "bilingual_offer": true
+  }
+}

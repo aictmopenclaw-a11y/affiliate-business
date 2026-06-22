@@ -1,0 +1,537 @@
+[00:00] What's going on guys? It's Thomas and I'm back in this video
+[00:04] I'm gonna walk you through exactly how I set up one thousand dollar plus per day affiliate campaigns
+[00:12] With Facebook ads, so let's get straight into it
+[00:17] So right off the bat no messing around. I'm not gonna go off on too many tangents here
+[00:22] We are going to build out a campaign live now
+[00:25] I'm not gonna go over the offer research and how we find these offers
+[00:30] Maybe that's a topic for another day. I do a lot of content and emphasis on blue ocean offers
+[00:37] Inside of my ad profits community anyone interested. I've got a special offer running for the next few weeks
+[00:43] I don't know how long but if you're interested hit me up on Instagram
+[00:47] You can find my Instagram in the description below
+[00:51] But let's jump in so first things first the offer
+[00:54] It's a prostate offer anyone who knows me seen my content. You know, I love men's health
+[01:00] That is the niche or vertical that I operate in it's a neutral offer. So it's a supplement
+[01:07] Slightly different funnel. How is it blue ocean? It's blue ocean because I'm the only person running it
+[01:13] It's a private offer. It's exclusive to me alone
+[01:16] The the idea for me here the goal is to prove that the offer works and
+[01:23] That it converts and then I'm gonna allow my students in ad profits to run it as well and sort of open it up to those
+[01:30] It's one of the perks that I have in ad profits. So
+[01:34] That's why it's blue ocean. No one else can run this offer
+[01:38] Overwork, you know, there's a ton of different blue ocean offers out there or ways of making a blue ocean offer
+[01:45] Carving out your own blue ocean. I'm not gonna get into that
+[01:49] Topic right now today. We're just building out a campaign. So I'm gonna create campaign literally gonna take you through the whole process
+[01:58] So create sales campaign and
+[02:02] First things first I like to label my campaigns very clearly
+[02:07] So I know exactly what's going on. So I start off with my ad account name
+[02:11] I use red track red track has a built-in ads manager where you can turn things on and off
+[02:18] So if I'm out and about if I don't have a media buyer or a va
+[02:21] That's near the computer at that time and I can see something's iffy
+[02:26] I can turn things off
+[02:27] Directly from in the ads manager and by knowing that the ad account name is this campaign
+[02:33] I can turn out. I know exactly what that campaign is right
+[02:36] so ad account name
+[02:38] I didn't like to label the niche or offer you could do here as well
+[02:44] And then we're gonna do a testing CBO and today's date
+[02:49] 12th of the 12 25
+[02:52] Now I'm gonna preface
+[02:54] What I'm gonna show you and the way that I'm gonna set this up you don't have to do okay
+[02:59] I use multiple different structures campaign structures to run ads to test ads
+[03:06] Sometimes I use a BO ad set budget
+[03:10] Sometimes I use micro budget and anything under $50 I consider micro budget
+[03:15] Sometimes I use CBO. Sometimes I use bid cap straight off the bat. Sometimes I use inflated budgets
+[03:22] There's you know, it all depends on what I feel like on that day
+[03:26] How much trust I have in the offer. Do I think it's a good offer?
+[03:30] How much competitions in the market the time of year right now we're in queue for we're actually approaching Christmas
+[03:37] How likely is it people are buying first supplement offers, you know, they're still buying but maybe their attention is elsewhere
+[03:45] I don't know
+[03:46] So I'm gonna in this video. You're gonna see me set up as you know, a relatively inflated budget with bid caps
+[03:54] I'm not gonna go too heavy on the budget
+[03:56] But I'm gonna show you exactly how I'd set this up and I'll walk you through it
+[04:01] So we've got our campaign name. I'm gonna scroll down. We've got campaign budget already selected
+[04:07] Now I'm gonna come over here to the budget and I'm gonna move this to $10,000
+[04:11] I'm not spending this there's no way that this spends and I'm also gonna set a spending limit anyway to sort of offset the risk
+[04:19] But the idea here is we have an inflated budget. So we're telling facebook look spend my money
+[04:24] But we're gonna have a bid cap in line with our target CPA slightly higher
+[04:29] But it's going to be somewhere around our target CPA meaning if we have no data
+[04:35] We don't have any data in this ad account
+[04:37] Our bid cap at target CPA or around is going to throttle the traffic
+[04:44] Hence why we have this big budget. I've used this campaign structure for years
+[04:49] It used to be called or a version of it used to be called sneak attack
+[04:53] It's how I've scaled my biggest days and I've used it since 2020 or 2021
+[04:58] It's been insane. It's slightly different nowadays
+[05:02] But it still holds the same sort of weight
+[05:06] Okay, so we've got our big budget again. Is it inflated? It is to a degree
+[05:10] I don't see myself spending, you know anywhere and it probably, you know, not even 10 percent of this budget
+[05:16] Again, we have no data
+[05:19] An inflated budget when I usually when I have a bit of data and I really do go ahead with this sort of campaign structure
+[05:25] It's maybe 100 k plus per day sometimes a million dollars a day again
+[05:30] There's no way on hell's earth that we're ever spending that amount of money
+[05:36] But it's there if we want to scale into it we can
+[05:40] It works incredibly well. I really do like this inflated budget structure
+[05:44] Again, does it work for everyone? No, you have to have patience
+[05:48] Sometimes it isn't going to spend for your first day second day third day
+[05:53] Sometimes, you know, there's a few
+[05:56] caveats to watch out for
+[05:58] some people
+[06:00] Get a little bit impatient and a little bit premature
+[06:03] We've all been there
+[06:04] But a little bit premature and they'll start moving the bid quite aggressively to try and force spend
+[06:11] That's fine
+[06:12] But when you start bidding 2x your target CPA with an inflated budget
+[06:19] Just be prepared that you might have to eat shit. Okay
+[06:24] What I've seen and I continue to see with an inflated budget, but with a bid around your target CPA
+[06:31] Although you might not get spend or you know, even 5% of the budget or even 1% of the budget
+[06:40] per day
+[06:41] You do start to see a trickle the longer you leave it and the more creative you feed it
+[06:47] The more chance you have of increasing spend and that's what I'm seeing
+[06:50] So if my current, you know when we launch these ads if the current batch of creatives and copy doesn't get any spend
+[06:58] Over the next few days. I upload more
+[07:01] And if that doesn't get any more spend I upload more and I continue uploading my focus isn't on creeping the bid up
+[07:08] my focus is on
+[07:10] Increasing my creative output and giving facebook more variety to choose from
+[07:16] Ultimately, we're in an auction. Okay facebook with a bid and an inflated budget
+[07:21] We are giving facebook different creatives different ad copy angles avatars, etc
+[07:28] And they deem whether this combination of ad
+[07:32] Can acquire a conversion at our set bid or under
+[07:37] Now if that creative or if facebook deems that creative and copy is not good enough
+[07:43] To enter auctions in order to get conversions at or below our bid
+[07:50] Then they won't enter the the auction and it's as simple as that and obviously not only does it rely on having good quality creative
+[07:57] It also relies on competition, etc, etc, which is why
+[08:02] Blue ocean offers are extremely important again so much more content on that inside of ad profits with our weekly calls as well
+[08:10] But anyway, so we've got our ten thousand dollar budget next step. I'm going to go to bid strategy
+[08:15] I'm going to set this to bid cap. You could do this on cost per result
+[08:19] I prefer to do it on bid cap cost per result can get a little bit aggressive with spend
+[08:25] Basically the difference for those that don't know bid cap is your max that you're willing to pay
+[08:30] Per conversion will you pay more sometimes but usually that's all facebook's going in with the bid
+[08:37] They're trying to bid and keep conversions under that bid
+[08:40] With cost per result you're saying to facebook that this is the average that i'm willing
+[08:45] To get a conversion for so same bid
+[08:48] But cost per result means facebook will bid over your bid
+[08:53] To average out at your cost per result bid. Okay, hopefully that makes sense
+[08:58] Okay, so we're set to bid cap our campaign settings are now done. We can move to the ad set
+[09:04] So in the ad set
+[09:05] I'm going to label this as one for ad set one
+[09:08] And I'm going to label my audience which is broad and I'm going to go male. So I put an initial m
+[09:14] And I'm also going to target 45 plus and again today's take which is 12 of the 12 25
+[09:22] Right conversion locations website
+[09:24] Obviously maximise number of conversions is the performance goal data set aka pixel
+[09:30] I want our prostate pixel
+[09:32] And I want purchase event for this particular campaign obviously and as always I always go for my end goal
+[09:40] Now bid cap. So my target CPA falls in around 100 dollars. So what I'm going to bid here is I'm going to go with
+[09:48] 1.2x
+[09:50] I'm actually going to go at 1.1919 just because I like to bid off the nose
+[09:55] I don't like to bid dead on 120. You could argue I could go over. I'm actually going to go under
+[10:00] I'm a little bit conscious that that might be a bid that
+[10:04] might spend a decent amount
+[10:06] 1.19 at a purchase again, there's no data on in this ad account
+[10:12] I have a very minute
+[10:14] Amount of data for some from some email traffic and native ad traffic on this pixel for the purchase event
+[10:21] But as you know, there's no data
+[10:23] From inside of this ad account. So I'm just being a little bit cautious as to how much I bid
+[10:29] I'm going to monitor this carefully when it goes live
+[10:32] If it starts overspending, I'm going to dial it back, right?
+[10:36] If that if that bid if I start saying, okay, $10,000 a day
+[10:39] I don't want to spend that when I'm testing out an offer when I'm testing out ads
+[10:44] Ideally I spend and again so much more on this in ad profits
+[10:48] But ideally I look to spend 10 to 20x my payout my affiliate payout
+[10:53] so
+[10:55] As the initial test and I usually spread that over a few days
+[10:59] So if I start seeing that, you know, oh shit, I'm spending 400 500 dollars in the first six hours
+[11:06] Okay, I need to do something with the bid. I need to bring it back a little bit. Okay
+[11:10] So I'm going to monitor this carefully and again
+[11:12] We set sort of parameters to offset some risk with our spending limits, but we'll cover that shortly
+[11:19] All right, so we've got 1.19 19 is the bid
+[11:22] I'm going to go down here to the settings. I'm going to just change the attribution settings
+[11:27] I don't get too hung up on this. I don't see too much difference
+[11:32] I know people go quite anal on this and and ask really
+[11:35] Furra like why and you know, what do you do? I prefer
+[11:40] to get last-click optimization or last-click attribution meaning
+[11:45] I want my conversions to be attributed to the ad that got the last click
+[11:50] Or that the sale came from the last click. Okay
+[11:54] I don't want it to come or the conversion to be attributed
+[11:57] to an ad that they viewed
+[12:00] Two days before and then they clicked another ad and that's where they converted
+[12:04] I want to have the conversion attributed to the ad that they click and then buy from. Okay
+[12:10] So I remove the engaged view. I remove the view through
+[12:14] Don't get hung up on this. Don't worry if you don't do that
+[12:16] I don't think there's really too much difference in it
+[12:18] I just prefer to have my conversions attributed to the last click. I'm an affiliate
+[12:25] We go off last click, you know, like that, you know, we're not after ltv
+[12:30] We're not after blended, you know
+[12:32] AOVs or blended conversions
+[12:35] This is all about what we're able to generate from our ad spend
+[12:39] I don't give a shit what's coming from search or google or any other platform that I'm not running on
+[12:46] All I'm looking for is what I'm able to produce and I think there's a lot of gurus out there that are, you know
+[12:53] Arguably right
+[12:55] In the sense that, you know, they're after the, you know
+[12:59] First click attribution blended metrics because you know, the the facebook ads rise
+[13:05] You know all metrics up and and people see the facebook ad and go and google it on
+[13:10] You know google and then buy through there or they see it on native or they see it on display
+[13:14] Or they see it anywhere
+[13:16] But I don't get that conversion. I don't get that affiliate commission
+[13:20] So for me, I don't give a shit whether, you know, what's going on on google and what's going on on native and anywhere else
+[13:27] All I'm interested in is what I produce from my ads. Okay
+[13:32] Real hung hang up there with with a lot of, you know, gurus saying otherwise
+[13:37] But obviously they're, you know agencies and or econ brands and they own the brand
+[13:42] Completely different story as an affiliate for me personally different story
+[13:48] Okay
+[13:50] All right, so schedule
+[13:52] look
+[13:54] personally
+[13:55] I recommend that that you set a schedule as in you go for the next day
+[14:02] Especially at this time
+[14:04] It's now 945 ad account time zone in the morning
+[14:10] What I don't want to happen here in a brand new ad account
+[14:14] Is I don't want to publish my ads
+[14:17] Me being in the uk. I go to bed in you know, maybe four or five hours
+[14:23] They've not started delivering. I go to bed. I wake up
+[14:27] They started delivering the bid was at a good place and they spent a decent chunk and hit the spend limit
+[14:33] right
+[14:34] In the last couple of hours of the day ad account time zone
+[14:38] What I want here is I want to try and get a nice even spread of spend
+[14:42] Across as much of the day as possible. Now, you know, I don't
+[14:48] It depends but because I've got a bid cap
+[14:51] I personally think the bid's gonna throttle the spend, but I don't know
+[14:55] So, you know, it's up to you. Just know that there's a risk if you don't schedule this for the next day
+[15:02] And you leave it and it's two o'clock in the afternoon
+[15:05] Maybe it takes three hours for the ads to be approved
+[15:08] Maybe it takes another two hours before the ads start delivering
+[15:12] All of a sudden you at 6 p.m. Add start delivering you go to bed. Forget about it
+[15:18] Get up and you spent four thousand dollars between 10 p.m. And midnight
+[15:23] Right, potentially that's not what you want. Potentially it could be but
+[15:27] You know at this early stage when we're testing a new offer new ad account new campaign new ads
+[15:33] We don't know so I want to be a little bit more cautious a little bit more, you know
+[15:38] I guess reserved right a bit more conservative about what we're doing here. So what I would do usually is I would
+[15:47] go 13th
+[15:48] Midnight, okay, or quarter past midnight. I'm actually going to do the complete opposite of what I've just said
+[15:54] I'm going to leave it as is because
+[15:56] You know, I'm taking the risk. I am going to monitor it
+[15:59] Okay, so for the next four or five hours if I haven't started delivering
+[16:03] I'm going to turn off, okay
+[16:06] And there we go, but I do think the bid's going to throttle the traffic anyway
+[16:09] So I don't even think even if I left it on I think maybe we spend max one or two hundred dollars per
+[16:16] Today, which again, I'm not too fussed about
+[16:20] So I'm going to leave that as is but again, I do recommend if you want to come in and uh, you know, take a look and
+[16:27] Uh reschedule that for the for the day after
+[16:30] Okay, so audience
+[16:33] So for me
+[16:34] Because this is a blue ocean offer being private and exclusive. No other affiliates can run this
+[16:40] I'm quite happy to run in the united states
+[16:44] Now if this was an offer
+[16:46] that
+[16:47] Was you know, every clickbank and affiliate was promoting you've got you competing against thousands of affiliates
+[16:54] I would not run this in the u.s. I would
+[16:57] Carve out my own blue ocean again
+[16:59] We go into this in so much depth in ad profits
+[17:02] Where we carve out a blue ocean in a different geo
+[17:06] And that then creates, you know
+[17:09] unsaturated markets, right
+[17:12] Because this is a private offer
+[17:14] We have that benefit where we don't have to do that
+[17:17] We have a unique offer that no one else can run. So we already have that blue ocean
+[17:22] Right, I'm going to add canada in the mix as well
+[17:25] And i'm going to leave that as is now because it's a supplement offer
+[17:29] I do want to target a little bit higher market. I have
+[17:32] many campaigns and case studies and and content where we run worldwide
+[17:39] But we run a very low ticket digital offer usually sub 20 dollars, right?
+[17:44] So if we have a seven dollar front end, I'll run pakistan india south america africa
+[17:50] Because seven dollars
+[17:53] Might be a little bit more affordable for someone in paraguay or someone in kenya or someone in bangladesh, right?
+[18:02] However, because this the minimum again, we go through all of this in ad profits
+[18:05] So i'm not going to go into it too much depth, but we're really looking at what is the minimum cost to consumer here
+[18:11] What's the minimum that the consumer can pay to acquire this product, right?
+[18:17] And if it's anything above, you know 30 or 40 dollars, I would usually stick to europe
+[18:24] English speaking geos etc etc until i have enough data
+[18:28] Once i've got data i'll open it up worldwide
+[18:31] But to start with or as as far as it'll ship
+[18:35] But to start with i want to dial it in a little bit because if all my spend goes to some geos that
+[18:41] Just are never going to buy i want to make sure i sort of offset that
+[18:45] Okay, so us and canada i'm good with i could add uk australia new zealand
+[18:51] I'm just going to stick to these two for the time being
+[18:55] All right audience so i very rarely let facebook
+[19:00] Give me advantage plus audiences
+[19:02] I always go to negative and i further limit the reach of my audience facebook really make it sound like i'm fucking myself up, right?
+[19:11] but you know i
+[19:14] I want to target an age range i want to target a gender i can't do that
+[19:18] Without i know you can suggest and i know you can put some
+[19:24] Excuse me i had to pause then to cough all over the microphone
+[19:28] But anyway
+[19:29] So what i'm going to do is i'm going to come in
+[19:32] And i'm going to move this to 45 plus
+[19:35] And i'm also going to remove the suggestion
+[19:39] I'm not going to do locations i'm going to change to men and i'm going to remove the suggestion again
+[19:45] And then in my custom audiences i've built an audience and i'm going to exclude it i'm going to exclude the purchases
+[19:53] From the prostate pixel, okay, no point in re-advertising to those guys. They've already bought
+[19:58] I'm not too bothered at the moment about them re-buying
+[20:02] So there we go. That's all i'm doing in the audience
+[20:04] So i'm going to go down to placements and again because we're in this early stage
+[20:08] I personally prefer
+[20:11] To dial in my advertising dial in my marketing. I want to try and you know
+[20:16] Spend dollars where they're best spent and i know from years of advertising and campaigns and data
+[20:23] That quite often audience network doesn't really bring too much of a return
+[20:28] And sometimes doesn't spend that much either
+[20:31] But sometimes does so i'm going to remove it apps and sites gone
+[20:35] I'm also going to remove search results and i'm also going to remove in-stream ads for reels
+[20:41] So all i'm left with is stories and reels and i'm actually going to remove messenger stories
+[20:45] So i've just got instagram and facebook stories and reels
+[20:49] And then in feeds
+[20:51] I'm going to remove notifications freds business explore explore instagram
+[20:56] And then i'm only left with feed marketplace in right column
+[21:01] And business explore for some reason
+[21:04] Has gone
+[21:05] Now usually i'd remove marketplace as well. However
+[21:10] Prostate i know the audience is male. I also know that they're older demographic. I also know that marketplace
+[21:18] A few people in this market and demographic could be shopping around for used car parts
+[21:24] God knows what else they shop around for women whatever a marketplace, right?
+[21:29] So i'm going to leave that there. I have a feeling marketplace might be good and i do remember from
+[21:34] Past prostate campaigns over the last couple of years marketplace has actually been a really good placement for me
+[21:40] and that's just reminded me
+[21:43] as i
+[21:44] Choke on some dry air
+[21:47] That there's a geo that i just want to add in
+[21:51] That Puerto Rico has been fantastic
+[21:55] for
+[21:55] Prostate
+[21:57] Which makes sense, right? It's an american u.s territory if that's what it's called
+[22:03] But even more so although the the majority of the population there is probably, you know economically poor
+[22:11] But there's a a decent percentage of people from the us that go there for tax reasons
+[22:17] And you could probably argue that the average age is probably a prostate demographic
+[22:24] 45 plus retirees
+[22:26] People who are you know fairly wealthy and have spare cash and have gone there to sort of avoid tax
+[22:33] It's a perfect place to advertise to so i'm going to include Puerto Rico
+[22:37] Sometimes when i haven't included Puerto Rico in my targeting and i've just got united states
+[22:42] I do see sales come from Puerto Rico
+[22:45] So even though we only target us i do some and the argument would be is it people transitioning to and from
+[22:52] You know going quite regularly maybe live there for a few months live back in the us for a few months
+[22:57] potentially so
+[22:58] But for some reason when i target Puerto Rico on its own or included as a geo
+[23:04] I see more volume come from Puerto Rico. So i'm adding it in
+[23:08] So that's our ad set built out. We've edited placements. We've edited or one one little thing
+[23:15] I just want to remove this
+[23:19] I haven't seen this in all my ad accounts. I have seen it in newer ad accounts
+[23:23] But facebook try and get you to freaking opt into everything by default
+[23:29] So you have to just remove things same with the creative placement or optimizations and all that bullshit ai enhancements
+[23:36] You just have to be very careful that you just spend enough time to look through that. I nearly missed that
+[23:41] Forgot about it
+[23:42] So we've edited placements. We've edited geos. We've edited our audience. We've set up our bid
+[23:49] We're good to go
+[23:51] So let's go and build out the ad
+[23:53] So i'm going to keep it as thomas owing obviously that's me
+[23:57] So i'm not going to show you the page that i'm building this on because i don't really want
+[24:02] Everyone going and even ripping my ads or swiping them or you know
+[24:07] Plagarizing them. I do show this in ad profits, you know the the page quite often
+[24:13] But for youtube i'm going to keep it a little bit more closely guarded
+[24:18] Okay, so how are we going to set up this ad?
+[24:20] So there's a few ways which we can do this and again, there's no right or wrong you can run
+[24:24] You know flex you can run single image. Whatever you want to do personally
+[24:30] At the moment
+[24:32] quite, you know surprisingly for me i'm seeing more
+[24:38] Results better performance from flexible ads
+[24:41] And i have no idea why
+[24:43] I see better performance for my flex ads than i do for my single image or video ads
+[24:49] So if you're not testing flex, maybe it's a good idea if you have some spare cash to test again
+[24:54] If it doesn't work, don't blame me
+[24:56] But i'm seeing personally in my own campaigns flex is working better. So i'm actually going to launch a flex ad
+[25:02] What I like about flex
+[25:04] Is I can really save on page or page limit ads
+[25:08] So I can use one ad to house 10 creatives multiple copy multiple
+[25:14] Headlines in the same ad. It's a really nice little feature. So i'm going to use flexible
+[25:19] And i'm going to come down and we're going to select some images now
+[25:22] I'm also going to caveat a little bit, right
+[25:25] You have the option here of either adding
+[25:30] I guess let me just
+[25:34] How do I make myself smaller here? You have the option? Well, I don't know if that's actually going to work
+[25:38] We'll make ourselves bigger
+[25:39] But you have the option i was going to actually move my head a little bit out of the way
+[25:43] So the creatives are there, but you have the option of
+[25:47] Either dumping all images videos angles in one ad
+[25:53] Or you could have a flex ad per angle, right?
+[25:58] So if your angle as you can see up here is a golfer, right? Again, i'm going after the demographic
+[26:03] So if you're speaking to a golfer then what you could do is you could have one flex ad that is tailored to golfin
+[26:11] So all the creatives all the copy all the headlines
+[26:15] Are all related to the frustrated golfer who can't go more than three holes without needing a p
+[26:22] right
+[26:24] The other one is you could you know fit guy or scientific angle or or whatever, right?
+[26:29] Now i'm not going to do that
+[26:31] I'm going to do the second option would be to dump all of my creatives and not really think too much about what angles are going where
+[26:38] I don't really care. I'm just going to let facebook decide which image or video they want to show to
+[26:44] You know paired with which primary text and which headline
+[26:47] Now again, i'm going to preface by saying this if you want more control
+[26:54] Don't do this right if you are going to get pissed off and make emotional impulse decisions
+[27:02] By because you can't see what's working or because you believe that one of your creatives is taking all the spend
+[27:09] Don't do flex
+[27:11] Don't do cbo
+[27:13] Don't do big budgets, right?
+[27:15] Don't do bid caps if you want to have fair test then do abo
+[27:21] Do fairly low budget per abo and do one angle or one ad per ad set
+[27:29] To give yourself ultimate control. There's nothing wrong with doing that
+[27:33] Personally, I prefer to give facebook a little bit of control. They have way more data points than I do
+[27:39] And I do believe in their algorithm
+[27:42] So I'm willing to give them more control
+[27:44] But I you know I play on both sides that I do this way that I'm setting up here
+[27:49] But I also do the micro budget abo where I do highest volume abo
+[27:55] $30 a day per ad set only a couple of ads single image or video ads per ad set right to give fair test
+[28:03] But again like recently I've seen better results coming from flexible ads
+[28:09] Is that going to be the same for you? Probably not. I don't know
+[28:13] But that's what I'm seeing. So that's what I'm doing
+[28:16] All right, so I'm going to select a couple of these
+[28:22] Trying to determine whether that was a carousel ad or not
+[28:26] I'm going to take it anyway. So I'm putting two golf ones in
+[28:30] Let's put a couple of the quads in
+[28:34] Put this one in I'm going to put a couple of scientific angles
+[28:40] I might put that one in how many is that seven?
+[28:43] All right, let's leave it at that and let's see what videos we have as well
+[28:49] We've got two videos, which I'm going to dump in
+[28:57] And let's add one more image
+[28:59] If I could look we'll put one of these ones in shall we?
+[29:03] All right, perfect. So we've got 10 creatives and I've just mixed them up
+[29:07] Again, like I said, you could split them. So one one flexible ad is your golfing, you know
+[29:15] Angle one ad and if you were doing a bio one ad set could be your golfing angle
+[29:20] And you could do that in cbo as well
+[29:22] By the way, you could have a cbo with multiple ad sets with single images or videos again
+[29:26] There's no right or wrong way to doing this
+[29:29] It's whatever works for you
+[29:31] In terms of give you results and it's also whatever works for you in terms of, you know
+[29:36] Suit your way of running ads suit your lifestyle. I've got kids, you know
+[29:41] I don't want to spend all day optimizing campaigns and, you know, making, you know
+[29:46] Turning the odd ad here off and the odd ad there off and ad sets off and increasing budgets
+[29:52] I'd rather just, you know
+[29:54] Let facebook do the heavy lifting personally. Okay, and again, it's all preference
+[29:58] And that's what I personally like to do but not all the time
+[30:01] Like I said before I do sometimes decide to have a little bit more control
+[30:05] If I want a little bit more input into the campaign
+[30:09] All right, so we've got our creative selected
+[30:11] So the next job and I've got my trusty little doc here
+[30:16] Is we're going to bring over
+[30:18] some copy
+[30:21] I'm going a little bit direct here. So it's an interesting ad copy here that I don't know
+[30:27] Just deleted it but
+[30:30] I don't know how well it's going to work. We're going to see
+[30:34] So it's pretty in-depth you can see I'm going straight in for the kill
+[30:39] Potentially, it's a wrong move. I potentially feel that it's maybe setting up people to buy
+[30:44] You know the the one bottle option, which isn't always the best
+[30:49] We've got some missing emojis here, which I haven't carried through so I'm just going to edit these as well on the fly
+[31:00] I just want to make sure it's all formatted correctly
+[31:13] Okay
+[31:14] I'm just going to scroll up and just make sure that we are
+[31:19] Looking pretty good
+[31:21] Nothing else that needs formatting
+[31:23] But you can see right or hopefully you can see
+[31:28] So this is the the hook of the ad. I'm standing at the urinal
+[31:34] So you can pause it. I'm not going to read every word
+[31:39] But the reason why this works so great
+[31:42] is
+[31:43] This ad copy is ultimately like a pa s o so problem agitate solution
+[31:50] Right, it's probably the most common used framework copyright and framework
+[31:55] I'm sure everyone is aware of it problem agitate solution
+[31:58] But with an o on the end gives you the outcome because obviously we want to lead with that
+[32:02] Sometimes I play around and have the outcome at the top. So like opas outcome problem agitate solution
+[32:08] So I give them the outcome in the hook of the primary text and then we go into the problem agitate and then go back to the solution, right
+[32:16] So pretty
+[32:19] You know just claude generated this copy. We're we're talking on
+[32:23] The hook up here. So something relatable standing at urinal
+[32:27] Needing it and again, I'm not going to spend too much time going through this
+[32:30] I'm sort of going to catch myself before I do. I'm looking at the clock. We're already 32 minutes in
+[32:36] And you know, if I read out all this copy and break it down, it's going to take ages
+[32:40] Maybe save this for another day
+[32:42] Um or join ad profits come in and we can break down the copy
+[32:47] Inside of our weekly calls that happen twice a week
+[32:52] A little subtle plug although you can decide how subtle it was
+[32:57] All right, so that's one variation of text
+[33:00] Now I'm going to run with two
+[33:02] So I'm going to add in another second variation. I'm going to pull it up on my notepad
+[33:08] I'm going to grab this and this is a slightly different format
+[33:13] Have I just deleted it again?
+[33:16] No, it's a little bit of humor in this copy
+[33:21] Okay, little lots of emojis again
+[33:23] We're sort of bordering on ecom style here because we've got a different funnel
+[33:28] So we'll see how it goes, but we're going instead of to a vsl. We've got a different style of funnel here
+[33:35] But we're leading with this and the reason why I like this is I've been looking at
+[33:40] Some of the biggest ecom brands around supplement brands
+[33:43] Um and I saw that there's a big brand that does really well with this style of copy
+[33:50] So I thought why not I'm going to try it. I'm not too keen on the m dashes. Obviously this is
+[33:55] You can tell how ai written this is but I'm also not you know, I mean I could take these out
+[34:03] I don't know how much of the actual target market are going to be like. Oh my god ai's written this
+[34:09] You know, I think that's savvy, you know, I think more people are beginning to realize that
+[34:13] You know m dashes at ai but also is that just us guys and girls that actually use ai every single day to write ad copy
+[34:21] And that's what we notice most of the 45 plus market who are you know, sort of within our target market for prostate
+[34:29] They're probably not using too much ai or haven't put two and two together that this is quite a common ai
+[34:36] Um, you know, whatever punctuation or character that that's always used
+[34:41] But it does annoy me and really I should tidy it up
+[34:43] But for the sake of not having to make you watch 10 minutes of me removing all the m dashes. I'm not going to bother
+[34:50] Should really plug that into my um copyrighting bot, but again
+[34:55] I'm not going to bother doing that just now either right, then I'm going to grab two headlines
+[35:00] so headline one
+[35:02] Very you know, sort of pain point and outcome driven
+[35:07] And then headline two I've lost it. I've lost my second headline, which is great. Okay, I've got it
+[35:33] Oh, I don't know if I have I've not copied it
+[35:38] So I'm furious no one told me this about my prostate. All right, there we go
+[35:43] So I'm not going to bother with destination and I'm also not going to bother putting the website url in just yet
+[35:48] I'll do that after I finish the video just for again keeping prying eyes away from the page
+[35:54] But there we go. So
+[35:57] To summarize we have
+[36:01] one campaign cbo
+[36:03] $10,000 a day budget inflated budget. I'm not intending to spend that nowhere near it
+[36:09] bid cap
+[36:10] bid cap set at target cpa 1.2 x so, you know
+[36:14] My bid cap my target cpa is 100. I've added 20 on for 1.2 x and we just under 119 is the bid cap
+[36:22] I'm targeting us canada porta rico. I'm targeting 45 plus. I'm targeting mail
+[36:28] Um, what else have I done? I've added flexible ad one ad
+[36:32] flexible 10 creatives mix of video image and also mix of different angles concepts everything
+[36:40] I'm really not sticking on it. You know, I'm not bothered like, you know
+[36:44] We'll see how it goes and maybe I end up thinking or maybe what I do is I launch another campaign with
+[36:50] Single image and ads with the exact same ads and we and we split test which performs best. Maybe that's the best way to do it
+[36:57] But what I haven't does that I haven't labeled this ad. So I'm going to go back up here
+[37:02] I'm going to say flex ad one and I'm also going to date it
+[37:05] So I know this was the first flex ad 12 out of 12 because what I can do here is every week
+[37:12] or depending on how
+[37:14] Throttled the spend is or the bid is I can
+[37:18] Duplicate the ad launch a new ad
+[37:20] What I want to do and what facebook have made clear with this new andromeda and again
+[37:25] I know everyone's jumping on the andromeda bandwagon. I'm not really that guy
+[37:29] But it's quite clear that facebook wants to sort of compress and compile everything into less
+[37:35] So one campaign or less campaigns one ad set or less ad sets
+[37:40] They don't want to see 50 campaigns. They don't want to see 50 ad sets in a campaign
+[37:45] They want to see a good collection of data in smaller
+[37:50] Campaigns or less campaigns and less ad sets
+[37:53] So my idea here is to have this one campaign with my one ad set and at least for the for the near future is to
+[38:01] Whenever I want to add new creatives is to duplicate the flex ad and replace the creatives with new ones or new copy
+[38:07] And launch it inside the same ad set
+[38:10] Right because we want to have the data stored at the ad set level and the campaign level
+[38:17] Now when you start duplicating ad sets
+[38:19] A lot of data is still in the campaign
+[38:22] You then move away from that ad set that has all the data
+[38:25] Let's say you you generate a thousand conversions over the next few weeks
+[38:30] In one ad set. Well, if you launch a new ad set, there's no conversion data in that ad set
+[38:35] But there is in the campaign
+[38:37] So I don't know how you know how it works entirely
+[38:40] But I know that the ad set with more data is probably going to spend most of the budget if it's a cbo
+[38:46] Okay, so that's the idea. I'm going to see how it pans out again
+[38:51] You know, I don't know we never do and again, I don't always stick to this structure
+[38:56] I really do like it. I've had many many good days, especially recently with this exact structure
+[39:03] With, you know cbo inflated budget bid caps flex ads flex ads seem to be performing really well for me
+[39:11] emphasis on blue ocean offers
+[39:14] Which leads me into close
+[39:16] If you are an affiliate, whether you're new, whether you're struggling or whether you just want to be inside of a community
+[39:23] We have ad profits
+[39:25] Going twice a week on weekly calls
+[39:29] Mondays and Thursdays right now
+[39:31] Where I jump on and I either do a screen share like this and we build something out or we research offers or we write copy or we create creative
+[39:41] And open up q&a. Okay. We also have a telegram community where we have ongoing conversations in there
+[39:48] We have vendors with exclusive offers inside the community
+[39:51] We have some of the biggest affiliates on clickbank right now inside the community
+[39:55] We have all types of people from brand new beginners through to advanced
+[40:00] Super affiliates six-figure day affiliates. We've got you know from from beginner to to experienced
+[40:08] So if you want to join
+[40:11] I am like I mentioned at the start
+[40:13] Having a little bit of a special deal going on
+[40:16] I'm not going to go into too much depth of what it is
+[40:18] But it does include a private one-on-one call with me for a ridiculously low price
+[40:24] If that interests you
+[40:26] Message me on instagram. I've left my handle below in the description. Thomas Owen 27
+[40:32] If you hit me up on instagram, just DM me the word, you know, whatever this is cbo and I'll get back to you
+[40:38] Okay, but apart from that, hopefully this is provided some value. Please do let me know
+[40:44] Answer or ask any questions below. I'll do my best to answer them as soon as I can
+[40:49] And yeah, I hopefully
+[40:51] You've got some value. Don't forget to like share subscribe do whatever else everyone else all the youtubers tell you to do
+[40:58] Do that on my video as well, please and I'll catch you in the next one. Cheers guys

@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resúmenes de casos: Joel, Param, Hustlers Club · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">01-ejecucion-2026 / clickbank-2026-research / resumenes-videos · 25 min · 5,091 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#video-1-affiliate-marketing-case-study-20k-in-20-days-with-908-spent-on-ads" class="">Video 1: "AFFILIATE MARKETING Case Study: $20K in 20 Days with $908 Spent on Ads"</a></li><li><a href="#de-qué-trata" class="h3">De qué trata</a></li><li><a href="#puntos-clave-con-timestamp" class="h3">Puntos clave con timestamp</a></li><li><a href="#números-y-datos-concretos" class="h3">Números y datos concretos</a></li><li><a href="#terminos-explicados-primera-aparicion" class="h3">Terminos explicados (primera aparicion)</a></li><li><a href="#qué-nos-sirve" class="h3">Qué nos sirve</a></li><li><a href="#qué-tomar-con-pinzas" class="h3">Qué tomar con pinzas</a></li><li><a href="#video-2-day-1-facebook-ads-2025-100day-challenge-for-clickbank-affiliate-marketing" class="">Video 2: "Day #1: Facebook Ads 2025: $100/Day Challenge for ClickBank Affiliate Marketing"</a></li><li><a href="#de-qué-trata" class="h3">De qué trata</a></li><li><a href="#puntos-clave-con-timestamp-armado-en-vivo-paso-a-paso" class="h3">Puntos clave con timestamp (armado en vivo, paso a paso)</a></li><li><a href="#números-y-datos-concretos" class="h3">Números y datos concretos</a></li><li><a href="#terminos-explicados-primera-aparicion" class="h3">Terminos explicados (primera aparicion)</a></li><li><a href="#qué-nos-sirve" class="h3">Qué nos sirve</a></li><li><a href="#qué-tomar-con-pinzas" class="h3">Qué tomar con pinzas</a></li><li><a href="#video-3-how-to-hit-1kday-with-clickbank-exact-process-behind-facebook-ads-2025" class="">Video 3: "How To Hit $1k/Day with CLICKBANK Exact Process Behind Facebook Ads 2025"</a></li><li><a href="#de-qué-trata" class="h3">De qué trata</a></li><li><a href="#puntos-clave-con-timestamp" class="h3">Puntos clave con timestamp</a></li><li><a href="#números-y-datos-concretos" class="h3">Números y datos concretos</a></li><li><a href="#terminos-explicados-primera-aparicion" class="h3">Terminos explicados (primera aparicion)</a></li><li><a href="#qué-nos-sirve" class="h3">Qué nos sirve</a></li><li><a href="#qué-tomar-con-pinzas" class="h3">Qué tomar con pinzas</a></li><li><a href="#comparativa-rápida-de-los-tres-videos" class="">Comparativa rápida de los tres videos</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>04-casos-joel-param-hustlers.md</span><span>5,091 palabras</span><span>~25 min</span></div>
+<h1 id="resúmenes-de-casos-joel-param-hustlers-club">Resúmenes de casos: Joel, Param, Hustlers Club</h1>
+<p>Material de estudio para afiliación ClickBank con Meta Ads. Fuente: transcripciones reales. Zero invención. Datos copiados exactos. Redactado: 2026-06-17.</p>
+<div class="kpi-strip"><div class="stat"><div class="stat-value">$908</div><div class="stat-label">Gasto total en Facebook Ads (Joel, periodo completo mostrado en pantalla)</div></div><div class="stat"><div class="stat-value">$21K+</div><div class="stat-label">Ingresos en comisiones generados con ese gasto (cuenta Stripe)</div></div><div class="stat"><div class="stat-value">~23x</div><div class="stat-label">ROI del caso Joel ($21K / $908)</div></div><div class="stat"><div class="stat-value">6 ventas</div><div class="stat-label">Ventas diarias necesarias para llegar a $1.000/día (cálculo Hustlers Club)</div></div></div>
+<div class="example"><div class="example-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>Caso Joel — $20K en 20 días con $908 en ads</div><div class="example-body"><p><strong>Gasto total en Facebook Ads:</strong> $908 (mostrado en pantalla en vivo) <strong>Ingresos en comisiones (Stripe):</strong> $21.000+ <strong>ROI simplificado:</strong> ~23x</p>
+<p><strong>Cómo lo hizo:</strong></p>
+<ul>
+<li>Producto MRR (Master Resell Rights), no ClickBank puro, pero la lógica aplica a cualquier oferta de alto CPA</li>
+<li>Presupuesto dividido en dos: $5-$20/día para educar al 30% curioso, ~$5/día para anuncios de compra directa al 3% listo para comprar</li>
+<li>Cierre via Instagram DMs (no automatizado, requiere respuesta manual)</li>
+<li>Sistema de 16 piezas de contenido para automatizar el 80% del flujo</li>
+</ul>
+<p><strong>Limitación a considerar:</strong> Joel tiene audiencia previa en Instagram aunque dice que la cuenta es relativamente nueva. El producto MRR da 100% de comisión vs. el 50-75% habitual de ClickBank.</p></div></div>
+<hr>
+<h2 id="video-1-affiliate-marketing-case-study-20k-in-20-days-with-908-spent-on-ads">Video 1: "AFFILIATE MARKETING Case Study: $20K in 20 Days with $908 Spent on Ads"<a class="anchor" href="#video-1-affiliate-marketing-case-study-20k-in-20-days-with-908-spent-on-ads">#</a></h2>
+<p><strong>Canal:</strong> The Infamous Joel <strong>Fecha de publicación:</strong> 2025-01-25 <strong>Duración estimada:</strong> ~11 minutos <strong>URL:</strong> https://www.youtube.com/watch?v=HSZGl6JNoa8</p>
+<hr>
+<h3 id="de-qué-trata">De qué trata<a class="anchor" href="#de-qué-trata">#</a></h3>
+<p>Joel muestra en pantalla que gastó $908 en anuncios de Facebook (ad spend: lo que gastas en anuncios) y recibio más de $20.000 en comisiones de afiliado durante el mismo periodo. Explica por qué la mayoria de la gente pierde plata en ads y cuál es el cambio de mentalidad que hizo que su sistema funcionara.</p>
+<p>No promueve nada en ClickBank directamente: el producto que vende es un MRR program (Master Resell Rights: compras los derechos de un programa y lo revendes quedándote el 100% de la comisión, a diferencia del afiliado estándar que recibe un porcentaje fijo). Aclara que la logística post-venta la hace el dueño del programa, no él.</p>
+<hr>
+<h3 id="puntos-clave-con-timestamp">Puntos clave con timestamp<a class="anchor" href="#puntos-clave-con-timestamp">#</a></h3>
+<p><strong>[00:00-00:32] Prueba de resultados</strong> Muestra en vivo la cuenta de Facebook Ads con $908 de gasto total, refresca la pantalla para probar que es real. Luego muestra su cuenta en Stripe (procesador de pagos) con $21.000 y fracción. Muestra capturas que el dueño del programa le envía confirmando las ventas.</p>
+<p><strong>[00:43-01:15] Qué es MRR vs afiliado</strong> El programa que vende tiene derechos de reventa (MRR). Eso le permite quedarse con el 100% de la comisión y ajustar el precio. Aclara que sigue sin tener que proveer el servicio, igual que un afiliado. Tiene una cuenta nueva de Instagram con "no muchos posts" y su bandeja de entrada muestra gente escribiéndole todos los días pidiendo el link.</p>
+<p><strong>[01:44-05:05] El framework de los 5 pasos (las 5 P)</strong> Referencia el libro "Make Him Beg To Buy From You" de Travis Sago. Las 5 P son: Problem (problema), Promise (lo que tu producto promete), Proof (prueba de que funciona), Process (proceso, para ver si es un buen fit) y Pitch (llamado a la acción final).</p>
+<p>Explica cómo se segmenta el mercado:</p>
+<ul>
+<li><strong>60% del mercado:</strong> personas no calificadas. Nunca van a comprar. No tienen dinero o el producto no es para ellos.</li>
+<li><strong>30% del mercado:</strong> curiosos. Estan en el mercado pero todavía comparando opciones. Necesitan claridad sobre su problema y la solución.</li>
+<li><strong>7% del mercado:</strong> investigadores activos. Ya estan convencidos del problema, buscan certeza de que el producto funciona. Quieren prueba (testimonios, casos de éxito).</li>
+<li><strong>3% del mercado:</strong> compradores listos. Solo necesitan el precio y el link. "Shut up and take my money."</li>
+</ul>
+<p><strong>[05:06-06:27] El error que cometen todos y lo que él hace distinto</strong> Todos los anunciantes (empresas, gurus, afiliados) gastan su presupuesto persiguiendo al mismo 3% de compradores listos. Eso encarece el costo por click porque hay mucha competencia por ese segmento. Joel cambió: dirige la mayor parte de sus anuncios al 30% curioso, a bajo presupuesto, para educarlo. Solo una parte pequeña del presupuesto apunta a los compradores listos del 3%.</p>
+<p><strong>[06:36-07:08] La estrategia de presupuesto en números</strong> Para educar al 30% curioso: entre $2 y $500 al mes, lo que equivale a $5-$20 por dia. Para los anuncios directos de compra al 3%: aproximadamente $5 adicionales por dia. La transcripción no especifica la proporción exacta entre ambos.</p>
+<p><strong>[07:08-08:01] Los 16 piezas de contenido que necesitas</strong> Dice que se necesitan aproximadamente 16 piezas de contenido para automatizar el 80% del negocio. Se dividen en cuatro tipos:</p>
+<ol>
+<li>Contenido que genera curiosidad: educa sobre el problema y las posibles soluciones (dirigido al 30%).</li>
+<li>Contenido de prueba: testimonios, casos de éxito, capturas de resultados (dirigido al 7%).</li>
+<li>Contenido de proceso: muestra cómo funciona el sistema (genera claridad y certeza).</li>
+<li>Contenido de llamado a la acción (CTA): para el 3% que ya esta listo para comprar.</li>
+</ol>
+<p><strong>[09:27-10:28] El fondo del embudo: Instagram DMs</strong> El cierre de la venta ocurre por mensaje directo en Instagram (DMs). Las personas que ven los anuncios de CTA le escriben. Joel responde preguntas y les envía el link de afiliado. Muestra en pantalla que sigue llegando gente nueva mientras graba el video.</p>
+<p><strong>[10:28-10:58] Contexto de sus costos anteriores</strong> Menciona haber ganado $2 millones online en total, pero que antes el costo de anuncios era "enorme". No da el número anterior. Al recortar gastos e implementar este sistema mas eficiente, ahora planea escalar.</p>
+<p><strong>[10:58-11:15] Pitch propio (marcar como promoción)</strong> Anuncia un programa privado de 16 semanas, trabajo "hands-on" con un grupo pequeño de clientes. Pide que reserven una llamada via el link en la descripción. Esto es una venta de sus propios servicios de mentoría, no información del caso de estudio.</p>
+<hr>
+<h3 id="números-y-datos-concretos">Números y datos concretos<a class="anchor" href="#números-y-datos-concretos">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Dato</th>
+<th>Valor</th>
+<th>Contexto</th>
+</tr></thead><tbody>
+<tr>
+<td>Gasto total en Facebook Ads (ad spend)</td>
+<td>$908</td>
+<td>Todo el mes mostrado en pantalla</td>
+</tr>
+<tr>
+<td>Ingresos en comisiones</td>
+<td>$21.000+</td>
+<td>Cuenta Stripe, refrescada en pantalla</td>
+</tr>
+<tr>
+<td>Retorno sobre el gasto (ROI simplificado)</td>
+<td>~23x</td>
+<td>$21K / $908</td>
+</tr>
+<tr>
+<td>Presupuesto diario educativo (30% curioso)</td>
+<td>$5-$20/dia</td>
+<td>Cifra dada por Joel</td>
+</tr>
+<tr>
+<td>Presupuesto extra anuncios de venta directa</td>
+<td>~$5/dia</td>
+<td>Cifra dada por Joel</td>
+</tr>
+<tr>
+<td>Piezas de contenido necesarias</td>
+<td>~16</td>
+<td>Para automatizar el 80%</td>
+</tr>
+<tr>
+<td>Semanas del programa de mentoría (pitch)</td>
+<td>16</td>
+<td>Solo dato del pitch</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h3 id="terminos-explicados-primera-aparicion">Terminos explicados (primera aparicion)<a class="anchor" href="#terminos-explicados-primera-aparicion">#</a></h3>
+<ul>
+<li><strong>Ad spend:</strong> lo que gastas en anuncios pagados.</li>
+<li><strong>MRR (Master Resell Rights):</strong> derechos de reventa de un producto. Te quedas con el 100% de la comision porque compraste el derecho de venderlo, a diferencia del afiliado tradicional que gana un porcentaje.</li>
+<li><strong>CTA (Call to Action):</strong> llamado a la acción. El paso donde le dices al prospecto qué hacer ahora (comprar, escribir, hacer click).</li>
+<li><strong>DMs:</strong> mensajes directos (Direct Messages) en redes sociales, generalmente Instagram.</li>
+<li><strong>Funnel / embudo:</strong> la secuencia de pasos que sigue una persona desde que te descubre hasta que compra.</li>
+<li><strong>Stripe:</strong> procesador de pagos online, similar a PayPal pero mas comun en negocios digitales angloparlantes.</li>
+</ul>
+<hr>
+<h3 id="qué-nos-sirve">Qué nos sirve<a class="anchor" href="#qué-nos-sirve">#</a></h3>
+<ul>
+<li>La segmentación del mercado en 60/30/7/3% es una forma simple de entender por qué los ads "no convierten": la mayoría de gente que los ve no esta lista para comprar. Apuntar al 30% curioso con contenido educativo es una estrategia con menor competencia y menor costo por click.</li>
+<li>El sistema de 16 piezas de contenido más DM para cierre es replicable en cualquier nicho.</li>
+<li>La lógica de presupuesto bajo para educar y pequeño para convertir reduce el riesgo inicial.</li>
+</ul>
+<h3 id="qué-tomar-con-pinzas">Qué tomar con pinzas<a class="anchor" href="#qué-tomar-con-pinzas">#</a></h3>
+<ul>
+<li>Los numeros ($908 en ads, $21K en ventas) son reales según lo que muestra, pero él tiene una cuenta de Instagram con audiencia previa, aunque dice que es "fairly new". No queda claro cuánto peso tiene esa audiencia en el resultado.</li>
+<li>El producto que vende es MRR, no afiliado puro de ClickBank. Los márgenes son distintos (100% vs comisión de afiliado). No es idéntico replicarlo con un producto de ClickBank estándar donde la comisión puede ser del 50-75%.</li>
+<li>La transcripción no especifica el nicho exacto del programa que vende.</li>
+<li>El cierre de venta via DMs requiere tiempo real de respuesta. No es 100% automatico.</li>
+<li>El pitch final es para su mentoría de $XX (precio no mencionado en la transcripción).</li>
+</ul>
+<hr>
+<h2 id="video-2-day-1-facebook-ads-2025-100day-challenge-for-clickbank-affiliate-marketing">Video 2: "Day #1: Facebook Ads 2025: $100/Day Challenge for ClickBank Affiliate Marketing"<a class="anchor" href="#video-2-day-1-facebook-ads-2025-100day-challenge-for-clickbank-affiliate-marketing">#</a></h2>
+<p><strong>Canal:</strong> Passionpreneur Param <strong>Fecha de publicación:</strong> 2025-01-07 <strong>Duración estimada:</strong> ~27 minutos <strong>URL:</strong> https://www.youtube.com/watch?v=SH71IXrbp-A</p>
+<hr>
+<h3 id="de-qué-trata">De qué trata<a class="anchor" href="#de-qué-trata">#</a></h3>
+<p>Param graba en pantalla el armado de su primera campaña de Facebook Ads para promover un producto de ClickBank. El objetivo declarado es pasar de $100/dia a $1.000/dia en ventas. Es el primer video de una serie de desafio ("challenge"). No hay resultados reportados en este episodio: solo el setup inicial. Parte del video incluye referencias a su curso pago "Super Affiliate Facebook Ad Training".</p>
+<hr>
+<h3 id="puntos-clave-con-timestamp-armado-en-vivo-paso-a-paso">Puntos clave con timestamp (armado en vivo, paso a paso)<a class="anchor" href="#puntos-clave-con-timestamp-armado-en-vivo-paso-a-paso">#</a></h3>
+<p><strong>[00:05-00:28] Objetivo del challenge</strong> Param declara que va a promover un producto de ClickBank con Facebook Ads, con meta de llegar a $100/dia y escalar a $1.000/dia. Este es el primer video y los resultados se verán en episodios siguientes cuando lleguen los datos.</p>
+<p><strong>[00:38-01:19] Selección del producto en ClickBank</strong> Entra al Marketplace de ClickBank y elige un producto de weight loss (pérdida de peso). Dice que ese producto es "top 1" y que su gravity (gravedad de ClickBank: métrica que indica cuántos afiliados han hecho ventas en los últimos 12 semanas, mientras mas alto mas popular y probado el producto) es mayor a 500. Agrega que enero y febrero son los meses de mayor demanda para weight loss.</p>
+<p>La comisión que menciona es "más de $100" por venta. La transcripción no especifica el nombre exacto del producto en este video (aunque más adelante menciona "Metroline" como un producto de weight loss popular).</p>
+<p><strong>[01:25-02:29] Estructura de la página de aterrizaje</strong> No dirige el tráfico directamente al link de ClickBank. Tiene una landing page (página de aterrizaje propia: una página simple que ves antes de la página de venta) que creó. Explica que desde su landing page el usuario hace click y llega a la VSL page (Video Sales Letter page: página con un video largo de ventas, típicamente de 30 a 45 minutos, que convierte visitantes en compradores). La logica es: anuncio de Facebook > landing page de Param > VSL del vendedor > compra > comision para Param.</p>
+<p><strong>[02:34-03:56] Por qué usar VSL y no enlace directo</strong> Las VSL convierten más que texto porque el video largo del vendedor explica el problema del cliente, la solución, cómo esta hecho el producto y el descuento disponible. El vendedor construye todo esto. Param solo lleva tráfico.</p>
+<p><strong>[04:14-05:12] Pre-requisitos antes de lanzar (lo que no muestra)</strong> Menciona que antes de correr ads necesitas: Facebook Page (página de negocio en Facebook), pixel (código que mide las acciones que hacen los usuarios en tu pagina web: clicks, compras, suscripciones), Business Manager (panel de administración de negocios de Meta) y cuenta de anuncios. También recomienda "calentar" la cuenta con engagement (publicaciones con $1-$5/dia) antes de lanzar ventas. Dice que los videos sobre estos temas los subira a su curso.</p>
+<p><strong>[05:13-07:26] Pitch al curso (marcar como promoción)</strong> Muestra su curso "Super Affiliate Facebook Ad Training" y lo que incluye: ad copy (texto del anuncio) para distintas ofertas, landing pages de ejemplo para varios nichos (weight loss, dental, ED, etc.), recursos de video creatives, métodos de testing y guía para hacer spy (espiar a competidores para ver qué anuncios están corriendo). Aclara que los recursos son para tomar ideas, no para copiar directamente porque Facebook suspende cuentas que copian creatividades.</p>
+<p><strong>[07:30-08:10] Creación de la campaña en Ads Manager</strong> Hace click en "Crear" en el Ads Manager (el panel donde se crean los anuncios en Meta). Selecciona objetivo: Sales (ventas). Nombra la campaña.</p>
+<p><strong>[07:54-08:26] CBO activado con $100/dia de presupuesto</strong> Activa la opción "Advantage Campaign Budget" (equivale a CBO: Campaign Budget Optimization, cuando Meta reparte solo el presupuesto entre los grupos de anuncios según donde ve mejores resultados). Configura el presupuesto en $100/dia. Dice que para activar CBO el mínimo es $100 diarios.</p>
+<p><strong>[08:40-09:20] Configuración del ad set (Grupo de Anuncios)</strong> Nombra el primer ad set como "USA". Su estrategia: un ad set por pais, no mezclar geografías.</p>
+<p>Configuración de audiencia en el ad set de USA:</p>
+<ul>
+<li>Pais: United States</li>
+<li>Edad: 50 años en adelante (dice que para este tipo de oferta ha visto mejores resultados con 45+)</li>
+<li>Intereses: ninguno (targeting amplio, "broad")</li>
+<li>Lookalike: no usa (lookalike es cuando Meta busca personas similares a tus compradores existentes)</li>
+<li>Idioma: no especifica</li>
+<li>Razonamiento: Meta es mejor para encontrar audiencia nueva cuando la dejas amplia; el lookalike "estrecha demasiado"</li>
+</ul>
+<p>Placements (posiciones donde aparece el anuncio) que activa:</p>
+<ul>
+<li>Facebook feed (inicio de Facebook)</li>
+<li>Instagram feed (inicio de Instagram)</li>
+<li>Reels</li>
+<li>Stories (solo a veces, porque el formato no siempre encaja)</li>
+</ul>
+<p>Placements que desactiva explicitamente:</p>
+<ul>
+<li>Right Column (columna derecha en escritorio)</li>
+<li>Marketplace</li>
+<li>Audience Network (red externa de apps y sitios de Meta)</li>
+<li>Messenger</li>
+<li>Explorer</li>
+</ul>
+<p>Dice que su experiencia muestra que Right Column y Marketplace no generan ventas. Aclara que esto es su configuración personal y puede variar.</p>
+<p><strong>[12:00-14:00] Estructura de creatividades (creatives) dentro del ad set</strong> Usa la estructura "1-3-3": 1 campaña, 3 ad sets, 3 ads por ad set. En este primer ad set crea 3 video ads diferentes. Para cada video hace 2 versiones del mismo: una en formato 1:1 (cuadrado, para feed) y otra en formato 9:16 (vertical, para Reels y Stories). Usa una herramienta gratuita sin marca de agua para redimensionar (la transcripción no nombra la herramienta).</p>
+<p><strong>[15:00-16:28] Configuración del ad (el anuncio individual)</strong> Dentro de cada ad configura:</p>
+<ol>
+<li>Primary text (texto principal del anuncio, las primeras lineas que el usuario lee mientras hace scroll)</li>
+<li>Headline (titulo del anuncio)</li>
+<li>Website URL: la URL de su landing page propia, NO el link de afiliado directo. El link de afiliado va dentro de la landing page.</li>
+<li>Video: sube el archivo de video</li>
+</ol>
+<p>Advierte: no poner link de afiliado directamente en el campo "Website URL" del anuncio. Poner la URL de la landing page propia.</p>
+<p><strong>[17:00-18:12] Duplicado del ad para crear los 3 ads del ad set</strong> Duplica el primer ad y reemplaza el video por uno distinto para tener 3 creatividades diferentes en el mismo ad set. El objetivo es testear cuál video genera más ventas.</p>
+<p><strong>[18:48-19:54] Duplicado del ad set para agregar Australia</strong> Duplica el ad set completo de USA y cambia la ubicación a Australia. Así tiene 2 ad sets con 3 videos cada uno. Menciona que agregará más ad sets (otros países) en videos siguientes.</p>
+<p><strong>[20:14-21:02] Publicación y próximos pasos</strong> Dice que publicará la campaña una vez agregue la URL real de la landing page. Estima que tomará 1-2 días para pasar la revisión de Facebook y comenzar a recibir datos. El siguiente video del challenge se publicará cuando haya datos para mostrar.</p>
+<p><strong>[21:28-27:38] Revisión de ofertas recomendadas en ClickBank Marketplace</strong> Muestra la clasificación High to Low (mayor a menor gravedad) en el Marketplace. Menciona los siguientes productos como destacados en ese momento:</p>
+<ul>
+<li><strong>Metroline:</strong> weight loss, gravedad mayor a 500, "el nuevo top 1" en enero 2025</li>
+<li><strong>Nagano Tonic:</strong> weight loss previo, ahora desplazado por Metroline</li>
+<li><strong>Oferta dental (la transcripción no dice el nombre exacto, menciona una "oferta dental" que lleva tiempo en posición 1)</strong></li>
+<li><strong>Blood Sugar (azúcar en sangre): Sugar Defender como ejemplo, gravedad buena</strong></li>
+<li><strong>Nitric Boost:</strong> oferta para ED (disfunción eréctil), para audiencia masculina</li>
+<li><strong>ProDent:</strong> otra oferta dental que sigue funcionando</li>
+</ul>
+<p>Criterio de Param para elegir una oferta: gravedad de ClickBank entre 50 y 500+. Por debajo de 50, no promover. La transcripción no lo especifica, pero la gravedad entre 80-150 la señala como buena.</p>
+<hr>
+<h3 id="números-y-datos-concretos">Números y datos concretos<a class="anchor" href="#números-y-datos-concretos">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Dato</th>
+<th>Valor</th>
+<th>Contexto</th>
+</tr></thead><tbody>
+<tr>
+<td>Meta del challenge</td>
+<td>$100/dia en ventas</td>
+<td>Objetivo inicial</td>
+</tr>
+<tr>
+<td>Meta final del challenge</td>
+<td>$1.000/dia en ventas</td>
+<td>Objetivo de escalado</td>
+</tr>
+<tr>
+<td>Presupuesto diario configurado</td>
+<td>$100</td>
+<td>CBO activado en campaña</td>
+</tr>
+<tr>
+<td>Comisión por venta del producto elegido</td>
+<td>Mas de $100</td>
+<td>Oferta weight loss seleccionada</td>
+</tr>
+<tr>
+<td>Gravedad del producto elegido</td>
+<td>Mayor a 500</td>
+<td>"Top 1" en enero 2025</td>
+</tr>
+<tr>
+<td>Edad objetivo en la audiencia</td>
+<td>50+</td>
+<td>Para weight loss según su experiencia</td>
+</tr>
+<tr>
+<td>Estructura de ads</td>
+<td>1 campaña, 2 ad sets (USA y Australia), 3 video ads por ad set</td>
+<td>Setup mostrado en pantalla</td>
+</tr>
+<tr>
+<td>Duración de la VSL del vendedor</td>
+<td>30 a 45 minutos</td>
+<td>Param lo menciona como rango normal</td>
+</tr>
+<tr>
+<td>Gravedad mínima recomendada para elegir oferta</td>
+<td>50</td>
+<td>Por debajo de 50, no promover</td>
+</tr>
+<tr>
+<td>Tiempo estimado de revisión de Meta</td>
+<td>1-2 dias</td>
+<td>Estimación de Param</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h3 id="terminos-explicados-primera-aparicion">Terminos explicados (primera aparicion)<a class="anchor" href="#terminos-explicados-primera-aparicion">#</a></h3>
+<ul>
+<li><strong>Gravity (gravedad de ClickBank):</strong> puntuación que indica cuántos afiliados distintos hicieron al menos una venta del producto en las últimas 12 semanas. Más alto = más afiliados lo están vendiendo activamente = producto más probado.</li>
+<li><strong>VSL (Video Sales Letter):</strong> página con un video largo (30-45 min) que vende el producto. El vendedor lo crea; el afiliado solo lleva tráfico.</li>
+<li><strong>Landing page / página de aterrizaje:</strong> página simple que el afiliado crea entre el anuncio y la VSL. Sirve para pre-calentar al visitante y como capa de protección frente a políticas de Meta.</li>
+<li><strong>Pixel:</strong> código de seguimiento de Meta que se instala en tu landing page. Mide qué hacen los visitantes (clicks, compras) para que Meta pueda optimizar a quién le muestra tus anuncios.</li>
+<li><strong>Business Manager:</strong> panel central de Meta donde se gestionan las paginas, cuentas de anuncios y el pixel.</li>
+<li><strong>CBO (Campaign Budget Optimization):</strong> cuando el presupuesto se define a nivel de campaña y Meta lo redistribuye automaticamente entre los ad sets segun donde ve mejores resultados. Se llama "Advantage Campaign Budget" en la interfaz actual.</li>
+<li><strong>Ad set / grupo de anuncios:</strong> nivel intermedio entre la campaña y el anuncio. Aqui defines el presupuesto (si no usas CBO), el público, las ubicaciones y el horario.</li>
+<li><strong>Broad targeting / targeting amplio:</strong> no defines intereses ni comportamientos específicos. Dejas que Meta encuentre sola a las personas más propensas a comprar.</li>
+<li><strong>Lookalike / audiencia similar:</strong> Meta busca personas con comportamientos similares a los de tus compradores existentes. Param opta por no usarlo.</li>
+<li><strong>Placement / ubicación:</strong> el lugar donde aparece el anuncio: feed, Reels, Stories, Marketplace, etc.</li>
+<li><strong>Primary text:</strong> el bloque de texto arriba del anuncio que el usuario lee mientras hace scroll.</li>
+<li><strong>Creative / creatividad:</strong> la pieza del anuncio, en este caso el video.</li>
+<li><strong>ED offer:</strong> oferta para disfuncion eréctil, nicho de salud masculina en ClickBank.</li>
+<li><strong>High to Low:</strong> clasificación del Marketplace de ClickBank de mayor a menor gravedad.</li>
+<li><strong>Spy (espiar):</strong> revisar qué anuncios están corriendo otros afiliados para inspirarse, usando herramientas especializadas (spy tools).</li>
+</ul>
+<hr>
+<h3 id="qué-nos-sirve">Qué nos sirve<a class="anchor" href="#qué-nos-sirve">#</a></h3>
+<ul>
+<li>La estructura 1-3-3 (1 campaña, 3 ad sets por pais, 3 videos por ad set) es clara y replicable para testear creatividades sin gastar demasiado.</li>
+<li>El flujo completo del embudo queda bien explicado: anuncio > landing propia > VSL del vendedor > compra > comision.</li>
+<li>La configuración de placements (desactivar Right Column, Marketplace, Audience Network) es especifica y practicable.</li>
+<li>Los criterios para elegir oferta (gravedad mayor a 50, comisión sobre $100) son concretos.</li>
+<li>La advertencia sobre no poner el link de afiliado directamente en el campo URL del anuncio es crítica: Meta puede suspender la cuenta.</li>
+<li>El tip de hacer 2 versiones del mismo video (1:1 y 9:16) es simple y reduce errores de formato.</li>
+</ul>
+<h3 id="qué-tomar-con-pinzas">Qué tomar con pinzas<a class="anchor" href="#qué-tomar-con-pinzas">#</a></h3>
+<ul>
+<li>Este video no tiene resultados: es solo el setup. No sabremos si funcionó sin ver los episodios siguientes de la serie.</li>
+<li>La mitad del contenido hace referencias a su curso "Super Affiliate Facebook Ad Training" (link en descripción del canal). No es un tutorial libre: algunas partes del proceso (pixel setup, videos del curso, landing pages de referencia) las reserva para pagantes.</li>
+<li>Habla en inglés mezclado con otro idioma (la transcripción alterna entre inglés e hindi/urdu transliterado, lo que sugiere que el canal esta orientado a una audiencia del sur de Asia). El contenido de marketing es válido, pero el contexto cultural del canal es diferente al nuestro.</li>
+<li>El presupuesto de $100/dia en CBO desde el primer dia es un nivel de inversión no trivial para alguien que recién comienza. La transcripción no muestra un camino de menor presupuesto.</li>
+</ul>
+<hr>
+<h2 id="video-3-how-to-hit-1kday-with-clickbank-exact-process-behind-facebook-ads-2025">Video 3: "How To Hit $1k/Day with CLICKBANK Exact Process Behind Facebook Ads 2025"<a class="anchor" href="#video-3-how-to-hit-1kday-with-clickbank-exact-process-behind-facebook-ads-2025">#</a></h2>
+<p><strong>Canal:</strong> Hustlers Club <strong>Fecha de publicación:</strong> 2025-11-11 (según metadatos entregados; el año puede ser estimado) <strong>Duración estimada:</strong> ~17 minutos <strong>URL:</strong> https://www.youtube.com/watch?v=oO0S4piE91I</p>
+<hr>
+<h3 id="de-qué-trata">De qué trata<a class="anchor" href="#de-qué-trata">#</a></h3>
+<p>El canal Hustlers Club desglosa la matemática necesaria para llegar a $1.000/dia en ventas con ClickBank usando Facebook Ads. No muestra pantallas de campañas reales: es una explicación conceptual de los números y de la mentalidad para no cometer errores comunes. Al final menciona una comunidad en Skool (plataforma de cursos y comunidades) como pitch propio.</p>
+<hr>
+<h3 id="puntos-clave-con-timestamp">Puntos clave con timestamp<a class="anchor" href="#puntos-clave-con-timestamp">#</a></h3>
+<p><strong>[00:00-01:07] Premisa: la matemática, no el esfuerzo</strong> El canal dice que $1.000/dia con ClickBank es posible "para casi todos" si entienden los números. Repite varias veces que el momento en que entiendes la matemática, automaticamente entiendes qué tan "fácil" es. Nota: esta afirmacion es motivacional, no una garantía.</p>
+<p><strong>[01:07-03:10] Concepto 1: AOV (Average Order Value, valor promedio por pedido)</strong> Explica con un ejemplo de suplementos (vitaminas, proteínas) con 4 compradores hipotéticos:</p>
+<ul>
+<li>Persona 1: gasta $250</li>
+<li>Persona 2: gasta $210</li>
+<li>Persona 3: gasta $85</li>
+<li>Persona 4: gasta $280</li>
+</ul>
+<p>Promedio de los 4 = $160. Ese $160 es el AOV. Dice que ClickBank muestra un numero equivalente que llama "average commission" en la columna del Marketplace, y que ese numero funciona como el AOV para el afiliado.</p>
+<p>Ejemplo concreto que muestra: una oferta con $167 de comisión promedio y otra con $160. Usa $160 como el número de trabajo en el resto del video.</p>
+<p>Principio: mientras más alto el AOV, más puedes gastar en ads para conseguir un cliente y seguir siendo rentable.</p>
+<p><strong>[03:27-05:52] Concepto 2: CAC (Customer Acquisition Cost, costo de adquirir un cliente)</strong> El CAC es lo que gastas en anuncios para conseguir una venta. En Facebook esto aparece como "costo por resultado" o "costo por compra". No lo controlas directamente, pero lo puedes mejorar con mejores creatividades y landing pages.</p>
+<p>Números que da para suplementos en Estados Unidos como punto de partida realista:</p>
+<ul>
+<li>Rango normal: $70 a $90 por venta</li>
+<li>Número que usa para el cálculo: $75</li>
+</ul>
+<p>Dice: "si comienzas a correr campañas genuinamente, verás entre $70 y $90 por compra".</p>
+<p><strong>[06:00-08:10] El calculo para llegar a $1.000/dia</strong> Con AOV de $160 y CAC de $75:</p>
+<ul>
+<li>Ventas necesarias para $1.000: 6 ventas (6 x $160 = $960, "casi $1.000")</li>
+<li>Gasto en ads para obtener esas 6 ventas: 6 x $75 = $450/dia</li>
+<li>Margen bruto aproximado: $960 - $450 = $510 de ganancia diaria (antes de otros costos)</li>
+</ul>
+<p>El canal repite que solo necesitas 6 personas, no cientos. Lo presenta como algo "simple".</p>
+<p>Aclara que el CAC varia: puede bajar a $50 o subir a $120 según la creatividad, la competencia y la landing page. "No puedo decir que siempre vas a ver $75."</p>
+<p><strong>[09:12-13:59] Los errores mas comunes al correr ads (la parte mas practica del video)</strong> Explica un escenario tipico con 5 ad sets corriendo a la vez, con distintos gastos por ad set (da cifras de ejemplo: $35, $42, $65, $18, $88 de gasto en cada uno, no como resultados propios sino como ilustración).</p>
+<p>Resultado típico según él: de esos 5 ad sets, 1 o 2 generan ventas. Los otros no.</p>
+<p>Errores que describe:</p>
+<ol>
+<li><strong>Parar demasiado temprano:</strong> muchas personas paran la campaña cuando llevan $100+ gastados sin ventas. Dice que eso es un error. El presupuesto del 1.x ad set (los que no convierten) financia los datos que te permiten encontrar el ad set ganador.</li>
+<li><strong>Escalar demasiado rapido:</strong> si un ad set consiguió 1-2 ventas, la gente sube el presupuesto de inmediato o duplica el ad set. Dice que no hay que hacer eso. Recomendación: dejar el ad set ganador corriendo en el mismo presupuesto sin tocarlo. "Don't touch it."</li>
+<li><strong>Tocar el ad set ganador:</strong> cualquier cambio en un ad set que esta generando ventas puede interrumpir su optimización.</li>
+</ol>
+<p>Estrategia que recomienda:</p>
+<ul>
+<li>Ad sets que no convierten: pausarlos.</li>
+<li>Ad sets que convierten: dejar corriendo sin cambios.</li>
+<li>En paralelo: crear 2 a 4 ad sets nuevos para testear nuevas creatividades.</li>
+<li>Repetir el ciclo: ir encontrando mas combinaciones ganadoras sin escalar individualmente.</li>
+</ul>
+<p><strong>[14:19-15:15] Ejemplo numérico del resultado tipico inicial</strong> Gasto de ejemplo: $248-$250 en 5 ad sets. Resultado de ejemplo: 2 ventas x $160 = $320 de ingresos. Ganancia de ejemplo: $320 - $250 = $70 de utilidad.</p>
+<p>Dice que incluso si solo recuperas lo que gastaste (break even: cuando los ingresos igualan exactamente el gasto, sin ganancia ni pérdida), igual es un buen comienzo. Razonamiento: ya identificaste uno o dos ad sets que funcionan, y ClickBank te paga en 7 a 14 días, así que vuelves a tener el dinero para lanzar tres ad sets nuevos.</p>
+<p><strong>[15:00-16:22] Mentalidad: los datos cuestan plata pero no se pierden</strong> Argumento principal: cuando gastas en ads y no vendes, no perdiste dinero, obtuviste datos. Esos datos te dicen qué no funciona y acortan el tiempo para encontrar lo que sí funciona. El panel del canal dice "never lose money while running ads because you're learning or getting data."</p>
+<p><strong>[16:30-16:54] Pitch propio (marcar como promoción)</strong> El canal menciona que lanzó una comunidad en Skool (plataforma de cursos). El link esta en el primer resultado de la descripción del video. No da precio ni mas detalles en la transcripción.</p>
+<hr>
+<h3 id="números-y-datos-concretos">Números y datos concretos<a class="anchor" href="#números-y-datos-concretos">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Dato</th>
+<th>Valor</th>
+<th>Contexto</th>
+</tr></thead><tbody>
+<tr>
+<td>AOV de ejemplo usado</td>
+<td>$160</td>
+<td>Comisión promedio de un producto de suplementos</td>
+</tr>
+<tr>
+<td>AOV mostrado en pantalla (oferta 1)</td>
+<td>$167</td>
+<td>Oferta real en ClickBank mostrada brevemente</td>
+</tr>
+<tr>
+<td>AOV mostrado en pantalla (oferta 2)</td>
+<td>$160</td>
+<td>Segunda oferta real mostrada</td>
+</tr>
+<tr>
+<td>CAC de referencia para suplementos en USA</td>
+<td>$70-$90 por venta</td>
+<td>Rango "normal al comenzar"</td>
+</tr>
+<tr>
+<td>CAC usado en el cálculo</td>
+<td>$75</td>
+<td>Punto medio del rango</td>
+</tr>
+<tr>
+<td>Ventas necesarias para $1.000/dia</td>
+<td>6 ventas</td>
+<td>Con AOV de $160</td>
+</tr>
+<tr>
+<td>Gasto diario en ads para 6 ventas</td>
+<td>~$450/dia</td>
+<td>6 x $75 CAC</td>
+</tr>
+<tr>
+<td>Margen bruto estimado a $1.000/dia</td>
+<td>~$510/dia</td>
+<td>$960 ingresos - $450 gasto</td>
+</tr>
+<tr>
+<td>Ad sets en ejemplo tipico</td>
+<td>5</td>
+<td>Con gastos distintos entre $18 y $88</td>
+</tr>
+<tr>
+<td>Ad sets que usualmente convierten</td>
+<td>1-2 de 5</td>
+<td>Resultado típico en su experiencia</td>
+</tr>
+<tr>
+<td>Ingresos en ejemplo inicial</td>
+<td>$320</td>
+<td>2 ventas x $160</td>
+</tr>
+<tr>
+<td>Gasto en ejemplo inicial</td>
+<td>$250</td>
+<td>5 ad sets combinados</td>
+</tr>
+<tr>
+<td>Utilidad en ejemplo inicial</td>
+<td>$70</td>
+<td>$320 - $250</td>
+</tr>
+<tr>
+<td>Tiempo de pago de ClickBank</td>
+<td>7 a 14 dias</td>
+<td>Para recibir comisiones</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h3 id="terminos-explicados-primera-aparicion">Terminos explicados (primera aparicion)<a class="anchor" href="#terminos-explicados-primera-aparicion">#</a></h3>
+<ul>
+<li><strong>AOV (Average Order Value / Valor Promedio por Pedido):</strong> cuánto gasta en promedio cada cliente en una compra. En ClickBank se aproxima con la "comisión promedio" que aparece en el Marketplace.</li>
+<li><strong>CAC (Customer Acquisition Cost / Costo de Adquisición de Cliente):</strong> cuánto gastas en ads para conseguir una venta. Facebook lo muestra como "costo por resultado" o "costo por compra".</li>
+<li><strong>Break even:</strong> punto donde lo que ganas iguala lo que gastas. Sin ganancia ni pérdida.</li>
+<li><strong>Ad set / grupo de anuncios:</strong> ver Video 2. Aquí se reitera que es donde controlas el presupuesto individual y la creatividad.</li>
+<li><strong>Skool:</strong> plataforma de comunidades y cursos online, similar a Kajabi o Teachable pero con enfoque en comunidad. Mencionado solo en el pitch.</li>
+</ul>
+<hr>
+<h3 id="qué-nos-sirve">Qué nos sirve<a class="anchor" href="#qué-nos-sirve">#</a></h3>
+<ul>
+<li>El desglose matemático (AOV, CAC, numero de ventas, gasto diario) es la parte mas valiosa del video. Da un marco concreto para planificar: si el CAC es $75 y el AOV es $160, necesitas $450/dia en gasto para llegar a $1.000/dia en ingresos.</li>
+<li>La regla de no tocar los ad sets ganadores es practica y específica.</li>
+<li>El ciclo de test-pausa-crea-nuevo es un proceso claro para ir encontrando combinaciones rentables sin escalar prematuramente.</li>
+<li>El recordatorio de que ClickBank paga en 7-14 dias ayuda a planificar el flujo de caja.</li>
+</ul>
+<h3 id="qué-tomar-con-pinzas">Qué tomar con pinzas<a class="anchor" href="#qué-tomar-con-pinzas">#</a></h3>
+<ul>
+<li>El video no muestra una cuenta real con esos resultados. Todos los números son hipotéticos o "de ejemplo". No hay pantalla de Ads Manager ni de ClickBank con cifras propias.</li>
+<li>La afirmación de que "$1.000/dia es posible para casi todos" si entienden la matemática es exagerada y motivacional. Entender la matemática no garantiza que los ads conviertan.</li>
+<li>El CAC de $75 es un promedio general para suplementos en USA. Puede variar significativamente según el nicho, la creatividad y la competencia en el momento.</li>
+<li>El pitch al final (comunidad Skool) no da información de precio ni de qué incluye.</li>
+</ul>
+<hr>
+<h2 id="comparativa-rápida-de-los-tres-videos">Comparativa rápida de los tres videos<a class="anchor" href="#comparativa-rápida-de-los-tres-videos">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Criterio</th>
+<th>Joel (Video 1)</th>
+<th>Param (Video 2)</th>
+<th>Hustlers Club (Video 3)</th>
+</tr></thead><tbody>
+<tr>
+<td>Resultados reales mostrados</td>
+<td>Sí ($908 spend / $21K ventas)</td>
+<td>No (es el dia 1, sin datos)</td>
+<td>No (todo hipotetico)</td>
+</tr>
+<tr>
+<td>Nicho del producto</td>
+<td>MRR/info (no ClickBank puro)</td>
+<td>Weight loss (ClickBank)</td>
+<td>Suplementos genéricos (ejemplo)</td>
+</tr>
+<tr>
+<td>Presupuesto diario practicado</td>
+<td>$5-$20/dia</td>
+<td>$100/dia</td>
+<td>$450/dia (para $1K/dia)</td>
+</tr>
+<tr>
+<td>Estructura de campaña</td>
+<td>Contenido educativo + DM</td>
+<td>1-3-3 (1 campaña, 3 ad sets, 3 ads)</td>
+<td>Múltiples ad sets, pausar perdedores</td>
+</tr>
+<tr>
+<td>Nivel del pitch propio</td>
+<td>Mentoría 16 semanas</td>
+<td>Curso "Super Affiliate"</td>
+<td>Comunidad Skool</td>
+</tr>
+<tr>
+<td>Utilidad para nosotros</td>
+<td>Marco de mentalidad y presupuesto bajo</td>
+<td>Setup técnico paso a paso</td>
+<td>Matemática y mentalidad</td>
+</tr>
+</tbody></table></div>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 04-casos-joel-param-hustlers.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

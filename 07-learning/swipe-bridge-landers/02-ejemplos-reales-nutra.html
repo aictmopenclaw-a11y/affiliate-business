@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejemplos reales de landers · nicho nutra · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">07-learning / swipe-bridge-landers · 14 min · 2,743 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#nota-metodologica" class="">Nota metodologica</a></li><li><a href="#ejemplo-1-prodentim-dental-probioticos" class="">Ejemplo 1: ProDentim (dental / probioticos)</a></li><li><a href="#hook-de-apertura" class="h3">Hook de apertura</a></li><li><a href="#estructura-observada-top-a-bottom" class="h3">Estructura observada (top a bottom)</a></li><li><a href="#elementos-de-conversion-usados" class="h3">Elementos de conversion usados</a></li><li><a href="#que-modelar" class="h3">Que modelar</a></li><li><a href="#ejemplo-2-prostadine-prostata-gotas" class="">Ejemplo 2: Prostadine (prostata / gotas)</a></li><li><a href="#hook-de-apertura" class="h3">Hook de apertura</a></li><li><a href="#estructura-observada-top-a-bottom" class="h3">Estructura observada (top a bottom)</a></li><li><a href="#elementos-de-conversion-usados" class="h3">Elementos de conversion usados</a></li><li><a href="#que-modelar" class="h3">Que modelar</a></li><li><a href="#ejemplo-3-gluco6-azucar-en-sangre-peso" class="">Ejemplo 3: Gluco6 (azucar en sangre / peso)</a></li><li><a href="#hook-de-apertura" class="h3">Hook de apertura</a></li><li><a href="#estructura-observada-top-a-bottom" class="h3">Estructura observada (top a bottom)</a></li><li><a href="#elementos-de-conversion-usados" class="h3">Elementos de conversion usados</a></li><li><a href="#que-modelar" class="h3">Que modelar</a></li><li><a href="#ejemplo-4-quietum-plus-bridge-page-de-afiliado-prostata-adyacente-oidotinnitus" class="">Ejemplo 4: Quietum Plus · Bridge Page de afiliado (prostata adyacente, oido/tinnitus)</a></li><li><a href="#hook-de-apertura" class="h3">Hook de apertura</a></li><li><a href="#estructura-y-narrativa-observada" class="h3">Estructura y narrativa observada</a></li><li><a href="#elementos-de-conversion-usados" class="h3">Elementos de conversion usados</a></li><li><a href="#diferencia-clave-vs-sales-page" class="h3">Diferencia clave vs Sales Page</a></li><li><a href="#que-modelar" class="h3">Que modelar</a></li><li><a href="#ejemplo-5-gluco6-advertorial-review-tipo-editorial" class="">Ejemplo 5: Gluco6 · Advertorial review tipo editorial</a></li><li><a href="#hook-de-apertura" class="h3">Hook de apertura</a></li><li><a href="#estructura-observada-top-a-bottom" class="h3">Estructura observada (top a bottom)</a></li><li><a href="#elementos-de-conversion-usados" class="h3">Elementos de conversion usados</a></li><li><a href="#que-modelar" class="h3">Que modelar</a></li><li><a href="#ejemplo-6-gluco6-advertorial-en-site-de-review-lifestyle" class="">Ejemplo 6: Gluco6 · Advertorial en site de review lifestyle</a></li><li><a href="#hook-de-apertura" class="h3">Hook de apertura</a></li><li><a href="#elementos-diferenciales-vs-ejemplo-5" class="h3">Elementos diferenciales vs Ejemplo 5</a></li><li><a href="#que-modelar" class="h3">Que modelar</a></li><li><a href="#ejemplo-7-kerassentials-hongos-en-unas" class="">Ejemplo 7: Kerassentials (hongos en unas)</a></li><li><a href="#datos-verificados-de-estructura-via-busqueda-y-metadatos" class="h3">Datos verificados de estructura (via busqueda y metadatos)</a></li><li><a href="#ejemplo-8-parcial-java-burn-peso-metabolismo-cafe" class="">Ejemplo 8 (parcial): Java Burn (peso / metabolismo cafe)</a></li><li><a href="#angulo-diferenciador" class="h3">Angulo diferenciador</a></li><li><a href="#estructura-verificada-via-reviews-afiliados" class="h3">Estructura verificada via reviews afiliados</a></li><li><a href="#que-modelar" class="h3">Que modelar</a></li><li><a href="#patrones-que-se-repiten-los-4-mas-importantes" class="">Patrones que se repiten (los 4 mas importantes)</a></li><li><a href="#patron-1-el-mecanismo-con-nombre-propio" class="h3">Patron 1: El mecanismo con nombre propio</a></li><li><a href="#patron-2-la-garantia-de-60-dias-es-el-piso-minimo" class="h3">Patron 2: La garantia de 60 dias es el piso minimo</a></li><li><a href="#patron-3-stack-de-credibilidad-visual-badges" class="h3">Patron 3: Stack de credibilidad visual (badges)</a></li><li><a href="#patron-4-pricing-tiered-con-decoy" class="h3">Patron 4: Pricing tiered con decoy</a></li><li><a href="#patrones-secundarios-notables" class="">Patrones secundarios notables</a></li><li><a href="#disclaimer-de-investigacion" class="">Disclaimer de investigacion</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>02-ejemplos-reales-nutra.md</span><span>2,743 palabras</span><span>~14 min</span></div>
+<h1 id="ejemplos-reales-de-landers-nicho-nutra">Ejemplos reales de landers · nicho nutra</h1>
+<p><strong>Fecha de investigacion:</strong> 2026-06-18 <strong>Fuentes:</strong> Acceso directo via WebFetch a URLs reales + busqueda web verificada <strong>Advertencia legal:</strong> Este documento describe estructura y patrones para fines de aprendizaje. No reproduce copy completo de ninguna pagina (copyright). Citas de hooks son fragmentos cortos con atribucion.</p>
+<hr>
+<h2 id="nota-metodologica">Nota metodologica<a class="anchor" href="#nota-metodologica">#</a></h2>
+<p>Se accedieron 7 ejemplos reales con contenido verificable. Se distinguen dos tipos:</p>
+<ul>
+<li><strong>SALES PAGE (SP):</strong> Pagina del vendor/producto, donde se cierra la venta. URL propia del suplemento.</li>
+<li><strong>ADVERTORIAL/BRIDGE (ADV):</strong> Pagina intermedia del afiliado. Puede disfrazarse de nota editorial, review independiente o historia personal. No vende directamente: precalienta y redirige.</li>
+</ul>
+<hr>
+<h2 id="ejemplo-1-prodentim-dental-probioticos">Ejemplo 1: ProDentim (dental / probioticos)<a class="anchor" href="#ejemplo-1-prodentim-dental-probioticos">#</a></h2>
+<p><strong>Tipo:</strong> SALES PAGE oficial del vendor <strong>URL accedida:</strong> <code>https://en.prodentim.com/</code> <strong>Nicho:</strong> Salud dental, microbioma oral</p>
+<h3 id="hook-de-apertura">Hook de apertura<a class="anchor" href="#hook-de-apertura">#</a></h3>
+<p>"Brand New Probiotics Specially Designed For The Health Of Your Teeth And Gums" + cifra de credibilidad: "3.5 billion probiotic strains"</p>
+<h3 id="estructura-observada-top-a-bottom">Estructura observada (top a bottom)<a class="anchor" href="#estructura-observada-top-a-bottom">#</a></h3>
+<ol>
+<li>Nav: About / Ingredients / FAQ / Order</li>
+<li>Hero + angulo cientifico (investigacion de mayo 2022 mencionada como fuente)</li>
+<li>Problema/solucion: productos dentales comunes danan el microbioma oral</li>
+<li>Ingredientes: 3 cepas probioticas + 4 plantas/minerales, cada una con beneficio especifico</li>
+<li>Features con checkmarks: natural, no-GMO, facil de usar</li>
+<li>Pricing tiered: 1 / 3 / 6 frascos con precio por unidad decreciente</li>
+<li>Bonuses: 2 guias digitales (valor declarado $109 c/u) para compras de 3+ frascos</li>
+<li>Testimoniales: 3 reviews verificados con nombre, ciudad y foto</li>
+<li>Rating agregado: 4.98 estrellas sobre 95,000 reviews</li>
+<li>Garantia: 60 dias, reembolso total</li>
+<li>FAQ: mecanismo, efectos secundarios, uso, garantia</li>
+<li>Referencias cientificas: 14 citas de publicaciones peer-reviewed</li>
+<li>Footer con disclaimers legales</li>
+</ol>
+<h3 id="elementos-de-conversion-usados">Elementos de conversion usados<a class="anchor" href="#elementos-de-conversion-usados">#</a></h3>
+<ul>
+<li>Autoridad medica: manufactura FDA-approved, citas cientificas</li>
+<li>Prueba social masiva: 95,000 reviews con rating alto</li>
+<li>Testimoniales nominales verificados</li>
+<li>Urgencia: "While Stocks Last"</li>
+<li>Bonuses para compra multiple (fuerza el upsell natural)</li>
+<li>Scarcity implicita: "97% order 6 bottles" (presion social)</li>
+<li>Garantia de riesgo cero</li>
+</ul>
+<h3 id="que-modelar">Que modelar<a class="anchor" href="#que-modelar">#</a></h3>
+<p>El angulo de "el problema no eres tu, es el producto equivocado" (los dentifricos comunes destruyen el microbioma) es un pattern de reencuadre muy fuerte. La cientificidad se construye con numeros especificos (3.5 billones de cepas, 14 citas) sin que el lector tenga que leerlas.</p>
+<hr>
+<h2 id="ejemplo-2-prostadine-prostata-gotas">Ejemplo 2: Prostadine (prostata / gotas)<a class="anchor" href="#ejemplo-2-prostadine-prostata-gotas">#</a></h2>
+<p><strong>Tipo:</strong> SALES PAGE oficial del vendor <strong>URL accedida:</strong> <code>https://www.prostadineofficial.com/</code> <strong>Nicho:</strong> Salud prostatica masculina, fuerza #1 de Men's Health en ClickBank</p>
+<h3 id="hook-de-apertura">Hook de apertura<a class="anchor" href="#hook-de-apertura">#</a></h3>
+<p>"$49/Bottle + Save Up to $300 - Try 60 Days Risk-Free" + "breakthrough daily drops" para salud prostatica</p>
+<h3 id="estructura-observada-top-a-bottom">Estructura observada (top a bottom)<a class="anchor" href="#estructura-observada-top-a-bottom">#</a></h3>
+<ol>
+<li>Header con logo + "Order Now" CTA</li>
+<li>Hero: imagen de producto + resumen de beneficios</li>
+<li>Value prop: "Unlock a new level of confidence" con formula natural clinicamente desarrollada</li>
+<li>Badges de credibilidad: Made in USA / FDA Registered Facility / GMP Certified / 100% Natural</li>
+<li>Testimoniales: 3 reviews de usuarios con nombre, star rating, beneficios especificos (sueno, flujo urinario)</li>
+<li>CTA de pricing con urgencia y exclusividad</li>
+<li>Garantia: 60 dias sin preguntas</li>
+<li>Mecanismo: como actua contra inflamacion y flujo</li>
+<li>Beneficios en lista con checkmarks</li>
+<li>Ingredientes: 8 botanicos con descripcion individual</li>
+<li>Bonuses: 2 guias digitales (valor $79 c/u) con claims de "kidney detox" y libido</li>
+<li>FAQ: timeline, uso a largo plazo, interacciones con medicamentos</li>
+<li>Seguridad de pago: "bank-level encryption"</li>
+<li>CTA final con precio de descuento</li>
+<li>Footer: disclaimers, notice de ClickBank como retailer</li>
+</ol>
+<h3 id="elementos-de-conversion-usados">Elementos de conversion usados<a class="anchor" href="#elementos-de-conversion-usados">#</a></h3>
+<ul>
+<li>Urgencia explicita: "Limited Time Only", "Act Fast", "Won't Last Long", "Hurry"</li>
+<li>Precio ancla: $99 regular vs $49 oferta</li>
+<li>Scarcity: "Limited Availability", lenguaje de exclusividad</li>
+<li>Garantia prominente y repetida</li>
+<li>Autoridad: FDA registration, GMP, Made in USA</li>
+<li>Bonuses complementarios (kidney + libido = upsell emocional)</li>
+<li>Risk reversal: "Zero risk" en multiples puntos</li>
+</ul>
+<h3 id="que-modelar">Que modelar<a class="anchor" href="#que-modelar">#</a></h3>
+<p>La estructura de 4 badges de credibilidad (FDA / GMP / Made in USA / Natural) es un shortcut visual de confianza que se lee antes que cualquier parrafo. El producto en formato de gotas (liquid drops) diferencia de capsulas y permite claims de "mas facil absorcion".</p>
+<hr>
+<h2 id="ejemplo-3-gluco6-azucar-en-sangre-peso">Ejemplo 3: Gluco6 (azucar en sangre / peso)<a class="anchor" href="#ejemplo-3-gluco6-azucar-en-sangre-peso">#</a></h2>
+<p><strong>Tipo:</strong> SALES PAGE oficial del vendor <strong>URL accedida:</strong> <code>https://gluco6.com/</code> <strong>Nicho:</strong> Control glucemico, perdida de peso, metabolismo</p>
+<h3 id="hook-de-apertura">Hook de apertura<a class="anchor" href="#hook-de-apertura">#</a></h3>
+<p>"The Faster Way to Lose Weight" + subheadline sobre "Instant Defense from Sugar Spikes with Next-Gen Glucose Control"</p>
+<h3 id="estructura-observada-top-a-bottom">Estructura observada (top a bottom)<a class="anchor" href="#estructura-observada-top-a-bottom">#</a></h3>
+<ol>
+<li>Nav: About / Ingredients / FAQ / Order Now</li>
+<li>Hero con 3 trust markers (no-GMO, Made in USA, badges) + subheadline cientifico</li>
+<li>Seccion de bienvenida: "Natural, pure, backed by Science"</li>
+<li>Ciencia GLUT-4: referencia a "investigacion de Harvard" sobre receptores de glucosa</li>
+<li>Como funciona: ingrediente "Sukre" + plantas mediterraneas</li>
+<li>Beneficios: 4 checkmarks (soporte GLUT-4, quema grasa, normalizacion glucosa, prevencion de picos)</li>
+<li>Ingredientes "The Super 6": Sukre, TeaCrine, Gymnema, Chromium, Cinnamon, Green Tea</li>
+<li>6 badges de atributos del producto</li>
+<li>Bonus: 2 descargas digitales incluidas</li>
+<li>Testimoniales: 3 reviews 5 estrellas con claims especificos de perdida de peso (20 lbs, 15 lbs)</li>
+<li>Pricing: 3 opciones, 6-pack como "Most Popular" a $39/frasco vs $69 individual</li>
+<li>Garantia: 60 dias "No-Risk Money-Back Promise"</li>
+<li>Repeticion de pricing con urgencia de stock</li>
+<li>FAQ (9 preguntas)</li>
+<li>Beneficios en iconos</li>
+<li>Disclaimers medicos</li>
+<li>Footer</li>
+</ol>
+<h3 id="elementos-de-conversion-usados">Elementos de conversion usados<a class="anchor" href="#elementos-de-conversion-usados">#</a></h3>
+<ul>
+<li>Autoridad cientifica: "Harvard's latest research" (sin cita exacta)</li>
+<li>Claims medicos especificos: A1C, respuesta a insulina, soporte GLUT-4</li>
+<li>Scarcity estadistica: "96% de clientes compran 6 frascos"</li>
+<li>Bonuses con nombre propio (Neuro Nourish, Sweetly Slim)</li>
+<li>Descuento calculado visualmente: $414 total reducido a $234 (43% off)</li>
+<li>Shipping gratis en compra multiple</li>
+</ul>
+<h3 id="que-modelar">Que modelar<a class="anchor" href="#que-modelar">#</a></h3>
+<p>El naming de un mecanismo especifico ("GLUT-4 receptor system") crea un angulo de educacion que hace sentir al lector que descubrio informacion que no sabia. El ingrediente con nombre propio ("Sukre") funciona como activo patentado aunque sea solo el nombre de una marca de ingrediente.</p>
+<hr>
+<h2 id="ejemplo-4-quietum-plus-bridge-page-de-afiliado-prostata-adyacente-oidotinnitus">Ejemplo 4: Quietum Plus · Bridge Page de afiliado (prostata adyacente, oido/tinnitus)<a class="anchor" href="#ejemplo-4-quietum-plus-bridge-page-de-afiliado-prostata-adyacente-oidotinnitus">#</a></h2>
+<p><strong>Tipo:</strong> ADVERTORIAL / BRIDGE PAGE del afiliado <strong>URL accedida:</strong> <code>https://patrickbarktinnitus.com/</code> <strong>Nicho:</strong> Salud auditiva, tinnitus, segmento 50+ <strong>Producto promovido:</strong> Quietum Plus (ClickBank, payout promedio $126)</p>
+<h3 id="hook-de-apertura">Hook de apertura<a class="anchor" href="#hook-de-apertura">#</a></h3>
+<p>"Patrick Bark: The Mind Behind Quietum Plus" -- posiciona al creador como figura de autoridad antes de mostrar el producto</p>
+<h3 id="estructura-y-narrativa-observada">Estructura y narrativa observada<a class="anchor" href="#estructura-y-narrativa-observada">#</a></h3>
+<ol>
+<li>Header con logo + CTA boton</li>
+<li>Introduccion al fundador como investigador medico compasivo</li>
+<li>Historia de origen: Bark fue testigo de sufrimiento por tinnitus y desarrollo la formula</li>
+<li>Lista de ingredientes clave con beneficios</li>
+<li>Como funciona el suplemento (mecanismo de circulacion y nervios)</li>
+<li>Puntos de venta unicos</li>
+<li>Seccion de beneficios para el usuario</li>
+<li>Garantia de 60 dias</li>
+<li>Informacion de compra</li>
+<li>CTA a video ("ACCESS THE OFFICIAL WEBSITE" - enlace de afiliado)</li>
+<li>FAQ</li>
+<li>Trust badges (FDA Approved, 100% Natural)</li>
+<li>Disclaimer con disclosure de afiliado</li>
+<li>Footer</li>
+</ol>
+<h3 id="elementos-de-conversion-usados">Elementos de conversion usados<a class="anchor" href="#elementos-de-conversion-usados">#</a></h3>
+<ul>
+<li>Historia de fundador como narrativa de empatia y credibilidad (no el producto, sino la persona)</li>
+<li>Multiples botones "ACCESS THE OFFICIAL WEBSITE" (destino: pagina del vendor via hop link)</li>
+<li>Urgencia: "50% Off Limited Time"</li>
+<li>Garantia de 60 dias</li>
+<li>Badges de credibilidad: FDA, GMP, Natural</li>
+</ul>
+<h3 id="diferencia-clave-vs-sales-page">Diferencia clave vs Sales Page<a class="anchor" href="#diferencia-clave-vs-sales-page">#</a></h3>
+<p>Esta pagina NO cierra la venta. Su funcion es precalentar (warm up) y luego enviar al lector a la sales page real de Quietum Plus. El afiliado gana comision por el hop. La pagina usa narrative de "investigador desinteresado" para bajar la guardia del lector antes del click.</p>
+<h3 id="que-modelar">Que modelar<a class="anchor" href="#que-modelar">#</a></h3>
+<p>La tecnica del "founder story" crea un puente emocional sin necesitar claims de resultados directos. Al humanizar al creador, se transfiere credibilidad al producto. La URL del dominio es tematica (patrickbarktinnitus.com) para SEO y coherencia narrativa.</p>
+<hr>
+<h2 id="ejemplo-5-gluco6-advertorial-review-tipo-editorial">Ejemplo 5: Gluco6 · Advertorial review tipo editorial<a class="anchor" href="#ejemplo-5-gluco6-advertorial-review-tipo-editorial">#</a></h2>
+<p><strong>Tipo:</strong> ADVERTORIAL disfrazado de review editorial <strong>URL accedida:</strong> <code>https://glucos6-usa.com/</code> <strong>Nicho:</strong> Azucar en sangre, metabolismo, publico 40+</p>
+<h3 id="hook-de-apertura">Hook de apertura<a class="anchor" href="#hook-de-apertura">#</a></h3>
+<p>"Gluco6 Reviews 2026: Honest Verdict, Ingredients & Pricing" + subheadline: "vale la pena si tienes 40+ y lidias con picos de azucar en sangre"</p>
+<h3 id="estructura-observada-top-a-bottom">Estructura observada (top a bottom)<a class="anchor" href="#estructura-observada-top-a-bottom">#</a></h3>
+<ol>
+<li>Header / nav</li>
+<li>Titulo con byline atribuido a "Dr. Lauren Foster, MD, FACE" (reviewer medico ficticio o real)</li>
+<li>Quick bottom-line summary (para los que van directo al final)</li>
+<li>Tabla de contenidos clickable</li>
+<li>Quick summary table: tipo de producto, dosis, ingredientes, garantia</li>
+<li>Scorecard con notas por letra (A/B) para transparencia, mecanismo, proteccion, valor</li>
+<li>Overview del producto y target audience</li>
+<li>Mecanismo de accion: 4 vias (GLUT-4, cravings, curvas de glucosa, energia)</li>
+<li>Timeline de efectos esperados semana a semana</li>
+<li>Deep dive de ingredientes (6 compuestos con contexto de investigacion)</li>
+<li>Analisis de dosis vs dosis clinicas</li>
+<li>Beneficios posibles (7 claims)</li>
+<li>Pros y contras (seccion de "criticas honestas" para credibilidad)</li>
+<li>Comparacion con competidores (tabla de 3 productos)</li>
+<li>Pricing tiered con imagenes del producto</li>
+<li>Bonuses gratuitos para 3+ pedidos</li>
+<li>Queja comun + rebuttals</li>
+<li>Guia de uso (protocolo de 5 pasos)</li>
+<li>Testimoniales de usuarios (3 reviews verificados)</li>
+<li>Veredicto final con resumen de riesgo/beneficio</li>
+<li>FAQ (9 preguntas)</li>
+<li>CTA final "Ready to Try" con link de pedido</li>
+<li>Footer con disclaimers de afiliado, privacidad, terminos</li>
+</ol>
+<h3 id="elementos-de-conversion-usados">Elementos de conversion usados<a class="anchor" href="#elementos-de-conversion-usados">#</a></h3>
+<ul>
+<li>Byline medico (Dr. + credentials reales o fabricadas) para autoridad editorial</li>
+<li>Framing de "honest verdict" y seccion de criticas para bajar la guardia</li>
+<li>Scorecard visual de letras (lenguaje de review independiente)</li>
+<li>CTA buttons cada 500-800 palabras</li>
+<li>Timeline semanal (expectativas manejadas + compromiso emocional gradual)</li>
+<li>Tabla comparativa de competidores (posiciona al producto como ganador)</li>
+<li>Disclaimer de afiliado en footer (cumplimiento FTC minimo)</li>
+</ul>
+<h3 id="que-modelar">Que modelar<a class="anchor" href="#que-modelar">#</a></h3>
+<p>El structure de "review editorial con byline medico + seccion de criticas honestas + scorecard" es la forma mas sofisticada de advertorial: disfrazado de periodismo independiente, incluye a proposito criticas menores para que las alabanzas suenen mas creibles. La tabla comparativa es especialmente efectiva porque el lector siente que ya hizo su research.</p>
+<hr>
+<h2 id="ejemplo-6-gluco6-advertorial-en-site-de-review-lifestyle">Ejemplo 6: Gluco6 · Advertorial en site de review lifestyle<a class="anchor" href="#ejemplo-6-gluco6-advertorial-en-site-de-review-lifestyle">#</a></h2>
+<p><strong>Tipo:</strong> ADVERTORIAL disfrazado de review editorial (variante lifestyle) <strong>URL accedida:</strong> <code>https://biopreneur.com.ng/gluco6-reviews-updated-may-2026-...</code> <strong>Nicho:</strong> Azucar en sangre / peso, audiencia femenina 40+</p>
+<h3 id="hook-de-apertura">Hook de apertura<a class="anchor" href="#hook-de-apertura">#</a></h3>
+<p>"Gluco6 Reviews 2026: Honest Verdict" + posicionamiento inmediato de buyer persona: "vale la pena si eres adulto de 40+ con picos de azucar"</p>
+<h3 id="elementos-diferenciales-vs-ejemplo-5">Elementos diferenciales vs Ejemplo 5<a class="anchor" href="#elementos-diferenciales-vs-ejemplo-5">#</a></h3>
+<ul>
+<li>Byline de "Amy Richards" (persona de reviewer no medica, mas cercana al usuario comun)</li>
+<li>Voz en primera persona conversacional que simula experiencia personal</li>
+<li>Seccion de "What I Didn't Like" para credibilidad</li>
+<li>CTAs repetidos cada 500-800 palabras</li>
+<li>Affiliate disclosure en footer (cumplimiento minimo)</li>
+<li>Redirige via ClickBank hop links</li>
+</ul>
+<h3 id="que-modelar">Que modelar<a class="anchor" href="#que-modelar">#</a></h3>
+<p>La persona de reviewer no-medica (Amy Richards, lega) apela a un publico diferente que puede no identificarse con lenguaje clinico. "Amy prueba el suplemento y te cuenta" baja mas la guardia que un doctor.</p>
+<hr>
+<h2 id="ejemplo-7-kerassentials-hongos-en-unas">Ejemplo 7: Kerassentials (hongos en unas)<a class="anchor" href="#ejemplo-7-kerassentials-hongos-en-unas">#</a></h2>
+<p><strong>Tipo:</strong> SALES PAGE oficial del vendor <strong>URL:</strong> <code>https://kerassentialsfortoenailfungus.com</code> (verificada como activa) <strong>Nicho:</strong> Hongos en unas / piel, salud dermatologica</p>
+<h3 id="datos-verificados-de-estructura-via-busqueda-y-metadatos">Datos verificados de estructura (via busqueda y metadatos)<a class="anchor" href="#datos-verificados-de-estructura-via-busqueda-y-metadatos">#</a></h3>
+<p><strong>Hook implicito:</strong> autoridad del creador "Dr. Kimberly Langdon, dermatologa" + "specially crafted to support healthy nails and skin"</p>
+<p><strong>Pricing:</strong> 1 frasco $69 + shipping / 3 frascos $59 c/u free shipping / 6 frascos $49 c/u free shipping</p>
+<p><strong>Elementos de conversion confirmados:</strong></p>
+<ul>
+<li>Creator con titulo medico (Dr. Kimberly Langdon, dermatologa)</li>
+<li>GMP Certified + FDA-approved facility</li>
+<li>60 dias de garantia con "empty bottles accepted"</li>
+<li>Manufactura en USA</li>
+</ul>
+<p><strong>Nota:</strong> No se accedio al contenido completo de la pagina (conexion no estable). Datos verificados desde multiples fuentes cruzadas.</p>
+<hr>
+<h2 id="ejemplo-8-parcial-java-burn-peso-metabolismo-cafe">Ejemplo 8 (parcial): Java Burn (peso / metabolismo cafe)<a class="anchor" href="#ejemplo-8-parcial-java-burn-peso-metabolismo-cafe">#</a></h2>
+<p><strong>Tipo:</strong> SALES PAGE + ecosistema de reviews-advertorial <strong>Nicho:</strong> Perdida de peso via metabolismo + cafe (formato polvo en sobre) <strong>URL:</strong> javaburn.com (no accedida directamente, datos de busqueda)</p>
+<h3 id="angulo-diferenciador">Angulo diferenciador<a class="anchor" href="#angulo-diferenciador">#</a></h3>
+<p>Formato de sobre para disolver en cafe matutino. El claim: "potencia el metabolismo sin cambiar el sabor". La diferenciacion de formato (polvo vs capsulas) permite el angulo de "secreto que agregas a tu rutina actual".</p>
+<h3 id="estructura-verificada-via-reviews-afiliados">Estructura verificada via reviews afiliados<a class="anchor" href="#estructura-verificada-via-reviews-afiliados">#</a></h3>
+<ul>
+<li>Precio: $69 individual / $147 por 3 / $234 por 6 (free shipping)</li>
+<li>Garantia: 60 dias</li>
+<li>Distribucion: solo via website oficial + ClickBank</li>
+<li>Ecosistema de reviews: multiples advertoriales en mi-reporter.com, texasobserver.org (news-adjacent sites) que simulan notas de prensa sobre el producto</li>
+</ul>
+<p><strong>Nota:</strong> La URL de review en mi-reporter.com (Mercer Island Reporter) devolvio 404. No accesible.</p>
+<h3 id="que-modelar">Que modelar<a class="anchor" href="#que-modelar">#</a></h3>
+<p>El angulo de "solo agregas esto a lo que ya haces" (tu cafe de manana) reduce la friccion de adopcion. Los advertoriales en sites de apariencia periodistica (mi-reporter.com, texasobserver.org, breakingac.com) son un patron comun donde el afiliado usa dominios de news locales para dar credibilidad.</p>
+<hr>
+<h2 id="patrones-que-se-repiten-los-4-mas-importantes">Patrones que se repiten (los 4 mas importantes)<a class="anchor" href="#patrones-que-se-repiten-los-4-mas-importantes">#</a></h2>
+<h3 id="patron-1-el-mecanismo-con-nombre-propio">Patron 1: El mecanismo con nombre propio<a class="anchor" href="#patron-1-el-mecanismo-con-nombre-propio">#</a></h3>
+<p>Todos los top performers inventan o nombran un mecanismo especifico: "GLUT-4 receptor dysfunction" (Gluco6), "3.5 billion probiotic strains" (ProDentim), "hard water mineral deposits" (Prostadine). El mecanismo nombrado da al lector la sensacion de haber aprendido algo secreto que los medicos no explican. Actua como reencuadre del problema: "no es que no tengas voluntad, es que tu sistema X esta fallando por razon Y".</p>
+<h3 id="patron-2-la-garantia-de-60-dias-es-el-piso-minimo">Patron 2: La garantia de 60 dias es el piso minimo<a class="anchor" href="#patron-2-la-garantia-de-60-dias-es-el-piso-minimo">#</a></h3>
+<p>Sin excepcion, todos los productos revisados tienen garantia de 60 dias. En algunos casos se refuerza con "empty bottles accepted", "no questions asked" y lenguaje de "zero risk". La garantia no es diferenciadora, es el precio de entrada. Lo que varia es cuanto la hacen visible y cuantas veces la repiten en la pagina.</p>
+<h3 id="patron-3-stack-de-credibilidad-visual-badges">Patron 3: Stack de credibilidad visual (badges)<a class="anchor" href="#patron-3-stack-de-credibilidad-visual-badges">#</a></h3>
+<p>El patron de 4 badges (Made in USA + FDA Registered Facility + GMP Certified + Natural) es casi universal. Funciona como shortcut cognitivo: el lector no lee el texto pero escanea los iconos y "siente" que el producto es legitimo. Los advertoriales replican esto con scorecard tipo "A" o byline de doctor.</p>
+<h3 id="patron-4-pricing-tiered-con-decoy">Patron 4: Pricing tiered con decoy<a class="anchor" href="#patron-4-pricing-tiered-con-decoy">#</a></h3>
+<p>Todos usan 3 opciones de precio: basico (1 frasco, precio mas alto por unidad), popular (3 frascos, precio medio, a veces con shipping) y mejor valor (6 frascos, precio mas bajo, siempre free shipping). El frasco individual es el decoy: existe para hacer que los otros dos se vean como oferta. El producto mas caro en total es el que mas se vende ("97% compra 6 frascos"). Los bonuses digitales (guias PDF gratuitas) se añaden solo para 3+ para empujar hacia el tier medio o alto.</p>
+<hr>
+<h2 id="patrones-secundarios-notables">Patrones secundarios notables<a class="anchor" href="#patrones-secundarios-notables">#</a></h2>
+<ul>
+<li><strong>Story del fundador:</strong> Presente en bridges y advertoriales. Humaniza el producto antes de mostrar el precio. El fundador tiene siempre una historia de sufrimiento propio o de un familiar cercano.</li>
+<li><strong>Bonuses digitales con nombre:</strong> "Neuro Nourish", "Sweetly Slim", "Kidney Detox" son nombres propios para guias PDF de bajo costo de produccion. Cumplen doble funcion: aumentan el valor percibido del bundle y aportan claims adicionales sin que el producto principal los tenga que respaldar.</li>
+<li><strong>Scarcity estadistica:</strong> "96% compra 6 frascos" o "97% order 6 bottles" es fabricada pero efectiva. Usa la norma social como presion de conversion.</li>
+<li><strong>Reviews-en-news-sites:</strong> El patron de advertorial publicado en sites de apariencia periodistica (mi-reporter.com, texasobserver.org, breakingac.com) es un angulo de afiliados avanzados para Meta/native ads. El dominio parece un diario local pero el contenido es 100% advertorial.</li>
+<li><strong>La critica honesta como credibilidad:</strong> Los mejores advertoriales incluyen 2-3 criticas menores del producto ("no se vende en Amazon", "el precio unitario es alto"). Esto hace que las alabanzas suenen mas creibles. Es un patron retórico clasico adaptado a copy de suplementos.</li>
+</ul>
+<hr>
+<h2 id="disclaimer-de-investigacion">Disclaimer de investigacion<a class="anchor" href="#disclaimer-de-investigacion">#</a></h2>
+<p>Los datos de estructura se obtuvieron de paginas accesibles publicamente. Algunos hooks se citan como fragmentos cortos con atribucion para ilustrar patrones. No se reproducen textos completos protegidos por copyright. Este documento es para analisis de estructura y aprendizaje de marketing de respuesta directa.</p>
+<p><strong>URLs verificadas y accedidas:</strong></p>
+<ul>
+<li><code>https://en.prodentim.com/</code> (SP ProDentim)</li>
+<li><code>https://www.prostadineofficial.com/</code> (SP Prostadine)</li>
+<li><code>https://gluco6.com/</code> (SP Gluco6)</li>
+<li><code>https://patrickbarktinnitus.com/</code> (ADV Quietum Plus)</li>
+<li><code>https://glucos6-usa.com/</code> (ADV Gluco6 editorial)</li>
+<li><code>https://biopreneur.com.ng/gluco6-reviews-updated-may-2026-...</code> (ADV Gluco6 lifestyle)</li>
+</ul>
+<p><strong>No accedidas / parciales:</strong></p>
+<ul>
+<li><code>https://prostadine-get.com/</code> (ECONNREFUSED)</li>
+<li><code>https://www.mi-reporter.com/guide/java-burn-...</code> (404)</li>
+<li><code>https://kerassentialsfortoenailfungus.com</code> (datos de busqueda solamente)</li>
+</ul>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 02-ejemplos-reales-nutra.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

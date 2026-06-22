@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cruce avatares x consciencia x ángulos · Prostadine (próstata) · VERSIÓN EXTENDIDA · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">07-learning / cruce-angulos-avatares · 46 min · 9,254 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#1-contexto-del-nicho-ampliado" class="">1. Contexto del nicho ampliado</a></li><li><a href="#11-el-problema-real-en-lenguaje-de-calle" class="h3">1.1 El problema real, en lenguaje de calle</a></li><li><a href="#12-tamaño-y-dinámica-del-mercado" class="h3">1.2 Tamaño y dinámica del mercado</a></li><li><a href="#13-estacionalidad" class="h3">1.3 Estacionalidad</a></li><li><a href="#14-sensibilidad-regulatoria-por-qué-meta-lo-vigila-tanto" class="h3">1.4 Sensibilidad regulatoria: por qué Meta lo vigila tanto</a></li><li><a href="#15-la-oferta-del-vendor-y-sus-boosters-felipe-vergara-m04-clase-03" class="h3">1.5 La oferta del vendor y sus boosters (Felipe Vergara M04, clase 03)</a></li><li><a href="#2-los-avatares-5-buyer-personas-en-profundidad" class="">2. Los avatares (5 buyer personas, en profundidad)</a></li><li><a href="#avatar-a-roberto-el-que-recién-nota-los-síntomas-52" class="h3">Avatar A · Roberto, "el que recién nota los síntomas" (52)</a></li><li><a href="#avatar-b-frank-el-que-ya-probó-finasteride-y-le-fue-mal-61" class="h3">Avatar B · Frank, "el que ya probó finasteride y le fue mal" (61)</a></li><li><a href="#avatar-c-dave-el-que-lo-niega-57" class="h3">Avatar C · Dave, "el que lo niega" (57)</a></li><li><a href="#avatar-d-linda-la-esposa-que-compra-para-él-58" class="h3">Avatar D · Linda, "la esposa que compra para él" (58)</a></li><li><a href="#avatar-e-george-el-proactivo-de-wellness-55" class="h3">Avatar E · George, "el proactivo de wellness" (55)</a></li><li><a href="#3-los-5-niveles-de-consciencia-para-próstata-en-profundidad" class="">3. Los 5 niveles de consciencia para próstata, en profundidad</a></li><li><a href="#nivel-1-inconsciente-25-30-del-tráfico-frío" class="h3">Nivel 1 · Inconsciente (~25-30% del tráfico frío)</a></li><li><a href="#nivel-2-consciente-del-problema-30-35" class="h3">Nivel 2 · Consciente del problema (~30-35%)</a></li><li><a href="#nivel-3-consciente-de-la-solución-20-25" class="h3">Nivel 3 · Consciente de la solución (~20-25%)</a></li><li><a href="#nivel-4-consciente-del-producto-8-12" class="h3">Nivel 4 · Consciente del producto (~8-12%)</a></li><li><a href="#nivel-5-listo-para-comprar-decisión-3-5" class="h3">Nivel 5 · Listo para comprar / Decisión (~3-5%)</a></li><li><a href="#4-matriz-extendida-avatar-x-nivel-ángulo-hooks-cta-riesgo" class="">4. Matriz extendida · avatar x nivel → ángulo + hooks + CTA + riesgo</a></li><li><a href="#cruce-1-roberto-a-problema-2-ángulo-pregunta-quiz-hook-riesgo-g-bajo" class="h3">Cruce 1 · Roberto (A) × Problema (2) · Ángulo: Pregunta / Quiz Hook · Riesgo {g} Bajo</a></li><li><a href="#cruce-2-roberto-a-problema-2-ángulo-listicle-x-razones-riesgo-g-bajo" class="h3">Cruce 2 · Roberto (A) × Problema (2) · Ángulo: Listicle / X razones · Riesgo {g} Bajo</a></li><li><a href="#cruce-3-roberto-a-george-e-solución-3-ángulo-curiosity-mecanismo-riesgo-a-medio" class="h3">Cruce 3 · Roberto (A) / George (E) × Solución (3) · Ángulo: Curiosity + mecanismo · Riesgo {a} Medio</a></li><li><a href="#cruce-4-frank-b-soluciónproducto-3-4-ángulo-fear-anti-fármaco-riesgo-r-alto" class="h3">Cruce 4 · Frank (B) × Solución/Producto (3-4) · Ángulo: Fear / anti-fármaco · Riesgo {r} Alto</a></li><li><a href="#cruce-5-frank-b-producto-4-ángulo-autoridad-experto-riesgo-r-alto" class="h3">Cruce 5 · Frank (B) × Producto (4) · Ángulo: Autoridad / experto · Riesgo {r} Alto</a></li><li><a href="#cruce-6-frank-b-producto-4-ángulo-testimonial-social-proof-riesgo-a-medio" class="h3">Cruce 6 · Frank (B) × Producto (4) · Ángulo: Testimonial / social proof · Riesgo {a} Medio</a></li><li><a href="#cruce-7-dave-c-inconsciente-1-ángulo-news-style-advertorial-riesgo-r-alto" class="h3">Cruce 7 · Dave (C) × Inconsciente (1) · Ángulo: News-style / advertorial · Riesgo {r} Alto</a></li><li><a href="#cruce-8-dave-c-inconscienteproblema-1-2-ángulo-curiosity-reframe-riesgo-a-medio" class="h3">Cruce 8 · Dave (C) × Inconsciente→Problema (1-2) · Ángulo: Curiosity + reframe · Riesgo {a} Medio</a></li><li><a href="#cruce-9-dave-c-problema-2-ángulo-listicle-riesgo-g-bajo" class="h3">Cruce 9 · Dave (C) × Problema (2) · Ángulo: Listicle · Riesgo {g} Bajo</a></li><li><a href="#cruce-10-linda-d-solución-3-ángulo-testimonial-cuidadora-riesgo-g-bajo-medio" class="h3">Cruce 10 · Linda (D) × Solución (3) · Ángulo: Testimonial cuidadora · Riesgo {g} Bajo-medio</a></li><li><a href="#cruce-11-linda-d-solución-3-ángulo-beneficio-aspiracional-riesgo-g-bajo" class="h3">Cruce 11 · Linda (D) × Solución (3) · Ángulo: Beneficio / aspiracional · Riesgo {g} Bajo</a></li><li><a href="#cruce-12-george-e-solución-3-ángulo-beneficio-aspiracional-riesgo-g-bajo" class="h3">Cruce 12 · George (E) × Solución (3) · Ángulo: Beneficio / aspiracional · Riesgo {g} Bajo</a></li><li><a href="#cruce-13-george-e-solución-3-ángulo-mecanismo-con-nombre-riesgo-a-medio" class="h3">Cruce 13 · George (E) × Solución (3) · Ángulo: Mecanismo con nombre · Riesgo {a} Medio</a></li><li><a href="#cruce-14-franklindageorge-productodecisión-4-5-ángulo-oferta-garantía-retargeting-riesgo-g-bajo" class="h3">Cruce 14 · Frank/Linda/George × Producto/Decisión (4-5) · Ángulo: Oferta + garantía (retargeting) · Riesgo {g} Bajo</a></li><li><a href="#5-mensajería-desarrollada-los-3-cruces-prioritarios-guión-completo-ad-bridge" class="">5. Mensajería desarrollada · los 3 cruces prioritarios (guión completo ad + bridge)</a></li><li><a href="#cruce-prioritario-a-roberto-problema-preguntalisticle-riesgo-bajo-validador-de-audiencia" class="h3">Cruce prioritario A · Roberto × Problema · Pregunta/Listicle (riesgo bajo, validador de audiencia)</a></li><li><a href="#cruce-prioritario-b-frank-soluciónproducto-testimonial-anti-fármaco-suave-riesgo-medio-alto-el-de-mayor-conversión" class="h3">Cruce prioritario B · Frank × Solución/Producto · Testimonial anti-fármaco suave (riesgo medio-alto, el de mayor conversión)</a></li><li><a href="#cruce-prioritario-c-linda-solución-cuidadora-riesgo-bajo-audiencia-que-la-competencia-ignora" class="h3">Cruce prioritario C · Linda × Solución · Cuidadora (riesgo bajo, audiencia que la competencia ignora)</a></li><li><a href="#6-secuencia-de-funnel-por-avatar-ad-frío-bridge-oferta-retargeting" class="">6. Secuencia de funnel por avatar (ad frío → bridge → oferta → retargeting)</a></li><li><a href="#7-plan-de-testing-qué-lanzar-primero-orden-killscale" class="">7. Plan de testing (qué lanzar primero, orden, kill/scale)</a></li><li><a href="#principio-rector-empezar-por-riesgo-bajo-escalar-el-de-mayor-riesgo-último" class="h3">Principio rector: empezar por riesgo bajo, escalar el de mayor riesgo último</a></li><li><a href="#lote-1-validar-audiencia-mensaje-riesgo-g-bajo" class="h3">Lote 1 · Validar audiencia + mensaje (riesgo {g} bajo)</a></li><li><a href="#lote-2-escalar-el-mensaje-ganador-con-cuidado-riesgo-a-medio" class="h3">Lote 2 · Escalar el mensaje ganador con cuidado (riesgo {a} medio)</a></li><li><a href="#lote-3-el-ganador-del-swipe-riesgo-r-alto-solo-con-cuenta-sólida" class="h3">Lote 3 · El ganador del swipe (riesgo {r} alto) · solo con cuenta sólida</a></li><li><a href="#criterios-de-kill-scale-conectados-a-doctrina" class="h3">Criterios de kill / scale (conectados a doctrina)</a></li><li><a href="#cierre-qué-tiene-de-nuevo-esta-versión" class="">Cierre · qué tiene de nuevo esta versión</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>01-prostadine.md</span><span>9,254 palabras</span><span>~46 min</span></div>
+<h1 id="cruce-avatares-x-consciencia-x-ángulos-prostadine-próstata-versión-extendida">Cruce avatares x consciencia x ángulos · Prostadine (próstata) · VERSIÓN EXTENDIDA</h1>
+<blockquote><p>Documento maestro de estrategia creativa para correr <strong>Prostadine</strong> (suplemento líquido de próstata, hombres 50+) como afiliado ClickBank en <strong>Meta Ads, mercado USA</strong>. Cruza buyer personas x niveles de consciencia (Schwartz) x biblioteca de ángulos reales, y aterriza todo en guiones de ad, secuencias de funnel y un plan de testing accionable.</p>
+<p><strong>Ancla en doctrina:</strong> - <code>cursos-cruzados/felipe-vergara-m04-aplicado.md</code> · Triángulo Dorado (oferta/audiencia/mensaje), 5 niveles de consciencia, verbos delatadores, longitud de copy por nivel, 10 artes que venden, los 3 boosters de oferta (gratis/garantía/pago fácil). - <code>cursos-cruzados/cruce-cursos-aplicado.md</code> · Definidor de Audiencias (Fauadzk), 7 maletas, Aha Moment, regla 3x kill, +30% escalado, Advantage+ default, MER > ROAS. - <code>swipe-bridge-landers/03-templates-ads-angulos.md</code> · los 8 ángulos con plantilla + riesgo + estructura UGC + advertorial. - <code>swipe-bridge-landers/06-swipe-ads-reales-finalistas.md</code> · hooks REALES vivos en la Ad Library para Prostadine y comparables. - <code>swipe-bridge-landers/05-compliance-meta-nutra.md</code> · qué se puede y no se puede decir (claims, atributos personales, before/after, cloaking, bridge page, H&W).</p>
+<p><strong>Estatus epistémico (importante leerlo):</strong> - Los <strong>avatares son hipótesis de trabajo razonadas</strong>, no data de encuesta ni de cliente. Se construyen con el Definidor de Audiencias de Fauadzk y con el lenguaje observable en reviews/foros del nicho. Tratarlos como hipótesis a validar con data de campaña, no como verdad. - Los <strong>ángulos y hooks reales</strong> sí están verificados contra la Meta Ad Library (US, activos, research 2026-06-16/17). Se citan tal cual y se modela sobre ellos, nunca se copian literal. - Los <strong>porcentajes de tráfico por nivel</strong> son estimaciones marcadas como hipótesis: sirven para priorizar producción creativa, no para reportar a nadie.</p>
+<p>Fecha: 2026-06-18 · Versión: 2.0 (extendida)</p></blockquote>
+<hr>
+<h2 id="1-contexto-del-nicho-ampliado">1. Contexto del nicho ampliado<a class="anchor" href="#1-contexto-del-nicho-ampliado">#</a></h2>
+<h3 id="11-el-problema-real-en-lenguaje-de-calle">1.1 El problema real, en lenguaje de calle<a class="anchor" href="#11-el-problema-real-en-lenguaje-de-calle">#</a></h3>
+<p>Prostadine ataca un cluster de síntomas urinarios que en medicina se agrupa bajo BPH (hiperplasia prostática benigna), pero que el hombre 50+ NO nombra así. Él lo vive como:</p>
+<ul>
+<li>Levantarse 2, 3, 4 veces por noche a orinar (nocturia). Es el síntoma estrella y el más fácil de convertir en hook.</li>
+<li>Chorro débil, que tarda en arrancar, que se corta y vuelve.</li>
+<li>Sensación de no vaciar la vejiga del todo.</li>
+<li>Urgencia repentina: "tengo que ir YA" y a veces no llega.</li>
+<li>Goteo post-miccional (la mancha en el pantalón) que da vergüenza.</li>
+</ul>
+<p>El dolor es doble: <strong>funcional</strong> (no duermo, no rindo, ando cansado) y <strong>vergonzante/identitario</strong> (me estoy poniendo viejo, ya no soy el de antes, esto le pasaba a mi papá). Ese segundo eje es la palanca emocional más potente y la que el swipe real no explota del todo.</p>
+<h3 id="12-tamaño-y-dinámica-del-mercado">1.2 Tamaño y dinámica del mercado<a class="anchor" href="#12-tamaño-y-dinámica-del-mercado">#</a></h3>
+<p>El mercado es enorme y estructuralmente creciente, lo que lo hace atractivo para evergreen (ads que corren 90+ días, ver longevidad creativa en doc 03):</p>
+<ul>
+<li>La próstata se agranda con la edad de forma casi universal: la prevalencia de síntomas urinarios bajos sube marcadamente después de los 50 y se vuelve mayoritaria pasados los 60-70. Esto significa un <strong>TAM gigantesco y que se renueva solo</strong> (cada año entra una nueva cohorte de hombres que cruza los 50).</li>
+<li>La categoría "saw palmetto / prostate support / men's health supplement" es de las más maduras del nutra en USA: hay demanda de búsqueda constante y un ecosistema de competidores (Prostadine, ProstaVive, Fluxactive, etc.) peleando el mismo dolor.</li>
+<li>Implicación para nosotros: <strong>no hay que crear la categoría</strong>, ya existe. Nuestra pelea es de mensaje y ángulo, no de educación de mercado desde cero (a diferencia de un producto totalmente novedoso).</li>
+</ul>
+<h3 id="13-estacionalidad">1.3 Estacionalidad<a class="anchor" href="#13-estacionalidad">#</a></h3>
+<p>A diferencia de weight loss (pico enero "new year") o sleep (estable), próstata es de <strong>demanda casi plana todo el año</strong>. No depende de resoluciones de año nuevo ni de temporada. Esto es bueno: el ganador escala sin cliff estacional. Matices menores a considerar:</p>
+<ul>
+<li>Leve sensibilidad a "checkup de fin de año / seguro médico" (Q4): algunos hombres ven al urólogo al cerrar el año, salen con receta de finasteride/tamsulosina, y ahí se abre la ventana del avatar "ya probé el fármaco".</li>
+<li>El presupuesto del jubilado puede apretarse en fechas (regalos navideños), pero el ticket del suplemento es bajo y la compra es para sí mismo, así que el efecto es marginal.</li>
+</ul>
+<h3 id="14-sensibilidad-regulatoria-por-qué-meta-lo-vigila-tanto">1.4 Sensibilidad regulatoria: por qué Meta lo vigila tanto<a class="anchor" href="#14-sensibilidad-regulatoria-por-qué-meta-lo-vigila-tanto">#</a></h3>
+<p>Próstata cae de lleno en la categoría <strong>Health & Wellness (H&W)</strong> de Meta, la más vigilada del nutra junto con diabetes y weight loss. Tres razones operativas (todas en doc 05):</p>
+<div class="kpi-strip"><div class="stat"><div class="stat-value">159M</div><div class="stat-label">Ads removidos por Meta en 2025 (toda la plataforma)</div></div><div class="stat"><div class="stat-value">ene-2025</div><div class="stat-label">Cuentas H&amp;W ya no optimizan a compra (solo LP Views)</div></div><div class="stat"><div class="stat-value">ALTO</div><div class="stat-label">Riesgo del ángulo ganador real del swipe (anti-finasteride)</div></div><div class="stat"><div class="stat-value">1 de 7</div><div class="stat-label">Usuarios largos de finasteride con sd. post-finasteride (claim swipe Dr. Mike Harris, no verificado)</div></div></div>
+<ol>
+<li><strong>Atributos personales:</strong> Meta prohíbe que el ad afirme o implique la condición de salud del usuario. "Para hombres con problemas de próstata" = rechazo. Hay que hablar de la <strong>situación</strong> ("si te levantas de noche") y del <strong>producto/ingrediente</strong>, nunca del estado del usuario.</li>
+<li><strong>Claims de enfermedad:</strong> próstata roza BPH, que es una condición médica. Cualquier "cura / trata / previene / reduce el agrandamiento" convierte al suplemento en medicamento a ojos de Meta y la FDA. Verbos seguros: apoya, favorece, contribuye, promueve.</li>
+<li><strong>El ángulo que más vende es el más perseguido:</strong> el swipe real muestra que lo que mejor corre es el <strong>anti-fármaco</strong> ("the treatment for BPH killed him", "1 in 7 finasteride users..."). Es potente porque activa aversión a la pérdida, pero nombra condición y fármaco, justo lo que Meta marca. La tensión central de esta cuenta es: <strong>el ángulo que más convierte es el que más rápido te banea.</strong> Toda la estrategia de testing por lotes (sección 7) existe para resolver esa tensión.</li>
+</ol>
+<h3 id="15-la-oferta-del-vendor-y-sus-boosters-felipe-vergara-m04-clase-03">1.5 La oferta del vendor y sus boosters (Felipe Vergara M04, clase 03)<a class="anchor" href="#15-la-oferta-del-vendor-y-sus-boosters-felipe-vergara-m04-clase-03">#</a></h3>
+<p>Antes de mensaje, validar la oferta. Prostadine en ClickBank trae los 3 boosters que Felipe exige, lo que la hace promovible:</p>
+<ul>
+<li><strong>Garantía:</strong> money-back 60 días (estándar ClickBank). Es nuestro mayor reductor de fricción para hombre 50+ desconfiado de compras online. Mencionarla en TODOS los creativos y en la bridge.</li>
+<li><strong>Gratis:</strong> descuentos por volumen + envío incluido en los packs grandes + bonos digitales (ebooks de salud) que el VSL del vendor regala. Destacar "envío gratis" cerca del CTA.</li>
+<li><strong>Pago fácil:</strong> ClickBank acepta tarjeta + PayPal. "Acepta PayPal" baja fricción real en 50+.</li>
+</ul>
+<blockquote><p>Regla operativa (M04): si una campaña no vende, diagnosticar los <strong>3 vértices del Triángulo Dorado</strong> (oferta / audiencia / mensaje), no solo el creativo. La oferta de Prostadine ya está validada por el vendor (VSL maduro, garantía, boosters). Por lo tanto, cuando algo no funcione, el sospechoso #1 somos <strong>nosotros</strong>: audiencia mal targeteada o mensaje en el nivel de consciencia equivocado.</p></blockquote>
+<hr>
+<h2 id="2-los-avatares-5-buyer-personas-en-profundidad">2. Los avatares (5 buyer personas, en profundidad)<a class="anchor" href="#2-los-avatares-5-buyer-personas-en-profundidad">#</a></h2>
+<blockquote><p>Cinco avatares es la cobertura correcta: tres compradores hombres en distintos estados de consciencia (el que recién nota, el que ya probó el fármaco, el que niega), la esposa-compradora (audiencia que el swipe de Prostadine NO explota y que tiene bajo riesgo de compliance), y un quinto nuevo: el proactivo de wellness que compra por prevención y rendimiento, no por dolor. Todos son <strong>hipótesis de trabajo</strong>.</p></blockquote>
+<div class="compare"><div class="compare-card"><div class="compare-name">Avatar A · Roberto "recién lo noto" (52)</div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Consciencia dominante</span><span class="cm-val">Problema (nivel 2)</span></div><div class="cm-track"><div class="cm-fill" style="width:60%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Disposición a comprar hoy</span><span class="cm-val">Baja-media</span></div><div class="cm-track"><div class="cm-fill" style="width:35%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Riesgo del ángulo que necesita</span><span class="cm-val">Bajo</span></div><div class="cm-track"><div class="cm-fill" style="width:20%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Tamaño estimado del segmento</span><span class="cm-val">Grande</span></div><div class="cm-track"><div class="cm-fill" style="width:75%"></div></div></div></div><div class="compare-card"><div class="compare-name">Avatar B · Frank "ya probé el fármaco" (61)</div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Consciencia dominante</span><span class="cm-val">Solución/Producto (3-4)</span></div><div class="cm-track"><div class="cm-fill" style="width:85%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Disposición a comprar hoy</span><span class="cm-val">Alta</span></div><div class="cm-track"><div class="cm-fill" style="width:80%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Riesgo del ángulo que necesita</span><span class="cm-val">Alto (anti-fármaco)</span></div><div class="cm-track"><div class="cm-fill" style="width:90%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Tamaño estimado del segmento</span><span class="cm-val">Medio</span></div><div class="cm-track"><div class="cm-fill" style="width:50%"></div></div></div></div><div class="compare-card"><div class="compare-name">Avatar C · Dave "lo niega" (57)</div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Consciencia dominante</span><span class="cm-val">Inconsciente/Problema (1-2)</span></div><div class="cm-track"><div class="cm-fill" style="width:35%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Disposición a comprar hoy</span><span class="cm-val">Muy baja</span></div><div class="cm-track"><div class="cm-fill" style="width:15%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Riesgo del ángulo que necesita</span><span class="cm-val">Bajo</span></div><div class="cm-track"><div class="cm-fill" style="width:20%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Tamaño estimado del segmento</span><span class="cm-val">Grande</span></div><div class="cm-track"><div class="cm-fill" style="width:70%"></div></div></div></div><div class="compare-card"><div class="compare-name">Avatar D · Linda "compra para él" (58)</div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Consciencia dominante</span><span class="cm-val">Solución (nivel 3)</span></div><div class="cm-track"><div class="cm-fill" style="width:70%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Disposición a comprar hoy</span><span class="cm-val">Media-alta</span></div><div class="cm-track"><div class="cm-fill" style="width:65%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Riesgo del ángulo que necesita</span><span class="cm-val">Bajo-medio</span></div><div class="cm-track"><div class="cm-fill" style="width:40%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Tamaño estimado del segmento</span><span class="cm-val">Medio-grande</span></div><div class="cm-track"><div class="cm-fill" style="width:60%"></div></div></div></div><div class="compare-card"><div class="compare-name">Avatar E · George "el proactivo" (55)</div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Consciencia dominante</span><span class="cm-val">Solución (nivel 3)</span></div><div class="cm-track"><div class="cm-fill" style="width:75%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Disposición a comprar hoy</span><span class="cm-val">Media</span></div><div class="cm-track"><div class="cm-fill" style="width:55%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Riesgo del ángulo que necesita</span><span class="cm-val">Bajo</span></div><div class="cm-track"><div class="cm-fill" style="width:25%"></div></div></div><div class="compare-metric"><div class="cm-top"><span class="cm-label">Tamaño estimado del segmento</span><span class="cm-val">Medio</span></div><div class="cm-track"><div class="cm-fill" style="width:45%"></div></div></div></div></div>
+<hr>
+<h3 id="avatar-a-roberto-el-que-recién-nota-los-síntomas-52">Avatar A · Roberto, "el que recién nota los síntomas" (52)<a class="anchor" href="#avatar-a-roberto-el-que-recién-nota-los-síntomas-52">#</a></h3>
+<p><strong>Retrato.</strong> Contratista independiente en Phoenix, Arizona. Hace 3-4 meses empezó a levantarse al baño una o dos veces por noche, algo que antes no le pasaba. Lo atribuye a "que ya estoy viejo" o a "tomé café tarde". Todavía no lo conversa con nadie: ni con su esposa (no quiere preocuparla ni admitirlo) ni con su médico (al que va lo mínimo).</p>
+<p><strong>Demografía y situación.</strong> 52 años, casado hace 25, dos hijos adultos que ya salieron de casa. Clase media trabajadora, ingreso por proyecto (a veces apretado, a veces holgado). Físicamente activo: trabaja con las manos, juega softbol los domingos. No se considera enfermo ni "viejo". Android, plan de datos básico. Vive en suburbio. Consume Facebook (grupos de pesca, restauración de autos clásicos, su equipo de la NFL) y YouTube (tutoriales de herramientas, reseñas de camionetas).</p>
+<p><strong>Un día en su vida (cómo aparece el problema).</strong> Se acuesta a las 22:30 reventado del trabajo. A las 1:40 se despierta con ganas de orinar, va al baño medio dormido, vuelve, le cuesta un poco retomar el sueño. A las 4:50 otra vez. Suena la alarma a las 6:00 y se levanta con la sensación de no haber descansado, irritable, con la espalda pesada. En la obra a media mañana le baja la energía y lo achaca al madrugón. No conecta el cansancio con las idas al baño: para él son dos cosas separadas. La esposa ya notó que se mueve de noche, pero no han hablado del tema.</p>
+<p><strong>Historia con el problema.</strong> Empezó gradual hace unos meses, lo notó pero lo minimizó. No ha probado nada todavía: ni suplementos, ni cambios de hábito conscientes. Lo único que hizo fue "dejar de tomar agua antes de dormir", con resultado nulo. No ha ido al médico por esto; la última vez que fue al doctor fue por un dolor de espalda hace dos años. Nadie le dijo nada porque no preguntó.</p>
+<p><strong>Voz del cliente (frases textuales que diría, su lenguaje real):</strong></p>
+<ul>
+<li>"I guess I'm just getting older."</li>
+<li>"Probably drank too much coffee."</li>
+<li>"I'm up once or twice a night now, it's no big deal."</li>
+<li>"I don't want to be one of those guys taking a pill for everything."</li>
+<li>"My dad had prostate stuff, but I'm fine."</li>
+<li>"I sleep like crap lately, no idea why."</li>
+<li>"I'm not running to a doctor over this."</li>
+</ul>
+<p><strong>Dolores.</strong> Sueño fragmentado. Cansancio matutino que no entiende. Leve molestia/lentitud al orinar que recién empieza a notar.</p>
+<p><strong>Enojos / frustraciones.</strong> Le carga sentir que "se está poniendo viejo" antes de tiempo. Rechaza convertirse en su papá (que terminó con sonda y operación). Le molesta no rendir como antes en el trabajo físico.</p>
+<p><strong>Deseos.</strong> Dormir de corrido. Seguir sintiéndose joven y capaz. No depender de nada ni de nadie. Que esto "se pase solo".</p>
+<p><strong>Miedos.</strong> Que sea el inicio de algo peor (la palabra cáncer le ronda aunque no la diga). Terminar necesitando pastillas de por vida o, peor, cirugía. Perder virilidad.</p>
+<p><strong>Creencias limitantes y objeciones (con rebate):</strong></p>
+<ul>
+<li><em>"No es para tanto todavía."</em> → Rebate: el ángulo no debe vender producto, debe <strong>agrandar el problema</strong> (PAS). Mostrar que normalizar las idas de noche es justo lo que hace que empeore, y que actuar temprano es la jugada inteligente, no la exagerada.</li>
+<li><em>"Los suplementos son humo."</em> → Rebate: foco en mecanismo con nombre (ingredientes reconocidos por la tradición) + garantía 60 días money-back ("pruébalo, si no notas nada te devuelven todo"). La garantía neutraliza el riesgo percibido.</li>
+<li><em>"Comprar online USA me da desconfianza."</em> → Rebate: bridge con trust signals (FDA disclaimer bien usado, política de reembolso visible, PayPal aceptado), prueba social en número.</li>
+</ul>
+<p><strong>Disparadores de compra (qué lo hace comprar hoy).</strong> Que un contenido le ponga nombre a lo que vive y le quite el "es la edad" de encima ("no es la edad, es X"). Una noche particularmente mala (4 idas) lo deja receptivo. Ver que es común en hombres como él (prueba social) baja la vergüenza. La garantía remueve la última fricción.</p>
+<p><strong>Targeting Meta detallado.</strong></p>
+<ul>
+<li>Advantage+ con señales de hombre 48-58, US.</li>
+<li>Intereses semilla (M04, las 6 formas de encontrar intereses): pesca, golf, herramientas eléctricas (DeWalt/Milwaukee), NFL/MLB, "men's health", camionetas (Ford F-150), restauración de autos.</li>
+<li>Comportamiento: usuarios de Facebook en desktop+mobile, engagement con contenido de salud masculina.</li>
+<li>Lookalike (cuando haya data): LAL 1-3% de quienes vieron 75% del video educativo o llegaron a la bridge.</li>
+<li>Entrada: contenido <strong>educativo</strong>, NO oferta. Roberto huye del hard-sell.</li>
+</ul>
+<p><strong>Nivel de consciencia dominante.</strong> Problema (nivel 2), con un pie en Inconsciente (1) los días que culpa al café. Sabe que algo pasa; no sabe la causa real ni que existe una categoría de solución específica.</p>
+<hr>
+<h3 id="avatar-b-frank-el-que-ya-probó-finasteride-y-le-fue-mal-61">Avatar B · Frank, "el que ya probó finasteride y le fue mal" (61)<a class="anchor" href="#avatar-b-frank-el-que-ya-probó-finasteride-y-le-fue-mal-61">#</a></h3>
+<p><strong>Retrato.</strong> Jubilado en Florida, ex-gerente de logística. Su urólogo le recetó tamsulosina y luego finasteride hace dos años. Tuvo efectos secundarios que odió (bajón de libido, problemas de erección, niebla mental) y dejó el tratamiento por su cuenta, medio enojado con el sistema médico. Ahora tiene tiempo de sobra y se la pasa investigando alternativas naturales en internet. Es el avatar de mayor intención de compra.</p>
+<p><strong>Demografía y situación.</strong> 61 años, casado, jubilado con pensión cómoda y algo de ahorros. Tiempo libre abundante. Clase media-alta. iPhone, iPad. Consume Facebook (grupos de "natural health", "men over 60"), foros de salud (Reddit r/Supplements aunque no postea), y mucho YouTube de men's health y biohacking. Ya maneja vocabulario: BPH, PSA, finasteride, DHT, saw palmetto.</p>
+<p><strong>Un día en su vida.</strong> Duerme mal hace rato: 3-4 idas al baño por noche, es lo normal para él ya. En la mañana toma su café y se mete a YouTube/Facebook a leer sobre próstata, suplementos, qué ingrediente sirve. Tiene una lista mental de cosas que ha probado. Cuando ve un ad de "alternativa natural" o de "lo que tu urólogo no te dijo", se detiene: es exactamente su conversación interna. Su esposa ya le dijo "¿por qué no vuelves al médico?" y él respondió "para que me den otra pastilla que me deje peor, no gracias".</p>
+<p><strong>Historia con el problema.</strong> Síntomas hace 4-5 años. Fue al urólogo, le dieron tamsulosina (algo de alivio pero mareos), después finasteride. La finasteride le mató la libido y le dio problemas de erección que para él fueron devastadores a nivel identidad. La dejó. El médico le dijo "es lo que hay, o eso o cirugía eventual". Frank se sintió traicionado: cambió un problema por otro peor. Desde entonces probó saw palmetto suelto, beta-sitosterol, pumpkin seed oil, con resultados tibios. Sigue buscando "el que sí funcione".</p>
+<p><strong>Voz del cliente:</strong></p>
+<ul>
+<li>"The finasteride wrecked my sex life. No way I'm going back."</li>
+<li>"My doctor just wanted to hand me another prescription."</li>
+<li>"I've tried saw palmetto, pygeum, all of it."</li>
+<li>"There's gotta be something natural that actually works."</li>
+<li>"Nobody warned me about the side effects."</li>
+<li>"I'm done letting Big Pharma experiment on me."</li>
+<li>"Show me the ingredients and the studies, then we'll talk."</li>
+<li>"Does it come with a money-back guarantee? Because I've wasted enough."</li>
+</ul>
+<p><strong>Dolores.</strong> Nocturia marcada (3-4 veces). Recuerdo vívido de los efectos secundarios del fármaco. Frustración acumulada de haber probado y fallado varias veces. Desconfianza activa.</p>
+<p><strong>Enojos / frustraciones.</strong> Siente que el sistema médico lo empujó a un fármaco dañino sin advertirle. Rabia hacia "Big Pharma". Cansancio de gastar plata en suplementos que no rinden.</p>
+<p><strong>Deseos.</strong> Una alternativa natural que de verdad funcione, sin efectos secundarios. Recuperar su libido/virilidad. Volver a sentirse dueño de su cuerpo y de la decisión (no la del médico que lo defraudó).</p>
+<p><strong>Miedos.</strong> Que la alternativa natural también sea humo. Perder más tiempo, dinero y esperanza. Que en el fondo necesite cirugía.</p>
+<p><strong>Creencias limitantes y objeciones (con rebate):</strong></p>
+<ul>
+<li><em>"Ya me decepcioné antes, esto también va a fallar."</em> → Rebate: mecanismo diferenciado + garantía 60 días enfática ("si eres como yo y ya probaste de todo, esto no te cuesta nada probarlo: 60 días, money-back"). La garantía es su gancho favorito.</li>
+<li><em>"Muéstrame la evidencia y el mecanismo."</em> → Rebate: ángulo de autoridad / mecanismo con nombre. Explicar el "cómo" en una frase (ingredientes reconocidos, enfoque distinto al fármaco) sin caer en claim de cura.</li>
+<li><em>"Esto es solo otro saw palmetto rebrandeado."</em> → Rebate: diferencial de formato (líquido, absorción) y de combinación de ingredientes; comparación con lo que ya probó.</li>
+</ul>
+<p><strong>Disparadores de compra.</strong> El ángulo anti-fármaco lo prende como ningún otro (es su historia). Testimonial de alguien igual a él ("pasé 2 años con la receta y me hizo mal, probé esto"). La garantía cierra. Tiene plata y tiempo: si el mensaje pega, compra rápido.</p>
+<p><strong>Targeting Meta.</strong></p>
+<ul>
+<li>Retargeting primero (es donde más rinde): quienes vieron video largo o llegaron a la bridge.</li>
+<li>Cold: intereses "alternative medicine", "natural remedies", "men's health", "saw palmetto", marcas de suplementos, biohacking, Joe Rogan (referente del nicho natural-health masculino).</li>
+<li>Edad 58-70.</li>
+<li>Lookalike de compradores cuando haya data (alta prioridad, es el segmento de mayor LTV).</li>
+</ul>
+<p><strong>Nivel de consciencia dominante.</strong> Solución / Producto (nivel 3-4). Conoce las soluciones, compara activamente, le falta el diferencial y la prueba para decidirse por la nuestra. <strong>Es el avatar que más rápido convierte y el que necesita el ángulo de mayor riesgo de compliance.</strong></p>
+<hr>
+<h3 id="avatar-c-dave-el-que-lo-niega-57">Avatar C · Dave, "el que lo niega" (57)<a class="anchor" href="#avatar-c-dave-el-que-lo-niega-57">#</a></h3>
+<p><strong>Retrato.</strong> Gerente de operaciones en Ohio, orgulloso y reservado. Tiene síntomas claros desde hace tiempo (idas de noche, urgencia) pero no los reconoce ni los nombra. Jamás buscaría "próstata" en Google ni hablaría del tema. Es el avatar más caro de mover pero el de mayor volumen junto con Roberto.</p>
+<p><strong>Demografía y situación.</strong> 57 años, casado, ocupado, workaholic. Clase media. Evita el tema salud por completo ("el doctor es para cuando algo se rompe"). Usa Facebook poco (lo abre, scrollea, cierra), ve más YouTube (noticias, deportes, historia/autos) y consume noticias en su teléfono. Escéptico de la publicidad, salta los ads.</p>
+<p><strong>Un día en su vida.</strong> Se levanta 2-3 veces de noche pero ya lo normalizó tanto que ni lo registra como problema; "siempre he dormido liviano". Anda irritable y cansado, lo atribuye 100% al trabajo y al estrés. Si su esposa comenta "te levantas mucho", él corta: "estoy bien". Solo se detiene en redes ante contenido que lo agarra desprevenido y no parece ad: un titular tipo noticia, un listicle de "señales", algo que no le pida nada.</p>
+<p><strong>Historia con el problema.</strong> Síntomas hace años, en negación sostenida. No ha probado nada porque para él no hay problema que resolver. No ha ido al médico. Si alguien le pregunta, minimiza. El reconocimiento es el primer obstáculo: antes de venderle, hay que lograr que <strong>se nombre a sí mismo el problema</strong>.</p>
+<p><strong>Voz del cliente:</strong></p>
+<ul>
+<li>"I'm fine, just stressed at work."</li>
+<li>"I've always been a light sleeper."</li>
+<li>"I don't have time to worry about that stuff."</li>
+<li>"That's old-man talk, I'm not there yet."</li>
+<li>"Prostate? Nah, that's not me."</li>
+<li>"I'll deal with it if it ever becomes a real problem."</li>
+</ul>
+<p><strong>Dolores.</strong> Nocturia que normaliza. Fatiga e irritabilidad que atribuye al trabajo. (No los vive como dolores conscientes; ahí está la dificultad.)</p>
+<p><strong>Enojos / frustraciones.</strong> Odia la idea de "ser un viejo con problemas de próstata". El tema le da pudor y lo evade. Le molesta que su esposa saque el tema.</p>
+<p><strong>Deseos.</strong> Seguir funcionando como siempre, sin cambiar nada. No ser visto como disminuido. Mantener el control y la imagen de "yo estoy bien".</p>
+<p><strong>Miedos (no admitidos).</strong> Perder virilidad y energía. Que lo vean viejo o enfermo. Enterarse de algo grave si va al médico (por eso no va).</p>
+<p><strong>Creencias limitantes y objeciones (con rebate):</strong></p>
+<ul>
+<li><em>Ni siquiera está en modo compra; niega el problema.</em> → Rebate: NO venderle producto. Primero educar/reframe vía advertorial o listicle que lo haga reconocerse SIN señalarlo ("señales que muchos hombres normalizan después de los 55"). El job aquí es mover de nivel 1 a nivel 2.</li>
+<li><em>"Esto es un ad, no me interesa."</em> → Rebate: formato news-style / editorial que no parezca anuncio (con disclosure obligatorio). El contenido entra por curiosidad, no por oferta.</li>
+<li><em>"No quiero sentirme señalado."</em> → Rebate: hablar en tercera persona / general ("los hombres", "el cuerpo después de los 55"), nunca en segunda directa que lo confronte.</li>
+</ul>
+<p><strong>Disparadores de compra.</strong> Un contenido que lo haga decir internamente "espera... eso me pasa a mí" (Aha Moment, Fauadzk). Una vez que cruza a nivel 2-3 (ya retargeteado), recién ahí entra la oferta. Es un funnel de 2 tiempos: educar primero, vender después.</p>
+<p><strong>Targeting Meta.</strong></p>
+<ul>
+<li>Cold puro vía Advantage+ amplio (hombres 53-62 US).</li>
+<li>Entrada solo por curiosidad/listicle/advertorial; nunca por oferta directa.</li>
+<li>Crucial el retargeting: el valor de Dave se captura en la segunda y tercera exposición, no en la primera. Audiencia de video viewers 50%+ y de visitantes de la bridge.</li>
+</ul>
+<p><strong>Nivel de consciencia dominante.</strong> Inconsciente / Problema temprano (nivel 1-2). El más caro de adquirir en el primer toque; requiere educación previa antes de cualquier intento de venta.</p>
+<hr>
+<h3 id="avatar-d-linda-la-esposa-que-compra-para-él-58">Avatar D · Linda, "la esposa que compra para él" (58)<a class="anchor" href="#avatar-d-linda-la-esposa-que-compra-para-él-58">#</a></h3>
+<p><strong>Retrato.</strong> Esposa de un Roberto o un Dave. Es la CFO de salud del hogar: la que nota los cambios, investiga, y compra los suplementos de la familia. Se levanta cuando él se levanta de noche, así que el problema de él es literalmente también su problema (su propio sueño interrumpido). Es la audiencia que el swipe de Prostadine NO explota, con bajo riesgo de compliance y alta tasa de compra para terceros.</p>
+<p><strong>Demografía y situación.</strong> 58 años, casada, posiblemente semi-jubilada o trabajo de medio tiempo. Compradora frecuente de wellness (vitaminas, colágeno, suplementos para ella y para él). Muy activa en Facebook (grupos de salud, recetas, jardinería, familia, grupos de "women over 50"). Confía en reseñas y recomendaciones. iPhone. Es quien hace clic, lee la bridge completa y pone la tarjeta.</p>
+<p><strong>Un día en su vida.</strong> Se despierta a las 2 AM porque él se levantó al baño otra vez; le cuesta volver a dormir. Lo nota más irritable y cansado en el día. Le ha dicho que vaya al médico y él la ignora o minimiza. Ella, frustrada pero cariñosa, agarra el teléfono y empieza a buscar "natural prostate support" o ve un ad que le habla directo ("si tu pareja se levanta varias veces por noche..."). Lee reseñas, ve la garantía, y decide comprarlo para sorprenderlo o para dejárselo en el velador "a ver si pruebas esto".</p>
+<p><strong>Historia con el problema.</strong> Lleva meses o años notando el deterioro del sueño de él y del propio. Ha sugerido el médico sin éxito. Ya compra wellness, así que comprar un suplemento más es natural para ella; la barrera no es ella, es lograr que él lo tome. Puede haber comprado antes otras cosas para él que quedaron en el cajón.</p>
+<p><strong>Voz del cliente:</strong></p>
+<ul>
+<li>"He gets up three times a night and won't see a doctor."</li>
+<li>"It's affecting my sleep too, honestly."</li>
+<li>"He's so grumpy lately and I think it's because he's not resting."</li>
+<li>"I just want him to feel like himself again."</li>
+<li>"I'll order it and just leave it on his nightstand."</li>
+<li>"Does it actually work? Let me read the reviews."</li>
+<li>"If there's a money-back guarantee, what do we have to lose?"</li>
+</ul>
+<p><strong>Dolores (de ella).</strong> Su propio sueño interrumpido por él. Preocupación por su pareja. Frustración de que él no se cuide ni hable del tema. Carga mental de ser la que se ocupa de la salud de los dos.</p>
+<p><strong>Enojos / frustraciones.</strong> Que él minimice y evite al médico. Sentirse sola gestionando el problema. Haber gastado antes en cosas que él no usó.</p>
+<p><strong>Deseos.</strong> Que él duerma bien, ande de mejor humor, vuelva a ser "él mismo". Resolverlo sin pelear ni avergonzarlo. Recuperar su propio descanso y la paz del dormitorio.</p>
+<p><strong>Miedos.</strong> Que sea algo grave (ella sí piensa en el médico por eso). Comprar otra cosa que no sirva y que él no use.</p>
+<p><strong>Creencias limitantes y objeciones (con rebate):</strong></p>
+<ul>
+<li><em>"A él le va a molestar que le compre algo."</em> → Rebate: enmarcar como cuidado, no como crítica ("a veces empieza por algo simple en su rutina"); ángulo cariñoso, no correctivo.</li>
+<li><em>"¿De verdad funciona o es otra compra inútil?"</em> → Rebate: prueba social (número de usuarios), reseñas, garantía 60 días ("¿qué tienen que perder?").</li>
+<li><em>"¿Y si lo deja en el cajón?"</em> → Rebate: formato líquido fácil de incorporar (gotas en el café/agua), bajo esfuerzo de adopción.</li>
+</ul>
+<p><strong>Disparadores de compra.</strong> El ángulo "para alguien que amas" + "recupera tu propio descanso". La garantía elimina el riesgo de "otra compra inútil". Reseñas positivas. Es de las que compra el mismo día si el mensaje conecta emocionalmente.</p>
+<p><strong>Targeting Meta.</strong></p>
+<ul>
+<li>Advantage+ con señales femeninas 52-64 US.</li>
+<li>Intereses: wellness, suplementos, vitaminas, salud familiar, grupos de cuidadores, marcas de wellness (vitaminas), recetas saludables.</li>
+<li>Ángulo de cuidadora / pareja, tono cálido.</li>
+<li>Lookalike de compradoras femeninas cuando haya data.</li>
+</ul>
+<p><strong>Nivel de consciencia dominante.</strong> Solución (nivel 3) respecto del problema (sabe que hay suplementos que ayudan), pero a nivel <strong>producto está fría</strong> (no conoce Prostadine). Le hablamos a nivel solución con foco emocional.</p>
+<hr>
+<h3 id="avatar-e-george-el-proactivo-de-wellness-55">Avatar E · George, "el proactivo de wellness" (55)<a class="anchor" href="#avatar-e-george-el-proactivo-de-wellness-55">#</a></h3>
+<p><strong>Retrato.</strong> Avatar nuevo respecto de la versión anterior. George no tiene un problema agudo todavía o lo tiene incipiente, pero es un hombre que se cuida proactivamente: hace ejercicio, toma suplementos, lee sobre longevidad y rendimiento. Compra por <strong>prevención y optimización</strong>, no por dolor. Es un segmento más chico pero de bajo riesgo de compliance y alta apertura a ingredientes/mecanismo.</p>
+<p><strong>Demografía y situación.</strong> 55 años, casado, profesional o emprendedor con ingreso holgado. Va al gym, corre o anda en bici, ya toma omega-3, vitamina D, magnesio, quizá testosterona-support. Sigue cuentas de longevidad/biohacking (Huberman, Attia). iPhone, Apple Watch. Consume Instagram + YouTube + podcasts más que Facebook.</p>
+<p><strong>Un día en su vida.</strong> Rutina de mañana con suplementos. Quizá nota que se levanta una vez de noche y lo registra como "dato a optimizar", no como drama. Escucha un podcast donde mencionan la salud de la próstata como parte del envejecimiento masculino y piensa "debería cubrir eso preventivamente". Busca ingredientes, compara fórmulas, evalúa como quien arma su stack.</p>
+<p><strong>Historia con el problema.</strong> Síntomas mínimos o nulos; enfoque preventivo. Ya tiene la creencia de que cuidarse temprano evita problemas. No tiene historia de fracaso (a diferencia de Frank); su barrera es elegir la mejor fórmula entre opciones.</p>
+<p><strong>Voz del cliente:</strong></p>
+<ul>
+<li>"I want to get ahead of it before it becomes an issue."</li>
+<li>"Prostate health is part of aging well, I should cover that."</li>
+<li>"What's actually in it? I read labels."</li>
+<li>"I already take a bunch of stuff, this fits my stack."</li>
+<li>"I'm optimizing, not fixing."</li>
+<li>"Show me the mechanism and I'm in."</li>
+</ul>
+<p><strong>Dolores.</strong> Mínimos / preventivos. Más que dolor, tiene una <strong>aspiración</strong>: envejecer fuerte, mantener rendimiento y virilidad.</p>
+<p><strong>Enojos / frustraciones.</strong> Fórmulas con relleno o dosis bajas. Marketing exagerado sin sustancia. Que le hablen como enfermo cuando él se ve sano.</p>
+<p><strong>Deseos.</strong> Optimizar la salud masculina, prevenir el deterioro, mantener energía/libido/rendimiento. Sentirse en control de su envejecimiento.</p>
+<p><strong>Miedos.</strong> Llegar a viejo "como los demás" (declive inevitable). Perder el tren de la prevención.</p>
+<p><strong>Creencias limitantes y objeciones (con rebate):</strong></p>
+<ul>
+<li><em>"¿Esto es para viejos con problemas? Yo no estoy ahí."</em> → Rebate: enmarcar como <strong>optimización/prevención</strong> y rendimiento, no como tratamiento. Ángulo aspiracional ("más presencia, más confianza", como el hook real de ProstaVive).</li>
+<li><em>"Léeme la etiqueta."</em> → Rebate: mecanismo con nombre, ingredientes, transparencia.</li>
+<li><em>"Ya tomo de todo."</em> → Rebate: posicionar como la pieza que falta en su stack de salud masculina.</li>
+</ul>
+<p><strong>Disparadores de compra.</strong> Mecanismo/ingrediente convincente. Posicionamiento aspiracional (rendimiento, no enfermedad). Recomendación de una figura del nicho. Compra como decisión racional de "cubrir esa base".</p>
+<p><strong>Targeting Meta.</strong></p>
+<ul>
+<li>Advantage+ y detallada hombres 48-58 US.</li>
+<li>Intereses: fitness, biohacking, longevity, podcasts (Huberman/Rogan/Attia), suplementos premium, Whoop/Oura, men's health.</li>
+<li>Plataforma: incluir Instagram (donde Roberto/Dave no están tanto).</li>
+<li>Lookalike de compradores que llegaron vía ángulo aspiracional.</li>
+</ul>
+<p><strong>Nivel de consciencia dominante.</strong> Solución (nivel 3). Sabe que hay soluciones, evalúa fórmulas, decide por mecanismo y diferencial. Bajo riesgo de compliance porque el ángulo aspiracional/preventivo no necesita nombrar condición.</p>
+<hr>
+<h2 id="3-los-5-niveles-de-consciencia-para-próstata-en-profundidad">3. Los 5 niveles de consciencia para próstata, en profundidad<a class="anchor" href="#3-los-5-niveles-de-consciencia-para-próstata-en-profundidad">#</a></h2>
+<blockquote><p>Framework Schwartz aplicado vía Felipe Vergara M04. Los % son <strong>hipótesis de distribución del tráfico FRÍO de Meta</strong> para este nicho, para priorizar producción, no para reportar. Lectura maestra (M04): el grueso del tráfico frío vive en niveles 1-2. El error fatal es hablarle con copy de nivel 5.</p></blockquote>
+<h3 id="nivel-1-inconsciente-25-30-del-tráfico-frío">Nivel 1 · Inconsciente (~25-30% del tráfico frío)<a class="anchor" href="#nivel-1-inconsciente-25-30-del-tráfico-frío">#</a></h3>
+<ul>
+<li><strong>Qué piensa/siente:</strong> "Me levanto de noche porque ya estoy viejo / tomé agua o café tarde / duermo liviano". No conecta los síntomas con la próstata ni con que exista una solución. No tiene el problema "activado" en su cabeza.</li>
+<li><strong>Qué busca:</strong> nada relacionado. Está scrolleando por entretenimiento o noticias.</li>
+<li><strong>Mensaje/ángulo que necesita:</strong> reframe del síntoma ("no es la edad, es X") + curiosidad + educación. Historia o dato que lo agarre desprevenido. Cero oferta, cero marca.</li>
+<li><strong>Verbo delatador (M04):</strong> "Sabías que...", hecho sorpresa.</li>
+<li><strong>Ejemplo de hook:</strong> "No es la edad. Hay un motivo concreto detrás de las noches interrumpidas después de los 55, y casi nadie lo asocia a esto."</li>
+<li><strong>Avatar dominante:</strong> Dave (C), Roberto (A) en sus días de negación.</li>
+</ul>
+<h3 id="nivel-2-consciente-del-problema-30-35">Nivel 2 · Consciente del problema (~30-35%)<a class="anchor" href="#nivel-2-consciente-del-problema-30-35">#</a></h3>
+<ul>
+<li><strong>Qué piensa/siente:</strong> "Algo pasa con mi vejiga / me levanto mucho de noche, me molesta, no sé qué hacer". Siente el dolor, no conoce la categoría de solución.</li>
+<li><strong>Qué busca:</strong> alivio, explicación. Empieza a notar contenido del tema.</li>
+<li><strong>Mensaje/ángulo que necesita:</strong> nombrar la <strong>situación</strong> exacta como hook (la ida al baño de noche), empatía, y abrir que existe una vía. Copy más largo (educar).</li>
+<li><strong>Verbo delatador:</strong> "¿Te pasa que...?", "¿Sufres de...?", pregunta empática.</li>
+<li><strong>Ejemplo de hook:</strong> "¿Te levantas al baño a mitad de la noche más seguido que antes? No siempre es la edad."</li>
+<li><strong>Avatar dominante:</strong> Roberto (A), Dave (C) ya cruzado.</li>
+</ul>
+<h3 id="nivel-3-consciente-de-la-solución-20-25">Nivel 3 · Consciente de la solución (~20-25%)<a class="anchor" href="#nivel-3-consciente-de-la-solución-20-25">#</a></h3>
+<ul>
+<li><strong>Qué piensa/siente:</strong> "Sé que hay suplementos / hierbas / fármacos para esto, busco el mejor". No conoce Prostadine específicamente.</li>
+<li><strong>Qué busca:</strong> comparar opciones, ingredientes, mecanismo, qué funciona.</li>
+<li><strong>Mensaje/ángulo que necesita:</strong> presentar el mecanismo/ingrediente como solución novedosa + beneficios directos (1-3). Copy medio.</li>
+<li><strong>Verbo delatador:</strong> beneficios directos sin pregunta.</li>
+<li><strong>Ejemplo de hook:</strong> "La razón real de las idas al baño de noche no siempre es tomar agua: es algo que el cuerpo deja de producir, y un enfoque natural busca apoyarlo."</li>
+<li><strong>Avatar dominante:</strong> Linda (D), George (E), Frank (B).</li>
+</ul>
+<h3 id="nivel-4-consciente-del-producto-8-12">Nivel 4 · Consciente del producto (~8-12%)<a class="anchor" href="#nivel-4-consciente-del-producto-8-12">#</a></h3>
+<ul>
+<li><strong>Qué piensa/siente:</strong> conoce Prostadine (vio un ad antes, lo googleó) pero no compró. Duda, compara, busca razones para confiar.</li>
+<li><strong>Qué busca:</strong> prueba, diferencial, reseñas, garantía, autoridad.</li>
+<li><strong>Mensaje/ángulo que necesita:</strong> prueba social fuerte, diferencial vs. otros, autoridad, garantía 60 días. Copy corto. <strong>Esto es retargeting.</strong></li>
+<li><strong>Verbo delatador:</strong> nombre de la marca como primera palabra.</li>
+<li><strong>Ejemplo de hook:</strong> "Lo estuviste viendo. Esto es lo que lo hace distinto a otros, y por qué viene con 60 días de garantía."</li>
+<li><strong>Avatar dominante:</strong> Frank (B) post-exposición, cualquiera retargeteado.</li>
+</ul>
+<h3 id="nivel-5-listo-para-comprar-decisión-3-5">Nivel 5 · Listo para comprar / Decisión (~3-5%)<a class="anchor" href="#nivel-5-listo-para-comprar-decisión-3-5">#</a></h3>
+<ul>
+<li><strong>Qué piensa/siente:</strong> ya decidió, le falta el empujón: precio, bono, garantía, envío.</li>
+<li><strong>Qué busca:</strong> la mejor oferta para ejecutar ya.</li>
+<li><strong>Mensaje/ángulo que necesita:</strong> oferta del vendor (descuento por volumen, envío gratis, garantía), urgencia REAL. Copy mínimo. Retargeting caliente / carrito.</li>
+<li><strong>Verbo delatador:</strong> "Recuerda...", "Ya conoces...".</li>
+<li><strong>Ejemplo de hook:</strong> "Tu pack con descuento por volumen y envío incluido sigue disponible. 60 días de garantía para probarlo sin riesgo."</li>
+<li><strong>Avatar dominante:</strong> cualquiera en carrito abandonado o que volvió a la bridge.</li>
+</ul>
+<div class="timeline"><div class="tl-item"><div class="tl-when">Nivel 1 Inconsciente</div><div class="tl-what">Dave normaliza las idas de noche, no hay problema en su cabeza</div></div><div class="tl-item"><div class="tl-when">Nivel 2 Problema</div><div class="tl-what">Roberto siente el dolor, "algo pasa pero no sé qué"</div></div><div class="tl-item"><div class="tl-when">Nivel 3 Solución</div><div class="tl-what">Linda y George comparan opciones naturales</div></div><div class="tl-item"><div class="tl-when">Nivel 4 Producto</div><div class="tl-what">Frank ya vio Prostadine, duda, busca prueba y diferencial</div></div><div class="tl-item"><div class="tl-when">Nivel 5 Decisión</div><div class="tl-what">Carrito abandonado, falta el empujón de oferta y garantía</div></div></div>
+<p><strong>Lectura operativa (M04):</strong> más de la mitad del tráfico frío vive en 1-2. La producción creativa debe pesar hacia niveles 1-3 (educar + situación + mecanismo) y reservar 4-5 para retargeting. Lanzar cold con "compra Prostadine 50% off hoy" a un tráfico inconsciente = spend quemado garantizado (el target ni sabe qué es Prostadine ni que tiene el problema).</p>
+<hr>
+<h2 id="4-matriz-extendida-avatar-x-nivel-ángulo-hooks-cta-riesgo">4. Matriz extendida · avatar x nivel → ángulo + hooks + CTA + riesgo<a class="anchor" href="#4-matriz-extendida-avatar-x-nivel-ángulo-hooks-cta-riesgo">#</a></h2>
+<blockquote><p>Por cada cruce relevante: ángulo de la biblioteca (doc 03), <strong>3-5 hooks propios</strong> (modelados sobre el swipe real, nunca copiados), CTA y riesgo de compliance con semáforo {g}/{a}/{r}. Todos hablan de la SITUACIÓN, no de la condición del usuario. Sin verbos de cura.</p></blockquote>
+<h3 id="cruce-1-roberto-a-problema-2-ángulo-pregunta-quiz-hook-riesgo-g-bajo">Cruce 1 · Roberto (A) × Problema (2) · Ángulo: Pregunta / Quiz Hook · Riesgo {g} Bajo<a class="anchor" href="#cruce-1-roberto-a-problema-2-ángulo-pregunta-quiz-hook-riesgo-g-bajo">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"¿Te levantas al baño a mitad de la noche más seguido que antes? No siempre es la edad."</li>
+<li>"Hombres después de los 50: ¿una, dos, tres idas al baño cada noche? Esto te puede interesar."</li>
+<li>"Si tu noche se interrumpe varias veces y al otro día andas sin energía, lee esto."</li>
+<li>"¿Culpas al café por levantarte de noche? Puede haber otra explicación."</li>
+<li>"Las noches interrumpidas tienen más de un motivo. Descubre cuál podría ser el tuyo."</li>
+</ol>
+<p>CTA: "Descubre qué puede estar pasando" / "Haz el test de 30 segundos"</p>
+<h3 id="cruce-2-roberto-a-problema-2-ángulo-listicle-x-razones-riesgo-g-bajo">Cruce 2 · Roberto (A) × Problema (2) · Ángulo: Listicle / X razones · Riesgo {g} Bajo<a class="anchor" href="#cruce-2-roberto-a-problema-2-ángulo-listicle-x-razones-riesgo-g-bajo">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"4 señales nocturnas que los hombres después de los 50 suelen normalizar (y no deberían)."</li>
+<li>"5 cosas que el cuerpo de un hombre hace de noche después de los 50 y que conviene no ignorar."</li>
+<li>"3 razones por las que tu sueño se interrumpe después de los 50 (la tercera sorprende)."</li>
+<li>"Si reconoces 2 de estas 4 señales nocturnas, vale la pena leer hasta el final."</li>
+</ol>
+<p>CTA: "Lee las señales" / "Ver la lista completa"</p>
+<h3 id="cruce-3-roberto-a-george-e-solución-3-ángulo-curiosity-mecanismo-riesgo-a-medio">Cruce 3 · Roberto (A) / George (E) × Solución (3) · Ángulo: Curiosity + mecanismo · Riesgo {a} Medio<a class="anchor" href="#cruce-3-roberto-a-george-e-solución-3-ángulo-curiosity-mecanismo-riesgo-a-medio">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"La razón real de las idas al baño de noche no siempre es el agua: es algo que el cuerpo deja de producir con los años."</li>
+<li>"No es la próstata 'agrandada' lo único que importa. Hay un enfoque natural que pocos hombres conocen."</li>
+<li>"Un ingrediente reconocido por la tradición está cambiando la rutina nocturna de miles de hombres mayores de 50."</li>
+<li>"El motivo de tus noches interrumpidas podría estar en algo tan simple como unas gotas en la mañana."</li>
+</ol>
+<p>CTA: "Mira cómo funciona" / "Descubre el enfoque" Mitigación: "apoya/favorece", jamás "cura/reduce el agrandamiento".</p>
+<h3 id="cruce-4-frank-b-soluciónproducto-3-4-ángulo-fear-anti-fármaco-riesgo-r-alto">Cruce 4 · Frank (B) × Solución/Producto (3-4) · Ángulo: Fear / anti-fármaco · Riesgo {r} Alto<a class="anchor" href="#cruce-4-frank-b-soluciónproducto-3-4-ángulo-fear-anti-fármaco-riesgo-r-alto">#</a></h3>
+<p>Hooks (modelados sobre "1 in 7 finasteride users..." y "the treatment for BPH killed him", sin nombrar condición del usuario):</p>
+<ol>
+<li>"Pasé 2 años con la receta del urólogo. Los efectos secundarios me hicieron buscar otra vía."</li>
+<li>"Nadie me advirtió de lo que la pastilla le haría a mi vida íntima. Por eso busqué algo natural."</li>
+<li>"Cambié una receta que me dejó peor por un enfoque natural. Esta es mi experiencia."</li>
+<li>"Lo que aprendí después de dejar el tratamiento convencional y probar otra cosa."</li>
+</ol>
+<p>CTA: "Mira la alternativa natural" / "Lee mi experiencia completa" Mitigación: experiencia en primera persona, tono informativo, NO nombrar la enfermedad del usuario, NO claim de cura. Reservar para cuenta con historial limpio y bridge blindada.</p>
+<h3 id="cruce-5-frank-b-producto-4-ángulo-autoridad-experto-riesgo-r-alto">Cruce 5 · Frank (B) × Producto (4) · Ángulo: Autoridad / experto · Riesgo {r} Alto<a class="anchor" href="#cruce-5-frank-b-producto-4-ángulo-autoridad-experto-riesgo-r-alto">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"Lo que un especialista en salud natural explica sobre por qué algunos hombres buscan apoyo natural para la próstata."</li>
+<li>"Un enfoque que cada vez más hombres mayores de 60 conversan con su naturópata."</li>
+<li>"La explicación simple de por qué el enfoque natural gana terreno entre hombres que ya probaron de todo."</li>
+</ol>
+<p>CTA: "Conoce el enfoque" Mitigación: el experto "explica / apoya el uso de", nunca "prescribe / cura". Bata blanca activa revisión manual: evaluar evitar el visual de consultorio.</p>
+<h3 id="cruce-6-frank-b-producto-4-ángulo-testimonial-social-proof-riesgo-a-medio">Cruce 6 · Frank (B) × Producto (4) · Ángulo: Testimonial / social proof · Riesgo {a} Medio<a class="anchor" href="#cruce-6-frank-b-producto-4-ángulo-testimonial-social-proof-riesgo-a-medio">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"Después de probar saw palmetto, pygeum y de todo, esto fue lo único que sumé a mi rutina y noté la diferencia en mis noches."</li>
+<li>"61 años, jubilado, y por fin duermo de corrido. Esto fue lo que cambié."</li>
+<li>"Llevaba años despertando 3 veces por noche. Lo que agregué a mi mañana cambió eso."</li>
+</ol>
+<p>CTA: "Lee la experiencia completa" Mitigación: experiencia personal + disclaimer "results may vary". Sin diagnóstico ni cura.</p>
+<h3 id="cruce-7-dave-c-inconsciente-1-ángulo-news-style-advertorial-riesgo-r-alto">Cruce 7 · Dave (C) × Inconsciente (1) · Ángulo: News-style / advertorial · Riesgo {r} Alto<a class="anchor" href="#cruce-7-dave-c-inconsciente-1-ángulo-news-style-advertorial-riesgo-r-alto">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"Investigadores explican por qué el sueño de los hombres mayores de 55 se interrumpe (y casi nadie lo asocia a esto)."</li>
+<li>"Lo que está detrás de las noches interrumpidas en hombres mayores: un enfoque que gana atención."</li>
+<li>"El motivo poco conocido por el que tantos hombres mayores de 55 no descansan de noche."</li>
+</ol>
+<p>CTA: "Lee el artículo" Mitigación: disclosure "Advertisement/Sponsored" antes del fold, sin imitar medios reales, coherencia ad-lander total. El más perseguido por Meta.</p>
+<h3 id="cruce-8-dave-c-inconscienteproblema-1-2-ángulo-curiosity-reframe-riesgo-a-medio">Cruce 8 · Dave (C) × Inconsciente→Problema (1-2) · Ángulo: Curiosity + reframe · Riesgo {a} Medio<a class="anchor" href="#cruce-8-dave-c-inconscienteproblema-1-2-ángulo-curiosity-reframe-riesgo-a-medio">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"No es la edad. Hay un motivo concreto detrás de las noches interrumpidas después de los 55."</li>
+<li>"Muchos hombres culpan al estrés o al café. La explicación real suele ser otra."</li>
+<li>"Si crees que dormir mal es solo 'cosa de la edad', esto te va a hacer pensar."</li>
+</ol>
+<p>CTA: "Descubre el motivo"</p>
+<h3 id="cruce-9-dave-c-problema-2-ángulo-listicle-riesgo-g-bajo">Cruce 9 · Dave (C) × Problema (2) · Ángulo: Listicle · Riesgo {g} Bajo<a class="anchor" href="#cruce-9-dave-c-problema-2-ángulo-listicle-riesgo-g-bajo">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"5 cosas que el cuerpo de un hombre después de los 55 hace de noche y que conviene no normalizar."</li>
+<li>"4 señales nocturnas que casi todos los hombres mayores ignoran."</li>
+<li>"Las 3 señales de que tu descanso nocturno necesita atención (y no es insomnio)."</li>
+</ol>
+<p>CTA: "Ver las señales"</p>
+<h3 id="cruce-10-linda-d-solución-3-ángulo-testimonial-cuidadora-riesgo-g-bajo-medio">Cruce 10 · Linda (D) × Solución (3) · Ángulo: Testimonial cuidadora · Riesgo {g} Bajo-medio<a class="anchor" href="#cruce-10-linda-d-solución-3-ángulo-testimonial-cuidadora-riesgo-g-bajo-medio">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"Si tu pareja se levanta varias veces por noche, también interrumpe tu descanso. Esto fue lo que cambiamos en casa."</li>
+<li>"Mi marido no quería ir al médico. Encontré otra forma de ayudarlo a dormir mejor."</li>
+<li>"Lo dejé en su velador sin decir mucho. Tres semanas después, los dos dormíamos mejor."</li>
+</ol>
+<p>CTA: "Mira qué probamos"</p>
+<h3 id="cruce-11-linda-d-solución-3-ángulo-beneficio-aspiracional-riesgo-g-bajo">Cruce 11 · Linda (D) × Solución (3) · Ángulo: Beneficio / aspiracional · Riesgo {g} Bajo<a class="anchor" href="#cruce-11-linda-d-solución-3-ángulo-beneficio-aspiracional-riesgo-g-bajo">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"Volver a dormir la noche completa, los dos. A veces empieza por algo simple en su rutina."</li>
+<li>"Que él vuelva a ser el de antes: con energía, de buen humor, descansado."</li>
+<li>"El regalo más simple para tu pareja: una noche de sueño sin interrupciones."</li>
+</ol>
+<p>CTA: "Descubre cómo"</p>
+<h3 id="cruce-12-george-e-solución-3-ángulo-beneficio-aspiracional-riesgo-g-bajo">Cruce 12 · George (E) × Solución (3) · Ángulo: Beneficio / aspiracional · Riesgo {g} Bajo<a class="anchor" href="#cruce-12-george-e-solución-3-ángulo-beneficio-aspiracional-riesgo-g-bajo">#</a></h3>
+<p>Hooks (modelados sobre "More Presence. More Confidence." de ProstaVive):</p>
+<ol>
+<li>"Más presencia. Más confianza. Más energía. Cuidar la salud masculina empieza antes de que aparezca el problema."</li>
+<li>"Los hombres que envejecen fuertes no esperan a tener síntomas. Se adelantan."</li>
+<li>"Cubrir la salud de la próstata es parte de envejecer bien. Aquí el enfoque natural que muchos suman a su rutina."</li>
+</ol>
+<p>CTA: "Conoce el enfoque" / "Suma esto a tu rutina"</p>
+<h3 id="cruce-13-george-e-solución-3-ángulo-mecanismo-con-nombre-riesgo-a-medio">Cruce 13 · George (E) × Solución (3) · Ángulo: Mecanismo con nombre · Riesgo {a} Medio<a class="anchor" href="#cruce-13-george-e-solución-3-ángulo-mecanismo-con-nombre-riesgo-a-medio">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"El enfoque de ingredientes que los hombres que leen etiquetas están sumando a su stack."</li>
+<li>"Qué hay realmente dentro del frasco, y por qué importa para la salud masculina después de los 50."</li>
+</ol>
+<p>CTA: "Ver los ingredientes"</p>
+<h3 id="cruce-14-franklindageorge-productodecisión-4-5-ángulo-oferta-garantía-retargeting-riesgo-g-bajo">Cruce 14 · Frank/Linda/George × Producto/Decisión (4-5) · Ángulo: Oferta + garantía (retargeting) · Riesgo {g} Bajo<a class="anchor" href="#cruce-14-franklindageorge-productodecisión-4-5-ángulo-oferta-garantía-retargeting-riesgo-g-bajo">#</a></h3>
+<p>Hooks:</p>
+<ol>
+<li>"Lo estuviste mirando. Viene con 60 días de garantía y envío incluido, para que lo pruebes sin riesgo."</li>
+<li>"Tu pack con descuento por volumen sigue disponible. Pruébalo 60 días o te devuelven cada dólar."</li>
+<li>"Sin riesgo: 60 días de garantía money-back. Si no notas la diferencia, no pagas."</li>
+</ol>
+<p>CTA: "Pruébalo con garantía" / "Reclama tu descuento"</p>
+<p><strong>Notas de la matriz:</strong></p>
+<ul>
+<li><strong>Menor riesgo y mejor entrada en frío:</strong> cruces 1, 2, 9, 11, 12 (pregunta, listicle, beneficio/aspiracional). Empezar el testing por ahí (Lote 1, ver sección 7).</li>
+<li><strong>Ángulo ganador real del swipe pero alto riesgo:</strong> cruces 4, 5, 7 (anti-fármaco, autoridad, advertorial). Reservar para cuenta con historial limpio + bridge blindada (doc 05).</li>
+<li><strong>Audiencias que el swipe de Prostadine NO explota:</strong> Linda (cruces 10-11) y George (12-13). Bajo riesgo, diferenciación competitiva. Aquí está nuestra ventaja sobre quien solo copia el anti-finasteride.</li>
+</ul>
+<hr>
+<h2 id="5-mensajería-desarrollada-los-3-cruces-prioritarios-guión-completo-ad-bridge">5. Mensajería desarrollada · los 3 cruces prioritarios (guión completo ad + bridge)<a class="anchor" href="#5-mensajería-desarrollada-los-3-cruces-prioritarios-guión-completo-ad-bridge">#</a></h2>
+<blockquote><p>Mini-guiones reales, no bullets. Estructura M04/doc 03: hook, agitación, mecanismo, prueba, CTA. Y cómo continúa en la bridge page con coherencia ad-lander (doc 05). Estos 3 son el Lote 1 + 2 de testing.</p></blockquote>
+<h3 id="cruce-prioritario-a-roberto-problema-preguntalisticle-riesgo-bajo-validador-de-audiencia">Cruce prioritario A · Roberto × Problema · Pregunta/Listicle (riesgo bajo, validador de audiencia)<a class="anchor" href="#cruce-prioritario-a-roberto-problema-preguntalisticle-riesgo-bajo-validador-de-audiencia">#</a></h3>
+<p><strong>AD (imagen estática con texto overlay o video 30s UGC, hombre 50+ casual en su casa):</strong></p>
+<ul>
+<li><strong>Hook (0-3s):</strong> "¿Te levantas al baño a mitad de la noche más seguido que antes? No siempre es la edad."</li>
+<li><strong>Agitación (3-12s):</strong> "Una vez, dos, tres veces. Vuelves a la cama y te cuesta dormir. Al otro día andas sin energía y no sabes por qué. Muchos hombres después de los 50 lo viven y lo normalizan como 'cosas de la edad'."</li>
+<li><strong>Mecanismo (12-20s):</strong> "Pero las idas al baño de noche tienen más de un motivo, y uno de ellos tiene que ver con algo que el cuerpo deja de hacer con los años. La buena noticia: hay un enfoque natural que muchos hombres están sumando a su rutina de la mañana."</li>
+<li><strong>Prueba (20-28s):</strong> "Miles de hombres mayores de 50 ya lo probaron. Viene con 60 días de garantía: si no notas la diferencia en tus noches, te devuelven cada dólar."</li>
+<li><strong>CTA (28-32s):</strong> "Descubre qué puede estar pasando. Toca el enlace para leer más."</li>
+</ul>
+<p><strong>Bridge page (advertorial educativo, continúa la narrativa):</strong></p>
+<ol>
+<li>Titular: "Por qué tantos hombres mayores de 50 se levantan de noche (y qué están haciendo al respecto)."</li>
+<li>Apertura: historia identificable en primera persona o de "investigamos esto". Valida el síntoma como común, sin diagnosticar al lector.</li>
+<li>El reframe: explica que no es solo "la edad" ni "el agua", introduce el ángulo de mecanismo natural sin claim de cura.</li>
+<li>El enfoque/ingrediente: presenta Prostadine como el enfoque, con "apoya/favorece".</li>
+<li>Prueba social: número de usuarios + reseñas + garantía 60 días destacada.</li>
+<li>Disclosure FTC "Advertisement" antes del fold + FDA disclaimer prominente + privacy/terms/contacto/reembolso en footer.</li>
+<li>CTA al VSL del vendor (botón repetido). Optimizar a Landing Page Views (H&W).</li>
+</ol>
+<h3 id="cruce-prioritario-b-frank-soluciónproducto-testimonial-anti-fármaco-suave-riesgo-medio-alto-el-de-mayor-conversión">Cruce prioritario B · Frank × Solución/Producto · Testimonial anti-fármaco suave (riesgo medio-alto, el de mayor conversión)<a class="anchor" href="#cruce-prioritario-b-frank-soluciónproducto-testimonial-anti-fármaco-suave-riesgo-medio-alto-el-de-mayor-conversión">#</a></h3>
+<p><strong>AD (video UGC 35-45s, hombre 60+ hablando a cámara en su living, tono conversacional):</strong></p>
+<ul>
+<li><strong>Hook (0-3s):</strong> "Pasé 2 años con la receta del urólogo. Los efectos secundarios me hicieron buscar otra vía."</li>
+<li><strong>Agitación (3-15s):</strong> "La pastilla me ayudaba algo de noche, pero me cambió otras cosas que no estaba dispuesto a aceptar. Cuando se lo dije al médico, la respuesta fue 'es lo que hay'. Ahí dije: tiene que haber otra forma."</li>
+<li><strong>Mecanismo (15-25s):</strong> "Empecé a leer sobre enfoques naturales para la salud de la próstata. Encontré uno basado en ingredientes reconocidos por la tradición, en formato de gotas, que sumé a mi café de la mañana."</li>
+<li><strong>Prueba (25-38s):</strong> "No prometo milagros y los resultados varían de persona a persona. Lo que puedo decir es que por fin estoy durmiendo mejor mis noches. Y como viene con 60 días de garantía, no tenía nada que perder al probarlo."</li>
+<li><strong>CTA (38-45s):</strong> "Si tú también buscas otra vía, mira el enlace y lee la historia completa."</li>
+</ul>
+<p><strong>Bridge page (advertorial testimonial):</strong></p>
+<ol>
+<li>Titular: "La vía natural que un hombre eligió después de dejar el tratamiento convencional."</li>
+<li>Historia completa de Frank-arquetipo (sin nombrar la enfermedad ni el fármaco específico en titulares indexables; en cuerpo, tono informativo y experiencial).</li>
+<li>El villano: la frustración con la solución convencional y sus efectos, en primera persona (no como claim médico).</li>
+<li>El mecanismo: el enfoque natural, ingredientes, formato líquido.</li>
+<li>Prueba social + disclaimer "results may vary" en cada testimonial + garantía.</li>
+<li>Compliance estricto: disclosure FTC, FDA disclaimer, footer completo. CERO claim de cura, CERO atributo personal del lector. Coherencia total ad-lander.</li>
+<li>CTA al VSL.</li>
+</ol>
+<blockquote><p>Nota de riesgo: este es el cruce de mayor ROAS esperado y de mayor riesgo de baneo. Solo correr en cuenta con historial limpio. El claim escala-control entre ad y bridge debe ser idéntico (si el ad dice "apoya el descanso", la bridge no puede decir "elimina los despertares").</p></blockquote>
+<h3 id="cruce-prioritario-c-linda-solución-cuidadora-riesgo-bajo-audiencia-que-la-competencia-ignora">Cruce prioritario C · Linda × Solución · Cuidadora (riesgo bajo, audiencia que la competencia ignora)<a class="anchor" href="#cruce-prioritario-c-linda-solución-cuidadora-riesgo-bajo-audiencia-que-la-competencia-ignora">#</a></h3>
+<p><strong>AD (imagen lifestyle de pareja madura durmiendo / video suave 30s con voz femenina):</strong></p>
+<ul>
+<li><strong>Hook (0-3s):</strong> "Si tu pareja se levanta varias veces por noche, también interrumpe tu descanso."</li>
+<li><strong>Agitación (3-12s):</strong> "Te despiertas cuando él se despierta. Lo ves más cansado, más irritable, y no quiere ir al médico. Te preocupa, y de paso, tú tampoco estás durmiendo bien."</li>
+<li><strong>Mecanismo (12-20s):</strong> "A veces ayudarlo empieza por algo simple en su rutina. Un enfoque natural para la salud de la próstata, en gotas, que se suma al café de la mañana sin que sea un drama."</li>
+<li><strong>Prueba (20-28s):</strong> "Miles de parejas ya lo probaron. Viene con 60 días de garantía: si no funciona para ustedes, les devuelven el dinero. ¿Qué tienen que perder?"</li>
+<li><strong>CTA (28-32s):</strong> "Descubre cómo recuperar el descanso de los dos. Toca el enlace."</li>
+</ul>
+<p><strong>Bridge page (advertorial cálido orientado a la pareja):</strong></p>
+<ol>
+<li>Titular: "Cómo ayudar a tu pareja a dormir mejor (sin pelear para que vaya al médico)."</li>
+<li>Apertura empática desde la perspectiva de la cuidadora.</li>
+<li>Reframe: el problema afecta a los dos; resolverlo es cuidado, no crítica.</li>
+<li>El enfoque: Prostadine como solución simple de incorporar, formato líquido.</li>
+<li>Prueba social + reseñas + garantía + facilidad de adopción.</li>
+<li>Compliance: disclosure FTC, FDA disclaimer, footer. Hablar de "él/tu pareja" y del producto, nunca diagnosticar.</li>
+<li>CTA al VSL.</li>
+</ol>
+<hr>
+<h2 id="6-secuencia-de-funnel-por-avatar-ad-frío-bridge-oferta-retargeting">6. Secuencia de funnel por avatar (ad frío → bridge → oferta → retargeting)<a class="anchor" href="#6-secuencia-de-funnel-por-avatar-ad-frío-bridge-oferta-retargeting">#</a></h2>
+<blockquote><p>Qué mensaje en cada paso. La regla M04: cold en niveles 1-3, retargeting en 4-5. Estructura de cuenta nueva (M05): Campaña 1 Presentación (cold) + Campaña 2 Evaluación (retargeting). H&W optimiza a Landing Page Views, no a compra (doc 05).</p></blockquote>
+<div class="timeline"><div class="tl-item"><div class="tl-when">Ad frío</div><div class="tl-what">Pregunta/listicle: "¿Te levantas de noche? No siempre es la edad" (LP Views)</div></div><div class="tl-item"><div class="tl-when">Bridge</div><div class="tl-what">Advertorial educativo: reframe del síntoma + enfoque natural + garantía</div></div><div class="tl-item"><div class="tl-when">Oferta (VSL vendor)</div><div class="tl-what">El VSL del vendor hace el cierre largo, mecanismo y oferta</div></div><div class="tl-item"><div class="tl-when">Retargeting</div><div class="tl-what">Visitó bridge no compró → testimonial + garantía 60 días (nivel 4)</div></div></div>
+<div class="timeline"><div class="tl-item"><div class="tl-when">Ad frío</div><div class="tl-what">Anti-fármaco/testimonial: "probé la receta, busqué otra vía" (LP Views)</div></div><div class="tl-item"><div class="tl-when">Bridge</div><div class="tl-what">Advertorial testimonial: historia + mecanismo + prueba + garantía</div></div><div class="tl-item"><div class="tl-when">Oferta (VSL vendor)</div><div class="tl-what">VSL cierra con descuento por volumen + garantía</div></div><div class="tl-item"><div class="tl-when">Retargeting nivel 4</div><div class="tl-what">"Por qué es distinto + 60 días de garantía"</div></div><div class="tl-item"><div class="tl-when">Retargeting nivel 5</div><div class="tl-what">Carrito/visita repetida: "tu pack con descuento + envío incluido sigue disponible"</div></div></div>
+<div class="timeline"><div class="tl-item"><div class="tl-when">Ad frío toque 1</div><div class="tl-what">Advertorial/listicle que NO parece ad: "señales que los hombres normalizan"</div></div><div class="tl-item"><div class="tl-when">Bridge educativa</div><div class="tl-what">Lo hace reconocerse sin señalarlo (mueve de nivel 1 a 2)</div></div><div class="tl-item"><div class="tl-when">Retargeting toque 2</div><div class="tl-what">Ya consciente: pregunta/curiosidad + mecanismo (nivel 2-3)</div></div><div class="tl-item"><div class="tl-when">Retargeting toque 3</div><div class="tl-what">Testimonial + garantía (nivel 4) → recién aquí la oferta</div></div></div>
+<div class="timeline"><div class="tl-item"><div class="tl-when">Ad frío</div><div class="tl-what">Cuidadora/aspiracional: "si tu pareja se levanta de noche..." (LP Views)</div></div><div class="tl-item"><div class="tl-when">Bridge</div><div class="tl-what">Advertorial cálido orientado a la pareja + garantía + facilidad</div></div><div class="tl-item"><div class="tl-when">Oferta (VSL vendor)</div><div class="tl-what">VSL cierra; Linda lee reseñas y compra para él</div></div><div class="tl-item"><div class="tl-when">Retargeting</div><div class="tl-what">"Recupera el descanso de los dos, 60 días de garantía"</div></div></div>
+<div class="timeline"><div class="tl-item"><div class="tl-when">Ad frío</div><div class="tl-what">Aspiracional/mecanismo: "más presencia, más confianza, adelántate" (IG + FB, LP Views)</div></div><div class="tl-item"><div class="tl-when">Bridge</div><div class="tl-what">Enfoque de ingredientes/stack + transparencia + garantía</div></div><div class="tl-item"><div class="tl-when">Oferta (VSL vendor)</div><div class="tl-what">VSL; George evalúa fórmula y compra como decisión racional</div></div><div class="tl-item"><div class="tl-when">Retargeting</div><div class="tl-what">Diferencial de ingredientes + reseñas de hombres que se cuidan</div></div></div>
+<p><strong>Notas de funnel:</strong></p>
+<ul>
+<li><strong>Retargeting es donde Frank y Dave pagan de verdad.</strong> Frank convierte rápido en el segundo toque; Dave necesita 2-3 toques porque hay que moverlo de nivel primero. Presupuestar retargeting como parte central, no como sobra.</li>
+<li><strong>Linda y George requieren creativos propios</strong> (mujer / aspiracional), no se cubren con los de Roberto/Frank. Son audiencias separadas con su propia campaña.</li>
+<li><strong>El VSL del vendor hace el cierre pesado.</strong> Nuestra bridge solo tiene que llevar del nivel del ad al nivel "listo para ver el VSL" (regla del por 5: construir percepción de valor antes del VSL).</li>
+</ul>
+<hr>
+<h2 id="7-plan-de-testing-qué-lanzar-primero-orden-killscale">7. Plan de testing (qué lanzar primero, orden, kill/scale)<a class="anchor" href="#7-plan-de-testing-qué-lanzar-primero-orden-killscale">#</a></h2>
+<blockquote><p>Conectado a la síntesis: 3x kill (Felipe M01/cruce), +30% escalado vertical, MER > 1.5, regla de diversificación creativa por Entity ID (M05: distintos avatares/formatos/ángulos, no variar solo el CTA), velocidad sobre perfección.</p></blockquote>
+<h3 id="principio-rector-empezar-por-riesgo-bajo-escalar-el-de-mayor-riesgo-último">Principio rector: empezar por riesgo bajo, escalar el de mayor riesgo último<a class="anchor" href="#principio-rector-empezar-por-riesgo-bajo-escalar-el-de-mayor-riesgo-último">#</a></h3>
+<p>La tensión central (sección 1.4) obliga a un orden por lotes: validamos audiencia y mensaje con ángulos seguros, construimos historial limpio de cuenta, y solo entonces tocamos el anti-fármaco que más convierte pero más banea.</p>
+<h3 id="lote-1-validar-audiencia-mensaje-riesgo-g-bajo">Lote 1 · Validar audiencia + mensaje (riesgo {g} bajo)<a class="anchor" href="#lote-1-validar-audiencia-mensaje-riesgo-g-bajo">#</a></h3>
+<ul>
+<li><strong>Cruces:</strong> 1, 2 (Roberto pregunta/listicle), 11 (Linda aspiracional), 12 (George aspiracional), 9 (Dave listicle).</li>
+<li><strong>Objetivo:</strong> descubrir qué avatar/ángulo engancha y a qué CPL/CPC, sin arriesgar la cuenta.</li>
+<li><strong>Estructura (M05 cuenta nueva):</strong> Campaña Presentación, optimizada a Landing Page Views. Advantage+ amplio + 1 conjunto de intereses semilla. Diversificación creativa: mínimo 3 avatares distintos (Roberto/Linda/George) × 2 formatos (imagen estática + video UGC) para no compartir Entity ID.</li>
+<li><strong>Creativos:</strong> por cada cruce, 1 cuerpo + 3-5 hooks (doc 03), siempre con sus 5 primary text + 5 headlines (regla 5x5 OpenClaw) si se arma en Meta nativo.</li>
+</ul>
+<h3 id="lote-2-escalar-el-mensaje-ganador-con-cuidado-riesgo-a-medio">Lote 2 · Escalar el mensaje ganador con cuidado (riesgo {a} medio)<a class="anchor" href="#lote-2-escalar-el-mensaje-ganador-con-cuidado-riesgo-a-medio">#</a></h3>
+<ul>
+<li><strong>Cruces:</strong> 3 (curiosity+mecanismo), 6 (Frank testimonial), 10 (Linda cuidadora), 13 (George ingredientes), 8 (Dave reframe).</li>
+<li><strong>Objetivo:</strong> subir conversión con mecanismo y testimonial sobre el avatar que el Lote 1 marcó como ganador.</li>
+<li><strong>Disparador:</strong> solo entrar aquí cuando el Lote 1 tenga un avatar/ángulo con señal positiva (buen CPL/CTR, tráfico de calidad a la bridge).</li>
+</ul>
+<h3 id="lote-3-el-ganador-del-swipe-riesgo-r-alto-solo-con-cuenta-sólida">Lote 3 · El ganador del swipe (riesgo {r} alto) · solo con cuenta sólida<a class="anchor" href="#lote-3-el-ganador-del-swipe-riesgo-r-alto-solo-con-cuenta-sólida">#</a></h3>
+<ul>
+<li><strong>Cruces:</strong> 4 (Frank anti-fármaco), 5 (autoridad), 7 (Dave advertorial news-style).</li>
+<li><strong>Pre-requisitos no negociables:</strong> cuenta con historial limpio (Lotes 1-2 sin rechazos graves) + bridge page 100% blindada (checklist doc 05) + cero claim escalado ad-lander.</li>
+<li><strong>Objetivo:</strong> capturar el máximo ROAS del nicho asumiendo el riesgo con la red de seguridad puesta.</li>
+</ul>
+<div class="timeline"><div class="tl-item"><div class="tl-when">Lote 1 (días 1-7)</div><div class="tl-what">Riesgo bajo: pregunta/listicle/aspiracional. Validar avatar y mensaje</div></div><div class="tl-item"><div class="tl-when">Lote 2 (días 8-18)</div><div class="tl-what">Riesgo medio: mecanismo + testimonial sobre el ganador del Lote 1</div></div><div class="tl-item"><div class="tl-when">Lote 3 (día 18+)</div><div class="tl-what">Riesgo alto: anti-fármaco/autoridad/advertorial, solo con cuenta limpia</div></div><div class="tl-item"><div class="tl-when">Escalado</div><div class="tl-what">+30% vertical sobre el ganador, horizontal con nuevos avatares/formatos</div></div></div>
+<h3 id="criterios-de-kill-scale-conectados-a-doctrina">Criterios de kill / scale (conectados a doctrina)<a class="anchor" href="#criterios-de-kill-scale-conectados-a-doctrina">#</a></h3>
+<div class="kpi-strip"><div class="stat"><div class="stat-value">3x</div><div class="stat-label">Kill rule · gastaste 3x el CPA/CPL target sin conversión = kill, sin enamorarse</div></div><div class="stat"><div class="stat-value">+30%</div><div class="stat-label">Scale vertical máximo por movida, esperar 3-5 días</div></div><div class="stat"><div class="stat-value">1.5</div><div class="stat-label">MER mínimo (revenue comisiones / ad spend total) para sostenibilidad</div></div><div class="stat"><div class="stat-value">&lt;14d</div><div class="stat-label">Payback period objetivo</div></div></div>
+<div class="table-wrap"><table><thead><tr>
+<th>Situación</th>
+<th>Acción</th>
+<th>Fuente doctrina</th>
+</tr></thead><tbody>
+<tr>
+<td>Ad gastó 3x el CPL target sin conversión</td>
+<td class="sg-red">Kill, sin discusión</td>
+<td>Regla 3x kill (M01)</td>
+</tr>
+<tr>
+<td>Ángulo con buen CTR pero bridge no convierte</td>
+<td class="sg-amber">Diagnosticar los 3 vértices: audiencia/mensaje/oferta antes de killear</td>
+<td>Triángulo Dorado (M04)</td>
+</tr>
+<tr>
+<td>Ganador con ROAS/MER sólido + frequency < 2.5</td>
+<td class="sg-green">Escalar +30% vertical, esperar 3-5 días</td>
+<td>+30% escalado (M07)</td>
+</tr>
+<tr>
+<td>Frequency > 3</td>
+<td class="sg-amber">Fatiga: refrescar creativo (nuevo hook/formato/avatar)</td>
+<td>Diversificación Entity ID (M05)</td>
+</tr>
+<tr>
+<td>Ad rechazado por claim</td>
+<td class="sg-red">Revisar verbos (cura→apoya) y coherencia ad-lander; no reintentar igual</td>
+<td>Compliance (doc 05)</td>
+</tr>
+<tr>
+<td>Cuenta con warning de policy</td>
+<td class="sg-red">Pausar Lote 3, mantener solo Lotes 1-2 hasta limpiar</td>
+<td>Sensibilidad H&W (doc 05)</td>
+</tr>
+</tbody></table></div>
+<p><strong>Regla de oro del orden:</strong> nunca lanzar el Lote 3 (anti-fármaco) en una cuenta sin historial. El ángulo que más convierte es el que más rápido cae; protegerlo significa ganárselo con Lotes 1-2 primero.</p>
+<hr>
+<h2 id="cierre-qué-tiene-de-nuevo-esta-versión">Cierre · qué tiene de nuevo esta versión<a class="anchor" href="#cierre-qué-tiene-de-nuevo-esta-versión">#</a></h2>
+<ul>
+<li>5 avatares (antes 4): se suma <strong>George el proactivo</strong> (prevención/rendimiento, IG, bajo riesgo), una audiencia que la competencia anti-finasteride ignora.</li>
+<li>Cada avatar ahora trae <strong>un día en su vida</strong>, historia con el problema, 6-8 frases de voz del cliente real, objeciones con rebate, disparadores de compra y targeting Meta detallado.</li>
+<li>La matriz pasó de 1 hook por cruce a <strong>3-5 hooks por cruce</strong> (14 cruces).</li>
+<li>3 cruces prioritarios con <strong>guión completo de ad + continuación en bridge</strong>, no bullets.</li>
+<li>Secuencias de funnel por los 5 avatares y plan de testing por lotes conectado a kill/scale.</li>
+</ul>
+<p><em>Avatares = hipótesis de trabajo razonadas (Definidor de Audiencias Fauadzk), no encuesta ni data de cliente: validar con data de campaña. Ángulos y hooks reales verificados contra la Meta Ad Library (US, activos, research 2026-06-16/17): re-verificar antes de modelar, los hooks vivos cambian a diario. Niveles y % según Schwartz / Felipe Vergara M04 aplicados a este nicho. Todo el copy de ejemplo respeta compliance doc 05: situación no condición, cero claim de cura, verbos estructura-función.</em></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 01-prostadine.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

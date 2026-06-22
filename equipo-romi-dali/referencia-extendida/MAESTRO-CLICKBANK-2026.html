@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClickBank 2026 + Selección de Ofertas · Maestro en español · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../study.html">← Affiliate Business · Index</a>
+<span class="meta">01-ejecucion-2026 / clickbank-2026-research · 10 min · 1,920 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#tldr-clickbank-en-2026" class="">TL;DR · ClickBank en 2026</a></li><li><a href="#datos-verificados-oficialmente" class="h3">Datos verificados oficialmente</a></li><li><a href="#lo-crítico-para-crisromidali" class="h3">Lo crítico para Cris/Romi/Dali</a></li><li><a href="#el-insight-bifurcación-importante" class="h3">El insight bifurcación (importante)</a></li><li><a href="#tldr-selección-de-ofertas" class="">TL;DR · Selección de ofertas</a></li><li><a href="#las-4-métricas-que-importan-las-demás-son-ruido" class="h3">Las 4 métricas que importan (las demás son ruido)</a></li><li><a href="#el-proceso-de-30-minutos-para-evaluar-una-oferta" class="h3">El proceso de 30 minutos para evaluar una oferta</a></li><li><a href="#math-del-cpa-breakeven-hispano-us" class="h3">Math del CPA breakeven · Hispano-US</a></li><li><a href="#top-ofertas-nutra-clickbank-mayo-2026-verificado" class="">Top ofertas nutra ClickBank · mayo 2026 (verificado)</a></li><li><a href="#lo-que-cambia-en-el-plan-90-días-con-esta-investigación" class="">Lo que cambia en el plan 90 días con esta investigación</a></li><li><a href="#cambio-1-estrategia-testing-ajustada-a-hispano-us" class="h3">Cambio #1 · Estrategia testing ajustada a Hispano-US</a></li><li><a href="#cambio-2-customer-distribution-requirement-bloquea-cash-flow-inicial" class="h3">Cambio #2 · Customer Distribution Requirement bloquea cash flow inicial</a></li><li><a href="#cambio-3-dormant-fees-plan-agresivo-o-pausa-cuenta" class="h3">Cambio #3 · Dormant fees · plan agresivo o pausa cuenta</a></li><li><a href="#cambio-4-sub-niche-prioritario-revisado" class="h3">Cambio #4 · Sub-niche prioritario revisado</a></li><li><a href="#cambio-5-11-criterion-scoring-la-herramienta-operativa" class="h3">Cambio #5 · 11-criterion scoring (la herramienta operativa)</a></li><li><a href="#red-flags-auto-disqualify-no-negotiables" class="">Red flags · auto-disqualify (no negotiables)</a></li><li><a href="#green-flags-test-candidate" class="">Green flags · TEST candidate</a></li><li><a href="#single-biggest-tail-risk-identificado" class="">Single biggest tail risk identificado</a></li><li><a href="#tools-recomendadas-para-selección-de-ofertas" class="">Tools recomendadas para selección de ofertas</a></li><li><a href="#networks-alternativas-a-considerar-post-validation" class="">Networks alternativas a considerar (post-validation)</a></li><li><a href="#plantilla-de-evaluación-de-oferta-1-página" class="">Plantilla de evaluación de oferta · 1 página</a></li><li><a href="#veredicto-integrado-para-crisromidali" class="">Veredicto integrado para Cris/Romi/Dali</a></li><li><a href="#clickbank-sigue-siendo-la-plataforma-correcta-para-arrancar-en-2026" class="h3">¿ClickBank sigue siendo la plataforma correcta para arrancar en 2026?</a></li><li><a href="#latam-nutra-sigue-siendo-el-ángulo-correcto" class="h3">¿LATAM nutra sigue siendo el ángulo correcto?</a></li><li><a href="#2500-alcanza" class="h3">¿$2,500 alcanza?</a></li><li><a href="#cuánto-tarda-primer-payout" class="h3">¿Cuánto tarda primer payout?</a></li><li><a href="#próximos-pasos-concretos" class="">Próximos pasos concretos</a></li><li><a href="#documentos-relacionados" class="">Documentos relacionados</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>MAESTRO-CLICKBANK-2026.md</span>
+<span>1,920 palabras</span>
+<span>~10 min lectura</span>
+</div>
+<h1 id="clickbank-2026-selección-de-ofertas-maestro-en-español">ClickBank 2026 + Selección de Ofertas · Maestro en español<a class="anchor" href="#clickbank-2026-selección-de-ofertas-maestro-en-español">#</a></h1>
+<div class="box box-tldr"><div class="box-label">TL;DR</div><p><strong>Mercado: Hispano-US ✓</strong> (decisión 2026-04-29) Sintetiza 2 investigaciones extensas en inglés (~13,500 palabras totales con 40+ fuentes verificadas): 1. <a href="#" onclick="alert('Doc no incluido en este paquete');return false;"><code>01-clickbank-state-2026.md</code></a> · estado actual de ClickBank · 5,911 palabras 2. <a href="#" onclick="alert('Doc no incluido en este paquete');return false;"><code>02-offer-selection-framework.md</code></a> · framework completo de selección · 7,610 palabras</p>
+<p>Este maestro es el TL;DR accionable. Si quieres profundizar, ve a los originales.</p></div>
+<hr>
+<h2 id="tldr-clickbank-en-2026">TL;DR · ClickBank en 2026<a class="anchor" href="#tldr-clickbank-en-2026">#</a></h2>
+<p><strong>Plataforma sólida · ecosistema en bifurcación · ventana específica para LATAM nutra.</strong></p>
+<h3 id="datos-verificados-oficialmente">Datos verificados oficialmente<a class="anchor" href="#datos-verificados-oficialmente">#</a></h3>
+<ul>
+<li>Keynetics sigue dueño · Kelly Householder CEO desde 2018</li>
+<li>BBB rating A+ · Trustpilot 4.6</li>
+<li>$7.1B+ pagados a afiliados lifetime · ~$850M revenue anual</li>
+<li>200K+ afiliados activos · 28K listings (1,247 productos únicos en 281 categorías)</li>
+<li>Fees sin cambios: 7.5% + $1 por venta + $49.95 setup vendor (afiliado gratis)</li>
+</ul>
+<h3 id="lo-crítico-para-crisromidali">Lo crítico para Cris/Romi/Dali<a class="anchor" href="#lo-crítico-para-crisromidali">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Aspecto</th>
+<th>Status</th>
+</tr></thead><tbody>
+<tr>
+<td>¿Chile en lista direct deposit?</td>
+<td><strong>NO</strong> (México es el único LATAM listado · 43 países total)</td>
+</tr>
+<tr>
+<td>Workaround Wise USD ACH</td>
+<td><strong>Funciona</strong> · documentado y estable 2026</td>
+</tr>
+<tr>
+<td>Payoneer</td>
+<td>Partner oficial ClickBank</td>
+</tr>
+<tr>
+<td>Tratado tributario USA-Chile</td>
+<td>Vigente desde feb 2024 · W-8BEN ahora más atractivo</td>
+</tr>
+<tr>
+<td><strong>Customer Distribution Requirement</strong></td>
+<td><strong>5 ventas + 2 métodos de pago + 2 semanas wait</strong> antes del primer payout</td>
+</tr>
+<tr>
+<td><strong>Dormant fees</strong></td>
+<td>$1 (90 días sin venta) → $5 (180) → <strong>$50</strong> (365) por pay period</td>
+</tr>
+</tbody></table></div>
+<h3 id="el-insight-bifurcación-importante">El insight bifurcación (importante)<a class="anchor" href="#el-insight-bifurcación-importante">#</a></h3>
+<p>ClickBank mismo dice en su podcast oficial Affiliated que <strong>el "ejército de afiliados pequeños está en declive estructural"</strong>. La plataforma se está bifurcando entre:</p>
+<ul>
+<li>Super-afiliados con relaciones directas con vendors → escalan a Diamond</li>
+<li>Ruido (mayoría) → no llegan ni a Gold</li>
+</ul>
+<p>Implicancia: si vamos a ClickBank, hay que jugar como super-afiliado (foco brutal, sistema repetible) desde día 1, no como hobbyist.</p>
+<hr>
+<h2 id="tldr-selección-de-ofertas">TL;DR · Selección de ofertas<a class="anchor" href="#tldr-selección-de-ofertas">#</a></h2>
+<h3 id="las-4-métricas-que-importan-las-demás-son-ruido">Las 4 métricas que importan (las demás son ruido)<a class="anchor" href="#las-4-métricas-que-importan-las-demás-son-ruido">#</a></h3>
+<ol>
+<li><strong>Initial $/sale</strong> > $25 (lo que entra en la primera venta)</li>
+<li><strong>Avg $/sale</strong> > $80 (incluyendo upsells si los hay)</li>
+<li><strong>Gravity</strong> entre <strong>30-150</strong> (sweet spot 2026 · sube vs el 30-100 anterior)</li>
+<li><strong>Avg Rebill Total</strong> > $0 si hay subscription (LTV math)</li>
+</ol>
+<p><strong>EPC</strong> es la métrica más mentirosa de ClickBank — está calculada solo con afiliados muy exitosos, no es replicable.</p>
+<h3 id="el-proceso-de-30-minutos-para-evaluar-una-oferta">El proceso de 30 minutos para evaluar una oferta<a class="anchor" href="#el-proceso-de-30-minutos-para-evaluar-una-oferta">#</a></h3>
+<ol>
+<li><strong>Filtro inicial (5 min)</strong> — números pasan los 4 mínimos</li>
+<li><strong>VSL review completo (10 min)</strong> — si no te convence a ti, no convierte</li>
+<li><strong>Tools page audit (5 min)</strong> — ¿permite Meta Ads? ¿Brand bidding? ¿LATAM?</li>
+<li><strong>Refund investigation (3 min)</strong> — Reddit + Skalers + grupo afiliados latinos</li>
+<li><strong>Competitive check (3 min)</strong> — Meta Ads Library de español USA + LATAM</li>
+<li><strong>Economics math (3 min)</strong> — usar la calculadora de abajo</li>
+<li><strong>Go/no-go (1 min)</strong> — si pasa los 11 criterios → TEST · si no → SKIP</li>
+</ol>
+<h3 id="math-del-cpa-breakeven-hispano-us">Math del CPA breakeven · Hispano-US<a class="anchor" href="#math-del-cpa-breakeven-hispano-us">#</a></h3>
+<pre><code>GIVEN:
+  AOV: $147 (Hispano-US típico)
+  Comisión: 75% = $110/venta
+  Conv rate landing→VSL→sale estimada: 1.5%
+
+CALCULATE:
+  Por cada 100 clicks → 1.5 ventas → $165 revenue
+  Revenue per click (RPC) = $1.65
+  Max CPC para break-even (1.0x ROAS) = $1.65
+  Max CPC para 1.3x ROAS sostenible = $1.27
+  Max CPC para 2.0x ROAS (winner) = $0.83
+
+DECISIÓN para Hispano-US:
+  CPC industry promedio Hispano-US nutra = $1.20-2.50
+  → BORDERLINE / DIFÍCIL en mes 1
+  Necesitas oferta con AOV &gt; $150 o conv rate &gt; 2% para margen
+
+ESTRATEGIA:
+  - Priorizar ofertas AOV &gt; $150 (Audifort $164, NewEra Protect $163, ProDentim $173)
+  - Optimizar landing conv rate antes de escalar (target &gt; 20%)
+  - Segmentación quirúrgica de audiencia (no Open Audience al inicio)</code></pre>
+<hr>
+<h2 id="top-ofertas-nutra-clickbank-mayo-2026-verificado">Top ofertas nutra ClickBank · mayo 2026 (verificado)<a class="anchor" href="#top-ofertas-nutra-clickbank-mayo-2026-verificado">#</a></h2>
+<p>Lista publicada por ClickBank oficial:</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Oferta</th>
+<th>AOV</th>
+<th>Sub-niche</th>
+<th>Ventaja</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Audifort</strong></td>
+<td>$164</td>
+<td>Audio/oído</td>
+<td>Audio-VSL (formato emergente)</td>
+</tr>
+<tr>
+<td><strong>NewEra Protect</strong></td>
+<td>$163</td>
+<td>Inmunidad</td>
+<td>Microbiome theme</td>
+</tr>
+<tr>
+<td><strong>ProDentim</strong></td>
+<td>$173</td>
+<td>Dental/encías</td>
+<td>Sub-niche underserved</td>
+</tr>
+<tr>
+<td><strong>The Brain Song</strong></td>
+<td>$58</td>
+<td>Memoria/cognitivo</td>
+<td>AOV bajo · skip</td>
+</tr>
+<tr>
+<td><strong>Mitolyn</strong></td>
+<td>n/d</td>
+<td>Weight loss</td>
+<td>Best-selling categoría · saturado</td>
+</tr>
+</tbody></table></div>
+<p><strong>Sub-niches emergentes 2026 (donde HAY oportunidad):</strong></p>
+<ul>
+<li>Microbiome / gut health</li>
+<li>Audio-VSL formats (Audifort, Brain Song)</li>
+<li>Women's health (menopausia, pelvic floor)</li>
+<li>Dental/oral health</li>
+</ul>
+<p><strong>Sub-niches saturadísimas (donde NO meterse de entrada):</strong></p>
+<ul>
+<li>Weight loss general</li>
+<li>Keto / low-carb</li>
+<li>"Belly fat" específico</li>
+</ul>
+<hr>
+<h2 id="lo-que-cambia-en-el-plan-90-días-con-esta-investigación">Lo que cambia en el plan 90 días con esta investigación<a class="anchor" href="#lo-que-cambia-en-el-plan-90-días-con-esta-investigación">#</a></h2>
+<h3 id="cambio-1-estrategia-testing-ajustada-a-hispano-us">Cambio #1 · Estrategia testing ajustada a Hispano-US<a class="anchor" href="#cambio-1-estrategia-testing-ajustada-a-hispano-us">#</a></h3>
+<p><strong>LATAM hubiera permitido:</strong> 4-6 micro-tests de $250-400 cada uno (CPCs bajos).</p>
+<p><strong>Hispano-US realidad:</strong> <strong>2-3 tests serios de $700-1,500 cada uno</strong>. CPCs $1.20-2.50 → necesitas más volumen por oferta para validar.</p>
+<ul>
+<li>Mes 1: 1 oferta principal + budget concentrado</li>
+<li>Mes 2: 2da oferta paralela si la primera muestra señales</li>
+<li>Mes 3: refinar winner o pivote si ninguna funciona</li>
+</ul>
+<h3 id="cambio-2-customer-distribution-requirement-bloquea-cash-flow-inicial">Cambio #2 · Customer Distribution Requirement bloquea cash flow inicial<a class="anchor" href="#cambio-2-customer-distribution-requirement-bloquea-cash-flow-inicial">#</a></h3>
+<p>Necesitas <strong>5 ventas + 2 métodos de pago activados</strong> antes del primer payout. Eso son 2-4 semanas de cash inmovilizado. Plan financial flow asumiendo este lag.</p>
+<h3 id="cambio-3-dormant-fees-plan-agresivo-o-pausa-cuenta">Cambio #3 · Dormant fees · plan agresivo o pausa cuenta<a class="anchor" href="#cambio-3-dormant-fees-plan-agresivo-o-pausa-cuenta">#</a></h3>
+<p>Si después de 90 días no hay sale, ClickBank empieza a cobrar $1 → $5 → $50. Plan: o vender en mes 1 o pausar cuenta y reactivar después.</p>
+<h3 id="cambio-4-sub-niche-prioritario-revisado">Cambio #4 · Sub-niche prioritario revisado<a class="anchor" href="#cambio-4-sub-niche-prioritario-revisado">#</a></h3>
+<p><strong>Original playbook:</strong> "salud / nutra / belleza · mujeres 25-45"</p>
+<p><strong>Recomendación basada en research 2026:</strong></p>
+<ol>
+<li><strong>Dental health</strong> (ProDentim referencia) — underserved en español, alta percepción de necesidad</li>
+<li><strong>Microbiome / gut health</strong> (NewEra Protect referencia) — wave emergente</li>
+<li><strong>Audio-VSL formats</strong> — formato nuevo, menos competencia</li>
+<li><strong>EVITAR weight loss general</strong> — saturado, márgenes apretados</li>
+</ol>
+<h3 id="cambio-5-11-criterion-scoring-la-herramienta-operativa">Cambio #5 · 11-criterion scoring (la herramienta operativa)<a class="anchor" href="#cambio-5-11-criterion-scoring-la-herramienta-operativa">#</a></h3>
+<p>Reemplaza el "criterio del equipo" con scoring objetivo:</p>
+<ul>
+<li>5 hard-fails (cualquiera = SKIP)</li>
+<li>6 positive signals (>4 de 6 = TEST)</li>
+<li>Score total 11/11 = oferta excepcional</li>
+</ul>
+<p>Plantilla en <code>02-offer-selection-framework.md</code> sección 7.</p>
+<hr>
+<h2 id="red-flags-auto-disqualify-no-negotiables">Red flags · auto-disqualify (no negotiables)<a class="anchor" href="#red-flags-auto-disqualify-no-negotiables">#</a></h2>
+<ol>
+<li><strong>Disease claims en VSL</strong> ("cura diabetes", "elimina cáncer")</li>
+<li><strong>Tools page prohíbe paid traffic</strong></li>
+<li><strong>AOV < $50</strong> (margen muy apretado)</li>
+<li><strong>Initial $/sale < $25</strong> (no llegas a CDR rápido)</li>
+<li><strong>Refund rate > 25%</strong> (verificable en grupos afiliados)</li>
+<li><strong>Single-payment only</strong> (sin upsell stack)</li>
+<li><strong>Geo mismatch</strong> (US-only checkout para target LATAM)</li>
+<li><strong>No CAPI integration documented</strong></li>
+<li><strong>Vendor unresponsive</strong> (afiliados reportan no respuesta)</li>
+<li><strong>Vendor con < 6 meses en plataforma</strong> (no track record)</li>
+<li><strong>VSL con doctor sin credenciales visibles</strong> (FTC red flag)</li>
+</ol>
+<hr>
+<h2 id="green-flags-test-candidate">Green flags · TEST candidate<a class="anchor" href="#green-flags-test-candidate">#</a></h2>
+<ol>
+<li><strong>Vendor 3+ años en ClickBank</strong></li>
+<li><strong>Multiple products en portfolio</strong> (no one-hit wonder)</li>
+<li><strong>VSL actualizado recientemente</strong> (señal de optimización A/B)</li>
+<li><strong>Affiliate manager dedicado y responsivo</strong> (email <24h)</li>
+<li><strong>Webinars / training para afiliados</strong></li>
+<li><strong>CAPI postback documentado</strong></li>
+<li><strong>Recurring rebill</strong> (LTV math favorable)</li>
+<li><strong>Refund rate 5-15%</strong> (sano)</li>
+<li><strong>Funciona en español Y inglés</strong> (más flexibility)</li>
+<li><strong>EPC > $1.00</strong> (referencial, no determinante)</li>
+<li><strong>Gravity 30-150</strong> + estable últimos 3 meses</li>
+</ol>
+<hr>
+<h2 id="single-biggest-tail-risk-identificado">Single biggest tail risk identificado<a class="anchor" href="#single-biggest-tail-risk-identificado">#</a></h2>
+<p><strong>FTC enforcement spotlight 2025 sobre auto-rebill subscriptions.</strong></p>
+<p>Si la FTC endurece reglas sobre subscriptions con free trials o auto-renewals (modelo dominante de ClickBank nutra), todo el ecosistema puede comprimirse overnight.</p>
+<p>Mitigación: priorizar ofertas con <strong>single payment + upsell</strong> sobre <strong>subscription / continuity</strong>. Menos LTV pero menos riesgo regulatorio.</p>
+<hr>
+<h2 id="tools-recomendadas-para-selección-de-ofertas">Tools recomendadas para selección de ofertas<a class="anchor" href="#tools-recomendadas-para-selección-de-ofertas">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Tool</th>
+<th>Costo</th>
+<th>Para qué</th>
+<th>Alternativa gratis</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>CB Engine</strong></td>
+<td>$30/mes</td>
+<td>Gravity histórico, trends</td>
+<td>ClickBank Marketplace + manual tracking</td>
+</tr>
+<tr>
+<td><strong>CBSnooper</strong></td>
+<td>$47/mes</td>
+<td>Métricas vendor profundas</td>
+<td>Marketplace + research manual</td>
+</tr>
+<tr>
+<td><strong>OfferVault</strong></td>
+<td>Gratis</td>
+<td>Comparar networks (CB vs MaxBounty etc)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Meta Ads Library</strong></td>
+<td>Gratis</td>
+<td>Espionaje competencia</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>SpyHero</strong></td>
+<td>$49/mes</td>
+<td>Ads ganadores categoría</td>
+<td>Meta Ads Library (más limitado)</td>
+</tr>
+</tbody></table></div>
+<p><strong>Recomendación budget tight:</strong> empezar con todo gratis (Marketplace + Meta Ads Library + research manual). Agregar CB Engine ($30) mes 2 si necesitas histórico de gravity.</p>
+<hr>
+<h2 id="networks-alternativas-a-considerar-post-validation">Networks alternativas a considerar (post-validation)<a class="anchor" href="#networks-alternativas-a-considerar-post-validation">#</a></h2>
+<p>Si ClickBank no funciona en mes 3-4, alternativas:</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Network</th>
+<th>Fortaleza</th>
+<th>Cuándo migrar</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>MaxWeb</strong></td>
+<td>Nutra premium, CPAs negociados</td>
+<td>Si ya tienes track record</td>
+</tr>
+<tr>
+<td><strong>Digistore24</strong></td>
+<td>European ClickBank competitor (creciendo)</td>
+<td>Si target Europa hispana</td>
+</tr>
+<tr>
+<td><strong>DrCash</strong></td>
+<td>LATAM nutra específico</td>
+<td>Si LATAM va bien</td>
+</tr>
+<tr>
+<td><strong>Limonad</strong></td>
+<td>Casi-Diamond afiliados nutra</td>
+<td>Si llegas a Platinum CB</td>
+</tr>
+</tbody></table></div>
+<p><strong>NO migrar antes de mes 4-6.</strong> Aprender una plataforma toma tiempo.</p>
+<hr>
+<h2 id="plantilla-de-evaluación-de-oferta-1-página">Plantilla de evaluación de oferta · 1 página<a class="anchor" href="#plantilla-de-evaluación-de-oferta-1-página">#</a></h2>
+<p>Cuando Romi (SOP 01) selecciona ofertas, usar esta template:</p>
+<pre><code class="language-markdown"># Oferta: [nombre]
+## Métricas básicas
+- Initial $/sale: $___ (target &gt;$25)
+- Avg $/sale: $___ (target &gt;$80)
+- Gravity: ___ (target 30-150)
+- Avg Rebill: $___ (bonus si subscription)
+
+## VSL review
+- Duración: ___ min
+- Hooks principales: ___
+- Disease claims: SÍ / NO
+- Doctor con credenciales: SÍ / NO
+- Promesas verificables: SÍ / NO
+
+## Tools page
+- Permite Meta Ads: SÍ / NO
+- Permite brand bidding: SÍ / NO
+- Geos permitidos: ___
+- Restrictions específicas: ___
+
+## Refund investigation
+- Reddit search: ___
+- Skalers menciones: ___
+- Estimación refund rate: ___%
+
+## Competitive check (Meta Ads Library)
+- Anuncios activos en español: ___
+- Saturación percibida: BAJA / MEDIA / ALTA
+
+## Economics math
+- CPA breakeven 1.3x ROAS: $___
+- CPC industry: $___
+- Margen: VIABLE / BORDERLINE / NO VIABLE
+
+## Score (11 criterios)
+- Hard-fails: 0 / 5 (debe ser 0)
+- Positive signals: __ / 6 (&gt;4 = TEST)
+
+## Decisión: TEST / WAIT / SKIP
+## Razón: [1 frase]</code></pre>
+<hr>
+<h2 id="veredicto-integrado-para-crisromidali">Veredicto integrado para Cris/Romi/Dali<a class="anchor" href="#veredicto-integrado-para-crisromidali">#</a></h2>
+<h3 id="clickbank-sigue-siendo-la-plataforma-correcta-para-arrancar-en-2026">¿ClickBank sigue siendo la plataforma correcta para arrancar en 2026?<a class="anchor" href="#clickbank-sigue-siendo-la-plataforma-correcta-para-arrancar-en-2026">#</a></h3>
+<p><strong>SÍ, pero con disciplina.</strong> No por ser la mejor, sino por ser la más permisiva para nuevos afiliados sin track record. Aprueba sin requerir antecedentes (vs MaxBounty / Impact que rechazan o piden referencias).</p>
+<h3 id="latam-nutra-sigue-siendo-el-ángulo-correcto">¿LATAM nutra sigue siendo el ángulo correcto?<a class="anchor" href="#latam-nutra-sigue-siendo-el-ángulo-correcto">#</a></h3>
+<p><strong>Sí, pero pivotear sub-niche.</strong> Salir del "weight loss general" hacia:</p>
+<ol>
+<li>Dental health</li>
+<li>Microbiome / gut</li>
+<li>Women's health</li>
+<li>Audio-VSL emerging formats</li>
+</ol>
+<h3 id="2500-alcanza">¿$2,500 alcanza?<a class="anchor" href="#2500-alcanza">#</a></h3>
+<p><strong>Sí si cambias estrategia a 4-6 micro-tests</strong> ($250-400 cada uno) en lugar de 1 apuesta concentrada. Y si manejas el lag del Customer Distribution Requirement.</p>
+<h3 id="cuánto-tarda-primer-payout">¿Cuánto tarda primer payout?<a class="anchor" href="#cuánto-tarda-primer-payout">#</a></h3>
+<p><strong>Mínimo 4-6 semanas desde primera venta</strong> (CDR + 2 semanas wait). Plan cash flow asumiendo esto.</p>
+<hr>
+<h2 id="próximos-pasos-concretos">Próximos pasos concretos<a class="anchor" href="#próximos-pasos-concretos">#</a></h2>
+<ol>
+<li><strong>Lee el reporte 02 (offer-selection-framework) completo</strong> — es tu referencia operativa cada semana</li>
+<li><strong>Romi:</strong> ejecuta SOP 01 selección esta semana usando la nueva template + scoring 11 criterios</li>
+<li><strong>Sub-niche prioritario:</strong> dental health o microbiome (no weight loss)</li>
+<li><strong>Mes 1:</strong> 1-2 micro-tests, no 1 grande</li>
+<li><strong>Si después de 6 ofertas testeadas no hay winner → STOP</strong> (no es un problema de oferta, es problema de mercado/setup)</li>
+</ol>
+<hr>
+<h2 id="documentos-relacionados">Documentos relacionados<a class="anchor" href="#documentos-relacionados">#</a></h2>
+<ul>
+<li><a href="#" onclick="alert('Doc no incluido en este paquete');return false;"><code>01-clickbank-state-2026.md</code></a> · estado plataforma 2026 · 5,911 palabras EN</li>
+<li><a href="#" onclick="alert('Doc no incluido en este paquete');return false;"><code>02-offer-selection-framework.md</code></a> · framework selección · 7,610 palabras EN</li>
+<li><a href="#" onclick="alert('Doc no incluido en este paquete');return false;"><code>../01-DECISION-MERCADO.md</code></a> · LATAM como entrada</li>
+<li><a href="../04-ROADMAP-90-DIAS.md"><code>../04-ROADMAP-90-DIAS.md</code></a> · ajustar con cambios #1-5</li>
+</ul>
+<hr>
+<p><em>Maestro v1.0 · 2026-04-29 · sintetiza 13,500 palabras EN en 1,800 palabras ES accionables.</em></p>
+<div class="footer">
+Affiliate Business · Generado 2026-06-09<br>
+Fuente: <code>MAESTRO-CLICKBANK-2026.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

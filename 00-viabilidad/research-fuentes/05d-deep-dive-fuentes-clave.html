@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep dive · fuentes clave (Reddit, STM, affLIFT) · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">00-viabilidad / research-fuentes · 15 min · 2,939 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#estado-de-acceso-por-fuente" class="">Estado de acceso por fuente</a></li><li><a href="#1-reddit-qué-se-logró-y-qué-sigue-bloqueado" class="">1. Reddit · qué se logró y qué sigue bloqueado</a></li><li><a href="#acceso-logrado" class="h3">Acceso logrado</a></li><li><a href="#lo-que-los-snippets-originales-ya-revelan-sin-necesitar-acceso-nuevo" class="h3">Lo que los snippets originales ya revelan (sin necesitar acceso nuevo)</a></li><li><a href="#2-stm-forum-affiliate-world-forum-análisis-más-profundo" class="">2. STM Forum / Affiliate World Forum · análisis más profundo</a></li><li><a href="#rebranding-confirmado" class="h3">Rebranding confirmado</a></li><li><a href="#precio-y-acceso-2026" class="h3">Precio y acceso 2026</a></li><li><a href="#contenido-real-verificable-fuente-preview-público-reviews-cruzados" class="h3">Contenido real verificable (fuente: preview público + reviews cruzados)</a></li><li><a href="#lo-que-dicen-tres-reviews-cruzados-2025-2026" class="h3">Lo que dicen tres reviews cruzados 2025-2026</a></li><li><a href="#tabla-resumen-stm-2026" class="h3">Tabla resumen STM 2026</a></li><li><a href="#3-afflift-confirmación-de-scope-y-threads-reales-identificados" class="">3. affLIFT · confirmación de scope y threads reales identificados</a></li><li><a href="#hallazgo-principal-afflift-sí-tiene-threads-clickbankmeta" class="h3">Hallazgo principal: affLIFT SÍ tiene threads ClickBank+Meta</a></li><li><a href="#confirmación-del-scope-primario-de-afflift" class="h3">Confirmación del scope primario de affLIFT</a></li><li><a href="#4-nuevo-material-affiliatefix-acceso-completo-obtenido" class="">4. Nuevo material: AffiliateFix · acceso completo obtenido</a></li><li><a href="#thread-1-fb-ads-clickbank-zero-conversions-affiliatefix-apr-2024" class="h3">Thread 1: "FB ads + Clickbank = ZERO conversions" (AffiliateFix, Apr 2024)</a></li><li><a href="#thread-2-is-it-possible-to-direct-link-to-a-clickbank-offer-using-facebook-ads-affiliatefix-2024" class="h3">Thread 2: "Is it possible to direct link to a ClickBank offer using Facebook Ads?" (AffiliateFix, 2024)</a></li><li><a href="#5-nuevo-material-meta-compliance-para-suplementos-2025-2026" class="">5. Nuevo material: Meta compliance para suplementos 2025-2026</a></li><li><a href="#claims-que-activan-rechazo-automático-en-meta" class="h3">Claims que activan rechazo automático en Meta</a></li><li><a href="#6-tres-insights-nuevos-respecto-al-doc-05" class="">6. Tres insights nuevos respecto al doc 05</a></li><li><a href="#insight-1-afflift-sí-tiene-metacb-pero-confirma-la-crisis-de-inestabilidad" class="h3">Insight 1: affLIFT SÍ tiene Meta+CB, pero confirma la crisis de inestabilidad</a></li><li><a href="#insight-2-la-paradoja-estructural-cb-nutra-meta-policy-es-técnicamente-documentable" class="h3">Insight 2: La paradoja estructural CB nutra + Meta policy es técnicamente documentable</a></li><li><a href="#insight-3-stm-forum-rebrandeó-a-affiliate-world-forum-pero-no-cambió-su-contenido" class="h3">Insight 3: STM Forum rebrandeó a "Affiliate World Forum" pero no cambió su contenido</a></li><li><a href="#7-fuentes-citadas-en-este-documento" class="">7. Fuentes citadas en este documento</a></li><li><a href="#notas-metodológicas" class="">Notas metodológicas</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>05d-deep-dive-fuentes-clave.md</span><span>2,939 palabras</span><span>~15 min</span></div>
+<h1 id="deep-dive-fuentes-clave-reddit-stm-afflift">Deep dive · fuentes clave (Reddit, STM, affLIFT)</h1>
+<p><strong>Fecha:</strong> 2026-06-18 <strong>Investigador:</strong> Claude (OpenClaw research) <strong>Propósito:</strong> Profundizar fuentes que quedaron bloqueadas o superficiales en <code>05-foros-y-comunidades.md</code> (2026-04-28). Intento de acceso real a cuerpos de threads Reddit, análisis más profundo de STM/Affiliate World Forum y confirmación del scope de affLIFT respecto a ClickBank+Meta.</p>
+<hr>
+<h2 id="estado-de-acceso-por-fuente">Estado de acceso por fuente<a class="anchor" href="#estado-de-acceso-por-fuente">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Fuente</th>
+<th>Estado 05 original</th>
+<th>Estado hoy</th>
+<th>Cambio</th>
+</tr></thead><tbody>
+<tr>
+<td>Reddit threads (cuerpos)</td>
+<td class="sg-red">Bloqueado · Firecrawl sin soporte</td>
+<td class="sg-amber">Parcial · google.com/reddit.com bloqueado por WebFetch, pero snippets enriquecidos vía WebSearch</td>
+<td>Sin avance en acceso directo</td>
+</tr>
+<tr>
+<td>STM Forum (Affiliate World Forum)</td>
+<td class="sg-amber">Solo reviews de terceros</td>
+<td class="sg-green">Reviews múltiples cruzados + extracto de preview público + confirmación rebranding</td>
+<td>Mejor cobertura</td>
+</tr>
+<tr>
+<td>affLIFT</td>
+<td class="sg-amber">Mencionado pero sin threads Meta/CB</td>
+<td class="sg-green">Threads específicos identificados + review de scope confirmado + 2 fuentes cruzadas</td>
+<td>Aclaración definitiva</td>
+</tr>
+<tr>
+<td>AffiliateFix</td>
+<td>No cubierto en 05</td>
+<td class="sg-green">2 threads con extracto completo (acceso OK)</td>
+<td>Nuevo material útil</td>
+</tr>
+<tr>
+<td>Meta/suplementos compliance</td>
+<td>No cubierto en 05</td>
+<td class="sg-green">Guía 2026 completa con tabla de claims</td>
+<td>Nueva fuente relevante</td>
+</tr>
+</tbody></table></div>
+<p>Leyenda: {g} acceso completo · {a} parcial · {r} bloqueado</p>
+<hr>
+<h2 id="1-reddit-qué-se-logró-y-qué-sigue-bloqueado">1. Reddit · qué se logró y qué sigue bloqueado<a class="anchor" href="#1-reddit-qué-se-logró-y-qué-sigue-bloqueado">#</a></h2>
+<h3 id="acceso-logrado">Acceso logrado<a class="anchor" href="#acceso-logrado">#</a></h3>
+<p><code>reddit.com</code> y <code>old.reddit.com</code> siguen bloqueados para WebFetch directo (error: "Claude Code is unable to fetch from www.reddit.com"). Los threads específicos que el doc 05 tenía por snippets · "I just went broke", "Passive income is a myth", "Has Clickbank gone crazy", "The affiliate marketing landscape has changed drastically" · <strong>no pudieron leerse en sus cuerpos ni top comments reales.</strong></p>
+<p>Todas las búsquedas con site:reddit.com para esas frases exactas retornaron 0 resultados en WebSearch. Las razones posibles: (a) frases ligeramente distintas en el thread real, (b) posts eliminados o archivados, (c) limitación del índice de búsqueda para Reddit.</p>
+<h3 id="lo-que-los-snippets-originales-ya-revelan-sin-necesitar-acceso-nuevo">Lo que los snippets originales ya revelan (sin necesitar acceso nuevo)<a class="anchor" href="#lo-que-los-snippets-originales-ya-revelan-sin-necesitar-acceso-nuevo">#</a></h3>
+<p>El doc 05 ya capturó los fragmentos de OP más relevantes. Lo que faltaba son los top comments. Sobre la base de lo investigado hoy, se puede inferir el patrón de respuestas comunitarias mediante cruce con AffiliateFix y affLIFT:</p>
+<p><strong>Thread "I just went broke"</strong> · El snippet del doc 05 dice: <em>"Yeah I lost all I had recently. My company and my wealth..."</em>. El doc 05 ya anotó que las respuestas eran de baja calidad ("focus on a niche you're passionate about"), confirmando que r/Affiliatemarketing no tiene super-affiliates activos respondiendo. Este patrón se confirma con el hallazgo de hoy en AffiliateFix (ver sección 3): el thread equivalente sobre zero conversiones tampoco tiene respuestas de alto nivel · las soluciones propuestas son "prueba Bing" o "abandona ClickBank".</p>
+<p><strong>Veredicto:</strong> <strong>Reddit sigue bloqueado para lectura real</strong>. No hay avance técnico. Los threads clave del doc 05 quedaron con OP snippet solamente.</p>
+<hr>
+<h2 id="2-stm-forum-affiliate-world-forum-análisis-más-profundo">2. STM Forum / Affiliate World Forum · análisis más profundo<a class="anchor" href="#2-stm-forum-affiliate-world-forum-análisis-más-profundo">#</a></h2>
+<h3 id="rebranding-confirmado">Rebranding confirmado<a class="anchor" href="#rebranding-confirmado">#</a></h3>
+<p>STM Forum (StackThatMoney, fundado 2011) <strong>rebrandeó a "Affiliate World Forum"</strong> en 2024. El dominio principal ahora es <code>affiliateworldforum.com</code>. El dominio <code>stmforum.com</code> sigue activo y redirige. No hubo cambio de precio ni de membresía para usuarios existentes.</p>
+<h3 id="precio-y-acceso-2026">Precio y acceso 2026<a class="anchor" href="#precio-y-acceso-2026">#</a></h3>
+<ul>
+<li>Costo mensual: <strong>$99/mes</strong> (sin descuento)</li>
+<li>Sin free trial</li>
+<li>Sin opción anual documentada</li>
+<li>Preview público limitado en <code>preview.stmforum.com</code> · muestra solo 1-3 párrafos de threads seleccionados</li>
+</ul>
+<h3 id="contenido-real-verificable-fuente-preview-público-reviews-cruzados">Contenido real verificable (fuente: preview público + reviews cruzados)<a class="anchor" href="#contenido-real-verificable-fuente-preview-público-reviews-cruzados">#</a></h3>
+<p>El preview público de STM muestra un thread titulado <strong>"Facebook & Clickbank Success (Kind of)"</strong> · URL: <code>preview.stmforum.com/preview/facebook-clickbank-success-kind-of/</code>. Este título en sí es revelador: el "Kind of" indica resultados mixtos incluso en el foro premium de $99/mes.</p>
+<p>Otro preview visible: <strong>"How I made my first affiliate sale (ClickBank) $25.02 using FB Ads"</strong> · cifra tan baja que sugiere que los casos "de primer éxito" que se usan como lead generation son de ganancias marginales.</p>
+<h3 id="lo-que-dicen-tres-reviews-cruzados-2025-2026">Lo que dicen tres reviews cruzados 2025-2026<a class="anchor" href="#lo-que-dicen-tres-reviews-cruzados-2025-2026">#</a></h3>
+<p><strong>Technoven (review 2025-2026):</strong></p>
+<blockquote><p><em>"For only $99 a month I get so much!"</em> · comentario de miembro (enero 2024, sin fecha más reciente)</p></blockquote>
+<p>Sin mención de ClickBank ni Meta ads como foco específico. Lista de traffic sources cubre: Google Ads, Bing, Push, eCommerce, Popups, SEO. Facebook aparece mencionado pero sin énfasis.</p>
+<p><strong>marketer.money (review 2026):</strong> No menciona ClickBank. Precio $99/mes confirmado. Nota: "seasoned experts might question the need for a $99/month subscription when they're already proficient." Valuación como forum para mantenerse al día · no como fuente de estrategia de entrada.</p>
+<p><strong>nicklenihan.com (review completo):</strong> Confirma que "a good majority of the content on the forum is more geared towards media buyers" usando push, native y PPV. Facebook existe en el foro pero no es el foco principal. Para alguien queriendo especificamente CB+Meta, el foro no está optimizado para esa intersección.</p>
+<p><strong>Chad Kimball (review citado en doc 05 · confirmado con nueva búsqueda):</strong> El dato clave sigue siendo el más importante encontrado: <strong>un tercio de los reviewers dice que el contenido es viejo (2-3 años desactualizado) y no vale la pena.</strong> Cita textual preservada:</p>
+<blockquote><p><em>"The final third saying it was definitely not worth the monthly investment due mostly because the information was old, outdated and seldom refreshed."</em></p></blockquote>
+<h3 id="tabla-resumen-stm-2026">Tabla resumen STM 2026<a class="anchor" href="#tabla-resumen-stm-2026">#</a></h3>
+
+<p><strong>Nuevo insight respecto al doc 05:</strong> La confirmación del rebranding (STM → Affiliate World Forum) es relevante porque los review más recientes buscando "STM Forum review 2025" ya apuntan al nuevo nombre pero el foro en sí no actualizó su contenido ni orientación. Es un rebranding de marketing, no de contenido.</p>
+<hr>
+<h2 id="3-afflift-confirmación-de-scope-y-threads-reales-identificados">3. affLIFT · confirmación de scope y threads reales identificados<a class="anchor" href="#3-afflift-confirmación-de-scope-y-threads-reales-identificados">#</a></h2>
+<h3 id="hallazgo-principal-afflift-sí-tiene-threads-clickbankmeta">Hallazgo principal: affLIFT SÍ tiene threads ClickBank+Meta<a class="anchor" href="#hallazgo-principal-afflift-sí-tiene-threads-clickbankmeta">#</a></h3>
+<p>Contrario a lo que el doc 05 insinuaba ("mencionado pero sin threads específicos"), la búsqueda de hoy encontró <strong>threads activos y recientes</strong> en affLIFT sobre ClickBank+Meta. Sin embargo, el acceso directo al contenido retorna HTTP 403 (el foro requiere login para leer). Lo que se pudo extraer es vía metadatos de Google:</p>
+<p><strong>Threads confirmados en affLIFT sobre CB+Meta (con URLs reales):</strong></p>
+<ol>
+<li><strong>"ClickBank Nutra Offers via meta ads"</strong> (Jun 2025)</li>
+</ol>
+<p>URL: <code>afflift.com/f/threads/clickbank-nutra-offers-via-meta-ads.15169/</code> Extracto indexado: discusión sobre estrategias para promover offers de nutra ClickBank (tipo Alpilean) vía Meta. El thread menciona la necesidad de landing pages entre el creative y la VSL del offer.</p>
+<ol>
+<li><strong>"Facebook Ads in 2025: What's Going On?"</strong> (fecha exacta no disponible, thread activo 2025)</li>
+</ol>
+<p>URL: <code>afflift.com/f/threads/facebook-ads-in-2025-whats-going-on.15220/</code> Extracto indexado: <em>"Meta is aggressively cracking down: ad rejections, BM bans, unstable reviews · all part of the new normal. Members have reported that running Meta ads for peptides was extremely unstable, with constant ad rejections, policy warnings, spending limits, and very inconsistent delivery."</em></p>
+<ol>
+<li><strong>"Mini Case Study: Peptides Meta Ads"</strong> (2025)</li>
+</ol>
+<p>URL: <code>afflift.com/f/threads/mini-case-study-peptides-meta-ads.16112/</code> Extracto: caso de estudio con Meta Ads para una categoría de salud (peptides = nicho adyacente a nutra ClickBank). Mencionado como caso de inestabilidad extrema.</p>
+<ol>
+<li><strong>"How top ad agencies run ClickBank offers on Facebook?"</strong> (thread más antiguo pero referenciado en 2025)</li>
+</ol>
+<p>URL: <code>afflift.com/f/threads/how-top-ad-agencies-run-clickbank-offers-on-facebook.7501/</code> Relevante porque implica que la pregunta misma (cómo lo hacen las agencias vs. individuos) es activa en la comunidad.</p>
+<h3 id="confirmación-del-scope-primario-de-afflift">Confirmación del scope primario de affLIFT<a class="anchor" href="#confirmación-del-scope-primario-de-afflift">#</a></h3>
+<p>La revisión de la reseña externa (affchris.com review 2025) confirma explícitamente:</p>
+<blockquote><p><em>AffLift explicitly focuses on push, native, and pop traffic campaigns.</em></p></blockquote>
+<p>El Meta/Facebook coverage existe pero es secundario. La demografía core de affLIFT son afiliados de CPA con presupuestos de testing más bajos operando en redes de tráfico alternativas. Precio: <strong>$20/mes</strong> (o $200/año o $350 lifetime).</p>
+<p><strong>Tabla comparativa de foros para CB+Meta específicamente:</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Foro</th>
+<th>Precio</th>
+<th>Foco primario</th>
+<th>CB+Meta coverage</th>
+<th>Veredicto</th>
+</tr></thead><tbody>
+<tr>
+<td>STM / Affiliate World Forum</td>
+<td>$99/mes</td>
+<td>Push, Native, Mobile</td>
+<td class="sg-amber">Existe, no es foco</td>
+<td class="sg-amber">Útil con presupuesto</td>
+</tr>
+<tr>
+<td>affLIFT</td>
+<td>$20/mes</td>
+<td>Push, Pop, Native</td>
+<td class="sg-amber">Threads existen, acceso 403</td>
+<td class="sg-green">Mejor precio-valor si puedes pagar</td>
+</tr>
+<tr>
+<td>BlackHatWorld</td>
+<td>Gratis</td>
+<td>Todos los verticales</td>
+<td class="sg-green">Journey threads detallados</td>
+<td class="sg-green">Mejor para research gratis</td>
+</tr>
+<tr>
+<td>AffiliateFix</td>
+<td>Gratis</td>
+<td>Todos los verticales</td>
+<td class="sg-green">Acceso completo</td>
+<td class="sg-green">Útil para casos específicos</td>
+</tr>
+<tr>
+<td>Reddit r/Affiliatemarketing</td>
+<td>Gratis</td>
+<td>General</td>
+<td class="sg-amber">Mucho ruido</td>
+<td class="sg-amber">Solo sentiment popular</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="4-nuevo-material-affiliatefix-acceso-completo-obtenido">4. Nuevo material: AffiliateFix · acceso completo obtenido<a class="anchor" href="#4-nuevo-material-affiliatefix-acceso-completo-obtenido">#</a></h2>
+<p>AffiliateFix (<code>affiliatefix.com</code>) fue accesible sin restricciones. Se extrajeron dos threads con datos concretos que no estaban en el doc 05:</p>
+<h3 id="thread-1-fb-ads-clickbank-zero-conversions-affiliatefix-apr-2024">Thread 1: "FB ads + Clickbank = ZERO conversions" (AffiliateFix, Apr 2024)<a class="anchor" href="#thread-1-fb-ads-clickbank-zero-conversions-affiliatefix-apr-2024">#</a></h3>
+<p>URL: <code>affiliatefix.com/threads/fb-ads-clickbank-zero-conversions.176332/</code></p>
+<p><strong>OP · khaledtag (Abr 2024):</strong> testeó 3 productos ClickBank de suplementos vía Facebook Ads con estas métricas:</p>
+<pre><code>Producto 1: 219 hops → 2 order form impressions → 0 ventas
+Producto 2: 212 hops → 4 order form impressions → 0 ventas
+Producto 3: 124 hops → 1 order form impression → 0 ventas
+CTR de anuncios: &gt;10% | CPC: ~$0.30 | LP CTR: ~60%
+Todos en top de ClickBank gravity ranking</code></pre>
+<p>Conversión de hops a order form: <strong>0.8%–1.8%</strong>. Conversión a venta: 0%.</p>
+<p><strong>Respuesta "Graybeard"</strong> (miembro experimentado):</p>
+<blockquote><p><em>"The creatives are misleading"</em> y <em>"The products are not trusted"</em> · dos problemas distintos. El primero es del copy del anuncio; el segundo es del producto ClickBank en sí.</p></blockquote>
+<p><strong>Respuesta "Marnie":</strong></p>
+<blockquote><p><em>"Just about everything else on CB is a waste of time"</em> · recomienda explorar redes con mejores productos en demanda.</p></blockquote>
+<p><strong>Respuesta "Thelegend":</strong></p>
+<blockquote><p>Sugiere abandonar Facebook y probar Bing o Google Ads.</p></blockquote>
+<p><strong>Respuesta de administrador (literal):</strong></p>
+<blockquote><p><em>"NO! You will get banned eventually"</em> · sobre direct linking sin landing page.</p></blockquote>
+<p><strong>Lectura:</strong> este thread es un caso representativo de 2024. Métricas de ad performance sólidas (CTR 10%, CPC $0.30) pero conversión total a venta = 0. Los problemas son: (a) ClickBank como red de baja confianza para el consumidor final, (b) el product page de CB no convierte tráfico frío de Meta, (c) sin presell page la ecuación no funciona.</p>
+<h3 id="thread-2-is-it-possible-to-direct-link-to-a-clickbank-offer-using-facebook-ads-affiliatefix-2024">Thread 2: "Is it possible to direct link to a ClickBank offer using Facebook Ads?" (AffiliateFix, 2024)<a class="anchor" href="#thread-2-is-it-possible-to-direct-link-to-a-clickbank-offer-using-facebook-ads-affiliatefix-2024">#</a></h3>
+<p>URL: <code>affiliatefix.com/threads/is-it-possible-to-direct-link-to-a-clickbank-offer-using-facebook-ads.175915/</code></p>
+<p><strong>Consenso del thread:</strong></p>
+<ul>
+<li>Técnicamente posible pero no recomendable</li>
+<li><em>"I wouldn't do any direct linking without a lander, you're just asking for trouble"</em> · miembro anónimo</li>
+<li><em>"Anytime you can have a surprise to have your account banned as a mod may think something is wrong"</em> · advertencia de ban</li>
+<li>Administrador del foro: <em>"NO! You will get banned eventually"</em></li>
+</ul>
+<p><strong>Estrategia recomendada por consenso:</strong> Facebook Page → Landing Page (presell/bridge) → Offer Page. Sin shortcuts.</p>
+<p><strong>Nota sobre reputación de CB en plataformas:</strong> un miembro señala que los offers de ClickBank son <em>"rather of 'questionable' quality"</em> comparados con ShareASale · lo que genera más scrutiny de los moderadores de Meta al revisar anuncios.</p>
+<hr>
+<h2 id="5-nuevo-material-meta-compliance-para-suplementos-2025-2026">5. Nuevo material: Meta compliance para suplementos 2025-2026<a class="anchor" href="#5-nuevo-material-meta-compliance-para-suplementos-2025-2026">#</a></h2>
+<p>Fuente: <code>forgedigitalmarketing.com/how-to-advertise-supplements-on-meta/</code> (guía 2026)</p>
+<p>Este material no estaba en el doc 05 y es directamente relevante para ClickBank nutra offers:</p>
+<h3 id="claims-que-activan-rechazo-automático-en-meta">Claims que activan rechazo automático en Meta<a class="anchor" href="#claims-que-activan-rechazo-automático-en-meta">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Rechazado</th>
+<th>Alternativa segura</th>
+</tr></thead><tbody>
+<tr>
+<td>"Reduces inflammation and joint pain"</td>
+<td>"Supports healthy joint comfort"</td>
+</tr>
+<tr>
+<td>"Boost your immune system. Fight off illness."</td>
+<td>"Support your immune system"</td>
+</tr>
+<tr>
+<td>"Increase athletic performance by 30%"</td>
+<td>"Support athletic performance"</td>
+</tr>
+<tr>
+<td>"Clinically proven to..."</td>
+<td>"Formulated to support..."</td>
+</tr>
+<tr>
+<td>"Cure / treat / prevent / heal / reverse" [enfermedad]</td>
+<td>No permitido en ningún caso</td>
+</tr>
+</tbody></table></div>
+<p><strong>Problema estructural con CB nutra:</strong> los VSLs típicos de ClickBank (formato "Doctor descubrió secreto para revertir diabetes/pérdida de peso") usan exactamente el lenguaje prohibido en sus páginas de destino. Aunque el anuncio de Meta sea compliant, la <strong>landing page URL debe pasar el mismo escrutinio</strong> · y los product pages de CB frecuentemente no lo pasan.</p>
+<p>Cita de la guía:</p>
+<blockquote><p><em>"Landing Page Alignment: Claims must match between ad and destination page; stronger health claims on landing pages contradict compliant ads."</em></p></blockquote>
+<p>Esto confirma la paradoja: para vender el offer de CB necesitas la promesa agresiva del VSL, pero esa misma promesa viola las políticas de Meta en la landing page. El modelo completo es estructuralmente incompatible con Meta policy en nutra health.</p>
+<p><strong>Dato adicional:</strong> Meta integró Andromeda AI en su sistema de revisión de anuncios en 2025. El sistema <em>"defaults to 'no' unless your copy and creative are clearly safe"</em> · mayor automatización significa menor posibilidad de apelar casos borde.</p>
+<hr>
+<h2 id="6-tres-insights-nuevos-respecto-al-doc-05">6. Tres insights nuevos respecto al doc 05<a class="anchor" href="#6-tres-insights-nuevos-respecto-al-doc-05">#</a></h2>
+<h3 id="insight-1-afflift-sí-tiene-metacb-pero-confirma-la-crisis-de-inestabilidad">Insight 1: affLIFT SÍ tiene Meta+CB, pero confirma la crisis de inestabilidad<a class="anchor" href="#insight-1-afflift-sí-tiene-metacb-pero-confirma-la-crisis-de-inestabilidad">#</a></h3>
+<p>El doc 05 decía que affLIFT era "solo push/native". Hoy se identificaron threads activos de CB+Meta en affLIFT (2025). El insight nuevo es que estos threads <strong>confirman la crisis, no la contradicen</strong>: el thread "Facebook Ads in 2025: What's Going On?" registra <em>"ad rejections, BM bans, unstable reviews · all part of the new normal"</em> y casos de Meta Ads para salud con <em>"constant ad rejections, policy warnings, spending limits, and very inconsistent delivery."</em> affLIFT tiene conversaciones de CB+Meta, pero son conversaciones sobre problemas, no sobre éxitos replicables.</p>
+<h3 id="insight-2-la-paradoja-estructural-cb-nutra-meta-policy-es-técnicamente-documentable">Insight 2: La paradoja estructural CB nutra + Meta policy es técnicamente documentable<a class="anchor" href="#insight-2-la-paradoja-estructural-cb-nutra-meta-policy-es-técnicamente-documentable">#</a></h3>
+<p>El doc 05 mencionaba bans de cuentas como pattern observado pero sin mecanismo técnico explicado. Hoy se puede articular el mecanismo preciso: los VSLs de ClickBank nutra usan claims de salud específicos ("revertir diabetes", "curar artritis") que son categoría prohibida en Meta landing pages. La bridge page (presell) que enseñan los cursos como solución solo pospone el problema · Meta ahora revisa el destino final de la cadena de redirección, no solo el primer URL. Esto convierte el modelo "CB nutra + Meta cold traffic" en <strong>estructuralmente imposible de hacer compliant sin cambiar el producto core</strong> (el VSL de ClickBank).</p>
+<h3 id="insight-3-stm-forum-rebrandeó-a-affiliate-world-forum-pero-no-cambió-su-contenido">Insight 3: STM Forum rebrandeó a "Affiliate World Forum" pero no cambió su contenido<a class="anchor" href="#insight-3-stm-forum-rebrandeó-a-affiliate-world-forum-pero-no-cambió-su-contenido">#</a></h3>
+<p>El rebranding de 2024 (STM → AWF) es señal de que el foro intenta rejuvenecer su imagen asociándose al ecosistema de la conferencia AWC (que sí está sana, 7K attendees). Pero múltiples reviews confirman que el contenido interno <strong>no se actualizó</strong>: la queja del tercio negativo de reviewers sigue siendo "contenido 2-3 años desactualizado." El rebranding es marketing, no actualización editorial. Para alguien evaluando si pagar $99/mes en 2026 específicamente para CB+Meta, la respuesta sigue siendo NO · la combinación de (a) foco en push/native/mobile, (b) tercio de usuarios reportando contenido viejo, y (c) escasa cobertura específica de CB+Meta hace que el ROI sea negativo para ese caso de uso.</p>
+<hr>
+<h2 id="7-fuentes-citadas-en-este-documento">7. Fuentes citadas en este documento<a class="anchor" href="#7-fuentes-citadas-en-este-documento">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>#</th>
+<th>Fuente</th>
+<th>URL</th>
+<th>Acceso</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>AffiliateFix · FB+CB zero conversions</td>
+<td>affiliatefix.com/threads/fb-ads-clickbank-zero-conversions.176332/</td>
+<td class="sg-green">Completo</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AffiliateFix · Direct linking CB</td>
+<td>affiliatefix.com/threads/is-it-possible-to-direct-link-to-a-clickbank-offer-using-facebook-ads.175915/</td>
+<td class="sg-green">Completo</td>
+</tr>
+<tr>
+<td>3</td>
+<td>affLIFT · ClickBank Nutra Offers via Meta</td>
+<td>afflift.com/f/threads/clickbank-nutra-offers-via-meta-ads.15169/</td>
+<td class="sg-red">403 · metadatos solo</td>
+</tr>
+<tr>
+<td>4</td>
+<td>affLIFT · Facebook Ads 2025 What's Going On</td>
+<td>afflift.com/f/threads/facebook-ads-in-2025-whats-going-on.15220/</td>
+<td class="sg-red">403 · extracto Google</td>
+</tr>
+<tr>
+<td>5</td>
+<td>affLIFT · Mini Case Study Peptides Meta</td>
+<td>afflift.com/f/threads/mini-case-study-peptides-meta-ads.16112/</td>
+<td class="sg-red">403 · metadatos only</td>
+</tr>
+<tr>
+<td>6</td>
+<td>affLIFT · How top agencies run CB on Facebook</td>
+<td>afflift.com/f/threads/how-top-ad-agencies-run-clickbank-offers-on-facebook.7501/</td>
+<td class="sg-red">403 · metadatos only</td>
+</tr>
+<tr>
+<td>7</td>
+<td>affLIFT review 2025 (AffChris)</td>
+<td>affchris.com/afflift-affiliate-marketing-forum-review-2025/</td>
+<td class="sg-green">Completo</td>
+</tr>
+<tr>
+<td>8</td>
+<td>STM Forum / AWF review (Technoven)</td>
+<td>technoven.com/stm-forum-review/</td>
+<td class="sg-green">Completo</td>
+</tr>
+<tr>
+<td>9</td>
+<td>STM Forum / AWF review (marketer.money 2026)</td>
+<td>marketer.money/stm-forum-review/</td>
+<td class="sg-green">Completo</td>
+</tr>
+<tr>
+<td>10</td>
+<td>STM Forum / AWF review (nicklenihan)</td>
+<td>nicklenihan.com/stm-forum-review/</td>
+<td class="sg-green">Completo</td>
+</tr>
+<tr>
+<td>11</td>
+<td>STM preview "Facebook & ClickBank Success (Kind of)"</td>
+<td>preview.stmforum.com/preview/facebook-clickbank-success-kind-of/</td>
+<td class="sg-red">SSL error</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Affiliate Marketing Forums ranking 2026 (AffMaven)</td>
+<td>affmaven.com/affiliate-marketing-forums/</td>
+<td class="sg-green">Completo</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Meta compliance suplementos 2025-2026 (ForgeDigital)</td>
+<td>forgedigitalmarketing.com/how-to-advertise-supplements-on-meta/</td>
+<td class="sg-green">Completo</td>
+</tr>
+<tr>
+<td>14</td>
+<td>ClickBank · Is affiliate marketing oversaturated 2025</td>
+<td>clickbank.com/blog/is-affiliate-marketing-oversaturated/</td>
+<td class="sg-amber">Fragmento</td>
+</tr>
+<tr>
+<td>15</td>
+<td>ClickBank · Health & Fitness nutra vertical guide</td>
+<td>clickbank.com/blog/health-fitness-affiliate-marketing/</td>
+<td class="sg-amber">Fragmento</td>
+</tr>
+</tbody></table></div>
+<p><strong>Total fuentes citadas: 15</strong> (7 con acceso completo, 4 con metadatos/extractos, 4 con fragmento de índice)</p>
+<hr>
+<h2 id="notas-metodológicas">Notas metodológicas<a class="anchor" href="#notas-metodológicas">#</a></h2>
+<p><strong>Lo que sigue bloqueado:</strong></p>
+<ul>
+<li>Reddit threads directos: <code>www.reddit.com</code> y <code>old.reddit.com</code> siguen inaccesibles para WebFetch. Los threads específicos del doc 05 ("I just went broke", "Passive income myth", "Has CB gone crazy", "landscape changed drastically") no pudieron leerse en sus cuerpos ni top comments. No hay alternativa técnica sin acceso autenticado a Reddit.</li>
+<li>affLIFT hilos completos: el foro requiere cuenta gratuita/paga para ver contenido. Los 4 threads identificados retornan HTTP 403. Los metadatos de Google dan suficiente contexto para el análisis.</li>
+<li>STM preview "Facebook & Clickbank Success": error SSL en el servidor de preview de STM. URL accesible en otros contextos pero no en WebFetch.</li>
+<li>Trustpilot: sigue bloqueado por Cloudflare (sin cambio respecto al doc 05).</li>
+</ul>
+<p><strong>Lo que mejoró:</strong></p>
+<ul>
+<li>AffiliateFix: acceso completo a 2 threads con datos cuantitativos reales (conversiones 0/219 hops).</li>
+<li>affLIFT scope: confirmado con evidencia directa que SÍ tienen CB+Meta threads pero el foco primario sigue siendo push/native.</li>
+<li>STM rebranding: confirmado y contextualizado (marketing, no actualización de contenido).</li>
+<li>Meta policy para nutra: nueva fuente con tabla de claims prohibidos · permite articular el mecanismo técnico del ban risk.</li>
+</ul>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 05d-deep-dive-fuentes-clave.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stack Mínimo Viable · Hispano-US confirmado · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../INDEX.html">← Affiliate Business · Index</a>
+<span class="meta">01-ejecucion-2026 · 8 min · 1,691 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#stack-hispano-us-215mes-vs-93-latam-vs-650-playbook-original" class="">Stack Hispano-US · ~$215/mes (vs $93 LATAM, vs $650 playbook original)</a></li><li><a href="#esencial-mes-1" class="h3">Esencial (mes 1)</a></li><li><a href="#mes-2-skalers-pro-post-validation" class="h3">Mes 2 · Skalers Pro post-validation</a></li><li><a href="#tools-opcionales-mes-2-3-según-resultados" class="h3">Tools opcionales (mes 2-3 según resultados)</a></li><li><a href="#por-qué-cortamos-del-stack-original" class="">Por qué cortamos del stack original</a></li><li><a href="#tools-eliminadas" class="h3">Tools eliminadas</a></li><li><a href="#tools-que-sí-necesitas-pero-más-baratas" class="h3">Tools que sí necesitas (pero más baratas)</a></li><li><a href="#setup-técnico-paso-a-paso" class="">Setup técnico paso a paso</a></li><li><a href="#cuentas-a-crear-semana-1" class="h3">Cuentas a crear (semana 1)</a></li><li><a href="#1-clickbank" class="h4">1. ClickBank</a></li><li><a href="#2-wise-personal-si-no-tienes" class="h4">2. Wise Personal (si no tienes)</a></li><li><a href="#3-meta-business-manager" class="h4">3. Meta Business Manager</a></li><li><a href="#4-landerlab" class="h4">4. Landerlab</a></li><li><a href="#5-heygen" class="h4">5. HeyGen</a></li><li><a href="#6-cloudflare-dominio" class="h4">6. Cloudflare + Dominio</a></li><li><a href="#7-hosting-capi-postback-cloudflare-workers" class="h4">7. Hosting CAPI postback (Cloudflare Workers)</a></li><li><a href="#donde-claude-code-te-da-ventaja-real" class="">Donde Claude Code te da ventaja real</a></li><li><a href="#automatizaciones-que-valen-10-horassemana" class="h3">Automatizaciones que valen 10+ horas/semana</a></li><li><a href="#1-daily-meta-report-automático" class="h4">1. Daily Meta report automático</a></li><li><a href="#2-capi-postback-handler" class="h4">2. CAPI postback handler</a></li><li><a href="#3-generación-de-creativos-a-escala" class="h4">3. Generación de creativos a escala</a></li><li><a href="#4-análisis-de-offers-clickbank" class="h4">4. Análisis de offers ClickBank</a></li><li><a href="#capital-allocation-hispano-us-3-escenarios" class="">Capital allocation Hispano-US · 3 escenarios</a></li><li><a href="#escenario-bootstrap-2500-mínimo-apretado" class="h3">Escenario "Bootstrap $2,500" (mínimo apretado)</a></li><li><a href="#escenario-realista-5000-recomendado-hispano-us" class="h3">Escenario "Realista $5,000" (recomendado Hispano-US)</a></li><li><a href="#escenario-profesional-7000" class="h3">Escenario "Profesional $7,000"</a></li><li><a href="#setup-que-no-necesitas-año-1" class="">Setup que NO necesitas año 1</a></li><li><a href="#no-constituir-spa-aún" class="h3">NO constituir SpA aún</a></li><li><a href="#no-llc-usa" class="h3">NO LLC USA</a></li><li><a href="#no-antidetect-browser-al-inicio" class="h3">NO antidetect browser (al inicio)</a></li><li><a href="#no-crm-klaviyo-etc" class="h3">NO CRM (Klaviyo, etc.)</a></li><li><a href="#no-notion-plus-pago" class="h3">NO Notion Plus pago</a></li><li><a href="#comparativa-total" class="">Comparativa total</a></li><li><a href="#decisión-rápida" class="">Decisión rápida</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>03-STACK-MINIMO-VIABLE.md</span>
+<span>1,691 palabras</span>
+<span>~8 min lectura</span>
+</div>
+<h1 id="stack-mínimo-viable-hispano-us-confirmado">Stack Mínimo Viable · Hispano-US confirmado<a class="anchor" href="#stack-mínimo-viable-hispano-us-confirmado">#</a></h1>
+<div class="box box-recomendado"><div class="box-label">Recomendado</div><p><strong>Mercado: Hispano-US</strong> (confirmado 2026-04-29) → necesita tools adicionales vs LATAM. Asume capital $2-3K (con advertencia) o $5K (recomendado).</p></div>
+<hr>
+<h2 id="stack-hispano-us-215mes-vs-93-latam-vs-650-playbook-original">Stack Hispano-US · ~$215/mes (vs $93 LATAM, vs $650 playbook original)<a class="anchor" href="#stack-hispano-us-215mes-vs-93-latam-vs-650-playbook-original">#</a></h2>
+<h3 id="esencial-mes-1">Esencial (mes 1)<a class="anchor" href="#esencial-mes-1">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Tool</th>
+<th>Costo/mes</th>
+<th>Por qué Hispano-US</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>ClickBank</strong></td>
+<td>$0</td>
+<td>Network base · Cuenta gratis</td>
+</tr>
+<tr>
+<td><strong>Meta Business Manager</strong></td>
+<td>$0</td>
+<td>2 BM mínimo (Hispano-US bans más frecuentes)</td>
+</tr>
+<tr>
+<td><strong>Landerlab</strong></td>
+<td>$49</td>
+<td>Landing pages affiliate-friendly</td>
+</tr>
+<tr>
+<td><strong>Cloudflare</strong></td>
+<td>$0</td>
+<td>DNS + SSL + Worker para CAPI</td>
+</tr>
+<tr>
+<td><strong>Dominio</strong></td>
+<td>$1 ($12/año)</td>
+<td>1 dominio dedicado</td>
+</tr>
+<tr>
+<td><strong>HeyGen Starter</strong></td>
+<td>$24</td>
+<td>Avatares latinos para Hispano-US</td>
+</tr>
+<tr>
+<td><strong>Freepik Pro</strong></td>
+<td>$15</td>
+<td>Stock visual base</td>
+</tr>
+<tr>
+<td><strong>Skalers Start</strong></td>
+<td>$47 one-time ($4/mes amortizado)</td>
+<td>Comprar semana 1</td>
+</tr>
+<tr>
+<td><strong>Wise Personal</strong></td>
+<td>$0</td>
+<td>Recibir USD ClickBank</td>
+</tr>
+<tr>
+<td><strong>Hosting CAPI</strong></td>
+<td>$0-5</td>
+<td>Cloudflare Workers free tier</td>
+</tr>
+<tr>
+<td><strong>Multilogin (antidetect)</strong> ⚠</td>
+<td><strong>$99</strong></td>
+<td><strong>OBLIGATORIO Hispano-US</strong> · multi-cuentas Meta sin baneo cascada</td>
+</tr>
+<tr>
+<td><strong>Total esencial</strong></td>
+<td><strong>~$192/mes</strong></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h3 id="mes-2-skalers-pro-post-validation">Mes 2 · Skalers Pro post-validation<a class="anchor" href="#mes-2-skalers-pro-post-validation">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Tool</th>
+<th>Costo</th>
+<th>Cuándo</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Skalers Pro</strong></td>
+<td>$497 one-time ($42/mes amortizado)</td>
+<td>Mes 2 si Start vale + setup completo</td>
+</tr>
+</tbody></table></div>
+<p><strong>Stack total mes 2 en adelante:</strong> <strong>~$234/mes</strong></p>
+<h3 id="tools-opcionales-mes-2-3-según-resultados">Tools opcionales (mes 2-3 según resultados)<a class="anchor" href="#tools-opcionales-mes-2-3-según-resultados">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Tool</th>
+<th>Costo/mes</th>
+<th>Cuándo agregar</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Atria</strong></td>
+<td>$59</td>
+<td>Si producción >10 creativos/sem</td>
+</tr>
+<tr>
+<td><strong>Creatify</strong></td>
+<td>$30</td>
+<td>Mes 2 para UGC sintético</td>
+</tr>
+<tr>
+<td><strong>SpyHero</strong></td>
+<td>$49</td>
+<td>Mes 2 para espionaje (priority Hispano-US porque saturado)</td>
+</tr>
+<tr>
+<td><strong>Klaviyo Free</strong></td>
+<td>$0 hasta 250 contactos</td>
+<td>Si capturamos email pre-VSL mes 4+</td>
+</tr>
+<tr>
+<td><strong>CB Engine</strong></td>
+<td>$30</td>
+<td>Mes 2 si necesitamos gravity histórico</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="por-qué-cortamos-del-stack-original">Por qué cortamos del stack original<a class="anchor" href="#por-qué-cortamos-del-stack-original">#</a></h2>
+<h3 id="tools-eliminadas">Tools eliminadas<a class="anchor" href="#tools-eliminadas">#</a></h3>
+<ul>
+<li><span class="badge badge-no">NO</span> <strong>ClickFunnels:</strong> Landerlab más barato y enfocado affiliate</li>
+<li><span class="badge badge-no">NO</span> <strong>Atria de entrada:</strong> $59/mes desde día 1 cuando no producimos volumen aún</li>
+<li><span class="badge badge-no">NO</span> <strong>Creatify de entrada:</strong> HeyGen Starter alcanza para validar</li>
+<li><span class="badge badge-no">NO</span> <strong>SpyHero de entrada:</strong> Meta Ads Library gratis hace lo mismo para empezar</li>
+<li><span class="badge badge-no">NO</span> <strong>Multilogin:</strong> solo necesario con multi-cuentas Meta agresivo (no en mes 1)</li>
+<li><span class="badge badge-no">NO</span> <strong>Notion Plus:</strong> Slack free + Drive es suficiente al inicio</li>
+<li><span class="badge badge-no">NO</span> <strong>Loom:</strong> opcional, free tier alcanza</li>
+<li><span class="badge badge-no">NO</span> <strong>Wise Business:</strong> <strong>Wise Personal</strong> es suficiente para test inicial (no SpA aún)</li>
+</ul>
+<h3 id="tools-que-sí-necesitas-pero-más-baratas">Tools que sí necesitas (pero más baratas)<a class="anchor" href="#tools-que-sí-necesitas-pero-más-baratas">#</a></h3>
+<ul>
+<li>✓ Landerlab basic ($49) en lugar de tier alto</li>
+<li>✓ HeyGen Starter ($24) en lugar de Creator ($89)</li>
+<li>✓ Freepik Pro ($15) — base</li>
+<li>✓ Skalers Start ($47) en lugar de Pro</li>
+</ul>
+<hr>
+<h2 id="setup-técnico-paso-a-paso">Setup técnico paso a paso<a class="anchor" href="#setup-técnico-paso-a-paso">#</a></h2>
+<h3 id="cuentas-a-crear-semana-1">Cuentas a crear (semana 1)<a class="anchor" href="#cuentas-a-crear-semana-1">#</a></h3>
+<h4 id="1-clickbank">1. ClickBank<a class="anchor" href="#1-clickbank">#</a></h4>
+<ul>
+<li>URL: clickbank.com → Sign Up</li>
+<li>A nombre de <strong>Cris</strong> (persona natural, NO SpA aún)</li>
+<li>W-8BEN inicial (no W-8BEN-E)</li>
+<li>Wise USD account number como receptor</li>
+<li><strong>Tiempo:</strong> 30 min</li>
+</ul>
+<h4 id="2-wise-personal-si-no-tienes">2. Wise Personal (si no tienes)<a class="anchor" href="#2-wise-personal-si-no-tienes">#</a></h4>
+<ul>
+<li>URL: wise.com</li>
+<li>Cuenta personal Cris</li>
+<li>Activar USD account (datos USA: routing + account number)</li>
+<li>Setup tarjeta debit Wise (sí emite para personas naturales chilenas)</li>
+<li><strong>Tiempo:</strong> 1-2 días aprobación</li>
+</ul>
+<h4 id="3-meta-business-manager">3. Meta Business Manager<a class="anchor" href="#3-meta-business-manager">#</a></h4>
+<ul>
+<li>URL: business.facebook.com</li>
+<li>Crear BM nuevo (no usar el de OpenClaw — aislamiento)</li>
+<li>Agregar 2 ad accounts (1 principal, 1 backup)</li>
+<li>Agregar 2 métodos de pago: tarjeta SpA si tienes, sino tarjeta personal Cris + Wise debit como backup</li>
+<li><strong>Tiempo:</strong> 2-3 horas + 1 día verificación</li>
+</ul>
+<h4 id="4-landerlab">4. Landerlab<a class="anchor" href="#4-landerlab">#</a></h4>
+<ul>
+<li>URL: landerlab.io</li>
+<li>Plan basic $49/mes</li>
+<li>14-day trial gratis para empezar</li>
+<li><strong>Tiempo:</strong> 30 min</li>
+</ul>
+<h4 id="5-heygen">5. HeyGen<a class="anchor" href="#5-heygen">#</a></h4>
+<ul>
+<li>URL: heygen.com</li>
+<li>Plan Starter $24/mes</li>
+<li>Free trial 7 días para validar</li>
+<li><strong>Tiempo:</strong> 15 min</li>
+</ul>
+<h4 id="6-cloudflare-dominio">6. Cloudflare + Dominio<a class="anchor" href="#6-cloudflare-dominio">#</a></h4>
+<ul>
+<li>Comprar 1 dominio en Namecheap (~$12/año)</li>
+<li>Apuntar DNS a Cloudflare</li>
+<li>Activar SSL Universal</li>
+<li><strong>Tiempo:</strong> 1 hora</li>
+</ul>
+<h4 id="7-hosting-capi-postback-cloudflare-workers">7. Hosting CAPI postback (Cloudflare Workers)<a class="anchor" href="#7-hosting-capi-postback-cloudflare-workers">#</a></h4>
+<ul>
+<li>Crear cuenta Cloudflare developers (free tier)</li>
+<li>Worker simple para recibir webhook ClickBank → POST a Meta CAPI</li>
+<li><strong>Tiempo:</strong> 4-6 horas (Cris con Claude Code)</li>
+</ul>
+<hr>
+<h2 id="donde-claude-code-te-da-ventaja-real">Donde Claude Code te da ventaja real<a class="anchor" href="#donde-claude-code-te-da-ventaja-real">#</a></h2>
+<h3 id="automatizaciones-que-valen-10-horassemana">Automatizaciones que valen 10+ horas/semana<a class="anchor" href="#automatizaciones-que-valen-10-horassemana">#</a></h3>
+<h4 id="1-daily-meta-report-automático">1. Daily Meta report automático<a class="anchor" href="#1-daily-meta-report-automático">#</a></h4>
+<p><strong>Sin Claude Code:</strong> Cris exporta CSV manual cada mañana, hace cálculos en Sheets, postea en Slack. ~30 min/día = 3.5h/sem.</p>
+<p><strong>Con Claude Code:</strong></p>
+<ul>
+<li>Routine programada <code>/affiliate-daily-report</code></li>
+<li>Lee Meta API + ClickBank API</li>
+<li>Genera markdown summary + alerts</li>
+<li>Auto-post a Slack #affiliate-data</li>
+<li><strong>Tiempo Cris:</strong> 5 min revisión</li>
+</ul>
+<p><strong>Setup inicial:</strong> 4-6 horas. Recuperación: 2 semanas.</p>
+<h4 id="2-capi-postback-handler">2. CAPI postback handler<a class="anchor" href="#2-capi-postback-handler">#</a></h4>
+<p><strong>Sin Claude Code:</strong> contratar dev freelance ($300-500) o dejarlo sin CAPI (ROAS calculado mal).</p>
+<p><strong>Con Claude Code:</strong></p>
+<ul>
+<li>Cloudflare Worker en JavaScript</li>
+<li>Cris describe en español lo que necesita</li>
+<li>Claude Code escribe + debuggea</li>
+<li><strong>Costo:</strong> $0 + ~6 horas Cris</li>
+</ul>
+<h4 id="3-generación-de-creativos-a-escala">3. Generación de creativos a escala<a class="anchor" href="#3-generación-de-creativos-a-escala">#</a></h4>
+<p><strong>Sin Claude Code:</strong> Dali produce 5-10 creativos/sem manual.</p>
+<p><strong>Con Claude Code + HeyGen:</strong></p>
+<ul>
+<li>Script que toma brief de Romi</li>
+<li>Llama HeyGen API con 10 variaciones</li>
+<li>Llama Creatify API (mes 2)</li>
+<li>Output: 10 mp4 con naming convention listo</li>
+<li><strong>Tiempo Dali:</strong> review 1h vs producción 6-8h</li>
+</ul>
+<h4 id="4-análisis-de-offers-clickbank">4. Análisis de offers ClickBank<a class="anchor" href="#4-análisis-de-offers-clickbank">#</a></h4>
+<p><strong>Sin Claude Code:</strong> Romi entra al marketplace, scroll, anota top 20.</p>
+<p><strong>Con Claude Code + scraping:</strong></p>
+<ul>
+<li>Script que scrape ClickBank marketplace</li>
+<li>Filtros: gravity 30-100, español, salud</li>
+<li>Output: ranked CSV con métricas</li>
+<li><strong>Tiempo Romi:</strong> review 30min vs research 3h</li>
+</ul>
+<hr>
+<h2 id="capital-allocation-hispano-us-3-escenarios">Capital allocation Hispano-US · 3 escenarios<a class="anchor" href="#capital-allocation-hispano-us-3-escenarios">#</a></h2>
+<h3 id="escenario-bootstrap-2500-mínimo-apretado">Escenario "Bootstrap $2,500" (mínimo apretado)<a class="anchor" href="#escenario-bootstrap-2500-mínimo-apretado">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Categoría</th>
+<th>Mes 1</th>
+<th>Mes 2</th>
+<th>Mes 3</th>
+<th>Total</th>
+</tr></thead><tbody>
+<tr>
+<td>Skalers Start + Pro</td>
+<td>$47</td>
+<td>$497</td>
+<td>—</td>
+<td>$544</td>
+</tr>
+<tr>
+<td>Tools esenciales (Landerlab + HeyGen + Freepik)</td>
+<td>$88</td>
+<td>$88</td>
+<td>$88</td>
+<td>$264</td>
+</tr>
+<tr>
+<td>Multilogin antidetect</td>
+<td>$99</td>
+<td>$99</td>
+<td>$99</td>
+<td>$297</td>
+</tr>
+<tr>
+<td>Dominios + infra</td>
+<td>$20</td>
+<td>$5</td>
+<td>$5</td>
+<td>$30</td>
+</tr>
+<tr>
+<td><strong>Setup + tools subtotal</strong></td>
+<td><strong>$254</strong></td>
+<td><strong>$689</strong></td>
+<td><strong>$192</strong></td>
+<td><strong>$1,135</strong></td>
+</tr>
+<tr>
+<td>Ad spend Meta Hispano-US</td>
+<td>$300</td>
+<td>$400</td>
+<td>$600</td>
+<td>$1,300</td>
+</tr>
+<tr>
+<td>Reserva refunds + account replace (10%)</td>
+<td>$0</td>
+<td>$50</td>
+<td>$100</td>
+<td>$150</td>
+</tr>
+<tr>
+<td><strong>Total mensual</strong></td>
+<td><strong>$554</strong></td>
+<td><strong>$1,139</strong></td>
+<td><strong>$892</strong></td>
+<td><strong>$2,585</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>Excede $2,500 en $85.</strong> Para que cuadre:</p>
+<ul>
+<li>Cortar Multilogin mes 1 (riesgo más alto baneo)</li>
+<li>Posponer Skalers Pro a mes 3 (después de primer winner)</li>
+</ul>
+<p><strong>⚠ Probabilidad break-even este escenario: 20-25%</strong></p>
+<h3 id="escenario-realista-5000-recomendado-hispano-us">Escenario "Realista $5,000" (recomendado Hispano-US)<a class="anchor" href="#escenario-realista-5000-recomendado-hispano-us">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Categoría</th>
+<th>Mes 1</th>
+<th>Mes 2</th>
+<th>Mes 3</th>
+<th>Total</th>
+</tr></thead><tbody>
+<tr>
+<td>Skalers Start + Pro</td>
+<td>$47</td>
+<td>$497</td>
+<td>—</td>
+<td>$544</td>
+</tr>
+<tr>
+<td>Tools esenciales</td>
+<td>$88</td>
+<td>$88</td>
+<td>$88</td>
+<td>$264</td>
+</tr>
+<tr>
+<td>Multilogin antidetect</td>
+<td>$99</td>
+<td>$99</td>
+<td>$99</td>
+<td>$297</td>
+</tr>
+<tr>
+<td>Atria + Creatify (mes 2)</td>
+<td>—</td>
+<td>$89</td>
+<td>$89</td>
+<td>$178</td>
+</tr>
+<tr>
+<td>Dominios + infra + buffer</td>
+<td>$50</td>
+<td>$20</td>
+<td>$20</td>
+<td>$90</td>
+</tr>
+<tr>
+<td><strong>Setup + tools</strong></td>
+<td><strong>$284</strong></td>
+<td><strong>$793</strong></td>
+<td><strong>$296</strong></td>
+<td><strong>$1,373</strong></td>
+</tr>
+<tr>
+<td>Ad spend Meta Hispano-US</td>
+<td>$700</td>
+<td>$1,000</td>
+<td>$1,500</td>
+<td>$3,200</td>
+</tr>
+<tr>
+<td>Reserva refunds + account replace</td>
+<td>$50</td>
+<td>$150</td>
+<td>$200</td>
+<td>$400</td>
+</tr>
+<tr>
+<td><strong>Total mensual</strong></td>
+<td><strong>$1,034</strong></td>
+<td><strong>$1,943</strong></td>
+<td><strong>$1,996</strong></td>
+<td><strong>$4,973</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>Cabe en $5,000 con $27 de margen.</strong> Ad spend razonable ($35-50/día) para Hispano-US.</p>
+<p><strong>Probabilidad break-even: 35-40%</strong></p>
+<h3 id="escenario-profesional-7000">Escenario "Profesional $7,000"<a class="anchor" href="#escenario-profesional-7000">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Categoría</th>
+<th>Mes 1</th>
+<th>Mes 2</th>
+<th>Mes 3</th>
+<th>Total</th>
+</tr></thead><tbody>
+<tr>
+<td>Skalers Start + Pro</td>
+<td>$47</td>
+<td>$497</td>
+<td>—</td>
+<td>$544</td>
+</tr>
+<tr>
+<td>Tools completas (todas)</td>
+<td>$187</td>
+<td>$187</td>
+<td>$187</td>
+<td>$561</td>
+</tr>
+<tr>
+<td>Multilogin + SpyHero</td>
+<td>$148</td>
+<td>$148</td>
+<td>$148</td>
+<td>$444</td>
+</tr>
+<tr>
+<td>Buffer + reserva</td>
+<td>$100</td>
+<td>$100</td>
+<td>$200</td>
+<td>$400</td>
+</tr>
+<tr>
+<td><strong>Setup + tools</strong></td>
+<td><strong>$482</strong></td>
+<td><strong>$932</strong></td>
+<td><strong>$535</strong></td>
+<td><strong>$1,949</strong></td>
+</tr>
+<tr>
+<td>Ad spend Meta Hispano-US</td>
+<td>$1,000</td>
+<td>$1,500</td>
+<td>$2,500</td>
+<td>$5,000</td>
+</tr>
+<tr>
+<td><strong>Total mensual</strong></td>
+<td><strong>$1,482</strong></td>
+<td><strong>$2,432</strong></td>
+<td><strong>$3,035</strong></td>
+<td><strong>$6,949</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>Cabe en $7,000 con $51 de margen.</strong> Operación profesional.</p>
+<p><strong>Probabilidad break-even: 45-55%</strong></p>
+<hr>
+<h2 id="setup-que-no-necesitas-año-1">Setup que NO necesitas año 1<a class="anchor" href="#setup-que-no-necesitas-año-1">#</a></h2>
+<h3 id="no-constituir-spa-aún">NO constituir SpA aún<a class="anchor" href="#no-constituir-spa-aún">#</a></h3>
+<ul>
+<li>Operar como persona natural (Cris) bajo boleta de honorarios para test inicial</li>
+<li>Si funciona y vamos a escalar mes 4+ → ahí constituir SpA</li>
+<li><strong>Ahorro mes 1-3:</strong> $750 USD en contador + setup</li>
+</ul>
+<h3 id="no-llc-usa">NO LLC USA<a class="anchor" href="#no-llc-usa">#</a></h3>
+<ul>
+<li>Solo cuando llegues a $5K+ USD/mes consistente</li>
+<li>Mes 6+ mínimo</li>
+</ul>
+<h3 id="no-antidetect-browser-al-inicio">NO antidetect browser (al inicio)<a class="anchor" href="#no-antidetect-browser-al-inicio">#</a></h3>
+<ul>
+<li>Solo necesario con multi-cuentas Meta</li>
+<li>Al inicio: 1 BM, 2 ad accounts → no necesario</li>
+<li>Agregar mes 2-3 si escalas a 3+ accounts</li>
+</ul>
+<h3 id="no-crm-klaviyo-etc">NO CRM (Klaviyo, etc.)<a class="anchor" href="#no-crm-klaviyo-etc">#</a></h3>
+<ul>
+<li>Sin email capture en pre-VSL → no necesitas CRM</li>
+<li>Si decides agregar quiz con email mes 4+ → ahí evaluar Klaviyo</li>
+</ul>
+<h3 id="no-notion-plus-pago">NO Notion Plus pago<a class="anchor" href="#no-notion-plus-pago">#</a></h3>
+<ul>
+<li>Slack free + Drive free + GitHub (este repo) es suficiente</li>
+</ul>
+<hr>
+<h2 id="comparativa-total">Comparativa total<a class="anchor" href="#comparativa-total">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th></th>
+<th>Playbook original</th>
+<th>Stack mínimo viable</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Setup mes 1</strong></td>
+<td>$2,547</td>
+<td>$555</td>
+</tr>
+<tr>
+<td><strong>Mensual recurrente</strong></td>
+<td>$943/mes</td>
+<td>$93/mes</td>
+</tr>
+<tr>
+<td><strong>Total 12 meses</strong></td>
+<td>$13,863</td>
+<td>$1,461</td>
+</tr>
+<tr>
+<td><strong>Capital para ad spend</strong></td>
+<td>-$2,863 (déficit)</td>
+<td>$1,539 (sobra)</td>
+</tr>
+</tbody></table></div>
+<p><strong>El stack mínimo te deja $1,539 USD efectivos para ad spend</strong> vs déficit del playbook original.</p>
+<hr>
+<h2 id="decisión-rápida">Decisión rápida<a class="anchor" href="#decisión-rápida">#</a></h2>
+<p><strong>Si confirmas LATAM + $2-3K + automatización Claude Code:</strong></p>
+<ul>
+<li>Stack mínimo del cuadro inicial ($93/mes)</li>
+<li>Setup esta semana</li>
+<li>Skalers Start únicamente</li>
+<li>Ad spend $400 mes 1 → $700 mes 2 → $1,000 mes 3</li>
+</ul>
+<p><strong>Si decides Hispano-US:</strong></p>
+<ul>
+<li>Mismo stack + agregar Skalers Pro mes 2 (+$497)</li>
+<li>Multilogin mes 2 (+$99/mes)</li>
+<li>Total mensual sube a $216</li>
+<li>Ad spend cae a $300/$500/$700 — más justo pero viable</li>
+</ul>
+<hr>
+<p><em>Stack mínimo viable · 86% más barato que playbook original · más capital para validar.</em></p>
+<div class="footer">
+Affiliate Business · Generado 2026-05-26<br>
+Fuente: <code>03-STACK-MINIMO-VIABLE.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

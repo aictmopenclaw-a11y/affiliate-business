@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClickBank 2026 — How to Select Winning Offers · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">01-ejecucion-2026 / clickbank-2026-research · 38 min · 7,610 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#1-executive-summary" class="">1. Executive Summary</a></li><li><a href="#2-complete-metrics-decoder" class="">2. Complete Metrics Decoder</a></li><li><a href="#21-gravity" class="h3">2.1 Gravity</a></li><li><a href="#22-avg-sale-aka-avg-conversion" class="h3">2.2 Avg $/Sale (a.k.a. Avg $/Conversion)</a></li><li><a href="#23-initial-sale" class="h3">2.3 Initial $/Sale</a></li><li><a href="#24-avg-sale-and-initial-sale" class="h3">2.4 Avg %/Sale and Initial %/Sale</a></li><li><a href="#25-avg-rebill-total-recurring-rebill" class="h3">2.5 Avg Rebill Total / Recurring $/Rebill</a></li><li><a href="#26-activation-aka-conversion-rate-cvr" class="h3">2.6 Activation % (a.k.a. Conversion Rate / CVR)</a></li><li><a href="#27-epc-earnings-per-click" class="h3">2.7 EPC — Earnings Per Click</a></li><li><a href="#28-hops-per-order-implied-reverse-conversion" class="h3">2.8 Hops Per Order (Implied Reverse Conversion)</a></li><li><a href="#29-the-refund-rate-problem" class="h3">2.9 The Refund Rate Problem</a></li><li><a href="#3-the-7-step-offer-evaluation-framework" class="">3. The 7-Step Offer Evaluation Framework</a></li><li><a href="#step-1-initial-numbers-filter-3-minutes" class="h3">Step 1 — Initial Numbers Filter (3 minutes)</a></li><li><a href="#step-2-vsl-sales-page-deep-review-8-minutes" class="h3">Step 2 — VSL / Sales Page Deep Review (8 minutes)</a></li><li><a href="#step-3-tools-page-audit-5-minutes" class="h3">Step 3 — Tools Page Audit (5 minutes)</a></li><li><a href="#step-4-refund-rate-investigation-4-minutes" class="h3">Step 4 — Refund Rate Investigation (4 minutes)</a></li><li><a href="#step-5-competitive-landscape-check-5-minutes" class="h3">Step 5 — Competitive Landscape Check (5 minutes)</a></li><li><a href="#step-6-economics-math-5-minutes" class="h3">Step 6 — Economics Math (5 minutes)</a></li><li><a href="#step-7-final-gono-go-decision-matrix" class="h3">Step 7 — Final Go/No-Go Decision Matrix</a></li><li><a href="#4-niche-map-2026" class="">4. Niche Map 2026</a></li><li><a href="#top-performing-categories-rank-by-displayed-top-offer-payouts-april-2026" class="h3">Top performing categories (rank by displayed top-offer payouts April 2026)</a></li><li><a href="#health-fitness-sub-niche-map-the-most-important-slice-for-first-time-affiliates" class="h3">Health & Fitness sub-niche map (the most important slice for first-time affiliates)</a></li><li><a href="#latam-spanish-speaking-demographic-preferences" class="h3">LATAM Spanish-speaking demographic preferences</a></li><li><a href="#5-economics-calculator-with-worked-examples" class="">5. Economics Calculator with Worked Examples</a></li><li><a href="#51-the-core-math" class="h3">5.1 The Core Math</a></li><li><a href="#52-worked-example-a-low-aov-digital-offer-the-trap" class="h3">5.2 Worked Example A — Low-AOV digital offer (the trap)</a></li><li><a href="#53-worked-example-b-mid-aov-nutra-offer-typical-workable-offer" class="h3">5.3 Worked Example B — Mid-AOV nutra offer (typical workable offer)</a></li><li><a href="#54-worked-example-c-high-aov-nutra-with-strong-upsell-stack-target-profile" class="h3">5.4 Worked Example C — High-AOV nutra with strong upsell stack (target profile)</a></li><li><a href="#55-quick-reference-cpc-table" class="h3">5.5 Quick-reference CPC table</a></li><li><a href="#6-red-flags-vs-green-flags-scoring-rubric" class="">6. Red Flags vs Green Flags Scoring Rubric</a></li><li><a href="#red-flags-hard-fail-criteria" class="h3">Red Flags — Hard Fail Criteria</a></li><li><a href="#green-flags-strong-positive-signals" class="h3">Green Flags — Strong Positive Signals</a></li><li><a href="#composite-scoring" class="h3">Composite scoring</a></li><li><a href="#7-tools-and-resources-beyond-clickbank-marketplace" class="">7. Tools and Resources Beyond ClickBank Marketplace</a></li><li><a href="#marketplace-research-tools" class="h3">Marketplace research tools</a></li><li><a href="#ad-spy-competitive-intelligence" class="h3">Ad spy / competitive intelligence</a></li><li><a href="#vendor-reputation-cross-reference" class="h3">Vendor reputation cross-reference</a></li><li><a href="#tracking-infrastructure" class="h3">Tracking infrastructure</a></li><li><a href="#alternative-networks-when-clickbank-is-wrong-fit" class="h3">Alternative networks (when ClickBank is wrong fit)</a></li><li><a href="#8-first-offer-recommendation-framework" class="">8. First Offer Recommendation Framework</a></li><li><a href="#the-training-wheels-offer-profile" class="h3">The "training wheels" offer profile</a></li><li><a href="#attributes-that-make-a-good-training-wheels-offer" class="h3">Attributes that make a good "training wheels" offer</a></li><li><a href="#common-first-offer-mistakes-avoid" class="h3">Common first-offer mistakes (avoid)</a></li><li><a href="#first-offer-go-checklist" class="h3">First-offer "go" checklist</a></li><li><a href="#9-templates-ready-to-use" class="">9. Templates Ready to Use</a></li><li><a href="#91-tracking-id-convention" class="h3">9.1 Tracking ID convention</a></li><li><a href="#92-utm-strategy-alongside-tid" class="h3">9.2 UTM strategy (alongside TID)</a></li><li><a href="#93-capi-postback-url-for-clickbank-s2s-meta-integration" class="h3">9.3 CAPI / postback URL for ClickBank S2S Meta integration</a></li><li><a href="#94-first-offer-evaluation-worksheet" class="h3">9.4 First-offer evaluation worksheet</a></li><li><a href="#95-affiliate-manager-outreach-template" class="h3">9.5 Affiliate manager outreach template</a></li><li><a href="#10-the-second-offer-question" class="">10. The "Second Offer" Question</a></li><li><a href="#when-to-add-a-second-offer" class="h3">When to add a second offer</a></li><li><a href="#same-vendor-different-product-lowest-risk" class="h3">Same vendor, different product (lowest risk)</a></li><li><a href="#same-niche-different-vendor-medium-risk" class="h3">Same niche, different vendor (medium risk)</a></li><li><a href="#different-niche-entirely-highest-risk" class="h3">Different niche entirely (highest risk)</a></li><li><a href="#closing-the-honest-truth-about-first-offers" class="">Closing — The Honest Truth About First Offers</a></li><li><a href="#sources-reference" class="">Sources Reference</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>02-offer-selection-framework.md</span><span>7,610 palabras</span><span>~38 min</span></div>
+<h1 id="clickbank-2026-how-to-select-winning-offers">ClickBank 2026 — How to Select Winning Offers</h1>
+<p>A tactical, data-backed playbook for picking your first (and twentieth) ClickBank offer to test on Meta with limited capital. Built for a LATAM-focused operation with $300-500 to risk per test.</p>
+<p><strong>Purpose:</strong> Avoid burning the test budget on offers that were structurally doomed. Most first-offer failures are not creative or copy failures — they are <em>selection</em> failures decided in the first 30 minutes of research.</p>
+<p><strong>How to use this doc:</strong> Re-read Section 3 (the 7-step framework) before every weekly offer pick. The rest is reference.</p>
+<p><strong>Source-tagging convention used throughout:</strong></p>
+<ul>
+<li><code>[VERIFIED]</code> — directly from ClickBank official documentation or vendor postings</li>
+<li><code>[INDUSTRY STANDARD]</code> — consensus across multiple credible affiliate marketing publications</li>
+<li><code>[COMMUNITY WISDOM]</code> — recurring advice from forums (Warrior, BlackHat, Reddit) — treat with skepticism</li>
+<li><code>[PROPOSED]</code> — author synthesis based on research — test before trusting</li>
+</ul>
+<hr>
+<h2 id="1-executive-summary">1. Executive Summary<a class="anchor" href="#1-executive-summary">#</a></h2>
+<p>Picking a winning ClickBank offer in 2026 is an exercise in <em>elimination</em>, not selection. The marketplace shows roughly 5,000+ active offers. Most are:</p>
+<ul>
+<li>Saturated and overrun by 7-figure media buyers (top of every gravity list)</li>
+<li>Compliance time-bombs that will get your Meta account banned within 48 hours</li>
+<li>Vendor-side scams with refund rates that make profit mathematically impossible</li>
+<li>Front-end too thin to break even at any realistic CPC</li>
+</ul>
+<p>The 90/10 reality: <strong>90% of ClickBank offers should never be touched by a beginner with $300-500 to test.</strong> This document exists to identify the 10% worth testing.</p>
+<p><strong>The four non-negotiable filters for your first offer:</strong></p>
+<ol>
+<li><strong>Front-end commission ≥ $40</strong> — anything thinner kills you on Meta CPCs of $0.80-2.50 [PROPOSED]</li>
+<li><strong>Vendor with 12+ months on ClickBank, 2+ products</strong> — rules out fly-by-night refund-bait launches [INDUSTRY STANDARD]</li>
+<li><strong>Compliance-safe VSL</strong> (no disease cures, no dramatic before/after, no unverified doctor endorsements) [VERIFIED — Meta policy]</li>
+<li><strong>Either: Spanish-translated by native speakers OR an English offer where you accept Tier-1 traffic costs</strong></li>
+</ol>
+<p><strong>The four metrics that actually matter (in order):</strong></p>
+<ol>
+<li>EPC (Earnings Per Click) — your real constraint vs. Meta CPC</li>
+<li>Gravity in the 30-150 range — proves conversion without 7-figure competition</li>
+<li>Initial $/sale ≥ $40 — the only money you can count on</li>
+<li>Refund rate ≤ 15% (estimated via $/sale gap, not displayed)</li>
+</ol>
+<p>Everything else is supporting evidence. Build the rest of your evaluation on those four.</p>
+<hr>
+<h2 id="2-complete-metrics-decoder">2. Complete Metrics Decoder<a class="anchor" href="#2-complete-metrics-decoder">#</a></h2>
+<p>Every metric ClickBank displays, what it actually means, the math behind it, and the 2026 thresholds.</p>
+<h3 id="21-gravity">2.1 Gravity<a class="anchor" href="#21-gravity">#</a></h3>
+<p><strong>What it measures:</strong> A weighted count of unique affiliates who have generated at least one commission for the offer in the last 12 weeks. More recent sales weighted more heavily. An individual affiliate can never add more than 1.0 to a product's gravity, regardless of sales volume. [VERIFIED — ClickBank official; per White Hat Crew interpretation: each affiliate paid in the last 8 weeks adds between 0.1 and 1.0 weighted by recency.]</p>
+<p><strong>The math (approximate, ClickBank does not publish exact weights):</strong></p>
+<pre><code>Gravity ≈ Σ (per affiliate) recency_weight(last_sale_date)
+where recency_weight is between 0.1 and 1.0
+window = 12 weeks rolling</code></pre>
+<p><strong>What good looks like in 2026:</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Range</th>
+<th>Interpretation</th>
+<th>Recommended for</th>
+</tr></thead><tbody>
+<tr>
+<td>0-10</td>
+<td>Brand new launch OR dead offer</td>
+<td>Avoid as first pick — no proof of conversion</td>
+</tr>
+<tr>
+<td>10-30</td>
+<td>Early validation, less competition</td>
+<td>Advanced affiliates with creative angle</td>
+</tr>
+<tr>
+<td><strong>30-150</strong></td>
+<td><strong>Sweet spot</strong> — proven + room to compete</td>
+<td><strong>First-time affiliates START HERE</strong></td>
+</tr>
+<tr>
+<td>150-300</td>
+<td>Saturated — only 7-figure buyers can compete on Meta</td>
+<td>Avoid unless you have angle/audience advantage</td>
+</tr>
+<tr>
+<td>300+</td>
+<td>Hyper-saturated — every keyword auctioned, every angle done</td>
+<td>Skip. Top affiliates pay $4-8 CPC profitably; you cannot</td>
+</tr>
+</tbody></table></div>
+<p>[INDUSTRY STANDARD — ClickBank's own blog recommends 50-200; AffNinja and most affiliate publications converge on 30-150 as the realistic sweet spot for new affiliates with paid traffic]</p>
+<p><strong>When high gravity is BAD:</strong></p>
+<ul>
+<li>7-figure media buyers have already optimized every audience, hook, and creative angle</li>
+<li>Auction prices on Meta lookalikes are inflated — your CPC will be 2-3x what a low-competition offer costs</li>
+<li>Meta's algorithm has seen the offer's funnel pixel-fired millions of times — it knows the real buyer profile and will not show your ad to anyone else</li>
+</ul>
+<p><strong>When low gravity is OPPORTUNITY:</strong></p>
+<ul>
+<li>Recently launched product with vendor running affiliate webinars (check tools page for date)</li>
+<li>Underserved niche (women's bladder, dental, specific menopause angles) where the marketplace simply hasn't caught up</li>
+<li>Vendor manually approves affiliates — barrier keeps gravity artificially low while quality is high</li>
+</ul>
+<p><strong>Common misinterpretations:</strong></p>
+<ul>
+<li><strong>"Higher gravity = higher EPC"</strong> — Wrong. Gravity counts affiliates, not sales-per-click. Often inversely correlated due to auction inflation.</li>
+<li><strong>"Gravity = current popularity"</strong> — Partially. The 12-week window means a hot offer 10 weeks ago can still show inflated gravity today.</li>
+<li><strong>"Gravity tells me anything about refund rate"</strong> — Zero correlation. A gravity-300 offer with 30% refund rate burns hundreds of affiliates monthly.</li>
+</ul>
+<h3 id="22-avg-sale-aka-avg-conversion">2.2 Avg $/Sale (a.k.a. Avg $/Conversion)<a class="anchor" href="#22-avg-sale-aka-avg-conversion">#</a></h3>
+<p><strong>What it measures:</strong> Average commission per conversion over the last 90 days, <em>including</em> initial sales, upsells, downsells, and recurring rebills. [VERIFIED — ClickBank official]</p>
+<p><strong>The math:</strong></p>
+<pre><code>Avg $/Sale = Total commissions paid / Total conversions</code></pre>
+<p><strong>What good looks like in 2026:</strong></p>
+<ul>
+<li>Below $30: front-end is too thin OR no upsell stack — risky for paid traffic</li>
+<li>$30-$80: workable for organic and affiliate landing-page funnels</li>
+<li><strong>$80-$200: target zone for Meta paid traffic</strong></li>
+<li>$200+: usually high-AOV nutra/info products with strong upsell stacks; great margin but verify refund</li>
+</ul>
+<p>[INDUSTRY STANDARD — top ClickBank offers in April 2026 ranged $51-$173 Avg $/sale per ClickBank's official top-offers list]</p>
+<p><strong>How to verify it's not inflated:</strong> Compare Avg $/sale to Initial $/sale. The gap is the upsell value. If Avg = $120 and Initial = $30, you make $30 on the front and the rest depends on the upsell flow converting (and not refunding).</p>
+<h3 id="23-initial-sale">2.3 Initial $/Sale<a class="anchor" href="#23-initial-sale">#</a></h3>
+<p><strong>What it measures:</strong> The commission you earn on the <em>first</em> transaction only — before any upsells, downsells, or rebills. [VERIFIED]</p>
+<p><strong>Why it matters more than Avg $/Sale:</strong> Your Meta ad sends a click, the click converts (or doesn't), and you receive credit for the front-end purchase. Whether the customer also buys the $89 upsell is largely outside your control — it depends on the vendor's upsell flow, copy, video, and timing.</p>
+<p><strong>What good looks like in 2026:</strong></p>
+<ul>
+<li>< $25: front-end too small to absorb realistic Meta CPC + landing page bounce — SKIP</li>
+<li><strong>$25-$50: minimum viable for cold paid traffic with strong landers</strong></li>
+<li><strong>$50-$100: comfortable zone for first-offer testing</strong></li>
+<li>$100+: typically high-ticket info, energy, or premium nutra; strong margins but harder to justify cold-click conversion</li>
+</ul>
+<p><strong>The trap:</strong> Vendors aggressively market the Avg $/sale ("affiliates earn $147 per sale!"). If the Initial is $32 and you build your CPC math on $147, you are budgeting for revenue that 60-80% of buyers won't generate. <strong>Always model break-even on Initial $/sale; treat upsell revenue as upside.</strong> [PROPOSED based on industry consensus]</p>
+<h3 id="24-avg-sale-and-initial-sale">2.4 Avg %/Sale and Initial %/Sale<a class="anchor" href="#24-avg-sale-and-initial-sale">#</a></h3>
+<p><strong>What they measure:</strong> Commission percentage of the sale price.</p>
+<p><strong>What to know:</strong></p>
+<ul>
+<li>ClickBank caps commission at 75% on most products [VERIFIED]</li>
+<li>Higher percentage isn't automatically better — a 75% commission on a $20 ebook ($15) loses to a 50% commission on a $200 supplement ($100) [INDUSTRY STANDARD]</li>
+<li>Most quality nutra and supplement offers in 2026 sit at 60-75% on the front-end; physical product offers may show 40-60% [PROPOSED]</li>
+</ul>
+<p><strong>The illusion of "75% commission":</strong> A vendor offering 75% on a $17 ebook earns you $12.75. A vendor offering 50% on an $89 product earns $44.50 — roughly 3.5x more per customer. Never optimize for percentage; optimize for absolute dollars per click. [INDUSTRY STANDARD]</p>
+<h3 id="25-avg-rebill-total-recurring-rebill">2.5 Avg Rebill Total / Recurring $/Rebill<a class="anchor" href="#25-avg-rebill-total-recurring-rebill">#</a></h3>
+<p><strong>What it measures:</strong> Average commission earned from recurring billing (subscriptions) per rebill cycle.</p>
+<p><strong>Why it matters:</strong> A subscription offer with $30/month rebill at 60% commission ($18/mo to you) generates LTV per customer over 6-12 months that vastly exceeds a single-payment offer. Top affiliates in 2026 increasingly favor rebill offers because:</p>
+<ul>
+<li>LTV math gives you room to overpay on first acquisition</li>
+<li>Compounds revenue across testing cycles (commissions land 3-4 months after first sale)</li>
+<li>Vendor has skin in the game for retention (better product = lower refund)</li>
+</ul>
+<p><strong>What good looks like in 2026:</strong></p>
+<ul>
+<li>Avg Rebill Total ≥ $40: meaningful LTV uplift</li>
+<li>$80-$150: very strong, justifies higher CPA</li>
+<li>$150+: premium subscription tier — verify retention with vendor</li>
+</ul>
+<p>[INDUSTRY STANDARD — recurring nutra and SaaS-style ClickBank offers are the highest-LTV affiliate plays in the marketplace]</p>
+<p><strong>The watch-out:</strong> Rebill commissions get clawed back when subscribers cancel within the refund window (60 days default). The displayed Rebill Total assumes typical churn — verify by asking the vendor directly via the affiliate manager.</p>
+<h3 id="26-activation-aka-conversion-rate-cvr">2.6 Activation % (a.k.a. Conversion Rate / CVR)<a class="anchor" href="#26-activation-aka-conversion-rate-cvr">#</a></h3>
+<p><strong>What it measures:</strong> Percentage of clicks that become an <em>initial</em> sale, measured over the last 30 days, aggregated across ALL affiliates promoting the offer. [VERIFIED]</p>
+<p><strong>The math:</strong></p>
+<pre><code>Activation % = Initial sales / Hops (clicks)</code></pre>
+<p><strong>What good looks like in 2026 (per ClickBank's April 2026 top-offers list):</strong></p>
+<ul>
+<li>0.5-1.0%: typical for cold paid traffic to direct offer link</li>
+<li><strong>1.0-2.5%: good — most top offers fall here</strong></li>
+<li>2.5%+: exceptional (Rocket Languages showed 6.74% — usually warm/educated traffic)</li>
+</ul>
+<p><strong>Critical caveat:</strong> Activation aggregates ALL traffic — SEO, email, organic, paid. Your Meta cold-traffic activation will almost always be <em>lower</em> than the displayed number. Plan for half the displayed activation in your CPC math. [PROPOSED]</p>
+<h3 id="27-epc-earnings-per-click">2.7 EPC — Earnings Per Click<a class="anchor" href="#27-epc-earnings-per-click">#</a></h3>
+<p><strong>What it measures:</strong> Average net commission earned per affiliate click in the last 30 days, across all affiliates. [VERIFIED]</p>
+<p><strong>The math:</strong></p>
+<pre><code>EPC = Total net commissions / Total hops (clicks)
+EPC = Avg $/sale × Activation %</code></pre>
+<p><strong>What good looks like in 2026:</strong></p>
+<ul>
+<li>EPC < $0.50: untestable on Meta unless you have $0.20 CPC traffic source (rare)</li>
+<li>$0.50-$1.50: workable with disciplined audience and landing page</li>
+<li><strong>$1.50-$3.00: prime testing zone</strong></li>
+<li>$3.00+: top-tier — usually high-ticket or recurring offers</li>
+</ul>
+<p><strong>The critical interpretation rule:</strong> EPC is <strong>only useful relative to your CPC.</strong></p>
+<ul>
+<li>If displayed EPC is $1.20 and your Meta cold-traffic CPC is $1.80 → mathematically impossible to break even at displayed activation rates</li>
+<li>If EPC is $2.40 and your CPC is $1.20 → 2x ROAS theoretical ceiling, room to optimize</li>
+<li>If EPC is $2.40 and your CPC is $4.50 → either find cheaper traffic or skip</li>
+</ul>
+<p>[INDUSTRY STANDARD — ClickBank's own EPC blog post explicitly says "EPC is only a useful metric relative to what you're spending on traffic sources"]</p>
+<p><strong>Common misinterpretations:</strong></p>
+<ul>
+<li><strong>Displayed EPC ≠ Your EPC</strong> — Displayed EPC includes top affiliates with hyper-optimized funnels. Cold paid traffic typically achieves 30-60% of displayed EPC in the first 7 days of testing. [PROPOSED]</li>
+<li><strong>EPC drops as you scale</strong> — Verified across multiple ClickBank publications. Plan for EPC at $20-50/day spend to be ~70% of EPC at $200+/day spend.</li>
+</ul>
+<h3 id="28-hops-per-order-implied-reverse-conversion">2.8 Hops Per Order (Implied Reverse Conversion)<a class="anchor" href="#28-hops-per-order-implied-reverse-conversion">#</a></h3>
+<p><strong>What it measures:</strong> Inverse of activation — how many clicks it takes to produce one sale on average.</p>
+<pre><code>Hops Per Order = 1 / Activation %</code></pre>
+<p><strong>Threshold guideline [INDUSTRY STANDARD per The Clever Business]:</strong></p>
+<ul>
+<li>< 100 hops per order: excellent</li>
+<li>100-200: acceptable</li>
+<li>200+: indicates either pricing problems on the offer or unconvincing landing page — reconsider</li>
+</ul>
+<h3 id="29-the-refund-rate-problem">2.9 The Refund Rate Problem<a class="anchor" href="#29-the-refund-rate-problem">#</a></h3>
+<p><strong>ClickBank does not officially publish refund rates per offer.</strong> [VERIFIED — multiple sources]</p>
+<p><strong>Why this matters:</strong> Refunds reverse your commission. A 30% refund rate effectively reduces your real per-sale earnings by 30% — and Meta has already charged you for the click.</p>
+<p><strong>How to estimate refund rate (industry technique):</strong></p>
+<pre><code>Implied Refund Rate ≈ 1 - (Avg $/sale earned / Listed $/sale before refunds)</code></pre>
+<p>This requires comparing the marketplace-listed $/sale (gross) to what affiliates report netting (post-refund). The gap is your estimate.</p>
+<p><strong>Practical approach for first offer:</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Niche</th>
+<th>Typical refund rate</th>
+<th>Notes</th>
+</tr></thead><tbody>
+<tr>
+<td>Health supplements (nutra)</td>
+<td>8-15%</td>
+<td>Lower if 60-day money-back is the stated policy</td>
+</tr>
+<tr>
+<td>Weight loss / diets</td>
+<td>15-25%</td>
+<td>Highest in the marketplace — buyers regret quickly</td>
+</tr>
+<tr>
+<td>MMO / business opportunity</td>
+<td>20-35%</td>
+<td>Avoid as first offer</td>
+</tr>
+<tr>
+<td>Spirituality / new age</td>
+<td>10-18%</td>
+<td>Variable — depends on emotional fit</td>
+</tr>
+<tr>
+<td>Dental / specific health</td>
+<td>5-12%</td>
+<td>Often best refund profile</td>
+</tr>
+<tr>
+<td>Survival / preparedness</td>
+<td>8-15%</td>
+<td>Stable buyer base</td>
+</tr>
+<tr>
+<td>Languages / education</td>
+<td>6-12%</td>
+<td>Lower if onboarding is good</td>
+</tr>
+</tbody></table></div>
+<p>[COMMUNITY WISDOM — Warrior Forum threads on refund rates; broadly aligned across multiple sources but treat as approximations, not guarantees]</p>
+<p><strong>Direct method to check:</strong> Ask the vendor's affiliate manager directly via the email on the tools page. Top vendors will share refund stats; vendors that ghost the question are a red flag.</p>
+<hr>
+<h2 id="3-the-7-step-offer-evaluation-framework">3. The 7-Step Offer Evaluation Framework<a class="anchor" href="#3-the-7-step-offer-evaluation-framework">#</a></h2>
+<p>This is the practical playbook. Run every candidate offer through this in <30 minutes. Skip any step at your peril.</p>
+<h3 id="step-1-initial-numbers-filter-3-minutes">Step 1 — Initial Numbers Filter (3 minutes)<a class="anchor" href="#step-1-initial-numbers-filter-3-minutes">#</a></h3>
+<p>Open the ClickBank Marketplace, sort by gravity descending, then filter to your target sub-niche.</p>
+<p><strong>Hard filters (auto-disqualify if any are true):</strong></p>
+<ul>
+<li>Gravity < 15 OR > 200</li>
+<li>Initial $/sale < $25</li>
+<li>Avg $/sale < $40</li>
+<li>Activation < 0.5%</li>
+<li>EPC < $0.80</li>
+</ul>
+<p><strong>Soft filters (flag, don't kill):</strong></p>
+<ul>
+<li>No rebill component (single-payment only) — flag for risk-of-thin-LTV</li>
+<li>Vendor approval required — note timeline (could be 24-72h delay before testing)</li>
+<li>"Affiliates only" tools page password-protected — note before requesting access</li>
+</ul>
+<p><strong>Prompt for AI evaluator at this stage:</strong></p>
+<pre><code>I am evaluating ClickBank offer [NAME / VENDOR ID].
+Marketplace stats:
+- Gravity: [X]
+- Initial $/sale: $[X]
+- Avg $/sale: $[X]
+- Avg %/sale: [X]%
+- Avg Rebill Total: $[X]
+- Activation: [X]%
+- EPC: $[X]
+
+Run hard filter check against the 5 thresholds in Section 3.1 of the framework.
+Output: PASS / FAIL with reason for each filter.
+If PASS, proceed to Step 2 with the offer's pitch page URL: [URL]</code></pre>
+<h3 id="step-2-vsl-sales-page-deep-review-8-minutes">Step 2 — VSL / Sales Page Deep Review (8 minutes)<a class="anchor" href="#step-2-vsl-sales-page-deep-review-8-minutes">#</a></h3>
+<p>Open the offer's pitch page in an incognito browser (the marketplace shows your view; vendors sometimes serve different pages to ClickBank affiliates).</p>
+<p><strong>Watch the VSL with a stopwatch. Note:</strong></p>
+<ol>
+<li><strong>Hook timing</strong> — does the headline + first 30 seconds frame a clear pain point and tease a solution?</li>
+<li><strong>Length</strong> — VSL <8 minutes is unusual today; 12-30 minutes is standard for high-AOV; >45 minutes signals either premium offer or padded fluff</li>
+<li><strong>Social proof depth</strong> — testimonials with full names + photos + verifiable companies > generic stock photo "Sarah from Texas"</li>
+<li><strong>Compliance markers</strong> (CRITICAL — see Section 6):</li>
+<li>Disease cure claims = AUTO-FAIL for Meta</li>
+<li>"Doctors hate this" / fake authority = AUTO-FAIL</li>
+<li>Dramatic before/after with body parts = AUTO-FAIL</li>
+<li>Anxiety/desperation hooks ("Are you suffering from...") = AUTO-FAIL on Meta 2026</li>
+<li><strong>Price reveal timing</strong> — late-reveal indicates high AOV; early-reveal usually means low AOV</li>
+<li><strong>Order form quality</strong> — clean, mobile-optimized, single-page > multi-step on mobile</li>
+</ol>
+<p><strong>Prompt for AI evaluator:</strong></p>
+<pre><code>I am about to send Meta paid traffic to this VSL: [URL]
+Watch/transcribe key claims and tell me:
+1. Does the VSL make any disease/cure claims that would violate Meta health policy 2026?
+2. Are there before/after images of body parts or dramatic transformations?
+3. Are there unverified doctor endorsements?
+4. Is the desperation framing ("are you suffering from X") used as a hook?
+5. Estimate the page load time on mobile (use any heuristic available).
+6. Score compliance risk: LOW / MEDIUM / HIGH
+If MEDIUM or HIGH, recommend SKIP for cold Meta traffic.</code></pre>
+<h3 id="step-3-tools-page-audit-5-minutes">Step 3 — Tools Page Audit (5 minutes)<a class="anchor" href="#step-3-tools-page-audit-5-minutes">#</a></h3>
+<p>Every legitimate ClickBank vendor maintains an affiliate tools page. Find the link on the pitch page footer or via "JV / Affiliates" navigation.</p>
+<p><strong>What to extract:</strong></p>
+<ul>
+<li><strong>Allowed traffic sources</strong> — explicit list (Meta, Google, native, email, SEO, YouTube, TikTok)</li>
+<li><strong>Prohibited traffic</strong> — common bans: brand bidding, incentivized traffic, SMS, fake news pages, Telegram (CB-wide ban as of recent policy update) [VERIFIED]</li>
+<li><strong>Geo restrictions</strong> — US-only? International OK? Spanish allowed?</li>
+<li><strong>Approved creatives</strong> — pre-built ad copy, banners, videos? Use as inspiration, never copy verbatim</li>
+<li><strong>Funnel diagram</strong> — what does the upsell flow look like? Bump? OTOs? Downsells?</li>
+<li><strong>Affiliate manager contact</strong> — email, Skype, Telegram, Slack</li>
+<li><strong>Email swipes provided</strong> — quality and recency (last update date)</li>
+<li><strong>Postback / pixel docs</strong> — does the vendor support S2S CAPI / postback URLs?</li>
+</ul>
+<p><strong>Hard fail triggers:</strong></p>
+<ul>
+<li>No tools page exists → vendor is amateur or hostile to affiliates → SKIP</li>
+<li>Tools page prohibits paid social → SKIP for Meta</li>
+<li>Tools page hasn't been updated in 12+ months → vendor is asleep</li>
+<li>Affiliate manager email bounces → SKIP</li>
+</ul>
+<p><strong>Prompt for AI evaluator:</strong></p>
+<pre><code>Review this affiliate tools page: [URL]
+Extract:
+1. Allowed traffic sources (list explicitly)
+2. Prohibited traffic sources (list explicitly)
+3. Geo restrictions
+4. Last updated date (if visible)
+5. Affiliate manager contact info
+6. Whether postback / CAPI integration is documented
+
+Flag any of: prohibits paid social, no AM contact, last-updated &gt; 12 months ago.</code></pre>
+<h3 id="step-4-refund-rate-investigation-4-minutes">Step 4 — Refund Rate Investigation (4 minutes)<a class="anchor" href="#step-4-refund-rate-investigation-4-minutes">#</a></h3>
+<p>Since ClickBank doesn't publish refund rates, triangulate from these sources:</p>
+<ol>
+<li><strong>Vendor's customer-facing reviews</strong> — Trustpilot, Reddit (search "[product name] refund"), BBB if US vendor</li>
+<li><strong>Affiliate forums</strong> — Warrior Forum, BlackHatWorld, STM forum for established vendors</li>
+<li><strong>Direct vendor query</strong> — email the affiliate manager: <em>"What's the current refund rate for cold Meta traffic over the last 30 days?"</em> — speed and specificity of answer is itself a signal</li>
+<li><strong>Compare $/sale gap</strong> — if vendor shows Initial $/sale = $50 and Avg $/sale = $52, with no rebill, the implied refund-adjusted earnings are roughly $30-35 (suggesting ~30-40% refund + minimal upsell)</li>
+</ol>
+<p><strong>Hard fail trigger:</strong> Vendor refund rate > 25% (or AM ghosts the question). [INDUSTRY STANDARD]</p>
+<h3 id="step-5-competitive-landscape-check-5-minutes">Step 5 — Competitive Landscape Check (5 minutes)<a class="anchor" href="#step-5-competitive-landscape-check-5-minutes">#</a></h3>
+<p>Use Meta Ad Library + at least one ad spy tool to confirm the offer is currently being run profitably.</p>
+<p><strong>Tools (free + paid):</strong></p>
+<ul>
+<li><strong>Meta Ad Library</strong> (free) — search the offer name, vendor brand, or pitch page domain. Note: only shows active ads; archived ads disappear.</li>
+<li><strong>Foreplay / Atria / Magic Brief</strong> — paid alternatives to the now-dead AdSpy; 2026 leaders for Meta creative spying</li>
+<li><strong>BigSpy</strong> — free tier; useful for breadth scan</li>
+<li><strong>AdLibrary alternatives</strong> — TikTok Creative Center, Google Ad Transparency Center for cross-channel</li>
+</ul>
+<p><strong>What to look for:</strong></p>
+<ul>
+<li>5+ active advertisers running the offer = validation that someone is profitable</li>
+<li>Ad creative diversity (multiple angles, hooks, audiences) = mature winning offer</li>
+<li>Same advertiser running ads for 30+ days continuously = profitable funnel</li>
+<li>Zero ads despite high gravity = red flag (gravity may be from email/SEO traffic; Meta may not work)</li>
+</ul>
+<p><strong>Prompt for AI evaluator:</strong></p>
+<pre><code>For the ClickBank offer [NAME] with pitch page [URL]:
+1. Search Meta Ad Library for ads pointing to this domain. List active advertisers and ad count.
+2. Identify the dominant ad angles (problem-aware, solution-aware, social proof, authority, etc.)
+3. Estimate how mature the winning angle is (1-30 days = early; 60+ days = saturated).
+4. Identify any LATAM-targeted ads (Spanish copy, MX/CO/AR/CL/PE targeting).
+Output: brief competitive map.</code></pre>
+<h3 id="step-6-economics-math-5-minutes">Step 6 — Economics Math (5 minutes)<a class="anchor" href="#step-6-economics-math-5-minutes">#</a></h3>
+<p>This is the make-or-break math. Run the calculator in Section 5 before any go/no-go decision. <strong>No exceptions.</strong></p>
+<h3 id="step-7-final-gono-go-decision-matrix">Step 7 — Final Go/No-Go Decision Matrix<a class="anchor" href="#step-7-final-gono-go-decision-matrix">#</a></h3>
+<p>Use this scoring rubric. Total score determines action.</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Criterion</th>
+<th>Weight</th>
+<th>Pass (1)</th>
+<th>Fail (0)</th>
+</tr></thead><tbody>
+<tr>
+<td>Gravity in 30-150 range</td>
+<td>1.0</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Initial $/sale ≥ $40</td>
+<td>1.5</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Avg $/sale ≥ $80</td>
+<td>1.0</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>EPC ≥ $1.50</td>
+<td>1.5</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Activation ≥ 1.0%</td>
+<td>1.0</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>VSL compliance LOW or MEDIUM (not HIGH)</td>
+<td>2.0</td>
+<td>Yes</td>
+<td>AUTO-FAIL</td>
+</tr>
+<tr>
+<td>Tools page exists + allows paid social</td>
+<td>1.5</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Vendor 12+ months on ClickBank</td>
+<td>1.0</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Estimated refund rate ≤ 15%</td>
+<td>1.5</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Active competitive landscape (5+ Meta advertisers, mature)</td>
+<td>1.0</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Max CPC for 1.3x ROAS ≥ projected Meta CPC</td>
+<td>2.0</td>
+<td>Yes</td>
+<td>AUTO-FAIL</td>
+</tr>
+<tr>
+<td><strong>TOTAL POSSIBLE</strong></td>
+<td><strong>15.0</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p><strong>Decision thresholds:</strong></p>
+<ul>
+<li>12.0+ : TEST CANDIDATE — proceed to creative + landing page build</li>
+<li>9.0-11.9 : BORDERLINE — only test if you have a strong creative angle hypothesis</li>
+<li>< 9.0 : SKIP — find a better candidate</li>
+</ul>
+<hr>
+<h2 id="4-niche-map-2026">4. Niche Map 2026<a class="anchor" href="#4-niche-map-2026">#</a></h2>
+<p>[INDUSTRY STANDARD — derived from ClickBank's own published top-offers list April 2026, ClickBank's 10-best-niches blog, and cross-publication consensus]</p>
+<h3 id="top-performing-categories-rank-by-displayed-top-offer-payouts-april-2026">Top performing categories (rank by displayed top-offer payouts April 2026)<a class="anchor" href="#top-performing-categories-rank-by-displayed-top-offer-payouts-april-2026">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Rank</th>
+<th>Category</th>
+<th>Hot in 2026?</th>
+<th>Average top-offer AOV</th>
+<th>Saturation</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>Dietary Supplements (Nutra)</td>
+<td>YES</td>
+<td>$120-200+</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Beauty</td>
+<td>RISING FAST</td>
+<td>$80-150</td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Men's Health</td>
+<td>STABLE</td>
+<td>$100-180</td>
+<td>MEDIUM-HIGH</td>
+</tr>
+<tr>
+<td>4</td>
+<td>E-business / MMO</td>
+<td>SURGING</td>
+<td>Varies $20-300</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Spirituality / New Age</td>
+<td>DECLINING</td>
+<td>$40-120</td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Diets & Weight Loss (digital)</td>
+<td>EVERGREEN</td>
+<td>$30-90</td>
+<td>VERY HIGH</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Women's Health</td>
+<td>UNDERSERVED</td>
+<td>$80-160</td>
+<td>MEDIUM-LOW</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Dental Health</td>
+<td>UNDERSERVED</td>
+<td>$100-180</td>
+<td>LOW-MEDIUM</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Survival / Prepper</td>
+<td>STABLE</td>
+<td>$50-120</td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Home & Garden</td>
+<td>NICHE</td>
+<td>Varies</td>
+<td>LOW</td>
+</tr>
+</tbody></table></div>
+<h3 id="health-fitness-sub-niche-map-the-most-important-slice-for-first-time-affiliates">Health & Fitness sub-niche map (the most important slice for first-time affiliates)<a class="anchor" href="#health-fitness-sub-niche-map-the-most-important-slice-for-first-time-affiliates">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Sub-niche</th>
+<th>Saturation 2026</th>
+<th>Typical AOV</th>
+<th>LATAM fit</th>
+<th>First-offer recommendation</th>
+</tr></thead><tbody>
+<tr>
+<td>Weight loss (general)</td>
+<td>OVERSATURATED</td>
+<td>$80-200</td>
+<td>HIGH demand</td>
+<td>AVOID — top offers run by 7-figure buyers</td>
+</tr>
+<tr>
+<td>Sleep / insomnia</td>
+<td>MEDIUM</td>
+<td>$50-150</td>
+<td>HIGH</td>
+<td>GOOD candidate; Derila Ergo-style offers convert in Spanish</td>
+</tr>
+<tr>
+<td>Joint pain</td>
+<td>MEDIUM-HIGH</td>
+<td>$80-160</td>
+<td>HIGH</td>
+<td>OK with strong angle</td>
+</tr>
+<tr>
+<td>Prostate health</td>
+<td>MEDIUM</td>
+<td>$100-180</td>
+<td>MEDIUM (older male demo)</td>
+<td>GOOD if you have male 50+ audience</td>
+</tr>
+<tr>
+<td>Menopause</td>
+<td>UNDERSERVED</td>
+<td>$80-150</td>
+<td>MEDIUM-HIGH</td>
+<td>EXCELLENT opportunity</td>
+</tr>
+<tr>
+<td>Energy / focus</td>
+<td>MEDIUM (brain song surge)</td>
+<td>$50-120</td>
+<td>HIGH</td>
+<td>Crowded but workable</td>
+</tr>
+<tr>
+<td>Diabetes / blood sugar</td>
+<td>HIGH but compliance-risky</td>
+<td>$100-200</td>
+<td>VERY HIGH</td>
+<td>RISKY — disease claim landmine</td>
+</tr>
+<tr>
+<td>Skin care</td>
+<td>MEDIUM (rising)</td>
+<td>$60-130</td>
+<td>HIGH</td>
+<td>GOOD candidate</td>
+</tr>
+<tr>
+<td>Hair loss</td>
+<td>MEDIUM</td>
+<td>$80-160</td>
+<td>HIGH</td>
+<td>OK with strong before/after-free angle</td>
+</tr>
+<tr>
+<td>Sexual health</td>
+<td>MEDIUM</td>
+<td>$80-180</td>
+<td>HIGH</td>
+<td>Compliance-tricky on Meta</td>
+</tr>
+<tr>
+<td>Pelvic floor / bladder (women)</td>
+<td>UNDERSERVED</td>
+<td>$80-140</td>
+<td>MEDIUM</td>
+<td>EXCELLENT for differentiation</td>
+</tr>
+<tr>
+<td>Dental supplements</td>
+<td>UNDERSERVED</td>
+<td>$130-180</td>
+<td>MEDIUM-HIGH</td>
+<td>EXCELLENT first-offer category</td>
+</tr>
+</tbody></table></div>
+<h3 id="latam-spanish-speaking-demographic-preferences">LATAM Spanish-speaking demographic preferences<a class="anchor" href="#latam-spanish-speaking-demographic-preferences">#</a></h3>
+<p>[INDUSTRY STANDARD — affmaven, RichAds, ClickBank LATAM analyses]</p>
+<ul>
+<li><strong>Mexico, Colombia, Peru</strong> lead opportunity. Argentina + Chile smaller but higher AOV tolerance.</li>
+<li><strong>Doctor authority outperforms celebrity endorsements</strong> — opposite of US market in many verticals</li>
+<li><strong>Mobile-first is non-negotiable</strong> — 70%+ traffic; landing pages must load <3s on 3G</li>
+<li><strong>Local Spanish > generic translation</strong> — Mexican Spanish ≠ Spanish from Spain ≠ Argentinian. Test "tú" vs "usted" — varies by country</li>
+<li><strong>Average monthly income $700</strong> — positions LATAM as Tier-2/3 traffic; CPCs $0.01-0.10 on Meta possible but conversion thresholds shift</li>
+<li><strong>Payment methods</strong> — many LATAM buyers struggle with US-based USD checkout. Verify with vendor whether they support OXXO (MX), PSE (CO), boleto (BR), or local processors</li>
+<li><strong>Cultural angles that convert</strong> — health/wellness, family-protection framing, financial-anxiety relief, traditional/natural remedy framing</li>
+<li><strong>Cultural angles to avoid</strong> — direct sexual content, US-political angles, "lose weight for the beach" body-shaming narratives</li>
+</ul>
+<hr>
+<h2 id="5-economics-calculator-with-worked-examples">5. Economics Calculator with Worked Examples<a class="anchor" href="#5-economics-calculator-with-worked-examples">#</a></h2>
+<p>The single most important framework in this document. Use it before every test.</p>
+<h3 id="51-the-core-math">5.1 The Core Math<a class="anchor" href="#51-the-core-math">#</a></h3>
+<pre><code>GIVEN:
+  AOV (Average Order Value the customer pays) = $A
+  Commission % to affiliate = C%
+  Estimated landing page CTR (click → VSL view) = L%
+  Estimated VSL conversion rate (VSL view → sale) = V%
+  Combined funnel CVR (cold click → sale) = L% × V%
+  Realistic Meta CPC (cold traffic) = $K
+
+DERIVE:
+  Net commission per sale (front-end only) = $A × C% = $N
+  Required clicks per sale = 1 / (L% × V%)
+  Cost to generate one sale (at $K CPC) = K / (L% × V%)
+  Effective EPC = $N × L% × V%
+
+DECISION RULES:
+  Max CPC for 1.0x ROAS (break-even) = $N × L% × V%
+  Max CPC for 1.3x ROAS (sustainable) = ($N × L% × V%) / 1.3
+  Max CPC for 2.0x ROAS (winner threshold) = ($N × L% × V%) / 2.0
+
+  If max CPC for 1.3x ROAS &lt; your projected Meta CPC → SKIP
+  If equal → BORDERLINE (test cautiously, $50/day budget cap)
+  If higher → TEST CANDIDATE</code></pre>
+<p>[INDUSTRY STANDARD math, structured per the Berso Marketing breakeven ROAS framework adapted for affiliate / commission-based offers]</p>
+<h3 id="52-worked-example-a-low-aov-digital-offer-the-trap">5.2 Worked Example A — Low-AOV digital offer (the trap)<a class="anchor" href="#52-worked-example-a-low-aov-digital-offer-the-trap">#</a></h3>
+<p><strong>Offer:</strong> "Manifest Your Best Life" — manifestation ebook</p>
+<ul>
+<li>AOV = $37</li>
+<li>Commission = 75%</li>
+<li>Net commission per sale = $27.75</li>
+<li>Estimated funnel CVR (cold Meta traffic) = 1.0%</li>
+<li>Effective EPC = $27.75 × 0.01 = <strong>$0.28</strong></li>
+</ul>
+<p><strong>Max CPCs:</strong></p>
+<ul>
+<li>Break-even = $0.28</li>
+<li>1.3x ROAS = $0.21</li>
+<li>2.0x ROAS = $0.14</li>
+</ul>
+<p><strong>Projected Meta CPC for warm Tier-1 audience: ~$1.20</strong></p>
+<p><strong>Verdict: SKIP.</strong> The math is structurally impossible. Even at theoretical break-even you cannot afford the click. Common first-offer mistake: high-percentage commission on low-AOV blinds the affiliate to absolute dollars per click.</p>
+<h3 id="53-worked-example-b-mid-aov-nutra-offer-typical-workable-offer">5.3 Worked Example B — Mid-AOV nutra offer (typical workable offer)<a class="anchor" href="#53-worked-example-b-mid-aov-nutra-offer-typical-workable-offer">#</a></h3>
+<p><strong>Offer:</strong> "Joint Genesis 2.0" — joint health supplement</p>
+<ul>
+<li>AOV = $89 (with bump)</li>
+<li>Commission = 60% on initial</li>
+<li>Net commission per sale (initial only) = $53.40</li>
+<li>Avg Rebill = $35/quarter, expected 1.5 rebills per buyer over 90 days = $52.50 LTV uplift, but DON'T model into break-even</li>
+<li>Estimated funnel CVR (cold Meta traffic) = 1.2%</li>
+<li>Effective EPC (initial only) = $53.40 × 0.012 = <strong>$0.64</strong></li>
+</ul>
+<p><strong>Max CPCs:</strong></p>
+<ul>
+<li>Break-even (initial) = $0.64</li>
+<li>1.3x ROAS = $0.49</li>
+<li>2.0x ROAS = $0.32</li>
+</ul>
+<p><strong>Projected Meta CPC for joint pain audience (50+ targeting, US): ~$0.80</strong></p>
+<p><strong>Verdict: BORDERLINE.</strong> Initial math is tight. But the rebill upside makes this testable IF: (a) you can verify rebill retention with vendor, and (b) you're willing to lose money on initial test cycle to fund real ROAS measurement at day 60-90. NOT a first offer for $300-500 capital — too long a payback window.</p>
+<h3 id="54-worked-example-c-high-aov-nutra-with-strong-upsell-stack-target-profile">5.4 Worked Example C — High-AOV nutra with strong upsell stack (target profile)<a class="anchor" href="#54-worked-example-c-high-aov-nutra-with-strong-upsell-stack-target-profile">#</a></h3>
+<p><strong>Offer:</strong> "ProDentim-style" dental supplement</p>
+<ul>
+<li>Initial $/sale = $89 (your front-end commission)</li>
+<li>Avg $/sale (with upsell stack) = $173</li>
+<li>Activation displayed = 0.8% (use 0.6% for cold Meta math = 0.75x discount)</li>
+<li>Effective EPC at displayed = $173 × 0.008 = $1.38</li>
+<li>Effective EPC at conservative cold-traffic estimate = $89 × 0.006 = <strong>$0.53</strong> (initial only) PLUS upsell upside</li>
+</ul>
+<p><strong>Max CPCs (initial-only model — conservative):</strong></p>
+<ul>
+<li>Break-even = $0.53</li>
+<li>1.3x ROAS = $0.41</li>
+<li>2.0x ROAS = $0.27</li>
+</ul>
+<p><strong>Max CPCs (Avg $/sale model — optimistic, only valid if you trust the upsell stack):</strong></p>
+<ul>
+<li>Break-even = $1.04</li>
+<li>1.3x ROAS = $0.80</li>
+<li>2.0x ROAS = $0.52</li>
+</ul>
+<p><strong>Projected Meta CPC for dental health audience: ~$0.60-0.90</strong></p>
+<p><strong>Verdict: TEST CANDIDATE.</strong> Initial-only math is borderline; full-funnel math is workable. Recommended approach: budget the test assuming initial-only commission (conservative); if you hit break-even or better at initial-only by day 7, you know the upsell stack will push you to 1.5-2.0x ROAS. This is the prototypical good first-offer candidate.</p>
+<h3 id="55-quick-reference-cpc-table">5.5 Quick-reference CPC table<a class="anchor" href="#55-quick-reference-cpc-table">#</a></h3>
+<p>For a given Net Commission ($N) and Funnel CVR, the break-even CPC = $N × CVR.</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Net Commission</th>
+<th>0.5% CVR</th>
+<th>1.0% CVR</th>
+<th>1.5% CVR</th>
+<th>2.0% CVR</th>
+</tr></thead><tbody>
+<tr>
+<td>$25</td>
+<td>$0.13</td>
+<td>$0.25</td>
+<td>$0.38</td>
+<td>$0.50</td>
+</tr>
+<tr>
+<td>$40</td>
+<td>$0.20</td>
+<td>$0.40</td>
+<td>$0.60</td>
+<td>$0.80</td>
+</tr>
+<tr>
+<td>$60</td>
+<td>$0.30</td>
+<td>$0.60</td>
+<td>$0.90</td>
+<td>$1.20</td>
+</tr>
+<tr>
+<td>$80</td>
+<td>$0.40</td>
+<td>$0.80</td>
+<td>$1.20</td>
+<td>$1.60</td>
+</tr>
+<tr>
+<td>$100</td>
+<td>$0.50</td>
+<td>$1.00</td>
+<td>$1.50</td>
+<td>$2.00</td>
+</tr>
+<tr>
+<td>$150</td>
+<td>$0.75</td>
+<td>$1.50</td>
+<td>$2.25</td>
+<td>$3.00</td>
+</tr>
+</tbody></table></div>
+<p><strong>Read this table:</strong> the cell value is your break-even CPC. Divide by 1.3 to get sustainable-CPC; by 2.0 to get winner-CPC. Compare to the realistic Meta CPC for your audience.</p>
+<hr>
+<h2 id="6-red-flags-vs-green-flags-scoring-rubric">6. Red Flags vs Green Flags Scoring Rubric<a class="anchor" href="#6-red-flags-vs-green-flags-scoring-rubric">#</a></h2>
+<h3 id="red-flags-hard-fail-criteria">Red Flags — Hard Fail Criteria<a class="anchor" href="#red-flags-hard-fail-criteria">#</a></h3>
+<p>Any one of these = SKIP, no further evaluation needed.</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Red Flag</th>
+<th>Why it kills the offer</th>
+</tr></thead><tbody>
+<tr>
+<td>Disease cure / treat / prevent claims in VSL</td>
+<td>Auto-disapproval on Meta health policy [VERIFIED]</td>
+</tr>
+<tr>
+<td>Vendor's tools page prohibits paid social/Meta</td>
+<td>You can't run Meta even if you wanted to</td>
+</tr>
+<tr>
+<td>AOV < $50</td>
+<td>Front-end too thin for realistic Meta CPCs</td>
+</tr>
+<tr>
+<td>Initial $/sale < $25</td>
+<td>Math impossible to break even at scale</td>
+</tr>
+<tr>
+<td>Estimated refund rate > 25%</td>
+<td>Even break-even funnel becomes net-negative</td>
+</tr>
+<tr>
+<td>Single-payment only AND no upsell stack</td>
+<td>No LTV, no flexibility</td>
+</tr>
+<tr>
+<td>US-only checkout for LATAM target</td>
+<td>Buyers can't complete purchase</td>
+</tr>
+<tr>
+<td>No CAPI / postback documentation</td>
+<td>Meta optimization blind, scaling impossible</td>
+</tr>
+<tr>
+<td>Affiliate manager unresponsive >72h</td>
+<td>Vendor will ghost when you have a real problem</td>
+</tr>
+<tr>
+<td>Vendor < 6 months on ClickBank with single product</td>
+<td>Pump-and-dump risk pattern</td>
+</tr>
+<tr>
+<td>Tools page hasn't been updated in 12+ months</td>
+<td>Vendor is asleep or out of business</td>
+</tr>
+<tr>
+<td>Before/after body imagery in VSL</td>
+<td>Meta auto-disapproval [VERIFIED]</td>
+</tr>
+<tr>
+<td>"Doctors hate this" / unverified medical authority</td>
+<td>Meta auto-disapproval + customer skepticism</td>
+</tr>
+<tr>
+<td>Brand bidding required to compete</td>
+<td>Meta won't allow brand bidding via affiliate links</td>
+</tr>
+<tr>
+<td>Telegram-only support</td>
+<td>ClickBank prohibits Telegram as traffic source [VERIFIED]</td>
+</tr>
+</tbody></table></div>
+<h3 id="green-flags-strong-positive-signals">Green Flags — Strong Positive Signals<a class="anchor" href="#green-flags-strong-positive-signals">#</a></h3>
+<p>Tally these. The more you have, the higher confidence.</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Green Flag</th>
+<th>Why it matters</th>
+</tr></thead><tbody>
+<tr>
+<td>Vendor 3+ years on ClickBank, 3+ products</td>
+<td>Established business, refund handling tested</td>
+</tr>
+<tr>
+<td>Recurring rebill component documented</td>
+<td>LTV math gives you CPC headroom</td>
+</tr>
+<tr>
+<td>Clean, mobile-optimized VSL <30s load time</td>
+<td>Reduces bounce, improves CVR</td>
+</tr>
+<tr>
+<td>Postback / CAPI documentation explicit</td>
+<td>Meta optimization actually works</td>
+</tr>
+<tr>
+<td>Spanish-language version with native localization</td>
+<td>LATAM-ready, larger TAM</td>
+</tr>
+<tr>
+<td>Affiliate manager replies within 24h with specifics</td>
+<td>Real human, real support</td>
+</tr>
+<tr>
+<td>Tools page updated in last 90 days</td>
+<td>Active vendor relationship</td>
+</tr>
+<tr>
+<td>Public webinars / Slack / FB group for affiliates</td>
+<td>Community support, faster learning</td>
+</tr>
+<tr>
+<td>5+ active Meta advertisers with diverse angles (Ad Library)</td>
+<td>Validated cold-traffic profitability</td>
+</tr>
+<tr>
+<td>Reasonable refund rate self-reported (5-15%)</td>
+<td>Vendor transparency + product quality</td>
+</tr>
+<tr>
+<td>Working pixel + tested order form on mobile</td>
+<td>No tech surprises mid-test</td>
+</tr>
+<tr>
+<td>Multiple price points / OTOs in funnel</td>
+<td>Upsell engine = revenue floor + ceiling</td>
+</tr>
+<tr>
+<td>Documented A/B test results shared with affiliates</td>
+<td>Vendor invests in optimization, sales-page evolves</td>
+</tr>
+<tr>
+<td>Affiliate-only Slack / Discord with active discussion</td>
+<td>Better reps, faster intel on what's working</td>
+</tr>
+</tbody></table></div>
+<h3 id="composite-scoring">Composite scoring<a class="anchor" href="#composite-scoring">#</a></h3>
+<p>Use the weighted matrix from Section 3.7. Critical: a single AUTO-FAIL (compliance, math impossible) overrides any number of green flags. <strong>Don't fall in love with a vendor whose VSL will kill your ad account.</strong></p>
+<hr>
+<h2 id="7-tools-and-resources-beyond-clickbank-marketplace">7. Tools and Resources Beyond ClickBank Marketplace<a class="anchor" href="#7-tools-and-resources-beyond-clickbank-marketplace">#</a></h2>
+<p>[INDUSTRY STANDARD — verified pricing as of mid-2026; check current pricing before subscribing]</p>
+<h3 id="marketplace-research-tools">Marketplace research tools<a class="anchor" href="#marketplace-research-tools">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Tool</th>
+<th>What it shows</th>
+<th>Pricing 2026</th>
+<th>Worth it?</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>CB Engine (cbengine.com)</strong></td>
+<td>Historical gravity charts, top movers, recent gravity trends, vendor history</td>
+<td>7-day free trial; ~$27 lifetime Pro</td>
+<td>YES — historical gravity is critical signal not in CB marketplace</td>
+</tr>
+<tr>
+<td><strong>CBSnooper (cbsnooper.com)</strong></td>
+<td>Historical product data, gravity tracking, top-products reports</td>
+<td>Subscription tiers</td>
+<td>Alternative to CB Engine; redundant if you have one</td>
+</tr>
+<tr>
+<td><strong>OfferVault</strong></td>
+<td>70,000+ offers across 50+ networks (not just CB)</td>
+<td>Free</td>
+<td>YES — broaden beyond CB before committing</td>
+</tr>
+<tr>
+<td><strong>CBProAds</strong></td>
+<td>Vendor metrics, sales page analysis</td>
+<td>Subscription</td>
+<td>Optional</td>
+</tr>
+</tbody></table></div>
+<h3 id="ad-spy-competitive-intelligence">Ad spy / competitive intelligence<a class="anchor" href="#ad-spy-competitive-intelligence">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Tool</th>
+<th>Use case</th>
+<th>Pricing 2026</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Meta Ad Library</strong></td>
+<td>Active Meta ads — primary check</td>
+<td>Free</td>
+</tr>
+<tr>
+<td><strong>TikTok Creative Center</strong></td>
+<td>TikTok ads inspiration</td>
+<td>Free</td>
+</tr>
+<tr>
+<td><strong>Google Ad Transparency Center</strong></td>
+<td>Google active ads</td>
+<td>Free</td>
+</tr>
+<tr>
+<td><strong>Foreplay</strong></td>
+<td>Meta ad spy with strong filters</td>
+<td>$50-200/mo</td>
+</tr>
+<tr>
+<td><strong>Atria</strong></td>
+<td>Modern AdSpy successor</td>
+<td>$100+/mo</td>
+</tr>
+<tr>
+<td><strong>Magic Brief</strong></td>
+<td>Creative analysis at scale</td>
+<td>$100+/mo</td>
+</tr>
+<tr>
+<td><strong>BigSpy</strong></td>
+<td>Free tier broad scan; paid for depth</td>
+<td>Free + paid tiers</td>
+</tr>
+</tbody></table></div>
+<h3 id="vendor-reputation-cross-reference">Vendor reputation cross-reference<a class="anchor" href="#vendor-reputation-cross-reference">#</a></h3>
+<ul>
+<li><strong>Trustpilot</strong> — search vendor brand + product</li>
+<li><strong>BBB</strong> (US vendors only) — complaint patterns</li>
+<li><strong>Reddit</strong> — search "[product name] refund" or "[product name] scam"</li>
+<li><strong>Warrior Forum / BlackHatWorld</strong> — affiliate-side complaints</li>
+<li><strong>STM Forum</strong> (paid) — premium affiliate community discussions</li>
+</ul>
+<h3 id="tracking-infrastructure">Tracking infrastructure<a class="anchor" href="#tracking-infrastructure">#</a></h3>
+<ul>
+<li><strong>AnyTrack</strong> — pixel + CAPI integration with ClickBank documented</li>
+<li><strong>Voluum</strong> — premium affiliate tracker with full S2S</li>
+<li><strong>wecantrack</strong> — alternative integration platform</li>
+<li><strong>ClickMagick</strong> — affiliate-focused link tracker</li>
+<li><strong>Native ClickBank S2S Meta integration</strong> — free, configured via Integrations → Postback/Pixels → Add Integration → Facebook [VERIFIED — ClickBank docs]</li>
+</ul>
+<h3 id="alternative-networks-when-clickbank-is-wrong-fit">Alternative networks (when ClickBank is wrong fit)<a class="anchor" href="#alternative-networks-when-clickbank-is-wrong-fit">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Network</th>
+<th>Strength</th>
+<th>When to consider</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>MaxWeb</strong></td>
+<td>Top VSL nutra offers, paid social focus</td>
+<td>When ClickBank gravity is too saturated in nutra</td>
+</tr>
+<tr>
+<td><strong>Digistore24</strong></td>
+<td>EU + LATAM strength, 8,500 offers</td>
+<td>When LATAM-specific localization needed</td>
+</tr>
+<tr>
+<td><strong>JVZoo</strong></td>
+<td>Info products, MMO</td>
+<td>When MMO is your niche</td>
+</tr>
+<tr>
+<td><strong>Warrior+</strong></td>
+<td>MMO and digital</td>
+<td>Niche-specific</td>
+</tr>
+<tr>
+<td><strong>DrCash, ShakesPro, Limonad</strong></td>
+<td>Pure nutra CPA networks</td>
+<td>When you've outgrown CB nutra</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="8-first-offer-recommendation-framework">8. First Offer Recommendation Framework<a class="anchor" href="#8-first-offer-recommendation-framework">#</a></h2>
+<p>For someone starting fresh in 2026 with $2-3K capital, LATAM focus, and zero prior ClickBank wins.</p>
+<h3 id="the-training-wheels-offer-profile">The "training wheels" offer profile<a class="anchor" href="#the-training-wheels-offer-profile">#</a></h3>
+<p>The ideal first offer optimizes for <strong>learning velocity, not maximum profit.</strong> Pick an offer where:</p>
+<ol>
+<li><strong>Math works at conservative assumptions</strong> — break-even achievable at 0.6% CVR and Tier-2 LATAM CPCs</li>
+<li><strong>Compliance is structurally safe</strong> — niches where Meta rarely auto-disapproves (sleep, dental, beauty, energy)</li>
+<li><strong>Vendor is a known quantity</strong> — 2+ years on ClickBank, multiple products, active AM</li>
+<li><strong>Audience is well-defined and addressable</strong> — clear demographic targetable on Meta (e.g., women 45-65 interested in beauty)</li>
+<li><strong>You can build a competent landing page in 1-2 days</strong> — not a 3-week creative project</li>
+<li><strong>There's an existing winning angle to model</strong> — Meta Ad Library shows 3-10 active advertisers you can study</li>
+</ol>
+<h3 id="attributes-that-make-a-good-training-wheels-offer">Attributes that make a good "training wheels" offer<a class="anchor" href="#attributes-that-make-a-good-training-wheels-offer">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Attribute</th>
+<th>Why</th>
+</tr></thead><tbody>
+<tr>
+<td>Gravity 30-100</td>
+<td>Proven but not 7-figure-buyer infested</td>
+</tr>
+<tr>
+<td>AOV $80-150</td>
+<td>Front-end commission of $50-90 — workable on Meta</td>
+</tr>
+<tr>
+<td>Recurring rebill component</td>
+<td>LTV cushion forgives early test losses</td>
+</tr>
+<tr>
+<td>LATAM Spanish version with native localization</td>
+<td>Tier-2 traffic costs while still earning USD</td>
+</tr>
+<tr>
+<td>Vendor offers Spanish AM and Spanish customer support</td>
+<td>Refund rate stays low</td>
+</tr>
+<tr>
+<td>Underserved sub-niche (dental, menopause, pelvic floor, sleep)</td>
+<td>Less competitive auction, easier to differentiate</td>
+</tr>
+<tr>
+<td>Compliance-clean VSL (no disease cures, no before/after)</td>
+<td>Ad account survives the test</td>
+</tr>
+<tr>
+<td>Tools page documents Meta CAPI integration</td>
+<td>Optimization and scaling actually work</td>
+</tr>
+</tbody></table></div>
+<h3 id="common-first-offer-mistakes-avoid">Common first-offer mistakes (avoid)<a class="anchor" href="#common-first-offer-mistakes-avoid">#</a></h3>
+<ol>
+<li><strong>Picking the #1 gravity offer</strong> — it's the most competitive in the marketplace; 7-figure buyers have already inflated every audience cost</li>
+<li><strong>Optimizing for highest commission %</strong> — 75% of $20 < 50% of $100</li>
+<li><strong>Ignoring rebill component</strong> — losing free LTV that funds your testing</li>
+<li><strong>Picking a "guru" offer in MMO niche</strong> — refund rates 25-35%, hostile audiences, compliance landmines</li>
+<li><strong>Picking a US-only weight loss offer for LATAM traffic</strong> — checkout fails, refund rate spikes</li>
+<li><strong>Trusting displayed Activation/EPC for cold Meta traffic</strong> — these include all traffic; cold Meta will hit ~50-70% of displayed</li>
+<li><strong>Not contacting the affiliate manager</strong> — you lose the most important due-diligence channel</li>
+<li><strong>Spending the entire $300-500 on first creative without iteration budget</strong> — keep $200 reserve for v2 creative if v1 underperforms</li>
+</ol>
+<h3 id="first-offer-go-checklist">First-offer "go" checklist<a class="anchor" href="#first-offer-go-checklist">#</a></h3>
+<p>Before launching, confirm ALL of these:</p>
+<ul>
+<li><input type="checkbox"  disabled>Score on Section 3.7 matrix is 12.0 or higher</li>
+<li><input type="checkbox"  disabled>Affiliate manager has replied to at least one specific question</li>
+<li><input type="checkbox"  disabled>CAPI / postback integration is configured and tested with a real conversion</li>
+<li><input type="checkbox"  disabled>Landing page (yours, not vendor's) loads in <3s on mobile 3G</li>
+<li><input type="checkbox"  disabled>You have at least 3 Meta creative variants (per OpenClaw quality rules) ready to launch</li>
+<li><input type="checkbox"  disabled>You have 5+ Meta Ad Library ads from competitors saved as reference</li>
+<li><input type="checkbox"  disabled>Hop link tracking ID structure decided (see Section 9 below)</li>
+<li><input type="checkbox"  disabled>$50/day budget cap set; $300-500 total kill budget defined</li>
+<li><input type="checkbox"  disabled>Pause / kill rules written down BEFORE launch (e.g., "if CPA > 2x target after 50 clicks, kill")</li>
+<li><input type="checkbox"  disabled>Vendor terms of service screenshot saved (in case it changes mid-test)</li>
+</ul>
+<hr>
+<h2 id="9-templates-ready-to-use">9. Templates Ready to Use<a class="anchor" href="#9-templates-ready-to-use">#</a></h2>
+<h3 id="91-tracking-id-convention">9.1 Tracking ID convention<a class="anchor" href="#91-tracking-id-convention">#</a></h3>
+<p>Use ClickBank tracking parameters (TIDs) to slice performance by source, campaign, ad set, and creative.</p>
+<p><strong>Format:</strong></p>
+<pre><code>?tid=[platform]-[campaign]-[adset]-[creative]</code></pre>
+<p><strong>Examples:</strong></p>
+<pre><code>?tid=fb-jointgenesis-women45plus-vsl1
+?tid=fb-jointgenesis-women45plus-static2
+?tid=fb-prodentim-mx-spanish-v3
+?tid=tt-brainsong-students-hook2</code></pre>
+<p><strong>Hard rules:</strong></p>
+<ul>
+<li>Lowercase only (CB tracking params are case-sensitive in some reports)</li>
+<li>No spaces, use hyphens</li>
+<li>Max 24 characters total per ClickBank limits — keep abbreviated</li>
+<li>Document the convention in a shared sheet so you can decode any TID 6 months later</li>
+</ul>
+<h3 id="92-utm-strategy-alongside-tid">9.2 UTM strategy (alongside TID)<a class="anchor" href="#92-utm-strategy-alongside-tid">#</a></h3>
+<p>ClickBank's TID handles affiliate-side tracking. UTMs handle YOUR analytics on the bridge / landing page if you use one.</p>
+<pre><code>utm_source=facebook
+utm_medium=cpc
+utm_campaign=[offer-slug]-[geo]-[YYYYMM]
+utm_content=[creative-id]
+utm_term=[audience-name]</code></pre>
+<h3 id="93-capi-postback-url-for-clickbank-s2s-meta-integration">9.3 CAPI / postback URL for ClickBank S2S Meta integration<a class="anchor" href="#93-capi-postback-url-for-clickbank-s2s-meta-integration">#</a></h3>
+<p><strong>Setup steps (per ClickBank official docs):</strong></p>
+<ol>
+<li>ClickBank Account → Integrations → Postback/Pixels → Add Integration → Facebook</li>
+<li>Name it (e.g., "FB-OfferName-MainAccount")</li>
+<li>Select role = Affiliate</li>
+<li>Enter your verified Facebook domain</li>
+<li>Set Integration Level = Custom; filter by <code>traffic_source=facebook</code></li>
+<li>Append <code>&amp;fbclid={fbclid}&amp;traffic_source=facebook</code> to your hop link</li>
+<li>Test with a real $1 purchase, verify event arrives in Meta Events Manager within 30 minutes</li>
+</ol>
+<h3 id="94-first-offer-evaluation-worksheet">9.4 First-offer evaluation worksheet<a class="anchor" href="#94-first-offer-evaluation-worksheet">#</a></h3>
+<pre><code>OFFER EVALUATION — [DATE]
+
+Offer name: ________________
+Vendor nickname: ____________
+Pitch page URL: _____________
+Tools page URL: _____________
+Affiliate manager email: _____
+
+MARKETPLACE STATS:
+Gravity: ___ (target: 30-150)
+Initial $/sale: $___ (target: $40+)
+Avg $/sale: $___ (target: $80+)
+Avg Rebill Total: $___
+Activation %: ___ (target: 1.0%+)
+EPC: $___ (target: $1.50+)
+
+VSL COMPLIANCE CHECK:
+Disease claims? Y/N (auto-fail if Y)
+Before/after body imagery? Y/N (auto-fail if Y)
+Unverified doctor endorsement? Y/N (auto-fail if Y)
+Desperation hook? Y/N (auto-fail if Y)
+Compliance score: LOW / MEDIUM / HIGH
+
+TOOLS PAGE CHECK:
+Meta paid social allowed? Y/N
+LATAM/Spanish allowed? Y/N
+Last updated: _____ (months ago: ___)
+CAPI integration documented? Y/N
+
+REFUND CHECK:
+Trustpilot complaints about refunds? Y/N
+Reddit/forum complaints? Y/N
+AM responded to refund-rate question? Y/N (response: _____)
+Estimated refund rate: ___%
+
+COMPETITIVE LANDSCAPE:
+Active Meta advertisers (Ad Library): ___
+Dominant angle: ____________
+LATAM Spanish ads visible? Y/N
+Mature winning angle (60+ days)? Y/N
+
+ECONOMICS:
+Net commission per sale (initial only): $___
+Estimated cold-traffic CVR: ___%
+Effective initial-only EPC: $___
+Projected Meta CPC for target audience: $___
+Max CPC for 1.3x ROAS: $___
+Math verdict: PASS / BORDERLINE / FAIL
+
+DECISION SCORE (Section 3.7 matrix): ___ / 15
+
+FINAL DECISION: TEST / BORDERLINE / SKIP</code></pre>
+<h3 id="95-affiliate-manager-outreach-template">9.5 Affiliate manager outreach template<a class="anchor" href="#95-affiliate-manager-outreach-template">#</a></h3>
+<pre><code>Subject: Affiliate inquiry — [Offer name] — Meta paid traffic, LATAM focus
+
+Hi [AM Name],
+
+I'm planning to test [offer name] with Meta paid traffic targeting [Mexico/Colombia/etc.] in Spanish. Before I launch, three quick questions:
+
+1. What's the current refund rate for cold Meta traffic over the last 30 days?
+2. Do you have Spanish-localized creatives or VSL versions for LATAM markets?
+3. Is the CAPI/postback integration with Meta currently documented and tested?
+
+I'm starting with a $300-500 test budget and plan to scale aggressively if the math works. Looking forward to building a long-term relationship if this offer fits.
+
+Thanks,
+[Your name]
+ClickBank nickname: [your nickname]</code></pre>
+<p>Speed and specificity of the AM reply is itself a top-three signal in your evaluation. A vendor whose AM responds within 24h with specific numbers is a vastly better partner than one with the higher displayed gravity.</p>
+<hr>
+<h2 id="10-the-second-offer-question">10. The "Second Offer" Question<a class="anchor" href="#10-the-second-offer-question">#</a></h2>
+<p>Once your first offer is profitable (1.3x+ ROAS over 14+ days at meaningful spend), the natural next question is what to test next.</p>
+<h3 id="when-to-add-a-second-offer">When to add a second offer<a class="anchor" href="#when-to-add-a-second-offer">#</a></h3>
+<p>[PROPOSED based on industry consensus]</p>
+<ul>
+<li><strong>Don't add a second offer until the first is consistently profitable for 30+ days</strong> — splitting attention prematurely kills both</li>
+<li><strong>Don't add a second offer until you've scaled the first to its ceiling</strong> — defined as the spend level where ROAS drops below your target despite optimization</li>
+<li><strong>DO add a second offer when the first plateaus AND you have learnings to apply to a new candidate</strong></li>
+</ul>
+<h3 id="same-vendor-different-product-lowest-risk">Same vendor, different product (lowest risk)<a class="anchor" href="#same-vendor-different-product-lowest-risk">#</a></h3>
+<p><strong>When this is right:</strong> The vendor has multiple offers in the same niche, you have established AM relationship, your audience research transfers, your funnel architecture transfers.</p>
+<p><strong>Example:</strong> You've won with a sleep supplement. Same vendor offers a stress-relief supplement targeting same demographic. You can reuse audience signals, copy patterns, lander template.</p>
+<h3 id="same-niche-different-vendor-medium-risk">Same niche, different vendor (medium risk)<a class="anchor" href="#same-niche-different-vendor-medium-risk">#</a></h3>
+<p><strong>When this is right:</strong> Your sub-niche is proven but you've hit ceiling on first offer's funnel. New vendor offers different angle, price point, or upsell stack.</p>
+<p><strong>Cannibalization risk:</strong> Same audience seeing both your ads. Mitigate by exclusion audiences and angle differentiation.</p>
+<h3 id="different-niche-entirely-highest-risk">Different niche entirely (highest risk)<a class="anchor" href="#different-niche-entirely-highest-risk">#</a></h3>
+<p><strong>When this is right:</strong> You've maxed out your first niche and have established creative production pipeline ready to repurpose. Treat as a new test cycle, not an extension.</p>
+<p><strong>Common mistake:</strong> Diversifying across niches before any single one is profitable. <strong>Win one niche before adding the second.</strong></p>
+<hr>
+<h2 id="closing-the-honest-truth-about-first-offers">Closing — The Honest Truth About First Offers<a class="anchor" href="#closing-the-honest-truth-about-first-offers">#</a></h2>
+<p>Most first offers lose money. That's not a defect — it's the cost of learning the platform, the audience, the creative angles, and the vendor relationships that will fund the second, third, and tenth offers.</p>
+<p>The goal of this framework isn't to guarantee a winner on offer #1. It's to:</p>
+<ol>
+<li><strong>Eliminate the structurally impossible offers</strong> — math that can never work, compliance that will ban your account, vendors that will ghost you</li>
+<li><strong>Maximize the chance that you LEARN from the test</strong> — if you lose, you should know exactly why (CPC was too high, CVR was too low, refund rate killed it, creative didn't break through)</li>
+<li><strong>Preserve capital for the second test</strong> — never go all-in on offer #1; always reserve 50% of capital for iteration</li>
+</ol>
+<p>If you can run 3-4 disciplined tests using this framework with $300-500 each, the probability that one of them is profitable is far higher than the probability that a single $1,500-2,000 test on a hyped offer is profitable. <strong>Test cycles, not single bets.</strong></p>
+<p>This document gets re-read every Monday before you pick the next offer to test. The frameworks don't change; the offers do.</p>
+<hr>
+<h2 id="sources-reference">Sources Reference<a class="anchor" href="#sources-reference">#</a></h2>
+<ul>
+<li>ClickBank — official Gravity Score blog: https://www.clickbank.com/blog/clickbank-gravity-score/</li>
+<li>ClickBank — Marketplace Stats: https://support.clickbank.com/en/articles/10535274-how-do-i-use-the-clickbank-marketplace-stats</li>
+<li>ClickBank — Top Offers April 2026: https://www.clickbank.com/blog/clickbank-top-offers/</li>
+<li>ClickBank — 10 Best Niches: https://www.clickbank.com/blog/best-affiliate-marketing-niches/</li>
+<li>ClickBank — Health & Fitness affiliate guide: https://www.clickbank.com/blog/health-fitness-affiliate-marketing</li>
+<li>ClickBank — EPC explained: https://www.clickbank.com/blog/what-is-earnings-per-click-aka-epc/</li>
+<li>ClickBank — Meta S2S Integration: https://support.clickbank.com/en/articles/10535369-s2s-tracking-integration-meta-facebook-pixel</li>
+<li>ClickBank — Affiliate Tracking Parameters: https://support.clickbank.com/en/articles/10535262-affiliate-tracking-parameters</li>
+<li>ClickBank — Advertising Guidelines: https://support.clickbank.com/hc/en-us/articles/360042538932-Advertising-Guidelines</li>
+<li>White Hat Crew — Gravity calculation deep dive: https://whitehatcrew.com/blog/how-clickbanks-gravity-is-calculated/</li>
+<li>The Clever Business — ClickBank statistics: https://thecleverbusiness.com/clickbank-statistics-and-terminology-explained/</li>
+<li>AffNinja — CB Engine review: https://affninja.com/cb-engine-review/</li>
+<li>AffMaven — LATAM Affiliate 2026: https://affmaven.com/latam-affiliate-arbitrage/</li>
+<li>Forge Digital Marketing — Meta supplement compliance 2026: https://forgedigitalmarketing.com/how-to-advertise-supplements-on-meta/</li>
+<li>Audit Socials — Meta Health & Wellness 2026: https://www.auditsocials.com/blog/meta-health-wellness-restricted-ads-2026-supplements-body-image-medical-claim-rules</li>
+<li>Berso Marketing — Breakeven ROAS calculator: https://bersomarketing.com/breakeven-roas-calculator/</li>
+<li>RichAds — Nutra vertical 2026: https://richads.com/blog/full-guide-on-nutra-vertical-in-affiliate-marketing-in-2022/</li>
+<li>Affilorama — 20 ClickBank alternatives 2026: https://www.affilorama.com/blog/alternatives-to-clickbank</li>
+<li>ClickBank — Alternatives blog: https://www.clickbank.com/blog/clickbank-alternatives/</li>
+<li>Meta Transparency — Health and Wellness policies: https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/</li>
+</ul>
+<hr>
+<p><em>Last updated: 2026-05-11. Re-validate metric thresholds quarterly — Meta CPC dynamics and ClickBank marketplace mix shift.</em></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 02-offer-selection-framework.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

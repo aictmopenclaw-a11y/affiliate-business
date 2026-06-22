@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pancho Val + Skalers · Estudio Maestro · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../study.html">← Affiliate Business · Index</a>
+<span class="meta">00-viabilidad / pancho-skalers-deep · 7 min · 1,386 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#tldr-3-conclusiones-que-cambian-la-decisión" class="">TL;DR — 3 conclusiones que cambian la decisión</a></li><li><a href="#1-pancho-val-es-real-y-sí-es-diamond-clickbank" class="h3">1. Pancho Val ES real y SÍ es Diamond ClickBank</a></li><li><a href="#2-skalers-genera-472k-en-11-meses-40k-mrr" class="h3">2. Skalers genera ~$472K en 11 meses (~$40K MRR)</a></li><li><a href="#3-no-hay-reviews-independientes-de-skalers" class="h3">3. NO hay reviews independientes de Skalers</a></li><li><a href="#recomendación-de-compra-cambio-vs-decisión-005-anterior" class="">Recomendación de compra (cambio vs decisión #005 anterior)</a></li><li><a href="#lo-que-aprendes-sin-pagar-8-12h-de-consumo" class="">Lo que aprendes SIN pagar (8-12h de consumo)</a></li><li><a href="#las-3-fuentes-de-oro-gratis" class="h3">Las 3 fuentes de oro gratis</a></li><li><a href="#las-6-cosas-que-no-comparte-gratis-justifica-pagar" class="h3">Las 6 cosas que NO comparte gratis (justifica pagar)</a></li><li><a href="#cronología-verificable-corrige-tesis-original" class="">Cronología verificable (corrige tesis original)</a></li><li><a href="#el-modelo-de-skalers-reconstruido" class="">El modelo de Skalers reconstruido</a></li><li><a href="#funnel-de-adquisición" class="h3">Funnel de adquisición</a></li><li><a href="#conversion-rates-implícitos-estimados" class="h3">Conversion rates implícitos (estimados)</a></li><li><a href="#revenue-total-estimado-11-meses" class="h3">Revenue total estimado (11 meses)</a></li><li><a href="#anchoring-efectivo" class="h3">Anchoring efectivo</a></li><li><a href="#lecciones-aplicables-a-openclaw-si-lanzamos-producto-educativo-escenario-b" class="">Lecciones aplicables a OpenClaw (si lanzamos producto educativo · Escenario B)</a></li><li><a href="#lo-que-sí-podemos-copiar" class="h3">Lo que SÍ podemos copiar</a></li><li><a href="#lo-que-no-podemos-copiar" class="h3">Lo que NO podemos copiar</a></li><li><a href="#pre-requisitos-antes-de-lanzar-curso-openclaw" class="h3">Pre-requisitos antes de lanzar curso OpenClaw</a></li><li><a href="#timeline-realista" class="h3">Timeline realista</a></li><li><a href="#limitaciones-de-toda-esta-investigación" class="">Limitaciones de toda esta investigación</a></li><li><a href="#veredicto-integrado-3-reportes" class="">Veredicto integrado (3 reportes)</a></li><li><a href="#pancho-val-es-legítimo" class="h3">¿Pancho Val es legítimo?</a></li><li><a href="#skalers-start-47-es-buena-compra" class="h3">¿Skalers Start ($47) es buena compra?</a></li><li><a href="#skalers-pro-497-es-buena-compra" class="h3">¿Skalers Pro ($497) es buena compra?</a></li><li><a href="#skalers-mastery-2197" class="h3">¿Skalers Mastery ($2,197)?</a></li><li><a href="#ads-license-12000" class="h3">¿Ads License ($12,000)?</a></li><li><a href="#replicar-el-modelo-skalers-en-openclaw" class="h3">¿Replicar el modelo Skalers en OpenClaw?</a></li><li><a href="#documentos-detallados-research-fuentes" class="">Documentos detallados (research-fuentes/)</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>PANCHO-SKALERS-MAESTRO.md</span>
+<span>1,386 palabras</span>
+<span>~7 min lectura</span>
+</div>
+<h1 id="pancho-val-skalers-estudio-maestro">Pancho Val + Skalers · Estudio Maestro<a class="anchor" href="#pancho-val-skalers-estudio-maestro">#</a></h1>
+<blockquote><p>Sintetiza 3 investigaciones independientes: 1. <code>01-pancho-contenido-publico.md</code> — qué enseña gratis (5K palabras) 2. <code>02-skalers-producto-completo.md</code> — qué obtienes en cada tier (6.5K palabras) 3. <code>03-trayectoria-y-lecciones.md</code> — cronología + lecciones para OpenClaw (5.4K palabras)</p>
+<p><strong>Fecha:</strong> 2026-04-29 <strong>Para:</strong> decidir si pagar Skalers + qué aprender de su modelo</p></blockquote>
+<hr>
+<h2 id="tldr-3-conclusiones-que-cambian-la-decisión">TL;DR — 3 conclusiones que cambian la decisión<a class="anchor" href="#tldr-3-conclusiones-que-cambian-la-decisión">#</a></h2>
+<h3 id="1-pancho-val-es-real-y-sí-es-diamond-clickbank">1. Pancho Val ES real y SÍ es Diamond ClickBank<a class="anchor" href="#1-pancho-val-es-real-y-sí-es-diamond-clickbank">#</a></h3>
+<p>Confirmado en podcast oficial ClickBank (Affiliated E218, ago 2025) + customer story ClickBank (abr 2023, Concón, 22 años, $1M+). Daily ad spend declarado: $30-50K/día. No es scam — es operador real.</p>
+<h3 id="2-skalers-genera-472k-en-11-meses-40k-mrr">2. Skalers genera ~$472K en 11 meses (~$40K MRR)<a class="anchor" href="#2-skalers-genera-472k-en-11-meses-40k-mrr">#</a></h3>
+<p>Verificado vía Whop public data:</p>
+<ul>
+<li>Skalers Start ($47) — 564 miembros</li>
+<li>Affiliate Pro ($497) — 325 miembros</li>
+<li>Affiliate Mastery ($2,197 dynamic) — 121 miembros</li>
+<li>Ads License ($12,000) — 5 miembros</li>
+<li>Free Gifts — 2,702 miembros (funnel principal)</li>
+</ul>
+<p>Ranquea <strong>#1, #5 y #8</strong> en categoría affiliate_marketing de Whop (de 470 productos).</p>
+<h3 id="3-no-hay-reviews-independientes-de-skalers">3. NO hay reviews independientes de Skalers<a class="anchor" href="#3-no-hay-reviews-independientes-de-skalers">#</a></h3>
+<ul>
+<li>0 reviews en Trustpilot, BBB, eBiz Facts</li>
+<li>Toda la reputación vive dentro de Whop (94% son 5★ sobre 159 reviews — sospechoso)</li>
+<li>Reddit thread <code>r/AffiliateMarket/comments/1s88rvj</code> cuestiona legitimidad (no scrapeable)</li>
+<li>Esto es <strong>dato relevante en sí mismo</strong> — un negocio que vende $40K/mes y NO tiene reviews independientes después de 11 meses tiene algo raro</li>
+</ul>
+<hr>
+<h2 id="recomendación-de-compra-cambio-vs-decisión-005-anterior">Recomendación de compra (cambio vs decisión #005 anterior)<a class="anchor" href="#recomendación-de-compra-cambio-vs-decisión-005-anterior">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Tier</th>
+<th>Precio</th>
+<th>Recomendación</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Skalers Start</strong></td>
+<td>$47</td>
+<td>✓ COMPRAR si decidimos test affiliate (Escenario B)</td>
+</tr>
+<tr>
+<td><strong>Skalers Pro / Affiliate Pro</strong></td>
+<td>$497</td>
+<td>⏸ ESPERAR a consumir Start + ejecutar 1 campaña validation</td>
+</tr>
+<tr>
+<td><strong>Affiliate Mastery</strong></td>
+<td>$2,197</td>
+<td>✗ NO esta etapa</td>
+</tr>
+<tr>
+<td><strong>Ads License</strong></td>
+<td>$12,000</td>
+<td>✗ NUNCA año 1 (afiliado dice 7-30% comisión = funnel para Pancho)</td>
+</tr>
+</tbody></table></div>
+<p><strong>Razón:</strong> $47 es risk asimétrico (tiempo del equipo vale mucho más). Pro requiere validar primero que el modelo funciona para nosotros con ad spend real.</p>
+<hr>
+<h2 id="lo-que-aprendes-sin-pagar-8-12h-de-consumo">Lo que aprendes SIN pagar (8-12h de consumo)<a class="anchor" href="#lo-que-aprendes-sin-pagar-8-12h-de-consumo">#</a></h2>
+<h3 id="las-3-fuentes-de-oro-gratis">Las 3 fuentes de oro gratis<a class="anchor" href="#las-3-fuentes-de-oro-gratis">#</a></h3>
+<p><strong>1. Podcast Haciéndola E56</strong> (1h 51min) — la fuente más densa</p>
+<ul>
+<li>Stack completo de tools (HeyGen, Creatify, VEO 3, ClickFunnels, Atria, SpyHero, etc.)</li>
+<li>4 libros recomendados</li>
+<li>Selección de offer + landing + copywriting + AI workflow</li>
+<li>Frase-eje: <strong>"no hay hacks, hay sistemas"</strong></li>
+</ul>
+<p><strong>2. ClickBank Affiliated Podcast E218</strong> (ago 2025)</p>
+<ul>
+<li>Diamond status oficial</li>
+<li>Migración YouTube → Meta Ads (su mayor pivot)</li>
+<li>Reflexiones sobre el oficio</li>
+</ul>
+<p><strong>3. X @panchoval123 + YouTube channel</strong></p>
+<ul>
+<li>Insights operativos sueltos</li>
+<li>Screenshots de cuentas (con careful redaction)</li>
+</ul>
+<h3 id="las-6-cosas-que-no-comparte-gratis-justifica-pagar">Las 6 cosas que NO comparte gratis (justifica pagar)<a class="anchor" href="#las-6-cosas-que-no-comparte-gratis-justifica-pagar">#</a></h3>
+<ol>
+<li><strong>Killing rules cuantificadas</strong> (cuándo exactamente kill un ad/conjunto)</li>
+<li><strong>Estructura de cuenta Meta exacta</strong> (cuántas BMs, cuántas cuentas, organización)</li>
+<li><strong>Account farm strategy</strong> (cómo evita bans en cascada)</li>
+<li><strong>Vendors/ofertas actuales</strong> (estratégicamente protegido)</li>
+<li><strong>Setup CAPI/pixel/attribution detallado</strong></li>
+<li><strong>Compliance/appeals masterclass</strong> (cómo recupera cuentas baneadas)</li>
+</ol>
+<p><strong>Estos 6 son exactamente lo que justifica pagar Pro $497</strong> — son las trampas técnicas donde se pierde dinero real.</p>
+<hr>
+<h2 id="cronología-verificable-corrige-tesis-original">Cronología verificable (corrige tesis original)<a class="anchor" href="#cronología-verificable-corrige-tesis-original">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Año</th>
+<th>Evento</th>
+<th>Fuente</th>
+</tr></thead><tbody>
+<tr>
+<td>2016</td>
+<td>Primer emprendimiento (16 años)</td>
+<td>Entrevista personal</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>Mancuernas de cemento Instagram con hermano</td>
+<td>Pancho mencionado</td>
+</tr>
+<tr>
+<td>Dic 2021</td>
+<td>Crea X @panchoval123</td>
+<td>Twitter creation date</td>
+</tr>
+<tr>
+<td>Abr 2023</td>
+<td>Customer story ClickBank · 22 años · $1M+</td>
+<td>ClickBank oficial</td>
+</tr>
+<tr>
+<td>~Jun 2024</td>
+<td>Lanza Skalers Pro</td>
+<td>Inferido edad Whop</td>
+</tr>
+<tr>
+<td>Mar 2025</td>
+<td>Primer podcast grande español</td>
+<td>Verificado</td>
+</tr>
+<tr>
+<td>Ago 2025</td>
+<td>Diamond ClickBank confirmado oficial</td>
+<td>Affiliated E218</td>
+</tr>
+<tr>
+<td>May 2026</td>
+<td>4,008 miembros Whop · ~700-900 paying</td>
+<td>Whop public data</td>
+</tr>
+</tbody></table></div>
+<p><strong>Lo que NO se confirmó públicamente</strong> (a pesar de búsqueda exhaustiva):</p>
+<ul>
+<li>Universidad Adolfo Ibáñez (claim no confirmado)</li>
+<li>Jurisdicción legal de Skalers Inc</li>
+<li>Equipo de 14 personas (mencionado pero no verificable)</li>
+<li>Primer offer winner que lo desbloqueó</li>
+<li>Mentor inicial</li>
+</ul>
+<hr>
+<h2 id="el-modelo-de-skalers-reconstruido">El modelo de Skalers reconstruido<a class="anchor" href="#el-modelo-de-skalers-reconstruido">#</a></h2>
+<h3 id="funnel-de-adquisición">Funnel de adquisición<a class="anchor" href="#funnel-de-adquisición">#</a></h3>
+<pre><code>Free Gifts (2,702 miembros, $0)
+        ↓
+Skalers Start ($47, 564 miembros)
+        ↓
+Affiliate Pro ($497, 325 miembros)
+        ↓
+Affiliate Mastery ($2,197, 121 miembros)
+        ↓
+Ads License ($12,000, 5 miembros)</code></pre>
+<h3 id="conversion-rates-implícitos-estimados">Conversion rates implícitos (estimados)<a class="anchor" href="#conversion-rates-implícitos-estimados">#</a></h3>
+<ul>
+<li>Free → Start: ~21% (564/2702)</li>
+<li>Start → Pro: ~58% (325/564)</li>
+<li>Pro → Mastery: ~37% (121/325)</li>
+<li>Mastery → Ads License: ~4% (5/121)</li>
+</ul>
+<h3 id="revenue-total-estimado-11-meses">Revenue total estimado (11 meses)<a class="anchor" href="#revenue-total-estimado-11-meses">#</a></h3>
+<ul>
+<li>Start: 564 × $47 = $26,508</li>
+<li>Pro: 325 × $497 = $161,525</li>
+<li>Mastery: 121 × $2,197 = $265,837</li>
+<li>Ads License: 5 × $12,000 = $60,000</li>
+<li><strong>Total: ~$513,870</strong> (subset escalable)</li>
+<li>Reporte separado estima ~$472K → MRR ~$40K</li>
+</ul>
+<h3 id="anchoring-efectivo">Anchoring efectivo<a class="anchor" href="#anchoring-efectivo">#</a></h3>
+<p>$47 → $497 → $2,197 → $12,000 Cada salto es ~10x. Hace que Pro a $497 se vea "barato" comparado con Mastery a $2,197.</p>
+<hr>
+<h2 id="lecciones-aplicables-a-openclaw-si-lanzamos-producto-educativo-escenario-b">Lecciones aplicables a OpenClaw (si lanzamos producto educativo · Escenario B)<a class="anchor" href="#lecciones-aplicables-a-openclaw-si-lanzamos-producto-educativo-escenario-b">#</a></h2>
+<h3 id="lo-que-sí-podemos-copiar">Lo que SÍ podemos copiar<a class="anchor" href="#lo-que-sí-podemos-copiar">#</a></h3>
+<ol>
+<li><strong>Tier structure tipo Whop/Skool</strong> — Free → Entry → Pro → Premium → 1:1</li>
+<li><strong>Free tier como funnel principal</strong> (2,702 leads vivos)</li>
+<li><strong>Anchoring 10x entre tiers</strong></li>
+<li><strong>Personal brand antes de producto</strong> (Pancho construyó audiencia 2-3 años antes)</li>
+<li><strong>Bilingüismo selectivo</strong> (mercado español-US tiene poca competencia)</li>
+<li><strong>Single-funnel focus</strong> (no diversificar canales hasta validar uno)</li>
+</ol>
+<h3 id="lo-que-no-podemos-copiar">Lo que NO podemos copiar<a class="anchor" href="#lo-que-no-podemos-copiar">#</a></h3>
+<ol>
+<li><strong>La narrativa "joven Diamond chileno"</strong> — no la tenemos</li>
+<li><strong>El timing 2024-2026 hispano-US</strong> — más saturado en 2026</li>
+<li><strong>El track record affiliate</strong> — somos agencia, no operadores affiliate puros</li>
+<li><strong>La rapidez de Pancho</strong> — él tiene 4-5 años full-time, nosotros tendríamos 20%</li>
+</ol>
+<h3 id="pre-requisitos-antes-de-lanzar-curso-openclaw">Pre-requisitos antes de lanzar curso OpenClaw<a class="anchor" href="#pre-requisitos-antes-de-lanzar-curso-openclaw">#</a></h3>
+<p><strong>Fase 0 obligatoria (6 meses antes del curso):</strong></p>
+<ul>
+<li>3 case studies de clientes firmables y publicables</li>
+<li>Audiencia 1,000 emails minimum (newsletter o lead magnet)</li>
+<li>1-2 apariciones en podcasts</li>
+<li>Personal brand de Cris o Ro consolidado en LinkedIn/X</li>
+</ul>
+<p><strong>Sin esto, lanzar curso = $1,500 perdidos.</strong></p>
+<h3 id="timeline-realista">Timeline realista<a class="anchor" href="#timeline-realista">#</a></h3>
+<ul>
+<li>18-24 meses para llegar a $50K/mes (cadencia que tomó Pancho)</li>
+<li>Los $1,500 del Escenario B solo alcanzan para Fase 0 (no para construir todo el modelo)</li>
+</ul>
+<hr>
+<h2 id="limitaciones-de-toda-esta-investigación">Limitaciones de toda esta investigación<a class="anchor" href="#limitaciones-de-toda-esta-investigación">#</a></h2>
+<ol>
+<li><strong>Reddit, FB, IG bloquean Firecrawl</strong> — sentiment fuera del walled garden Whop no se pudo verificar</li>
+<li><strong>Meta Ads Library con sesión</strong> — no se pudo confirmar si Skalers corre ads activos</li>
+<li><strong>Whop Trends con paywall</strong> — revenue exacto requiere $99/mes</li>
+<li><strong>Audios completos NO transcritos verbatim</strong> — usado descripciones + timestamps</li>
+<li><strong>NO se accedió a Skalers Pro internamente</strong> — todo lo del producto pago es de la sales page</li>
+</ol>
+<p><strong>Próximo paso de alto ROI sin gastar:</strong> descargar audios de los 2 podcasts clave (Haciéndola E56 + Affiliated E218) y transcribir con Whisper local. ~2-4h, $0 costo. Da contenido verbatim auditable.</p>
+<hr>
+<h2 id="veredicto-integrado-3-reportes">Veredicto integrado (3 reportes)<a class="anchor" href="#veredicto-integrado-3-reportes">#</a></h2>
+<h3 id="pancho-val-es-legítimo">¿Pancho Val es legítimo?<a class="anchor" href="#pancho-val-es-legítimo">#</a></h3>
+<p><strong>SÍ.</strong> Diamond ClickBank verificado. Daily spend $30-50K verificado. Trayectoria 4 años plausible.</p>
+<h3 id="skalers-start-47-es-buena-compra">¿Skalers Start ($47) es buena compra?<a class="anchor" href="#skalers-start-47-es-buena-compra">#</a></h3>
+<p><strong>SÍ, si decidimos test affiliate (Escenario B).</strong> Risk asimétrico mínimo. Da hub + comunidad + 5 módulos + 6 bonus.</p>
+<h3 id="skalers-pro-497-es-buena-compra">¿Skalers Pro ($497) es buena compra?<a class="anchor" href="#skalers-pro-497-es-buena-compra">#</a></h3>
+<p><strong>ESPERAR.</strong> Comprar SOLO después de:</p>
+<ol>
+<li>Consumir Skalers Start completo</li>
+<li>Ejecutar 1 campaña validation con $500-1K ad spend propio</li>
+<li>Confirmar que vale la pena profundizar antes de gastar 10x más</li>
+</ol>
+<h3 id="skalers-mastery-2197">¿Skalers Mastery ($2,197)?<a class="anchor" href="#skalers-mastery-2197">#</a></h3>
+<p><strong>NO en año 1.</strong> Sin 6+ meses de resultados propios primero.</p>
+<h3 id="ads-license-12000">¿Ads License ($12,000)?<a class="anchor" href="#ads-license-12000">#</a></h3>
+<p><strong>NUNCA año 1.</strong> Es el producto más rentable PARA PANCHO (no para el comprador).</p>
+<h3 id="replicar-el-modelo-skalers-en-openclaw">¿Replicar el modelo Skalers en OpenClaw?<a class="anchor" href="#replicar-el-modelo-skalers-en-openclaw">#</a></h3>
+<p><strong>Estructuralmente sí. Narrativamente no.</strong> Necesitamos Fase 0 (6 meses) construyendo audiencia + case studies antes de lanzar curso. Los $1,500 del Escenario B solo alcanzan para esa Fase 0.</p>
+<hr>
+<h2 id="documentos-detallados-research-fuentes">Documentos detallados (research-fuentes/)<a class="anchor" href="#documentos-detallados-research-fuentes">#</a></h2>
+<ul>
+<li><a href="#" onclick="alert('Doc no incluido en este paquete');return false;"><code>01-pancho-contenido-publico.md</code></a> · <a href="01-pancho-contenido-publico.html">HTML</a> — 5K palabras · 36 citas verbatim</li>
+<li><a href="#" onclick="alert('Doc no incluido en este paquete');return false;"><code>02-skalers-producto-completo.md</code></a> · <a href="02-skalers-producto-completo.html">HTML</a> — 6.5K palabras · tier-by-tier breakdown</li>
+<li><a href="#" onclick="alert('Doc no incluido en este paquete');return false;"><code>03-trayectoria-y-lecciones.md</code></a> · <a href="03-trayectoria-y-lecciones.html">HTML</a> — 5.4K palabras · cronología + lecciones OpenClaw</li>
+</ul>
+<p>Raw data: <code>.firecrawl/</code> · 35 archivos · ~10K líneas de scrapes auditables</p>
+<hr>
+<p><em>Estudio maestro v1.0 · Sintetiza 17K palabras de research en 1.5K palabras accionables.</em></p>
+<div class="footer">
+Affiliate Business · Generado 2026-06-09<br>
+Fuente: <code>PANCHO-SKALERS-MAESTRO.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

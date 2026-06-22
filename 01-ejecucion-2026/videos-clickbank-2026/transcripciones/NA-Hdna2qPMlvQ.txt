@@ -1,0 +1,360 @@
+[00:00] I just made this realistic AI influencer with perfect consistency throughout all of the scenes
+[00:05] and in this video I will break it down for you.
+[00:07] But first let me show you.
+[00:08] Okay the biggest problem with AI influencers? Consistency.
+[00:12] So my creator Dan always experiences these three issues when generating me.
+[00:16] The first problem is character consistency.
+[00:19] But with how great Nana Banana is, that really isn't a problem anymore.
+[00:23] The second biggest issue is making me look natural while up and about.
+[00:27] Dan assigned me a ton of hobbies.
+[00:28] So the most important thing is to not look AI while doing them.
+[00:31] And to do that we have a very specific way of prompting.
+[00:34] The last and the biggest issue Dan faces is voice consistency.
+[00:39] Almost every single one of my peers never sound the same.
+[00:43] Dan has found a method to have me sound consistent in all of my generations.
+[00:47] And if you want to create an actual consistent AI influencer, watch this video.
+[00:52] Now compared to having a normal AI generated video,
+[00:55] the audio is usually the part that gives it away.
+[00:59] And in this video I will show you how you can fix that.
+[01:01] And I will also show you a few different methods to making better UGC style and product ad type videos.
+[01:08] But first there's a new update to Sora 2 that now lets us make 20 second videos
+[01:13] which is huge for if you want to make your own custom ad.
+[01:17] For example here's what one prompt can do.
+[01:19] From the depths of the Alps comes the most brutal water on earth.
+[01:23] Trapped in Tallboy armor.
+[01:24] Cold.
+[01:25] Unrelenting.
+[01:26] Crap the can that erases all the blood.
+[01:29] Pure mountain water ready to obliterate your thirst.
+[01:32] No sugar.
+[01:33] No bubbles.
+[01:34] No plastic.
+[01:35] Just ruthless refreshment.
+[01:36] Kill the trap.
+[01:37] Kill the thirst like we did.
+[01:38] Join the rebellion.
+[01:40] Now that's not perfect yet, but in this video I will show you how to improve it and how to make it better.
+[01:45] But first let me show you how you can access Sora 2.
+[01:48] If you want to follow along I will leave a link in the description down below so you can access Sora 2 through ARCATS.
+[01:53] After you log into ARCATS this is the page that you will see.
+[01:56] And if you go over here to the video tab and you go to this setting bar
+[01:59] then you can change your model from Sora 2 to Sora 2 Pro.
+[02:03] And for this one we want to be using Sora 2.
+[02:05] Now we can switch up to 20 seconds which is quite huge.
+[02:08] And the thing is with Sora 2 like I have a bit of a love hate relationship with it
+[02:12] because I know what it is capable of.
+[02:15] But it has so many guardrails in place that it used to be impossible to use this tool
+[02:21] when it comes to making videos of people.
+[02:24] Now supposedly this has become a little bit easier with this new update.
+[02:27] So this first ad that I showed you was actually made super simple.
+[02:30] All I did is I dropped in a reference of this liquid death camp.
+[02:34] Then I described my video and just told it what I want.
+[02:38] You can be as specific as possible if you have your own idea in mind.
+[02:41] Then please add it in there.
+[02:42] If you don't then just let Sora take care of it for you.
+[02:45] So I just kept it simple.
+[02:46] I just asked it to make me a liquid death commercial.
+[02:49] And in terms of the settings you want to make it 1080p and then you hit send.
+[02:54] From the depths of the Alps comes the most brutal water on earth.
+[02:57] Trapped in Tallboy armor.
+[02:58] I'm gonna be honest with you guys like this can opening way
+[03:01] does not really make sense if we analyze it.
+[03:04] But what we can do now is we can download this
+[03:06] and then we can regenerate some of the scenes and start replacing those.
+[03:10] But this is the first update that I wanted to share with you
+[03:13] because you can now make some pretty cool and interesting looking product ads
+[03:16] just by uploading your image.
+[03:18] And it's already 20 seconds with just entering one prompt.
+[03:21] The only thing that sucks about Sora too
+[03:23] is that we're still having the issue
+[03:25] where if you create a realistic looking person
+[03:28] that I can actually make a video with that.
+[03:30] So we have to find a bit of a workaround.
+[03:32] But first for that we need to generate an image of our AI influencer.
+[03:36] To get started with making an image of your influencer
+[03:39] you want to make an image then you want to start with describing your image.
+[03:43] And for this we want to make sure we're either using
+[03:45] Nana Banana Pro or Nana Banana 2 and then you can describe your image.
+[03:49] And this is where most people go wrong
+[03:51] because most people use a very basic prompt.
+[03:53] For example they post something like this
+[03:56] a front-facing close-up of a young woman in her 20s
+[03:58] with straight blonde hair and blue eyes sitting at her wooden clean desk
+[04:02] wearing casual clothing in her room UGC style.
+[04:05] That created a mean image like this.
+[04:07] It's not bad but it's also not good either.
+[04:09] And that is because we're not specific enough
+[04:11] and this is where most people struggle.
+[04:13] So to solve that I created this markdown file
+[04:16] that you can use inside of Cloud.
+[04:18] So if we actually upload this into Cloud
+[04:21] then you can use this to help you with your prompting.
+[04:24] So basically all we have to say is I want to create an AI influencer
+[04:28] and now it will help you come up with the exact details
+[04:31] so it can describe your influencer
+[04:33] and give it a more detailed prompt that we can use inside of Nana Banana.
+[04:36] The only thing you have to do is you have to answer all of these different questions.
+[04:40] So gender, the age, ethnicity, hair, anything unique about them.
+[04:44] The scene, what are they wearing, accessories.
+[04:47] This way you give the AI a clear picture of what you want to get.
+[04:50] After you filled out all of the questions
+[04:52] add in a reference of the product that you want to have in there
+[04:55] and then hit enter and it now will start writing your prompt.
+[04:59] Now you copy this prompt and then you put it inside of Arquette
+[05:02] and then it will give you something like this.
+[05:05] So this compared to or other prompts looks way better in my opinion.
+[05:09] Even if you animate this
+[05:10] then you can truly see how much better your influencer will look
+[05:13] once you start adding in more details.
+[05:15] Do you have to use JSON prompting for this?
+[05:17] No, this will just make it easier
+[05:19] and this will make it faster for you to create a good looking AI influencer.
+[05:23] Okay, now that you have your base image ready
+[05:25] and you want to start making AI videos with it
+[05:28] which is actually the easy part.
+[05:30] I will first show you how you can fix voice consistency.
+[05:33] The biggest biggest problem with AI influencers is this.
+[05:35] I may sound like this now
+[05:37] but if I generate another clip of me
+[05:38] I might sound completely different.
+[05:40] It's driving me nuts.
+[05:42] Yeah, and then the issue has been driving me nuts also.
+[05:44] So let me show you how you can fix that.
+[05:47] The first tip that I want to give you to solve this
+[05:49] is to use a voice prompting.
+[05:50] So there are actually a few tools I use to make my videos.
+[05:54] For example, I use SOAR 2 as my main A-roll
+[05:57] where I have the influencer speaking
+[05:58] and I use Kling as the B-roll.
+[06:00] If I switch between these different models
+[06:03] there will be a change in voice.
+[06:05] The first layer of protection that you want to add in there
+[06:08] is you want to prompt how the voice should sound.
+[06:10] Now this is basic.
+[06:12] So if we look at our prompt structure
+[06:13] that I typically use to make my videos
+[06:15] then we can see we have camera plus subject plus action
+[06:18] plus environment plus lighting plus texture
+[06:20] and then I have the last one optional audio.
+[06:22] And that is if you are creating a character
+[06:24] that you want to have talking in there.
+[06:25] If you put this in practice
+[06:27] then what you want to do is for the audio segment
+[06:29] you can prompt something like
+[06:31] an American accent, medium light pitch,
+[06:33] soft and playful, voice lift slightly at the end,
+[06:36] light teasing energy, no background music.
+[06:38] This can be customized based on your needs.
+[06:41] In this example I've added this in there
+[06:43] and now we have that voice sounding like American.
+[06:46] So I don't get a random British accent
+[06:48] or Australian or whatever.
+[06:49] And if you want to create an actual
+[06:51] consistent AI influencer watch this video.
+[06:55] So still this sounds quite terrible.
+[06:57] There's a lot of noise.
+[06:58] There's a lot of background stuff.
+[07:00] There's a lot of cracking.
+[07:01] Like it's it's the typical Sora sound
+[07:03] and we need to clean that up.
+[07:04] You want to download this and then you want to extract
+[07:06] the MP3.
+[07:07] So just the audio from that file.
+[07:09] Then you want to go over to Adobe podcast
+[07:10] click on a hand speech.
+[07:11] You upload the file in there
+[07:13] and now you can just start uploading this
+[07:16] that you want to tweak the settings a little bit.
+[07:17] I like to put mine at 75% speech
+[07:20] 10% music, 10% background
+[07:22] and then you hit download.
+[07:24] And now this is the results.
+[07:25] And if you want to create an actual consistent
+[07:28] AI influencer watch this video.
+[07:31] Then we go over to 11 laps
+[07:32] use the voice changer here
+[07:34] and then we upload our MP3 file in there.
+[07:36] Then I used the Jessica voice right here.
+[07:39] Now for the settings you want to play around
+[07:41] with this until you have something that sounds nice.
+[07:43] For example,
+[07:43] I put my similarity on 100%
+[07:46] and then you click on generate speech.
+[07:48] Then you want to download this
+[07:49] and then you want to overlay this audio file
+[07:51] over your original audio file
+[07:53] and remove the old one.
+[07:54] This can be done in any type of thing
+[07:56] like CapCut, Premiere Pro,
+[07:57] like DaVinci, whatever you use,
+[07:59] just use a free one
+[08:00] and it can be done easily.
+[08:01] Now our video sounds like this.
+[08:03] And if you want to create
+[08:04] an actual consistent AI influencer
+[08:07] watch this video.
+[08:08] The last thing I would do
+[08:09] is add in a bit of background noise.
+[08:11] Now, for example,
+[08:12] you could go over to sound effects
+[08:13] and here you can generate
+[08:14] any type of background sounds
+[08:16] that you want and add it into your video.
+[08:18] So it matched the ambience and the sound.
+[08:20] So you now understand
+[08:21] how to get perfect voice consistency.
+[08:23] The next challenge that most people have
+[08:25] and which I'm sick and tired of
+[08:27] of seeing online
+[08:28] is not making your character
+[08:29] or influencer move naturally.
+[08:31] Here are a few examples
+[08:32] of what I mean by this.
+[08:33] These videos feel very static.
+[08:36] No real human motion at all.
+[08:38] It's too AI influencer like
+[08:40] even these people are pretending to be gurus
+[08:43] explaining it,
+[08:44] but they have like morphs and glitches.
+[08:46] It just doesn't work.
+[08:47] The question is
+[08:48] why do these video
+[08:49] feel so natural, fake
+[08:51] and just look bad in general?
+[08:52] The main difference comes from prompting.
+[08:54] Let me explain why.
+[08:56] If I were to add in this reference image
+[08:58] and I give this simple prompt
+[08:59] a 20 year old dark long
+[09:01] black hair Latina
+[09:02] UGC influencer
+[09:03] holding a Sony headphones
+[09:05] and talking about
+[09:06] how great the music quality and comfort is.
+[09:08] Then the AI
+[09:09] has to make up a lot of the details
+[09:11] a lot of the different shots
+[09:12] a lot of the different angles
+[09:13] what to talk about all of that
+[09:15] because if I were to generate this
+[09:17] using Sora 2
+[09:18] I would get a result like this
+[09:20] try out these Sony headphones
+[09:21] and I have to say
+[09:22] they sound incredible
+[09:23] the clarity in the bass
+[09:24] make every song feel alive
+[09:25] they're so comfortable
+[09:26] hours go by
+[09:26] and my ears still feel great
+[09:27] Landis is just a nightmare
+[09:29] just way too many different shots
+[09:31] no clear dialogue
+[09:33] the way she put her headphones on
+[09:34] suck like
+[09:36] so many bad things to say
+[09:37] So now let's do this correctly
+[09:38] Here I got this new reference image
+[09:40] and if I gave it this prompt here
+[09:42] and if I were to describe it
+[09:43] we're first describing
+[09:44] what the camera is
+[09:46] so we're doing a handheld tracking camera
+[09:48] then we have the subject
+[09:49] that is the women
+[09:50] and then we have the action
+[09:51] that is her getting out of the car
+[09:53] and the chauffeur closer to the door behind her
+[09:55] the woman says
+[09:56] while walking forward
+[09:57] and if you want to create
+[09:58] an actual consistent AI influencer
+[10:00] watch this video
+[10:01] then she winks
+[10:01] and walks off the frame
+[10:02] so that is the action
+[10:04] now the next step is
+[10:05] you could add an environment
+[10:06] lighting or texture
+[10:07] I'm not going to do it in this case
+[10:09] because we already have the image
+[10:11] that takes care of that
+[10:12] the only thing I'm going to add in there
+[10:13] is the audio
+[10:14] so I'm going to do American accent
+[10:16] medium light pitch
+[10:17] soft and playful
+[10:18] voice live slightly at the end
+[10:20] light teasing energy
+[10:21] no background music
+[10:22] and then if we make this with a different tool
+[10:24] let's do clean 3.0
+[10:26] and then if we hit generate
+[10:27] we get this result
+[10:29] and if you want to create
+[10:30] an actual consistent AI influencer
+[10:32] watch this video
+[10:34] so that looks a lot more realistic
+[10:36] you can also do the same thing
+[10:37] with starting hand frame
+[10:38] in this case
+[10:39] I switched over to cling
+[10:40] so here we have start frame
+[10:42] of her like this
+[10:44] and then we have the end frame
+[10:45] of her looking at us
+[10:46] and for this video
+[10:47] again I prompted in the same method
+[10:50] where I describe what I want to have happen
+[10:52] so we have the camera movement
+[10:54] we have the subject
+[10:55] then we have the action
+[10:56] this time because I don't want to have any audio
+[10:58] I mentioned that it's quiet
+[11:00] authentic candid moment
+[11:01] so there you have it
+[11:02] in summary
+[11:03] what you want to do
+[11:04] is you want to use a combination
+[11:05] of Sora 2
+[11:06] with cling 3.0
+[11:08] with adding in voice commands
+[11:10] as in what you want to have
+[11:11] your subject sound like
+[11:13] then you want to enhance that voice
+[11:15] using bit of Adobe podcast
+[11:16] and a bit of 11 apps voice changing
+[11:18] to make your voice consistent
+[11:20] and then for video generation
+[11:21] you want to be as details
+[11:23] as specific as possible
+[11:25] to get the right results
+[11:27] if you combine all of that together
+[11:28] then you get good results
+[11:30] it takes a lot more effort
+[11:31] but unfortunately
+[11:32] that's the current state that we're in
+[11:33] and if you don't put in an effort
+[11:35] then you got to accept
+[11:37] that your videos will still look
+[11:38] and sound like it is
+[11:40] now all of these examples
+[11:41] were made through Arquets
+[11:43] and you can not only use
+[11:44] all of these different video models
+[11:46] like a Sora 2
+[11:48] and cling and all of that
+[11:49] but you can also use
+[11:50] their own talking avatars
+[11:52] that look
+[11:52] and sound realistic
+[11:54] because they're based on real humans
+[11:56] if you want to try this out for yourself
+[11:57] I will leave the link
+[11:58] in the description down below
+[11:59] and if you want to learn more
+[12:00] about AI influencers
+[12:02] then click the video
+[12:02] that's on the screen right now
+[12:04] where I will walk you through
+[12:05] how to set everything up

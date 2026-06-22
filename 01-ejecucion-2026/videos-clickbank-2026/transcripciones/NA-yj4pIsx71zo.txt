@@ -1,0 +1,195 @@
+[00:00] In this video, I will explain what Facebook Conversions API Gateway is, who is it for,
+[00:05] how to configure it, and, spoiler alert, why I don't recommend it.
+[00:10] Also, did you know that 85% of you who watch my videos are not subscribed?
+[00:14] If you want to stay up to date with Google Tag Manager and Google Analytics and you
+[00:18] want to get this kind of videos first, then subscribe to my channel.
+[00:23] The classic old school setup for Facebook conversion tracking looked like this.
+[00:28] You have a website, on that website, you have Facebook Pixel installed, and that
+[00:32] pixel sends the data and the conversions to Facebook.
+[00:36] But because of various browser restrictions and browser extensions, Facebook started
+[00:41] pushing us to use Conversions API.
+[00:44] So with Conversions API Gateway, the setup would look like this.
+[00:47] You would still have the Facebook Pixel, which sends data directly to Facebook,
+[00:52] but also it would start sending data to some custom domain of yours.
+[00:58] Here we have a server which is designed only to accept Facebook events and then send them
+[01:04] further to Facebook.
+[01:06] So if you decide to use Conversions API Gateway, you would have both the Pixel and the Conversions
+[01:12] API.
+[01:13] In theory, this sounds great, but later in the video, I will show you some problems
+[01:18] with this approach.
+[01:19] So who is Facebook Conversions API Gateway designed for?
+[01:23] It's designed for those who don't have enough skills or resources for server-side tagging.
+[01:28] It's for those who are looking for an easy way where you don't need to have some technical
+[01:32] knowledge and you still want to increase data accuracy.
+[01:36] But in this case, I highlighted the word increase because there are some nuances here that
+[01:41] I will later explain.
+[01:42] And then it's for those who are not using Facebook plugins that automatically install
+[01:48] both Facebook Conversions API and Facebook Pixel.
+[01:51] For example, maybe you're working with some custom website and someone installed Facebook
+[01:56] Pixel a long time ago directly in the code, nobody is touching that, and now you want
+[02:01] to start using Conversions API.
+[02:03] So if you don't have the resources, you don't have the developers, but you still want
+[02:07] to start using Conversions API, then this gateway might be an option for you.
+[02:13] So before I show you the limitations or the problems with Facebook Conversions
+[02:17] API Gateway, first I need to show you how it is set up.
+[02:22] And then I will show you those limitations.
+[02:24] So the setup process looks fairly simple.
+[02:27] By the way, first of all, on this demo website, I have installed a basic Facebook Pixel.
+[02:32] Right now it just sends the page view event.
+[02:36] And if I open developer tools, go to network then enter Facebook and then reload the
+[02:42] page.
+[02:43] I will see that a request was sent to Facebook.
+[02:46] There's also a request related to the page view event.
+[02:50] So right now, this is just a pure client side setup done in the browser.
+[02:55] So the setup of the Facebook Conversions API Gateway is fairly simple.
+[02:59] Technically you could do that from the interface of your Facebook events manager.
+[03:03] However, the pricing starts there from around $30 because they would use Amazon servers.
+[03:09] A cheaper option, but still reliable is STAPE.
+[03:12] So if you go to pricing on their page and then look for dedicated gateways, here if we
+[03:18] click learn more, we will see that Metas Conversions API Gateway, it will cost $10.
+[03:25] Or if you want to have more pixels, then the price increases, but the price per pixel
+[03:29] becomes lower.
+[03:31] Also they offer a seven day trial, so you will have plenty of time to play around
+[03:34] with this.
+[03:35] So I will click start seven day free trial, then I will create an account.
+[03:40] So I will enter my email, then I will give it a gateway name.
+[03:44] For example, I don't know, maybe the name of my sound box website.
+[03:50] Then I will select the location.
+[03:54] And once I enter the email, then I will click create.
+[03:57] Oh, I need to of course agree with terms of use.
+[04:01] Now click create.
+[04:02] Then I will need to confirm the email address.
+[04:05] So now I will pause the video and do that.
+[04:07] Then after I clicked the link in the email, I entered the password.
+[04:11] So click save password.
+[04:13] And then my gateway was created.
+[04:15] Now I am asked to select the subscription plan.
+[04:19] So the first seven days are free, but then you will be charged $10 per month, or you
+[04:24] can add the card later.
+[04:26] It might take several moments until the gateway is created, I mean the server.
+[04:31] And now it is running.
+[04:33] So the next step is to finish the setup.
+[04:36] Click here.
+[04:37] Here you will be redirected to another domain and it will be the interface of the conversions
+[04:43] API gateway because STAPES interface is the interface for the server management.
+[04:48] But of course, there are not many things to manage here.
+[04:50] And then if you want to log in to the actual interface of the gateway, you will need to
+[04:56] enter your password right here.
+[04:58] So it might be a different password compared to STAPE, it might be the same.
+[05:01] So it's your choice.
+[05:03] Then I also need to make sure that the email is the same as it was during the sign up and
+[05:09] then click create account.
+[05:11] So the account is created.
+[05:13] Now I am inside the gateway.
+[05:16] Right now it's not connected to the pixel on the website.
+[05:19] So the pixel here still works as usual.
+[05:22] But when I will connect my pixel to this gateway, some additional feature will be activated
+[05:27] for my pixel and it will start sending data not only directly to Facebook, but
+[05:31] also to the conversions API.
+[05:34] So to do that, I will need to click add data source.
+[05:38] Then I will select Facebook login, click connect.
+[05:41] Then you will need to confirm that this is you, then you just select the business
+[05:46] account, then continue, then select the pixel that you have installed on a website.
+[05:53] So on my demo website, this is the pixel and I will click continue.
+[05:58] And that's it.
+[05:59] The next step that you should definitely do is to configure DNS, which means that you will
+[06:03] need to map a custom subdomain dedicated just to conversions API gateway.
+[06:09] And that domain will be used by your Facebook pixel, which is installed on a website.
+[06:14] So click configure DNS, then click optimize.
+[06:18] And here you should come up with some subdomain, which is not used by anything else.
+[06:23] It will be used only by the conversions API gateway.
+[06:26] So the root domain is the domain of your site.
+[06:30] If your website is www.example.com, then just enter example.com here.
+[06:35] And then the subdomain, so CPG for example, and then before you click continue, you should
+[06:41] create a DNS record, which is a CNAME in the system where you're managing your domain.
+[06:47] So I am using Cloudflare and I am inside DNS and I will add a new DNS record where
+[06:54] the type is CNAME, then name will be the subdomain.
+[07:00] And the target will be this particular domain right here.
+[07:06] So copy and paste it then disable proxying and click save.
+[07:11] Now you will need to wait for a while.
+[07:12] It depends on the vendor that you're using to manage your domain.
+[07:17] It might be minutes, it might be hours with Cloudflare, it's pretty fast.
+[07:21] So I think I will wait a minute or so and then I will click continue.
+[07:26] By the way, did you know that I have a bunch of free eBooks on Google Tech Manager and Google
+[07:30] Analytics?
+[07:31] So if you want to better learn these topics, then click the link below the video, download
+[07:36] those eBooks and get started.
+[07:38] All right, I have waited for a bit and now I will click continue and see if this works.
+[07:44] All right, my setup was marked as optimized, I see the green check mark.
+[07:50] So this is good.
+[07:51] Then I can go to overview and just to summarize what we have done so far.
+[07:55] I have connected a particular pixel to this gateway and I also mapped a custom subdomain.
+[08:02] Now we need to wait for a bit longer because this change, especially the part where the
+[08:08] custom subdomain will be used, it will not start working immediately.
+[08:12] It might take a while.
+[08:14] For some it might be like one hour.
+[08:17] Based on my tests, it was between five and 10 minutes.
+[08:20] Now again, I will pause the video and after five minutes I will continue and we will see
+[08:25] what is happening.
+[08:26] All right, I have waited for several minutes.
+[08:29] Now let's open developer tools on my website where Facebook pixel is installed and let's
+[08:34] see what is happening.
+[08:36] So I will reload the page and then in the filter, while I am in the network tab,
+[08:41] I will enter Facebook.
+[08:43] So the request to Facebook was still sent.
+[08:46] However, if I open the Metapixel helper, I will see that an event ID was added.
+[08:52] Since I started using the conversions API gateway, and the same event will be sent with pixel
+[08:58] and also to the conversions API, both of those events must have the same ID.
+[09:04] So this is handled automatically.
+[09:06] I have the event ID right here.
+[09:08] And another request for the same event was also sent to my conversions API gateway.
+[09:14] So the subdomain starts with CPG.
+[09:17] And if I click here, I will see that a request was sent to this subdomain.
+[09:22] Here we have something.
+[09:24] And then in the payload, I see what kind of information was sent.
+[09:28] And we also have the same event ID right here.
+[09:31] So as you can see, without any serious technical knowledge, anyone could connect
+[09:35] Facebook conversions API gateway and then start using conversions API that way.
+[09:40] So according to Facebook, they say that the average cost per result improvement could be
+[09:46] expected up to 13% just by implementing conversions API gateway the way that I showed you just
+[09:53] now.
+[09:54] And also there was a reported 7% increase in the number of conversions.
+[09:58] So on paper, it sounds good.
+[10:00] But my question is, is it though?
+[10:02] I mean, in theory, this sounds good.
+[10:04] But in reality, I think the numbers should be lower because this kind of setup is
+[10:09] still quite limited.
+[10:11] Let me show you what I mean.
+[10:13] So in this browser, I have installed a browser extension called ghostry.
+[10:18] It can block various trackers, including Facebook pixel.
+[10:22] So now if I resume it, let's see what happens then I will remove this filter, then reload
+[10:30] the page, and then look for Facebook.
+[10:33] And I see that Facebook request was blocked.
+[10:37] Because this request was blocked, Facebook pixel was not loaded properly on a page.
+[10:41] And since it was not loaded on a page, it means that there was no request to conversions API
+[10:47] either.
+[10:48] So if we look at this particular chart, if an extension blocks this part, it means that
+[10:52] this part is also automatically blocked.
+[10:55] So if you were expecting to reduce the impact of browser extensions, that improvement
+[11:00] will be very insignificant.
+[11:02] As most of the popular browser extensions, they are quite aggressive, and they will still
+[11:07] block your setup.
+[11:09] So I would say you can expect the improvement at best of one or 2%.
+[11:14] So if you were expecting a significant increase in data accuracy, track more conversions,
+[11:20] reduce the impact of browser extensions, then Facebook conversions API gateway barely
+[11:25] helps with that.
+[11:26] If you ask me, a much better option would be to have a proper server side setup.
+[11:31] Sure, it's more difficult to configure, but the results are also much better.
+[11:35] I mean, for example, if you are using Stap, they have a custom loader feature that modifies
+[11:40] the entire URL of the request sent to your server, which means that the data has a much
+[11:45] higher chance of reaching that server.
+[11:48] And then from the server, you send data further to Facebook.
+[11:52] Also cookies.
+[11:53] Facebook conversions API gateway does not extend cookie lifetime.
+[11:57] While we're server side tagging, you can definitely do that.
+[12:00] If you want to learn how to use server side tagging and supercharger setup, I will share
+[12:04] some resources below the video.
+[12:06] And if you want to save time, avoid trial and error and get support while learning it,
+[12:10] then take a look at my intermediate slash advanced Google Tag Manager course, where
+[12:14] I have plenty of server side tagging content, I'll post a link to it below.
+[12:19] If you found this video useful, hit the like button.
+[12:22] That will help me understand what videos do you like, and what should I create
+[12:25] in the future.
+[12:26] Also, if you want to learn more about Google Tag Manager or GA4, then subscribe to this
+[12:31] channel.
+[12:32] My name is Julius, this is Analytics Mania and I'll see you in the next video.

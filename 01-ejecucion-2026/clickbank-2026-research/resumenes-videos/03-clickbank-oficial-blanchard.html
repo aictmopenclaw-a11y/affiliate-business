@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumenes ClickBank oficial y Robby Blanchard · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">01-ejecucion-2026 / clickbank-2026-research / resumenes-videos · 33 min · 6,672 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#video-1-clickbank-team-reveals-top-offer-picks-for-2026-start-testing-now" class="">Video 1 — ClickBank Team Reveals Top Offer Picks for 2026 — Start Testing NOW!</a></li><li><a href="#de-que-trata" class="h3">De que trata</a></li><li><a href="#puntos-clave-con-timestamps" class="h3">Puntos clave con timestamps</a></li><li><a href="#ofertasproductos-concretos-mencionados-lista-completa" class="h3">Ofertas/productos concretos mencionados (lista completa)</a></li><li><a href="#numeros-y-datos-concretos" class="h3">Numeros y datos concretos</a></li><li><a href="#terminos-explicados-primera-aparicion" class="h3">Terminos explicados (primera aparicion)</a></li><li><a href="#que-nos-sirve" class="h3">Que nos sirve</a></li><li><a href="#video-2-5-best-selling-affiliate-supplements-on-clickbank-in-2025-ready-for-2026" class="">Video 2 — 5 Best-Selling Affiliate Supplements on ClickBank in 2025 — READY for 2026!</a></li><li><a href="#de-que-trata" class="h3">De que trata</a></li><li><a href="#puntos-clave-con-timestamps" class="h3">Puntos clave con timestamps</a></li><li><a href="#ofertasproductos-concretos-mencionados" class="h3">Ofertas/productos concretos mencionados</a></li><li><a href="#numeros-y-datos-concretos" class="h3">Numeros y datos concretos</a></li><li><a href="#terminos-explicados-primera-aparicion-en-este-video" class="h3">Terminos explicados (primera aparicion en este video)</a></li><li><a href="#que-nos-sirve" class="h3">Que nos sirve</a></li><li><a href="#video-3-clickbanks-top-affiliate-products-to-promote-march-2026" class="">Video 3 — ClickBank's Top Affiliate Products to Promote — March 2026</a></li><li><a href="#de-que-trata" class="h3">De que trata</a></li><li><a href="#puntos-clave-con-timestamps" class="h3">Puntos clave con timestamps</a></li><li><a href="#ofertasproductos-concretos-mencionados-ranking-de-marzo-2026" class="h3">Ofertas/productos concretos mencionados (ranking de marzo 2026)</a></li><li><a href="#numeros-y-datos-concretos" class="h3">Numeros y datos concretos</a></li><li><a href="#terminos-explicados-primera-aparicion-en-este-video" class="h3">Terminos explicados (primera aparicion en este video)</a></li><li><a href="#que-nos-sirve" class="h3">Que nos sirve</a></li><li><a href="#video-4-clickbanks-top-affiliate-marketing-products-to-promote-december-2025" class="">Video 4 — ClickBank's Top Affiliate Marketing Products to Promote - December 2025</a></li><li><a href="#de-que-trata" class="h3">De que trata</a></li><li><a href="#puntos-clave-con-timestamps" class="h3">Puntos clave con timestamps</a></li><li><a href="#ofertasproductos-concretos-mencionados-top-5-bonuses-de-diciembre-2025" class="h3">Ofertas/productos concretos mencionados (top 5 + bonuses de diciembre 2025)</a></li><li><a href="#numeros-y-datos-concretos" class="h3">Numeros y datos concretos</a></li><li><a href="#terminos-explicados-primera-aparicion-en-este-video" class="h3">Terminos explicados (primera aparicion en este video)</a></li><li><a href="#que-nos-sirve" class="h3">Que nos sirve</a></li><li><a href="#video-5-clickbank-1-affiliate-reveals-the-5-mistakes-you-must-avoid-in-2026" class="">Video 5 — Clickbank #1 Affiliate Reveals The 5 Mistakes You Must Avoid in 2026!</a></li><li><a href="#de-que-trata" class="h3">De que trata</a></li><li><a href="#puntos-clave-con-timestamps" class="h3">Puntos clave con timestamps</a></li><li><a href="#numeros-y-datos-concretos" class="h3">Numeros y datos concretos</a></li><li><a href="#terminos-explicados-primera-aparicion-en-este-video" class="h3">Terminos explicados (primera aparicion en este video)</a></li><li><a href="#que-nos-sirve" class="h3">Que nos sirve</a></li><li><a href="#video-6-how-top-affiliate-marketers-find-winning-offers-to-sell-for-free" class="">Video 6 — How Top Affiliate Marketers Find Winning Offers To Sell (for FREE)</a></li><li><a href="#de-que-trata" class="h3">De que trata</a></li><li><a href="#puntos-clave-con-timestamps" class="h3">Puntos clave con timestamps</a></li><li><a href="#ofertasproductos-concretos-mencionados" class="h3">Ofertas/productos concretos mencionados</a></li><li><a href="#numeros-y-datos-concretos" class="h3">Numeros y datos concretos</a></li><li><a href="#terminos-explicados-primera-aparicion-en-este-video" class="h3">Terminos explicados (primera aparicion en este video)</a></li><li><a href="#que-nos-sirve" class="h3">Que nos sirve</a></li><li><a href="#resumen-cruzado-lo-que-mas-se-repite-en-los-6-videos" class="">Resumen cruzado — lo que mas se repite en los 6 videos</a></li><li><a href="#ofertas-con-aparicion-en-mas-de-un-video" class="h3">Ofertas con aparicion en mas de un video</a></li><li><a href="#criterios-que-todos-los-expertos-repiten" class="h3">Criterios que todos los expertos repiten</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>03-clickbank-oficial-blanchard.md</span><span>6,672 palabras</span><span>~33 min</span></div>
+<h1 id="resumenes-clickbank-oficial-y-robby-blanchard">Resumenes ClickBank oficial y Robby Blanchard</h1>
+<p>Fecha de procesamiento: 2026-06-17 Fuente: transcripciones de video en <code>/Users/cristobaltejero/Projects/affiliate-business/01-ejecucion-2026/videos-clickbank-2026/transcripciones/</code> Uso: material de estudio para entrada al negocio de afiliacion ClickBank + Meta Ads.</p>
+<div class="kpi-strip"><div class="stat"><div class="stat-value">4% CVR</div><div class="stat-label">Rocket Languages — el CVR más alto de todos los rankings revisados</div></div><div class="stat"><div class="stat-value">$198.72</div><div class="stat-label">Pago promedio Prodentum — el más alto de todos los productos analizados</div></div><div class="stat"><div class="stat-value">$3.32 EPC</div><div class="stat-label">Rocket Languages — EPC más alto del ranking de marzo 2026</div></div><div class="stat"><div class="stat-value">+$10M/año</div><div class="stat-label">Operación de Robby Blanchard ("más de 8 cifras al año")</div></div></div>
+<hr>
+<h2 id="video-1-clickbank-team-reveals-top-offer-picks-for-2026-start-testing-now">Video 1 — ClickBank Team Reveals Top Offer Picks for 2026 — Start Testing NOW!<a class="anchor" href="#video-1-clickbank-team-reveals-top-offer-picks-for-2026-start-testing-now">#</a></h2>
+<p><strong>Canal:</strong> ClickBank (oficial) <strong>Fecha:</strong> 2025-12-12 <strong>Duracion aprox.:</strong> 12 minutos (la transcripcion llega hasta [11:26]) <strong>URL:</strong> https://www.youtube.com/watch?v=K9tjlnwqFQY</p>
+<h3 id="de-que-trata">De que trata<a class="anchor" href="#de-que-trata">#</a></h3>
+<p>Siete personas del equipo interno de ClickBank (sales, account managers, business development) entregan sus recomendaciones personales de ofertas para el periodo Q4 2025 a Q1 2026. Cada persona presenta una o dos ofertas con sus metricas clave. Algunas ofertas no estan en el marketplace publico y requieren contacto directo con el equipo de ClickBank.</p>
+<h3 id="puntos-clave-con-timestamps">Puntos clave con timestamps<a class="anchor" href="#puntos-clave-con-timestamps">#</a></h3>
+<p><strong>[00:00-00:29]</strong> Kyle Costecca (Senior Business Development Manager) conduce el segmento. Explica que va mas alla de las estadisticas publicas del marketplace para revelar "ofertas del menu secreto" que no aparecen listadas.</p>
+<p><strong>[00:30-01:20] Oferta 1 — GL Pro One</strong></p>
+<ul>
+<li>CPA (pago fijo por venta) de $190 para los mejores afiliados.</li>
+<li>CVR (porcentaje que compra tras hacer clic en el enlace de afiliado) de 1.07%.</li>
+<li>No aparece en el marketplace publico. Para acceder: enviar correo al equipo o contactar al account manager si se es Platinum o superior.</li>
+<li>El presentador la describe como una "joya oculta" de un offer owner diamante (nivel mas alto de vendedor en ClickBank).</li>
+</ul>
+<p><strong>[01:21-03:46] Oferta 2 — NuCom</strong></p>
+<ul>
+<li>App de binaural beats (sonidos de doble frecuencia disenados para alterar el estado mental). Precio al consumidor: $29.99 al mes.</li>
+<li>Modelo de cobro recurrente (rebill): el usuario paga cada mes, lo que genera comisiones repetidas para el afiliado.</li>
+<li>Opciones de pago al afiliado: CPA o rev share (porcentaje sobre ventas). La transcripcion no especifica los montos exactos.</li>
+<li>Endorsements (respaldos) mencionados: Tony Robbins, Brooke Burke, "grandes atletas". La transcripcion dice que "nacio como producto medico de grado 3 que costaba $7.000 o $8.000 por tratamiento para PTSD".</li>
+<li>Requiere aprobacion previa del offer owner para promocionarlo.</li>
+</ul>
+<p><strong>[03:47-05:17] Oferta 3 — Energy Revolution (presentada por Kirsten, account strategist)</strong></p>
+<ul>
+<li>DIY (hazlo tu mismo) generador de energia electrica basado en una invencion antigua (la transcripcion no especifica cual).</li>
+<li>VSL (video de ventas) con angulos de "costos de electricidad en alza" y sin las restricciones de compliance (cumplimiento de normas publicitarias) que tienen ofertas de salud.</li>
+<li>CVR: 1.25%. EPC (ganancia promedio por clic): $0.50 ("50% EPCs" segun la transcripcion; en contexto de $50 earnings per order, esto equivale a aprox $0.50 EPC si se trata de centavos). Ganancia por orden: $50.</li>
+<li>"Verificada para convertir en Facebook". Tasa de reembolso baja. Equipo vendedor es Platinum de larga data.</li>
+</ul>
+<p><strong>[04:21-06:34] Oferta 4 — EnterFlow (presentada por Kyle Meredith, business development manager)</strong></p>
+<ul>
+<li>Suplemento dirigido al sistema endocrino femenino (hormonas). Beneficios declarados: mas energia, menos niebla mental, perdida de peso, hormonas estables.</li>
+<li>VSL "fundador al frente": la duena del negocio aparece en camara como cara de la oferta.</li>
+<li>Datos de prueba en trafico frio (personas que no conocen la marca) con presupuesto de "algunos miles de dolares": CVR 2.45%, EPC de afiliado $2.83.</li>
+<li>Trafico recomendado: Facebook, native ads, YouTube, email.</li>
+<li>No aparece en el marketplace publico. Contacto directo requerido.</li>
+</ul>
+<p><strong>[06:35-07:23] Oferta 5 — Synodentics (presentada por Shannon Smith, directora de account management)</strong></p>
+<ul>
+<li>Producto dental de Revenor River (fabricantes de Prodentum y Dentotox).</li>
+<li>Audiencia objetivo: hombres y mujeres mayores de 45 anos preocupados por caries y encias.</li>
+<li>Testeado principalmente en YouTube, optimizado para todos los canales.</li>
+<li>Es whitelist only (lista blanca): solo pueden promoverlo afiliados aprobados previamente.</li>
+<li>Aparece en el marketplace pero requiere aprobacion del affiliate manager de Revenor River.</li>
+</ul>
+<p><strong>[07:24-10:06] Ofertas 6 y 7 (presentadas por Justin Clark, account manager)</strong></p>
+<p><em>Ignitro:</em></p>
+<ul>
+<li>Oferta de perdida de peso para temporada Q1.</li>
+<li>CPA disponible para media buyers calificados: hasta $180.</li>
+<li>CVR en testing: 1.42%.</li>
+<li>Disponible en el marketplace de ClickBank.</li>
+</ul>
+<p><em>Genius Brain Signal:</em></p>
+<ul>
+<li>Oferta de manifestacion (categoria de desarrollo personal que promete mejorar el estado mental para atraer resultados financieros). Usa audio para poner el cerebro en "estado de flujo".</li>
+<li>El offer owner es "Platinum Plus" (nivel de vendedor en ClickBank).</li>
+<li>La transcripcion no entrega metricas concretas de la oferta, solo dice que el vendedor "esta viendo EPC y CVR de calidad en testing preliminar".</li>
+<li>Disponible en el marketplace bajo el nombre "BrainSig".</li>
+</ul>
+<p><strong>[10:07-11:26] Oferta 8 — Moon Reading (presentada por Thomas McMahon, director of business development)</strong></p>
+<ul>
+<li>Oferta de astrologia: reporte personalizado segun signo lunar.</li>
+<li>Precio al consumidor: $11 por compra.</li>
+<li>Pago promedio al afiliado: hasta $25 via rev share (porcentaje de ventas).</li>
+<li>El presentador argumenta que la conversion es mas facil que en suplementos de $60 por el bajo precio de entrada.</li>
+<li>Convierte tanto en trafico organico como en paid.</li>
+</ul>
+<h3 id="ofertasproductos-concretos-mencionados-lista-completa">Ofertas/productos concretos mencionados (lista completa)<a class="anchor" href="#ofertasproductos-concretos-mencionados-lista-completa">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Producto</th>
+<th>Categoria</th>
+<th>CPA/Pago</th>
+<th>CVR</th>
+<th>Notas</th>
+</tr></thead><tbody>
+<tr>
+<td>GL Pro One</td>
+<td>No especificado</td>
+<td>CPA $190 (top producers)</td>
+<td>1.07%</td>
+<td>Fuera del marketplace, contacto directo</td>
+</tr>
+<tr>
+<td>NuCom</td>
+<td>App wellness/binaural</td>
+<td>No especificado (CPA o rev share)</td>
+<td>No especificado</td>
+<td>$29.99/mes al consumidor, rebill, requiere aprobacion</td>
+</tr>
+<tr>
+<td>Energy Revolution</td>
+<td>Energia alternativa DIY</td>
+<td>$50 por orden</td>
+<td>1.25%</td>
+<td>En marketplace, Facebook-validated</td>
+</tr>
+<tr>
+<td>EnterFlow</td>
+<td>Suplemento femenino hormonal</td>
+<td>EPC $2.83</td>
+<td>2.45%</td>
+<td>Fuera del marketplace, contacto directo</td>
+</tr>
+<tr>
+<td>Synodentics</td>
+<td>Suplemento dental</td>
+<td>No especificado</td>
+<td>No especificado</td>
+<td>Whitelist only, Revenor River</td>
+</tr>
+<tr>
+<td>Ignitro</td>
+<td>Perdida de peso</td>
+<td>CPA hasta $180</td>
+<td>1.42%</td>
+<td>En marketplace</td>
+</tr>
+<tr>
+<td>Genius Brain Signal / BrainSig</td>
+<td>Manifestacion/audio</td>
+<td>No especificado</td>
+<td>No especificado</td>
+<td>En marketplace, en testing</td>
+</tr>
+<tr>
+<td>Moon Reading</td>
+<td>Astrologia</td>
+<td>Hasta $25 promedio</td>
+<td>No especificado</td>
+<td>Precio al consumidor $11</td>
+</tr>
+</tbody></table></div>
+<h3 id="numeros-y-datos-concretos">Numeros y datos concretos<a class="anchor" href="#numeros-y-datos-concretos">#</a></h3>
+<ul>
+<li>GL Pro One: CPA $190, CVR 1.07%</li>
+<li>Energy Revolution: CVR 1.25%, ganancia por orden $50</li>
+<li>EnterFlow: CVR 2.45%, EPC afiliado $2.83 (en testing con "algunos miles de dolares de gasto")</li>
+<li>Ignitro: CPA hasta $180, CVR 1.42%</li>
+<li>Moon Reading: precio consumidor $11, pago afiliado hasta $25</li>
+</ul>
+<h3 id="terminos-explicados-primera-aparicion">Terminos explicados (primera aparicion)<a class="anchor" href="#terminos-explicados-primera-aparicion">#</a></h3>
+<ul>
+<li><strong>CPA</strong> (Cost Per Acquisition / costo por adquisicion): pago fijo que recibe el afiliado por cada venta, sin importar si el cliente pide reembolso despues.</li>
+<li><strong>CVR</strong> (Conversion Rate / tasa de conversion): porcentaje de personas que llegan a la pagina del producto y terminan comprando.</li>
+<li><strong>EPC</strong> (Earnings Per Click / ganancia por clic): promedio de dinero ganado por cada clic enviado a la oferta. Indicador clave para comparar ofertas entre si.</li>
+<li><strong>Rev share</strong> (revenue share): el afiliado recibe un porcentaje de la venta en vez de un monto fijo. Si hay reembolso, pierde esa comision.</li>
+<li><strong>Rebill</strong>: cobro recurrente mensual al consumidor; el afiliado puede seguir ganando mientras el cliente siga suscrito.</li>
+<li><strong>VSL</strong> (Video Sales Letter): video de ventas largo que reemplaza a la pagina de texto, tipicamente de 15-60 minutos.</li>
+<li><strong>Whitelist only</strong>: solo afiliados aprobados previamente pueden promocionar la oferta.</li>
+<li><strong>Diamond / Platinum</strong>: niveles internos de ClickBank para vendedores (offer owners) segun volumen de ventas. Diamond es el nivel mas alto mencionado en el video.</li>
+<li><strong>Gravity</strong>: la transcripcion no menciona este termino en este video.</li>
+<li><strong>Offer owner</strong>: el dueno del producto que lo sube a ClickBank. El afiliado no posee el producto, solo lo promociona.</li>
+<li><strong>Cold traffic</strong> (trafico frio): personas que no conocen la marca ni han mostrado interes previo. Diferente a una lista de email calida.</li>
+<li><strong>Native ads</strong>: anuncios que imitan el formato editorial de un sitio web (ej: Taboola, Outbrain).</li>
+<li><strong>Affiliate manager</strong>: persona del equipo del offer owner que gestiona las relaciones con los afiliados.</li>
+<li><strong>Account manager</strong> (en ClickBank): persona del equipo de ClickBank que asiste a afiliados y vendedores.</li>
+</ul>
+<h3 id="que-nos-sirve">Que nos sirve<a class="anchor" href="#que-nos-sirve">#</a></h3>
+<ul>
+<li>Identificar que Energy Revolution e Ignitro son las unicas dos ofertas de este video disponibles libremente en el marketplace sin aprobacion especial.</li>
+<li>NuCom es interesante para Meta Ads por el angulo de estres y trabajo (layoffs, economia) y el modelo de rebill que puede mejorar el LTV (valor de vida del cliente para el afiliado).</li>
+<li>EnterFlow tiene CVR y EPC destacados para trafico frio en Facebook, pero requiere contacto directo. Potencial para testing rapido si se logra acceso.</li>
+<li>Synodentics e Ignitro son de categorias ya validadas en ClickBank (dental y weight loss) con historial de conversion probado.</li>
+<li>Genius Brain Signal / BrainSig y Moon Reading son ofertas de ticket bajo o sin metricas confirmadas, pero utiles para escalar volumen de clics si el CPA se puede conseguir.</li>
+</ul>
+<hr>
+<h2 id="video-2-5-best-selling-affiliate-supplements-on-clickbank-in-2025-ready-for-2026">Video 2 — 5 Best-Selling Affiliate Supplements on ClickBank in 2025 — READY for 2026!<a class="anchor" href="#video-2-5-best-selling-affiliate-supplements-on-clickbank-in-2025-ready-for-2026">#</a></h2>
+<p><strong>Canal:</strong> ClickBank (oficial) <strong>Fecha:</strong> 2025-12-26 <strong>Duracion aprox.:</strong> 9 minutos <strong>URL:</strong> https://www.youtube.com/watch?v=iHsiso-Qd8M</p>
+<h3 id="de-que-trata">De que trata<a class="anchor" href="#de-que-trata">#</a></h3>
+<p>Justin (account manager de ClickBank especializado en suplementos) presenta el ranking de los 5 suplementos mas vendidos de todo 2025 en ClickBank, con metricas actualizadas. El mensaje central: estos productos siguen vigentes para Q1 2026, especialmente durante la temporada de resoluciones de Ano Nuevo.</p>
+<h3 id="puntos-clave-con-timestamps">Puntos clave con timestamps<a class="anchor" href="#puntos-clave-con-timestamps">#</a></h3>
+<p><strong>[00:00-00:58]</strong> Introduccion. Justin dice que el canal tuvo "innumerables productos de suplemento increibles que los afiliados destrozaron con ventas record en 2025". Enmarca los 5 productos como validos para la temporada de Q1 (enero/febrero), no solo como relato historico.</p>
+<p><strong>[00:59-02:14] Puesto 5 — Prostivive</strong></p>
+<ul>
+<li>Categoria: salud masculina (prostate, 40+).</li>
+<li>EPC: $0.83. Pago promedio por venta: $156.22. CVR: 0.57%.</li>
+<li>Formato: polvo que se mezcla en bebidas. Soporta funcion de prostata, flujo urinario, energia.</li>
+<li>Audiencia: hombres mayores de 40 (tambien mujeres que compran para el hombre de su vida).</li>
+<li>Vendedor: "top diamond vendor".</li>
+</ul>
+<p><strong>[02:15-03:18] Puesto 4 — Java Burn</strong></p>
+<ul>
+<li>Categoria: perdida de peso / energia. Se mezcla en el cafe matutino.</li>
+<li>EPC: $0.29. Pago promedio: $166.41. CVR: 0.21%.</li>
+<li>Audiencia masiva: cualquier persona que tome cafe.</li>
+<li>La transcripcion senala que los afiliados llevan anos en este producto y "todavia lo estan haciendo".</li>
+</ul>
+<p><strong>[03:19-04:34] Puesto 3 — AquaSculpt</strong></p>
+<ul>
+<li>Categoria: perdida de peso.</li>
+<li>EPC: $0.93. Pago promedio: $171.90. CVR: 0.59%.</li>
+<li>Ingredientes mencionados: L-carnitina, cromo, cafe verde (green coffee bean).</li>
+<li>Angulo: "fat switch" (interruptor de grasa) para personas ocupadas que no tienen tiempo para su rutina de perdida de peso.</li>
+<li>La transcripcion menciona "muchos testimoniales positivos de AquaSculpt ya en internet".</li>
+</ul>
+<p><strong>[04:35-05:50] Puesto 2 — Breathe</strong></p>
+<ul>
+<li>Categoria: salud respiratoria (sub-nicho unico en ClickBank).</li>
+<li>EPC: $0.58. Pago promedio: $148. CVR: 0.44%.</li>
+<li>VSL con un "terapeuta respiratorio real" en camara.</li>
+<li>El equipo de Breathe hizo testing interno con "mas de un millon de dolares en gasto publicitario" antes de lanzar.</li>
+<li>Mercado objetivo: mas de 500 millones de personas que buscan mejorar la salud respiratoria (la transcripcion no especifica la fuente de este dato).</li>
+<li>Materiales de afiliado: datos demograficos, email swipes, plantillas de landing page, videos, imagenes del producto.</li>
+</ul>
+<p><strong>[05:51-07:43] Puesto 1 — Prime Biome</strong></p>
+<ul>
+<li>Categoria: belleza / skincare (suplemento para piel). El presentador dice que el nicho de belleza "ha estado creciendo en 2025".</li>
+<li>EPC: $0.59. Pago promedio: $167. CVR: 0.39%.</li>
+<li>Audiencia objetivo: mujeres mayores de 35 que buscan solucion de cuidado de piel y tambien control de peso.</li>
+<li>Angulo: actua sobre el microbioma intestinal y de piel a la vez (dos beneficios en uno).</li>
+<li>Canales validados: Facebook, native, YouTube, email.</li>
+<li>La transcripcion dice que "ha sido meticulosamente testeado para mantener los reembolsos bajos".</li>
+</ul>
+<p><strong>[07:44-09:06]</strong> Cierre. Justin invita a aprovechar Q1 (temporada de resoluciones) con estos productos. Menciona que "algunos de los mejores vendedores de ClickBank estan lanzando nuevos productos para que puedas aprovechar Q1".</p>
+<h3 id="ofertasproductos-concretos-mencionados">Ofertas/productos concretos mencionados<a class="anchor" href="#ofertasproductos-concretos-mencionados">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Ranking</th>
+<th>Producto</th>
+<th>Categoria</th>
+<th>EPC</th>
+<th>Pago promedio</th>
+<th>CVR</th>
+</tr></thead><tbody>
+<tr>
+<td>#5</td>
+<td>Prostivive</td>
+<td>Salud masculina (prostata)</td>
+<td>$0.83</td>
+<td>$156.22</td>
+<td>0.57%</td>
+</tr>
+<tr>
+<td>#4</td>
+<td>Java Burn</td>
+<td>Perdida de peso / energia</td>
+<td>$0.29</td>
+<td>$166.41</td>
+<td>0.21%</td>
+</tr>
+<tr>
+<td>#3</td>
+<td>AquaSculpt</td>
+<td>Perdida de peso</td>
+<td>$0.93</td>
+<td>$171.90</td>
+<td>0.59%</td>
+</tr>
+<tr>
+<td>#2</td>
+<td>Breathe</td>
+<td>Salud respiratoria</td>
+<td>$0.58</td>
+<td>$148.00</td>
+<td>0.44%</td>
+</tr>
+<tr>
+<td>#1</td>
+<td>Prime Biome</td>
+<td>Belleza / skincare</td>
+<td>$0.59</td>
+<td>$167.00</td>
+<td>0.39%</td>
+</tr>
+</tbody></table></div>
+<h3 id="numeros-y-datos-concretos">Numeros y datos concretos<a class="anchor" href="#numeros-y-datos-concretos">#</a></h3>
+<ul>
+<li>Breathe: testing interno con mas de $1.000.000 en gasto publicitario antes de lanzar.</li>
+<li>Breathe: audiencia potencial de 500 millones de personas con interes en salud respiratoria (fuente no especificada en la transcripcion).</li>
+<li>Java Burn: CVR 0.21%, el mas bajo del ranking, pero pago promedio $166.41 lo hace rentable en volumen.</li>
+<li>AquaSculpt CVR 0.59% es el segundo mas alto del ranking entre los tres primeros.</li>
+</ul>
+<h3 id="terminos-explicados-primera-aparicion-en-este-video">Terminos explicados (primera aparicion en este video)<a class="anchor" href="#terminos-explicados-primera-aparicion-en-este-video">#</a></h3>
+<ul>
+<li><strong>Nicho</strong> (niche): categoria o tema del producto. Ej: salud masculina, perdida de peso, belleza.</li>
+<li><strong>AOV</strong> (Average Order Value): valor promedio de la orden de compra. No se menciona explicitamente en este video pero es relevante porque el "pago promedio al afiliado" esta relacionado con el AOV y el porcentaje de comision.</li>
+<li><strong>Swipes</strong>: emails pre-redactados que el offer owner entrega al afiliado para usar en sus campanas de email marketing.</li>
+<li><strong>Landing page</strong> / <strong>lander</strong>: pagina de destino a la que llega el trafico antes de la pagina de ventas.</li>
+</ul>
+<h3 id="que-nos-sirve">Que nos sirve<a class="anchor" href="#que-nos-sirve">#</a></h3>
+<ul>
+<li>Prime Biome y AquaSculpt son las mejores opciones por CVR (0.59%) si el objetivo es empezar rapido con Meta Ads, ya que mayor CVR significa menos costo por conversion.</li>
+<li>Breathe es interesante como sub-nicho sin competencia directa en ClickBank; el testing con $1MM propio del vendedor sugiere un funnel robusto antes de que nosotros gastemos.</li>
+<li>Java Burn tiene CVR muy bajo (0.21%) para trafico de pago; mas util si se tiene trafico organico o lista de email.</li>
+<li>Todos los productos en este video aparecen en el marketplace publico de ClickBank, sin necesidad de aprobacion especial.</li>
+<li>Para Meta Ads, Prime Biome (mujeres 35+, piel + peso) y Breathe (audiencia masiva, VSL con credencial medica) tienen los angulos de copy mas faciles de construir en Facebook.</li>
+</ul>
+<hr>
+<h2 id="video-3-clickbanks-top-affiliate-products-to-promote-march-2026">Video 3 — ClickBank's Top Affiliate Products to Promote — March 2026<a class="anchor" href="#video-3-clickbanks-top-affiliate-products-to-promote-march-2026">#</a></h2>
+<p><strong>Canal:</strong> ClickBank (oficial) <strong>Fecha:</strong> 2026-03-06 <strong>Duracion aprox.:</strong> 9 minutos <strong>URL:</strong> https://www.youtube.com/watch?v=UXUMoLG7XiE</p>
+<h3 id="de-que-trata">De que trata<a class="anchor" href="#de-que-trata">#</a></h3>
+<p>Michael Lohman (affiliate sales manager de ClickBank) presenta el top 5 de ofertas en marzo de 2026, con metricas actualizadas. Incluye un bonus y un experimento social de comentarios. Lo destacado del mes: un producto de idiomas (Rocket Languages) entra al top 5 junto a suplementos clasicos, y Energy Revolution llega al puesto 1.</p>
+<h3 id="puntos-clave-con-timestamps">Puntos clave con timestamps<a class="anchor" href="#puntos-clave-con-timestamps">#</a></h3>
+<p><strong>[00:00-00:49]</strong> Introduccion de Michael. Formato habitual del canal mensual.</p>
+<p><strong>[00:50-02:12] Puesto 5 — Prostivive</strong></p>
+<ul>
+<li>Categoria: salud de prostata para hombres mayores de 40.</li>
+<li>EPC: $0.49. Pago promedio: $150.07. CVR: 0.42%.</li>
+<li>El presentador aclara que aunque el CVR parece bajo, "hay muchos afiliados promoviendo y los mejores estan encima de $1.50 a $2.00 en EPC".</li>
+<li>Vendedor: diamond vendor con "mas de $80 millones en ventas anuales".</li>
+<li>Materiales disponibles: email swipes, creatividades, advertorials (articulos pagados que parecen editoriales).</li>
+</ul>
+<p><strong>[02:13-03:04] Puesto 4 — Audifort</strong></p>
+<ul>
+<li>Categoria: salud auditiva (hearing health).</li>
+<li>EPC: $0.72. Pago promedio: $159.42. CVR: 0.50%.</li>
+<li>Rev share disponible: hasta 75%.</li>
+<li>CPA disponible para quienes califiquen por volumen.</li>
+<li>Datos adicionales: funnels probados, multiples links de afiliado, materiales listos.</li>
+<li>La transcripcion dice que "Audifort offers you some of the highest EPCs on the market".</li>
+</ul>
+<p><strong>[03:05-04:56] Puesto 3 — Genius Switch</strong></p>
+<ul>
+<li>Categoria: salud cognitiva / programa digital.</li>
+<li>EPC: $0.80. Pago promedio: $52.25. CVR: 1.64%.</li>
+<li>Producto: programa digital de 7 minutos diarios de audio desarrollado por neurocientificos y "respaldado por un neurologo de Nueva York".</li>
+<li>Resultados que reportan los clientes segun el video: mayor claridad mental, foco, creatividad.</li>
+<li>El funnel fue construido por un "marketer de ClickBank con casi $100 millones en ventas".</li>
+<li>La transcripcion destaca: "sky-high conversions y baja tasa de reembolso" y "ya escalando en paid media".</li>
+</ul>
+<p><strong>[04:57-06:12] Puesto 2 — Rocket Languages</strong></p>
+<ul>
+<li>Categoria: aprendizaje de idiomas (programa digital).</li>
+<li>EPC: $3.32 (el mas alto del ranking). Pago promedio: $89.05. CVR: 4% (el mas alto del ranking).</li>
+<li>Sistema con lecciones interactivas, conversaciones reales y practica estructurada.</li>
+<li>Requiere aprobacion para afiliarse.</li>
+<li>La transcripcion llama al EPC de $3.32 "truly unreal stats".</li>
+</ul>
+<p><strong>[06:13-07:29] Puesto 1 — Energy Revolution System</strong></p>
+<ul>
+<li>Categoria: energia alternativa / generador DIY.</li>
+<li>EPC: $0.62. Pago promedio: "close to a dollar" (la transcripcion lo dice asi, sin dar el numero exacto; en otro punto dice "average payout of $50"). CVR: 1.82%.</li>
+<li>El producto describe un dispositivo que "puede generar hasta 7 veces mas electricidad que paneles tradicionales y funciona con practicamente cualquier fuente de energia".</li>
+<li>Angulo: ahorro en cuentas de electricidad, solucion off-grid. La transcripcion menciona "growing demand for off-grid solutions" por el alza de precios de la energia.</li>
+</ul>
+<p><strong>[07:30-08:30] Bonus — Prodentum</strong></p>
+<ul>
+<li>Categoria: salud dental / probiotico oral.</li>
+<li>EPC: aprox. $0.60. Pago promedio: $167. CVR: aprox. 1% para top afiliados.</li>
+<li>Formato: "probiotic candy" (gomita/caramelo probiotico) que "se deshace en la boca".</li>
+<li>La transcripcion lo describe como "clasico de ClickBank" con enfoque en microbioma bucal.</li>
+<li>Audiencia: 35 anos en adelante.</li>
+</ul>
+<h3 id="ofertasproductos-concretos-mencionados-ranking-de-marzo-2026">Ofertas/productos concretos mencionados (ranking de marzo 2026)<a class="anchor" href="#ofertasproductos-concretos-mencionados-ranking-de-marzo-2026">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Puesto</th>
+<th>Producto</th>
+<th>Categoria</th>
+<th>EPC</th>
+<th>Pago promedio</th>
+<th>CVR</th>
+</tr></thead><tbody>
+<tr>
+<td>#5</td>
+<td>Prostivive</td>
+<td>Prostata / salud masculina</td>
+<td>$0.49</td>
+<td>$150.07</td>
+<td>0.42%</td>
+</tr>
+<tr>
+<td>#4</td>
+<td>Audifort</td>
+<td>Salud auditiva</td>
+<td>$0.72</td>
+<td>$159.42</td>
+<td>0.50%</td>
+</tr>
+<tr>
+<td>#3</td>
+<td>Genius Switch</td>
+<td>Cognitivo / audio digital</td>
+<td>$0.80</td>
+<td>$52.25</td>
+<td>1.64%</td>
+</tr>
+<tr>
+<td>#2</td>
+<td>Rocket Languages</td>
+<td>Idiomas (digital)</td>
+<td>$3.32</td>
+<td>$89.05</td>
+<td>4.00%</td>
+</tr>
+<tr>
+<td>#1</td>
+<td>Energy Revolution</td>
+<td>Energia alternativa</td>
+<td>$0.62</td>
+<td>~$50</td>
+<td>1.82%</td>
+</tr>
+<tr>
+<td>Bonus</td>
+<td>Prodentum</td>
+<td>Dental / probiotico</td>
+<td>~$0.60</td>
+<td>$167</td>
+<td>~1% (top afiliados)</td>
+</tr>
+</tbody></table></div>
+<h3 id="numeros-y-datos-concretos">Numeros y datos concretos<a class="anchor" href="#numeros-y-datos-concretos">#</a></h3>
+<ul>
+<li>Genius Switch: CVR 1.64%, funnel de un vendedor con $100MM en ventas propias.</li>
+<li>Rocket Languages: EPC $3.32 y CVR 4% son los mas altos del ranking de marzo 2026. Requiere aprobacion.</li>
+<li>Energy Revolution: CVR 1.82% en el puesto 1, pago alrededor de $50.</li>
+<li>Prostivive: vendedor diamond con mas de $80 millones anuales en ventas; los top afiliados logran EPC de $1.50 a $2.00 (vs promedio de $0.49).</li>
+</ul>
+<h3 id="terminos-explicados-primera-aparicion-en-este-video">Terminos explicados (primera aparicion en este video)<a class="anchor" href="#terminos-explicados-primera-aparicion-en-este-video">#</a></h3>
+<ul>
+<li><strong>Advertorial</strong>: articulo de blog o noticias que parece contenido editorial pero es publicidad pagada. En afiliacion se usa como pagina de aterrizaje intermedia antes de la oferta.</li>
+<li><strong>Off-grid</strong>: soluciones de energia independientes de la red electrica publica.</li>
+<li><strong>Funnel</strong> (embudo): secuencia completa de paginas que recorre el usuario desde el anuncio hasta la compra, incluyendo upsells (ofertas adicionales) y downsells.</li>
+<li><strong>Upsell</strong>: oferta adicional de mayor precio que se presenta al cliente justo despues de la primera compra.</li>
+</ul>
+<h3 id="que-nos-sirve">Que nos sirve<a class="anchor" href="#que-nos-sirve">#</a></h3>
+<ul>
+<li>Rocket Languages tiene el mejor EPC y CVR del mes pero requiere aprobacion. Vale la pena aplicar si se planea usar email o trafico de contenido organico.</li>
+<li>Genius Switch es el mejor CVR (1.64%) entre los productos sin restriccion de aprobacion en el marketplace, con un pago de $52.25 por venta. Puede ser viable en Meta Ads con angulos de productividad y clarity mental.</li>
+<li>Energy Revolution se repite como #1 desde diciembre 2025 hasta marzo 2026, lo que indica estabilidad del funnel. Angulo de costo de electricidad tiene compatibilidad con audiencias de Meta interesadas en autosuficiencia o ahorro del hogar.</li>
+<li>Audifort (salud auditiva) es sub-nicho poco saturado con EPC razonable y rev share del 75%. Interesante para afiliados con trafico de salud general.</li>
+</ul>
+<hr>
+<h2 id="video-4-clickbanks-top-affiliate-marketing-products-to-promote-december-2025">Video 4 — ClickBank's Top Affiliate Marketing Products to Promote - December 2025<a class="anchor" href="#video-4-clickbanks-top-affiliate-marketing-products-to-promote-december-2025">#</a></h2>
+<p><strong>Canal:</strong> ClickBank (oficial) <strong>Fecha:</strong> 2025-12-05 <strong>Duracion aprox.:</strong> 13 minutos <strong>URL:</strong> https://www.youtube.com/watch?v=mxdeaOb3J6A</p>
+<h3 id="de-que-trata">De que trata<a class="anchor" href="#de-que-trata">#</a></h3>
+<p>Justin Clark (account manager de ClickBank) presenta el top 5 de ofertas de diciembre de 2025, mas dos ofertas digitales bonus. El video incluye una seccion de publicidad del programa de entrenamiento interno de ClickBank llamado Spark. El numero uno de diciembre es Prodentum, con un pago promedio de casi $200 por venta.</p>
+<h3 id="puntos-clave-con-timestamps">Puntos clave con timestamps<a class="anchor" href="#puntos-clave-con-timestamps">#</a></h3>
+<p><strong>[00:00-01:05]</strong> Introduccion. El presentador Justin Clark. Michael Lohman (cara habitual del canal) esta de vacaciones; Justin lo reemplaza.</p>
+<p><strong>[01:06-02:37] Puesto 5 — New Era Protect</strong></p>
+<ul>
+<li>Categoria: salud femenina (control de vejiga para mujeres mayores de 40).</li>
+<li>EPC: $1.67. Pago promedio: $54.16. CVR: 3.30%.</li>
+<li>Upsells con comisiones hasta el 90%.</li>
+<li>Requiere aprobacion previa. Creadora: Alex Miller (vendor diamond de 4 anos en ClickBank, creadora tambien de "Pelvic Force Strong").</li>
+</ul>
+<p><strong>[02:38-04:20] Puesto 4 — Rocket Languages</strong></p>
+<ul>
+<li>EPC: $3.30. Pago promedio: $180.82. CVR: 2.08%.</li>
+<li>Programa de idiomas con audio y visual, multiples idiomas y niveles.</li>
+<li>Requiere aprobacion. El account manager lo describe como una relacion de largo plazo y muy profesional.</li>
+</ul>
+<p><strong>[04:21-05:28]</strong> Segmento de publicidad de Spark (programa de entrenamiento interno de ClickBank). Describe cursos de trafico pago (YouTube, native, Facebook/Meta) y organico (YouTube, Instagram, TikTok, blog). La transcripcion no da precios.</p>
+<p><strong>[05:29-06:35] Puesto 3 — Audio Fort</strong></p>
+<ul>
+<li>Categoria: salud auditiva.</li>
+<li>EPC: $1.21. Pago promedio: $35.02. CVR: 3.88% (el video dice "almost 4%").</li>
+<li>Formato: "herbal dropper supplement" (suplemento de gotas a base de hierbas).</li>
+<li>Rev share: 65%. CPA disponible para afiliados de alto volumen.</li>
+<li>Materiales: creatividades probadas y email swipes.</li>
+</ul>
+<p><strong>[06:36-07:49] Puesto 2 — Midolin</strong></p>
+<ul>
+<li>Categoria: perdida de peso / dieta.</li>
+<li>EPC: $0.86. Pago promedio: $158.83. CVR: 0.70%.</li>
+<li>Descrito como "cutting edge diet product". La transcripcion no especifica el formato del producto (capsula, polvo, etc.).</li>
+<li>"Ha dominado el espacio de ClickBank todo el ano".</li>
+<li>Rev share generoso, CPA disponible para top afiliados.</li>
+</ul>
+<p><strong>[07:50-09:42] Puesto 1 — Prodentum</strong></p>
+<ul>
+<li>Categoria: salud dental / probiotico oral.</li>
+<li>EPC: $1.53. Pago promedio: $198.72. CVR: 0.83%.</li>
+<li>Formato: caramelo probiotico que se derrite en la boca (melting probiotic candy).</li>
+<li>Angulo: microbioma bucal para dientes fuertes, encias saludables, aliento fresco.</li>
+<li>El VSL fue creado por un copywriter con historial de "otras ofertas dentales y orales exitosas".</li>
+<li>Audiencia: mayores de 35 anos. Comision sube si se trae volumen.</li>
+</ul>
+<p><strong>[09:43-11:08] Bonus digital 1 — Brain Song</strong></p>
+<ul>
+<li>Categoria: cognitivo / audio digital.</li>
+<li>EPC: $0.66. Pago promedio: $147. CVR: 0.49%.</li>
+<li>Audio de 7 minutos diarios basado en "theta brain wave descubierta por la NASA" (la transcripcion cita literalmente esto).</li>
+<li>Creador con "casi $100 millones en ventas en sus propios productos".</li>
+<li>Baja tasa de reembolso, VSL testeado.</li>
+</ul>
+<p><strong>[11:09-12:36] Bonus digital 2 — Piano for All</strong></p>
+<ul>
+<li>Categoria: aprendizaje musical (piano). Sub-nicho de entretenimiento/educacion.</li>
+<li>EPC: $0.48. Pago promedio: $52.02. CVR: 1.03%.</li>
+<li>Comision: 60% por venta.</li>
+<li>Curso en ebooks, videos y audios. El video dice que "se vende desde 2006", con "testimoniales impresionantes y baja tasa de reembolso".</li>
+<li>Audiencia: principiantes y personas con experiencia previa en piano.</li>
+</ul>
+<h3 id="ofertasproductos-concretos-mencionados-top-5-bonuses-de-diciembre-2025">Ofertas/productos concretos mencionados (top 5 + bonuses de diciembre 2025)<a class="anchor" href="#ofertasproductos-concretos-mencionados-top-5-bonuses-de-diciembre-2025">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Puesto</th>
+<th>Producto</th>
+<th>Categoria</th>
+<th>EPC</th>
+<th>Pago promedio</th>
+<th>CVR</th>
+</tr></thead><tbody>
+<tr>
+<td>#5</td>
+<td>New Era Protect</td>
+<td>Vejiga / salud femenina</td>
+<td>$1.67</td>
+<td>$54.16</td>
+<td>3.30%</td>
+</tr>
+<tr>
+<td>#4</td>
+<td>Rocket Languages</td>
+<td>Idiomas digital</td>
+<td>$3.30</td>
+<td>$180.82</td>
+<td>2.08%</td>
+</tr>
+<tr>
+<td>#3</td>
+<td>Audio Fort</td>
+<td>Salud auditiva</td>
+<td>$1.21</td>
+<td>$35.02</td>
+<td>3.88%</td>
+</tr>
+<tr>
+<td>#2</td>
+<td>Midolin</td>
+<td>Perdida de peso</td>
+<td>$0.86</td>
+<td>$158.83</td>
+<td>0.70%</td>
+</tr>
+<tr>
+<td>#1</td>
+<td>Prodentum</td>
+<td>Dental / probiotico</td>
+<td>$1.53</td>
+<td>$198.72</td>
+<td>0.83%</td>
+</tr>
+<tr>
+<td>Bonus 1</td>
+<td>Brain Song</td>
+<td>Cognitivo / audio digital</td>
+<td>$0.66</td>
+<td>$147.00</td>
+<td>0.49%</td>
+</tr>
+<tr>
+<td>Bonus 2</td>
+<td>Piano for All</td>
+<td>Musica / piano</td>
+<td>$0.48</td>
+<td>$52.02</td>
+<td>1.03%</td>
+</tr>
+</tbody></table></div>
+<h3 id="numeros-y-datos-concretos">Numeros y datos concretos<a class="anchor" href="#numeros-y-datos-concretos">#</a></h3>
+<ul>
+<li>New Era Protect: CVR 3.30%, el mas alto del ranking de diciembre 2025 junto con Audio Fort (3.88%).</li>
+<li>Prodentum: pago promedio $198.72, el mas alto de cualquier oferta en todos los videos revisados.</li>
+<li>Audio Fort: CVR 3.88%, el mas alto del top 5 de diciembre 2025.</li>
+<li>Rocket Languages diciembre 2025: EPC $3.30 y pago $180.82 (datos ligeramente distintos a los de marzo 2026 en el video 3).</li>
+<li>Piano for All: vendido desde 2006, 60% de comision.</li>
+</ul>
+<h3 id="terminos-explicados-primera-aparicion-en-este-video">Terminos explicados (primera aparicion en este video)<a class="anchor" href="#terminos-explicados-primera-aparicion-en-este-video">#</a></h3>
+<ul>
+<li><strong>Email swipes</strong>: emails pre-redactados por el offer owner que el afiliado puede usar o adaptar para campanas de email marketing.</li>
+<li><strong>Herbal dropper</strong>: formato de suplemento en gotas de extracto herbal que se ponen bajo la lengua o en agua.</li>
+<li><strong>Microbiome</strong> (microbioma): comunidad de microorganismos (bacterias) en el cuerpo. En dental, refiere a las bacterias de la boca.</li>
+<li><strong>Melting candy / caramelo que se disuelve</strong>: formato de entrega oral de suplemento que no requiere tragar una capsula.</li>
+</ul>
+<h3 id="que-nos-sirve">Que nos sirve<a class="anchor" href="#que-nos-sirve">#</a></h3>
+<ul>
+<li>Audio Fort y New Era Protect tienen CVR excepcionales (3.88% y 3.30%) que sugieren funnels muy optimizados. Si se logra trafico relevante a bajo CPC, los margenes pueden ser muy buenos incluso con pagos bajos por orden ($35 y $54 respectivamente).</li>
+<li>Prodentum con $198.72 de pago promedio es la oferta de mayor pago unitario de todos los videos. Para Meta Ads, el angulo dental/microbioma es ampliable a audiencias de 35+ con interes en salud general.</li>
+<li>Midolin (perdida de peso) y Prodentum son ofertas con historial de anos en el marketplace; menor riesgo que productos en beta.</li>
+<li>Piano for All es un wild card: CVR del 1% y producto desde 2006 sugieren base de clientes solida. Util para trafico organico o email, no tipicamente la primera eleccion para Meta Ads de pago.</li>
+</ul>
+<hr>
+<h2 id="video-5-clickbank-1-affiliate-reveals-the-5-mistakes-you-must-avoid-in-2026">Video 5 — Clickbank #1 Affiliate Reveals The 5 Mistakes You Must Avoid in 2026!<a class="anchor" href="#video-5-clickbank-1-affiliate-reveals-the-5-mistakes-you-must-avoid-in-2026">#</a></h2>
+<p><strong>Canal:</strong> Robby Blanchard <strong>Fecha:</strong> 2026-03-28 <strong>Duracion aprox.:</strong> 10 minutos <strong>URL:</strong> https://www.youtube.com/watch?v=L2mO5trX3io</p>
+<h3 id="de-que-trata">De que trata<a class="anchor" href="#de-que-trata">#</a></h3>
+<p>Robby Blanchard (se presenta como el afiliado numero 1 de ClickBank y dueno de una operacion que genera "mas de 8 cifras al ano") entrega 5 errores comunes en affiliate marketing y un bonus. El video es de estrategia operacional y mentalidad, no de seleccion de productos. No menciona ofertas especificas de ClickBank.</p>
+<h3 id="puntos-clave-con-timestamps">Puntos clave con timestamps<a class="anchor" href="#puntos-clave-con-timestamps">#</a></h3>
+<p><strong>[00:00-01:55] Error 1 — Promover ofertas oscuras en vez de ofertas populares</strong></p>
+<ul>
+<li>El error: elegir productos desconocidos para "evitar la competencia".</li>
+<li>La logica de Robby: si una oferta es popular, es porque la gente la esta comprando. El afiliado nuevo debe eliminar variables. La oferta NO es lo que controlas (no eres el dueno del producto); lo que controlas es el anuncio y la landing page.</li>
+<li>Su criterio minimo: "niche que convierte con pago de $100 o mas por venta y que sea una oferta popular en el marketplace".</li>
+<li>[00:24] La transcripcion incluye: "cuando eres nuevo como afiliado, tu trabajo es solo promover ofertas ganadoras".</li>
+</ul>
+<p><strong>[01:56-04:06] Error 2 — Ser impaciente con las campanas</strong></p>
+<ul>
+<li>Error tipico: pausar el anuncio a las 2 horas porque no hay ventas.</li>
+<li>Robby dice que al inicio destinaba $500 para testing sin importar el resultado, porque "estaba comprando datos, no esperando ganancia inmediata".</li>
+<li>[02:06] "La mayoria de la gente cuando empieza en Facebook lo trata como una apuesta".</li>
+<li>El dato que el da: esperar a recibir suficientes clics y datos de CVR antes de pausar o escalar.</li>
+</ul>
+<p><strong>[04:07-05:12] Error 3 — Hacerlo solo</strong></p>
+<ul>
+<li>Recomienda invertir en coaching o programas (la transcripcion no menciona montos ni nombres de programas especificos de otros, solo los propios).</li>
+<li>[04:11] "Las personas con mas exito se dan cuenta de que no pueden hacerlo solas y deben invertir en su exito".</li>
+<li>El tiempo es el recurso que no se puede recuperar; el dinero si.</li>
+</ul>
+<p><strong>[05:13-06:50] Error 4 — Gastar las ganancias en otras cosas en vez de reinvertir</strong></p>
+<ul>
+<li>Caso que menciona: estudiantes que ganaron un millon de dolares en un ano pero no pudieron continuar las campanas porque gastaron el dinero.</li>
+<li>Su practica personal al inicio (2014): empezaba con $20/dia; si ganaba $60 y gastaba $20, reinvertia los $40 de ganancia en mas anuncios.</li>
+<li>[06:14] "Por los primeros seis meses a un ano no compre cosas extra, reinvertia en mis campanas y negocio."</li>
+</ul>
+<p><strong>[06:51-08:09] Error 5 — Recibir informacion de las fuentes equivocadas</strong></p>
+<ul>
+<li>Robby dice que su operacion genera "mas de 8 cifras al ano" (mas de $10 millones). Dice que recibia consejos de personas de 7 cifras pero eso no le servia para escalar a 8 cifras.</li>
+<li>[07:08] "Asegurate de prestar atencion a quien te esta dando el consejo."</li>
+<li>Menciona que sus coaches en su propio programa son "ClickBank Platinum" o han generado mas de $250.000 en un solo ano.</li>
+<li>La transcripcion dice que el mismo es "numero uno en ClickBank".</li>
+</ul>
+<p><strong>[08:10-09:27] Bonus — No testear suficiente</strong></p>
+<ul>
+<li>[08:32] "Ahora especialmente con Andromeda, especialmente con la IA, lo mas importante que haces son tus creatividades publicitarias."</li>
+<li>Andromeda (algoritmo de Meta Ads desde 2024) requiere muchas creatividades para que el sistema de IA encuentre la audiencia correcta. No es suficiente testear 5 anuncios.</li>
+<li>Analogia de pesca: no parar despues del primer intento fallido; cambiar anzuelo, tecnica y lugar.</li>
+</ul>
+<h3 id="numeros-y-datos-concretos">Numeros y datos concretos<a class="anchor" href="#numeros-y-datos-concretos">#</a></h3>
+<ul>
+<li>Robby dice generar "mas de 8 cifras al ano" (mas de $10MM USD) con su operacion de afiliacion.</li>
+<li>Comenzo en 2014 con $20/dia de presupuesto.</li>
+<li>Recomendacion de presupuesto inicial para testing: "al menos un par de cientos de dolares, tal vez $500".</li>
+<li>Sus coaches tienen $250.000+ en ventas en un solo ano como minimo.</li>
+</ul>
+<h3 id="terminos-explicados-primera-aparicion-en-este-video">Terminos explicados (primera aparicion en este video)<a class="anchor" href="#terminos-explicados-primera-aparicion-en-este-video">#</a></h3>
+<ul>
+<li><strong>Andromeda</strong>: nombre del algoritmo de Meta Ads (Facebook/Instagram) que usa inteligencia artificial para distribuir los anuncios. Requiere mayor volumen de creatividades para que el sistema encuentre las mejores combinaciones de audiencia y anuncio. Robby lo menciona como razon para testear mas creatividades, no menos.</li>
+<li><strong>Media buyer</strong>: persona que compra trafico de pago (Facebook Ads, Google Ads, etc.) para dirigirlo a una oferta. En este contexto, es el rol del afiliado que usa paid traffic.</li>
+<li><strong>Landing page / money page</strong>: pagina de aterrizaje intermedia entre el anuncio y la oferta final. El afiliado la controla y la disenA.</li>
+<li><strong>Cold traffic</strong> (mencionado como concepto): el video no usa el termino explicitamente pero toda la estrategia se basa en trafico frio de Facebook.</li>
+</ul>
+<h3 id="que-nos-sirve">Que nos sirve<a class="anchor" href="#que-nos-sirve">#</a></h3>
+<ul>
+<li>El error 1 confirma la logica de elegir solo ofertas del top del marketplace (no inventar). Aplicable directamente a nuestra selecion de oferta inicial.</li>
+<li>El error 2 da un marco concreto: destinar $500 de presupuesto de testing completo antes de evaluar resultados. No pausar por "sensacion".</li>
+<li>El error 4 es critico para la fase de escala: reinvertir ganancias en lugar de retirarlas.</li>
+<li>El bonus sobre Andromeda es directamente accionable para Meta Ads: el algoritmo de IA necesita muchas creatividades para optimizar. No lanzar con 3 anuncios y esperar resultados definitivos.</li>
+<li>El video no menciona ofertas especificas ni metricas de productos.</li>
+</ul>
+<hr>
+<h2 id="video-6-how-top-affiliate-marketers-find-winning-offers-to-sell-for-free">Video 6 — How Top Affiliate Marketers Find Winning Offers To Sell (for FREE)<a class="anchor" href="#video-6-how-top-affiliate-marketers-find-winning-offers-to-sell-for-free">#</a></h2>
+<p><strong>Canal:</strong> Robby Blanchard <strong>Fecha:</strong> 2025-11-19 <strong>Duracion aprox.:</strong> 12 minutos <strong>URL:</strong> https://www.youtube.com/watch?v=K0fHu6FivH4</p>
+<h3 id="de-que-trata">De que trata<a class="anchor" href="#de-que-trata">#</a></h3>
+<p>Robby Blanchard explica su proceso para seleccionar ofertas ganadoras, con enfasis en el marketplace de ClickBank y el uso de spy tools (herramientas de espionaje de anuncios). Presenta su checklist de 4 criterios para validar una oferta antes de invertir en trafico. Menciona su propia herramienta "Spy Hero" y da un ejemplo en pantalla de como usarla.</p>
+<h3 id="puntos-clave-con-timestamps">Puntos clave con timestamps<a class="anchor" href="#puntos-clave-con-timestamps">#</a></h3>
+<p><strong>[00:00-01:15]</strong> Apertura con promesa: "los productos que estas promoviendo probablemente son basura" y el antidoto es aprender a encontrar ganadores. Robby dice que con este metodo genera "millones de dolares al ano".</p>
+<p><strong>[01:16-03:25] Metodo 1 — Marketplace de la red de afiliados</strong></p>
+<ul>
+<li>Ir al marketplace (ClickBank, BuyGoods, DigiStore24 u otros) y mirar solo el top 10 de ofertas.</li>
+<li>[01:07] "Ese es toda la investigacion que hago: las 10 ofertas principales."</li>
+<li>Razonamiento: si esta en el top, gente lo esta comprando. "No necesito reinventar la rueda, solo necesito encontrar un producto ganador y aprovecharme de su exito."</li>
+<li>Criterio de pago: entre $100 y $300 por venta para que "los numeros funcionen" con trafico de pago. La transcripcion indica que si se tiene lista de email, el precio puede importar menos.</li>
+</ul>
+<p><strong>[02:30-03:50] Diferencia entre rev share y CPA</strong></p>
+<ul>
+<li>Rev share: porcentaje de la venta (ej. 75-80%). Si hay reembolso, el afiliado pierde la comision.</li>
+<li>CPA: monto fijo (ej. $100 por venta). Si hay reembolso, el afiliado mantiene el dinero.</li>
+<li>[03:11] "Cuando estas escalando en ads como media buyer, quieres enfocarte en el CPA porque es dinero garantizado en tu bolsillo."</li>
+</ul>
+<p><strong>[03:51-05:00] Criterio de categoria/nicho</strong></p>
+<ul>
+<li>Elegir categorias grandes: salud, riqueza, manifestacion, supervivencia.</li>
+<li>[04:03] "Hay como cientos de millones de personas en cada categoria, y eso es importante porque tienes la capacidad de escalar."</li>
+<li>Si una oferta decae en una categoria grande, hay otros productos para pivotar. En nichos pequenos no.</li>
+</ul>
+<p><strong>[05:01-07:30] Metodo 2 — Spy tools (herramientas de espionaje de anuncios)</strong></p>
+<ul>
+<li>Robby usa su propio producto "Spy Hero" (enlace de prueba gratuita segun la transcripcion, no se especifica el precio).</li>
+<li>En demostracion en pantalla menciona estas ofertas visibles en Spy Hero en ese momento:</li>
+<li>AquaSculpt: "one of the top offers being run right now this week"</li>
+<li>Apanail: "foot fungus offer", 746 anuncios activos al momento de grabar.</li>
+<li>"Navy SEALs bugging sort of physical guide" (la transcripcion no da el nombre exacto del producto)</li>
+<li>"memory offer" (nombre no especificado)</li>
+<li>"survival offer" (nombre no especificado)</li>
+<li>"brain offer" (nombre no especificado)</li>
+<li>"Amish ways Academy offer" (nombre exacto no verificable, la transcripcion lo escribe asi)</li>
+<li>Herp Offend: "health offer increased by 275%" (nombre exacto incierto; puede ser un error de transcripcion automatica)</li>
+<li>[05:28] "El motivo por el que esta en el top es porque puedo ver que Apanail tiene 746 anuncios siendo ejecutados ahora mismo. Por que? Porque quien ejecuta esos anuncios esta ganando dinero."</li>
+<li>La herramienta muestra: creatividades, imagenes, headlines mas comunes, afiliados que estan promoviendo, historial de anuncios por mes.</li>
+</ul>
+<p><strong>[07:31-09:20] Audiencias y match producto-audiencia</strong></p>
+<ul>
+<li>El error de los creadores de contenido: eligen el producto primero y despues tratan de forzarlo a su audiencia.</li>
+<li>Lo correcto: encuestar a la audiencia sobre sus pain points (puntos de dolor) y luego buscar la oferta que los resuelve.</li>
+<li>Para trafico de pago: si no convierte, revisar si la audiencia elegida es la correcta para esa oferta. El mismo angulo puede funcionar diferente en audiencia de USA vs. Australia vs. UK.</li>
+<li>[09:01] Ejemplo: "cuando yo hablaba en Dubai ante una audiencia de empresarios alemanes, mis chistes no hacian reir a nadie, porque era una audiencia diferente a la que estoy acostumbrado."</li>
+</ul>
+<p><strong>[09:21-11:40] Checklist de 4 criterios para validar una oferta</strong></p>
+<ol>
+<li>Es una oferta top en el marketplace (SI/NO).</li>
+<li>Esta en una categoria o nicho grande (SI/NO).</li>
+<li>Al confirmar con spy tool, se ven anuncios activos de esa oferta en Facebook/YouTube/native (SI/NO).</li>
+<li>Va a pagar entre $100 y $300 por venta (SI/NO).</li>
+<li>Si las 4 respuestas son SI: "estas listo para ir".</li>
+<li>[10:02] "Mantenerlo tan simple como eso cuando se trata de elegir una oferta ganadora en plataformas como afiliado."</li>
+</ol>
+<h3 id="ofertasproductos-concretos-mencionados">Ofertas/productos concretos mencionados<a class="anchor" href="#ofertasproductos-concretos-mencionados">#</a></h3>
+<p>Todas mencionadas como ejemplos en pantalla de Spy Hero, no como recomendaciones:</p>
+<ul>
+<li><strong>AquaSculpt</strong> (perdida de peso): "top offer being run this week" al momento de grabar.</li>
+<li><strong>Apanail</strong> (hongos en pies): 746 anuncios activos. La transcripcion lo describe como "foot fungus offer".</li>
+<li>"Navy SEALs bugging physical guide": nombre exacto no especificado en la transcripcion.</li>
+<li>Ofertas de "memoria", "supervivencia", "cerebro": nombres no especificados.</li>
+<li>"Amish ways Academy": nombre exacto incierto (posible error de transcripcion automatica).</li>
+<li>"Herp Offend" / oferta de salud: aumento del 275% en promovidos. Nombre no verificable.</li>
+</ul>
+<h3 id="numeros-y-datos-concretos">Numeros y datos concretos<a class="anchor" href="#numeros-y-datos-concretos">#</a></h3>
+<ul>
+<li>Apanail: 746 anuncios activos en el periodo de grabacion (noviembre 2025).</li>
+<li>Herp Offend (o similar): aumento del 275% en numero de afiliados promoviendo.</li>
+<li>Rango de pago objetivo: $100 a $300 por venta para que los numeros funcionen con trafico pagado.</li>
+<li>Robby comenzo con $20/dia (mencionado de pasada; se desarrolla mas en el video 5).</li>
+<li>La demostracion muestra que Apanail tuvo 1.800 anuncios en mayo, bajo a 300 en agosto, y volvio a subir en septiembre y octubre.</li>
+</ul>
+<h3 id="terminos-explicados-primera-aparicion-en-este-video">Terminos explicados (primera aparicion en este video)<a class="anchor" href="#terminos-explicados-primera-aparicion-en-este-video">#</a></h3>
+<ul>
+<li><strong>Spy tool</strong> (herramienta de espionaje de anuncios): software que indexa anuncios en redes sociales y permite ver que ofertas tienen mas anuncios activos, quienes los estan promoviendo, que creatividades usan y desde cuando llevan corriendo. Ejemplos: Spy Hero (de Robby Blanchard), AdSpy, BigSpy.</li>
+<li><strong>BuyGoods / DigiStore24</strong>: otras redes de afiliados alternativas a ClickBank.</li>
+<li><strong>Pain points</strong>: los problemas o frustraciones especificas del publico objetivo que el producto pretende resolver.</li>
+<li><strong>Foot fungus offer</strong> (oferta de hongos en pies): categoria de salud podal que segun la transcripcion tenia alto numero de anuncios en noviembre 2025.</li>
+<li><strong>Checklist de validacion</strong>: lista de criterios binarios (si/no) que se verifica antes de invertir dinero en promover una oferta.</li>
+</ul>
+<h3 id="que-nos-sirve">Que nos sirve<a class="anchor" href="#que-nos-sirve">#</a></h3>
+<ul>
+<li>El checklist de 4 criterios es el marco mas accionable de todos los videos revisados. Aplicarlo antes de elegir nuestra primera oferta: top en marketplace, nicho grande, anuncios visibles en spy tool, pago entre $100 y $300.</li>
+<li>El argumento de CPA sobre rev share para paid traffic es directo: cuando se escala en Meta Ads, preferir CPA para eliminar el riesgo de reembolsos tardios que afectan el cash flow.</li>
+<li>El uso de spy tools como Spy Hero (o alternativas gratuitas/baratas) permite confirmar que una oferta "esta funcionando en la naturaleza" antes de gastar presupuesto.</li>
+<li>AquaSculpt aparece como top offer tanto en este video (noviembre 2025) como en el ranking de diciembre 2025 y el de 2025 completo (video 2), lo que confirma su estabilidad como oferta de perdida de peso.</li>
+<li>La logica de categoria grande es practica: health y wealth tienen suficiente inventario de ofertas para pivotar si una decae.</li>
+</ul>
+<hr>
+<h2 id="resumen-cruzado-lo-que-mas-se-repite-en-los-6-videos">Resumen cruzado — lo que mas se repite en los 6 videos<a class="anchor" href="#resumen-cruzado-lo-que-mas-se-repite-en-los-6-videos">#</a></h2>
+<h3 id="ofertas-con-aparicion-en-mas-de-un-video">Ofertas con aparicion en mas de un video<a class="anchor" href="#ofertas-con-aparicion-en-mas-de-un-video">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Oferta</th>
+<th>Videos donde aparece</th>
+<th>Notas clave</th>
+</tr></thead><tbody>
+<tr>
+<td>Energy Revolution</td>
+<td>Videos 1 y 3</td>
+<td>#1 en marzo 2026 desde diciembre 2025; CVR 1.82%; angulo energia/electricidad</td>
+</tr>
+<tr>
+<td>Prodentum</td>
+<td>Videos 3 y 4</td>
+<td>#1 en diciembre 2025; pago $198.72; clasico del marketplace dental</td>
+</tr>
+<tr>
+<td>AquaSculpt</td>
+<td>Videos 2, 3 (bonus V2), y 6</td>
+<td>Visible en spy tools; perdida de peso con ingredientes, CVR 0.59%</td>
+</tr>
+<tr>
+<td>Prostivive</td>
+<td>Videos 2, 3</td>
+<td>Salud masculina; stable en top 5 de multiples meses; pago promedio $150-$156</td>
+</tr>
+<tr>
+<td>Rocket Languages</td>
+<td>Videos 3 y 4</td>
+<td>EPC mas alto ($3.30-$3.32); CVR mas alto (2-4%); requiere aprobacion</td>
+</tr>
+<tr>
+<td>Audio Fort / Audifort</td>
+<td>Videos 3 y 4</td>
+<td>Salud auditiva; CVR muy alto (3.88%); puede ser la misma oferta con nombre ligeramente distinto</td>
+</tr>
+</tbody></table></div>
+<h3 id="criterios-que-todos-los-expertos-repiten">Criterios que todos los expertos repiten<a class="anchor" href="#criterios-que-todos-los-expertos-repiten">#</a></h3>
+<ol>
+<li>Promover solo lo que ya esta en el top del marketplace.</li>
+<li>Preferir nichos grandes (salud, riqueza, manifestacion).</li>
+<li>Buscar pago de $100+ por venta para que los numeros funcionen con trafico de pago.</li>
+<li>Para paid traffic: preferir CPA sobre rev share.</li>
+<li>Testear con presupuesto definido antes de evaluar; no pausar por sensacion.</li>
+<li>Con Andromeda (Meta Ads 2024+): necesitas mas creatividades, no menos.</li>
+</ol>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 03-clickbank-oficial-blanchard.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

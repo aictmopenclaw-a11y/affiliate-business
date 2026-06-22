@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resúmenes tutoriales ClickBank (parte A) · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">01-ejecucion-2026 / clickbank-2026-research / resumenes-videos · 27 min · 5,341 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#video-1" class="">Video 1</a></li><li><a href="#de-que-trata" class="h3">De que trata</a></li><li><a href="#puntos-clave-detallados" class="h3">Puntos clave detallados</a></li><li><a href="#numeros-y-datos-concretos" class="h3">Numeros y datos concretos</a></li><li><a href="#terminos-explicados" class="h3">Terminos explicados</a></li><li><a href="#que-nos-sirve" class="h3">Que nos sirve</a></li><li><a href="#video-2" class="">Video 2</a></li><li><a href="#de-que-trata" class="h3">De que trata</a></li><li><a href="#puntos-clave-detallados" class="h3">Puntos clave detallados</a></li><li><a href="#numeros-y-datos-concretos" class="h3">Numeros y datos concretos</a></li><li><a href="#terminos-explicados" class="h3">Terminos explicados</a></li><li><a href="#que-nos-sirve" class="h3">Que nos sirve</a></li><li><a href="#video-3" class="">Video 3</a></li><li><a href="#de-que-trata" class="h3">De que trata</a></li><li><a href="#puntos-clave-detallados" class="h3">Puntos clave detallados</a></li><li><a href="#numeros-y-datos-concretos" class="h3">Numeros y datos concretos</a></li><li><a href="#terminos-explicados" class="h3">Terminos explicados</a></li><li><a href="#que-nos-sirve" class="h3">Que nos sirve</a></li><li><a href="#video-4" class="">Video 4</a></li><li><a href="#de-que-trata" class="h3">De que trata</a></li><li><a href="#puntos-clave-detallados" class="h3">Puntos clave detallados</a></li><li><a href="#numeros-y-datos-concretos" class="h3">Numeros y datos concretos</a></li><li><a href="#terminos-explicados" class="h3">Terminos explicados</a></li><li><a href="#que-nos-sirve" class="h3">Que nos sirve</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>05-tutoriales-clickbank-a.md</span><span>5,341 palabras</span><span>~27 min</span></div>
+<h1 id="resúmenes-tutoriales-clickbank-parte-a">Resúmenes tutoriales ClickBank (parte A)</h1>
+<blockquote><p>Fecha de elaboracion: 2026-06-17 Basado SOLO en transcripciones reales. Cero invencion. Material de estudio: equipo OpenClaw entrando a afiliacion ClickBank + Meta Ads.</p></blockquote>
+<div class="kpi-strip"><div class="stat"><div class="stat-value">$21.238</div><div class="stat-label">Comisiones reales del presentador (Video 3) con 6.859 clics y EPC $3.10</div></div><div class="stat"><div class="stat-value">$6.6B</div><div class="stat-label">Total pagado por ClickBank en comisiones históricas (dato de la plataforma)</div></div><div class="stat"><div class="stat-value">100K+</div><div class="stat-label">Afiliados activos en ClickBank según fuente oficial</div></div><div class="stat"><div class="stat-value">12 años</div><div class="stat-label">Tiempo que lleva Robby Blanchard usando el mismo funnel (desde 2014)</div></div></div>
+<hr>
+<h2 id="video-1">Video 1<a class="anchor" href="#video-1">#</a></h2>
+<p><strong>Titulo:</strong> Clickbank Affiliate Marketing For Beginners || Full Tutorial 2025 <strong>Canal:</strong> Digital Marketing Guruji <strong>Fecha de subida:</strong> 2025-01-06 <strong>Duracion aprox.:</strong> 27 min 47 seg <strong>URL:</strong> https://www.youtube.com/watch?v=1oYEUa3AQzI</p>
+<h3 id="de-que-trata">De que trata<a class="anchor" href="#de-que-trata">#</a></h3>
+<p>Tutorial paso a paso dirigido a principiantes que quieren empezar en ClickBank en 2025. El presentador argumenta que el marketing de afiliados en e-commerce (Amazon, Flipkart, Snapdeal) tiene demasiada competencia, comisiones bajas y problemas de posicionamiento de contenido, por lo que recomienda enfocarse en ClickBank como alternativa de mayor rentabilidad. Cubre registro de cuenta, navegacion del dashboard y seleccion de productos en el marketplace.</p>
+<h3 id="puntos-clave-detallados">Puntos clave detallados<a class="anchor" href="#puntos-clave-detallados">#</a></h3>
+<p><strong>[00:00-02:51] Argumento contra e-commerce</strong> El presentador lista tres problemas del afiliado en plataformas de e-commerce locales (India): competencia alta, comisiones bajas y dificultad para rankear contenido. Propone ClickBank como solucion con menos competencia y mayor pago por venta.</p>
+<p><strong>[03:02-09:35] Registro de cuenta paso a paso</strong></p>
+<ul>
+<li>Ir a clickbank.com, hacer clic en "Affiliate - Start Here".</li>
+<li>Completar personalizacion del perfil: seleccionar razon de registro ("I want to promote ClickBank products as an affiliate"), nivel de experiencia, ingreso anual estimado (menos de $50,000), tipo de producto a promocionar, presupuesto disponible para anuncios (menciona $2,000), y si ya tiene trafico.</li>
+<li>Ingresar el correo electronico y hacer clic en "Submit". La transcripcion no especifica si se pide numero de telefono, RUT o datos bancarios en este paso.</li>
+<li>Llega un correo para generar la contrasena y activar la cuenta.</li>
+</ul>
+<p><strong>[10:01-14:05] Navegacion del dashboard</strong></p>
+<ul>
+<li>Secciones mencionadas: Total Earning (ganancias totales), Tickets (soporte), Transactions (historial de transacciones), Reporting (reportes de ventas, analitica), Account (nickname de cuenta), Users (acceso compartido), Affiliate Marketplace, Affiliate Link Tools, Education (ClickBank Academy con videos y blogs), Integrations.</li>
+<li>El presentador destaca que la seccion mas importante es Affiliate Marketplace.</li>
+</ul>
+<p><strong>[14:37-23:30] Affiliate Marketplace: como encontrar y generar el HopLink</strong></p>
+<ul>
+<li>El marketplace tiene "1593 resultados" visibles al momento de grabar (la transcripcion no especifica fecha exacta pero el video es de enero 2025).</li>
+<li>Filtros disponibles: categorias (Health and Fitness, E-Business, Self Help, Home and Garden, etc.), ordenar por Conversion (alta a baja), Gravity, Reveal (comision por venta), Payment.</li>
+<li>Gravity (cuantos afiliados vendieron la oferta recientemente): menciona productos con gravity de 273, 260 y 187.</li>
+<li>Conversion (CVR, tasa de conversion): menciona valores de 145 y 134.</li>
+<li>Reveal (comision estimada por venta): menciona $26 y $141 en ejemplos distintos. Tambien menciona $500 como posible comision en otro producto (la transcripcion no aclara a que producto corresponde cada numero con precision).</li>
+<li>Para generar el link de afiliado (HopLink, el link especial de ClickBank que rastrea tus ventas): hacer clic en "Promote Options", ingresar el Affiliate Nickname, continuar, copiar el enlace generado. Se puede usar la landing page por defecto del vendedor o una propia.</li>
+<li>El HopLink admite parametros de seguimiento personalizados: Campaign, Creative (grafico), Ads (plataforma publicitaria).</li>
+</ul>
+<p><strong>[23:40-26:14] Recomendaciones finales del presentador</strong></p>
+<ul>
+<li>ClickBank funciona principalmente para ventas internacionales; vender a India el presentador no lo recomienda porque las ofertas estan orientadas a otros mercados.</li>
+<li>Para generar ventas hay que aprender a hacer anuncios en Facebook Ads o Google Ads con targeting internacional.</li>
+<li>Sugiere tener capital disponible para publicidad antes de empezar ("1500 rupias" por venta es el costo publicitario que menciona como referencia, sin convertir a USD).</li>
+<li>Repite que la practica directa es indispensable.</li>
+</ul>
+<h3 id="numeros-y-datos-concretos">Numeros y datos concretos<a class="anchor" href="#numeros-y-datos-concretos">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Dato</th>
+<th>Valor mencionado</th>
+</tr></thead><tbody>
+<tr>
+<td>Comision total pagada por ClickBank (dato de la plataforma)</td>
+<td>$6.6 billion (como lo dice el presentador al leer el sitio)</td>
+</tr>
+<tr>
+<td>Afiliados activos en ClickBank</td>
+<td>"1 lakh" (equivale a 100,000 en sistema numerico indio)</td>
+</tr>
+<tr>
+<td>Personas que "confian" en ClickBank</td>
+<td>"5 million"</td>
+</tr>
+<tr>
+<td>Resultados en el marketplace al filtrar</td>
+<td>1,533-1,593 productos visibles</td>
+</tr>
+<tr>
+<td>Gravity de productos mostrados</td>
+<td>273, 260, 187</td>
+</tr>
+<tr>
+<td>Comision por venta (Reveal) mencionada</td>
+<td>$26 y $141 (productos distintos)</td>
+</tr>
+</tbody></table></div>
+<h3 id="terminos-explicados">Terminos explicados<a class="anchor" href="#terminos-explicados">#</a></h3>
+<ul>
+<li><strong>Afiliado:</strong> quien promociona productos de otros a cambio de una comision cuando se genera una venta.</li>
+<li><strong>ClickBank:</strong> marketplace (mercado online) donde vendedores registran sus productos digitales o fisicos y afiliados los promocionan a cambio de comision.</li>
+<li><strong>HopLink:</strong> el link especial de ClickBank que rastrea que la venta vino de ti para que puedas cobrar tu comision.</li>
+<li><strong>Gravity:</strong> metrica propia de ClickBank que indica cuantos afiliados distintos generaron al menos una venta de ese producto en los ultimos 12 semanas. Un gravity alto indica que el producto se esta vendiendo.</li>
+<li><strong>CVR (Conversion Rate / Tasa de conversion):</strong> el porcentaje de personas que ven el producto y terminan comprando.</li>
+<li><strong>Reveal:</strong> en el contexto del video se refiere a la comision promedio que recibe el afiliado por venta.</li>
+<li><strong>Affiliate Marketplace:</strong> el catalogo de productos disponibles dentro de ClickBank donde los afiliados buscan que promocionar.</li>
+<li><strong>Affiliate Nickname:</strong> el identificador unico de tu cuenta en ClickBank, que se incluye en el HopLink para rastrear tus ventas.</li>
+<li><strong>Targeting (segmentacion):</strong> la configuracion del anuncio para que se muestre solo a la audiencia que tiene mas probabilidades de comprar.</li>
+</ul>
+<h3 id="que-nos-sirve">Que nos sirve<a class="anchor" href="#que-nos-sirve">#</a></h3>
+<ul>
+<li>Mapa visual del proceso de registro completo en ClickBank (onboarding) sin necesidad de abrir la plataforma.</li>
+<li>Confirmacion de que el marketplace tiene filtros por gravity, CVR y comision, lo que permite comparar ofertas antes de elegir.</li>
+<li>Referencia rapida de como generar un HopLink y agregar parametros de seguimiento para Meta Ads o Google Ads.</li>
+<li>Advertencia util: las ofertas de ClickBank apuntan a mercados internacionales, no locales, por lo que los anuncios deben configurarse con targeting a USA, Canada, UK, Australia.</li>
+<li>Limitacion del video: el presentador habla con acento indio fuerte y la transcripcion Whisper tiene errores de reconocimiento (palabras cortadas, numeros poco claros). Los datos de gravity y comision deben validarse directamente en el marketplace antes de usarlos.</li>
+</ul>
+<hr>
+<h2 id="video-2">Video 2<a class="anchor" href="#video-2">#</a></h2>
+<p><strong>Titulo:</strong> How the #1 ClickBank Affiliate Builds His Funnel (Step-by-Step Guide) <strong>Canal:</strong> Robby Blanchard <strong>Fecha de subida:</strong> 2026-01-09 <strong>Duracion aprox.:</strong> 14 min 09 seg <strong>URL:</strong> https://www.youtube.com/watch?v=7tA9WxO_HVg</p>
+<h3 id="de-que-trata">De que trata<a class="anchor" href="#de-que-trata">#</a></h3>
+<p>Robby Blanchard, quien se presenta como el afiliado numero uno de ClickBank a nivel mundial, explica el unico funnel (embudo de ventas, el camino desde el anuncio hasta la compra) que usaria si tuviera que empezar desde cero. El video es un walkthrough conceptual y visual del embudo de tres pasos: anuncio en Facebook, landing page (pagina de aterrizaje intermedia que llama "money page"), y la oferta con Video Sales Letter. El presentador tambien hace demostracion en vivo dentro de una herramienta llamada Spy Hero para mostrar ejemplos reales de anuncios.</p>
+<h3 id="puntos-clave-detallados">Puntos clave detallados<a class="anchor" href="#puntos-clave-detallados">#</a></h3>
+<p><strong>[00:00-01:14] Presentacion del concepto de funnel</strong> Define funnel como el recorrido que hace un desconocido desde ver un anuncio hasta comprar. El objetivo final es que el afiliado cobre su comision. Enfatiza que como afiliado no necesitas producto propio, sitio web complejo ni inventario.</p>
+<p><strong>[01:15-05:10] Paso 1 del funnel: el anuncio en Facebook</strong></p>
+<ul>
+<li>El objetivo del anuncio NO es vender el producto, sino generar curiosidad y lograr que la persona haga clic.</li>
+<li>Ejemplo de angulo incorrecto: mostrar una foto del suplemento con precio y garantia de 90 dias. Segun Robby, esto activa en el usuario la consciencia de que le quieren vender algo y no hace clic.</li>
+<li>Angulo correcto: imagen o video de objetos cotidianos (un frasco de pepinillos, vinagre de manzana, bebidas) que generen la pregunta "que es esto?". La curiosidad hace que la persona detenga el scroll.</li>
+<li>El copy del anuncio (las palabras encima o debajo de la imagen) debe ser conversacional y en formato de historia. Ejemplo que da el presentador: "El otro dia me encontre con mi amiga Susan y no la reconoci. Le pregunte que habia hecho y me conto que descubrio el truco del agua de 7 segundos que cambio su vida. Ahora yo tambien lo hago. Haz clic para saber mas."</li>
+<li>El call to action del anuncio solo debe llevar a hacer clic, no a comprar.</li>
+</ul>
+<p><strong>[02:34-04:09] Por que no vender desde el anuncio</strong> El targeting de Facebook (Meta Ads) permite mostrar el anuncio a personas que ya tienen interes en el tema (por ejemplo, interes en dietas, ropa talla extra, estilo de vida paleo). Dado que ya hay una pre-segmentacion, el anuncio no necesita calificar al prospecto, solo captar su atencion.</p>
+<p><strong>[04:10-05:10] Paso 2 del funnel: la Money Page (landing page intermedia)</strong></p>
+<ul>
+<li>Es una pagina de una sola pantalla, sencilla, sin menu de navegacion ni multiples opciones.</li>
+<li>Componentes: titular curioso, imagen, texto de apoyo opcional, y un boton grande que diga algo como "haz clic aqui para ver el video".</li>
+<li>No debe haber mencion de precio, producto, ni testimonios de compra. Solo curiosidad.</li>
+<li>Si la pagina tiene muchos elementos, se convierte en un "leaky funnel" (embudo con fugas) porque la atencion se dispersa.</li>
+<li>El presentador dice que el idealmente su money page tendria solo: titular, sub-titular, imagen y boton.</li>
+</ul>
+<p><strong>[05:11-06:13] Paso 3 del funnel: la oferta con VSL</strong></p>
+<ul>
+<li>VSL (Video Sales Letter, carta de ventas en video): es el video largo del vendedor (30-40 minutos) que hace toda la venta en nombre del afiliado.</li>
+<li>El afiliado no tiene que cerrar la venta; el VSL se encarga de eso.</li>
+<li>Critica de seleccion de oferta implicita: el producto a promocionar debe tener un VSL como pagina de ventas, no una pagina de checkout directo.</li>
+</ul>
+<p><strong>[06:14-10:08] Demostracion en Spy Hero</strong></p>
+<ul>
+<li>Spy Hero es descrito como una herramienta para ver que anuncios de afiliado estan funcionando en Facebook. El presentador menciona que es de su propiedad.</li>
+<li>Busca la oferta "Midolin" (oferta de perdida de peso) dentro de Spy Hero para ver anuncios reales.</li>
+<li>Muestra ejemplos de anuncios malos: foto del producto + garantia de 90 dias = sin curiosidad.</li>
+<li>Muestra anuncios buenos: imagen con liquido verde y torso humano, imagen con curcuma o raices, combinacion de ingredientes de cocina.</li>
+<li>Ejemplo de copy bueno que lee en pantalla: "La sensacion de desconexion de mi cuerpo me llevo a experimentar dietas de moda, planes de ejercicio intensos y periodos de ayuno..."</li>
+<li>Otro ejemplo de copy bueno: "No esperaba que un ritual matutino tan sencillo pudiera marcar tanta diferencia. Probe todo: dietas saludables, ejercicio, hasta gadgets raros. Luego mi mejor amiga aparecio increible con el mismo traje que usaba antes de tener hijos..."</li>
+<li>Evalua landing pages reales: la mejor que muestra tiene titular + boton + imagen. Critica a las que tienen testimonios con estrellas porque implican que se compro algo.</li>
+</ul>
+<p><strong>[10:09-13:36] Reflexion final sobre la durabilidad del funnel</strong> Menciona que ha usado este mismo funnel desde 2014 y que en 2026 sigue funcionando. Dice que la ventaja del marketing de afiliados es que si una oferta deja de convertir, simplemente cambias el HopLink por el de otra oferta sin tocar el anuncio ni la money page.</p>
+<h3 id="numeros-y-datos-concretos">Numeros y datos concretos<a class="anchor" href="#numeros-y-datos-concretos">#</a></h3>
+<ul>
+<li>El presentador afirma llevar usando este funnel desde 2014 (12 anos a la fecha del video, enero 2026).</li>
+<li>Menciona que el y sus estudiantes han generado "literalmente millones de dolares combinados", pero la transcripcion no da cifras verificables de sus propios resultados.</li>
+<li>La transcripcion no especifica precios de los productos mencionados ni tasas de conversion de sus campanas actuales.</li>
+</ul>
+<h3 id="terminos-explicados">Terminos explicados<a class="anchor" href="#terminos-explicados">#</a></h3>
+<ul>
+<li><strong>Funnel (embudo):</strong> el camino estructurado que sigue un usuario desde que ve un anuncio hasta que compra. Cada paso del embudo tiene un objetivo especifico.</li>
+<li><strong>Money Page:</strong> nombre que usa Robby para la landing page intermedia entre el anuncio y la oferta. Su unico objetivo es mantener la curiosidad y hacer que la persona haga clic para ver el VSL.</li>
+<li><strong>VSL (Video Sales Letter):</strong> video de ventas largo (tipicamente 20-40 min) donde el vendedor de la oferta convence al usuario de comprar. El afiliado lo usa como destino final del funnel, sin necesidad de crear el contenido de venta.</li>
+<li><strong>Leaky funnel (embudo con fugas):</strong> funnel donde hay demasiadas opciones o elementos distractores que hacen que el usuario abandone antes de llegar al VSL.</li>
+<li><strong>Spy Hero:</strong> herramienta de investigacion de anuncios de afiliado en Facebook (el presentador menciona ser dueno de la herramienta).</li>
+<li><strong>Copy del anuncio:</strong> el texto que acompana la imagen o video del anuncio.</li>
+<li><strong>Open loop (lazo abierto):</strong> tecnica narrativa de generar una pregunta en la mente del usuario que solo se responde si hace clic.</li>
+<li><strong>Midolin:</strong> nombre de una oferta de perdida de peso dentro de ClickBank mencionada como ejemplo de busqueda en Spy Hero. La transcripcion no da mas detalles sobre esta oferta.</li>
+<li><strong>Micro-commitment (micro-compromiso):</strong> el acto de que el usuario haga clic en la money page, lo que aumenta su intencion de continuar hacia el VSL.</li>
+</ul>
+<h3 id="que-nos-sirve">Que nos sirve<a class="anchor" href="#que-nos-sirve">#</a></h3>
+<ul>
+<li>El modelo mental mas claro del video: el afiliado no vende, solo genera curiosidad en dos pasos (anuncio y money page) y deja que el VSL cierre la venta.</li>
+<li>Criterio practico para evaluar anuncios de competidores: si muestran el producto, precio o garantia, son malos ejemplos. Si muestran ingredientes raros u objetos cotidianos con una historia, son buenos ejemplos.</li>
+<li>Estructura minima de una money page: titular curioso, imagen, boton. Sin menu, sin testimonios, sin precio.</li>
+<li>Patron de copy de anuncio comprobado: formato de historia con personaje secundario ("mi amiga Susan") que descubrio algo que funciona. Termina con invitacion a hacer clic para saber mas.</li>
+<li>Advertencia importante: el video tiene un pitch a un curso de pago ("free training in the description") y Spy Hero es propiedad del presentador. El contenido tecnico es valido pero el contexto es de captacion de leads para su programa.</li>
+</ul>
+<hr>
+<h2 id="video-3">Video 3<a class="anchor" href="#video-3">#</a></h2>
+<p><strong>Titulo:</strong> Clickbank Affiliate Marketing in 2026: My Exact Strategy (Full Tutorial for Beginners) <strong>Canal:</strong> Real Money Strategies <strong>Fecha de subida:</strong> 2025-12-20 <strong>Duracion aprox.:</strong> 30 min 41 seg <strong>URL:</strong> https://www.youtube.com/watch?v=GUJvUq4qSEY</p>
+<h3 id="de-que-trata">De que trata<a class="anchor" href="#de-que-trata">#</a></h3>
+<p>Tutorial paso a paso orientado a principiantes que quieren ganar dinero con ClickBank en 2026 usando trafico pago. La estrategia central es: elegir una oferta de ClickBank (el video usa como ejemplo el Mediterranean Diet Evergreen Offer), crear articulos de blog con IA en un sitio creado con Hostinger, y correr anuncios de display nativos (no Meta Ads) en una plataforma llamada Realize Ads dirigiendo trafico a esos articulos que contienen los HopLinks. El video incluye una seccion donde el presentador muestra un dashboard real de sus comisiones.</p>
+<h3 id="puntos-clave-detallados">Puntos clave detallados<a class="anchor" href="#puntos-clave-detallados">#</a></h3>
+<p><strong>[00:00-01:06] Introduccion a ClickBank</strong> Menciona que ClickBank tiene "over 100,000 active affiliates" y ha pagado "over $7 billion in affiliate marketing commissions". Recomienda el nicho de salud y fitness como el que "convierte extremadamente bien" en diciembre 2025 por las resoluciones de Ano Nuevo.</p>
+<p><strong>[01:07-02:19] Seleccion de oferta: Mediterranean Diet Evergreen Offer</strong></p>
+<ul>
+<li>Navega al marketplace de ClickBank, filtra por Health and Fitness > Diets and Weight Loss.</li>
+<li>Selecciona "Mediterranean Diet Evergreen Digital Diet Offer" como ejemplo.</li>
+<li>Argumenta que es una de las ofertas de mayor conversion en esa categoria porque la demanda del termino "Mediterranean Diet" en Google Trends muestra crecimiento sostenido y picos cada enero.</li>
+<li>Comision posible: "as much as over $120 per sale".</li>
+<li>EPC (Earnings Per Click, lo que ganas en promedio por cada clic en tu link): "over $3".</li>
+</ul>
+<p><strong>[02:20-03:55] Como generar el HopLink</strong></p>
+<ul>
+<li>Hacer clic en "Get Affiliate Link".</li>
+<li>Ingresar el ClickBank username (nombre de usuario).</li>
+<li>Copiar el link generado.</li>
+<li>Al hacer clic en ese link, el usuario llega directamente a la pagina de ventas de la oferta.</li>
+</ul>
+<p><strong>[04:00-12:10] Plataforma de anuncios: Realize Ads</strong> La transcripcion no especifica que tipo de plataforma es Realize Ads en detalle, pero el presentador la describe como una red de anuncios de display (publicidad de banner y contenido patrocinado) que aparece en sitios web conocidos como Yahoo y CBS News, no en redes sociales como Meta o TikTok. Los pasos que muestra:</p>
+<ul>
+<li>Crear cuenta en Realize Ads (gratis).</li>
+<li>Crear campana: nombre de campana (solo referencia interna), brand name para que aparezca en el anuncio (debe coincidir con la oferta, en el ejemplo: "Mediterranean Diet"), objetivo: "Drive Online Purchases".</li>
+<li>Horario: el presentador deja la opcion de correr 24/7.</li>
+<li>Targeting por ubicacion: selecciona USA, UK, Canada, Australia (paises angloparlantes con alto poder adquisitivo).</li>
+<li>Targeting por dispositivo: recomienda elegir solo desktop O solo mobile por campana para facilitar el seguimiento.</li>
+<li>Targeting de audiencia: busca en el marketplace de audiencias de Realize el segmento "Weight Loss" (44 millones de personas) y tambien "Dieting and Weight Loss" (casi 200 millones de personas).</li>
+<li>Budget y bidding: recomienda maximizar conversiones CPA (Costo por Adquisicion: cuanto pagas en promedio para conseguir una venta). Dice que si el CPC (Costo por Clic: lo que te cobran cada vez que alguien hace clic en tu anuncio) es $1 y el EPC es $3, entonces ganas $2 de ganancia por clic en promedio.</li>
+</ul>
+<p><strong>[09:10-12:00] Dashboard real del presentador</strong> Muestra datos de un dashboard de afiliado real (la transcripcion no especifica de que plataforma es):</p>
+<ul>
+<li>6,859 clics totales.</li>
+<li>$21,238 en comisiones generadas.</li>
+<li>EPC de $3.10.</li>
+</ul>
+<p><strong>[12:11-26:30] Creacion de articulos con IA usando Hostinger</strong> La estrategia no enlaza el anuncio directamente al HopLink de ClickBank. En cambio:</p>
+<ol>
+<li>Se crea un sitio web simple con Hostinger (menciona un link con descuento en la descripcion).</li>
+<li>Se usan articulos de blog generados con IA dentro de Hostinger que explican la oferta (ejemplo: "Por que empezar la dieta mediterranea en 2026").</li>
+<li>Dentro del articulo se insertan HopLinks de ClickBank de forma implicita (texto en negrita con hyperlink) y al final del articulo un boton de CTA con el HopLink.</li>
+<li>El anuncio en Realize Ads apunta a ese articulo, no directamente a la oferta.</li>
+<li>La logica: el articulo "calienta" al prospecto antes de que llegue a la pagina de ventas, lo que segun el presentador aumenta las conversiones.</li>
+</ol>
+<p>Menciona que con el mismo sitio se pueden crear articulos para multiples ofertas: dieta mediterranea, dieta keto, smoothie diet, dieta vegana. Cada articulo con su propio HopLink.</p>
+<p><strong>[26:00-28:00] Credito gratuito de $500 en anuncios</strong> Menciona que al inscribirse en el curso de ClickBank llamado Spark por 30 dias y completar el modulo de native ads de Newsbreak, se obtienen $500 en creditos para la plataforma Newsbreak Native Ads. La transcripcion no especifica el costo de Spark.</p>
+<p><strong>[28:00-30:10] Reflexion personal del presentador</strong> Dice llevar "alrededor de cuatro anos" haciendo affiliate marketing. Menciona libertad de horarios y viajes frecuentes como beneficios.</p>
+<h3 id="numeros-y-datos-concretos">Numeros y datos concretos<a class="anchor" href="#numeros-y-datos-concretos">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Dato</th>
+<th>Valor</th>
+</tr></thead><tbody>
+<tr>
+<td>Afiliados activos en ClickBank</td>
+<td>100,000+</td>
+</tr>
+<tr>
+<td>Comisiones totales pagadas</td>
+<td>$7 billion+</td>
+</tr>
+<tr>
+<td>Comision posible por venta (Mediterranean Diet)</td>
+<td>$120+</td>
+</tr>
+<tr>
+<td>EPC estimado (Mediterranean Diet)</td>
+<td>$3+</td>
+</tr>
+<tr>
+<td>EPC real del presentador en su campana</td>
+<td>$3.10</td>
+</tr>
+<tr>
+<td>Clics totales en campana mostrada</td>
+<td>6,859</td>
+</tr>
+<tr>
+<td>Comisiones generadas en campana mostrada</td>
+<td>$21,238.30</td>
+</tr>
+<tr>
+<td>Budget diario de ejemplo</td>
+<td>$50</td>
+</tr>
+<tr>
+<td>CPC de ejemplo</td>
+<td>$1</td>
+</tr>
+<tr>
+<td>Credito gratuito en Newsbreak via Spark</td>
+<td>$500</td>
+</tr>
+<tr>
+<td>Audiencia "Weight Loss" en Realize Ads</td>
+<td>44 millones</td>
+</tr>
+<tr>
+<td>Audiencia "Dieting and Weight Loss" en Realize Ads</td>
+<td>casi 200 millones</td>
+</tr>
+</tbody></table></div>
+<h3 id="terminos-explicados">Terminos explicados<a class="anchor" href="#terminos-explicados">#</a></h3>
+<ul>
+<li><strong>EPC (Earnings Per Click):</strong> lo que ganas en promedio por cada clic que llega a tu HopLink. Si vendes $120 y solo 1 de cada 40 personas compra, tu EPC es $120/40 = $3. El EPC te sirve para saber cuanto puedes pagar por clic en publicidad y aun ganar dinero.</li>
+<li><strong>CPC (Cost Per Click):</strong> cuanto te cobra la plataforma de anuncios cada vez que alguien hace clic en tu anuncio.</li>
+<li><strong>CPA (Costo por Adquisicion):</strong> cuanto gastas en publicidad en promedio para lograr una venta.</li>
+<li><strong>Native Ads (anuncios nativos):</strong> anuncios que se integran visualmente en el contenido de un sitio web conocido (Yahoo, CBS News), a diferencia de los anuncios de redes sociales. El usuario los ve mientras lee noticias o articulos.</li>
+<li><strong>Display advertising:</strong> publicidad en forma de banner o contenido patrocinado que aparece en sitios web.</li>
+<li><strong>Realize Ads y Newsbreak:</strong> plataformas de anuncios nativos mencionadas en el video. La transcripcion no da detalles de precios mas alla del ejemplo de $50/dia.</li>
+<li><strong>Hostinger:</strong> servicio de hosting y creador de sitios web con IA. El presentador tiene link con descuento en la descripcion del video.</li>
+<li><strong>Spark:</strong> plataforma educativa propia de ClickBank para afiliados. Ofrece cursos de trafico organico y pago.</li>
+<li><strong>Calentamiento del prospecto (warming up a lead):</strong> exponer al usuario a contenido informativo antes de enviarlo a la pagina de ventas, para aumentar su interes y probabilidad de compra.</li>
+<li><strong>Google Trends:</strong> herramienta gratuita de Google para ver la evolucion de la popularidad de un termino de busqueda a lo largo del tiempo.</li>
+</ul>
+<h3 id="que-nos-sirve">Que nos sirve<a class="anchor" href="#que-nos-sirve">#</a></h3>
+<ul>
+<li>Metodo alternativo a Meta Ads para trafico pago: native ads en sitios editoriales (Realize, Newsbreak). Util si Meta Ads tiene restricciones para la oferta.</li>
+<li>Datos reales del presentador (EPC de $3.10 con 6,859 clics y $21,238 en comisiones) son la referencia de benchmark mas concreta del set de videos.</li>
+<li>Calculo de rentabilidad claro: si EPC > CPC, el negocio es rentable. Con EPC $3 y CPC $1, margen de $2 por clic.</li>
+<li>Flujo completo con articulo intermedio como "calentador": anuncio nativo -> articulo de blog -> HopLink dentro del articulo -> pagina de ventas de ClickBank.</li>
+<li>Advertencia: el video tiene promocion de Realize Ads y Spark (ClickBank lo menciona como "hacen dinero cuando tu haces dinero"). El flujo de anuncios mostrado es funcional pero el presentador tiene incentivos economicos para recomendar ambas plataformas.</li>
+<li>Nota critica: la transcripcion no menciona ni una vez Meta Ads / Facebook Ads. Para nuestro objetivo de combinar ClickBank con Meta Ads, este video aporta la logica del funnel y la seleccion de oferta, pero la parte de trafico hay que complementarla con otros videos del set.</li>
+</ul>
+<hr>
+<h2 id="video-4">Video 4<a class="anchor" href="#video-4">#</a></h2>
+<p><strong>Titulo:</strong> New Method To Create AI Influencer UGC Ads with Sora 2 & Nano Banana 2 <strong>Canal:</strong> Dan Kieft <strong>Fecha de subida:</strong> 2026-03-19 <strong>Duracion aprox.:</strong> 12 min 07 seg <strong>URL:</strong> https://www.youtube.com/watch?v=Hdna2qPMlvQ</p>
+<h3 id="de-que-trata">De que trata<a class="anchor" href="#de-que-trata">#</a></h3>
+<p>Dan Kieft muestra el flujo completo para crear un influencer de IA (AI influencer, personaje generado por inteligencia artificial que actua como creador de contenido) con consistencia visual y de voz entre diferentes clips. Los tres problemas que resuelve: (1) consistencia de apariencia del personaje entre escenas, (2) movimiento natural que no parezca generado por IA, y (3) voz consistente entre distintos fragmentos de video. Usa un stack de herramientas: Nana Banana 2 para generar la imagen base del influencer, Sora 2 y Kling 3.0 para generar videos, Adobe Podcast para limpiar el audio, y ElevenLabs para clonar y estandarizar la voz.</p>
+<blockquote><p>Nota de lenguaje: el video menciona "Arcads" y "Arquets" en la transcripcion. Se trata de la misma plataforma (Arcads), con variaciones de transcripcion Whisper. Se usa "Arcads" a continuacion.</p></blockquote>
+<h3 id="puntos-clave-detallados">Puntos clave detallados<a class="anchor" href="#puntos-clave-detallados">#</a></h3>
+<p><strong>[00:00-01:43] Introduccion a los tres problemas del AI influencer</strong></p>
+<ol>
+<li><strong>Consistencia visual:</strong> el personaje debe verse igual en todas las escenas. El presentador dice que Nana Banana 2 ya resuelve bien este problema.</li>
+<li><strong>Movimiento natural:</strong> los videos generados por IA suelen verse estaticos o con glitches. La solucion esta en el prompting detallado.</li>
+<li><strong>Voz consistente:</strong> cada generacion de video puede producir una voz diferente. Es el mayor problema segun el presentador.</li>
+</ol>
+<p><strong>[01:43-03:35] Sora 2: update de 20 segundos y generacion de ads de producto</strong></p>
+<ul>
+<li>Nueva actualizacion de Sora 2 (disponible al momento del video, marzo 2026): permite generar videos de hasta 20 segundos, versus el limite anterior.</li>
+<li>Ejemplo de uso: subir imagen de referencia del producto (en el video usa una lata de Liquid Death, una marca real de agua envasada) + describir el video + enviar. Sora genera un video de 20 segundos de tipo comercial.</li>
+<li>El presentador accede a Sora 2 a traves de Arcads (plataforma de UGC con IA). La transcripcion menciona un link en la descripcion.</li>
+<li>Limitacion que menciona explicitamente: Sora 2 aun tiene restricciones ("guardrails") para generar videos con personas realisticas haciendo movimientos especificos. Por eso hay que buscar un workaround.</li>
+</ul>
+<p><strong>[03:36-05:22] Generacion de imagen base del influencer con Nana Banana 2</strong></p>
+<ul>
+<li>Herramienta usada: Nana Banana Pro o Nana Banana 2 (dentro de Arcads).</li>
+<li>El error mas comun: usar un prompt (instruccion de texto) demasiado simple. Ejemplo de prompt malo que da: "front-facing close-up of a young woman in her 20s with straight blonde hair and blue eyes sitting at her wooden clean desk wearing casual clothing in her room UGC style."</li>
+<li>La solucion es usar un archivo Markdown que el presentador creo y que se sube a Claude (la transcripcion menciona "Cloud", parece referirse a Claude). Ese archivo hace preguntas sobre: genero, edad, etnia, color de pelo, rasgo unico, escena, ropa, accesorios. Con las respuestas genera un prompt detallado que se pega en Nana Banana.</li>
+<li>Resultado: imagen de mayor calidad y mas controlable que si se usa un prompt generico.</li>
+</ul>
+<p><strong>[05:23-08:00] Solucion al problema de consistencia de voz</strong></p>
+<p><strong>Paso 1: Prompt de voz dentro de la generacion de video (Sora 2)</strong> Agregar al final del prompt de video una descripcion de como debe sonar la voz. Estructura de prompt que usa el presentador:</p>
+<pre><code>camara + sujeto + accion + entorno + iluminacion + textura + [OPCIONAL: audio]</code></pre>
+<p>Ejemplo de segmento de audio en el prompt: "American accent, medium light pitch, soft and playful, voice lift slightly at the end, light teasing energy, no background music."</p>
+<p><strong>Paso 2: Limpiar el audio con Adobe Podcast</strong></p>
+<ul>
+<li>Descargar el video generado por Sora 2.</li>
+<li>Extraer el audio (MP3).</li>
+<li>Subir el MP3 a Adobe Podcast (herramienta de la empresa Adobe, gratuita segun la transcripcion).</li>
+<li>Configurar: 75% speech, 10% music, 10% background.</li>
+<li>Descargar el audio limpio.</li>
+</ul>
+<p><strong>Paso 3: Clonar la voz con ElevenLabs</strong></p>
+<ul>
+<li>Subir el MP3 limpio a ElevenLabs (plataforma de clonacion y sintesis de voz).</li>
+<li>Seleccionar la voz "Jessica" (voz de su influencer).</li>
+<li>Configurar similarity al 100%.</li>
+<li>Generar speech y descargar.</li>
+<li>Reemplazar el audio original del video con el audio generado por ElevenLabs usando cualquier editor (menciona CapCut, Premiere Pro, DaVinci; sugiere usar uno gratuito).</li>
+</ul>
+<p><strong>Paso 4: Agregar sonido ambiental</strong></p>
+<ul>
+<li>Usar Sound Effects (la transcripcion no especifica que plataforma) para generar sonido de ambiente que coincida con el entorno del video (si el influencer esta en una cocina, sonido de cocina, etc.).</li>
+</ul>
+<p><strong>[08:23-11:28] Solucion al problema de movimiento natural: prompting detallado</strong></p>
+<p>El presentador muestra dos ejemplos:</p>
+<p><strong>Prompt malo:</strong> "A 20-year-old dark long black hair Latina UGC influencer holding Sony headphones and talking about how great the music quality and comfort is."</p>
+<ul>
+<li>Problema: el AI tiene que inventar demasiados detalles (angulos, dialogos, movimientos) y el resultado se ve artificial.</li>
+</ul>
+<p><strong>Prompt bueno (estructura):</strong></p>
+<pre><code>[movimiento de camara] + [descripcion del sujeto] + [accion especifica] + [entorno/iluminacion/textura] + [audio opcional]</code></pre>
+<p>Ejemplo que da: "handheld tracking camera / woman getting out of the car and the chauffeur closing the door behind her / the woman says [texto de dialogo] while walking forward / then she winks and walks off the frame / [audio: American accent, medium light pitch, soft and playful, voice lift slightly at the end, light teasing energy, no background music]"</p>
+<ul>
+<li>Resultado: el video se ve mas cinematografico y natural porque el AI tiene instrucciones precisas en lugar de tener que improvisar.</li>
+<li>Para B-roll (tomas de apoyo sin dialogo, que complementan las tomas principales del influencer hablando) usa Kling 3.0 con start frame y end frame.</li>
+</ul>
+<p><strong>[11:28-12:07] Resumen del stack y cierre</strong> Stack completo recomendado:</p>
+<ul>
+<li>Nana Banana 2: imagen base del influencer.</li>
+<li>Sora 2 (dentro de Arcads): A-roll con dialogo.</li>
+<li>Kling 3.0 (dentro de Arcads): B-roll sin dialogo.</li>
+<li>Adobe Podcast: limpieza de audio.</li>
+<li>ElevenLabs: clonacion de voz consistente.</li>
+<li>Editor de video (CapCut, Premiere, DaVinci): montaje final.</li>
+</ul>
+<h3 id="numeros-y-datos-concretos">Numeros y datos concretos<a class="anchor" href="#numeros-y-datos-concretos">#</a></h3>
+<ul>
+<li>Sora 2: ahora permite videos de hasta 20 segundos (novedad al momento del video).</li>
+<li>Adobe Podcast: configuracion recomendada 75% speech / 10% music / 10% background.</li>
+<li>ElevenLabs: similarity al 100% en el video de ejemplo.</li>
+<li>La transcripcion no menciona costos de ninguna de las herramientas.</li>
+</ul>
+<h3 id="terminos-explicados">Terminos explicados<a class="anchor" href="#terminos-explicados">#</a></h3>
+<ul>
+<li><strong>AI influencer:</strong> personaje visual creado completamente por inteligencia artificial que actua como creador de contenido o portavoz de un producto. No es una persona real.</li>
+<li><strong>UGC (User Generated Content, contenido generado por el usuario):</strong> estilo de video que imita la grabacion casera o testimonial que haria un cliente comun, sin produccion profesional. En el contexto de afiliados, se usa para que el anuncio se vea autentico.</li>
+<li><strong>Sora 2:</strong> modelo de generacion de video de OpenAI. Accesible dentro de Arcads segun el video.</li>
+<li><strong>Nana Banana 2:</strong> modelo de generacion de imagen especializado en consistencia de personaje. Disponible dentro de Arcads.</li>
+<li><strong>Kling 3.0:</strong> modelo de generacion de video (alternativo a Sora 2, util para B-roll sin restricciones de guardrails).</li>
+<li><strong>Arcads:</strong> plataforma que agrupa acceso a multiples modelos de IA para generar UGC y videos publicitarios. La transcripcion menciona link en descripcion.</li>
+<li><strong>A-roll:</strong> toma principal de un video donde el personaje habla directamente a la camara.</li>
+<li><strong>B-roll:</strong> tomas secundarias de apoyo (manos del influencer, producto, entorno) que se intercalan con el A-roll.</li>
+<li><strong>ElevenLabs:</strong> plataforma de sintesis y clonacion de voz con IA.</li>
+<li><strong>Adobe Podcast:</strong> herramienta de Adobe para mejorar la calidad del audio grabado, eliminar ruido de fondo y separar pistas.</li>
+<li><strong>Guardrails (restricciones):</strong> limitaciones que tienen los modelos de IA para no generar cierto tipo de contenido (en el caso de Sora 2, hay restricciones para crear videos hiperrealistas de personas).</li>
+<li><strong>Similarity (en ElevenLabs):</strong> ajuste que controla que tan similar debe sonar la voz generada a la voz de referencia que subiste. Al 100% es lo mas fiel posible.</li>
+<li><strong>Start frame / End frame (en Kling):</strong> tecnica de generacion de video donde defines la imagen inicial y la imagen final de la escena, y el modelo genera el movimiento intermedio.</li>
+<li><strong>Prompt de estructura:</strong> instruccion de texto organizada en partes claras (camara, sujeto, accion, entorno, audio) en lugar de un parrafo generico. Produce resultados mas predecibles.</li>
+<li><strong>Markdown file:</strong> archivo de texto con formato simple que el presentador creo para usar como plantilla de prompting dentro de Claude.</li>
+</ul>
+<h3 id="que-nos-sirve">Que nos sirve<a class="anchor" href="#que-nos-sirve">#</a></h3>
+<ul>
+<li>Stack completo y actualizado (marzo 2026) para crear UGC ads sin filmar personas reales: Nana Banana 2 + Sora 2 + Kling 3.0 + Adobe Podcast + ElevenLabs.</li>
+<li>El workaround de ElevenLabs para voz consistente es la contribucion mas practica del video: aunque el video cambie de modelo o de escena, la voz del influencer siempre suena igual.</li>
+<li>Estructura de prompt probada: [camara] + [sujeto] + [accion] + [entorno] + [audio], con el segmento de audio describiendo tonalidad, acento y energia de la voz.</li>
+<li>El recurso del Markdown para Claude para generar prompts detallados de influencer es util para Ro y el equipo creativo: evita el error de usar prompts genericos que producen resultados mediocres.</li>
+<li>Limitacion del video: no habla de presupuestos de las herramientas ni de cuanto cuesta Arcads. Tampoco menciona aspectos legales del uso de influencers de IA en plataformas publicitarias (Meta Ads policy sobre IA generativa). Eso hay que validarlo por separado.</li>
+<li>Conexion con nuestro flujo: estos UGC ads generados con IA son exactamente las creatividades que podemos usar en campanas de Meta Ads promoviendo ofertas de ClickBank.</li>
+</ul>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 05-tutoriales-clickbank-a.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

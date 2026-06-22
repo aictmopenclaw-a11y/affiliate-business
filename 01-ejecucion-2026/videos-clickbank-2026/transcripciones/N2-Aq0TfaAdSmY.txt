@@ -1,0 +1,1011 @@
+[00:00] so every single day I do spend at least like three hours on spy tools but my favorite one is
+[00:07] and this is like an insider tip kind of everybody here that I've met to the fully world
+[00:13] they're all asking me how big is your team it's like me and my business partner
+[00:16] yeah that's it that's cool yeah like what because the second biggest guy is right now
+[00:23] they have a hundred people it's like two people versus a hundred and we're managing to beat them
+[00:28] which is kind of insane to me sometimes your best ad you just put that as the open of the vsl yeah yeah
+[00:34] yeah that's that's the classic yeah that works so well it's kind of incredible how well it works
+[00:40] so sometimes I'll see an affiliate running and crushing it I'll just steal their ad and I put
+[00:46] them put as the vsl yeah open and that crush as always welcome to a crazy episode with Jordan
+[00:53] right now he's the number one affiliate on clickbank he has been spending up to a hundred k per day
+[00:59] generating 240k in his best day and he's going to reveal you all his secrets I mean almost all of
+[01:06] them how he's publishing a hundred ads a day for seven offers at the same time and testing
+[01:12] three new offers per week so we're going to talk about structure scaling he's also going to be
+[01:17] sharing how he went from a 16 year old to a 22 year old and number one on clickbank
+[01:22] and how that went so yeah let's get into it what makes you different from all the number one clickbank
+[01:28] guys that made you like the number one right now well it's volume it's all volume
+[01:37] everybody else they're running video ads they're putting out 10 creatives a day
+[01:41] we have very solid vendor relationships so we can test a lot of offers
+[01:45] so more offer testing volume and we have proprietary tools that allow us to put out hundreds of creatives
+[01:52] a day with a very small team so that allows us to beat a 40 person team as some of the other
+[02:01] top affiliates have with just two people just me and my business partner I think that's the
+[02:06] main difference we're a very lean team uses a lot of automation to really scale got it so
+[02:11] you're saying you're pumping out a hundred creatives a day per offer already per offer
+[02:16] how many offers are you running right now we're testing okay and how many are you testing so you're
+[02:19] like maybe running three a week okay so you are like pretty much pumping out a hundred creatives
+[02:26] for 11 offers per week yeah kind no 100 per day for eight offers yeah but you're also testing three
+[02:33] right so plus three yes additionally yeah but for the ones we're testing we test with like
+[02:38] 60 creatives or so we don't push it as much as the ones we're scaling got it so that you two guys
+[02:45] are doing that what what is like the the balance there like who is doing what like how is it divided
+[02:51] what are you guys doing to pump out that volume so we've been very disorganized with the way
+[02:58] we've been running our business in the past and we've kind of found our balance I'm on the
+[03:03] testing side on the creative side my business partner is in the media bank side and now
+[03:07] we're implementing people under us so I can go to a conference and you know do high leverage tasks
+[03:14] and have someone do the daily workflows so the way we're going to structure this team
+[03:19] we've got some people that work under me for testing yeah just follow my SOP and my business
+[03:26] partner has people that follow his SOP on the media bank side so there are the guys in
+[03:31] the as manager scaling and putting up numbers and so on and I'm just the guy putting up the
+[03:40] creatives using automations we may have business partner both have somewhat tech related backgrounds
+[03:46] so we're able to code our own custom tools that allow us to pump out all of this volume creatively
+[03:53] you mean you're hiring people through it or actually doing it yourself I coded the entire thing
+[03:57] myself all right I mean let's dissect those two together sorry those two separately again if we're
+[04:04] going too deep and you don't want to share that's fine yeah um but let's get started with what you
+[04:08] were doing right so you have a whole creative process yeah you know let's you have say we're
+[04:13] focusing on just one offer like you have a whole process from ideation to like the final piece
+[04:21] and are you still like doing the ideation or can you walk me through like your creative process
+[04:25] right now from like A to Z pretty much so usually I'll start an offer with three campaigns I'm testing
+[04:32] it out and that one of the campaigns I have a workflow inside my tool where I provide other
+[04:40] people's ads and it makes my own unique versions that are inspired so that's going to be 20 ads in
+[04:46] one campaign with those types of ads um and then I will have another campaign and this
+[04:54] works stupidly well and it's a really good tip for anyone that even if they don't have tools
+[04:59] they can do this very easily these images are just a red square with yellow text on it
+[05:06] and a mutual friend of ours was laughing because I became a stop affiliate just
+[05:09] running these images to his offer but that allows me to test hooks very easily and like
+[05:15] messaging yeah initially that makes sense then the third one is just the baseline workflow
+[05:21] of our tool is just the images you provide the vsl script generates images using a like a long
+[05:27] process with a bunch of AI models to fix text and make sure they're good yeah and then we can
+[05:33] just launch them at one click and it automatically launches them on facebook with our primary text
+[05:38] and headline and all that stuff so we run these three um I'll find two or three ads that work
+[05:45] off of those if the offer is good so I'll take those three ads and I'll create um a bio campaign
+[05:52] where each ad set has those three ads and different primary texts so I'm trying to split test that
+[06:00] you mean like the first three sentences for people who are a little bit less yeah yeah yeah
+[06:04] or the whole primary text is different or just above the fold so actually I do that in two steps
+[06:09] first they do above the fold then the next test is below the fold so I separate that first I find the
+[06:17] best hook then the best follow up um I'll test about 10 of each so uh that gives me my best
+[06:25] primary text island split test headlines I don't think it matters very much to be honest um and
+[06:31] afterwards we split us landing pages so we might try a bridge page a listicle page
+[06:38] so bridge page is very simple right it's splash page some people call it yeah just a head with
+[06:43] the button yeah just a headline an image and a button and maybe some text around the button
+[06:49] it's a very simple short form uh listicle so say I'm selling a um neuropathy uh offer
+[06:57] the listicle will be top five ad home remedies for neuropathy and number one uh would be put
+[07:05] your feet in water with salt number two would be a drink uh more tea and we just list them out in the
+[07:15] last one the number one is the vsl so try this ear trick for neuropathic relief
+[07:23] and that's another variation we also test the quiz so I might take a quiz um funnel
+[07:31] that I see someone else running or I'm going to do my own where the structure is
+[07:35] ask them about the problem you know get them in that like problem state yeah then get them in the
+[07:40] solution state in the sense that you ask them how your life changed you um you got rid of the
+[07:47] problem and finally there's the result which is like the how so in the how you say okay
+[07:53] based on your answers you've determined that we can uh this can help you is the best solution
+[07:59] for you watch the video so that's the other landing page format then we do advertorials long form
+[08:06] so one scientific one that looks like a scientific looks like um say researchers at MIT uh figure out
+[08:16] the real root cause of an of neuropathy it may surprise you yeah um and it's like a long form
+[08:22] article about the mechanism and so on this gets very qualified clicks but low click through rate
+[08:28] and then some offers this works very well another is not really yeah and the last file we test um is a
+[08:35] grainy blog call it so it's like a personal story you know okay it looks like a blog that belongs
+[08:42] to like some grandma that um yeah you know she lost weight or she she was in a wheelchair
+[08:49] now she can walk again this sort of a story that's very emotional it looks very raw like
+[08:55] people tend to trust that more but also because it's longest a lower clicker click through to the
+[09:03] vsl so after we figure that out we just do variations of the winner and we have a feedback
+[09:10] system in the ai tool where we tell it look these did well these did not um it can analyze why some
+[09:16] creatives did well and generate a lot more images based on those couple of images so it's
+[09:23] almost like you're searching for signal you know you're trying to separate signal from the noise and
+[09:28] tap into more signal that's how we think about it you're drilling for gold and you find the area
+[09:33] then you keep drilling in that uh area to find more gold that's how our creative process works
+[09:41] i mean there's a lot to uncover there so just if we go back to the to the start like you start
+[09:46] with uh for example the hooks right on the the image of the red borders i assume you keep
+[09:50] doing that right so it's like it starts adding on each other first you start with like the hooks then
+[09:54] you have that hook and you keep testing new hooks and images but then you have that hook and you
+[09:57] start with the above default and then when that one starts working you start splitting that out so
+[10:02] it becomes this huge tree of like unlimited growth almost that just keeps yeah all right
+[10:09] branching out that's the word i was looking for now how do you like maybe the answer is
+[10:16] hard and boring a tool but how do you manage like this feedback loop where it's like okay we tested
+[10:22] this at it's hitting kpi right that's i'm feeding that back okay this one is like really below
+[10:27] below kpi so this one's scaling like how do you keep like have created an overview is like are you
+[10:32] using click up are using sheets or is this also all in the tools because every branch makes the
+[10:37] you know the variables like multiply by a lot like what's the yeah so we actually have a
+[10:43] the tool the creative tool integrates with uh facebook or facebook ad accounts so it can
+[10:51] pull up the best performers with one click it does the analysis yeah what has the best row as what's
+[10:56] above kpi what's below kpi when we create a campaign we still haven't implemented this but
+[11:01] we're gonna be giving custom kpis per campaign because now we're running some recurring apps
+[11:06] and stuff so there we're looking to break even in the future we're looking for like a point six
+[11:11] yeah that's a different kpi than a click bank offer where we want a one point five for example yeah
+[11:16] row as so uh the that makes it a lot easier because you can just click one button and see what's good
+[11:23] yeah and then just uh drag it over to the variations tool where you can make new ones
+[11:31] also it makes it easier because we can add budgets we use the budget scheduling feature
+[11:35] a lot okay on facebook so that's some kind of secret sauce with like budget scheduling you mean
+[11:42] like certain times and certain days and that kind of stuff so every single day all of our campaigns
+[11:47] have a base budget of two thousand so two thousand is the base budget we might have like a hundred
+[11:52] campaigns running but um on the base budget we just add more budget on good days with budget
+[12:01] scheduling so we'll see which campaign performs in the morning and in the evening which is the
+[12:06] best time for a new job for us yeah we schedule budget yeah that is one of the best ways to
+[12:14] scale in my opinion god i mean we're gonna talk more about like media buying and scaling because
+[12:18] i still want to go back to what you just said like so the tool was also pulling like the funnel
+[12:25] like let's say maybe have like one ad let's go out monkey one and that's connected with
+[12:29] scientific editorial and then there's also monkey one ad going to uh grandmas story page
+[12:35] your tool is also pulling that combination of like ad with uh funnel and then creating
+[12:41] different variations based on okay this was monkey one with the scientific story so we
+[12:45] create different ads for those and different ads for the personal story or do you just all merge
+[12:50] it and just like spam basically just like you just grab everything and just let it rip pretty much
+[12:56] well i don't do that anymore i used to go like drill deep and try to find
+[13:03] which advertorial works for which specific ad yeah but it just added so much complexity to
+[13:09] my process and the juice i got out of it was minimal yeah usually one particular
+[13:14] advertorial will perform better on almost anything one particular lower laning page
+[13:20] and that's been a huge unlock for me because it simplifies things yeah so i can just spam
+[13:26] that one advertorial with a bunch of images so look at uh laning page data in aggregate not an
+[13:34] isolation with a particular image yeah god and also if you have different landing pages that
+[13:39] are working i guess most of the time like one of them takes like whatever 70 to 90 percent
+[13:44] of the spend yeah then you might have like that other grandma story and then you just
+[13:49] launch the same ads from the let's say scientific advertorial which is taking 90 percent of the
+[13:53] spend also in the grandma story and only if the grandma story starts like you know getting
+[13:58] more spent then you might start thinking okay can i create some specific ads for that
+[14:02] pager so we actually um in all of the uh laning pages yeah we don't like put them in
+[14:10] separate campaigns so we just split the traffic using our tracker to different landing pages so
+[14:17] each of the clicks are randomly distributed okay so when we find one that works we just
+[14:24] have it do all the spend to that one got it and so like maybe you start out with like 50 50 and
+[14:29] when you have a winner you're just like splitting like 80 20 percent of traffic to new pages and
+[14:34] you just keep rotating in new yeah yeah yeah so i'll do more variations of the winner okay i'll
+[14:40] split like 10 percent of the traffic testing your headline testing your image and if it seems to be
+[14:46] holding then i'll split it 50 50 yeah so i can get the data in a day and know which one is the winner
+[14:53] yeah and you have your own tools for that oh no i use red track i use generic blue thread
+[14:59] i did do my own tracker at one point and that didn't go well it blew up at one point
+[15:05] and i lost a bunch of money so i mean like if you figure out your own tracker you're up
+[15:09] there with alex becker and stuff so it's kind of like i'm not saying you're not up there i'm just
+[15:14] saying like that that's hard like that yeah no it's very very difficult very difficult yeah
+[15:20] got him so i think that's also which i see like a lot of people miss or like the landing pages it's
+[15:26] just like ads and that's where if you would give like would that be like the number one advice
+[15:31] for an beginner affiliate that's making profit but can scale to like also go deeper into
+[15:36] landing pages um to be honest i most of my career as an affiliate i did not split test enough
+[15:45] on the lane error side and that's been a big unlock for me recently so yes i would say it's
+[15:51] very important second to a lot of ads yeah you got it the facebook loves a lot of ads
+[15:58] yeah with andromeda update and stuff yeah especially yes i was about to say that
+[16:04] the andromeda update um you just have some ads in a big cbo right they take very little spend
+[16:12] but they get these cheap sales every couple of days it's like infinite row as and i'll put them
+[16:17] in like a scaling campaign doesn't scale yeah but a lot of these ads running at low volume high
+[16:23] row as prints money it's like kind of incredible how well it's figured out which ad resonates
+[16:30] with which customer avatar it's truly like it's a bit of an incredible thing witness yeah yeah it's
+[16:36] like all these little segments within the market it finds little pockets and yeah it's insane share it
+[16:41] there okay that's that's cool yeah it's it's funny like i always say like it's most time when you
+[16:46] have a marketing problem which is also what you mentioned like you're looking for a good offer
+[16:50] yeah because everything starts with the offer and if the offer is good then it's easy to have a
+[16:53] title right of course like if you're the first person who's like hey i have a trading bot you
+[16:57] don't have a trade yourself and everybody's teaching like how to trade manually eight hours a day of course
+[17:01] people are interested right but if there's like five of those it's like okay now you need to add ai or
+[17:06] whatever but that's a funny thing now you you i mean you mentioned a lot about tools like
+[17:11] what is your setup there in terms of like are you using like multiple uh models like claud
+[17:17] jet gpt manus like and i guess maybe it's also like for a different step you have a different ai
+[17:23] or like what's like i understand again you're not gonna reveal the secrets but maybe we can talk
+[17:27] about the principles and the structure of how you came up with this and like developed it yeah so
+[17:33] a hundred percent the way that the tool is built it makes image prompts from a bunch of
+[17:40] different models so the best ones from your claud and gemini for this gemini seems to give some
+[17:47] really good prompts which surprised me after the last update before it was bad but now
+[17:53] it's gotten very aggressive with the images which to us that's a good thing right yeah um to facebook
+[17:59] policy and google themselves probably not but that's a different story um but yeah it's gotten very good
+[18:05] at that so we that kind of gives you diversity of the creative because sometimes it has a slightly
+[18:12] different way of thinking almost see it as a different person when these ai models so it gives
+[18:18] you more diversity more options of hitting a signal with the ads so we have the prompts from
+[18:25] different models and then use different models to generate the prompts so all the prompts will
+[18:32] send them to dolly and then fix the text with image gpt send them to image to imagine by google
+[18:38] and send them to image gpt straight up also now there is nano banana by google which is pretty
+[18:44] insane yeah that's one we're testing out so yes it's just a lot of models and sometimes we get the
+[18:51] models to give each other feedback yeah which is really good we have a feature for that we don't
+[18:56] really use it all the time but when starting a campaign it's a really useful one to have claud
+[19:02] analyze gemini creatives and vice versa yeah so to make it a bit more like visual slash practical
+[19:08] let's say you're running an offer whatever weight loss you found another offer that's working really
+[19:15] well you feed all that data into the ai's then you ask it to generate a couple of i mean of course
+[19:21] like text but also like image id's prompts for an image and you ask that from gemini uh whatever
+[19:26] jet gpt all the other guys and girls and then those prompts you feed in the image and multiple
+[19:32] image creation tools and i mean that's then starts kind of stacking up already like
+[19:36] how many and that's just images and you can do the same for text and then you can also send
+[19:40] send back the image and be like hey create text with this image and then you have built
+[19:45] so that's kind of like i i guess for you it's not an agent but for someone who has not that
+[19:49] much experience with like coding and so far it's you have kind of like an agent that's doing
+[19:53] all this work for you step by step feeding it back percent yeah yeah it does most of my work so
+[20:01] this is the main reason everybody here that i've met the affiliate world they're they're
+[20:05] all asking me how big is your team because they we all spy on each other they know what
+[20:09] i'm running they've seen my ads like man how big is your team it's like me and my business
+[20:14] partner yeah that's that's cool yeah like what because the second biggest guys right now they
+[20:21] have a hundred people working for them they're guys out of india so it's like two people versus
+[20:28] a hundred and we're managing to beat them which is kind of insane to me i think this is
+[20:33] we live in like a really interesting time with ai where the ones that we can capitalize on it first
+[20:39] and use it to really multiply our output yeah is the people who are going to win long term
+[20:46] at this point yeah because they can have a 10 person team and out compete a thousand person
+[20:51] team just by using ai yeah and the crazy part is like if you hire people from whatever country
+[20:57] they quit you need to train them again doesn't happen to ai right and also like
+[21:02] it's quite hard that's what that's one of the things that i feel with copywriting where it's like
+[21:05] it's quite hard to keep giving yourself feedback and just improving those little small things because
+[21:11] it's kind of boring right it is yeah it's like oh should i you know add an extra mechanism here
+[21:16] or no or should i remove that or should i tweak the mechanism a little bit it's like
+[21:21] which can give a huge effect right um so yeah i never thought about it yeah it becomes like
+[21:26] it becomes really like a system like a self self-sustaining system that's that's crazy are you
+[21:32] like i guess this is gonna be a shit question because you're so deep into it i wanted to ask
+[21:37] you like how you know from who did you learn all this stuff or like are there still people like
+[21:41] in the ai space that you are following to learn from or is it at this point you're just like
+[21:46] in there in the train just doing it yourself yeah i mean i'm on twitter a bunch that's where
+[21:51] i learned a lot of ai stuff from my business partner is deeper into ai than i am i'm more like the
+[21:59] marketing nerd that figures out how to use the stuff he finds to make killer creatives and copy
+[22:06] and stuff yeah but he's the one that's like knows all the models he's on twitter all the time
+[22:10] watching youtube videos fire ship all these channels like free ones regarding actual like
+[22:17] people that we follow there is one person we do follow i cannot remember his name but
+[22:24] he's like a big ecom guy out of miami and we're just hanging out with him at the conference
+[22:31] and he showed me some really cool cool stuff that he did on top of what we built which i thought
+[22:37] was pretty crazy how well that um is performing for him as well because he saw some of my stuff
+[22:44] and then his own versions and just all of us that kind of know each other we're evolving
+[22:50] each other's tools yeah trying to beat each other and it's kind of leveling up the game in general
+[22:55] yeah that's fun now this was really all about iteration and systems
+[23:02] are you doing anything to come up with like really unique different big
+[23:07] ids or is that not necessary or is that already part of the game or like what's
+[23:11] is there a different process for that yeah so i i do because i have a creative itch in me
+[23:20] i'm a copywriter by background so i still do it i still write a lot of my primary texts and stuff
+[23:28] because i enjoy it i enjoy doing it so trying to beat your own ai yeah i can usually beat it on
+[23:35] copy or with images now no way um with the actual copy i will come up with an idea and i'll feed it to
+[23:44] the ai and then it's gonna come up with images so but even with copy nowadays i know how you guys do
+[23:51] it but for us and for a lot of people i know we kind of just became like copy chiefs where the
+[23:58] ai writes the copy and just tweak it you modify it you make it better so even that side seems to be
+[24:07] becoming more about the big idea and the actual implementation of the big idea
+[24:12] you can do very easily with ai nowadays yeah yeah okay so you're still doing that but do you also
+[24:18] have like for me i always kind of look at like what i said like there's like offer right and
+[24:22] there's like the offer most of time has some kind of unique mechanism yeah within that unique
+[24:27] mechanism there's multiple bigger ids right which and then without those ids you find certain concepts
+[24:33] or ad ids which are kind of based on the mechanism and or big id but are a little thing of their own
+[24:40] so do you also have like workflows that do that like that for example scrape testimonials
+[24:46] and then look for ids there like just like i understand all your answers but i'm not sure like
+[24:52] if i've asked my question properly so is that do you also have a system for that like to find
+[24:59] new ids that have not been really used by anybody um or it just happened organically
+[25:04] it just happens organically but i do have a system in terms of the ai breaking down
+[25:09] big ideas from the vsl script yeah so the thing is there's a little dip for anyone trying to
+[25:16] do what i'm doing with the tools um ai hallucinates a lot when you give it too much information
+[25:23] yeah so with my system i uh compress it down to like five to seven main bullet points
+[25:35] that then the rest of the process drives ideas from you know yeah so the first step is i call
+[25:44] fragments really so that's an explanation of the mechanism who's the target demo was
+[25:49] their nightmare scenario um was their ideal state yeah it's like i think it's eight of them
+[25:57] and then i just feed the rest of the process just those pieces of information versus feeding
+[26:03] it the entire vsl vsl script and those fragments are where the ideas come from so
+[26:10] for example in the nerve pain market um no in the memory loss market the big fear the big
+[26:16] nightmare scenario is that they're going to end up in a senior home that's what they're afraid of
+[26:22] so the ads say uh one of the ads the i came up with which was a unique angle no one was running
+[26:30] was um my grandma my grandma was in a senior home but now she we finally got her back
+[26:39] it's a brand new angle no one's using it so yeah we when it comes to me personally doing ideas
+[26:48] sometimes the best ideas come from something outside the vsl yeah yeah that was my point yeah
+[26:53] or like where i was going yeah yeah that that was a realization i had the ad doesn't have to be
+[26:59] congruent sometimes my ad has a completely different mechanism than the actual vsl so for example we're
+[27:08] running a vision of her and i just remember there's a story in the bible where like jesus
+[27:13] heals some blind guy with spit and i was thinking huh what if we frame the story as like there was a
+[27:20] hidden page in the bible that got lost where the spit was metaphorical and that angle crushed you know
+[27:26] yeah this was the recipe the page got lost that's like a very unique idea that's not connected
+[27:32] to the vsl but it just so captivating to people that they cannot click away and they cannot
+[27:37] look away they gotta click it they gotta read more you know yeah i mean that's where i was going at
+[27:41] because i like you are the number one so you cannot like just model everything that everybody else is
+[27:47] doing or that's in the vsl because that gets you only so far so that's what i was thinking like you
+[27:52] are looking for ideas that are maybe not in the vsl there are again branches of what's happening
+[27:57] in the vsl very valid point well you think another big shift i'm seeing in the space and this
+[28:05] was another reason why i got as big as it did in the past couple in the past couple months
+[28:11] was because um we do our own vsls now so we don't run the vsl of the vendor on clickbank
+[28:19] we make our own yeah that's was my follow-up question actually but go ahead yeah so uh yes
+[28:25] you're right if you if i run the vendor vsl sometimes i can scale but the offer will die
+[28:30] quicker because other people are running the same thing all of us are splitting the pie
+[28:35] yeah but if i take their vsl do my own opening then i try to beat their body then i try to
+[28:40] beat their clothes i try to beat different things i can usually get that victory so to speak like
+[28:49] um beat some part of the vsl the headline the whatever it is yeah and that allows me
+[28:57] to beat other affiliates because i'm the one that i'm the only one running the vsl if
+[29:04] someone else tries to try to copy it i just put a copyright strike on their vsl and they can't run
+[29:09] anymore so like for example with the elderly home example if i hear what you're saying i'm like
+[29:18] what i would do is like i would grab the original vsl and maybe switch out the intro and do like
+[29:22] some kind of horror story of somebody oh you probably did that you know um i did so so you
+[29:28] start like creating your own vsls and that's actually another level right because before
+[29:31] you mentioned you use editorials uh our list of goals all that kind of stuff and then you send it to
+[29:36] the vsl but now you're also grabbing the vsl and redoing it and are you running the vsls
+[29:42] under your own domains and that also kind of gives you i guess some more safety power and
+[29:48] also more privacy somehow yeah privacy is big in the space because people love to rip yeah
+[29:54] exactly i don't like people knowing what offer i'm running to and i don't like them
+[29:58] knowing what vsl malaney pages yeah so we cloak yeah now how do we cloak secret but
+[30:07] there is a couple of tricks that we use to keep ourselves hidden yeah first of all when you
+[30:14] run a lot of ads people don't know what to rip and there's like a thousand ads which ones
+[30:19] do you steal you cannot steal all of them yeah yeah they should be able to do that but
+[30:23] they are too lazy the other thing if you click on my ad from facebook ad library is going to take
+[30:29] you to a page so it's not going to be a safe page it's not going to be like top 10 uh tips some
+[30:36] like Harvard blog or something yeah it's going to be an actual like a hardcore direct response page
+[30:43] that's going to an actual offer that's at the top of click bank but that's not what i'm running
+[30:48] i'm running a different offer i'm just using a redirect chain to send people finding me an ad
+[30:54] library to a to the wrong destination i guess some information is being transferred into the url
+[31:01] if they come from ad library and you can do something with that yeah that's cool man so so
+[31:07] going back to like you you're doing your own do you sometimes rewrite the whole for yourself
+[31:11] so if you start beating the hoop then you go for the body yeah then you go for the clothes
+[31:14] sometimes it cannot be the hook but another tip which is pretty good sometimes your best ad
+[31:21] you just put that as the open of the vsl yeah yeah that's that's the classic yeah that works so well
+[31:28] it's kind of incredible how well it works so sometimes i'll see an affiliate running and
+[31:33] crushing it i'll just steal their ad and i put them put it as the vsl yeah open and that crushes
+[31:40] always and then but can you also then copyright strike them um i know that i would do it but yeah
+[31:47] i guess you could if you like trademark the vsl yeah so so how are you this is like super random
+[31:52] like how are you doing that right you you create the vsl you launch it and somebody rips it then
+[31:56] you can can what do you do there like how does that work um there is some trademark services
+[32:03] in germany that i use i don't remember the name but basically put a trademark on the vsl
+[32:09] yeah assuming it's not like some black hat stuff if you do like a normal vsl yeah you can just
+[32:14] trademark the vsl and it works you know if they copyright strike you just send the hosting platform
+[32:21] yo look have the document it's my vsl yeah and they got to take it down but the original like
+[32:28] clickbank vsl rider doesn't copyright it trademark it well no because the original vsl
+[32:34] rider i'm friends with them usually and i and i'm running to their offer yeah so say i'm running
+[32:44] some weight loss supplement i will always know the vendor yeah and i'll tell them what i'm doing
+[32:50] i'm not like stealing from them i'm being very transparent look i think i can beat your vsl
+[32:56] do you mind if i run to a uh to like a like checkout page directly right so i can build
+[33:04] my own landing page and that's my own vsl yeah and i think this is the future all of the top
+[33:09] affiliates in ono they're all doing their own vsl yeah now that introduces some complexity you
+[33:16] need an editor you need all this stuff that's where the money is at right the complexity
+[33:20] i hate managing teams but yeah unfortunately yes it is where the money is yeah i always like it when
+[33:27] people say like yeah you know you know easy skills and it's like yeah to a certain level it's like
+[33:33] it's just your definition of skill but like most guys that i see it or what if i see that where
+[33:38] something works well those solutions are always like okay create other landing pages create more
+[33:42] ads like like i love the new ai avatars now so we can test different demographics and then
+[33:46] you know okay i don't know if i want to say the the the demographics on the podcast but
+[33:51] you see okay this is working so now i'm going to get an actor or new ugc creator with someone that
+[33:56] looks like the ai avatar yeah so let's leave and not get into the race thing here um but um so yeah
+[34:01] that's that's uh are you also using a ai avatars and stuff i did my first couple million on
+[34:07] clickbank using ai avatars yeah but i don't run videos anymore so i don't really anymore it's
+[34:14] not worth to squeeze like if to run videos so for you it's just images and text it's like if you do
+[34:19] video you you can get some extra ads spent on revenue in but it's not worth in terms of complexity
+[34:23] and effort and skill and what are you showing there well i scaled a lot with videos but i just
+[34:31] find that after the latest update on facebook images just work better the raw as is higher
+[34:38] scales more more stable more consistent so that's why i only focus on images now and i've
+[34:45] gotten very good at running images so that's why that's my primary focus now i know some guys
+[34:52] doing well with videos but usually the ai spokesperson is like Elon musk or something and
+[34:57] it's just not the game we want to play yeah that's it's a bit tricky now there's also other
+[35:04] people in a more like high ticket space were saying like hey videos crush because oh yeah quality of
+[35:09] the leads and all that stuff so do you think that it sounds like i'm just making an assumption here
+[35:14] that you're kind of going after a little bit older demographics meaning like 35 45 up that those
+[35:21] people resonate a little bit more with like images and and text and that that works better
+[35:27] we run high ticket right so we have the publishing side of things yeah and on that side we only run
+[35:35] videos yeah the only thing that gets the good customers yeah but when you run like pink salt
+[35:42] trick to lose weight like yeah that's an image creative typically resonates with that market
+[35:49] but yes you're completely correct when you go for the younger market and the more sophisticated
+[35:54] market they need more of an explanation yeah less curiosity so yes they're only videos performed for us
+[36:01] got it got it okay cool now i think we really got the system down yeah i want to dive a little
+[36:09] deeper in what you're doing with the funnels because that's something that i don't hear many
+[36:13] people talk about no and and and especially like my audience and me myself i'm not necessarily
+[36:19] the biggest i don't know as much about the affiliates as the top affiliates
+[36:23] but there's a lot of people talking about advertorials and the list of goals and all that stuff
+[36:29] and i'm curious like how you look at the whole like ad advertorial vsl like structure slash puzzle
+[36:37] pieces like do you like always start ideally with your own vsl or running traffic straight to a
+[36:44] vsl and then to scale you start adding advertorials is it the other way around like how do you
+[36:48] look at that let's let's just assume that we're you know pumping out a hundred ads a day where are
+[36:54] we going to send them advertorial vsl does that depend per niche uh does that change when you
+[36:59] start scaling does my question make sense uh yes so i'll usually start with the vendors vsl
+[37:06] and start testing with like those simple splash page yeah templates then i'll start adding more
+[37:13] stuff and once you get a baseline that's where i'll start doing my own opens so the only case in
+[37:21] which i actually do video ads is when i'm trying to test them out so i can see which one performs
+[37:28] the best on the vsl itself yeah because that's faster but yes i usually start with the vendor
+[37:34] one very simple and then i add more complexity so once i'm at scale i also add like pop under
+[37:41] so pop under is going to be um you know say they click the vsl on the page
+[37:50] know how like on porn sites person scrolls and like that something pops up underneath and a new tab
+[37:55] yeah and then it opens up some random yeah it's like that but in the background yeah so maybe
+[38:00] they finish watching the vsl they cannot afford the price point um they close down the tab and
+[38:06] they end up at the other vsl the other offer so the person that introduced us actually i'm running
+[38:14] an offer at he owns and i was running an offer at 200 000 a day the same niche but his is digital
+[38:23] i was the one i was running with a supplement yeah so i just put his offer as a pop under
+[38:30] and when someone closes the the browser maybe they don't buy the supplement they end up with
+[38:35] on his page his mind was blown we're doing like a couple thousand a day and basically free traffic
+[38:41] so i try to add these additional monetization flows yeah this is common in the affiliate space
+[38:46] but not so much in the clickbank side of things it's something that the porn guys
+[38:50] like really dialed in which is where i get a lot of my ideas from yeah looking at the
+[38:54] porn advertisers those guys are crazy instead capturing click value got it all right so i
+[39:04] that that sequence makes sense from affiliate perspective now have you seen like advertorials
+[39:10] elisticles ever work for more like high ticket and publishing offers or is it most time better
+[39:15] there to do vsl or still straight to sales page honestly i haven't tested as much but we did have
+[39:25] another tutorial that performed comparably yeah to running straight to the vsl yeah on the
+[39:32] it's a real estate program and the performance was very close so um right now we're running straight
+[39:40] to vsl yeah for simplicity sake but when we were running um both it was similar so that tells me
+[39:50] there might be something there well we just maybe haven't found it yet so we need to do more
+[39:56] testing to yeah figure it out yeah that's what i feel like i'm like if if i just feel like if you
+[40:03] get cheaper clicks right it's like hey free article or elisticle or whatever but then the question is
+[40:07] will the quality be there to still like sell high ticket now you are selling a that's a high ticket
+[40:12] right that real estate offer it's 300 bucks on the front end okay it's more like a mid yeah
+[40:18] yeah the back end is like five to ten thousand yeah depending on the plan they choose yeah
+[40:24] and it's a very but we need to break even on the front end because the cost of good sold on the
+[40:30] back end is pretty high for us the program we have is like really really good really comprehensive
+[40:37] so we need to make and we need to break even in the front end with those mid tickets that's why
+[40:43] that's there but we have done it straight to book a call as well and the quality was
+[40:49] a big issue with that for us in general yeah so i always like having some sort of a lower mid ticket
+[40:56] yeah that was my follow-up so you always do like low mid ticket and then high ticket no
+[41:00] there's guys crushing it like that as well too immediately that's why i was that's why i
+[41:04] ever wanted to go with like the advertorials because i was like if you are like optimizing for
+[41:08] leads right by putting in test uh advertorial in between like it's hard to kind of like
+[41:12] decide what the quality is but if if you would put an advertorial in between you would still
+[41:16] optimize for purchases i assume yeah not yeah okay got it and how's that with this is just me
+[41:21] like asking a noob question how's that with like when you're running affiliate stuff like
+[41:26] do you like i guess you know a lot of people are you always sending the sales back
+[41:30] from affiliates to the algorithm or are you just optimizing for like if it's a bridge page or
+[41:35] a splash page you call it for button clicks always the sales yeah because for example i'm running
+[41:43] a nerve offer now and one of the the grand advertorial actually yeah the one that was no wheelchair
+[41:51] and then she stood up yeah um that one the lint the landing page click through rate was really
+[41:57] bad like no one was clicking through uh but it had a 10 conversion rate in the vsl yeah so that
+[42:06] became the winner and i just did some tweaks and got the click through rate up the conversion
+[42:12] rate obviously went down a little bit but the landing page improved so yeah i only look at purchases
+[42:16] even with ads i don't care about cpc all this stuff exactly i ran an analysis on my data with ai i
+[42:24] exported my entire data i wanted to see is there any correlations um when with an ad does
+[42:32] over 100 sales is there like a cpc correlation is there a ctr correlation and there was none
+[42:38] yeah cpm's were the only thing that was slightly correlated where high cpm's were performing
+[42:44] worse yeah i think that's just because if the cpm's high facebook doesn't like the image yeah or the
+[42:52] text or whatever yeah yeah that i also have experienced that yeah interesting yeah because i
+[42:56] still see like some people teaching like just like optimize for like button and i'm like man button
+[43:03] click right through the vsl i'm like i'm like that cannot be efficient like no man so i think
+[43:09] none of the top affiliates is doing it right they're all like optimizing for purchases sending that data
+[43:13] back initiate checkouts are something that i look at a lot i got this from jason katasi he's a
+[43:22] massive affiliate as well now he's in the agency space and after that my last interview he
+[43:28] offered to open a call with me and share some info and the best piece of advice that goes from that
+[43:33] is to look at initiate checkouts so funny enough i looked at the correlations yes there is a very
+[43:40] high correlation between cost per initiate checkout and um whether the ad becomes a winner
+[43:48] yeah so it seems like that's the more cut off yeah like the the closest point that you can
+[43:57] optimize for yeah such that you don't have to get a purchase to optimize on so yeah i found i don't
+[44:02] know what you find in the checkout pages but on click bank in particular usually it's like 25
+[44:09] percent or so so that makes my data four times cheaper than optimizing for purchases yeah yeah so
+[44:16] you run sometimes campaigns campaigns for an h i checkout as well no i run campaigns for
+[44:20] purchases but i look at the initiate checkout data that i meant like my own personal optimization
+[44:25] oh yeah yeah so you have to feedback faster and you have to wait yeah wait less long yeah
+[44:29] that's the same as like if you don't spend that much money on uh if you're a cell funnel and you look
+[44:34] at the cost per call but you don't know because there's only one call a day and just look at the
+[44:37] cost per lead to make decisions a little bit faster and easier got it and now specifically for
+[44:45] your affiliate stuff are you also like getting like emails there and implementing email marketing
+[44:49] or is that something that's not really i did i did so when i do my own vsl the way i would run it
+[44:58] at the end of the vsl where there's the button i would just put like an email forms they have to
+[45:02] fill it in to go to the checkout page yeah made very little difference uh towards the overall
+[45:07] conversion rate but it was good because i was collecting emails yeah but um i couldn't get
+[45:12] my emails to deliver like it's just a very complex thing email marketing yeah yeah
+[45:20] so it's just not what i'm good at so i decided not to do it instead i'm collecting push notification
+[45:26] subscriptions so the page like a pop-up yeah this page would like to send you push notifications
+[45:32] yes or no and people will subscribe and i'll just send them push notifications for other offers
+[45:39] breaking you have to see this xyz just happened click here and they watch another vsl
+[45:47] gotcha okay that makes sense now we specifically talked about facebook ads for now yeah or at least
+[45:56] i mentioned that word and i heard you are facebook meta are you also running like youtube and uh
+[46:02] display and like what other like what are like your top three channels right now or maybe you just
+[46:07] do meta and you just use affiliates or like partners for the other ones so i'm trying to
+[46:16] think of what the top three are but i'm not sure might i mean if you want to give me a list of 10
+[46:21] that's fine meta is the number one yeah meta is like right now number one yeah lifetime i think
+[46:28] youtube is number one for me um the thing is youtube got very hard for me in the past couple of months
+[46:35] it has always been hard and it didn't get easier now something happened where none of my ads get
+[46:41] approved a bunch of accounts go down even when i'm running like textbook clean like lead generation
+[46:48] or e-commerce products even that gets banned so i really don't know what the deal is with google
+[46:57] but we've been moving it aside a very big channel for us which if you asked me this last year i
+[47:05] would not have mentioned it but right now everyone seems to know about it is news break news break
+[47:10] yes you told me about that so yeah that's where we started news break um it was very cheap so
+[47:20] click was like five cents i told a bunch of my friends about it in the jump tone and then
+[47:26] other people started running they did an official partnership with click banks and now it's just
+[47:30] flooded with like the click bang guys so it's probably still good for like publishers and e-commerce
+[47:37] i mean e-commerce maybe less but like there's it's still interesting for non-affiliates because
+[47:41] people are not on it as much in those spaces or you don't think so as a publisher i haven't had
+[47:47] success okay seems to be uh traffickers or a very mass market yeah okay but make money online is
+[47:54] or weight loss yeah weight loss yeah weight loss legit yeah you could make it work easy um
+[48:01] well when the price point is high like the real estate thing no way we're gonna
+[48:04] get that working because like we're targeting real estate agents and yeah uh people flipping
+[48:09] houses and people who are already deep in the space we don't want some beginner yeah no is nothing
+[48:14] yeah so for beginner offers it might be still it's a good trading yeah works but so you also
+[48:21] you also did youtube and i after the podcast i might have a guy that i can connect you with
+[48:25] maybe already know him that might have some good google reps for you yeah but you are also
+[48:29] in the past doing youtube yeah yeah but now it's just not that was my biggest traffic source yeah i
+[48:35] mean i always loved youtube but it's getting more of a pain in the ass than facebook and it was
+[48:39] all the way around before yeah i mean on facebook i haven't lost an account in months i got one of
+[48:45] my profiles like locked or whatever but that was like 200 bucks to fix like easy 200 bucks man i'm
+[48:51] paying two thousand dollars for that for the profiles to get it unblocked yeah yeah wow jesus
+[48:57] i need to connect to the guy man thanks easy um but not like um i haven't i haven't lost accounts
+[49:05] i can actually share a secret or how we go to our own agency accounts internally so
+[49:10] our own company became a certified meta partner and i have a process that's i think very unique
+[49:18] for that google it was great like you would get an ad up you have millions of you spend a
+[49:25] bunch of money every day consistent good row as rarely would it break rarely what something happened
+[49:32] yeah but then it's just like nothing works i don't know how to fix it try a lot of stuff and i only
+[49:38] know one guy that's crush in youtube yeah he's got a 40 person operation farming accounts all day
+[49:44] launching on like a thousand um a thousand different ads across accounts every single day
+[49:50] but that's like a huge black hat operation so i'm not really interested in copying that so i don't
+[49:56] know how to make youtube work got it hmm that's interesting yeah when i like got started with
+[50:03] my own agency i was one of the first guys in the Netherlands who started offering youtube ads
+[50:07] yeah to publishers course crazy and all that stuff and that was really my edge and then still i
+[50:11] feel in the US like most people don't have the patience or the balls to spend money on
+[50:16] like youtube and figure out so i still love it and if it works it's amazing it's stable
+[50:21] for me most times kills further than facebook but that is probably after talking to you because of
+[50:27] volume like for me like i am now at this point like video first so i make everything so it can
+[50:32] work on youtube and i'm most of the time also part of that works on facebook but if i hear
+[50:36] you with your images and stuff i think i can definitely get some more volume in there so that's
+[50:40] that's um that's interesting okay so you're not doing youtube did you do this play
+[50:46] banners play ads tabula and if that tabula i did or have content years ago
+[50:53] and made some good money on there a rumble is something i'm testing out not really working
+[50:59] right now but last year did a survival offer which uh was pretty big on max web that popped
+[51:07] off on rumble still super cheap yeah um that was this play now we you're uh getting coaching from
+[51:16] the biggest native affiliates we paid them money to help us get native one because we have this guy
+[51:25] he was such a good media buyer for google but he cannot make it work and it's not his fault
+[51:29] and i just wanted to offer him an alternative path that he can help us with yeah i think the
+[51:34] best way is to get him to master native and get him to be the head of that so we can make a bunch
+[51:41] of money for us and for himself i think that's it's an interesting thing with talent in this industry
+[51:46] you know um i feel like everything's so volatile one month you make a bunch of money the next
+[51:53] month you might you might make no money so it's kind of hard to that's why i'm so allergic
+[52:00] to having like a large team you know and yeah i hate the idea of just hiring people and letting
+[52:07] them go to keep the cost low so that's why we're still focused on trying to keep the expenditure
+[52:13] of the company and the team small and lean yeah so we can pivot if we need to and you give them
+[52:20] like a base fee plus performance or something when it's a media bar yes so i like to pay people
+[52:27] that well that work well right uh so really is the performance part is where most of the people
+[52:36] make good money this google guy was getting 30% and he got no base fee yeah and while google was good
+[52:45] it was a great partnership for us because he unlocked an additional traffic source
+[52:50] which we weren't able to do internally so i'm looking to do more of that get more people
+[52:54] on different traffic sources that specialize and pay them well you know
+[52:59] got it yeah then if it stops working he has to look for another job or you have to start paying
+[53:03] him etc yeah well that's why we i like to provide my team with support like yeah
+[53:10] investing them is killing up so i invested in some coaching firms so you can learn
+[53:17] need to us pivot very efficiently yeah industry before we go into like coaching mentoring everything
+[53:27] that we can still talk about yeah in terms of learning and offers i would love to go back
+[53:32] to you know tie the knot on that subject now you also mentioned that you have a system for
+[53:38] uploading so many ads right because you're testing 100 ads a day for seven offers sometimes 11
+[53:42] if you are testing three at that same day so what's the setup there like in every probably
+[53:47] we don't want to bore people with like all the small nitty gritty these but what's the setup
+[53:51] how are you how are you doing it or you just have a va who's like just pushing buttons no no
+[53:55] it's automatic from the api um i don't know the details because my business partner built that
+[54:02] part of the setup yeah but i know you need like to get an app on meta approved so you create
+[54:09] like an app inside meta as a meta development tools feature and they need to approve it which
+[54:17] is usually pretty easy then you just connect it to the profile yeah and you can launch through
+[54:22] the profile now the problem is sometimes the profile gets locked this is annoying but yeah
+[54:28] i don't know the exact technical details of how he implemented that i know it took him
+[54:32] like a good month to figure it out but now it works and there's no almost no human labor
+[54:37] involved zero yeah zero zero labor and our entire process you can just in five minutes
+[54:45] you can have a hundred ads up easy god and are you also like with all those ai system there's
+[54:50] also like a check for compliance facebook compliance no compliance doesn't exist for me
+[54:56] okay so we have the agency account yeah and all of them have by default because we've shown
+[55:05] meta that we are not running crazy stuff there is exemption tax account yeah and we're not even
+[55:13] paying for those like literally they give it to us for free yeah so we just get our exemption
+[55:19] tax placed yeah all the accounts meta compliance doesn't really affect us unless it's something
+[55:25] really crazy which we don't really run like in the image generation process as a part of the
+[55:30] prompt there is some compliance instructions in terms of what shouldn't be said so i cannot
+[55:38] no violence and stuff like for example yeah no violence no nudity guns drugs guns drugs yeah
+[55:46] pills even yeah names of diseases i mean so you have a compliance checklist kind of like it's just
+[55:51] yeah it's not as strict as people who are just starting their own account spending 50 bucks a
+[55:55] day yeah but it's not like it's checking images after the fact yeah it's just in the
+[56:02] generation portion i noticed that sometimes it does like close-ups of uh like hands or stuff like
+[56:08] that and meta doesn't like it so that's like the main item that we need to eliminate say again
+[56:14] like close close-ups of like skin or oh his hand or his body parts or person's feet or
+[56:20] something and meta doesn't like that because i don't know why they have like some weird policies
+[56:25] just raises my cpm is a bunch yeah okay and like from what level of spend do you think you can get
+[56:32] like introduced to those kind of agency accounts or those kind of things like i don't know how much
+[56:38] it was i think it was not that much it was like three million bucks per year yeah um but
+[56:46] the way there is a bit of a secret source to it so there's i'm sure you've seen these there's
+[56:52] these like meta marketing pros that pop up yeah book closings usually sales people spend more money in
+[57:01] yeah well they get paid per minute on the phone with you that's how they get paid so we used to
+[57:09] have this guy that worked for us he recently actually moved to an agency that offered him
+[57:14] a higher pay but he was a good it was a good media bar for us but he loved talking he was the type
+[57:19] of guy you can like sit down with him and he's gonna talk to you for five hours so every single week
+[57:24] we had him jump on with these meta marketing pros yeah and we told him to say how come he never
+[57:30] thought of that you know the meta marketing pro give some stupid advice some dumb shit right but
+[57:36] this guy would say oh i never thought of that that's so smart i need to try this i'm gonna
+[57:40] let you know how it goes next week we waste hours with this like meta marketing pro the meta
+[57:45] marketing pro loves them because he's getting paid sure like social engineering your way to
+[57:51] a good relationship with them yeah so eventually they put some higher tier reps for you
+[57:57] in place and that works out great because then you can slowly build the trust ask for one exemption
+[58:05] tag two exemption tags and eventually they just give you like a goal and the goal is like
+[58:11] spend XYZ this year by the end of the year and you're gonna become an official meta marketing
+[58:17] partner yeah and once you do that it's so easy to run facebook accounts are stable nothing gets banned
+[58:25] approvals aren't an issue you can bulk lunch like honestly it's one of the biggest edges that we
+[58:31] have i think yeah in the game because it takes a lot of time to do this it's like months of
+[58:38] jumping on with these meta reps and then also you need to spend three million a year
+[58:43] i mean that's not that difficult to do i don't think but i mean consistently for some guys that's
+[58:49] yeah i think is it i feel like i hear a lot of questions from people like
+[58:56] how do you make 10k a month as an affiliate like that's not possible i don't know any affiliates
+[59:02] making 10k a month if you find a campaign that works you're gonna make a lot more than 10k a month
+[59:07] if you don't find a campaign that works you're losing money so there's no like in between you
+[59:12] know so if you're making a work three million a year is really not that difficult like the people
+[59:17] i know that do well they crush it yeah people that i know that don't do well they don't do
+[59:22] anything so they lose money yeah yeah there's no really in between it's just like rich and poor
+[59:27] in this case yeah yeah interesting that's that's that's crazy so is that's with like then
+[59:34] one of your companies that's like connected to meta has like an all agreement kind of thing
+[59:39] we have two of them actually now as of this month we have two of them connected
+[59:44] as official marketing partners of meta so one of them is like used to belong to a business
+[59:50] partner yeah uh he was doing e-commander he did this years ago for e-comm and the affiliate one
+[59:58] also became a meta partner this month so like two days ago literally so yeah we want to get like
+[60:07] maybe one more up because it just becomes such a mode we can lose one of these bm's and
+[60:14] still be an official meta partner you know yeah but do you also like you mentioned that like to
+[60:19] unblock your personal facebook account you had like a guy do you also have guys then or can the
+[60:24] agency unblock your business manager and your ad accounts we use a lot of fake profiles frankly
+[60:29] to manage ads yeah because then if it gets blocked you can usually swap it out so yeah those get
+[60:36] locked regardless yeah so over that we have to pay to get them back to an insider because
+[60:43] it's such an obvious fake profile yeah yeah yeah yeah so we were just in paying this insider
+[60:50] that does it for us and um that's great yeah it's a guy that has a bunch of stuff so he's a very good
+[60:56] friend gives me huge discounts yeah i was thinking like 200 bucks man that's like that's a steal
+[61:01] yeah i think it was like 250 yeah it's still a steal you know anything below okay i'm like that's
+[61:05] a steal you know yeah i mean even with spy services it's gotten so competitive so many
+[61:11] providers over it that now it's like 500 bucks or something to look inside a person's ad account
+[61:18] that's crazy i love doing that that's what that's what you're doing all day or like it's a part of
+[61:24] your day yeah yeah do you ever find something like new different or creative in an ad account
+[61:30] or like in the last 12 months have you ever spied on anybody and they're like oh damn i didn't
+[61:34] think about it or that's a really different or unique way of doing things yeah so
+[61:40] actually before i was friends with a guy the person introduced us i was buying on his ad account
+[61:50] and i found a couple creative formats that were working well for him that no one was running
+[61:55] no one else yeah and i transferred them to lead gen their relief so every single day i do spend
+[62:03] at least like three hours on spy tools not when i'm traveling but like when i'm in the office
+[62:08] i spend at least three hours preferably before bed spying so everyone's at home watching movies
+[62:14] i'm like on spy tools and then you sleep in your subconscious starts work yeah yeah exactly
+[62:19] no that's really true actually if you do something before bed it's like
+[62:23] your subconscious is kind of crunching on it yeah i know i know it's kind of crazy
+[62:29] you wake up with all these ideas and what are your favorite spy tools as an affiliate and
+[62:33] publisher um i like spy hero a lot lately it's been getting pretty good ad spy has been
+[62:44] interesting as well i'm not using it as much because they seem to have stopped adding ads to it
+[62:51] but my favorite one is okay so there's two things i like doing one of them is just like a
+[62:57] residential proxy and just scrolling on the feed as an actual consumer in the us most
+[63:04] and that works super well that's where i find the best stuff
+[63:07] and the other one and this is like an insider tip kind of there's these like review youtube
+[63:14] channels that review products as affiliates yeah so they're posting a lot of reviews about
+[63:19] some product it means that product is in demand and that means that offer is um is doing a lot of
+[63:27] scaling yeah there's people start youtubeing and then they check the feed yeah that's that's a good
+[63:31] sign or bad sign yeah well there is also these like scam busting like coffee zula style channels
+[63:40] and i follow a bunch of them because they always cover just guided this shady thing i'm like oh can
+[63:44] i do that shady thing as well less shady but still do it you know yeah yeah can i use a similar
+[63:51] vsl or whatever and it's interesting because they put the product name in the in the title
+[63:58] so that tells you based on the number of views um is this getting search volume yeah you know so
+[64:06] it's a very good indicator of scale yeah what do you do yeah yeah that's like that's when that's
+[64:15] when you know like if you're in the publishing game like when like youtube videos start popping up
+[64:19] like is this a scam or like is this a review of this or like exposed then you know like you should
+[64:25] probably also check your google search results and make sure trust pilot is there and yeah all
+[64:29] the stuff is on point yeah i mean in the coaching space there's that guy it's named like
+[64:34] e-pay or something makes videos and everyone and um always promoting his own stuff he's like
+[64:41] is uh alex becker a scam because like yeah x y z uh yes alex becker is a scam but you know
+[64:48] what isn't a scam my course yeah i work below and for everybody it's like that guy is the
+[64:55] coaching equivalent of the affiliate review channels literally yeah yeah that's interesting
+[65:01] cool i mean i think we really covered like how you run ads and media buying and funnels or is there
+[65:11] anything we missed did i miss asking you a question that's important i think that like facebook structure
+[65:17] is also pretty important like how you how we structure campaigns
+[65:22] simple it's surprisingly simple we just use bitcaps
+[65:26] on everything on scale like when you're scaling like yeah so we launch holding you ads and bitcaps
+[65:32] every day so they're itself regularly spend we split test bids initially so when we test we
+[65:39] run max conversion then we split test bids yeah everything becomes a bitcap i think that's a
+[65:44] pretty interesting thing that most people aren't doing yeah especially in the affiliate space
+[65:50] but yeah besides that like i covered my entire process basically so i think a second interview
+[65:56] more valuable in the first in terms of technical details for sure i mean we're not done yet by
+[66:01] the way i still have time if you're not burned out and we'll keep going because i would love to
+[66:06] dive a little bit deeper like how you are learning and and like the network you're in
+[66:10] that's why i was asking like okay did i miss anything interesting and sexy for media buying
+[66:14] but then bitcaps i guess and now we now like your whole process is exposed yeah without you know
+[66:20] he's cloaking so you can probably not find him if you're not a smart cookie so yeah you you
+[66:28] you are like crushing it but you're also still like learning a lot like you're hiring these these
+[66:33] mentors like before we go into like what you're exactly doing i'm just curious like how you
+[66:39] feel as a you are i'm calling you a european because you you live in you know in europe
+[66:44] like do you feel like that being in europe is a is a disadvantage or do you feel like i'm not
+[66:49] connected enough to the u.s or i wish i would be more in the u.s how do you feel about that
+[66:54] i don't know anybody in the u.s besides like two or three guys they're really crushing it
+[67:01] i don't think there's any advantage to being in the u.s you get taxed like motherfucker you
+[67:05] you get you live in a broken society like i see zero benefit to moving to the u.s yeah but some
+[67:12] like dubai or these other hotspots where a lot of people are at that's where i would like to be
+[67:19] that's the disadvantage like i i'm probably going to end up moving to dubai full time
+[67:24] in the next year yeah because the most value i've gotten the most learning i've gotten is not
+[67:31] that courses or like speeches or presentations yeah it's chatting with people right like i'll
+[67:38] be at the event like chatting to some guy that trusts like a normal guy doesn't have an instagram
+[67:44] page like i don't even have an instagram page and uh he's just telling me like yeah you know
+[67:49] we do about 300 000 a day we run some um some legion but i think the secret was that we put
+[67:57] um the web the landing page to look like it's a yahoo page we did the logo in a similar
+[68:03] faction so people assume affiliation associated and that's a great tip right yeah so these are the
+[68:10] people i want to be around the people who are actually doing the thing yeah and these
+[68:14] low tax hotspots for me is not an issue my tax rates 10 percent i'm not worried about that but
+[68:21] for where the other people from the us are congregating that's where i want to be yeah because
+[68:26] that's where the best knowledge is shared like dubai bangkok bangkok dubai i don't like thailand very
+[68:32] much but yeah dubai definitely a really nice place yeah i love it i love it there it's it's great so
+[68:38] actually it's funny so like again like i'm not that much in the affiliate space i meet people
+[68:42] like and i mean for me z is not even an affiliate right it's like the guy who introduced
+[68:49] because i'm afraid to pronounce his name yeah and i always call him like i'll always call him z so
+[68:53] even like with my wife or with my my partner i think i'm called him z so um where do i want to
+[68:59] go with that to see yeah so even like z i don't really see as an affiliate because he's most of
+[69:03] the time like kind of doing his own stuff although he's for me he's like a hybrid publisher drop
+[69:09] ship or uh brand drop ship or yeah yeah so i don't know that much about affiliates but it
+[69:15] sounds like yeah most of the affiliates are then more like actually in europe and in asia and oh yeah
+[69:21] the arabic countries yeah for sure because what i feel with the publishing side i feel that's really
+[69:26] like you have all the miami guys the miami bros the then you have new york there's there's a lot of
+[69:32] guys doing real serious now is your real estate and trading guy in the in the u.s yeah he's in
+[69:37] chicago yeah you see that that's on so i guess like affiliate is more like yeah outside of the
+[69:42] u.s and then like the publishers like the people are selling coaching courses softwares are really in
+[69:47] the u.s yeah i just you know i see the miami like kids making courses and yeah selling and
+[69:57] flexing and i don't know i just i have no interest in networking with those people where
+[70:03] their main business is flexing on social media yeah like being influencers so yes they do make a
+[70:09] lot of money i'm not gonna like go into names but yeah those guys i see z actually sends me their
+[70:18] applications for copywriting they're learning from some guy in miami with like 19 years old
+[70:24] amazing poppy yes he's teaching copy that i know in miami yeah yeah some guy and um not only him
+[70:32] there's some other guys as well but i'm seeing their applications of the students and they're
+[70:37] so bad right yeah but i mean let's i will say it without calling out any names and so we don't
+[70:43] have to be uncomfortable about this most people who are teaching how to start an agency or copywriting
+[70:48] might be really good themselves but the people that actually buy they don't even try so it's
+[70:53] like better to hire somebody who doesn't get taught by a guru because they are actually
+[70:57] interested in it and i have like maybe corporate experience then it is to hire someone who's
+[71:02] like yeah that's true i think it's a function of how they market a lot of times yes yes where um
+[71:10] they're marketing to children yeah teaching them that oh don't go to university to this yeah i don't
+[71:17] know i just it's a space that i'm not really super interested in like getting to know those people
+[71:24] yeah i want to know you i want to know the person who's behind the scenes actually managing
+[71:30] the the guru actually doing the work and making the whole thing work yeah because these people on
+[71:37] social media they're they are good at making videos yeah but there's always always there's somebody
+[71:42] behind the scenes that's pulling the strings as the actual owner of that business that actually
+[71:47] controls it you know yeah or they're lucky like i don't know if you saw that alex bekker video
+[71:51] about don't start a personal brand yeah and he talked about right that you ride that wave and
+[71:56] then you need to like push harder and harder and harder and then it will just because you're not new
+[72:00] anymore you will kind of go down and you see them in that cycle and they're just extracting as much
+[72:05] money as possible from that audience so what i want to say what that's like either somebody's
+[72:10] like putting the strings or it's like kind of luck where they ride this wave because they kind
+[72:14] of corrected the social media because they don't really know why and they don't have operations
+[72:18] and infrastructure and all that stuff they don't really build anything and then it just
+[72:21] crashes after that period of time in cultures over yeah that's why as a publisher you have so many
+[72:27] faces that you can put on you can just swap them yeah one dies on to the next one and yeah
+[72:34] you build a massive company like that um some of the biggest publishers have like
+[72:39] tens of faces on the same niche you know yeah teaching slightly different things and
+[72:44] one dies the next one's up that's how you build a real business yeah yeah that's although i'm
+[72:50] to be honest like that's one of the big questions i have that i i've not really seen or heard answer
+[72:55] like because for example i'm i'm i'm running a trading offer in the Netherlands and we have been
+[73:01] like i won't share the numbers here i will share it off topic running serious spend for that country
+[73:06] and we've been doing that for years and it just it just keeps going so i also believe that as
+[73:11] long as you keep like reinventing the mechanism and all that stuff you can still keep it up
+[73:15] but to your point this is where i'm also like evolving and now now we launch the female
+[73:19] face a female trader oh yeah and now we're like i'm like i might be able to double ad spend or at
+[73:24] least raise it with another 50 just on by putting it on that influencer so i'm not saying don't do
+[73:27] that but um yeah that's where i'm really yeah curious to see in the upcoming years whether i
+[73:31] will be someone who can really keep people like running for like five years ten years because
+[73:37] i think i can but we'll see about that yeah i think like um have you seen the awesome
+[73:42] real estate people that's mostly for which one um awesomely awesome real estate
+[73:49] i doesn't ring about right now yeah they're massive publisher in the us and what they do is their
+[73:56] back end is just get access to all the courses just put a bunch of different faces with slightly
+[74:01] different mechanisms yeah in the back end the high ticket is just get access to all of them
+[74:06] yeah so i think it's a really brilliant model what you're doing with getting the female face in
+[74:11] however do a slightly different course and get some other demographic let's say to do their own
+[74:18] yeah i know netherlands is a bit smaller than like the us so probably cannot go as big as them
+[74:23] yeah but it could be interesting if you can be like an ecosystem or a subscription based
+[74:29] almost like mind valley for real estate or trading or whatever it is you know yeah one
+[74:35] options guy one one swing trading guy the trading guy i mean i think you can go like yeah i mean that's
+[74:41] why i'm like like i do still think there's a lot of opportunity in the info space if the only thing
+[74:46] is like if you want to go big that's my vision exactly what you said but like even more segmented
+[74:51] like you know the tree that you built with creatives it's like i think like if you have a
+[74:55] yeah a day trader like you can literally copy the same marketing yeah to a female and then
+[75:02] if you if you prove the female you can go like with different skin tones different ages right and
+[75:08] then i think that already on its own is like quite a big big amount of revenue that you can do and
+[75:14] then of course you have all the different trading ways or the different mechanisms for trading
+[75:20] multiplies exponentially right yeah so and you're always using that's that's one of the things
+[75:24] that i really like and it seems like you are kind of doing that because you have a coding
+[75:28] background i always like to leverage my previous skills or experience in another thing that i do
+[75:34] so i'm not going to take on like for example now like if let's say we are talking right you're doing
+[75:38] some something in the health space like i would not start myself in the health space like she did
+[75:43] that i respected a lot i would be like hey man like it seems like you have some issues with
+[75:47] youtube what about like i start running some youtube ads for you right because i know okay
+[75:51] i have the youtube skill you already have like the messaging skill and the vsl skill i'm like
+[75:56] okay now there's only one piece of the puzzle that i need to figure out
+[75:59] which is putting your proven concepts in video creative and getting it approved or that's like
+[76:04] two pieces puzzle pieces i'm confident but i don't want to like have to figure out 10 to 20 puzzle
+[76:08] pieces that's how you start by the way but like if you're at a certain level you don't have to
+[76:12] do that i think anymore yeah like i was also looking at things long term on myself like
+[76:19] so i needed a business that does cash flow makes me cash so i can reinvest in other stuff
+[76:29] so i was thinking of what do i choose i can go affiliate route ecom route
+[76:33] ecom is a bit tough operationally needs more money but
+[76:37] you come around affiliate route agency route different things then i was thinking okay when
+[76:43] picking i should see what's like my ultimate end goal ultimate end goal is to exit a company
+[76:48] for a really large amount by the time of 25 so that means that i need a certain set of skills what
+[76:58] kind of company would i need to exit i need to be some sort of most likely some software kind of
+[77:04] thing because unlike dealing with logistics i was like okay what skills do i need besides the
+[77:09] coding it's like buying media marketing xyz so i was like okay i'm making a decision the affiliate
+[77:15] side is the it's gonna give me most of the skills that i need yeah in addition to giving me the cash
+[77:24] flow that's where i chose to go in the affiliate route not in the agency route for example also
+[77:32] i i hate the agency route in general because if i had to deal with a client every day that would be
+[77:40] hard every pain yeah i get that i get that and that makes so so that's your plan like what's
+[77:47] normally we would go into your story and all your mentors now but we're here so i'm just curious
+[77:51] like so what's what you mentioned your goals you want to exit yeah like what's the amount that
+[77:56] you want to exit and then you're gonna just retire or like start doing some wine farm in
+[78:01] italy what's the what's the what's your vision slash plan so i want to do 60 million between me and
+[78:05] my business partner so that leaves us with 30 each yeah add that to my stock portfolio it's
+[78:13] more than a million a year right i'm not that big of a spender so yeah can easily survive
+[78:19] off of a million a year yeah and um yeah that's the amount i think is very doable now with
+[78:28] the recurring apps we're working on so that's started as more of a passion project but it
+[78:34] looks very promising economics wise because the rebuilds are really where it's at nowadays you know
+[78:42] yeah it's getting harder and harder to extract a bunch of money from people up front and it's kind
+[78:49] of like you need to get a long ltv yeah in order to make money because as you see more and more
+[78:56] often companies are going negative on the first sale right yeah it's like who's got the best
+[79:02] long-term economics and there's very few things that do it like recurring apps where it's 100%
+[79:08] margin and so on yeah got it so how did you get into this app thing and the overarching question
+[79:16] like over the bigger question is like how are you going like finding these opportunities right
+[79:21] affiliate it's it's it's clear you go to the events you know all the writers so yeah that's
+[79:25] just there but like when you're talking about an app or publishing real estate or the trading
+[79:29] of like how are you like getting finding these these deals and opportunities um with the apps I just
+[79:37] spied and saw some people running Lithuanians running nine multiple nine figures and subscriptions
+[79:45] per year on fitness apps hypnosis apps um quit smoking quit vaping sleep better all these apps
+[79:55] yeah okay well no one's doing memory i'm going to do the memory niche bringing games for memory
+[80:01] because one of my best angles was try the Sudoku trick to improve your memory so i'm going to take
+[80:07] that angle and apply it build it myself i know how to code so it wasn't difficult it's also easy
+[80:14] nowadays right with all these like AI lovable apps and stuff like that i'm doing the front end
+[80:19] with AI yeah the back end custom so the front end one prompt and it's good and so good it's one
+[80:26] shot one kill one prompt gives you the full app that's crazy yeah it's very crazy and what about
+[80:34] like the real estate deal how did you like real estate coaching so yeah i partnered with a publishing
+[80:40] company last year because it in terms of income it's a very small percentage of my income
+[80:47] yeah but i really like the guys that were working on that yeah i learned a lot from
+[80:54] them in the past so just saw there's an opportunity to work with some mentors of mine from the past
+[81:01] yeah who are really really smart and really good at what they do so that's why i took that opportunity
+[81:07] i just reached out to them like yeah i'm interested in doing this yeah a few guys are and they said
+[81:13] yeah let's do it so we ended up doing a partnership that's been very it's been a very fun project for me
+[81:21] let's say yeah so also spying like at least five to ten minutes a day on that niche or is that like
+[81:28] i have people that do it i don't really work on it as much we have a team there a bigger team
+[81:34] so that's more light work for me it's like a couple hours a week yeah but more strategic
+[81:41] a hundred percent yeah i'm not like in the ad accounts every day yeah who's what's performing
+[81:48] is like no just once a day go into it um see what's up and yeah that's why i like excel sheets you
+[81:56] know you can just go in there yeah check it okay seems fine we're trending in the right direction
+[82:00] don't have to look in the ad account yeah exactly we have a data analyst that does beautiful charts
+[82:06] exactly in excel that's like her job right and she's very good what she does
+[82:11] this is very easy for me to pop in and visualize the data and okay this is the thing that needs to
+[82:16] be worked on tell the team give them instructions execute on it yeah yeah for me it's always like
+[82:22] if i can just look at an excel sheet and send a voice memo and it works and it gets fixed then
+[82:28] that's the switchboard that's the perfect business yeah because you know with team
+[82:37] it's kind of like you need someone that understands the bigger picture and it can work with minimal
+[82:43] instructions so you're um you don't have to over explain and basically do how to work yourself
+[82:51] yeah once you get that it's really like the perfect golden zone yeah and as a business owner
+[82:57] yeah yeah 100% so you just mentioned mentors did you like buy a bunch of courses back in the day
+[83:03] or did you just kind of like find these mentors organically well it has been your um process
+[83:10] i was in what was the so i think the first one i don't remember where what i bought first but
+[83:19] the one that really picked up for me what no no the first one that really picked up
+[83:25] was a dutch guy colin dice did a native ads course and i bought that it's pretty good learned how to
+[83:32] run native way back it's still in university um the why did you want to learn native ads when
+[83:39] you were in university back then it's like i i was studying finance quantitative finance i wanted
+[83:44] to be a quant so i saw kind of how facebook ads were and it seemed like a lot of randomness
+[83:52] the algorithm and all this stuff and um native ads looked like a beautiful excel sheet
+[84:00] it looked like very quantitative and yeah the stuff i understand so that's why i jumped into it
+[84:09] and then i took i realized my copy skills aren't quite where they need to be
+[84:15] so i got uh nothing held back by alan you joined the mastermind or you just checked the group
+[84:23] yeah i joined the mastermind so so wait so you have been doing this shit only for two or three years
+[84:30] yeah crazy okay sorry go ahead so you joined nothing held back the 20k package you were
+[84:35] one of the first i joined uh no i joined the energy plus okay okay yeah man then you
+[84:41] really have not been doing this for that long no man like that's crazy i got i first started on a 16
+[84:48] yeah selling some like gadgets no uh selling p actually on Shopify mm i never got paid out of that
+[84:56] because i was using my grandfather's name and i needed to do this verification yeah to get my he
+[85:02] has the same name as me so to get the payouts but he passed away so like my money got stuck in
+[85:07] there and it was crazy pain yeah um then it was some native ads that we did um i did personally and
+[85:16] then i did a publishing company when i joined in hb plus this is where stuff exploded for me
+[85:22] so i watched the call by mike gandia which is pretty he's the guy i'm working with and
+[85:27] real estate offer actually god yeah i know i mean i've talked to mike briefly and i
+[85:31] joined hb plus when it launched first the high end one yeah yeah so we um i saw his call and
+[85:39] i did my own publishing deal with a friend from university at the time we sold that company
+[85:43] early last year then i had my current business partner we were doing like a publishing deal
+[85:49] together was publishing my business partner he was like a huge po d guy at the time printed
+[85:53] the demand yeah so uh while we're doing that he had me jump on use break a bit because um he was
+[86:02] one of the first people on the platform ever yeah he's like damn he's cpc's you're on clickbank
+[86:08] put that stuff on there exploded and a year later we're the biggest affiliates on the platform
+[86:15] by a wide margin at this point so it's kind of crazy how fast things exploded
+[86:22] for me getting into this yeah how old are you now 22 so you went from at 16 to 22
+[86:30] in four years that's crazy and you only really started with the real like internet marketing
+[86:35] stuff like two three years ago yeah like i was told university at the time like two years ago or
+[86:41] something like that yeah you dropped out ish no i finished i graduated a year a year early so
+[86:48] i was doing a three-year degree yeah i graduated in two years and in vienna or and long
+[86:57] and focus on marketing yeah got it so all your mentors were kind of like you were just
+[87:01] kind of working with them and then they were kind of teaching you no well i started working
+[87:06] with mike recently actually yeah it was last year but i was already very successful by the time
+[87:14] i started working with them i just watched that colon hb and i kind of implemented what i learned
+[87:19] you know yeah yeah it was so nice how process driven it was yeah so yeah i love how that team
+[87:28] thinks and how they operate and they hire good people so i love working with them and i'm
+[87:34] basically their cmo for some of their offers yeah yeah no that's that's good for mike so he's
+[87:41] really like even stepping out of the cmo row into the ceo slash leader slash yeah yeah for sure
+[87:48] that's crazy he's become just the leader and he's a good one so yeah i enjoy my side of things
+[87:55] he really enjoys the leadership side and it's one of those passion projects for me for sure yeah
+[88:02] but that's yeah that's fast man like what's like your record day in terms of like spending money
+[88:06] on ads i have no idea my record day in sales yeah was 240 000 yeah um in spend i have no idea what
+[88:18] the what the spend was must have been like over six figures yeah that's what i was saying so you
+[88:24] went from like 16 to 24 spending 100k per day making 200k plus per day yeah 16 to 22 that's
+[88:32] pretty fast and crazy yeah but i first ran my first paid ad when i was 19 so three years ago
+[88:40] yeah on nativ ads and did some facebook so in three years realistically i yeah really my stuff
+[88:47] really exploded so so what were you running the native ads too oh like supplements there was
+[88:54] diabetes was my niche at the time i don't run that niche anymore because i don't feel ethically
+[89:02] aligned with it yeah that's also interesting which we didn't talk about like there's a lot of
+[89:06] like people and affiliates who are kind of selling stuff that i would say is definitely
+[89:10] unethical slash potentially illegal yeah you seem to be at least on the the in the gray area
+[89:17] or better and nothing there yeah no like look as long as we're not like hurting people yeah
+[89:24] i'm not gonna do an offer where we're like stealing money or doing crypto scams or yeah
+[89:30] doing something where we're actually hurting people yeah yes i would sell an overhyped like
+[89:35] nerve supplement yeah but with diabetes it gets tricky because every vsl says stop taking your pills
+[89:44] yeah it's dangerous people will take that advice to heart and they'll they'll die i don't want to be
+[89:49] responsible for killing people it's like yeah it's not what i'm into so that's why i tried to look at
+[89:56] like what kind of effect does this have on the actual customer yeah is it at least neutral or good
+[90:04] if it's very negative i will stay away from it got it yeah i mean that's crazy i didn't know that
+[90:11] but that's pretty fucked man all right let's let's move to a more light topic so uh you are now in
+[90:19] budapest this is in budapest yep i feel the world just happened did you like go to any
+[90:24] presentations did you check out any of the speaker no did you go even to the i mean i bought a
+[90:29] ticket but i didn't go i bought a ticket um i went on the first day okay just said hello to some
+[90:36] friends um but afterwards i just didn't go on the second day there was a big event by a vendor i'm
+[90:46] working with mm-hmm where it was so good we're having lunch so i just skipped fully a world to go to
+[90:54] that yeah then there was a neutral event then there was a um click bank event then there was a
+[91:03] digital store event so i just spent all day at events yesterday and i like all of them i know most
+[91:10] of the people at this point i've been going to these conferences for the past two years or so
+[91:16] yeah you go to all of them i'll go to like i really like the one and i really like the one
+[91:23] in barcelona it was really cool the one in budapest last year was also really nice i
+[91:29] would say better than this one the conference itself the events were also good here um the
+[91:37] one in bangkok i haven't been to yet yeah i might go but i'm not too much of a fan of like thailand
+[91:46] b frank why is that it's just not oh man i heard the stories by people and it doesn't seem like
+[91:54] they still want to go but the buy one yeah that one was so nice the buy one some really
+[92:01] interesting side events for eco yeah so so it sounds like a lot of people don't really go to the event
+[92:08] itself yeah a hundred percent or but of course you need to get invited to those places like i was
+[92:13] also lucky that i was invited by rohan i don't know if you know him uh yesterday oh yeah i saw rohan
+[92:19] yesterday yeah so yeah like rohan was at my chilling at my rooftop yesterday and then we went to
+[92:25] to a restaurant after that with eight nine other guys oh that's so i was lucky with that you know
+[92:31] but those are that's where you have like these kind of conversations so if you go to an event
+[92:36] you're not like this is what you're trying to do you're kind of trying to have like kind of
+[92:39] these kind of conversations not like talk to a hundred thousand people be busy you're just kind of
+[92:45] like trying to find some good conversations well what's your strategy there it's kind of like organic
+[92:50] now because you know click bank will probably get you into the right rooms places you know
+[92:55] i mean look um i will go to the event but the problem with the event is that it's mostly like
+[93:02] hotel ukrainian girls uh paid to bitch you something that don't even understand so
+[93:08] agency accounts what's your highest score what's the highest score i don't know what that is
+[93:12] you know like so it's kind of just an annoying um an annoying conference lately a lot of it is just
+[93:21] like crypto casino yeah all these things that i would never run um but the actual side events
+[93:29] so i'll i'll get some friends off of the official conference parties that's what i did initially
+[93:35] yeah i went to one in malon at the time i was still in university and i met a couple guys they were
+[93:42] they were really good people yeah they kind of went into the space they showed me some stuff
+[93:49] introduced me to people and after you started building a couple friendships you know rohan
+[93:54] got you into the digital thing so it's kind of the same thing someone will have something
+[94:01] someone will organize something sometimes i'll organize something and yeah we just use those
+[94:07] connections to get more connections you know yeah yeah i mean rohan is such a good dude man
+[94:12] yeah he has a heart in the right place shout out shout out to rohan one of the only good
+[94:17] agencies out there yes yes yes yes yes i agree i agree and and also a good dude and a fun
+[94:23] like there's people who are you know either really fun but not good or like and good but not that
+[94:30] fun and and then also not doing but he's doing a bunch of stuff yeah i see him all over the world
+[94:35] it's crazy Dubai Bangkok Amsterdam yeah i don't know how the guy does that but um magic yeah i'm a team
+[94:45] or good oh yeah yeah i mean like even without the team like the the amount of traveling and like
+[94:50] attending late late late evenings that he's doing that scene it's pretty insane yeah i'm like if you
+[94:56] like have been run over by a train after all these events yeah i just want to go back to my little
+[95:02] lake house in macedonia and chill out for a week and not talk to anyone i think for a week just to
+[95:10] relax again yeah that's why i'm really happy that the event is in budapest oh yeah i didn't go and
+[95:15] they just came to my place i've have a really nice place so they all came to my place i didn't
+[95:19] have to do anything my wife got them some beers we're just drinking some i'm not drinking we
+[95:24] drink some beers take the taxi to the nice restaurant that i know where it's always
+[95:27] perfect no crazy stuff everybody has an amazing time you know i went to the the club but i already
+[95:33] left before you even attended i was like i checked it out made a photo with some bottles for my brother
+[95:38] i always made jokes like my brother loves like expensive vodka and stuff but i don't drink
+[95:43] so i always make a photo with a big bowl of vodka like pretending i'm like calling with the
+[95:46] vodka bottle like being like degenerate but i don't drink it and i send it to him and then
+[95:50] then i just go home but anyways that's i feel you i feel you so what what what
+[95:55] events are you looking to visit i mean bank oak i think bank oak is like it's gonna be fun
+[96:01] i'm open to trying it it i've never been to thailand and yeah i always kind of assumed
+[96:08] i wouldn't like it but i mean why not go there see what's up um another one i'm interested in is
+[96:15] clickbank platinum summit i'm gonna be speaking there nice so hopefully uh that goes well i don't
+[96:21] know i've never spoken on stage before it's gonna be interesting what are you gonna be
+[96:25] speaking on basically what we just spoke about i'm probably gonna take um our podcast transcribe it
+[96:31] and give it a chat gpt to um make me some slides yeah and then you're like remove my worst secrets or
+[96:37] my best secrets and put it on slides now with what's that tool called again it works pretty well
+[96:42] there's this ai uh that's sigma figma uh figma yeah figma no no but no the the pdf tool or
+[96:48] like a powerpoint slide generator tool oh yeah yeah there is one that my business partner was
+[96:53] using for the course it's it's quite right it was doing yeah it was pretty good it's pretty good yeah
+[96:57] we're gonna figure some out with that just take the podcast and i think is there actually a really
+[97:03] good idea yeah save me a ton of time you should yeah yeah you just need to figure out some visuals
+[97:08] to make it a little bit easier for people to understand yeah that's easy and thank you to go
+[97:13] you're welcome thank you that's great you don't have to prepare your presentation anymore yeah
+[97:19] in terms of um the click bank then i almost didn't want to go
+[97:26] because you know we did so much volume for them and they were asking us to pay for the i've heard
+[97:30] the story from multiple people yeah and but they also bring on some gurus outside of the industry
+[97:36] that like never did the single cent as affiliates to teach us i get paid for that shit
+[97:42] yeah and they don't pay for them yeah and i'm like that's disrespectful but then they
+[97:47] were like okay look like at this point you don't have to do that so yeah so okay i'll bite and next
+[97:56] year you're doing one in Idaho i think okay where i've never been to the states so that's gonna be
+[98:02] interesting um Idaho one that one is gonna be um basically like you go to Idaho and you catch a
+[98:12] jet to san valley like mountains and uh it's like a resort but only for people have done five million
+[98:20] plus cool yeah in a year so i i'm really excited to see how that one goes as apparently the highest
+[98:28] quality one so far yeah that sounds pretty amazing yeah yeah what about you are you attending any events
+[98:38] no i i don't know for now i mean maybe i mean maybe Thailand now i mean for me it's like
+[98:42] i was supposed to go to nomad capitalist life in like two weeks from now but i'm not sure if i'm
+[98:47] going because i just feel like going to malaysia the time zone all that stuff i might cancel it
+[98:52] i was going with he actually but he canceled it he was like i can't go i'm gonna lock in i'm
+[98:58] gonna go to a war show and now i'm also not sure if i'm going i'm flying to dubai next week
+[99:02] and i don't know if i'm gonna go to malaysia but i also like to go to some different
+[99:06] events outside of internet marketing yeah just like what you mentioned with the like that the biggest
+[99:12] fear with people have hearing issues is that they have to go to a you know elderly i feel like
+[99:16] sometimes your best ideas are from outside of outside of the industry or outside of marketing
+[99:23] yeah or that's where those are the ideas that can scale sometimes because you come up or like what
+[99:27] you said with that ad account where you saw a new structure that you are like a new ad format
+[99:31] he didn't see before and that's where you know your edge yeah that was the ad format i'm not gonna
+[99:37] leak it because it's his but he's still running that he's still crushing with that yeah he's an
+[99:43] interesting guy in terms of ideas like some of the most unique stuff his offers work very well
+[99:48] i'm running them right now pretty decent he's an artist yeah oh yeah a special type of artist yeah
+[99:55] yeah yeah he's he's a crazy guy yeah he was um i never knew that but he was like at some point i helped
+[100:02] i got him some work for my projects and he used that money then to actually start doing his own
+[100:08] dating offer first and then he really blew up so he came like this is like i met him for a second
+[100:13] time on a second podcast last time and um for his podcast and but he came like a couple of
+[100:19] months ago and he bought me a perfume and stuff and he's like yeah thanks for that i'm like oh
+[100:22] yeah i don't even think about that stuff but that was pretty cool to see he's still humble i would say
+[100:29] yeah i'm doing the copyrighter thing he's making jokes that i'm soloing his copyrighters and his
+[100:35] own offers because we're doing more volume than him and his own stuff which is pretty funny
+[100:42] but yeah i haven't shown them how we run media as well so he can build up the team i think the
+[100:48] relationship with the advertiser as it's called in the affiliate space or the vendor
+[100:53] it's really important this like the most important thing and it's one of the best
+[100:58] relationships i've had with any vendor to want to help with him or super helpful on both sides
+[101:05] yeah yeah he's a G i think we're gonna end it uh end it there yeah um is there anything that
+[101:12] you want to pitch i guess not or like are you looking for copyrighters is there anything that
+[101:15] we can uh no and the only thing i'm gonna pitch if someone sees me on some event say hi like
+[101:21] introduce yourself like to meet some new people and yeah it's cool yeah so that will be at the
+[101:27] affiliate world i will i know you have a facebook account and a twitter so i'll put that below the
+[101:32] video yeah that works if they want to check you out if i have zero tweets and zero posts on
+[101:36] facebook though okay yeah so then it's just that that's the private guy there's no call to
+[101:42] action then for for today so in that case if you like these videos marketing your stuff subscribe
+[101:49] notify all that stuff that i don't know because i'm not a vlogger youtube or a podcaster yeah thanks
+[101:55] thanks for this impromptu fast yesterday evening organized podcast i had a good time
+[102:00] enjoy it thank you yeah thank you very much thank you for having me

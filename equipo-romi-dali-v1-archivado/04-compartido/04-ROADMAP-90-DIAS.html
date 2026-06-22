@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap 90-120 Días · Hispano-US confirmado · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../INDEX.html">← Affiliate Business · Index</a>
+<span class="meta">01-ejecucion-2026 · 10 min · 2,020 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#resumen-visual" class="">Resumen visual</a></li><li><a href="#semana-1-setup-días-1-7" class="">SEMANA 1 · Setup (días 1-7)</a></li><li><a href="#lunes-día-1" class="h3">Lunes (Día 1)</a></li><li><a href="#martes-día-2" class="h3">Martes (Día 2)</a></li><li><a href="#miércoles-día-3" class="h3">Miércoles (Día 3)</a></li><li><a href="#jueves-día-4" class="h3">Jueves (Día 4)</a></li><li><a href="#viernes-día-5" class="h3">Viernes (Día 5)</a></li><li><a href="#sábadodomingo-día-6-7" class="h3">Sábado/Domingo (Día 6-7)</a></li><li><a href="#semana-2-3-primer-funnel-completo-días-8-21" class="">SEMANA 2-3 · Primer funnel completo (días 8-21)</a></li><li><a href="#semana-2-construcción" class="h3">Semana 2 · Construcción</a></li><li><a href="#semana-3-test-interno" class="h3">Semana 3 · Test interno</a></li><li><a href="#semana-4-validation-live-hispano-us-días-22-28" class="">SEMANA 4 · Validation Live · Hispano-US (días 22-28)</a></li><li><a href="#setup-campaña-hispano-us" class="h3">Setup campaña Hispano-US</a></li><li><a href="#día-22-25-primeros-4-días" class="h3">Día 22-25 · Primeros 4 días</a></li><li><a href="#día-26-28-primer-análisis" class="h3">Día 26-28 · Primer análisis</a></li><li><a href="#stop-loss-día-30-hispano-us" class="h3">**STOP-LOSS día 30 · Hispano-US**</a></li><li><a href="#semana-5-8-búsqueda-winner-días-29-56" class="">SEMANA 5-8 · Búsqueda Winner (días 29-56)</a></li><li><a href="#loop-iterativo-cada-semana" class="h3">Loop iterativo (cada semana)</a></li><li><a href="#hitos-esperados" class="h3">Hitos esperados</a></li><li><a href="#stop-loss-día-60" class="h3">**STOP-LOSS día 60:**</a></li><li><a href="#semana-9-12-validation-final-escalado-controlado-días-57-90" class="">SEMANA 9-12 · Validation Final · Escalado controlado (días 57-90)</a></li><li><a href="#semana-9-10-optimización-winner" class="h3">Semana 9-10 · Optimización winner</a></li><li><a href="#semana-11-test-pivote-a-latam-si-hispano-us-no-funciona" class="h3">Semana 11 · Test pivote a LATAM (si Hispano-US no funciona)</a></li><li><a href="#semana-12-preparación-día-90" class="h3">Semana 12 · Preparación día 90</a></li><li><a href="#stop-loss-día-90-hispano-us" class="h3">**STOP-LOSS día 90 · Hispano-US**</a></li><li><a href="#triggers-para-continuar" class="h3">**Triggers para CONTINUAR:**</a></li><li><a href="#día-90-decisión-final" class="">DÍA 90 · Decisión final</a></li><li><a href="#si-pasa-validation" class="h3">Si PASA validation</a></li><li><a href="#si-falla-validation" class="h3">Si FALLA validation</a></li><li><a href="#distribución-de-tiempo-por-persona" class="">Distribución de tiempo por persona</a></li><li><a href="#cris-10-15hsem-promedio" class="h3">Cris (10-15h/sem promedio)</a></li><li><a href="#romi-8-10hsem-promedio" class="h3">Romi (8-10h/sem promedio)</a></li><li><a href="#dali-6-10hsem-promedio" class="h3">Dali (6-10h/sem promedio)</a></li><li><a href="#decisiones-de-equipo-durante-el-roadmap" class="">Decisiones de equipo durante el roadmap</a></li><li><a href="#comunicación-durante-el-roadmap" class="">Comunicación durante el roadmap</a></li><li><a href="#daily-sin-meeting" class="h3">Daily (sin meeting)</a></li><li><a href="#weekly-lunes-11-am-30-min" class="h3">Weekly (lunes 11 AM, 30 min)</a></li><li><a href="#monthly-días-30-60-90" class="h3">Monthly (días 30, 60, 90)</a></li><li><a href="#lo-que-está-en-el-repo-para-apoyar" class="">Lo que está en el repo para apoyar</a></li><li><a href="#si-pasas-día-90-y-validas" class="">Si pasas día 90 y validas</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>04-ROADMAP-90-DIAS.md</span>
+<span>2,020 palabras</span>
+<span>~10 min lectura</span>
+</div>
+<h1 id="roadmap-90-120-días-hispano-us-confirmado">Roadmap 90-120 Días · Hispano-US confirmado<a class="anchor" href="#roadmap-90-120-días-hispano-us-confirmado">#</a></h1>
+<div class="box box-recomendado"><div class="box-label">Recomendado</div><p><strong>Mercado: Hispano-US ✓</strong> (decisión 2026-04-29) Equipo de 3 con automatización Claude Code · capital $2-3K bootstrap o $5K recomendado. Timeline ajustado: <strong>90 días con $5K · 120 días con $2-3K</strong>.</p></div>
+<hr>
+<h2 id="resumen-visual">Resumen visual<a class="anchor" href="#resumen-visual">#</a></h2>
+<pre><code>SEMANA 1 ────► Setup técnico + Skalers Start
+SEMANA 2-3 ──► Selección oferta + primer funnel
+SEMANA 4 ────► Live con $300 ad spend (validation)
+SEMANA 5-8 ──► Iteración + búsqueda winner
+SEMANA 9-12 ─► Validation final + decisión scale
+DÍA 90 ──────► Decisión continuar/cerrar</code></pre>
+<hr>
+<h2 id="semana-1-setup-días-1-7">SEMANA 1 · Setup (días 1-7)<a class="anchor" href="#semana-1-setup-días-1-7">#</a></h2>
+<p><strong>Objetivo:</strong> infraestructura lista para empezar a gastar.</p>
+<h3 id="lunes-día-1">Lunes (Día 1)<a class="anchor" href="#lunes-día-1">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> confirmar mercado en sync 30min (LATAM vs Hispano-US)</li>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> comprar Skalers Start ($47) en Whop</li>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> crear cuenta ClickBank (persona natural, W-8BEN básico)</li>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> activar Wise Personal USD account si no tiene</li>
+<li><input type="checkbox"  disabled><strong>Romi:</strong> leer Skalers Start módulos 1-2 (2h)</li>
+<li><input type="checkbox"  disabled><strong>Dali:</strong> crear cuenta HeyGen Starter trial (gratis 7 días)</li>
+</ul>
+<h3 id="martes-día-2">Martes (Día 2)<a class="anchor" href="#martes-día-2">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> crear Meta Business Manager dedicado</li>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> agregar 2 ad accounts + 2 métodos de pago</li>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> crear cuenta Landerlab (trial 14 días)</li>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> comprar dominio (~$12) + setup Cloudflare</li>
+<li><input type="checkbox"  disabled><strong>Romi:</strong> leer Skalers Start módulos 3-5 (2h)</li>
+</ul>
+<h3 id="miércoles-día-3">Miércoles (Día 3)<a class="anchor" href="#miércoles-día-3">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> Cloudflare Worker básico para CAPI postback (Claude Code) — 4h</li>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> Pixel Meta + GA4 setup en dominio test</li>
+<li><input type="checkbox"  disabled><strong>Romi:</strong> leer Skalers Start bonus + tomar notas</li>
+<li><input type="checkbox"  disabled><strong>Dali:</strong> explorar HeyGen — generar 3 avatares latinos test (2h)</li>
+</ul>
+<h3 id="jueves-día-4">Jueves (Día 4)<a class="anchor" href="#jueves-día-4">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> automatizar daily report con Claude Code (script Python que lee Meta API)</li>
+<li><input type="checkbox"  disabled><strong>Romi:</strong> ejecutar SOP 01 selección oferta — investigar 20 ofertas LATAM ClickBank</li>
+<li><input type="checkbox"  disabled><strong>Dali:</strong> library inicial Freepik (vectores nutra/health en español)</li>
+</ul>
+<h3 id="viernes-día-5">Viernes (Día 5)<a class="anchor" href="#viernes-día-5">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled><strong>Sync 1h</strong> los 3:</li>
+<li>Romi presenta top 5 ofertas candidatas</li>
+<li>Cris confirma stack técnico funciona</li>
+<li>Dali muestra avatares HeyGen</li>
+<li><strong>Decisión grupal:</strong> 1 oferta TEST esta semana</li>
+</ul>
+<h3 id="sábadodomingo-día-6-7">Sábado/Domingo (Día 6-7)<a class="anchor" href="#sábadodomingo-día-6-7">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled><strong>Romi:</strong> brief creativo de la oferta elegida (SOP 02)</li>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> terminar setup CAPI + test postback con conversión fake</li>
+<li><input type="checkbox"  disabled><strong>Dali:</strong> producir 5 creativos iniciales (3 angles × HeyGen + Freepik)</li>
+<li><input type="checkbox"  disabled><strong>Día 7 final:</strong> decisión Skalers Pro (window money-back)</li>
+</ul>
+<p><strong>Status fin semana 1:</strong></p>
+<ul>
+<li>✓ Stack técnico operativo</li>
+<li>✓ 1 oferta TEST seleccionada</li>
+<li>✓ 5 creativos listos</li>
+<li>✓ Decisión Pro tomada</li>
+</ul>
+<p><strong>Inversión acumulada:</strong> ~$155 USD</p>
+<hr>
+<h2 id="semana-2-3-primer-funnel-completo-días-8-21">SEMANA 2-3 · Primer funnel completo (días 8-21)<a class="anchor" href="#semana-2-3-primer-funnel-completo-días-8-21">#</a></h2>
+<p><strong>Objetivo:</strong> funnel live con tracking funcionando.</p>
+<h3 id="semana-2-construcción">Semana 2 · Construcción<a class="anchor" href="#semana-2-construcción">#</a></h3>
+<p><strong>Cris (12-15h):</strong></p>
+<ul>
+<li><input type="checkbox"  disabled>Adaptar template Landerlab para la oferta</li>
+<li><input type="checkbox"  disabled>Implementar copy de Romi en landing</li>
+<li><input type="checkbox"  disabled>Subir creativos de Dali</li>
+<li><input type="checkbox"  disabled>Validar Pixel + CAPI con Meta Pixel Helper</li>
+<li><input type="checkbox"  disabled>QA mobile (iPhone + Android)</li>
+<li><input type="checkbox"  disabled>Test con 1 click manual end-to-end</li>
+<li><input type="checkbox"  disabled>Setup alarmas Slack (CPA threshold, frequency, account warnings)</li>
+</ul>
+<p><strong>Romi (8-10h):</strong></p>
+<ul>
+<li><input type="checkbox"  disabled>Refinar copy landing (3 iteraciones)</li>
+<li><input type="checkbox"  disabled>Generar 8 textos para ads (2 por nivel consciencia: Inconsciente, Problema, Solución, Producto)</li>
+<li><input type="checkbox"  disabled>Validar compliance con disclaimer obligatorio</li>
+<li><input type="checkbox"  disabled>Investigar competencia en Meta Ads Library (10 ads ganadores LATAM)</li>
+</ul>
+<p><strong>Dali (8-10h):</strong></p>
+<ul>
+<li><input type="checkbox"  disabled>Producir 5 creativos adicionales (total 10 listos)</li>
+<li><input type="checkbox"  disabled>Diversificar formatos: 5 reel 9:16 + 3 feed 1:1 + 2 stories 16:9</li>
+<li><input type="checkbox"  disabled>Mix tipos: 3 demostración + 3 testimonio + 2 aspiracional + 2 educativo</li>
+<li><input type="checkbox"  disabled>Naming convention aplicada</li>
+<li><input type="checkbox"  disabled>metadata.md para cada creativo</li>
+</ul>
+<h3 id="semana-3-test-interno">Semana 3 · Test interno<a class="anchor" href="#semana-3-test-interno">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> dry-run completo (sin gastar plata aún)</li>
+<li><input type="checkbox"  disabled><strong>Cris:</strong> simular conversión → verificar postback CAPI llega a Meta</li>
+<li><input type="checkbox"  disabled><strong>Romi:</strong> review final copy + compliance</li>
+<li><input type="checkbox"  disabled><strong>Dali:</strong> review final creativos</li>
+<li><input type="checkbox"  disabled><strong>Sync los 3:</strong> check pre-launch</li>
+</ul>
+<p><strong>Status fin semana 3:</strong></p>
+<ul>
+<li>✓ Funnel completo end-to-end</li>
+<li>✓ 10 creativos diversificados</li>
+<li>✓ Tracking validado</li>
+<li>✓ Listo para go-live</li>
+</ul>
+<p><strong>Inversión acumulada:</strong> ~$248 USD</p>
+<hr>
+<h2 id="semana-4-validation-live-hispano-us-días-22-28">SEMANA 4 · Validation Live · Hispano-US (días 22-28)<a class="anchor" href="#semana-4-validation-live-hispano-us-días-22-28">#</a></h2>
+<p><strong>Objetivo:</strong> validar que CTR > 1% y CPC < $1.50-2.00 (Hispano-US)</p>
+<h3 id="setup-campaña-hispano-us">Setup campaña Hispano-US<a class="anchor" href="#setup-campaña-hispano-us">#</a></h3>
+<p><strong>Configuración Meta:</strong></p>
+<ul>
+<li>1 campaña Sales con CAPI Purchase event</li>
+<li>3 conjuntos:</li>
+<li>Conjunto A: Advantage+ Audience (recomendación Felipe Vergara M05)</li>
+<li>Conjunto B: Detailed (intereses Hispano-US salud · español)</li>
+<li>Conjunto C: Lookalike pendiente (esperar 50 conv para activar)</li>
+<li>Budget escenario $5K: $25/día por conjunto = $50/día activos = $700 mes 1</li>
+<li>Budget escenario $2-3K: $15/día por conjunto = $30/día = $400 mes 1</li>
+<li>5 anuncios por conjunto (10 total activos)</li>
+<li><strong>Multilogin obligatorio</strong> desde día 1 (Hispano-US bans frecuentes)</li>
+</ul>
+<h3 id="día-22-25-primeros-4-días">Día 22-25 · Primeros 4 días<a class="anchor" href="#día-22-25-primeros-4-días">#</a></h3>
+<ul>
+<li>Daily report 9 AM en Slack</li>
+<li>Cris revisa 5 min · marca status</li>
+<li>Sin tocar nada (Meta en learning phase)</li>
+</ul>
+<h3 id="día-26-28-primer-análisis">Día 26-28 · Primer análisis<a class="anchor" href="#día-26-28-primer-análisis">#</a></h3>
+<ul>
+<li>Métricas a 7 días:</li>
+<li>CTR por creativo</li>
+<li>CPC promedio (target Hispano-US < $2)</li>
+<li>Conv rate landing → CTA</li>
+<li>Frequency</li>
+<li>Customer Distribution Requirement progress (5 ventas + 2 métodos pago)</li>
+</ul>
+<h3 id="stop-loss-día-30-hispano-us"><strong>STOP-LOSS día 30 · Hispano-US</strong><a class="anchor" href="#stop-loss-día-30-hispano-us">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Métrica</th>
+<th>Min para continuar</th>
+<th>Acción si menor</th>
+</tr></thead><tbody>
+<tr>
+<td>CTR</td>
+<td>> 1%</td>
+<td>Refresh creativos</td>
+</tr>
+<tr>
+<td>CPC</td>
+<td>< $2.00 Hispano-US</td>
+<td>Pausar conjunto, revisar audiencia/oferta</td>
+</tr>
+<tr>
+<td>Conv rate landing</td>
+<td>> 15%</td>
+<td>Iterar landing</td>
+</tr>
+<tr>
+<td>Frequency</td>
+<td>< 3</td>
+<td>Refresh creativos urgente</td>
+</tr>
+</tbody></table></div>
+<p><strong>Si los 3+ fallan → STOP, pérdida $400-700, post-mortem.</strong></p>
+<p><strong>⚠ Hispano-US tip:</strong> si Meta banea 1-2 cuentas en mes 1, NO es señal de cerrar (es expectativa). Reemplazar BMs preparados (por eso Multilogin desde día 1).</p>
+<p><strong>Status fin semana 4:</strong></p>
+<ul>
+<li><span class="badge badge-ok">●</span> Si pasa → continuar a semana 5</li>
+<li><span class="badge badge-no">●</span> Si falla → STOP definitivo, capturar aprendizajes</li>
+</ul>
+<p><strong>Inversión acumulada:</strong> ~$555 USD</p>
+<hr>
+<h2 id="semana-5-8-búsqueda-winner-días-29-56">SEMANA 5-8 · Búsqueda Winner (días 29-56)<a class="anchor" href="#semana-5-8-búsqueda-winner-días-29-56">#</a></h2>
+<p><strong>Objetivo:</strong> ROAS > 0.8x sostenido 14 días en al menos 1 conjunto.</p>
+<h3 id="loop-iterativo-cada-semana">Loop iterativo (cada semana)<a class="anchor" href="#loop-iterativo-cada-semana">#</a></h3>
+<p><strong>Lunes:</strong> Cris análisis weekly + decisión scaling/killing/iterate</p>
+<ul>
+<li>Top 3 creativos por CTR</li>
+<li>Bottom 3 a pausar</li>
+<li>Scale ganadores +30% si ROAS > 1.5x</li>
+<li>Kill perdedores si ROAS < 0.5x x 5 días</li>
+</ul>
+<p><strong>Martes-Miércoles:</strong> Dali produce 5-7 creativos nuevos basados en data</p>
+<ul>
+<li>Refresh angles ganadores</li>
+<li>Test 1 angle nuevo</li>
+</ul>
+<p><strong>Jueves:</strong> Cris sube creativos nuevos al mejor conjunto</p>
+<ul>
+<li>Mantener naming convention</li>
+<li>Pausar peor performer del conjunto</li>
+</ul>
+<p><strong>Viernes:</strong> sync 30min los 3</p>
+<ul>
+<li>Status data</li>
+<li>Decisiones próxima semana</li>
+</ul>
+<h3 id="hitos-esperados">Hitos esperados<a class="anchor" href="#hitos-esperados">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Semana</th>
+<th>Hito</th>
+</tr></thead><tbody>
+<tr>
+<td>5</td>
+<td>Primer conjunto identificado como ganador potencial</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ROAS conjunto top > 1.0x</td>
+</tr>
+<tr>
+<td>7</td>
+<td>ROAS sostenido > 1.0x x 7 días</td>
+</tr>
+<tr>
+<td>8</td>
+<td>ROAS sostenido > 0.8x mínimo · validación</td>
+</tr>
+</tbody></table></div>
+<h3 id="stop-loss-día-60"><strong>STOP-LOSS día 60:</strong><a class="anchor" href="#stop-loss-día-60">#</a></h3>
+<ul>
+<li>Si ROAS < 0.5x sostenido 14 días después de iterar → STOP</li>
+<li>Pérdida acumulada: $1,200-1,500 USD</li>
+<li>Post-mortem completo, capturar aprendizajes en repo</li>
+</ul>
+<p><strong>Inversión acumulada (si continúa):</strong> ~$1,255 USD</p>
+<hr>
+<h2 id="semana-9-12-validation-final-escalado-controlado-días-57-90">SEMANA 9-12 · Validation Final · Escalado controlado (días 57-90)<a class="anchor" href="#semana-9-12-validation-final-escalado-controlado-días-57-90">#</a></h2>
+<p><strong>Objetivo:</strong> ROAS > 1.3x sostenido 14 días + decisión continuar.</p>
+<h3 id="semana-9-10-optimización-winner">Semana 9-10 · Optimización winner<a class="anchor" href="#semana-9-10-optimización-winner">#</a></h3>
+<ul>
+<li>Escalar conjunto winner +30% Hispano-US</li>
+<li>$5K escenario: $25/día → $33/día</li>
+<li>$2-3K escenario: $15/día → $20/día</li>
+<li>Esperar 5 días post-scale</li>
+<li>Si ROAS mantiene > 1.3x → +30% más</li>
+<li>Producción Dali: 5-10 variantes adicionales del winner</li>
+</ul>
+<h3 id="semana-11-test-pivote-a-latam-si-hispano-us-no-funciona">Semana 11 · Test pivote a LATAM (si Hispano-US no funciona)<a class="anchor" href="#semana-11-test-pivote-a-latam-si-hispano-us-no-funciona">#</a></h3>
+<p>Si ROAS Hispano-US < 0.8x sostenido al día 60, considerar <strong>pivote a LATAM</strong> mes 3:</p>
+<ul>
+<li>Adaptar mismo funnel a México + Colombia</li>
+<li>Budget restante distribuido en LATAM (CPCs 5x menores)</li>
+<li>Última oportunidad antes de STOP definitivo</li>
+</ul>
+<h3 id="semana-12-preparación-día-90">Semana 12 · Preparación día 90<a class="anchor" href="#semana-12-preparación-día-90">#</a></h3>
+<ul>
+<li>Compilación completa de aprendizajes</li>
+<li>Doc post-test con: qué funcionó, qué no, por qué</li>
+<li>Math final: total invertido vs total revenue</li>
+<li>Recomendación Fase 4 (escalado serio) o STOP o pivote</li>
+</ul>
+<h3 id="stop-loss-día-90-hispano-us"><strong>STOP-LOSS día 90 · Hispano-US</strong><a class="anchor" href="#stop-loss-día-90-hispano-us">#</a></h3>
+<ul>
+<li>Si ROAS < 1.3x sostenido 14 días → STOP</li>
+<li>Si revenue acumulado < $1,000 → STOP (Hispano-US AOVs altos · debería ser > $1K)</li>
+<li>Si Customer Distribution Requirement no se cumplió día 60 → ALERTA (cuenta riesgo dormant fees)</li>
+</ul>
+<h3 id="triggers-para-continuar"><strong>Triggers para CONTINUAR:</strong><a class="anchor" href="#triggers-para-continuar">#</a></h3>
+<ul>
+<li>ROAS > 1.3x sostenido 14 días en al menos 1 conjunto</li>
+<li>Revenue > $1,500 acumulado (ajustado para Hispano-US AOVs)</li>
+<li>Sistema documentado (SOPs ejecutables)</li>
+<li>Multilogin + multi-cuentas operacional sin crisis</li>
+<li>Equipo OK para seguir</li>
+</ul>
+<p><strong>Inversión acumulada (si continúa):</strong></p>
+<ul>
+<li>Escenario $5K: ~$5,000 USD</li>
+<li>Escenario $2-3K: ~$2,500-2,800 USD</li>
+</ul>
+<hr>
+<h2 id="día-90-decisión-final">DÍA 90 · Decisión final<a class="anchor" href="#día-90-decisión-final">#</a></h2>
+<h3 id="si-pasa-validation">Si PASA validation<a class="anchor" href="#si-pasa-validation">#</a></h3>
+<p><strong>Continuar a Fase 4 con caja generada por affiliate (NO con capital nuevo del equipo):</strong></p>
+<ul>
+<li>Mes 4-6: escalar a $30-50/día</li>
+<li>Mes 7-9: agregar oferta 2</li>
+<li>Mes 10-12: evaluar producto educativo o LLC USA</li>
+</ul>
+<h3 id="si-falla-validation">Si FALLA validation<a class="anchor" href="#si-falla-validation">#</a></h3>
+<p><strong>STOP definitivo y captura de aprendizajes:</strong></p>
+<ul>
+<li>Doc post-mortem en <code>07-learning/2026-XX-affiliate-postmortem.md</code></li>
+<li>Pérdida real: ~$2,500 USD</li>
+<li>Aprendizajes capturados aplicables a OpenClaw clientes</li>
+<li>Equipo no quemado, agencia sigue</li>
+</ul>
+<hr>
+<h2 id="distribución-de-tiempo-por-persona">Distribución de tiempo por persona<a class="anchor" href="#distribución-de-tiempo-por-persona">#</a></h2>
+<h3 id="cris-10-15hsem-promedio">Cris (10-15h/sem promedio)<a class="anchor" href="#cris-10-15hsem-promedio">#</a></h3>
+<ul>
+<li>Semana 1: 15h (setup técnico denso)</li>
+<li>Semana 2-3: 12h (construcción + automatización)</li>
+<li>Semana 4-12: 8-10h (operación + análisis weekly)</li>
+<li><strong>Total 90 días:</strong> ~120 horas</li>
+</ul>
+<h3 id="romi-8-10hsem-promedio">Romi (8-10h/sem promedio)<a class="anchor" href="#romi-8-10hsem-promedio">#</a></h3>
+<ul>
+<li>Semana 1: 10h (Skalers + selección oferta)</li>
+<li>Semana 2-3: 10h (briefs + compliance)</li>
+<li>Semana 4-12: 6-8h (decisiones + sync)</li>
+<li><strong>Total 90 días:</strong> ~95 horas</li>
+</ul>
+<h3 id="dali-6-10hsem-promedio">Dali (6-10h/sem promedio)<a class="anchor" href="#dali-6-10hsem-promedio">#</a></h3>
+<ul>
+<li>Semana 1: 6h (HeyGen setup + library inicial)</li>
+<li>Semana 2-3: 12h (producción inicial 10 creativos)</li>
+<li>Semana 4-12: 6-8h (refresh semanal)</li>
+<li><strong>Total 90 días:</strong> ~85 horas</li>
+</ul>
+<p><strong>Total equipo:</strong> ~300 horas en 90 días = $50/h shadow rate × 300 = $15K en costo de oportunidad.</p>
+<p><strong>Esto debe pesar en la decisión.</strong> Si los 3 podrían facturar OpenClaw $50/h, costo total proyecto = $15K + $2.5K capital = $17.5K vs revenue esperado.</p>
+<hr>
+<h2 id="decisiones-de-equipo-durante-el-roadmap">Decisiones de equipo durante el roadmap<a class="anchor" href="#decisiones-de-equipo-durante-el-roadmap">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Decisión</th>
+<th>Cuándo</th>
+<th>Quién decide</th>
+</tr></thead><tbody>
+<tr>
+<td>Comprar Skalers Pro</td>
+<td>Día 7</td>
+<td>Equipo (sync)</td>
+</tr>
+<tr>
+<td>Cambiar oferta TEST</td>
+<td>Día 14 si CTR <1%</td>
+<td>Romi (operativa)</td>
+</tr>
+<tr>
+<td>Agregar tools (Atria, Creatify)</td>
+<td>Día 30 si necesidad</td>
+<td>Cris + presupuesto</td>
+</tr>
+<tr>
+<td>Constituir SpA</td>
+<td>Día 60+ si validation</td>
+<td>Equipo (estratégica)</td>
+</tr>
+<tr>
+<td>Test Hispano-US paralelo</td>
+<td>Día 75+ si LATAM funciona</td>
+<td>Equipo</td>
+</tr>
+<tr>
+<td>STOP definitivo</td>
+<td>Día 30/60/90 según stop-loss</td>
+<td>Cris (operativa, no debate)</td>
+</tr>
+<tr>
+<td>Continuar Fase 4</td>
+<td>Día 90 si pasa</td>
+<td>Equipo (estratégica)</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="comunicación-durante-el-roadmap">Comunicación durante el roadmap<a class="anchor" href="#comunicación-durante-el-roadmap">#</a></h2>
+<h3 id="daily-sin-meeting">Daily (sin meeting)<a class="anchor" href="#daily-sin-meeting">#</a></h3>
+<ul>
+<li>9 AM: Slack #affiliate-data — Cris auto-post métricas</li>
+<li>5 min revisión Cris (decisiones operativas mismo día)</li>
+<li>EOD: 1 línea por persona (status + bloqueos)</li>
+</ul>
+<h3 id="weekly-lunes-11-am-30-min">Weekly (lunes 11 AM, 30 min)<a class="anchor" href="#weekly-lunes-11-am-30-min">#</a></h3>
+<ul>
+<li>Cris: data + decisiones scaling</li>
+<li>Romi: pipeline ofertas + bloqueos</li>
+<li>Dali: producción + bloqueos</li>
+<li>Decisiones del equipo</li>
+</ul>
+<h3 id="monthly-días-30-60-90">Monthly (días 30, 60, 90)<a class="anchor" href="#monthly-días-30-60-90">#</a></h3>
+<ul>
+<li>Stop-loss check</li>
+<li>P&L</li>
+<li>Decisión continuar/STOP</li>
+</ul>
+<hr>
+<h2 id="lo-que-está-en-el-repo-para-apoyar">Lo que está en el repo para apoyar<a class="anchor" href="#lo-que-está-en-el-repo-para-apoyar">#</a></h2>
+<ul>
+<li><code>affiliate-clickbank.md</code> — selección de oferta, gravity, AOV math</li>
+<li><code>affiliate-funnel-structure.md</code> — anatomía landing intermedia</li>
+<li><code>affiliate-compliance-nutra.md</code> — claims permitidos/prohibidos</li>
+<li>12 SOPs ejecutables</li>
+<li>3 prompts plantilla Cowork (research, brief, diagnóstico)</li>
+<li>4 documentos cruce Felipe Vergara</li>
+</ul>
+<p><strong>Todo es accesible desde index.html.</strong></p>
+<hr>
+<h2 id="si-pasas-día-90-y-validas">Si pasas día 90 y validas<a class="anchor" href="#si-pasas-día-90-y-validas">#</a></h2>
+<p><strong>Lo que cambia mes 4+:</strong></p>
+<ul>
+<li>Constituir SpA chilena (~$50K CLP setup + $300 USD/mes contador)</li>
+<li>Migrar W-8BEN-E a SpA</li>
+<li>Agregar tools que pospusiste (Atria, Creatify)</li>
+<li>Aumentar ad spend a $50-100/día por conjunto winner</li>
+<li>Considerar LLC USA mes 6+</li>
+</ul>
+<hr>
+<p><em>Roadmap 90 días · ejecutable lunes próximo · adaptable a feedback weekly.</em></p>
+<div class="footer">
+Affiliate Business · Generado 2026-05-26<br>
+Fuente: <code>04-ROADMAP-90-DIAS.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

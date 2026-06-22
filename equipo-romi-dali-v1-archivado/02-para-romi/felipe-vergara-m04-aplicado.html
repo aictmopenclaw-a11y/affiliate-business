@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Felipe Vergara · Módulo 4 · Los 4 Elementos de Campañas Exitosas — Aplicado al Affiliate · Affiliate Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0e0e0c;
+    --bg-card: #18181538;
+    --bg-elev: #1c1c1a;
+    --bg-deep: #0a0a08;
+    --paper: #f5f0e6;
+    --paper-dim: #cfc8b8;
+    --paper-mute: #8a8478;
+    --line: #2a2926;
+    --line-soft: #3d3a35;
+    --romi: #d97f3d;
+    --cris: #6ba368;
+    --dali: #b8569e;
+    --accent: #e8b647;
+    --danger: #c8421f;
+    --green: #6ba368;
+    --warn: #e8b647;
+    --info: #5da3c9;
+    --code-bg: #0a0a08;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(217, 127, 61, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 88% 50%, rgba(232, 182, 71, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 30% 95%, rgba(107, 163, 104, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--romi), var(--accent), var(--cris));
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 14, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.topbar a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.topbar a:hover { color: var(--paper); }
+.topbar .meta { color: var(--paper-mute); }
+
+/* === LAYOUT === */
+.layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-soft); border-radius: 2px; }
+
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin: 0.4rem 0; }
+.toc-list a {
+    color: var(--paper-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+}
+.toc-list a:hover {
+    color: var(--paper);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.05);
+}
+.toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(232, 182, 71, 0.1);
+}
+.toc-list .h3 { padding-left: 1rem; font-size: 0.78rem; color: var(--paper-mute); }
+.toc-list .h4 { padding-left: 1.75rem; font-size: 0.75rem; color: var(--paper-mute); }
+
+/* === MAIN CONTENT === */
+.content {
+    max-width: 800px;
+    padding-bottom: 6rem;
+}
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--paper-mute);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.content-meta span { display: flex; align-items: center; gap: 0.4rem; }
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--paper);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+}
+h3 {
+    font-size: 1.4rem;
+    color: var(--paper);
+    margin-top: 2.5rem;
+}
+h4 {
+    font-size: 1.1rem;
+    color: var(--paper-dim);
+    font-style: italic;
+    font-weight: 400;
+}
+
+p {
+    margin: 1rem 0;
+    color: var(--paper-dim);
+    font-size: 1rem;
+}
+
+strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+em {
+    color: var(--paper-dim);
+    font-style: italic;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 182, 71, 0.3);
+    transition: all 0.15s;
+}
+a:hover {
+    color: var(--paper);
+    border-bottom-color: var(--paper);
+}
+
+/* === LISTS === */
+ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+    color: var(--paper-dim);
+}
+li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+li::marker {
+    color: var(--paper-mute);
+}
+ul li::marker {
+    content: "▸ ";
+    color: var(--accent);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+/* === CHECKBOXES (task lists) === */
+li input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+}
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    border: 1px solid var(--line);
+}
+
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--paper-dim);
+    font-size: 0.85rem;
+}
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(232, 182, 71, 0.04);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border-radius: 0 6px 6px 0;
+}
+blockquote p { color: var(--paper); }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+thead {
+    background: var(--bg-elev);
+}
+th {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--line);
+}
+td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--paper-dim);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(232, 182, 71, 0.03); color: var(--paper); }
+
+/* === HR === */
+hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line) 50%, transparent);
+}
+
+/* === SPECIAL BOXES (auto-detected) === */
+.box {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    position: relative;
+}
+.box-tldr {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--accent);
+}
+.box-veredicto {
+    background: rgba(217, 127, 61, 0.08);
+    border-left-color: var(--romi);
+}
+.box-critico, .box-stop {
+    background: rgba(200, 66, 31, 0.08);
+    border-left-color: var(--danger);
+}
+.box-recomendado {
+    background: rgba(107, 163, 104, 0.08);
+    border-left-color: var(--cris);
+}
+.box-warning, .box-alerta {
+    background: rgba(232, 182, 71, 0.08);
+    border-left-color: var(--warn);
+}
+.box-info {
+    background: rgba(93, 163, 201, 0.08);
+    border-left-color: var(--info);
+}
+.box-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.box-tldr .box-label { background: var(--accent); color: var(--bg); }
+.box-veredicto .box-label { background: var(--romi); color: var(--bg); }
+.box-critico .box-label, .box-stop .box-label { background: var(--danger); color: var(--paper); }
+.box-recomendado .box-label { background: var(--cris); color: var(--bg); }
+.box-warning .box-label, .box-alerta .box-label { background: var(--warn); color: var(--bg); }
+.box-info .box-label { background: var(--info); color: var(--bg); }
+
+/* === BADGES (auto-replace emojis) === */
+.badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0.15rem;
+    vertical-align: middle;
+}
+.badge-ok { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-no { background: rgba(200, 66, 31, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-warn { background: rgba(232, 182, 71, 0.2); color: var(--warn); border: 1px solid var(--warn); }
+.badge-alert { background: rgba(200, 66, 31, 0.3); color: var(--danger); border: 1px solid var(--danger); font-weight: 700; }
+.badge-info { background: rgba(93, 163, 201, 0.2); color: var(--info); border: 1px solid var(--info); }
+.badge-romi { background: rgba(217, 127, 61, 0.2); color: var(--romi); border: 1px solid var(--romi); }
+.badge-cris { background: rgba(107, 163, 104, 0.2); color: var(--cris); border: 1px solid var(--cris); }
+.badge-dali { background: rgba(184, 86, 158, 0.2); color: var(--dali); border: 1px solid var(--dali); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--paper-mute);
+    font-size: 0.85em;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.15s;
+}
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem; }
+    .sidebar { position: static; max-height: none; margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    .content { padding: 0; }
+}
+
+@media print {
+    body::before, body::after, .progress, .topbar, .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; }
+    body { color: #000; background: #fff; }
+    h1, h2, h3 { color: #000; }
+    p, li, td { color: #333; }
+    a { color: #06c; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a href="../INDEX.html">← Affiliate Business · Index</a>
+<span class="meta">07-learning / cursos-cruzados · 15 min · 2,956 palabras</span>
+</nav>
+<div class="layout">
+<aside class="sidebar">
+<div class="sidebar-title">Contenido</div>
+<ul class="toc-list"><li><a href="#el-triángulo-dorado-del-marketing-clase-02" class="">El Triángulo Dorado del Marketing (clase 02)</a></li><li><a href="#aplicación-al-affiliate" class="h3">Aplicación al affiliate</a></li><li><a href="#cómo-mejorar-la-oferta-clase-03" class="">Cómo mejorar la Oferta (clase 03)</a></li><li><a href="#la-frase-fundadora" class="h3">La frase fundadora</a></li><li><a href="#la-regla-del-por-5" class="h3">La Regla del por 5</a></li><li><a href="#3-formas-concretas-de-mejorar-la-oferta-percibida" class="h3">3 formas concretas de mejorar la oferta percibida</a></li><li><a href="#1-la-palabra-gratis-la-más-poderosa-en-marketing" class="h4">1. La palabra "GRATIS" (la más poderosa en marketing)</a></li><li><a href="#2-garantía-fuerte" class="h4">2. Garantía fuerte</a></li><li><a href="#3-pago-fácil" class="h4">3. Pago fácil</a></li><li><a href="#regla-operativa-para-romi-sop-01-brief" class="h3">Regla operativa para Romi (SOP 01 + brief)</a></li><li><a href="#libros-recomendados-por-felipe-para-profundizar-en-oferta" class="h3">Libros recomendados por Felipe (para profundizar en oferta)</a></li><li><a href="#audiencia-5-tipos-de-público-en-meta-clases-04-08" class="">Audiencia · 5 tipos de público en Meta (clases 04-08)</a></li><li><a href="#los-5-tipos-disponibles" class="h3">Los 5 tipos disponibles</a></li><li><a href="#recomendación-2026-para-affiliate" class="h3">Recomendación 2026 para affiliate</a></li><li><a href="#las-6-formas-de-encontrar-intereses-si-usas-detallada" class="h3">Las 6 formas de encontrar intereses (si usas detallada)</a></li><li><a href="#regla-maestra-de-segmentación-2026" class="h3">Regla maestra de segmentación 2026</a></li><li><a href="#niveles-de-consciencia-clases-10-14-el-framework-más-importante" class="">Niveles de Consciencia (clases 10-14) — el framework más importante</a></li><li><a href="#los-5-niveles" class="h3">Los 5 niveles</a></li><li><a href="#aplicación-al-affiliate-crítico" class="h3">Aplicación al affiliate (CRÍTICO)</a></li><li><a href="#templates-de-copy-por-nivel-para-romi" class="h3">Templates de copy por nivel (para Romi)</a></li><li><a href="#nivel-inconsciente" class="h4">Nivel Inconsciente</a></li><li><a href="#nivel-problema" class="h4">Nivel Problema</a></li><li><a href="#nivel-solución" class="h4">Nivel Solución</a></li><li><a href="#nivel-producto-retargeting" class="h4">Nivel Producto (retargeting)</a></li><li><a href="#nivel-decisión-clientes-pasados-o-buyers-clickbank" class="h4">Nivel Decisión (clientes pasados o buyers ClickBank)</a></li><li><a href="#verbos-clave-que-delatan-el-nivel" class="h3">Verbos clave que DELATAN el nivel</a></li><li><a href="#error-fatal-a-evitar" class="h3">Error fatal a evitar</a></li><li><a href="#longitud-del-copy-depende-del-nivel" class="h3">Longitud del copy depende del nivel</a></li><li><a href="#los-10-artes-que-venden-en-meta-clases-16-25" class="">Los 10 Artes que Venden en Meta (clases 16-25)</a></li><li><a href="#el-catálogo-completo" class="h3">El catálogo completo</a></li><li><a href="#sub-tipos-de-testimonios-clase-18" class="h3">Sub-tipos de testimonios (clase 18)</a></li><li><a href="#aplicación-al-affiliate-qué-artes-priorizar" class="h3">Aplicación al affiliate · qué artes priorizar</a></li><li><a href="#workflow-para-dali-sop-07" class="h3">Workflow para Dali (SOP 07)</a></li><li><a href="#el-consejo-final-de-ogilvy-clase-15" class="">El consejo final de Ogilvy (clase 15)</a></li><li><a href="#tareas-concretas-que-felipe-deja-al-final-del-módulo" class="">Tareas concretas que Felipe deja al final del módulo</a></li><li><a href="#tarea-1-de-la-clase-03-oferta" class="h3">Tarea 1 (de la clase 03 — Oferta)</a></li><li><a href="#tarea-2-de-la-clase-15-niveles-de-consciencia" class="h3">Tarea 2 (de la clase 15 — Niveles de Consciencia)</a></li><li><a href="#tarea-3-no-formal-pero-implícita" class="h3">Tarea 3 (no formal pero implícita)</a></li><li><a href="#cómo-este-módulo-cambia-nuestras-sops" class="">Cómo este módulo cambia nuestras SOPs</a></li><li><a href="#cambios-a-sop-01-selección-oferta-clickbank" class="h3">Cambios a SOP 01 (Selección oferta ClickBank)</a></li><li><a href="#cambios-a-sop-02-brief-creativo" class="h3">Cambios a SOP 02 (Brief creativo)</a></li><li><a href="#cambios-a-sop-04-setup-funnel" class="h3">Cambios a SOP 04 (Setup funnel)</a></li><li><a href="#cambios-al-skill-affiliate-funnel-structuremd" class="h3">Cambios al skill `affiliate-funnel-structure.md`</a></li><li><a href="#próximos-pasos-del-cruce" class="">Próximos pasos del cruce</a></li></ul>
+</aside>
+<main class="content">
+<div class="content-meta">
+<span><span class="dot"></span>felipe-vergara-m04-aplicado.md</span>
+<span>2,956 palabras</span>
+<span>~15 min lectura</span>
+</div>
+<h1 id="felipe-vergara-módulo-4-los-4-elementos-de-campañas-exitosas-aplicado-al-affiliate">Felipe Vergara · Módulo 4 · Los 4 Elementos de Campañas Exitosas — Aplicado al Affiliate<a class="anchor" href="#felipe-vergara-módulo-4-los-4-elementos-de-campañas-exitosas-aplicado-al-affiliate">#</a></h1>
+<blockquote><p><strong>Curso:</strong> Cómo Vender por Meta Ads (Felipe Vergara) <strong>Módulo 4:</strong> "Los 4 Elementos de Campañas Exitosas" (25 clases · 100% transcrito) <strong>Fecha síntesis:</strong> 2026-04-28 <strong>Audiencia:</strong> Romi (estrategia/copy), Cris (setup), Dali (creativos)</p>
+<p>Este documento extrae los frameworks accionables de M04 y los aplica directamente a nuestro stack affiliate ClickBank + Meta Ads + hispano-US.</p></blockquote>
+<hr>
+<h2 id="el-triángulo-dorado-del-marketing-clase-02">El Triángulo Dorado del Marketing (clase 02)<a class="anchor" href="#el-triángulo-dorado-del-marketing-clase-02">#</a></h2>
+<blockquote><p>"Cualquier venta, independientemente del medio, siempre va a constar de tres variables fundamentales: <strong>oferta, audiencia, mensaje</strong>. Qué vas a vender, a quién y cómo." — Felipe Vergara (paraframos)</p></blockquote>
+<pre><code>            OFERTA
+              /\
+             /  \
+            /    \
+           /      \
+          /________\
+   AUDIENCIA      MENSAJE
+                  (texto + arte)</code></pre>
+<h3 id="aplicación-al-affiliate">Aplicación al affiliate<a class="anchor" href="#aplicación-al-affiliate">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Vértice</th>
+<th>En affiliate equivale a</th>
+<th>Owner</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Oferta</strong></td>
+<td>El producto ClickBank que elegimos promover</td>
+<td>Romi (SOP 01)</td>
+</tr>
+<tr>
+<td><strong>Audiencia</strong></td>
+<td>La segmentación Meta + nuestro filtro de landing</td>
+<td>Cris (setup) + Romi (definición)</td>
+</tr>
+<tr>
+<td><strong>Mensaje</strong></td>
+<td>El copy del ad + el creativo (arte) + el copy de la landing</td>
+<td>Romi (mensaje) + Dali (arte)</td>
+</tr>
+</tbody></table></div>
+<p><strong>Insight clave:</strong> si una campaña no funciona, <strong>diagnosticar los 3 vértices</strong>, no solo el creativo. El error más común es culpar al ad cuando el problema es la oferta o la audiencia.</p>
+<p><strong>Regla operativa para el equipo:</strong></p>
+<blockquote><p>Si una campaña con ROAS < 1.0 después de 5 días, antes de killear, preguntarse: 1. ¿La oferta es viable? (math de economics) 2. ¿La audiencia está bien segmentada? (¿Advantage+ o detallada?) 3. ¿El mensaje habla al nivel de consciencia correcto?</p></blockquote>
+<p>Si los 3 están OK y aún así no vende → kill. Si alguno está mal → arreglar antes.</p>
+<hr>
+<h2 id="cómo-mejorar-la-oferta-clase-03">Cómo mejorar la Oferta (clase 03)<a class="anchor" href="#cómo-mejorar-la-oferta-clase-03">#</a></h2>
+<h3 id="la-frase-fundadora">La frase fundadora<a class="anchor" href="#la-frase-fundadora">#</a></h3>
+<blockquote><p>"Un producto excelente se podrá vender con una campaña de marketing mediocre. La mejor campaña de marketing no salvará en el largo plazo a un producto mediocre." — David Ogilvy</p></blockquote>
+<p><strong>Aplicación affiliate:</strong> la oferta del vendor ClickBank es lo que más predice nuestro éxito. Una mala oferta NO se salva con creativos hermosos.</p>
+<h3 id="la-regla-del-por-5">La Regla del por 5<a class="anchor" href="#la-regla-del-por-5">#</a></h3>
+<blockquote><p>"Las personas deben sentir que les distes 5 veces más valor del que pagaron."</p></blockquote>
+<p><strong>Aplicación affiliate:</strong> nuestro rol es <strong>amplificar la percepción de valor del vendor</strong>. Si el VSL del vendor entrega un producto de $97 USD, nuestra landing debe construir percepción de $485 USD antes de mandar al VSL.</p>
+<p><strong>Cómo:</strong> no inventar valor (eso es engaño y compliance flag), sino:</p>
+<ul>
+<li>Profundizar en los beneficios reales que el vendor menciona pero no profundiza</li>
+<li>Educar sobre el problema (mercado inconsciente / problema)</li>
+<li>Pre-construir autoridad (referencias, validación social)</li>
+</ul>
+<h3 id="3-formas-concretas-de-mejorar-la-oferta-percibida">3 formas concretas de mejorar la oferta percibida<a class="anchor" href="#3-formas-concretas-de-mejorar-la-oferta-percibida">#</a></h3>
+<h4 id="1-la-palabra-gratis-la-más-poderosa-en-marketing">1. La palabra "GRATIS" (la más poderosa en marketing)<a class="anchor" href="#1-la-palabra-gratis-la-más-poderosa-en-marketing">#</a></h4>
+<p>Felipe muestra ejemplos concretos:</p>
+<ul>
+<li><strong>McDonald's</strong> → juguete gratis en Cajita Feliz</li>
+<li><strong>Empresa de tutus</strong> → diadema gratis con cada compra</li>
+<li><strong>Empresa de candados kit</strong> → eBook gratis sobre el hobby</li>
+<li><strong>Marca de ropa</strong> → envíos y devoluciones gratis (debajo del CTA)</li>
+<li><strong>Cursos online (Mindvalley)</strong> → 5 cursos bonus gratis al comprar el principal</li>
+<li><strong>Agencias SEO</strong> → auditoría SEO gratis como gancho</li>
+</ul>
+<p><strong>Aplicación affiliate:</strong></p>
+<ul>
+<li>Mencionar "envío GRATIS" si el vendor lo ofrece (visible cerca del CTA)</li>
+<li>"Acceso GRATIS al webinar" si es lead magnet del vendor</li>
+<li>"Bono GRATIS" si el vendor incluye PDFs / videos de regalo</li>
+<li>Si el VSL menciona algo gratis incluido, <strong>destacarlo en nuestra landing antes del VSL</strong></li>
+</ul>
+<h4 id="2-garantía-fuerte">2. Garantía fuerte<a class="anchor" href="#2-garantía-fuerte">#</a></h4>
+<p>Ejemplos del curso:</p>
+<ul>
+<li><strong>Domino's</strong> → "30 minutos o pizza gratis"</li>
+<li><strong>Colchones El Dorado</strong> → 10 años de garantía (vs 5-7 industria)</li>
+<li><strong>Marca de gorras</strong> → garantía de por vida</li>
+<li><strong>First Form (proteínas)</strong> → garantía 110% (te devuelven $110 por cada $100 gastado)</li>
+</ul>
+<p><strong>Aplicación affiliate:</strong></p>
+<ul>
+<li>ClickBank por defecto tiene garantía 60 días devolución</li>
+<li><strong>Mencionar la garantía en TODOS los creativos y la landing</strong></li>
+<li>Hispano-US tiene desconfianza hacia compras online USA → la garantía baja la fricción</li>
+<li>Nunca prometer garantía que el vendor no honre (compliance + refund chargebacks)</li>
+</ul>
+<h4 id="3-pago-fácil">3. Pago fácil<a class="anchor" href="#3-pago-fácil">#</a></h4>
+<p>Ejemplos del curso:</p>
+<ul>
+<li><strong>Hayadas</strong> → todos los métodos de pago visibles</li>
+<li><strong>Marca cremas</strong> → AfterPay (4 pagos sin intereses)</li>
+<li><strong>Mindvalley</strong> → 12 pagos pequeños vs 1 grande</li>
+</ul>
+<p><strong>Aplicación affiliate:</strong></p>
+<ul>
+<li>ClickBank ofrece tarjeta + PayPal + (a veces) Apple Pay → mencionarlo</li>
+<li>Si el vendor ofrece "3 cuotas sin interés", destacar en landing antes del VSL</li>
+<li>"Acepta PayPal" baja fricción importante para hispano-US</li>
+</ul>
+<h3 id="regla-operativa-para-romi-sop-01-brief">Regla operativa para Romi (SOP 01 + brief)<a class="anchor" href="#regla-operativa-para-romi-sop-01-brief">#</a></h3>
+<p>Antes de aprobar una oferta para TEST, validar que tiene <strong>al menos 1 de los 3</strong> elementos:</p>
+<ul>
+<li><input type="checkbox"  disabled>Algo gratis incluido (bono, envío, devolución)</li>
+<li><input type="checkbox"  disabled>Garantía clara (60 días+, money-back)</li>
+<li><input type="checkbox"  disabled>Pago facilitado (cuotas, múltiples métodos)</li>
+</ul>
+<p>Si no tiene ninguno → SKIP o WAIT (es muy difícil ganar sin estos boosters).</p>
+<h3 id="libros-recomendados-por-felipe-para-profundizar-en-oferta">Libros recomendados por Felipe (para profundizar en oferta)<a class="anchor" href="#libros-recomendados-por-felipe-para-profundizar-en-oferta">#</a></h3>
+<ol>
+<li><strong>La Estrategia del Océano Azul</strong> — encontrar mercado sin competencia</li>
+<li><strong>El Fabricante de Helados</strong> — calidad como diferencial</li>
+<li><strong>Ready Fire Aim</strong> (Michael Masterson) — etapas de empresa $0 → $100M</li>
+</ol>
+<blockquote><p>Estos libros aplican a cuando Romi/Cris evalúen lanzar <strong>producto propio</strong> (Fase 4 del roadmap). Por ahora promovemos productos del vendor.</p></blockquote>
+<hr>
+<h2 id="audiencia-5-tipos-de-público-en-meta-clases-04-08">Audiencia · 5 tipos de público en Meta (clases 04-08)<a class="anchor" href="#audiencia-5-tipos-de-público-en-meta-clases-04-08">#</a></h2>
+<h3 id="los-5-tipos-disponibles">Los 5 tipos disponibles<a class="anchor" href="#los-5-tipos-disponibles">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>#</th>
+<th>Tipo</th>
+<th>Cuándo usar</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td><strong>Segmentación detallada</strong></td>
+<td>Intereses específicos · útil cuando público nicho</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Públicos personalizados</strong></td>
+<td>Retargeting (visitantes web, video viewers, engagement)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Públicos similares (Lookalike)</strong></td>
+<td>Escalar después de tener data de conversiones</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Segmentación abierta</strong></td>
+<td>Sin segmentación, dejar que Meta decida (cold)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Públicos Advantage+</strong></td>
+<td>El default actual de Meta · combinación de los anteriores</td>
+</tr>
+</tbody></table></div>
+<h3 id="recomendación-2026-para-affiliate">Recomendación 2026 para affiliate<a class="anchor" href="#recomendación-2026-para-affiliate">#</a></h3>
+<p><strong>Default: Públicos Advantage+</strong> (Meta lo recomienda explícitamente para casi todos los casos).</p>
+<p><strong>Excepción 1:</strong> Retargeting → usar <strong>público personalizado</strong> con la opción "no expandir" desmarcada (Meta también lo dice oficialmente para retargeting).</p>
+<p><strong>Excepción 2:</strong> Si tu producto es para sexo o edad muy específica (ej: mujeres 35+) → usar <strong>público original con controles estrictos</strong>, porque Advantage+ a veces se sale.</p>
+<h3 id="las-6-formas-de-encontrar-intereses-si-usas-detallada">Las 6 formas de encontrar intereses (si usas detallada)<a class="anchor" href="#las-6-formas-de-encontrar-intereses-si-usas-detallada">#</a></h3>
+<ol>
+<li><strong>Nombre de tu producto/servicio</strong> ("ropa para niños")</li>
+<li><strong>Competidores conocidos a nivel mundial</strong> ("Starbucks" para café)</li>
+<li><strong>Personas referentes en la industria</strong> ("Gordon Ramsey" para cocina)</li>
+<li><strong>Términos técnicos del nicho</strong> ("creatina" para fitness)</li>
+<li><strong>Medios consumidos</strong> (revista Vogue para moda, Investopedia para finanzas)</li>
+<li><strong>Herramientas usadas</strong> (Shopify para emprendedores)</li>
+</ol>
+<p><strong>Aplicación affiliate:</strong></p>
+<ul>
+<li>Para nutra hispano-US: probar intereses como "Joven en Salud", "Belleza Latina", "Salud Natural"</li>
+<li>Para sleep aids: "Insomnia", "Better Sleep", brands competidores grandes (sleep apps tipo Calm)</li>
+<li>Para weight loss: "Fitness", "Diet", "Healthy Eating"</li>
+<li>Para beauty: "Beauty Tips", "Skincare", marcas tipo Sephora</li>
+</ul>
+<p><strong>Regla del equipo:</strong> colocar <strong>TODOS los intereses sugeridos en el mismo conjunto de anuncios</strong> (no dividirlos). El algoritmo necesita público grande.</p>
+<h3 id="regla-maestra-de-segmentación-2026">Regla maestra de segmentación 2026<a class="anchor" href="#regla-maestra-de-segmentación-2026">#</a></h3>
+<blockquote><p>"Hoy en día la clave es tener <strong>públicos grandes</strong>. No te obsesiones con intereses muy específicos." — Felipe Vergara</p></blockquote>
+<p><strong>Aplicación affiliate:</strong></p>
+<ul>
+<li>Evitar la trampa de "segmentación quirúrgica" (intereses muy específicos = públicos pequeños = aprendizaje fallido)</li>
+<li>Confiar en Advantage+ + el algoritmo de Meta</li>
+<li>La verdadera segmentación ocurre <strong>a nivel del creativo + landing</strong> (filtra al usuario equivocado)</li>
+</ul>
+<hr>
+<h2 id="niveles-de-consciencia-clases-10-14-el-framework-más-importante">Niveles de Consciencia (clases 10-14) — el framework más importante<a class="anchor" href="#niveles-de-consciencia-clases-10-14-el-framework-más-importante">#</a></h2>
+<blockquote><p>"Si identificas el nivel de consciencia de tu mercado y adaptas la comunicación de tu empresa para esto, ahí es cuando vas a obtener resultados consistentes." — Felipe Vergara</p></blockquote>
+<h3 id="los-5-niveles">Los 5 niveles<a class="anchor" href="#los-5-niveles">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>#</th>
+<th>Nivel</th>
+<th>Definición</th>
+<th>Mensaje del ad</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td><strong>Inconsciente</strong></td>
+<td>No saben que tienen el problema</td>
+<td>Cuéntales una historia que los agarre desprevenidos</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Problema</strong></td>
+<td>Saben que tienen problema, no conocen soluciones</td>
+<td>Empatiza con problema → presenta solución</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Solución</strong></td>
+<td>Conocen soluciones, no a nuestra marca</td>
+<td>Enfócate en beneficios (1-3)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Producto</strong></td>
+<td>Conocen nuestra marca, no han comprado</td>
+<td>Por qué nosotros (testimonios, autoridad, diferenciales)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Decisión</strong></td>
+<td>Ya nos compraron</td>
+<td>Nuevos productos, promociones, recompras</td>
+</tr>
+</tbody></table></div>
+<h3 id="aplicación-al-affiliate-crítico">Aplicación al affiliate (CRÍTICO)<a class="anchor" href="#aplicación-al-affiliate-crítico">#</a></h3>
+<p><strong>Regla 1: el cold traffic Meta para affiliate hispano-US generalmente está en niveles 1-2 (inconsciente o problema).</strong></p>
+<p>Por qué: las ofertas ClickBank suelen ser productos que el target NO sabe que existen como solución. Casi nadie está buscando "Prosta-X" o "Glucosamina Plus" — están buscando alivio para próstata o articulaciones.</p>
+<p><strong>Regla 2: nuestros ads y landings deben hablar al nivel correcto.</strong></p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Tipo de tráfico</th>
+<th>Nivel típico</th>
+<th>Estrategia</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Cold ad de Meta</strong></td>
+<td>Inconsciente / Problema</td>
+<td>Ad presenta problema · landing educa · VSL del vendor cierra</td>
+</tr>
+<tr>
+<td><strong>Retargeting (visitó landing, no compró)</strong></td>
+<td>Solución / Producto</td>
+<td>Ad enfocado en beneficios + diferenciales del vendor</td>
+</tr>
+<tr>
+<td><strong>Retargeting (carrito abandonado)</strong></td>
+<td>Decisión</td>
+<td>Ad recordatorio + urgencia (limitada por compliance)</td>
+</tr>
+</tbody></table></div>
+<h3 id="templates-de-copy-por-nivel-para-romi">Templates de copy por nivel (para Romi)<a class="anchor" href="#templates-de-copy-por-nivel-para-romi">#</a></h3>
+<h4 id="nivel-inconsciente">Nivel Inconsciente<a class="anchor" href="#nivel-inconsciente">#</a></h4>
+<pre><code>Estructura:
+1. Hecho/dato sorpresa (problema que no sabían)
+2. Implicación (por qué importa)
+3. Mini-reveal (insight de solución)
+4. CTA (ver más)
+
+Ejemplo nutra:
+"Sabías que un tercio de las mujeres latinas en USA presentan deficiencia de vitamina D
+sin saberlo? Esto puede causar fatiga, mal humor y debilidad muscular.
+Hay un nuevo enfoque científico que está cambiando esto.
+[Ver el video completo]"</code></pre>
+<h4 id="nivel-problema">Nivel Problema<a class="anchor" href="#nivel-problema">#</a></h4>
+<pre><code>Estructura:
+1. Pregunta empática ("¿Te gustaría...?", "¿Sufres de...?")
+2. Presentación de la solución (categoría, no marca)
+3. Cómo funciona en una frase
+4. CTA
+
+Ejemplo:
+"¿Te cuesta dormir toda la noche?
+Cientos de latinas en Miami están descubriendo un método natural
+que las ayuda a dormir profundo sin pastillas químicas.
+[Descubre cómo funciona]"</code></pre>
+<h4 id="nivel-solución">Nivel Solución<a class="anchor" href="#nivel-solución">#</a></h4>
+<pre><code>Estructura:
+1. Beneficios concretos (1-3) — directo, sin rodeos
+2. Diferenciales si caben
+3. CTA
+
+Ejemplo:
+"Duerme 8 horas profundas. Despierta con energía. Sin pastillas químicas.
+Fórmula 100% natural respaldada por estudios clínicos.
+[Conoce más]"</code></pre>
+<h4 id="nivel-producto-retargeting">Nivel Producto (retargeting)<a class="anchor" href="#nivel-producto-retargeting">#</a></h4>
+<pre><code>Estructura:
+1. Reafirmar autoridad / diferencial
+2. Prueba social fuerte
+3. CTA con urgencia suave
+
+Ejemplo:
+"Más de 47,000 personas ya están durmiendo mejor con [Producto].
+Aprobado por terapeutas del sueño. Garantía de 60 días.
+[Pide el tuyo ahora]"</code></pre>
+<h4 id="nivel-decisión-clientes-pasados-o-buyers-clickbank">Nivel Decisión (clientes pasados o buyers ClickBank)<a class="anchor" href="#nivel-decisión-clientes-pasados-o-buyers-clickbank">#</a></h4>
+<pre><code>Estructura:
+1. "Recuerda que..." / "Ya conoces..."
+2. Nueva variante / cross-sell / promoción
+3. Escasez si aplica
+
+Ejemplo:
+"Recuerda que tu suministro mensual termina pronto.
+Ahora con 25% off para clientes recurrentes.
+[Renueva tu pedido]"</code></pre>
+<h3 id="verbos-clave-que-delatan-el-nivel">Verbos clave que DELATAN el nivel<a class="anchor" href="#verbos-clave-que-delatan-el-nivel">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Si el ad empieza con...</th>
+<th>Está en nivel...</th>
+</tr></thead><tbody>
+<tr>
+<td>"Sabías que...", hecho sorpresa</td>
+<td>Inconsciente</td>
+</tr>
+<tr>
+<td>"¿Te gustaría...?", "¿Sufres de...?", "¿Quieres...?"</td>
+<td>Problema</td>
+</tr>
+<tr>
+<td>Beneficios directos (sin pregunta)</td>
+<td>Solución</td>
+</tr>
+<tr>
+<td>Nombre de la marca como primera palabra</td>
+<td>Producto / Decisión</td>
+</tr>
+<tr>
+<td>"Recuerda...", "Ya nos conoces..."</td>
+<td>Decisión</td>
+</tr>
+</tbody></table></div>
+<h3 id="error-fatal-a-evitar">Error fatal a evitar<a class="anchor" href="#error-fatal-a-evitar">#</a></h3>
+<blockquote><p>"Si una persona está en nivel <strong>inconsciente</strong> y le mostramos un ad nivel <strong>decisión</strong> ('compra ahora con 25% off'), el ad NO funciona. Las personas se sienten intimidadas o confundidas."</p></blockquote>
+<p><strong>Aplicación affiliate:</strong> lanzar campaña cold con copy "Compra Prosta-X ahora con 25% descuento" → desperdicio de spend garantizado. El target ni sabe qué es Prosta-X.</p>
+<h3 id="longitud-del-copy-depende-del-nivel">Longitud del copy depende del nivel<a class="anchor" href="#longitud-del-copy-depende-del-nivel">#</a></h3>
+<ul>
+<li><strong>Inconsciente / Problema:</strong> copy más largo (necesitas educar)</li>
+<li><strong>Solución:</strong> copy medio (foco en beneficios)</li>
+<li><strong>Producto / Decisión:</strong> copy más corto (ya te conocen, solo recordar)</li>
+</ul>
+<blockquote><p>"Lo importante es que escribas lo que necesites para mover a las personas de un nivel a otro. Ni una palabra más, ni una palabra menos."</p></blockquote>
+<hr>
+<h2 id="los-10-artes-que-venden-en-meta-clases-16-25">Los 10 Artes que Venden en Meta (clases 16-25)<a class="anchor" href="#los-10-artes-que-venden-en-meta-clases-16-25">#</a></h2>
+<blockquote><p>"Encontré que hay 10 tipos de artes (creativos) que funcionan especialmente bien en Meta Ads."</p></blockquote>
+<h3 id="el-catálogo-completo">El catálogo completo<a class="anchor" href="#el-catálogo-completo">#</a></h3>
+<ol>
+<li><strong>Demostración</strong> — mostrar cómo funciona el producto en acción</li>
+<li><strong>Testimonios</strong> — clientes/influencers/unboxing</li>
+<li><strong>Prensa</strong> — apariciones en medios (As Seen On)</li>
+<li><strong>Aspiracional</strong> — vida ideal con el producto</li>
+<li><strong>Beneficio</strong> — qué obtiene el cliente (sin mostrar producto)</li>
+<li><strong>Producto</strong> — el producto como protagonista</li>
+<li><strong>Promoción</strong> — descuentos, ofertas</li>
+<li><strong>Pantalla dividida</strong> — antes/después o A vs B</li>
+<li><strong>Educativo</strong> — enseñar algo relacionado al producto</li>
+<li><strong>(El #10 está en clase pendiente de revisar)</strong></li>
+</ol>
+<h3 id="sub-tipos-de-testimonios-clase-18">Sub-tipos de testimonios (clase 18)<a class="anchor" href="#sub-tipos-de-testimonios-clase-18">#</a></h3>
+<p>Los testimonios son tan poderosos que tienen 4 sub-formatos:</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Sub-tipo</th>
+<th>Descripción</th>
+<th>Bueno para</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Foto cliente con producto</strong></td>
+<td>Cliente toma foto del producto recibido</td>
+<td>Productos físicos · sensación orgánica</td>
+</tr>
+<tr>
+<td><strong>Testimonio escrito</strong></td>
+<td>Frase del cliente + foto/imagen</td>
+<td>Servicios + productos</td>
+</tr>
+<tr>
+<td><strong>Video testimonial</strong></td>
+<td>Cliente hablando en video</td>
+<td>Servicios complejos · productos high-ticket</td>
+</tr>
+<tr>
+<td><strong>Influencer endorsement</strong></td>
+<td>Influencer mostrando uso</td>
+<td>Productos lifestyle · beauty · fitness</td>
+</tr>
+<tr>
+<td><strong>Unboxing producto</strong></td>
+<td>Mostrar producto en caja, cómo viene</td>
+<td>Productos físicos · lujo · regalos</td>
+</tr>
+<tr>
+<td><strong>Unboxing cliente</strong></td>
+<td>Múltiples clientes mostrando sus cajas</td>
+<td>Productos con repetición de compra</td>
+</tr>
+</tbody></table></div>
+<h3 id="aplicación-al-affiliate-qué-artes-priorizar">Aplicación al affiliate · qué artes priorizar<a class="anchor" href="#aplicación-al-affiliate-qué-artes-priorizar">#</a></h3>
+<p><strong>TOP 3 para affiliate nutra hispano-US:</strong></p>
+<ol>
+<li><strong>Demostración</strong> (cómo se toma, cómo se ve el producto)</li>
+<li>HeyGen avatar mostrando el producto en mano</li>
+<li>"Se toma 1 cápsula al día con desayuno"</li>
+<li>Producto en cocina, contexto natural</li>
+<li><strong>Testimonios</strong> (4 sub-tipos)</li>
+<li><strong>Influencer endorsement:</strong> caro pero alto ROAS para hispano-US (compliance: disclosure obligatorio)</li>
+<li><strong>Stock + frase de testimonio:</strong> lo más fácil de producir, funciona bien</li>
+<li><strong>Video testimonial sintético:</strong> Creatify UGC con persona arquetipo (compliance: disclaimer "imagen ilustrativa")</li>
+<li><strong>Unboxing producto del vendor:</strong> pedir muestras al vendor o usar imágenes de tools page</li>
+<li><strong>Aspiracional</strong> (cómo es la vida después de tomar el producto)</li>
+<li>Mujer durmiendo plácidamente (sleep aids)</li>
+<li>Mujer activa en parque (energy supplements)</li>
+<li>Familia disfrutando (general wellness)</li>
+</ol>
+<p><strong>Artes de SEGUNDA prioridad:</strong></p>
+<ul>
+<li><strong>Pantalla dividida</strong> (antes/después) — cuidado compliance, casi siempre disapproved en Meta</li>
+<li><strong>Beneficio</strong> (sin mostrar producto) — bueno para nivel problema/solución</li>
+<li><strong>Educativo</strong> (tip + reveal del producto) — útil para advertorial pre-VSL</li>
+</ul>
+<p><strong>Artes a EVITAR para affiliate nutra:</strong></p>
+<ul>
+<li><strong>Promoción agresiva</strong> ("50% off solo hoy") — flag por Meta + nivel decisión equivocado</li>
+<li><strong>Producto solo (sin contexto)</strong> — no genera Aha Moment</li>
+</ul>
+<h3 id="workflow-para-dali-sop-07">Workflow para Dali (SOP 07)<a class="anchor" href="#workflow-para-dali-sop-07">#</a></h3>
+<p>Brief Romi → Dali debe especificar <strong>al menos 2-3 tipos de artes distintos</strong> dentro de los 5 angles del brief. Ejemplo:</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Angle</th>
+<th>Tipo de arte recomendado</th>
+</tr></thead><tbody>
+<tr>
+<td>Curiosidad ("¿sabías que...")</td>
+<td>Educativo + Demostración</td>
+</tr>
+<tr>
+<td>Problema ("¿sufres de...")</td>
+<td>Beneficio + Aspiracional</td>
+</tr>
+<tr>
+<td>Validación social</td>
+<td>Testimonio (video o foto cliente)</td>
+</tr>
+<tr>
+<td>Autoridad</td>
+<td>Influencer endorsement (si presupuesto)</td>
+</tr>
+<tr>
+<td>Emoción</td>
+<td>Aspiracional (lifestyle)</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="el-consejo-final-de-ogilvy-clase-15">El consejo final de Ogilvy (clase 15)<a class="anchor" href="#el-consejo-final-de-ogilvy-clase-15">#</a></h2>
+<blockquote><p>"Tu cliente no es idiota. Tu cliente es tu esposa." — David Ogilvy</p></blockquote>
+<p><strong>Aplicación affiliate (compliance + ética):</strong></p>
+<ul>
+<li>No prometer cosas que el producto no entrega</li>
+<li>No inventar testimonios falsos</li>
+<li>No usar urgencia falsa ("solo hoy" cada día)</li>
+<li>No usar antes/después manipulados</li>
+<li>Si el VSL del vendor hace claims dudosos, NO repetirlos en nuestro copy</li>
+</ul>
+<blockquote><p>El argumento es comercial, no solo ético: clientes que se sienten engañados → refund rate alto → ClientBank corta comisiones retroactivas.</p></blockquote>
+<hr>
+<h2 id="tareas-concretas-que-felipe-deja-al-final-del-módulo">Tareas concretas que Felipe deja al final del módulo<a class="anchor" href="#tareas-concretas-que-felipe-deja-al-final-del-módulo">#</a></h2>
+<h3 id="tarea-1-de-la-clase-03-oferta">Tarea 1 (de la clase 03 — Oferta)<a class="anchor" href="#tarea-1-de-la-clase-03-oferta">#</a></h3>
+<blockquote><p>"Elije una forma con la cual mejorarás tu oferta: gratis, garantía o pago fácil."</p></blockquote>
+<p><strong>Aplicación equipo:</strong> Romi en SOP 01 evalúa cada oferta contra estos 3 boosters. Documenta en <code>02-offers/[oferta-XX]/economics.md</code> cuál booster vamos a destacar.</p>
+<h3 id="tarea-2-de-la-clase-15-niveles-de-consciencia">Tarea 2 (de la clase 15 — Niveles de Consciencia)<a class="anchor" href="#tarea-2-de-la-clase-15-niveles-de-consciencia">#</a></h3>
+<blockquote><p>"Crea 2 textos para cada nivel de consciencia: problema, solución, producto, decisión."</p></blockquote>
+<p><strong>Aplicación equipo:</strong> En SOP 02 brief creativo, Romi entrega a Dali <strong>8 textos base</strong> (2 por nivel × 4 niveles), no 5 angles aleatorios. Esto da estructura al testing creativo.</p>
+<h3 id="tarea-3-no-formal-pero-implícita">Tarea 3 (no formal pero implícita)<a class="anchor" href="#tarea-3-no-formal-pero-implícita">#</a></h3>
+<blockquote><p>Antes de lanzar cualquier ad, preguntarse: "¿Estoy hablando al nivel de consciencia correcto?"</p></blockquote>
+<p><strong>Aplicación equipo:</strong> parte del checklist QA en SOP 04 paso 6 antes de live.</p>
+<hr>
+<h2 id="cómo-este-módulo-cambia-nuestras-sops">Cómo este módulo cambia nuestras SOPs<a class="anchor" href="#cómo-este-módulo-cambia-nuestras-sops">#</a></h2>
+<h3 id="cambios-a-sop-01-selección-oferta-clickbank">Cambios a SOP 01 (Selección oferta ClickBank)<a class="anchor" href="#cambios-a-sop-01-selección-oferta-clickbank">#</a></h3>
+<p><strong>Agregar paso:</strong> validar 3 boosters de oferta (gratis / garantía / pago fácil). Si oferta no tiene ninguno → WAIT o SKIP.</p>
+<h3 id="cambios-a-sop-02-brief-creativo">Cambios a SOP 02 (Brief creativo)<a class="anchor" href="#cambios-a-sop-02-brief-creativo">#</a></h3>
+<p><strong>Reemplazar:</strong> "5 angles distintos" → "8 textos cubriendo niveles de consciencia (2 por cada nivel: problema, solución, producto, decisión)".</p>
+<p><strong>Agregar:</strong> especificar tipo de arte por angle (demostración / testimonio / aspiracional / etc.).</p>
+<h3 id="cambios-a-sop-04-setup-funnel">Cambios a SOP 04 (Setup funnel)<a class="anchor" href="#cambios-a-sop-04-setup-funnel">#</a></h3>
+<p><strong>Agregar paso QA:</strong> verificar que el copy del ad coincide con el nivel de consciencia del audience target.</p>
+<h3 id="cambios-al-skill-affiliate-funnel-structuremd">Cambios al skill <code>affiliate-funnel-structure.md</code><a class="anchor" href="#cambios-al-skill-affiliate-funnel-structuremd">#</a></h3>
+<p><strong>Agregar sección:</strong> "Niveles de consciencia y estructura de landing" — la landing intermedia debe llevar al usuario de nivel 1 (cold) a nivel 4 (listo para VSL).</p>
+<hr>
+<h2 id="próximos-pasos-del-cruce">Próximos pasos del cruce<a class="anchor" href="#próximos-pasos-del-cruce">#</a></h2>
+<ul>
+<li><strong>M05:</strong> completar transcripción + síntesis (foco: campañas desde cero, presupuesto, retargeting)</li>
+<li><strong>M07:</strong> completar transcripción + síntesis (foco: escalado vertical/horizontal sin reiniciar aprendizaje)</li>
+<li><strong>Actualizar <code>cruce-cursos-aplicado.md</code></strong> con referencias a este documento</li>
+<li><strong>Crear nuevo skill <code>affiliate-niveles-consciencia.md</code></strong> consolidando el framework de M04 con templates aplicados</li>
+</ul>
+<hr>
+<p><em>Este documento es la primera versión basada en M04. Se actualizará al revisitar el módulo después de aplicar estos frameworks 30 días.</em></p>
+<div class="footer">
+Affiliate Business · Generado 2026-05-26<br>
+Fuente: <code>felipe-vergara-m04-aplicado.md</code>
+</div>
+</main>
+</div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.querySelector('.progress').style.width = scrolled + '%';
+});
+
+// Active TOC highlight
+const headings = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+function updateActiveTOC() {
+    let activeId = null;
+    const offset = window.scrollY + 100;
+    headings.forEach(h => { if (h.offsetTop <= offset) activeId = h.id; });
+    tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+    });
+}
+window.addEventListener('scroll', updateActiveTOC);
+updateActiveTOC();
+
+// Smooth scroll on TOC click
+tocLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 70;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, link.getAttribute('href'));
+        }
+    });
+});
+</script>
+</body>
+</html>

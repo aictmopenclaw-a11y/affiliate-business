@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estado Actual · Affiliate Business · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">raíz · 8 min · 1,639 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#para-retomar-la-próxima-sesión-lectura-en-5-min" class="">📦 Para retomar la próxima sesión (lectura en 5 min)</a></li><li><a href="#lo-que-se-hizo-el-2026-06-17-research-clickbank-a-fondo" class="h3">Lo que se hizo el 2026-06-17 (research ClickBank a fondo)</a></li><li><a href="#decisiones-de-estructura-tomadas" class="h3">Decisiones de estructura tomadas</a></li><li><a href="#pendiente-inmediato-orden-sugerido" class="h3">Pendiente inmediato (orden sugerido)</a></li><li><a href="#aprendizaje-técnico-de-la-sesión" class="h3">Aprendizaje técnico de la sesión</a></li><li><a href="#estado-del-repo-push" class="h3">Estado del repo / push</a></li><li><a href="#alerta-crítica-estudio-de-viabilidad-cambia-el-panorama" class="">🚨 ALERTA CRÍTICA · Estudio de viabilidad cambia el panorama</a></li><li><a href="#fase-actual" class="">🎯 Fase actual</a></li><li><a href="#hecho-esta-semana" class="">✅ Hecho esta semana</a></li><li><a href="#sesión-1-setup-inicial" class="h3">Sesión 1 (setup inicial)</a></li><li><a href="#sesión-2-cruce-cursos-felipe-vergara" class="h3">Sesión 2 (cruce cursos Felipe Vergara)</a></li><li><a href="#en-progreso-background" class="">🔄 En progreso (background)</a></li><li><a href="#pendiente-próxima-sesión" class="">⏳ Pendiente próxima sesión</a></li><li><a href="#aplicar-cambios-derivados-a-sops" class="h3">Aplicar cambios derivados a SOPs</a></li><li><a href="#push-a-github" class="h3">Push a GitHub</a></li><li><a href="#pendiente-esta-semana-post-sync" class="">⏳ Pendiente esta semana (post-sync)</a></li><li><a href="#romi" class="h3">Romi</a></li><li><a href="#cris" class="h3">Cris</a></li><li><a href="#dali" class="h3">Dali</a></li><li><a href="#los-3" class="h3">Los 3</a></li><li><a href="#bloqueado" class="">⛔ Bloqueado</a></li><li><a href="#decisiones-pendientes-5-del-lunes" class="">🧭 Decisiones pendientes (5 del lunes)</a></li><li><a href="#métricas-placeholder-empieza-fase-02" class="">📊 Métricas (placeholder · empieza Fase 02)</a></li><li><a href="#próximas-reuniones" class="">📅 Próximas reuniones</a></li><li><a href="#notas-para-próxima-sesión" class="">💬 Notas para próxima sesión</a></li><li><a href="#quién-mira-qué-archivos-primero" class="">🗂 Quién mira qué archivos primero</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>estado-actual.md</span><span>1,639 palabras</span><span>~8 min</span></div>
+<h1 id="estado-actual-affiliate-business">Estado Actual · Affiliate Business</h1>
+<blockquote><p>Este archivo se actualiza <strong>cada 15 min en sesión activa + tras cada acción importante</strong>. Es el "snapshot" del proyecto. Quien retoma debe poder continuar leyendo solo este archivo.</p></blockquote>
+<p><strong>Última actualización:</strong> 2026-06-17 (CIERRE DE SESIÓN · research ClickBank a fondo + shortlist 15 ofertas + deep dive finalistas + one-pager agencia) <strong>Quién está activo:</strong> nadie · sesión cerrada <strong>Próxima sesión planeada:</strong> definir titular real de la cuenta + registrar dominio de la agencia + redactar email de aplicación a Prostadine</p>
+<hr>
+<h2 id="para-retomar-la-próxima-sesión-lectura-en-5-min">📦 Para retomar la próxima sesión (lectura en 5 min)<a class="anchor" href="#para-retomar-la-próxima-sesión-lectura-en-5-min">#</a></h2>
+<h3 id="lo-que-se-hizo-el-2026-06-17-research-clickbank-a-fondo">Lo que se hizo el 2026-06-17 (research ClickBank a fondo)<a class="anchor" href="#lo-que-se-hizo-el-2026-06-17-research-clickbank-a-fondo">#</a></h3>
+<ul>
+<li><strong>24 videos ClickBank+Meta transcritos</strong> (criterio: solo recientes 2025-2026, los viejos descartados). Síntesis cruzada videos + foros: <code>01-ejecucion-2026/clickbank-2026-research/SINTESIS-VIDEOS-FOROS-2026.md</code></li>
+<li><strong>Cuenta ClickBank de TEST</strong> creada (titular "Frank Wilson walter") solo para explorar el marketplace. ES DESECHABLE. La cuenta real será otra al momento de operar.</li>
+<li><strong>Shortlist de 15 ofertas</strong> con datos reales del marketplace (venta directa + leads): <code>shortlist-15-ofertas-2026-06-16.md</code></li>
+<li><strong>Validación en Meta Ad Library</strong> de finalistas: <code>validacion-meta-ad-library-2026-06-16.md</code> (ProDentim 73 ads activos, Prostadine 10, Kerassentials 16, VisiFlora 0)</li>
+<li><strong>Deep dive finalistas</strong>: <code>finalistas-deep-dive-2026-06-16.md</code>. Recomendación: <strong>Prostadine #1</strong> para primer test (validada pero poco saturada, mejor reputación 4.98/5, CPA), ProDentim #2 (más swipe, más competida).</li>
+<li><strong>One-pager de la agencia</strong> para postular: <code>06-ops/agencia/onepager-truenorth-media.html</code> (nombre provisional TrueNorth Media, email/dominio son placeholders).</li>
+</ul>
+<h3 id="decisiones-de-estructura-tomadas">Decisiones de estructura tomadas<a class="anchor" href="#decisiones-de-estructura-tomadas">#</a></h3>
+<ul>
+<li><strong>Sin SpA hasta avanzar.</strong> Se arranca como persona natural (Cris): W-8BEN + Wise personal. Migrar a SpA cuando el modelo se valide.</li>
+<li><strong>La "agencia" es presentación, no entidad legal.</strong> Identidad de media-buyer (nombre + dominio + email + one-pager) para subir la aprobación con affiliate managers. No requiere empresa registrada.</li>
+<li><strong>Nickname ClickBank definitivo:</strong> <code>truenorth</code> (backups: harbor, meridian). SOP: <code>06-ops/sops/sop-00-crear-cuenta-clickbank.md</code>.</li>
+</ul>
+<h3 id="pendiente-inmediato-orden-sugerido">Pendiente inmediato (orden sugerido)<a class="anchor" href="#pendiente-inmediato-orden-sugerido">#</a></h3>
+<ol>
+<li><strong>Definir titular real</strong> de la cuenta de operación (Cris persona natural). La de "Frank Wilson" era solo test.</li>
+<li><strong>Registrar dominio de la agencia</strong> + crear email corporativo → reemplazar placeholders del one-pager.</li>
+<li><strong>Redactar email de aplicación</strong> al affiliate manager de Prostadine (acompaña al one-pager).</li>
+<li><strong>Crear cuenta ClickBank real</strong> (nickname truenorth) + W-8BEN + Wise.</li>
+<li><strong>Bridge page</strong> anti-finasteride + tracking CAPI (validar con compra de $1) antes de gastar en ads.</li>
+</ol>
+<h3 id="aprendizaje-técnico-de-la-sesión">Aprendizaje técnico de la sesión<a class="anchor" href="#aprendizaje-técnico-de-la-sesión">#</a></h3>
+<ul>
+<li>Pipeline de transcripción: los background tasks del harness se mueren a los ~15 min, pero un proceso lanzado con <strong><code>nohup</code> desacoplado sobrevive</strong>. Para tareas largas (whisper, etc.), usar nohup + un vigía liviano, no el background task directo.</li>
+</ul>
+<h3 id="estado-del-repo-push">Estado del repo / push<a class="anchor" href="#estado-del-repo-push">#</a></h3>
+<ul>
+<li>Commits locales en main. <strong>NO hay remote configurado y <code>gh</code> no está instalado</strong> en esta máquina, así que el push NO se pudo hacer en esta sesión.</li>
+<li>Para pushear: crear el repo privado en GitHub (<code>aictmopenclaw-a11y/affiliate-business</code>) desde la web, luego:</li>
+</ul>
+<pre><code class="language-bash">cd ~/Projects/affiliate-business
+git remote add origin https://github.com/aictmopenclaw-a11y/affiliate-business.git
+git push -u origin main</code></pre>
+<ul>
+<li>Nota: los <code>.html</code> están en <code>.gitignore</code> (se regeneran desde <code>.md</code> con <code>.tools/render.py</code>). El one-pager se versionó forzado por ser un asset sin <code>.md</code> fuente.</li>
+</ul>
+<hr>
+<h2 id="alerta-crítica-estudio-de-viabilidad-cambia-el-panorama"><span class="badge badge-alert">CRÍTICO</span> ALERTA CRÍTICA · Estudio de viabilidad cambia el panorama<a class="anchor" href="#alerta-crítica-estudio-de-viabilidad-cambia-el-panorama">#</a></h2>
+<p><strong>Tras 8 investigaciones independientes, la data sugiere:</strong></p>
+<ul>
+<li>$11K USD es subcapitalización para affiliate full</li>
+<li>Probabilidad break-even año 1 con Escenario A: 25-35%</li>
+<li>Probabilidad wipeout total: 30-40%</li>
+<li>Costo de oportunidad vs escalar OpenClaw: ~$180K USD/año</li>
+<li>Pancho Val real pero con red flags (vive más del curso que del affiliate)</li>
+</ul>
+<p><strong>Recomendación data-driven:</strong> Escenario B (Portfolio Asimétrico)</p>
+<ul>
+<li>$7K OpenClaw escalado</li>
+<li>$1.5K producto educativo propio</li>
+<li>$2.5K test affiliate 90 días con stop-loss</li>
+</ul>
+<p><strong>Documentos críticos a leer ANTES del primer sync:</strong></p>
+<ul>
+<li><code>00-viabilidad/VIABILIDAD-MAESTRO.md</code> — TL;DR + veredicto</li>
+<li><code>00-viabilidad/PLAN-COMERCIAL.md</code> — plan ejecutable Escenario B</li>
+<li><code>00-viabilidad/PLAN-INVERSION.md</code> — comparativa 3 escenarios</li>
+<li><code>00-viabilidad/research-fuentes/</code> — 8 reportes detallados con fuentes</li>
+</ul>
+<p><strong>Decisión pendiente:</strong> #006 en <code>00-meta/decisions-log.md</code> (escenario A/B/C)</p>
+<hr>
+<h2 id="fase-actual"><span class="badge badge-info">META</span> Fase actual<a class="anchor" href="#fase-actual">#</a></h2>
+<p><strong>Pre-Fase 01 · Setup del sistema</strong></p>
+<p>Aún no hemos arrancado oficialmente. Estamos construyendo el repo + infra antes del primer sync con Romi y Dali.</p>
+<p><strong>Próximo hito:</strong> primer sync semanal lunes 11AM → validar playbook + arrancar Fase 01.</p>
+<hr>
+<h2 id="hecho-esta-semana"><span class="badge badge-ok">OK</span> Hecho esta semana<a class="anchor" href="#hecho-esta-semana">#</a></h2>
+<h3 id="sesión-1-setup-inicial">Sesión 1 (setup inicial)<a class="anchor" href="#sesión-1-setup-inicial">#</a></h3>
+<ul>
+<li><input type="checkbox" checked disabled>Convertir playbook HTML a Markdown (<code>playbook.md</code>)</li>
+<li><input type="checkbox" checked disabled>Convertir dossier estratégico HTML a Markdown (<code>dossier-estrategico.md</code>)</li>
+<li><input type="checkbox" checked disabled>Crear estructura de carpetas completa (00-meta a 07-learning)</li>
+<li><input type="checkbox" checked disabled>Crear <code>CLAUDE.md</code> maestro con reglas para Claude Cowork</li>
+<li><input type="checkbox" checked disabled>Crear <code>memory.md</code> con reglas inviolables (compliance, fiscal, técnico)</li>
+<li><input type="checkbox" checked disabled>Crear <code>team-charter.md</code> con estructura accionaria 50/25/15/10</li>
+<li><input type="checkbox" checked disabled>Crear <code>decisions-log.md</code> con primeras 5 decisiones del playbook</li>
+<li><input type="checkbox" checked disabled>Crear 4 skills de affiliate (clickbank, funnel, compliance, fiscal)</li>
+<li><input type="checkbox" checked disabled>Crear 12 SOPs base + INDICE</li>
+<li><input type="checkbox" checked disabled>Crear 3 prompts plantilla (research, brief, diagnostico)</li>
+<li><input type="checkbox" checked disabled>Crear <code>cruce-cursos-aplicado.md</code> (versión 1)</li>
+<li><input type="checkbox" checked disabled>Inicializar Git con 2 commits</li>
+<li><input type="checkbox" checked disabled>Crear <code>SETUP-GITHUB.md</code> con instrucciones para invitar Romi/Dali</li>
+</ul>
+<h3 id="sesión-2-cruce-cursos-felipe-vergara">Sesión 2 (cruce cursos Felipe Vergara)<a class="anchor" href="#sesión-2-cruce-cursos-felipe-vergara">#</a></h3>
+<ul>
+<li><input type="checkbox" checked disabled>M04 Felipe Vergara — 25/25 transcripciones leídas</li>
+<li><input type="checkbox" checked disabled>M05 Felipe Vergara — 12/56 transcripciones disponibles, las clave leídas</li>
+<li><input type="checkbox" checked disabled>M07 Felipe Vergara — transcripciones en proceso (0/16 al cierre)</li>
+<li><input type="checkbox" checked disabled>Crear <code>felipe-vergara-m04-aplicado.md</code> (síntesis completa con templates de copy por nivel)</li>
+<li><input type="checkbox" checked disabled>Crear <code>felipe-vergara-m05-aplicado.md</code> (síntesis con framework presupuesto + estructura por historial)</li>
+<li><input type="checkbox" checked disabled>Crear <code>felipe-vergara-m07-aplicado.md</code> (provisional, esperando transcripciones)</li>
+<li><input type="checkbox" checked disabled>Actualizar <code>cruce-cursos-aplicado.md</code> con referencias a los 3 documentos nuevos</li>
+<li><input type="checkbox" checked disabled>Identificar cambios concretos a SOPs derivados de los cursos (documentados en cada documento aplicado)</li>
+</ul>
+<hr>
+<h2 id="en-progreso-background"><span class="badge badge-info">EN CURSO</span> En progreso (background)<a class="anchor" href="#en-progreso-background">#</a></h2>
+<ul>
+<li><input type="checkbox"  disabled><strong>Transcripción Felipe Vergara</strong> — corriendo en background, ~111 archivos pendientes (M05 + M07 + otros módulos), ~2-4h estimadas. Ver <code>/tmp/transcripcion-felipe.log</code>. Tras completar, actualizar <code>m05-aplicado.md</code> (sección "Pendientes") y reescribir <code>m07-aplicado.md</code> con detalle real de Felipe.</li>
+</ul>
+<hr>
+<h2 id="pendiente-próxima-sesión"><span class="badge badge-info">PENDIENTE</span> Pendiente próxima sesión<a class="anchor" href="#pendiente-próxima-sesión">#</a></h2>
+<h3 id="aplicar-cambios-derivados-a-sops">Aplicar cambios derivados a SOPs<a class="anchor" href="#aplicar-cambios-derivados-a-sops">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled><strong>SOP 01:</strong> agregar paso validar 3 boosters de oferta (gratis/garantía/pago fácil) + framework 5 pasos cálculo presupuesto Felipe</li>
+<li><input type="checkbox"  disabled><strong>SOP 02:</strong> reemplazar "5 angles" por "8 textos en 4 niveles de consciencia"</li>
+<li><input type="checkbox"  disabled><strong>SOP 04:</strong> rehacer paso 8 con estructura 3-conjunto inicial · elevar paso 10 (CAPI) a bloqueante</li>
+<li><input type="checkbox"  disabled><strong>SOP 06:</strong> agregar checklist pre-decisión (3 preguntas Felipe: budget / historial / objetivo)</li>
+<li><input type="checkbox"  disabled><strong>SOP 07:</strong> agregar regla "test entity ID" (3 personas + 3 artes + 2 formatos mínimo)</li>
+<li><input type="checkbox"  disabled><strong>Skill nuevo <code>affiliate-niveles-consciencia.md</code></strong> consolidando framework M04 con templates aplicados</li>
+</ul>
+<h3 id="push-a-github">Push a GitHub<a class="anchor" href="#push-a-github">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled>Crear repo privado en GitHub <code>affiliate-business</code></li>
+<li><input type="checkbox"  disabled><code>git remote add origin</code> + push -u origin main</li>
+<li><input type="checkbox"  disabled>Invitar Romi y Dali como Maintainers</li>
+</ul>
+<hr>
+<h2 id="pendiente-esta-semana-post-sync"><span class="badge badge-info">PENDIENTE</span> Pendiente esta semana (post-sync)<a class="anchor" href="#pendiente-esta-semana-post-sync">#</a></h2>
+<h3 id="romi">Romi<a class="anchor" href="#romi">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled>Contactar 3 contadores especializados → elegir 1</li>
+<li><input type="checkbox"  disabled>Confirmar status Wise actual (routing 084 vs 026)</li>
+<li><input type="checkbox"  disabled>Definir nombre comercial y giro de SpA</li>
+<li><input type="checkbox"  disabled>Iniciar trámite Empresa en un Día (semana 2)</li>
+</ul>
+<h3 id="cris">Cris<a class="anchor" href="#cris">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled>Instalar Claude Code + configurar <code>~/.claude/CLAUDE.md</code> global del proyecto</li>
+<li><input type="checkbox"  disabled>Crear cuenta ClickBank temporal a nombre individual</li>
+<li><input type="checkbox"  disabled>Llenar W-8BEN inicial</li>
+<li><input type="checkbox"  disabled>Setup Business Manager Meta (preparado para 2 cuentas)</li>
+</ul>
+<h3 id="dali">Dali<a class="anchor" href="#dali">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled>Activar HeyGen + Creatify trial</li>
+<li><input type="checkbox"  disabled>Comenzar library inicial Freepik</li>
+<li><input type="checkbox"  disabled>Documentar workflow IA visual (Loom + transcripción Claude)</li>
+</ul>
+<h3 id="los-3">Los 3<a class="anchor" href="#los-3">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled>Setup Notion compartido + workspace estructura</li>
+<li><input type="checkbox"  disabled>Comprar Skalers Pro (Pancho Val) — Romi y Cris hacen curso, Dali módulo creativos</li>
+</ul>
+<hr>
+<h2 id="bloqueado"><span class="badge badge-no">BLOQUEADO</span> Bloqueado<a class="anchor" href="#bloqueado">#</a></h2>
+<ul>
+<li><strong>Apertura cuenta SpA bancaria</strong> → necesita SpA constituida primero (semana 3)</li>
+<li><strong>Skill <code>affiliate-meta-ads</code></strong> → esperando transcripción curso Felipe Vergara (módulos 1, 4, 5, 7)</li>
+</ul>
+<hr>
+<h2 id="decisiones-pendientes-5-del-lunes">🧭 Decisiones pendientes (5 del lunes)<a class="anchor" href="#decisiones-pendientes-5-del-lunes">#</a></h2>
+<p>Status al 2026-04-28:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>#</th>
+<th>Decisión</th>
+<th>Status</th>
+</tr></thead><tbody>
+<tr>
+<td>01</td>
+<td>SpA Pro Pyme con división 50/25/15/10</td>
+<td><span class="badge badge-info">PENDIENTE</span> pendiente sync lunes</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Empezar ClickBank o algo más simple</td>
+<td><span class="badge badge-info">PENDIENTE</span> pendiente sync lunes</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Hispano-US o LATAM puro</td>
+<td><span class="badge badge-info">PENDIENTE</span> pendiente sync lunes</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Comprar Skalers Pro de Pancho Val</td>
+<td><span class="badge badge-info">PENDIENTE</span> pendiente sync lunes</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Quién contacta al contador</td>
+<td><span class="badge badge-info">PENDIENTE</span> pendiente sync lunes</td>
+</tr>
+</tbody></table></div>
+<p>Todas se documentan en <code>00-meta/decisions-log.md</code> cuando se tomen.</p>
+<hr>
+<h2 id="métricas-placeholder-empieza-fase-02"><span class="badge badge-info">DATA</span> Métricas (placeholder · empieza Fase 02)<a class="anchor" href="#métricas-placeholder-empieza-fase-02">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Métrica</th>
+<th>Target</th>
+<th>Actual</th>
+<th>Status</th>
+</tr></thead><tbody>
+<tr>
+<td>MER</td>
+<td>> 1.5</td>
+<td>—</td>
+<td>sin tráfico aún</td>
+</tr>
+<tr>
+<td>ROAS por campaña</td>
+<td>> 1.5x</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>SOPs documentadas</td>
+<td>12</td>
+<td>0/12</td>
+<td>iniciando</td>
+</tr>
+<tr>
+<td>Ofertas activas</td>
+<td>1 (fase 1) → 5 (fase 4)</td>
+<td>0</td>
+<td>en research</td>
+</tr>
+<tr>
+<td>CV30 (USD)</td>
+<td>> $5K</td>
+<td>$10K capital inicial</td>
+<td>OK</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="próximas-reuniones">📅 Próximas reuniones<a class="anchor" href="#próximas-reuniones">#</a></h2>
+<ul>
+<li><strong>Lunes XX/04 · 11:00</strong> — Primer sync oficial los 3</li>
+<li><strong>Viernes XX/05 · 14:00</strong> — Cierre semana 1</li>
+</ul>
+<hr>
+<h2 id="notas-para-próxima-sesión">💬 Notas para próxima sesión<a class="anchor" href="#notas-para-próxima-sesión">#</a></h2>
+<ul>
+<li>Confirmar si Romi puede activar Loom para grabar primera SOP (selección oferta) en vivo</li>
+<li>Cris: revisar si cuenta Wise actual de Romi tiene routing 084 (Community Federal Savings) o 026 (otro) — afecta quién puede recibir ACH</li>
+<li>Dali: validar costo real Atria + HeyGen + Creatify combinado vs lo presupuestado ($59-129 + $30-90 USD/mes)</li>
+<li>Los 3: confirmar fecha exacta del primer sync semanal</li>
+</ul>
+<hr>
+<h2 id="quién-mira-qué-archivos-primero">🗂 Quién mira qué archivos primero<a class="anchor" href="#quién-mira-qué-archivos-primero">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Si vuelves a esta sesión y eres...</th>
+<th>Lee primero</th>
+</tr></thead><tbody>
+<tr>
+<td>Romi</td>
+<td><code>playbook.md</code> cap 1-3 + <code>dossier-estrategico.md</code> cap 5-10 + <code>memory.md</code> reglas 01, 03, 06</td>
+</tr>
+<tr>
+<td>Cris</td>
+<td><code>playbook.md</code> cap 4-6 + <code>memory.md</code> reglas 04 + <code>06-ops/sops/</code> lista completa</td>
+</tr>
+<tr>
+<td>Dali</td>
+<td><code>playbook.md</code> cap 4-6 + <code>memory.md</code> reglas 05 + <code>03-creatives/templates/</code></td>
+</tr>
+</tbody></table></div>
+<hr>
+<p><em>Template basado en estado-actual.md de OpenClaw — cada cliente del equipo principal lo usa así.</em></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: estado-actual.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

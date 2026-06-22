@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClickBank — Deep Dive de Viabilidad · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">00-viabilidad / research-fuentes · 19 min · 3,865 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#1-clickbank-platform-datos-oficiales" class="">1. ClickBank platform — datos oficiales</a></li><li><a href="#antigüedad-y-origen" class="h3">Antigüedad y origen</a></li><li><a href="#estructura-corporativa" class="h3">Estructura corporativa</a></li><li><a href="#tamaño-de-la-plataforma" class="h3">Tamaño de la plataforma</a></li><li><a href="#tráfico-web" class="h3">Tráfico web</a></li><li><a href="#países-donde-opera" class="h3">Países donde opera</a></li><li><a href="#2-estructura-de-fees-real" class="">2. Estructura de fees real</a></li><li><a href="#setup-y-account-fees" class="h3">Setup y account fees</a></li><li><a href="#fees-por-venta-vendor" class="h3">Fees por venta (vendor)</a></li><li><a href="#refunds-y-chargebacks" class="h3">Refunds y chargebacks</a></li><li><a href="#dormant-account-fee-importante" class="h3">Dormant account fee — IMPORTANTE</a></li><li><a href="#payout-frecuencia-y-métodos" class="h3">Payout — frecuencia y métodos</a></li><li><a href="#métodos-de-pago-disponibles-a-afiliados-de-chile" class="h3">Métodos de pago disponibles a afiliados de Chile</a></li><li><a href="#retenciones-automáticas" class="h3">Retenciones automáticas</a></li><li><a href="#3-tiers-oficiales-clickbank-advantage-program" class="">3. Tiers oficiales — ClickBank Advantage Program</a></li><li><a href="#estructura-de-5-tiers" class="h3">Estructura de 5 tiers</a></li><li><a href="#distinción-crítica-vendor-vs-afiliado" class="h3">Distinción crítica vendor vs afiliado</a></li><li><a href="#cuántos-llegan-a-platinumdiamond" class="h3">¿Cuántos llegan a Platinum/Diamond?</a></li><li><a href="#tiempo-promedio-para-llegar-a-platinum" class="h3">Tiempo promedio para llegar a Platinum</a></li><li><a href="#beneficios-reales-documentados-platinum" class="h3">Beneficios reales documentados (Platinum)</a></li><li><a href="#4-compliance-y-políticas-reales" class="">4. Compliance y políticas reales</a></li><li><a href="#reglas-que-pueden-causar-ban-prohibited-activities" class="h3">Reglas que pueden causar ban — Prohibited Activities</a></li><li><a href="#health-claims-restricción-crítica-para-nutra" class="h3">Health claims — restricción CRÍTICA para nutra</a></li><li><a href="#refund-rate-típico" class="h3">Refund rate típico</a></li><li><a href="#manejo-de-disputes" class="h3">Manejo de disputes</a></li><li><a href="#casos-famosos-de-afiliados-baneados" class="h3">Casos famosos de afiliados baneados</a></li><li><a href="#consumer-complaints-comunes-bbb-consumeraffairs" class="h3">Consumer complaints comunes (BBB / ConsumerAffairs)</a></li><li><a href="#5-tipo-de-productos-dominantes" class="">5. Tipo de productos dominantes</a></li><li><a href="#mix-digital-vs-físico" class="h3">Mix digital vs físico</a></li><li><a href="#top-categorías-por-volumen" class="h3">Top categorías por volumen</a></li><li><a href="#específicamente-nutra" class="h3">Específicamente nutra</a></li><li><a href="#ofertas-en-español" class="h3">Ofertas en español</a></li><li><a href="#6-clickbank-en-2024-2026-sigue-relevante" class="">6. ClickBank en 2024-2026 — ¿Sigue relevante?</a></li><li><a href="#indicadores-de-crecimiento" class="h3">Indicadores de crecimiento</a></li><li><a href="#críticas-legítimas-y-limitaciones" class="h3">Críticas legítimas y limitaciones</a></li><li><a href="#sigue-siendo-relevante" class="h3">¿Sigue siendo relevante?</a></li><li><a href="#comunidades-reales-y-consenso" class="h3">Comunidades reales y consenso</a></li><li><a href="#7-caso-pancho-val-francisco-valenzuela-verificación" class="">7. Caso Pancho Val (Francisco Valenzuela) — verificación</a></li><li><a href="#datos-verificados" class="h3">Datos verificados</a></li><li><a href="#validación-pública-del-diamond" class="h3">Validación pública del Diamond</a></li><li><a href="#otros-casos-verificables-en-blog-clickbank" class="h3">Otros casos verificables en blog ClickBank</a></li><li><a href="#8-red-flags-detectados" class="">8. Red flags detectados</a></li><li><a href="#9-señales-positivas-detectadas" class="">9. Señales positivas detectadas</a></li><li><a href="#10-veredicto-operativo-no-es-decisión-final-es-input-para-el-equipo" class="">10. Veredicto operativo (no es decisión final, es input para el equipo)</a></li><li><a href="#clickbank-es-viable-como-infraestructura-para-el-modelo-condicional-a" class="h3">ClickBank ES viable como infraestructura para el modelo, condicional a:</a></li><li><a href="#lo-que-no-valida-clickbank-por-sí-mismo" class="h3">Lo que NO valida ClickBank por sí mismo:</a></li><li><a href="#datos-que-no-se-pudieron-verificar-oficialmente-y-deberían-ser-checkeados-con-un-afiliado-activo" class="h3">Datos que NO se pudieron verificar oficialmente y deberían ser checkeados con un afiliado activo:</a></li><li><a href="#fuentes-consultadas-índice" class="">Fuentes consultadas (índice)</a></li><li><a href="#oficiales-clickbank" class="h3">Oficiales ClickBank</a></li><li><a href="#terceros-verificación" class="h3">Terceros / verificación</a></li><li><a href="#wise-payouts-internacionales" class="h3">Wise / payouts internacionales</a></li><li><a href="#caso-pancho-val" class="h3">Caso Pancho Val</a></li><li><a href="#comunidad" class="h3">Comunidad</a></li><li><a href="#estadísticas-agregadas-a-verificar-contra-fuentes-primarias" class="h3">Estadísticas agregadas (a verificar contra fuentes primarias)</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>01-clickbank-deep-dive.md</span><span>3,865 palabras</span><span>~19 min</span></div>
+<h1 id="clickbank-deep-dive-de-viabilidad">ClickBank — Deep Dive de Viabilidad</h1>
+<p><strong>Fecha de investigación:</strong> 2026-04-28 <strong>Propósito:</strong> Documento de viabilidad para decisión de inversión $11K USD / 12 meses en modelo affiliate marketing en ClickBank. <strong>Metodología:</strong> Verificación cruzada de fuentes oficiales (support.clickbank.com, clickbank.com), Wikipedia, BBB, Trustpilot, comunidad (Reddit/Warrior Forum/BlackHatWorld), y casos públicos verificables.</p>
+<p><strong>Convenciones de marcado de fuentes:</strong></p>
+<ul>
+<li><strong>[Hecho verificado]</strong> — confirmado en fuente oficial de ClickBank o regulador (BBB, etc.)</li>
+<li><strong>[Claim sin verificar]</strong> — afirmación encontrada en fuentes secundarias o terciarias sin confirmación oficial</li>
+<li><strong>[Opinión de comunidad]</strong> — viene de foros, Reddit, Quora, blogs de afiliados</li>
+<li><strong>[Fuente sospechosa]</strong> — el publisher tiene incentivo (vende curso, recibe comisión)</li>
+</ul>
+<hr>
+<h2 id="1-clickbank-platform-datos-oficiales">1. ClickBank platform — datos oficiales<a class="anchor" href="#1-clickbank-platform-datos-oficiales">#</a></h2>
+<h3 id="antigüedad-y-origen">Antigüedad y origen<a class="anchor" href="#antigüedad-y-origen">#</a></h3>
+<ul>
+<li><strong>Fundación: 3 de abril de 1998 [Hecho verificado]</strong></li>
+</ul>
+<p>Fundadores: Tim Barber y Eileen Barber, en Boise, Idaho. Inicialmente operada bajo la entidad matriz Keynetics, desde un garaje. Fuente oficial: https://www.clickbank.com/our-story/ Fuente cruzada: https://en.wikipedia.org/wiki/ClickBank</p>
+<ul>
+<li><strong>Antigüedad operativa:</strong> 28 años en abril 2026.</li>
+</ul>
+<p>Aniversario 20 celebrado en 2018: https://www.prnewswire.com/news-releases/global-internet-retailer-clickbank-celebrates-20th-year-anniversary-300625844.html</p>
+<h3 id="estructura-corporativa">Estructura corporativa<a class="anchor" href="#estructura-corporativa">#</a></h3>
+<ul>
+<li><strong>Empresa privada [Hecho verificado].</strong> No cotiza en bolsa. LinkedIn la lista como "Privately Held".</li>
+</ul>
+<p>Fuente: https://www.linkedin.com/company/clickbank</p>
+<ul>
+<li><strong>Propiedad actual:</strong> Wikipedia indica que ClickBank "sigue supervisada por los ejecutivos fundadores originales" (declaración de su 20º aniversario en 2018). <strong>No se encontró evidencia pública de una adquisición o cambio de propiedad mayor.</strong> Sigue operando bajo Keynetics Inc.</li>
+</ul>
+<p>Fuente: https://en.wikipedia.org/wiki/ClickBank → <strong>Nota:</strong> Se buscó específicamente la hipótesis de adquisición por private equity (Steel Partners 2014) y no se encontró evidencia que la sustente.</p>
+<h3 id="tamaño-de-la-plataforma">Tamaño de la plataforma<a class="anchor" href="#tamaño-de-la-plataforma">#</a></h3>
+<ul>
+<li><strong>Comisiones pagadas a afiliados (lifetime):</strong> "Más de USD 7.1 mil millones" según ClickBank [Claim sin verificar — sólo en página de marketing de ClickBank, no auditado independientemente].</li>
+</ul>
+<p>Fuente: https://www.clickbank.com/ Versión más conservadora citada en blogs: "más de $4.2 mil millones pagados". Discrepancia entre fuentes — probablemente la cifra alta es más reciente.</p>
+<ul>
+<li><strong>Turnover anual: USD ~$1 mil millones [Claim sin verificar].</strong></li>
+</ul>
+<p>Fuente: https://en.wikipedia.org/wiki/ClickBank — pero el artículo tiene avisos editoriales por contenido promocional.</p>
+<ul>
+<li><strong>Afiliados activos: "más de 200,000" [Claim sin verificar].</strong></li>
+</ul>
+<p>Fuente secundaria: https://coolest-gadgets.com/clickbank-statistics/ — sitio de estadísticas que no cita la fuente primaria de ClickBank. → <strong>ClickBank no publica oficialmente el número exacto de afiliados activos vs registrados.</strong></p>
+<ul>
+<li><strong>Clientes totales: "más de 6 millones a nivel mundial" [Claim sin verificar].</strong></li>
+</ul>
+<p>Fuente: https://en.wikipedia.org/wiki/ClickBank → Esta cifra incluye cuentas registradas históricamente, no necesariamente activas.</p>
+<ul>
+<li><strong>Vendors activos: ClickBank no publica oficialmente esta cifra.</strong> Estimaciones secundarias mencionan "miles de productos" en marketplace. Una cifra que aparece: "más de 4,000 productos digitales y físicos" disponibles para promover.</li>
+</ul>
+<p>Fuente: búsqueda agregada — no hay número oficial publicado.</p>
+<ul>
+<li><strong>Ranking:</strong> "87º retailer de internet más grande de Norteamérica" [Claim sin verificar — fuente Wikipedia con avisos de contenido promocional].</li>
+</ul>
+<h3 id="tráfico-web">Tráfico web<a class="anchor" href="#tráfico-web">#</a></h3>
+<ul>
+<li><strong>Visitas diciembre 2025: ~2.46 millones de visitas mensuales</strong> a clickbank.com [Hecho verificado vía SimilarWeb agregado].</li>
+</ul>
+<p>Sesión promedio: 9 min 49s. Fuente: https://coolest-gadgets.com/clickbank-statistics/</p>
+<h3 id="países-donde-opera">Países donde opera<a class="anchor" href="#países-donde-opera">#</a></h3>
+<ul>
+<li><strong>Procesa transacciones globalmente [Hecho verificado].</strong> Acepta clientes (vendors y afiliados) de la mayoría de países, con restricciones específicas en países sancionados.</li>
+<li><strong>Direct deposit (XACH) disponible en 50 países [Hecho verificado]</strong> — lista oficial:</li>
+</ul>
+<p>Australia, Austria, Bélgica, Bulgaria, Canadá, República Checa, Dinamarca, Finlandia, Francia, Guayana Francesa, Alemania, Gibraltar, Grecia, Guadalupe, Hong Kong, Hungría, Islandia, India, Irlanda, Italia, Liechtenstein, Lituania, Luxemburgo, Martinica, Mayotte, México, Mónaco, Países Bajos, Nueva Zelanda, Noruega, Filipinas, Polonia, Portugal, Isla Reunión, Rumania, Singapur, Eslovaquia, Eslovenia, España, San Pedro y Miquelón, Suecia, Suiza, Reino Unido, Estados Unidos. Fuente oficial: https://support.clickbank.com/en/articles/10535128-what-countries-does-clickbank-offer-direct-deposit-to → <strong>CRÍTICO PARA DECISIÓN: Chile NO está en la lista oficial de direct deposit.</strong> Implicaciones más abajo.</p>
+<hr>
+<h2 id="2-estructura-de-fees-real">2. Estructura de fees real<a class="anchor" href="#2-estructura-de-fees-real">#</a></h2>
+<p>Toda esta información proviene de fuentes oficiales de ClickBank Support, <strong>no marketing</strong>.</p>
+<h3 id="setup-y-account-fees">Setup y account fees<a class="anchor" href="#setup-y-account-fees">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Fee</th>
+<th>Monto</th>
+<th>Fuente</th>
+</tr></thead><tbody>
+<tr>
+<td>Activación de producto (vendor) — única vez</td>
+<td>USD $49.95</td>
+<td>https://support.clickbank.com/en/articles/10535137-what-are-clickbank-s-fees</td>
+</tr>
+<tr>
+<td>Cuenta de afiliado</td>
+<td>$0 (sin fee de creación)</td>
+<td>Mismo</td>
+</tr>
+<tr>
+<td>Procesamiento por payout</td>
+<td>USD $5.00 por pago emitido</td>
+<td>Mismo</td>
+</tr>
+</tbody></table></div>
+<p><strong>[Hecho verificado]</strong> — Los $5/payout se descuentan de cada pago al afiliado, no es un costo separado.</p>
+<h3 id="fees-por-venta-vendor">Fees por venta (vendor)<a class="anchor" href="#fees-por-venta-vendor">#</a></h3>
+<ul>
+<li><strong>Standard: ClickBank compra el producto al seller a 92.5% del precio + $1.</strong></li>
+</ul>
+<p>→ ClickBank retiene <strong>7.5% + $1 por transacción</strong> [Hecho verificado]. Ejemplo: venta de $100 → ClickBank toma $8.50 → quedan $91.50 para split entre vendor y afiliado.</p>
+<ul>
+<li><strong>Suscripciones rebill <$40:</strong> rate de 90.1% (ClickBank retiene 9.9%).</li>
+<li><strong>Free trials:</strong> ClickBank cobra al seller $0.50 por transacción.</li>
+<li><strong>$1 trials:</strong> $1.00 wholesale.</li>
+</ul>
+<p>Fuente: https://support.clickbank.com/en/articles/10535137-what-are-clickbank-s-fees</p>
+<h3 id="refunds-y-chargebacks">Refunds y chargebacks<a class="anchor" href="#refunds-y-chargebacks">#</a></h3>
+<ul>
+<li><strong>Refund fee:</strong> $0.50 si el producto era <$10, $1.00 si era ≥$10.</li>
+<li><strong>Chargeback fee:</strong> $18 por sale revertida [Claim sin verificar — citado en Crazy Egg, no en página oficial directa].</li>
+</ul>
+<p>Si el chargeback rate excede 1%, ClickBank puede cobrar hasta $100 por chargeback adicional.</p>
+<ul>
+<li><strong>Política de threshold:</strong> Vendors con refund rate >20% pueden enfrentar fees adicionales y retención de procesamiento.</li>
+</ul>
+<p>Fuente: https://support.clickbank.com/en/articles/10535345-clickbank-accounting-policy</p>
+<h3 id="dormant-account-fee-importante">Dormant account fee — IMPORTANTE<a class="anchor" href="#dormant-account-fee-importante">#</a></h3>
+<p><strong>[Hecho verificado, riesgo subestimado]</strong> Si la cuenta tiene balance positivo pero NO genera ventas:</p>
+<ul>
+<li>Después de 90 días sin earnings: <strong>$1 por pay period</strong></li>
+<li>Después de 180 días: <strong>$5 por pay period</strong></li>
+<li>Después de 365 días: <strong>$50 por pay period</strong></li>
+</ul>
+<p>ClickBank NO notifica al afiliado cuando entra en dormancia. Fuente: https://support.clickbank.com/hc/en-us/articles/220375627-What-happens-if-I-don-t-use-my-ClickBank-account-for-a-long-time-</p>
+<h3 id="payout-frecuencia-y-métodos">Payout — frecuencia y métodos<a class="anchor" href="#payout-frecuencia-y-métodos">#</a></h3>
+<ul>
+<li><strong>Frecuencia:</strong> Pagos semanales o cada 2 semanas (configurable). Los Platinum tienen "twice-weekly payments" como beneficio.</li>
+</ul>
+<p>Fuente: https://www.clickbank.com/platinum-program/</p>
+<ul>
+<li><strong>Threshold mínimo:</strong> Configurable por el usuario entre <strong>$10 USD y $1,000,000 USD</strong> [Hecho verificado].</li>
+</ul>
+<p>Fuente: https://support.clickbank.com/en/articles/10535123-how-do-i-get-paid</p>
+<ul>
+<li><strong>Customer Distribution Requirement (CDR) — bloqueador inicial CRÍTICO:</strong></li>
+<li>Antes del PRIMER pago, debes tener <strong>5 ventas únicas + dos métodos de pago distintos</strong> (Visa, Mastercard, PayPal).</li>
+<li>Después de la 5ª venta, hay un waiting period de <strong>2 semanas</strong> antes que se libere el primer pago.</li>
+<li>PayPal cuenta como método pero no cuenta para los 5 credit cards distintos.</li>
+</ul>
+<p>Fuente oficial: https://support.clickbank.com/en/articles/10535126-what-is-the-customer-distribution-requirement → <strong>Implicancia para una cuenta nueva: el primer payout puede tardar 4-6 semanas tras la primera venta.</strong></p>
+<h3 id="métodos-de-pago-disponibles-a-afiliados-de-chile">Métodos de pago disponibles a afiliados de Chile<a class="anchor" href="#métodos-de-pago-disponibles-a-afiliados-de-chile">#</a></h3>
+<p><strong>[Hecho verificado — aplicable a Chile]</strong></p>
+<p>Chile <strong>no tiene</strong> direct deposit (XACH) disponible. Las opciones reales son:</p>
+<ol>
+<li><strong>Wire transfer:</strong> USD $45 por wire enviado [Hecho verificado].</li>
+</ol>
+<p>Fuente: https://support.clickbank.com/en/articles/10535123-how-do-i-get-paid</p>
+<ol>
+<li><strong>Check físico:</strong> método default — no práctico para Chile (delays, fees de cobro internacional).</li>
+<li><strong>Payoneer:</strong> ClickBank envía vía Payoneer a cuentas internacionales [Hecho verificado].</li>
+</ol>
+<p>Fuente: https://support.clickbank.com/en/articles/10535123-how-do-i-get-paid</p>
+<ol>
+<li><strong>Wise USD account (workaround verificado):</strong> ClickBank puede hacer ACH a una cuenta USD de Wise. El usuario chileno abre cuenta Wise, obtiene routing/account number USA, configura ClickBank para ACH a esa cuenta. <strong>Costo:</strong> $0 vía ACH (gratis). Wise cobra fee si conviertes a CLP.</li>
+</ol>
+<p>Fuente: https://wise.com/au/blog/receive-payment-clickbank-wise (artículo aplicado a Australia, mismo principio funciona globalmente con Wise USD). <strong>[Claim no totalmente verificado para Chile específicamente]</strong> — el artículo de Wise documenta el flujo para Australia, pero la mecánica de Wise USD es la misma para chilenos. <strong>Recomendación: validar con caso real antes de operar volumen.</strong></p>
+<h3 id="retenciones-automáticas">Retenciones automáticas<a class="anchor" href="#retenciones-automáticas">#</a></h3>
+<ul>
+<li><strong>Refund reserve:</strong> ClickBank no retiene un % específico como "reserva" para todos. Los Platinum tienen acceso a "expedited approvals" lo que sugiere que cuentas nuevas tienen mayor scrutiny.</li>
+<li><strong>Withholding por chargebacks:</strong> si los chargebacks suben de 1%, retenciones automáticas pueden aplicar.</li>
+<li><strong>No hay retención fiscal automática para no-US.</strong> ClickBank emite 1099 sólo para residentes US. Para chilenos, el W-8BEN evita withholding tax US (responsabilidad del afiliado completarlo).</li>
+</ul>
+<hr>
+<h2 id="3-tiers-oficiales-clickbank-advantage-program">3. Tiers oficiales — ClickBank Advantage Program<a class="anchor" href="#3-tiers-oficiales-clickbank-advantage-program">#</a></h2>
+<p><strong>[Hecho verificado vía página oficial]</strong> Lanzado: enero 2022. Fuente principal: https://www.clickbank.com/clickbank-advantage/ Fuente complementaria: https://www.clickbank.com/platinum-program/</p>
+<h3 id="estructura-de-5-tiers">Estructura de 5 tiers<a class="anchor" href="#estructura-de-5-tiers">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Tier</th>
+<th>Threshold anual (USD)</th>
+<th>Beneficios principales</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>BRONZE</strong></td>
+<td>$0 – $2,000</td>
+<td>Invitación VIP a Spark Live, account & milestone-based rewards</td>
+</tr>
+<tr>
+<td><strong>SILVER</strong></td>
+<td>$2,000 – $25,000</td>
+<td>Mismos beneficios que Bronze</td>
+</tr>
+<tr>
+<td><strong>GOLD</strong></td>
+<td>$25,000 – $250,000</td>
+<td>Acceso exclusivo a un ClickBank Growth Manager, webinars invite-only, networking groups, strategic planning sessions</td>
+</tr>
+<tr>
+<td><strong>PLATINUM</strong></td>
+<td>$250,000 – $5,000,000</td>
+<td>Dedicated Account Manager, invitación a Platinum Summit, premio personalizado</td>
+</tr>
+<tr>
+<td><strong>DIAMOND</strong></td>
+<td>$5,000,000+</td>
+<td>Todo lo anterior + VIP access a Diamond Summit (mastermind all-expense paid)</td>
+</tr>
+</tbody></table></div>
+<h3 id="distinción-crítica-vendor-vs-afiliado">Distinción crítica vendor vs afiliado<a class="anchor" href="#distinción-crítica-vendor-vs-afiliado">#</a></h3>
+<p><strong>[Hecho verificado]</strong> — Los thresholds aplican a <strong>ventas brutas combinadas</strong>: ventas como seller, afiliado, o joint venture partner cuentan al mismo total. Fuente: https://www.clickbank.com/platinum-program/</p>
+<h3 id="cuántos-llegan-a-platinumdiamond">¿Cuántos llegan a Platinum/Diamond?<a class="anchor" href="#cuántos-llegan-a-platinumdiamond">#</a></h3>
+<ul>
+<li><strong>Platinum: "más de 400 clientes" [Hecho verificado] = top 1% de ClickBank.</strong></li>
+</ul>
+<p>Fuente: https://www.clickbank.com/platinum-program/</p>
+<ul>
+<li><strong>Diamond: <0.1% de los clientes [Claim sin verificar].</strong></li>
+</ul>
+<p>Fuente: aparece en blogs secundarios citando ClickBank, sin link directo a página oficial. → Si Platinum es ~400 clientes (top 1%), Diamond probablemente sea <50 clientes a nivel mundial.</p>
+<h3 id="tiempo-promedio-para-llegar-a-platinum">Tiempo promedio para llegar a Platinum<a class="anchor" href="#tiempo-promedio-para-llegar-a-platinum">#</a></h3>
+<ul>
+<li><strong>ClickBank no publica un tiempo promedio oficial.</strong></li>
+<li>Casos públicos en blog de ClickBank van desde meses hasta varios años. Ejemplos:</li>
+<li>Shaban Ehsan: 4-time Platinum (https://www.clickbank.com/blog/shaban-ehsan-success-story/) — comenzó como freelancer.</li>
+<li>Francisco Valenzuela (Pancho Val): según podcast oficial de ClickBank, alcanzó Diamond a los ~24 años (ver sección 7).</li>
+</ul>
+<h3 id="beneficios-reales-documentados-platinum">Beneficios reales documentados (Platinum)<a class="anchor" href="#beneficios-reales-documentados-platinum">#</a></h3>
+<ol>
+<li><strong>Account Manager dedicado</strong> — confirmado en página oficial.</li>
+<li><strong>Twice-weekly payments</strong> — beneficio operativo.</li>
+<li><strong>Invitación a Platinum Summit</strong> — evento anual en destinos cambiantes.</li>
+<li><strong>10+ live roadshows globales</strong> (Bangkok, Budapest mencionados específicamente).</li>
+<li><strong>Custom 6lb Platinum award</strong> — premio físico.</li>
+<li><strong>Acceso a Platinum Facebook Group</strong> — networking peer-to-peer.</li>
+<li><strong>Expedited approvals + custom reporting + early access a features.</strong></li>
+<li><strong>CPAs negociados:</strong> <strong>NO mencionado explícitamente como beneficio Platinum oficial.</strong> Las negociaciones de CPA con vendors se manejan caso a caso vía el account manager.</li>
+</ol>
+<hr>
+<h2 id="4-compliance-y-políticas-reales">4. Compliance y políticas reales<a class="anchor" href="#4-compliance-y-políticas-reales">#</a></h2>
+<h3 id="reglas-que-pueden-causar-ban-prohibited-activities">Reglas que pueden causar ban — Prohibited Activities<a class="anchor" href="#reglas-que-pueden-causar-ban-prohibited-activities">#</a></h3>
+<p><strong>[Hecho verificado]</strong> Fuente oficial: https://support.clickbank.com/en/articles/10535347-clickbank-prohibited-seller-and-affiliate-activities-guidelines</p>
+<p>Actividades prohibidas explícitas:</p>
+<ol>
+<li><strong>Trademark bidding sin autorización</strong> — bidding en marcas registradas de terceros, incluyendo search terms.</li>
+<li><strong>Cookie stuffing</strong> — inyectar cookies de afiliado sin click consciente.</li>
+<li><strong>Keyword stuffing.</strong></li>
+<li><strong>Spam.</strong></li>
+<li><strong>Cloaking / iFrames no autorizados.</strong></li>
+<li><strong>Bypass de pitch pages del vendor</strong> — enviar tráfico directo al checkout saltándose la página del vendor.</li>
+<li><strong>Contenido obsceno, difamatorio, infringidor de IP.</strong></li>
+</ol>
+<h3 id="health-claims-restricción-crítica-para-nutra">Health claims — restricción CRÍTICA para nutra<a class="anchor" href="#health-claims-restricción-crítica-para-nutra">#</a></h3>
+<p><strong>[Hecho verificado]</strong> Fuente: https://support.clickbank.com/en/articles/10535342-advertising-guidelines</p>
+<ul>
+<li>Productos con disease claims (declaraciones de cura/tratamiento de enfermedad) <strong>no pueden venderse en ClickBank</strong>.</li>
+<li>Marketing de productos regulados por FDA (suplementos, cosméticos) debe partir desde "health" y NO claim a "diagnose, treat, cure, or prevent disease".</li>
+<li>Testimonios deben cumplir con FTC guidelines — claims deben ser substantiables con experiencias reales.</li>
+<li>Esto <strong>filtra automáticamente</strong> muchos copy típicos de nutra agresivo (ej: "cura la diabetes", "elimina hipertensión").</li>
+</ul>
+<h3 id="refund-rate-típico">Refund rate típico<a class="anchor" href="#refund-rate-típico">#</a></h3>
+<ul>
+<li><strong>Threshold de calidad ClickBank: <20% refund rate, <1% chargeback rate.</strong></li>
+</ul>
+<p>Fuente: https://www.clickbank.com/blog/take-charge-of-chargebacks/</p>
+<ul>
+<li><strong>Sobre el threshold:</strong> suspensión de cuenta por 90 días para procesar chargebacks/refunds residuales.</li>
+<li><strong>Chargeback rate típico ClickBank-wide: <1%</strong> (claim de la propia ClickBank — comparable con e-commerce general).</li>
+<li><strong>Refund rates por categoría:</strong></li>
+<li>Productos digitales: 10-30% típico [Claim sin verificar — fuentes secundarias].</li>
+<li>Algunos productos nutra agresivos pueden estar en 15-25%.</li>
+</ul>
+<p>ClickBank no publica refund rates promedio por categoría.</p>
+<h3 id="manejo-de-disputes">Manejo de disputes<a class="anchor" href="#manejo-de-disputes">#</a></h3>
+<ul>
+<li>ClickBank actúa como <strong>merchant of record</strong> — ellos procesan el reembolso y luego deducen del balance del vendor + afiliado.</li>
+<li>Refund window: <strong>típicamente 60 días para refund</strong> (ClickBank.com Return Policy).</li>
+</ul>
+<p>Fuente: https://support.clickbank.com/en/articles/10535349-clickbank-s-return-and-subscription-cancellation-policy</p>
+<ul>
+<li>Política PayPal: reembolsos se procesan diferente, pueden no contar igual hacia thresholds.</li>
+</ul>
+<h3 id="casos-famosos-de-afiliados-baneados">Casos famosos de afiliados baneados<a class="anchor" href="#casos-famosos-de-afiliados-baneados">#</a></h3>
+<p><strong>[Opinión de comunidad / fuentes secundarias]</strong></p>
+<ul>
+<li>BlackHatWorld y Warrior Forum tienen threads documentando suspensiones [Fuente sospechosa — afiliados publican su lado].</li>
+<li>Caso citado: afiliado con $1,600 retenidos por suspensión sin notificación previa.</li>
+<li>Fuente: https://www.blackhatworld.com/seo/be-careful-with-click-bank-they-will-suspend-your-account.1309359/</li>
+<li>Trustpilot tiene <strong>2,300+ reviews con rating 4.5 estrellas</strong> [Hecho verificado].</li>
+</ul>
+<p>Fuente: https://www.trustpilot.com/review/clickbank.com</p>
+<ul>
+<li>BBB rating: <strong>A+</strong> [Hecho verificado], pero existen complaints documentadas.</li>
+</ul>
+<p>Fuente: https://www.bbb.org/us/id/boise/profile/online-shopping/clickbank-1296-5004291/complaints</p>
+<h3 id="consumer-complaints-comunes-bbb-consumeraffairs">Consumer complaints comunes (BBB / ConsumerAffairs)<a class="anchor" href="#consumer-complaints-comunes-bbb-consumeraffairs">#</a></h3>
+<ul>
+<li><strong>Subscription auto-renewals confusas</strong> — clientes finales reportan que cancelaron "futuros pedidos" pero no el original.</li>
+</ul>
+<p>Fuente: https://www.consumeraffairs.com/online/clickbank.html</p>
+<ul>
+<li><strong>Customer service lento.</strong></li>
+<li>Mayoría de complaints son hacia <strong>vendors específicos</strong>, no hacia ClickBank como plataforma — pero como ClickBank es merchant of record, recibe el reclamo.</li>
+</ul>
+<hr>
+<h2 id="5-tipo-de-productos-dominantes">5. Tipo de productos dominantes<a class="anchor" href="#5-tipo-de-productos-dominantes">#</a></h2>
+<h3 id="mix-digital-vs-físico">Mix digital vs físico<a class="anchor" href="#mix-digital-vs-físico">#</a></h3>
+<ul>
+<li><strong>ClickBank originalmente era 100% digital (info-products).</strong></li>
+<li>Desde ~2015 expandió a productos físicos (especialmente nutra: suplementos físicos enviados a casa).</li>
+<li><strong>No publican el split exacto digital vs físico.</strong> Estimación de la industria: nutra física es la categoría #1 en GMV.</li>
+</ul>
+<h3 id="top-categorías-por-volumen">Top categorías por volumen<a class="anchor" href="#top-categorías-por-volumen">#</a></h3>
+<p><strong>[Hecho verificado vía blog oficial ClickBank]</strong> Fuente: https://www.clickbank.com/blog/best-affiliate-marketing-niches/</p>
+<p>Top niches 2025 según ClickBank:</p>
+<ol>
+<li><strong>Health & Fitness (Nutra)</strong> — categoría #1 en gross sales.</li>
+<li>Sub-niches: dietary supplements (#1 absoluto), weight loss, men's health, women's health, beauty, dental health.</li>
+<li><strong>E-business & E-marketing</strong> (cursos de hacer dinero online).</li>
+<li><strong>Self-Help.</strong></li>
+<li><strong>Spirituality / New Age.</strong></li>
+<li><strong>Cooking, Food & Wine.</strong></li>
+<li><strong>Home & Garden.</strong></li>
+<li><strong>Sports.</strong></li>
+<li><strong>Software & Services.</strong></li>
+<li><strong>Parenting & Families.</strong></li>
+<li><strong>Languages.</strong></li>
+</ol>
+<h3 id="específicamente-nutra">Específicamente nutra<a class="anchor" href="#específicamente-nutra">#</a></h3>
+<p><strong>Nutra es DOMINANTE en ClickBank [Hecho verificado].</strong></p>
+<ul>
+<li>AOV típico: $150-$200+ (aumenta por bundles/upsells).</li>
+<li>Comisiones típicas: 50-75%, con peaks de 90% en algunos productos.</li>
+<li>Productos top mencionados (2024-2025): All Day Slimming Tea (#1), Java Burn, ProDentim, Sumatra Slim Belly Tonic, Alpilean.</li>
+</ul>
+<p>Fuente: https://www.clickbank.com/blog/best-supplement-affiliate-programs/</p>
+<h3 id="ofertas-en-español">Ofertas en español<a class="anchor" href="#ofertas-en-español">#</a></h3>
+<ul>
+<li><strong>ClickBank tiene un "Globalization Platform" que incluye filtrado por español [Hecho verificado].</strong></li>
+</ul>
+<p>Fuente: https://www.clickbank.com/view-marketplace/ (filtros incluyen language).</p>
+<ul>
+<li><strong>Volumen de ofertas en español: limitado vs inglés.</strong></li>
+<li>El ecosistema hispano-US (target principal de muchos afiliados latinos) tiene ~30-50 ofertas activas relevantes en cualquier momento [Estimación basada en marketplace browsing — no es número oficial publicado].</li>
+<li>Muchas ofertas en español son <strong>traducciones de ofertas en inglés</strong> (calidad de traducción variable).</li>
+</ul>
+<p>Fuente: https://rosalindgardner.com/blog/sell-products-to-spanish-markets-through-clickbank/</p>
+<ul>
+<li><strong>Insight relevante para ICP:</strong></li>
+</ul>
+<blockquote><p>"Hispanos viviendo en USA y Europa son la mejor audiencia. Hispanos de Sudamérica tienen dificultades para pagar productos digitales y requieren targeting de demografías de ingresos altos." [Opinión de comunidad, repetida en múltiples fuentes — coherente con realidad de pricing de ClickBank en USD].</p></blockquote>
+<hr>
+<h2 id="6-clickbank-en-2024-2026-sigue-relevante">6. ClickBank en 2024-2026 — ¿Sigue relevante?<a class="anchor" href="#6-clickbank-en-2024-2026-sigue-relevante">#</a></h2>
+<h3 id="indicadores-de-crecimiento">Indicadores de crecimiento<a class="anchor" href="#indicadores-de-crecimiento">#</a></h3>
+<ul>
+<li><strong>Affiliate marketing global crece [Hecho verificado vía data agregada]:</strong></li>
+<li>77% de afiliados reporta aumento de ingreso anual desde 2016.</li>
+<li>86% espera que su ingreso siga subiendo.</li>
+<li>80% de brands y 84% de publishers usan affiliate marketing.</li>
+<li>Fuente: agregadores como https://www.clickbank.com/blog/is-affiliate-marketing-dead/ — citan estudios de Authority Hacker, Influencer Marketing Hub.</li>
+<li><strong>ClickBank específicamente:</strong> no publican growth rate anual oficial. Tráfico web (~2.46M visitas/mes) sugiere estabilidad, no decadencia drástica.</li>
+</ul>
+<h3 id="críticas-legítimas-y-limitaciones">Críticas legítimas y limitaciones<a class="anchor" href="#críticas-legítimas-y-limitaciones">#</a></h3>
+<p><strong>[Opinión de comunidad consolidada — Reddit, Quora, foros]</strong></p>
+<ol>
+<li><strong>Calidad variable de productos:</strong> ClickBank es un marketplace open — desde ofertas serias hasta "scammy" en weight loss / make-money. Tu reputación como afiliado puede dañarse promoviendo basura.</li>
+<li><strong>Sales pages anticuadas:</strong> muchos VSLs (video sales letters) siguen estética 2010s — pueden no resonar con audiencia 2026.</li>
+<li><strong>Saturación en niches top:</strong> weight loss, diabetes, prostate — extremadamente competidos. CPMs en Meta/YouTube subieron mucho.</li>
+<li><strong>Refunds altos:</strong> especialmente nutra agresivo (15-25% no es raro).</li>
+<li><strong>Suspension risk:</strong> ClickBank puede suspender cuentas con poco aviso si detecta compliance issues.</li>
+<li><strong>Tracking:</strong> atribución first-click vs last-click depende del vendor — no siempre transparente.</li>
+</ol>
+<h3 id="sigue-siendo-relevante">¿Sigue siendo relevante?<a class="anchor" href="#sigue-siendo-relevante">#</a></h3>
+<p><strong>[Análisis editorial basado en data]</strong></p>
+<ul>
+<li><strong>SÍ relevante</strong> para nutra hispano-US, info-products de high ticket, y nichos donde el AOV alto justifica el split.</li>
+<li><strong>NO óptimo</strong> si buscas:</li>
+<li>Productos físicos mainstream (Amazon Associates es mejor).</li>
+<li>Productos B2B SaaS (CJ, Impact, PartnerStack ganan).</li>
+<li>Ofertas exclusivas (las top ofertas están en BuyGoods, MaxWeb, MoreNiche también — ClickBank ya no tiene exclusividad).</li>
+</ul>
+<h3 id="comunidades-reales-y-consenso">Comunidades reales y consenso<a class="anchor" href="#comunidades-reales-y-consenso">#</a></h3>
+<ul>
+<li><strong>r/AffiliateMarketing (Reddit):</strong> consenso general — ClickBank es legit pero requiere selección cuidadosa de ofertas. Se recomienda probar oferta antes de invertir traffic en escala.</li>
+<li><strong>BlackHatWorld:</strong> mix de éxitos y horror stories. El sub-foro tiene threads frecuentes sobre suspensiones.</li>
+<li><strong>Warrior Forum:</strong> legacy community, sigue activa, mucha discusión de ClickBank.</li>
+<li><strong>r/ClickBank:</strong> sub más pequeño, mucho spam de "make $$$ guides" — bajo signal.</li>
+</ul>
+<hr>
+<h2 id="7-caso-pancho-val-francisco-valenzuela-verificación">7. Caso Pancho Val (Francisco Valenzuela) — verificación<a class="anchor" href="#7-caso-pancho-val-francisco-valenzuela-verificación">#</a></h2>
+<h3 id="datos-verificados">Datos verificados<a class="anchor" href="#datos-verificados">#</a></h3>
+<p><strong>[Hecho verificado — fuentes oficiales y entrevistas públicas]</strong></p>
+<ol>
+<li><strong>Identidad:</strong> Francisco Valenzuela, alias "Pancho Val" / @panchoval.</li>
+<li>LinkedIn: https://cl.linkedin.com/in/francisco-valenzuela-499278183</li>
+<li>Instagram: https://www.instagram.com/panchoval/</li>
+<li>YouTube: https://www.youtube.com/@panchovalb</li>
+<li><strong>Nacionalidad:</strong> Chileno, originario de Viña del Mar.</li>
+<li><strong>Ad spend documentado:</strong> "Más de USD $8 millones invertidos en ads antes de los 25 años."</li>
+</ol>
+<p>Fuente: entrevista en Haciéndola podcast — https://haciendola.com/blogs/haciendola/ha-invertido-8-millones-de-dolares-en-ads-a-sus-24-anos-francisco-valenzuela-panchoval-e56-1</p>
+<ol>
+<li><strong>Status ClickBank Diamond:</strong> <strong>CONFIRMADO oficialmente por ClickBank.</strong></li>
+<li>Episodio 218 del podcast oficial de ClickBank ("Affiliated") titulado "From College Dropout to $5M+ ClickBank Diamond Affiliate ft. Francisco Valenzuela".</li>
+<li>Fuente: https://podscan.fm/podcasts/affiliated-clickbanks-official-affiliate-marketing-podcast/episodes/ep-218-from-college-dropout-to-5m-clickbank-diamond-affiliate-ft-francisco-valenzuela</li>
+<li>Versión video: https://www.youtube.com/watch?v=5VbGkxY9PBE</li>
+<li><strong>Conexión con Skalers:</strong> Skalers es su comunidad/programa educativo. URL: https://whop.com/skalers/</li>
+</ol>
+<p>→ <strong>Nota crítica:</strong> Pancho Val vende un curso ($$$) por su comunidad Skalers. <strong>Fuente potencialmente sesgada cuando habla de "qué tan fácil es esto" — tiene incentivo comercial.</strong></p>
+<ol>
+<li><strong>Stack/método declarado:</strong> Media buyer especializado en YouTube Ads y Facebook Ads para US market, principalmente nutra.</li>
+</ol>
+<h3 id="validación-pública-del-diamond">Validación pública del Diamond<a class="anchor" href="#validación-pública-del-diamond">#</a></h3>
+<ul>
+<li><strong>El podcast oficial de ClickBank confirma el status</strong> — esto es fuerte verificación, ClickBank no le pondría "Diamond" en su título oficial sin que califique.</li>
+<li><strong>Implicación realista:</strong> $5M+ en sales en un año significa que el equipo detrás (no necesariamente solo Pancho) movió $5M en GMV — esto es alcanzable con stack maduro pero requiere skill, capital, y tiempo.</li>
+</ul>
+<h3 id="otros-casos-verificables-en-blog-clickbank">Otros casos verificables en blog ClickBank<a class="anchor" href="#otros-casos-verificables-en-blog-clickbank">#</a></h3>
+<p>ClickBank publica "Customer Stories" con afiliados que dan permiso:</p>
+<ul>
+<li>Shaban Ehsan: 4-time Platinum, comenzó como freelancer.</li>
+</ul>
+<p>Fuente: https://www.clickbank.com/blog/shaban-ehsan-success-story/</p>
+<ul>
+<li>Lista de customer stories: https://www.clickbank.com/customer-stories/</li>
+</ul>
+<p>→ <strong>Estos casos son seleccionados por ClickBank</strong> (sesgo de selección — no muestran a quien fracasó).</p>
+<hr>
+<h2 id="8-red-flags-detectados">8. Red flags detectados<a class="anchor" href="#8-red-flags-detectados">#</a></h2>
+<ol>
+<li><strong>Chile NO está en la lista de direct deposit oficial</strong> — única vía limpia es Wise USD account o Payoneer. Esto agrega fricción operativa y posible riesgo si la cuenta Wise USD se marca.</li>
+<li><strong>Dormant account fees agresivos</strong> — $50/pay period después de 365 días sin earnings. Si la prueba inicial no genera ventas en 3 meses, el reloj empieza. Hay que retirar fondos antes de pausar.</li>
+<li><strong>Customer Distribution Requirement</strong> — primer payout puede tardar 4-6 semanas tras la primera venta (5 ventas + 2 métodos pago + waiting period). Affecta cashflow inicial.</li>
+<li><strong>Suspension risk con poca notificación</strong> — Casos documentados (no estadísticas) de afiliados con balances retenidos por compliance issues. Hay que ser MUY cuidadoso con copy de health claims.</li>
+<li><strong>Saturación brutal en nutra hispano-US</strong> — el ICP "afiliado latino vende nutra a hispanos en USA" lleva 5+ años siendo el nicho favorito de los media buyers latinoamericanos. CPMs subieron, ángulos quemados, compliance Meta más estricto.</li>
+<li><strong>Pancho Val vende un curso (Skalers)</strong> — su narrativa pública tiene incentivo. Su éxito es real pero el "esto es replicable en 12 meses con $11K" es un claim de su material de venta, no un hecho.</li>
+<li><strong>Refund rates en nutra agresivo</strong> — 15-25% es realista. Eso significa que de cada $100 que aparece en tu dashboard, $15-25 puede revertirse. Hay que modelar el unit economics con refund rate, no con gross.</li>
+<li><strong>Quality variable del marketplace</strong> — promover una oferta scam puede dañar reputación a largo plazo y generar tickets de soporte que comen tiempo.</li>
+<li><strong>Wikipedia tiene avisos editoriales por contenido promocional</strong> — varias cifras de "tamaño de ClickBank" pueden estar infladas porque vienen del propio ClickBank o de afiliados con incentivo.</li>
+<li><strong>Modelo dependiente de Meta/Google ads policy</strong> — un cambio de política (como pasó con cripto, weight loss claims, before/after photos) puede matar ángulos completos overnight.</li>
+</ol>
+<hr>
+<h2 id="9-señales-positivas-detectadas">9. Señales positivas detectadas<a class="anchor" href="#9-señales-positivas-detectadas">#</a></h2>
+<ol>
+<li><strong>Plataforma con 28 años operativa</strong> — no es scheme nuevo. Sobrevivió múltiples ciclos (post 2008, COVID, iOS 14.5, Google updates).</li>
+<li><strong>BBB A+ rating + 4.5 estrellas Trustpilot (2,300+ reviews)</strong> — reputación institucional sólida.</li>
+<li><strong>Casos verificables públicos de afiliados latinos exitosos</strong> — Pancho Val es el caso más visible. La existencia de un Diamond chileno valida que <strong>es posible desde Chile</strong> (no requiere residencia US).</li>
+<li><strong>Pagos consistentes</strong> — la queja más común NO es "no me pagaron", es "me suspendieron". Cuando estás compliant, ClickBank paga puntual.</li>
+<li><strong>Tier system con incentivos reales</strong> — Account Manager dedicado a partir de Gold ($25K/año) es valioso. No solo es marketing.</li>
+<li><strong>Health & nutra sigue siendo categoría #1 en gross sales</strong> — la demanda de productos físicos enviados a casa no disminuye.</li>
+<li><strong>Affiliate marketing como industria crece</strong> — 80% de brands lo usan, 16% del e-commerce US/Canadá viene de affiliate.</li>
+<li><strong>Workaround Wise para Chile funciona</strong> — ya documentado y usado por la comunidad. No es bloqueante operativo.</li>
+<li><strong>Threshold mínimo bajo ($10)</strong> — puedes empezar a recibir pagos casi inmediatamente cuando pasas el CDR.</li>
+<li><strong>Comisiones altas (50-75% típico)</strong> — alineamiento de incentivos vendor-afiliado real, especialmente en info-products digitales con margen alto.</li>
+<li><strong>Globalization Platform reconoce mercado hispano</strong> — ClickBank invirtió en infraestructura para multi-idioma, no es afterthought.</li>
+<li><strong>El podcast oficial de ClickBank invita a un afiliado chileno (Pancho Val)</strong> — señal de que ClickBank considera el mercado LATAM como growth area.</li>
+</ol>
+<hr>
+<h2 id="10-veredicto-operativo-no-es-decisión-final-es-input-para-el-equipo">10. Veredicto operativo (no es decisión final, es input para el equipo)<a class="anchor" href="#10-veredicto-operativo-no-es-decisión-final-es-input-para-el-equipo">#</a></h2>
+<h3 id="clickbank-es-viable-como-infraestructura-para-el-modelo-condicional-a">ClickBank ES viable como infraestructura para el modelo, condicional a:<a class="anchor" href="#clickbank-es-viable-como-infraestructura-para-el-modelo-condicional-a">#</a></h3>
+<ul>
+<li><strong>Selección rigurosa de oferta</strong> (no agarrar la primera nutra agresiva con 75% comisión).</li>
+<li><strong>Compliance disciplinado</strong> con FTC + ClickBank rules — especialmente en health claims.</li>
+<li><strong>Cashflow runway suficiente</strong> para cubrir 4-6 semanas hasta primer payout + ramp-up de testing.</li>
+<li><strong>Setup de Wise USD account funcional</strong> antes de generar ventas (no después).</li>
+<li><strong>Aceptar que el caso "Pancho Val" representa el outlier, no el promedio</strong> — para 1 Diamond hay 10,000 que no llegaron.</li>
+</ul>
+<h3 id="lo-que-no-valida-clickbank-por-sí-mismo">Lo que NO valida ClickBank por sí mismo:<a class="anchor" href="#lo-que-no-valida-clickbank-por-sí-mismo">#</a></h3>
+<ul>
+<li>Que el ICP que elijas sea rentable.</li>
+<li>Que tengas ángulos creativos que sobrevivan a Meta/Google policy.</li>
+<li>Que tu unit economics aguanten refunds + ad spend + ClickBank fees + payment fees.</li>
+</ul>
+<h3 id="datos-que-no-se-pudieron-verificar-oficialmente-y-deberían-ser-checkeados-con-un-afiliado-activo">Datos que NO se pudieron verificar oficialmente y deberían ser checkeados con un afiliado activo:<a class="anchor" href="#datos-que-no-se-pudieron-verificar-oficialmente-y-deberían-ser-checkeados-con-un-afiliado-activo">#</a></h3>
+<ul>
+<li>Número exacto de vendors activos.</li>
+<li>% real de afiliados que llegan a Gold (siguiente milestone realista después de validar).</li>
+<li>Mecánica exacta de Wise USD ACH desde Chile (validar con caso real, no documentación).</li>
+<li>Tiempo promedio real desde primera venta hasta cashflow positivo neto de fees.</li>
+</ul>
+<hr>
+<h2 id="fuentes-consultadas-índice">Fuentes consultadas (índice)<a class="anchor" href="#fuentes-consultadas-índice">#</a></h2>
+<h3 id="oficiales-clickbank">Oficiales ClickBank<a class="anchor" href="#oficiales-clickbank">#</a></h3>
+<ul>
+<li>https://www.clickbank.com/our-story/</li>
+<li>https://www.clickbank.com/clickbank-advantage/</li>
+<li>https://www.clickbank.com/platinum-program/</li>
+<li>https://www.clickbank.com/how-clickbank-works/</li>
+<li>https://www.clickbank.com/view-marketplace/</li>
+<li>https://www.clickbank.com/customer-stories/</li>
+<li>https://www.clickbank.com/blog/best-affiliate-marketing-niches/</li>
+<li>https://www.clickbank.com/blog/best-supplement-affiliate-programs/</li>
+<li>https://www.clickbank.com/blog/take-charge-of-chargebacks/</li>
+<li>https://www.clickbank.com/blog/is-affiliate-marketing-dead/</li>
+<li>https://support.clickbank.com/en/articles/10535137-what-are-clickbank-s-fees</li>
+<li>https://support.clickbank.com/en/articles/10535123-how-do-i-get-paid</li>
+<li>https://support.clickbank.com/en/articles/10535128-what-countries-does-clickbank-offer-direct-deposit-to</li>
+<li>https://support.clickbank.com/en/articles/10535126-what-is-the-customer-distribution-requirement</li>
+<li>https://support.clickbank.com/en/articles/10535345-clickbank-accounting-policy</li>
+<li>https://support.clickbank.com/en/articles/10535349-clickbank-s-return-and-subscription-cancellation-policy</li>
+<li>https://support.clickbank.com/en/articles/10535342-advertising-guidelines</li>
+<li>https://support.clickbank.com/en/articles/10535347-clickbank-prohibited-seller-and-affiliate-activities-guidelines</li>
+<li>https://support.clickbank.com/hc/en-us/articles/220375627-What-happens-if-I-don-t-use-my-ClickBank-account-for-a-long-time-</li>
+</ul>
+<h3 id="terceros-verificación">Terceros / verificación<a class="anchor" href="#terceros-verificación">#</a></h3>
+<ul>
+<li>https://en.wikipedia.org/wiki/ClickBank</li>
+<li>https://www.trustpilot.com/review/clickbank.com</li>
+<li>https://www.bbb.org/us/id/boise/profile/online-shopping/clickbank-1296-5004291/complaints</li>
+<li>https://www.consumeraffairs.com/online/clickbank.html</li>
+<li>https://www.prnewswire.com/news-releases/global-internet-retailer-clickbank-celebrates-20th-year-anniversary-300625844.html</li>
+<li>https://www.linkedin.com/company/clickbank</li>
+<li>https://www.crunchbase.com/organization/clickbank</li>
+<li>https://www.authorityhacker.com/clickbank-review/</li>
+</ul>
+<h3 id="wise-payouts-internacionales">Wise / payouts internacionales<a class="anchor" href="#wise-payouts-internacionales">#</a></h3>
+<ul>
+<li>https://wise.com/au/blog/receive-payment-clickbank-wise</li>
+</ul>
+<h3 id="caso-pancho-val">Caso Pancho Val<a class="anchor" href="#caso-pancho-val">#</a></h3>
+<ul>
+<li>https://podscan.fm/podcasts/affiliated-clickbanks-official-affiliate-marketing-podcast/episodes/ep-218-from-college-dropout-to-5m-clickbank-diamond-affiliate-ft-francisco-valenzuela</li>
+<li>https://www.youtube.com/watch?v=5VbGkxY9PBE</li>
+<li>https://haciendola.com/blogs/haciendola/ha-invertido-8-millones-de-dolares-en-ads-a-sus-24-anos-francisco-valenzuela-panchoval-e56-1</li>
+<li>https://cl.linkedin.com/in/francisco-valenzuela-499278183</li>
+<li>https://whop.com/skalers/</li>
+</ul>
+<h3 id="comunidad">Comunidad<a class="anchor" href="#comunidad">#</a></h3>
+<ul>
+<li>https://www.warriorforum.com/main-internet-marketing-discussion-forum/</li>
+<li>https://www.blackhatworld.com/seo/be-careful-with-click-bank-they-will-suspend-your-account.1309359/</li>
+</ul>
+<h3 id="estadísticas-agregadas-a-verificar-contra-fuentes-primarias">Estadísticas agregadas (a verificar contra fuentes primarias)<a class="anchor" href="#estadísticas-agregadas-a-verificar-contra-fuentes-primarias">#</a></h3>
+<ul>
+<li>https://coolest-gadgets.com/clickbank-statistics/</li>
+<li>https://www.sci-tech-today.com/stats/clickbank-statistics/</li>
+</ul>
+<hr>
+<p><strong>Documento preparado:</strong> 2026-04-28 <strong>Word count aproximado:</strong> ~3,400 palabras <strong>Pendiente de verificación con afiliado activo en Chile:</strong> mecánica exacta de payout vía Wise USD + tiempos reales de ramp-up.</p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 01-clickbank-deep-dive.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

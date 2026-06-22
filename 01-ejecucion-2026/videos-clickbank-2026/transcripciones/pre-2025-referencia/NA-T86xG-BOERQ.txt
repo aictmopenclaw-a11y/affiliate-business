@@ -1,0 +1,27 @@
+[00:00] Hi everyone, Grant here with Cometly and in this video I'm going to show you how to set up your
+[00:04] contraint API in ClickBank. So when you log in your ClickBank account and you see this, I want
+[00:10] you to head over to vendor settings at the top and click vendor settings. And then you'll see
+[00:15] in the smaller subtext up here you'll see my site and we want to go ahead and click my site.
+[00:21] Okay, then we can scroll down all the way until you get to down here and we get to
+[00:30] where is it? Oh, right here. Okay, perfect. So add tracking code. And we're going to want to click
+[00:35] this big red button that says add tracking code. And type we're going to select Facebook pixel and
+[00:42] add. And then you should see this pop up pixel ID access token event URL. And so pixel ID you
+[00:50] want to head over to your events manager and copy your pixel and place that right into ClickBank.
+[00:57] And then for your access token, you want to go back to your events manager.
+[01:01] And you should be able to go to implementations. And you should be able to scroll down and
+[01:05] generate access token. Copy that clipboard, go back to ClickBank and paste. And by the way,
+[01:13] if you don't see the implementation tab, that's okay. Go ahead into Cometly and search for
+[01:18] the article that says I don't see implementations tab. And this is a little gif video that shows
+[01:24] you how to do it. I'll also post this link to this implementations below this video. So you'll
+[01:30] be able to see this. Okay, perfect. So we posted our pixel ID and our access token. And now our
+[01:36] event URL. So this is the exact landing page that you will be sending traffic from. Okay,
+[01:44] so this is your essentially your your landing page, right, your Facebook ad
+[01:49] landing page. And so you just need the event URL here. So if your landing page is, you know,
+[01:55] www, you know, it should be HTTPS, by the way, too. And this should just this could just be,
+[02:01] you know, grants or grant lending page.com. Okay, and that's all you need there. And then
+[02:07] you want to go ahead and track as affiliate. And you can do order confirmation page.
+[02:12] This will track purchases. And if you want to do order form, that's fine too. But we mostly just
+[02:17] track purchases. So order confirmation page, hit save. And then make sure very, very important
+[02:25] you scroll down. Very important. It's inactive. Make sure click the play button here, this green
+[02:30] button, and click this to enable it. And if we scroll back down, now you will see
+[02:37] the active status. All right, so thanks for watching this video and have a great day.

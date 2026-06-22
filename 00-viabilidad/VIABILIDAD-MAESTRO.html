@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio de Viabilidad · Affiliate Marketing Performance · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">00-viabilidad · 18 min · 3,512 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#tldr-veredicto-data-driven" class="">TL;DR — Veredicto data-driven</a></li><li><a href="#lo-que-la-data-dice" class="h3">Lo que la data dice</a></li><li><a href="#recomendación-principal-basada-en-ev" class="h3">Recomendación principal (basada en EV)</a></li><li><a href="#estructura-del-documento" class="">Estructura del documento</a></li><li><a href="#1-hallazgos-brutalmente-honestos" class="">1. Hallazgos brutalmente honestos</a></li><li><a href="#sobre-el-modelo-affiliate-clickbank" class="h3">Sobre el modelo affiliate ClickBank</a></li><li><a href="#sobre-la-viabilidad-real-del-modelo" class="h3">Sobre la viabilidad real del modelo</a></li><li><a href="#sobre-pancho-val-y-skalers-caso-central-de-la-tesis-original" class="h3">Sobre Pancho Val y Skalers (caso central de la tesis original)</a></li><li><a href="#sobre-la-comunidad-y-los-gurús-real-talk-de-foros" class="h3">Sobre la comunidad y los gurús (real talk de foros)</a></li><li><a href="#sobre-el-mercado-hispano-us-la-tesis-sweet-spot" class="h3">Sobre el mercado hispano-US (la tesis "sweet spot")</a></li><li><a href="#sobre-las-alternativas-costo-de-oportunidad" class="h3">Sobre las alternativas (costo de oportunidad)</a></li><li><a href="#2-la-tesis-original-vs-la-realidad" class="">2. La tesis original vs la realidad</a></li><li><a href="#lo-que-afirmaba-el-playbook-original" class="h3">Lo que afirmaba el playbook original</a></li><li><a href="#lo-que-sigue-siendo-válido" class="h3">Lo que sigue siendo válido</a></li><li><a href="#3-análisis-financiero-3-escenarios" class="">3. Análisis financiero · 3 escenarios</a></li><li><a href="#escenario-a-full-affiliate-el-plan-original" class="h3">Escenario A · "FULL AFFILIATE" (el plan original)</a></li><li><a href="#escenario-b-portfolio-asimétrico-recomendado" class="h3">Escenario B · "PORTFOLIO ASIMÉTRICO" (recomendado)</a></li><li><a href="#escenario-c-no-proceder-caso-conservador" class="h3">Escenario C · "NO PROCEDER" (caso conservador)</a></li><li><a href="#4-riesgos-críticos-no-resueltos" class="">4. Riesgos críticos no resueltos</a></li><li><a href="#riesgo-legalfiscal-1-withholding-35-chileno-sobre-meta-ireland" class="h3">Riesgo legal/fiscal #1: Withholding 35% chileno sobre Meta Ireland</a></li><li><a href="#riesgo-legalfiscal-2-ley-21719-de-datos-personales-chile" class="h3">Riesgo legal/fiscal #2: Ley 21.719 de datos personales (Chile)</a></li><li><a href="#riesgo-legalfiscal-3-lob-línea-14b-w-8ben-e" class="h3">Riesgo legal/fiscal #3: LOB línea 14b W-8BEN-E</a></li><li><a href="#riesgo-operativo-1-banking-usa-limitado" class="h3">Riesgo operativo #1: Banking USA limitado</a></li><li><a href="#riesgo-operativo-2-account-bans-meta" class="h3">Riesgo operativo #2: Account bans Meta</a></li><li><a href="#riesgo-de-mercado-saturación-creciendo" class="h3">Riesgo de mercado: Saturación creciendo</a></li><li><a href="#riesgo-modelo-dependencia-de-plataforma" class="h3">Riesgo modelo: Dependencia de plataforma</a></li><li><a href="#5-skalers-pro-análisis-costo-beneficio" class="">5. Skalers Pro · análisis costo-beneficio</a></li><li><a href="#lo-que-cuesta" class="h3">Lo que cuesta</a></li><li><a href="#lo-que-no-sabemos-verificable" class="h3">Lo que NO sabemos verificable</a></li><li><a href="#lo-que-sí-sabemos" class="h3">Lo que SÍ sabemos</a></li><li><a href="#recomendación-específica" class="h3">Recomendación específica</a></li><li><a href="#6-comparativo-vs-alternativas" class="">6. Comparativo vs alternativas</a></li><li><a href="#tabla-maestra" class="h3">Tabla maestra</a></li><li><a href="#por-qué-affiliate-ranking-4to" class="h3">Por qué affiliate ranking 4to:</a></li><li><a href="#por-qué-agencia-openclaw-ranking-2do-después-de-freelance-puro" class="h3">Por qué agencia OpenClaw ranking 2do (después de freelance puro):</a></li><li><a href="#7-decisiones-que-el-equipo-debe-tomar" class="">7. Decisiones que el equipo debe tomar</a></li><li><a href="#decisión-1-crítica-cuál-escenario" class="h3">Decisión #1 (CRÍTICA): ¿Cuál escenario?</a></li><li><a href="#decisión-2-si-escenario-b-quién-lidera-el-test-affiliate" class="h3">Decisión #2: Si Escenario B, ¿quién lidera el test affiliate?</a></li><li><a href="#decisión-3-skalers-comprar-y-cuándo" class="h3">Decisión #3: Skalers — ¿comprar y cuándo?</a></li><li><a href="#decisión-4-spa-constitución-hacerla-ahora-o-esperar" class="h3">Decisión #4: SpA constitución — ¿hacerla AHORA o esperar?</a></li><li><a href="#decisión-5-llc-usa-cuándo" class="h3">Decisión #5: LLC USA — ¿cuándo?</a></li><li><a href="#decisión-6-qué-hacer-con-todo-el-stack-ya-construido-playbook-sops-skills" class="h3">Decisión #6: ¿Qué hacer con todo el stack ya construido (playbook, SOPs, skills)?</a></li><li><a href="#decisión-7-cuándo-revisitar-la-decisión" class="h3">Decisión #7: ¿Cuándo revisitar la decisión?</a></li><li><a href="#apéndice-referencias-a-investigaciones-detalladas" class="">Apéndice: Referencias a investigaciones detalladas</a></li><li><a href="#conclusión" class="">Conclusión</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>VIABILIDAD-MAESTRO.md</span><span>3,512 palabras</span><span>~18 min</span></div>
+<h1 id="estudio-de-viabilidad-affiliate-marketing-performance">Estudio de Viabilidad · Affiliate Marketing Performance</h1>
+<div class="box box-critico"><div class="box-label">Crítico</div><p><strong>Documento maestro de decisión para el equipo Romi + Cris + Dali</strong> Fecha: 2026-04-28 Versión: 1.0 Status: <strong>Pendiente de decisión final del equipo</strong></p>
+<p>Este documento sintetiza 8 investigaciones independientes (1 por archivo en <code>research-fuentes/</code>). Cada hallazgo crítico tiene referencia a su fuente primaria. No es marketing ni venta — es due diligence financiera real.</p></div>
+<hr>
+<h2 id="tldr-veredicto-data-driven">TL;DR — Veredicto data-driven<a class="anchor" href="#tldr-veredicto-data-driven">#</a></h2>
+<p><strong>El modelo es real, pero la viabilidad para nuestro caso específico es CUESTIONABLE.</strong></p>
+<h3 id="lo-que-la-data-dice">Lo que la data dice<a class="anchor" href="#lo-que-la-data-dice">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Pregunta</th>
+<th>Respuesta data-driven</th>
+<th>Confianza</th>
+</tr></thead><tbody>
+<tr>
+<td>¿Affiliate marketing es scam o real?</td>
+<td><strong>Real</strong>. Industria USD 12B/año, 80% marcas USA con programas.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>¿ClickBank es legítimo?</td>
+<td><strong>Sí</strong>. Plataforma desde 1998, datos verificables.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>¿Pancho Val ($5M+ as affiliate) es verificable?</td>
+<td><strong>Parcialmente</strong>. Diamond status confirmado por podcast oficial ClickBank. Pero income claims NO auditables. Vive más del curso que del afiliado.</td>
+<td>Media</td>
+</tr>
+<tr>
+<td>¿$11K USD es suficiente para 12 meses?</td>
+<td><strong>NO</strong>. Subcapitalización. Apenas alcanza para tools + curso, queda <$3K para ad spend testing.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>¿Probabilidad de break-even año 1?</td>
+<td><strong>25-35%</strong> (data triangulada de 4 reportes)</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>¿Probabilidad de wipeout total ($11K perdidos)?</td>
+<td><strong>30-40%</strong></td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>¿Hispano-US es "sweet spot"?</td>
+<td><strong>Parcialmente</strong>. Mercado real (16-26M Spanish-leaning, no 68M). Saturación creciendo 8.4%/año. Ventana 6-12 meses.</td>
+<td>Media</td>
+</tr>
+<tr>
+<td>¿Equipo OpenClaw tiene mejor alternativa?</td>
+<td><strong>SÍ</strong>. Doblar agencia tiene EV año 1 estimado <strong>+$47K</strong> vs affiliate <strong>+$1.5K</strong>.</td>
+<td>Alta</td>
+</tr>
+</tbody></table></div>
+<h3 id="recomendación-principal-basada-en-ev">Recomendación principal (basada en EV)<a class="anchor" href="#recomendación-principal-basada-en-ev">#</a></h3>
+<div class="box box-critico"><div class="box-label">Crítico</div><p><strong>NO invertir $11K USD a 100% en affiliate. Hacer portfolio asimétrico:</strong> - <strong>80% capital + tiempo → escalar agencia OpenClaw</strong> (modelo conocido, EV positivo) - <strong>15% → curso o producto educativo propio</strong> (capitaliza expertise existente) - <strong>5% (~$3K, 1 persona, 90 días) → test controlado affiliate con stop-loss claro</strong></p></div>
+<p>Si el test de 90 días valida (ROAS > 1.5x sostenido + sistema replicable), reasignar capital. Si no, cerrar y no doble apuesta.</p>
+<hr>
+<h2 id="estructura-del-documento">Estructura del documento<a class="anchor" href="#estructura-del-documento">#</a></h2>
+<ol>
+<li><a href="#1-hallazgos-brutalmente-honestos">Hallazgos brutalmente honestos</a></li>
+<li><a href="#2-la-tesis-original-vs-la-realidad">La tesis original vs la realidad</a></li>
+<li><a href="#3-análisis-financiero--3-escenarios">Análisis financiero · 3 escenarios</a></li>
+<li><a href="#4-riesgos-críticos-no-resueltos">Riesgos críticos no resueltos</a></li>
+<li><a href="#5-skalers-pro--análisis-costo-beneficio">Skalers Pro · análisis costo-beneficio</a></li>
+<li><a href="#6-comparativo-vs-alternativas">Comparativo vs alternativas</a></li>
+<li><a href="#7-decisiones-que-el-equipo-debe-tomar">Decisiones que el equipo debe tomar</a></li>
+</ol>
+<hr>
+<h2 id="1-hallazgos-brutalmente-honestos">1. Hallazgos brutalmente honestos<a class="anchor" href="#1-hallazgos-brutalmente-honestos">#</a></h2>
+<h3 id="sobre-el-modelo-affiliate-clickbank">Sobre el modelo affiliate ClickBank<a class="anchor" href="#sobre-el-modelo-affiliate-clickbank">#</a></h3>
+<p><strong>Datos verificados oficialmente:</strong></p>
+<ul>
+<li>ClickBank existe desde 1998, sigue privado bajo Keynetics</li>
+<li>5 tiers oficiales (Bronze < $2K → Silver < $25K → Gold < $250K → Platinum < $5M → Diamond > $5M)</li>
+<li>Fees: vendor 7.5% + $1/venta + $49.95 setup · afiliado $0 setup, $5/payout</li>
+<li>Refund threshold: 20% (sobre eso = suspensión 90 días)</li>
+<li>Categoría #1: nutra/health (saturadísima)</li>
+</ul>
+<p>Fuente: <code>01-clickbank-deep-dive.md</code></p>
+<p><strong>Lo que NO te dicen los gurús:</strong></p>
+<ul>
+<li><strong>Customer Distribution Requirement</strong>: primer payout puede tardar 4-6 semanas (5 ventas + 2 métodos pago + 2 semanas waiting)</li>
+<li><strong>Dormant fees</strong>: $50/pay period después de 365 días sin earnings</li>
+<li><strong>Chile NO está en la lista oficial de direct deposit</strong> (workaround vía Wise USD documentado para Australia, no validado para Chile específicamente)</li>
+<li><strong>Pancho Val Diamond verificado</strong>, pero él vende curso → conflict of interest cuando habla de "qué tan replicable es"</li>
+</ul>
+<h3 id="sobre-la-viabilidad-real-del-modelo">Sobre la viabilidad real del modelo<a class="anchor" href="#sobre-la-viabilidad-real-del-modelo">#</a></h3>
+<p><strong>Distribución de retornos brutal (Tolt Survey 2024-2025):</strong></p>
+<ul>
+<li>41% de afiliados ganan <strong><$1K USD/mes</strong></li>
+<li>23% ganan <strong>literalmente $0/mes</strong></li>
+<li>"95% falla" probablemente correcto en orden de magnitud</li>
+<li>Mediana realista nuevo afiliado año 1: <strong>$0-500/mes neto</strong></li>
+</ul>
+<p>Fuente: <code>02-viabilidad-modelo.md</code></p>
+<p><strong>Costo real vs lo que dicen los gurús:</strong></p>
+<ul>
+<li>Los $650/mes de tools en el playbook original es <strong>subestimación</strong></li>
+<li>Cuando agregas: account bans Meta ($500-2K reemplazo BMs), antidetect browser ($99/mes Multilogin), refund chargebacks (5-15% del revenue), compliance fines potenciales → fácilmente <strong>$1,200-1,500/mes operacional</strong></li>
+<li>Recálculo realista: solo curso + tools + antidetect + BMs + compliance ya consume <strong>~$11.7K en 12 meses</strong></li>
+<li>Quedan <strong>$2-4K para ad spend testing</strong>, debajo del mínimo recomendado por el propio Commission Hero ($10-20/día)</li>
+</ul>
+<h3 id="sobre-pancho-val-y-skalers-caso-central-de-la-tesis-original">Sobre Pancho Val y Skalers (caso central de la tesis original)<a class="anchor" href="#sobre-pancho-val-y-skalers-caso-central-de-la-tesis-original">#</a></h3>
+<p><strong>Lo que SÍ se verificó</strong> (<code>06-pancho-val-deep-dive.md</code>):</p>
+<ul>
+<li>Pancho Val es real, identidad confirmada por ClickBank oficial</li>
+<li>Diamond status verificado por Affiliated Podcast Ep. 218</li>
+<li>Twitter @panchoval123 muestra patrones genuinos de media buyer real</li>
+<li>14 staff visibles en Whop, operación con equipo real</li>
+<li>Stack técnico (SpyHero, Atria, HeyGen) coherente con afiliado real</li>
+</ul>
+<p><strong>Red flags detectados:</strong></p>
+<ul>
+<li>LinkedIn ausente (raro para emprendedor chileno joven)</li>
+<li>Universidad UAI <strong>NO confirmada</strong> públicamente</li>
+<li>Reviews 4.89-5.0 con counts idénticos (155-156) entre 4 productos = estadísticamente sospechoso</li>
+<li>Inconsistencia Concón vs Viña del Mar</li>
+<li>Income claims usan categorías mezcladas (revenue/profit/ad spend) sin aclarar</li>
+<li>"3,920 miembros" claim incluye <strong>~2,632 freebies</strong> — solo ~1,370 son paying</li>
+<li>Sin reviews independientes en Trustpilot/Reddit</li>
+</ul>
+<p><strong>Pricing real Skalers (verificado abril 2026):</strong></p>
+<ul>
+<li>Skalers Start: $47 (one-time)</li>
+<li>Skalers Pro: $497 (one-time, 318 miembros activos)</li>
+<li>Skalers Mastery: $2,197 (497 miembros)</li>
+<li>Skalers Ads License: $12,000 (5 miembros)</li>
+<li><strong>Revenue del curso lifetime ~$1.14M USD bruto en 12 meses</strong></li>
+</ul>
+<p><strong>Pregunta clave:</strong> Si Skalers Inc factura ~$1.14M/año por curso y "vive del affiliate" hace $5M+, ¿por qué necesita vender curso?</p>
+<p>Una hipótesis razonable: <strong>el affiliate puro genera mucho menos de lo que claim</strong>. El curso es donde está el revenue real predecible.</p>
+<h3 id="sobre-la-comunidad-y-los-gurús-real-talk-de-foros">Sobre la comunidad y los gurús (real talk de foros)<a class="anchor" href="#sobre-la-comunidad-y-los-gurús-real-talk-de-foros">#</a></h3>
+<p><strong>Citas verificadas</strong> (<code>05-foros-y-comunidades.md</code>):</p>
+<blockquote><p>"the content site model is [dead]... I refuse to sell courses teaching strategies that no longer work reliably for most people" — <strong>Mark Webster, Authority Hacker</strong> (cerrando sus cursos flagship en Dic 2024 después de 10 años)</p></blockquote>
+<blockquote><p>"for the vast majority of people, it's not worth entering the affiliate marketing industry" — <strong>Charles Ngo</strong> (super-affiliate más respetado, declaración 2021)</p></blockquote>
+<blockquote><p>"99% of these gurus make their money off the courses they sell and not the actual affiliate marketing" — Top response Quora "How much do affiliate marketers really make?"</p></blockquote>
+<blockquote><p>"This is a clear bait and bait tactic. I don't believe they want any new people coming in to succeed, they just want to live off the memberships. I'm out $6700" — Review BBB de Commission Hero (Robby Blanchard) — rating 1/5</p></blockquote>
+<p><strong>The Affiliate Lab (Matt Diggity) cerró early 2025</strong> con razón explícita: "ya no produce los resultados para nuevos affiliates".</p>
+<h3 id="sobre-el-mercado-hispano-us-la-tesis-sweet-spot">Sobre el mercado hispano-US (la tesis "sweet spot")<a class="anchor" href="#sobre-el-mercado-hispano-us-la-tesis-sweet-spot">#</a></h3>
+<p><strong>Real pero sobrevendido</strong> (<code>08-mercado-latino-hispano-us.md</code>):</p>
+<ul>
+<li>TAM real: <strong>16-26M Spanish-leaning</strong>, NO los 68M completos. 51% de hispanos US prefieren contenido en inglés (Pew 2024)</li>
+<li>USD 2.8T buying power confirmado</li>
+<li>CPMs hispano-US 30-50% más bajos = <strong>claim sin fuente verificable</strong>. Realidad: 10-25% más bajos según vertical</li>
+<li>Ventana operativa estimada: <strong>6-12 meses antes de comoditización</strong></li>
+<li>ClickBank español: solo ~3-5% del marketplace, top productos llevan 3-5 años iguales = <strong>mercado maduro, no virgen</strong></li>
+</ul>
+<h3 id="sobre-las-alternativas-costo-de-oportunidad">Sobre las alternativas (costo de oportunidad)<a class="anchor" href="#sobre-las-alternativas-costo-de-oportunidad">#</a></h3>
+<p><strong>Ranking por Expected Value año 1</strong> (<code>07-comparativos-financieros.md</code>):</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Modelo</th>
+<th>EV año 1</th>
+<th>Probabilidad éxito</th>
+<th>Skill match equipo</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Servicios freelance</strong></td>
+<td><strong>+$135K</strong></td>
+<td>90%</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td><strong>Agencia digital (escalar OpenClaw)</strong></td>
+<td><strong>+$47K</strong></td>
+<td>80%</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>Cursos / educación digital</td>
+<td>+$7.25K</td>
+<td>35%</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td><strong>Affiliate ClickBank</strong></td>
+<td><strong>+$1.5K</strong></td>
+<td>25%</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>Newsletter monetizada</td>
+<td>~$0</td>
+<td>30%</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>POD, Content, Micro-SaaS, Dropshipping, Trading, FBA, DTC</td>
+<td>EV negativo</td>
+<td><25%</td>
+<td>Variable</td>
+</tr>
+</tbody></table></div>
+<p><strong>Costo de oportunidad de elegir affiliate como apuesta principal: ~$180K USD año 1</strong> (lo que el equipo deja de facturar haciendo agencia/freelance que ya saben).</p>
+<hr>
+<h2 id="2-la-tesis-original-vs-la-realidad">2. La tesis original vs la realidad<a class="anchor" href="#2-la-tesis-original-vs-la-realidad">#</a></h2>
+<h3 id="lo-que-afirmaba-el-playbook-original">Lo que afirmaba el playbook original<a class="anchor" href="#lo-que-afirmaba-el-playbook-original">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Tesis</th>
+<th>Realidad data-driven</th>
+</tr></thead><tbody>
+<tr>
+<td>"$11K USD es suficiente para validar y arrancar"</td>
+<td><span class="badge badge-no">NO</span> Subcapitalización. Realista: $20K-30K mínimo</td>
+</tr>
+<tr>
+<td>"Hispano-US es sweet spot con menos competencia"</td>
+<td><span class="badge badge-warn">!</span> Parcialmente. Mercado maduro, no virgen</td>
+</tr>
+<tr>
+<td>"ROAS de 1.5x sostenido es realista trimestre 2"</td>
+<td><span class="badge badge-warn">!</span> Posible solo con 30%+ de equipos. Mediana: ROAS < 1.0x</td>
+</tr>
+<tr>
+<td>"Pancho Val es replicable"</td>
+<td><span class="badge badge-warn">!</span> Survivorship bias. Su modelo tiene componente "vender curso" no replicable sin audiencia</td>
+</tr>
+<tr>
+<td>"Skalers Pro acelera 6-9 meses"</td>
+<td><span class="badge badge-warn">!</span> Sin reviews independientes verificables</td>
+</tr>
+<tr>
+<td>"12 meses para sistema escalable $1-2K/día"</td>
+<td><span class="badge badge-no">NO</span> Solo 5-10% de equipos llegan a $5-10K/mes año 1</td>
+</tr>
+<tr>
+<td>"Stack $650/mes"</td>
+<td><span class="badge badge-no">NO</span> Realista $1,200-1,500/mes con costos hidden</td>
+</tr>
+</tbody></table></div>
+<h3 id="lo-que-sigue-siendo-válido">Lo que sigue siendo válido<a class="anchor" href="#lo-que-sigue-siendo-válido">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Tesis</th>
+<th>Confirmación</th>
+</tr></thead><tbody>
+<tr>
+<td>"Sistema repetible vence a hacks"</td>
+<td><span class="badge badge-ok">OK</span> Confirmado por Pancho Val, Charles Ngo, todos los pros</td>
+</tr>
+<tr>
+<td>"Velocidad sobre perfección"</td>
+<td><span class="badge badge-ok">OK</span> Confirmado</td>
+</tr>
+<tr>
+<td>"Diversificación creativa esencial post-Andromeda"</td>
+<td><span class="badge badge-ok">OK</span> Confirmado por Meta oficial</td>
+</tr>
+<tr>
+<td>"CAPI postback obligatorio"</td>
+<td><span class="badge badge-ok">OK</span> Confirmado</td>
+</tr>
+<tr>
+<td>"Compliance es bloqueante"</td>
+<td><span class="badge badge-ok">OK</span> FTC casos de $11.9M y $179M en settlements reales</td>
+</tr>
+<tr>
+<td>"Documentar mientras hacemos"</td>
+<td><span class="badge badge-ok">OK</span> Mejor práctica universal</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="3-análisis-financiero-3-escenarios">3. Análisis financiero · 3 escenarios<a class="anchor" href="#3-análisis-financiero-3-escenarios">#</a></h2>
+<h3 id="escenario-a-full-affiliate-el-plan-original">Escenario A · "FULL AFFILIATE" (el plan original)<a class="anchor" href="#escenario-a-full-affiliate-el-plan-original">#</a></h3>
+<p><strong>Setup:</strong></p>
+<ul>
+<li>100% del capital ($11K) y tiempo (3 personas full-time) en affiliate</li>
+<li>12 meses horizonte</li>
+</ul>
+<p><strong>Costos realistas (no marketing):</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Item</th>
+<th>Mes 1-3</th>
+<th>Mes 4-12</th>
+<th>Total año</th>
+</tr></thead><tbody>
+<tr>
+<td>SpA + contador</td>
+<td>$750</td>
+<td>$2,250</td>
+<td>$3,000</td>
+</tr>
+<tr>
+<td>Skalers Pro</td>
+<td>$497</td>
+<td>—</td>
+<td>$497</td>
+</tr>
+<tr>
+<td>Tools (Landerlab/Atria/SpyHero/HeyGen/Creatify/Freepik)</td>
+<td>$600</td>
+<td>$1,800</td>
+<td>$2,400</td>
+</tr>
+<tr>
+<td>Antidetect browser + multi-Meta accounts</td>
+<td>$300</td>
+<td>$900</td>
+<td>$1,200</td>
+</tr>
+<tr>
+<td>Dominios + Cloudflare + servidor CAPI</td>
+<td>$50</td>
+<td>$150</td>
+<td>$200</td>
+</tr>
+<tr>
+<td>Ad spend (mes 1-3 testing)</td>
+<td>$500</td>
+<td>$5,000</td>
+<td>$5,500</td>
+</tr>
+<tr>
+<td>Refund chargebacks reservados (10%)</td>
+<td>$50</td>
+<td>$500</td>
+<td>$550</td>
+</tr>
+<tr>
+<td>Buffer compliance/legal</td>
+<td>$200</td>
+<td>$400</td>
+<td>$600</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>$2,947</strong></td>
+<td><strong>$11,000</strong></td>
+<td><strong>$13,947</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>Resultado:</strong> <strong>Excede el budget en $2,947 USD</strong>. Para que cuadre con $11K hay que cortar ad spend a ~$2,500/año = <strong><$210/mes</strong>, lo cual está muy debajo del mínimo de testing (Felipe Vergara recomienda $50/día = $1,500/mes solo para presentación).</p>
+<p><strong>Probabilidad outcomes:</strong></p>
+<ul>
+<li>Break-even financiero año 1: <strong>20-25%</strong></li>
+<li>$5K-10K/mes neto año 1: <strong>5-8%</strong></li>
+<li>Wipeout total ($11K perdidos sin recovery): <strong>40-50%</strong></li>
+</ul>
+<p><strong>Veredicto:</strong> <strong>NO RECOMENDADO</strong>. Subcapitalización + costo de oportunidad enorme.</p>
+<hr>
+<h3 id="escenario-b-portfolio-asimétrico-recomendado">Escenario B · "PORTFOLIO ASIMÉTRICO" (recomendado)<a class="anchor" href="#escenario-b-portfolio-asimétrico-recomendado">#</a></h3>
+<p><strong>Setup:</strong></p>
+<ul>
+<li>$7K (64%) → escalar OpenClaw como agencia</li>
+<li>$1.5K (14%) → producto educativo propio (capitalizar expertise)</li>
+<li><strong>$2.5K (22%) → test affiliate de 90 días con stop-loss claro</strong></li>
+</ul>
+<p><strong>Test affiliate (90 días):</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Item</th>
+<th>Mes 1</th>
+<th>Mes 2</th>
+<th>Mes 3</th>
+<th>Total</th>
+</tr></thead><tbody>
+<tr>
+<td>Skalers Start ($47) + Skalers Pro ($497)</td>
+<td>$544</td>
+<td>—</td>
+<td>—</td>
+<td>$544</td>
+</tr>
+<tr>
+<td>Tools mínimos (Landerlab + Atria)</td>
+<td>$150</td>
+<td>$150</td>
+<td>$150</td>
+<td>$450</td>
+</tr>
+<tr>
+<td>Setup técnico (dominio + Cloudflare + Pixel)</td>
+<td>$50</td>
+<td>—</td>
+<td>—</td>
+<td>$50</td>
+</tr>
+<tr>
+<td>Ad spend testing</td>
+<td>$300</td>
+<td>$500</td>
+<td>$700</td>
+<td>$1,500</td>
+</tr>
+<tr>
+<td><strong>Total test</strong></td>
+<td><strong>$1,044</strong></td>
+<td><strong>$650</strong></td>
+<td><strong>$850</strong></td>
+<td><strong>$2,544</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>Stop-loss claro:</strong></p>
+<ul>
+<li><strong>Día 30:</strong> si no hay 1 funnel con CTR > 1% y CPC < $1.50, <strong>STOP</strong></li>
+<li><strong>Día 60:</strong> si no hay 1 funnel con ROAS > 0.8x, <strong>STOP</strong></li>
+<li><strong>Día 90:</strong> si no hay 1 funnel con ROAS > 1.3x sostenido 14 días, <strong>STOP</strong></li>
+</ul>
+<p><strong>Recursos humanos durante test:</strong></p>
+<ul>
+<li><strong>1 persona principal</strong> (Cris o Romi part-time, NO los 3)</li>
+<li>Otras 2 personas siguen en agencia OpenClaw</li>
+</ul>
+<p><strong>Si el test PASA (3 stops superados):</strong></p>
+<ul>
+<li>Año 1 mes 4-12: reinvertir hasta $5K adicional desde caja agencia OpenClaw</li>
+<li>Probabilidad llegar a $3-5K/mes neto fin de año: <strong>35-45%</strong></li>
+<li>Probabilidad llegar a $10K+/mes: <strong>15-20%</strong></li>
+</ul>
+<p><strong>Si el test FALLA:</strong></p>
+<ul>
+<li>Pérdida real máxima: <strong>$2,500 USD</strong> (no $11K)</li>
+<li>Aprendizajes capturados aplicables a OpenClaw clients</li>
+<li>Equipo no quemado, agencia no se descuidó</li>
+</ul>
+<p><strong>Veredicto:</strong> <strong>RECOMENDADO</strong>. Risk-adjusted return mucho mejor.</p>
+<hr>
+<h3 id="escenario-c-no-proceder-caso-conservador">Escenario C · "NO PROCEDER" (caso conservador)<a class="anchor" href="#escenario-c-no-proceder-caso-conservador">#</a></h3>
+<p><strong>Setup:</strong></p>
+<ul>
+<li>0% en affiliate</li>
+<li>$11K → 100% escalar OpenClaw + curso/educación</li>
+</ul>
+<p><strong>Allocación:</strong></p>
+<ul>
+<li>Contratación 1 VA Upwork tiempo completo ($800/mes × 12) = $9,600</li>
+<li>Tools/marketing OpenClaw upgrade = $1,400</li>
+</ul>
+<p><strong>Resultado esperado año 1:</strong></p>
+<ul>
+<li>EV escalado agencia: <strong>+$47K</strong> (con probabilidad 80%)</li>
+<li>Más estabilidad, más predecible</li>
+<li>Riesgo: bajo</li>
+<li>Wipeout: <5%</li>
+</ul>
+<p><strong>Cuándo elegir este escenario:</strong></p>
+<ul>
+<li>Si el equipo está estresado y no puede asumir más cosas</li>
+<li>Si OpenClaw tiene clientes potenciales no atendidos por capacidad</li>
+<li>Si el cash flow personal no permite asumir riesgo de $2.5K test</li>
+</ul>
+<p><strong>Veredicto:</strong> <strong>VÁLIDO si las condiciones lo justifican.</strong></p>
+<hr>
+<h2 id="4-riesgos-críticos-no-resueltos">4. Riesgos críticos no resueltos<a class="anchor" href="#4-riesgos-críticos-no-resueltos">#</a></h2>
+<h3 id="riesgo-legalfiscal-1-withholding-35-chileno-sobre-meta-ireland">Riesgo legal/fiscal #1: Withholding 35% chileno sobre Meta Ireland<a class="anchor" href="#riesgo-legalfiscal-1-withholding-35-chileno-sobre-meta-ireland">#</a></h3>
+<blockquote><p>Pendiente confirmar con contador especializado. Si Meta cobra desde Ireland, pago a entidad extranjera podría disparar Art. 59 LIR (35% withholding). Validar tratado Chile-Irlanda. (<code>03-legal-fiscal-cross-border.md</code>)</p></blockquote>
+<p><strong>Impacto si aplica:</strong> destruye margen del affiliate.</p>
+<h3 id="riesgo-legalfiscal-2-ley-21719-de-datos-personales-chile">Riesgo legal/fiscal #2: Ley 21.719 de datos personales (Chile)<a class="anchor" href="#riesgo-legalfiscal-2-ley-21719-de-datos-personales-chile">#</a></h3>
+<blockquote><p>Entra en vigor diciembre 2026. Sanciones tipo GDPR. Operar landing pages que capturen email/data de usuarios podría requerir compliance específico. (<code>03-legal-fiscal-cross-border.md</code>)</p></blockquote>
+<h3 id="riesgo-legalfiscal-3-lob-línea-14b-w-8ben-e">Riesgo legal/fiscal #3: LOB línea 14b W-8BEN-E<a class="anchor" href="#riesgo-legalfiscal-3-lob-línea-14b-w-8ben-e">#</a></h3>
+<blockquote><p>Tratado Chile-USA vigente desde dic 2023. Article 7 reduce withholding USA a 0% sin Permanent Establishment. Pero <strong>base erosion test puede fallar por gasto Meta Ads</strong>. (<code>03-legal-fiscal-cross-border.md</code>)</p></blockquote>
+<p><strong>Impacto si aplica:</strong> ClickBank retiene 30% de cada payout.</p>
+<h3 id="riesgo-operativo-1-banking-usa-limitado">Riesgo operativo #1: Banking USA limitado<a class="anchor" href="#riesgo-operativo-1-banking-usa-limitado">#</a></h3>
+<blockquote><p>Wise Business <strong>no emite tarjeta para residentes Chile</strong> (validado 2026). Revolut <strong>discontinuado en Chile julio 2024</strong>. Solución no-negociable: <strong>LLC USA + Mercury bank account</strong> (~$300 setup), antes posible. (<code>03-legal-fiscal-cross-border.md</code>, <code>08-mercado-latino-hispano-us.md</code>)</p></blockquote>
+<h3 id="riesgo-operativo-2-account-bans-meta">Riesgo operativo #2: Account bans Meta<a class="anchor" href="#riesgo-operativo-2-account-bans-meta">#</a></h3>
+<blockquote><p>No es excepción, <strong>es expectativa</strong>. Industria asume 30-50% de probabilidad de ban en primer año. Reemplazo de Business Manager + cuenta + perfil = <strong>$500-2K</strong> y 1-2 semanas de downtime. (<code>02-viabilidad-modelo.md</code>, <code>05-foros-y-comunidades.md</code>)</p></blockquote>
+<h3 id="riesgo-de-mercado-saturación-creciendo">Riesgo de mercado: Saturación creciendo<a class="anchor" href="#riesgo-de-mercado-saturación-creciendo">#</a></h3>
+<blockquote><p>Multicultural ad spend creció 8.4% en 2024 ($45.8B). Ventana operativa hispano-US estimada 6-12 meses antes de comoditización significativa. Después CPMs suben y márgenes bajan. (<code>08-mercado-latino-hispano-us.md</code>)</p></blockquote>
+<h3 id="riesgo-modelo-dependencia-de-plataforma">Riesgo modelo: Dependencia de plataforma<a class="anchor" href="#riesgo-modelo-dependencia-de-plataforma">#</a></h3>
+<blockquote><p>Si Meta cambia algoritmo/políticas (como hizo iOS 14, ATT), modelo entero puede colapsar. Sin canal alternativo (YouTube, TikTok), riesgo concentrado. Ya pasó con SEO affiliate (Authority Hacker, Affiliate Lab cerraron 2024-2025).</p></blockquote>
+<hr>
+<h2 id="5-skalers-pro-análisis-costo-beneficio">5. Skalers Pro · análisis costo-beneficio<a class="anchor" href="#5-skalers-pro-análisis-costo-beneficio">#</a></h2>
+<h3 id="lo-que-cuesta">Lo que cuesta<a class="anchor" href="#lo-que-cuesta">#</a></h3>
+<ul>
+<li><strong>Skalers Start:</strong> $47 (entry-level)</li>
+<li><strong>Skalers Pro:</strong> $497 (recomendado por playbook original)</li>
+<li><strong>Skalers Mastery:</strong> $2,197 (lo que probablemente se necesita para "el playbook completo")</li>
+<li><strong>Skalers Ads License:</strong> $12,000 (los 5 miembros visibles probablemente son el inner circle)</li>
+</ul>
+<h3 id="lo-que-no-sabemos-verificable">Lo que NO sabemos verificable<a class="anchor" href="#lo-que-no-sabemos-verificable">#</a></h3>
+<ul>
+<li>Si los reviews son auténticos o incentivados (Whop tiene "Review Reward")</li>
+<li>Calidad del contenido vs lo gratuito en YouTube/podcasts</li>
+<li>Si los miembros activos están ganando dinero o solo aprendiendo</li>
+<li>Refund rate del curso</li>
+</ul>
+<h3 id="lo-que-sí-sabemos">Lo que SÍ sabemos<a class="anchor" href="#lo-que-sí-sabemos">#</a></h3>
+<ul>
+<li>Pancho Val es un afiliado real (Diamond verificado)</li>
+<li>Comparte stack técnico que es coherente con la práctica actual</li>
+<li>Comunidad activa (318 paying members en Pro)</li>
+<li>Plataforma Whop tiene 7-day money-back guarantee</li>
+</ul>
+<h3 id="recomendación-específica">Recomendación específica<a class="anchor" href="#recomendación-específica">#</a></h3>
+<p><strong>Estrategia escalonada:</strong></p>
+<ol>
+<li><strong>Comprar Skalers Start ($47)</strong> como validation purchase</li>
+<li>Evaluar contenido en 7 días (window de Whop money-back)</li>
+<li>Si vale la pena → upgrade a Pro ($497)</li>
+<li>Si no → reembolso y construir conocimiento desde fuentes gratis (Affiliated Podcast, Stack That Money articles, foros)</li>
+<li><strong>NUNCA comprar Mastery ($2,197) ni Ads License ($12K) sin 6+ meses de resultados probados</strong></li>
+</ol>
+<p><strong>Total recomendado año 1: $47 (test) → eventual $497 (si valida).</strong></p>
+<p>NO empezar con $1,500 USD (que es lo que decía el playbook original).</p>
+<hr>
+<h2 id="6-comparativo-vs-alternativas">6. Comparativo vs alternativas<a class="anchor" href="#6-comparativo-vs-alternativas">#</a></h2>
+<h3 id="tabla-maestra">Tabla maestra<a class="anchor" href="#tabla-maestra">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Modelo</th>
+<th>Inversión</th>
+<th>Probabilidad éxito</th>
+<th>EV año 1</th>
+<th>Defensibilidad</th>
+<th>Skill match RCD</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Servicios freelance</strong></td>
+<td>$0</td>
+<td>90%</td>
+<td>+$135K</td>
+<td>Baja (tiempo/dinero)</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td><strong>Agencia OpenClaw escalada</strong></td>
+<td>$5K</td>
+<td>80%</td>
+<td>+$47K</td>
+<td>Alta</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td><strong>Curso/educación digital</strong></td>
+<td>$3K</td>
+<td>35%</td>
+<td>+$7.25K</td>
+<td>Alta</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td><strong>Affiliate ClickBank</strong></td>
+<td>$11K</td>
+<td>25%</td>
+<td>+$1.5K</td>
+<td>Baja</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>Newsletter monetizada</td>
+<td>$1K</td>
+<td>30%</td>
+<td>~$0</td>
+<td>Alta</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>POD/Dropshipping</td>
+<td>$5K</td>
+<td>10-20%</td>
+<td>EV negativo</td>
+<td>Baja</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>Trading</td>
+<td>Variable</td>
+<td>10-15%</td>
+<td>EV negativo</td>
+<td>Baja</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>FBA Amazon</td>
+<td>$10K+</td>
+<td>30%</td>
+<td>EV negativo año 1</td>
+<td>Media</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>DTC con marca propia</td>
+<td>$25K+</td>
+<td>25%</td>
+<td>EV negativo año 1</td>
+<td>Alta</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>Micro-SaaS</td>
+<td>$5K</td>
+<td>15%</td>
+<td>EV negativo año 1</td>
+<td>Alta</td>
+<td>Bajo (sin developer)</td>
+</tr>
+</tbody></table></div>
+<p>Fuente: <code>07-comparativos-financieros.md</code></p>
+<h3 id="por-qué-affiliate-ranking-4to">Por qué affiliate ranking 4to:<a class="anchor" href="#por-qué-affiliate-ranking-4to">#</a></h3>
+<ol>
+<li><strong>Probabilidad éxito real (25%)</strong> vs agencia (80%)</li>
+<li><strong>Costo de oportunidad alto</strong> ($180K que se dejan de facturar)</li>
+<li><strong>Skill match medio</strong> (Cris no tiene experiencia ClickBank, Dali no tiene experiencia HeyGen/Creatify a escala)</li>
+<li><strong>Defensibilidad baja</strong> (vendor cambia reglas, plataforma cambia algoritmo)</li>
+<li><strong>Ventana cerrándose</strong> (saturación 8.4%/año)</li>
+</ol>
+<h3 id="por-qué-agencia-openclaw-ranking-2do-después-de-freelance-puro">Por qué agencia OpenClaw ranking 2do (después de freelance puro):<a class="anchor" href="#por-qué-agencia-openclaw-ranking-2do-después-de-freelance-puro">#</a></h3>
+<ol>
+<li><strong>Modelo conocido</strong> (ya factura clientes)</li>
+<li><strong>Probabilidad alta</strong> (80% que escalado funcione)</li>
+<li><strong>Skill match perfecto</strong> (los 3 ya saben hacerlo)</li>
+<li><strong>Defensibilidad alta</strong> (relaciones cliente, brand, knowledge base)</li>
+<li><strong>EV año 1 +$47K</strong> vs +$1.5K affiliate</li>
+</ol>
+<hr>
+<h2 id="7-decisiones-que-el-equipo-debe-tomar">7. Decisiones que el equipo debe tomar<a class="anchor" href="#7-decisiones-que-el-equipo-debe-tomar">#</a></h2>
+<p>Antes del primer sync (lunes próximo), cada miembro debe tener postura sobre:</p>
+<h3 id="decisión-1-crítica-cuál-escenario">Decisión #1 (CRÍTICA): ¿Cuál escenario?<a class="anchor" href="#decisión-1-crítica-cuál-escenario">#</a></h3>
+<ul>
+<li><strong>Escenario A (FULL AFFILIATE $11K):</strong> <strong>NO RECOMENDADO</strong> por la data</li>
+<li><strong>Escenario B (PORTFOLIO 80/15/5):</strong> <strong>RECOMENDADO</strong></li>
+<li><strong>Escenario C (NO PROCEDER):</strong> <strong>VÁLIDO</strong> si el equipo está saturado</li>
+</ul>
+<h3 id="decisión-2-si-escenario-b-quién-lidera-el-test-affiliate">Decisión #2: Si Escenario B, ¿quién lidera el test affiliate?<a class="anchor" href="#decisión-2-si-escenario-b-quién-lidera-el-test-affiliate">#</a></h3>
+<ul>
+<li>Romi: skill estrategia + copy ✓ pero distrae de gestión OpenClaw</li>
+<li>Cris: skill técnico + ads ✓ pero distrae de delivery clientes</li>
+<li>Dali: skill creativos ✓ pero menos experiencia en estrategia paid</li>
+</ul>
+<p><strong>Recomendación:</strong> Cris part-time (20% de su tiempo), porque:</p>
+<ul>
+<li>El cuello de botella técnico es lo más difícil de delegar</li>
+<li>El test es 90% técnico (CAPI, pixels, landing, scaling rules)</li>
+<li>Romi y Dali siguen en OpenClaw operación</li>
+</ul>
+<h3 id="decisión-3-skalers-comprar-y-cuándo">Decisión #3: Skalers — ¿comprar y cuándo?<a class="anchor" href="#decisión-3-skalers-comprar-y-cuándo">#</a></h3>
+<ul>
+<li><strong>Recomendado:</strong> Start ($47) en semana 1 del test</li>
+<li>Pro ($497) solo si Start valida valor</li>
+<li><strong>NO</strong> comprar Mastery ni Ads License año 1</li>
+</ul>
+<h3 id="decisión-4-spa-constitución-hacerla-ahora-o-esperar">Decisión #4: SpA constitución — ¿hacerla AHORA o esperar?<a class="anchor" href="#decisión-4-spa-constitución-hacerla-ahora-o-esperar">#</a></h3>
+<p><strong>Si Escenario B:</strong> <strong>NO constituir SpA aún</strong>. Operar el test de $2.5K como persona natural (Cris) usando boletas. Ahorra $1,000+ USD en setup y contador en los primeros 90 días.</p>
+<p><strong>Solo constituir SpA si el test pasa los 3 stops</strong> y se decide reinversión seria.</p>
+<h3 id="decisión-5-llc-usa-cuándo">Decisión #5: LLC USA — ¿cuándo?<a class="anchor" href="#decisión-5-llc-usa-cuándo">#</a></h3>
+<p><strong>Solo después de validar test affiliate.</strong> Si valida, abrir LLC USA mes 4 con presupuesto ya validado. Antes es prematuro.</p>
+<h3 id="decisión-6-qué-hacer-con-todo-el-stack-ya-construido-playbook-sops-skills">Decisión #6: ¿Qué hacer con todo el stack ya construido (playbook, SOPs, skills)?<a class="anchor" href="#decisión-6-qué-hacer-con-todo-el-stack-ya-construido-playbook-sops-skills">#</a></h3>
+<p><strong>Mantener.</strong> El conocimiento construido es valioso:</p>
+<ul>
+<li>Las SOPs aplican a cualquier proyecto digital, no solo affiliate</li>
+<li>Los skills (compliance nutra, cross-border, funnel structure) son knowledge base permanente</li>
+<li>El playbook se puede reusar si se decide reactivar affiliate más adelante</li>
+</ul>
+<h3 id="decisión-7-cuándo-revisitar-la-decisión">Decisión #7: ¿Cuándo revisitar la decisión?<a class="anchor" href="#decisión-7-cuándo-revisitar-la-decisión">#</a></h3>
+<ul>
+<li>Si Escenario B: <strong>revisar al día 90 del test</strong> con stop-loss decisivo</li>
+<li>Si Escenario C: <strong>revisar a los 6 meses</strong> si el affiliate sigue siendo opción válida</li>
+</ul>
+<hr>
+<h2 id="apéndice-referencias-a-investigaciones-detalladas">Apéndice: Referencias a investigaciones detalladas<a class="anchor" href="#apéndice-referencias-a-investigaciones-detalladas">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Documento</th>
+<th>Foco</th>
+<th>Hallazgo más importante</th>
+</tr></thead><tbody>
+<tr>
+<td><code>01-clickbank-deep-dive.md</code></td>
+<td>ClickBank platform oficial</td>
+<td>Chile no en lista direct deposit oficial</td>
+</tr>
+<tr>
+<td><code>02-viabilidad-modelo.md</code></td>
+<td>Tasa de éxito real</td>
+<td>41% afiliados < $1K/mes, 23% $0</td>
+</tr>
+<tr>
+<td><code>03-legal-fiscal-cross-border.md</code></td>
+<td>Legal Chile-USA</td>
+<td>Wise sin tarjeta Chile, LLC USA + Mercury obligatorio</td>
+</tr>
+<tr>
+<td><code>04-casos-competencia.md</code></td>
+<td>Casos verificables</td>
+<td>Tier 11 único auditable. Pancho Val Diamond verificado</td>
+</tr>
+<tr>
+<td><code>05-foros-y-comunidades.md</code></td>
+<td>Real talk comunidades</td>
+<td>Authority Hacker cerró cursos, Charles Ngo dice "no entrar"</td>
+</tr>
+<tr>
+<td><code>06-pancho-val-deep-dive.md</code></td>
+<td>Verificación Pancho Val</td>
+<td>Real pero con red flags. Vive más del curso que affiliate</td>
+</tr>
+<tr>
+<td><code>07-comparativos-financieros.md</code></td>
+<td>Costo de oportunidad</td>
+<td>Agencia EV $47K vs Affiliate EV $1.5K</td>
+</tr>
+<tr>
+<td><code>08-mercado-latino-hispano-us.md</code></td>
+<td>Hispano-US sweet spot</td>
+<td>Real pero sobrevendido. 16-26M, no 68M</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="conclusión">Conclusión<a class="anchor" href="#conclusión">#</a></h2>
+<p><strong>Esta investigación NO dice "no hagan affiliate marketing".</strong></p>
+<p>Dice: "<strong>Con los datos disponibles, la apuesta de $11K USD a 12 meses 100% en affiliate tiene mala risk-adjusted return. Hay 2-3 alternativas con mejor expected value para el mismo equipo y tiempo.</strong>"</p>
+<p>Si después de leer todo esto el equipo aún quiere hacer affiliate, la forma sensata es:</p>
+<ol>
+<li><strong>Test controlado de 90 días con $2.5K máximo</strong> (Escenario B)</li>
+<li><strong>Stop-loss claro</strong> (3 hitos verificables)</li>
+<li><strong>No abandonar lo que ya funciona</strong> (OpenClaw como agencia)</li>
+<li><strong>Si valida → escalar con caja generada por agencia, no con capital comprometido al inicio</strong></li>
+</ol>
+<p>El playbook + SOPs + skills construidos siguen siendo activos valiosos para cualquier camino que tomen.</p>
+<hr>
+<p><em>Documento maestro v1.0 · Sintetiza 8 investigaciones en <code>research-fuentes/</code>. Pendiente decisión equipo.</em></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: VIABILIDAD-MAESTRO.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

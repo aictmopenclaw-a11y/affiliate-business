@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>08 — Mercado latino e hispano-US: validación data-driven de la hipótesis "sweet spot" · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">00-viabilidad / research-fuentes · 28 min · 5,599 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#tldr-veredicto-data-driven" class="">TL;DR — Veredicto data-driven</a></li><li><a href="#1-el-mercado-hispano-us-datos-verificables-2024-2025" class="">1. El mercado hispano-US — datos verificables 2024-2025</a></li><li><a href="#11-tamaño-poblacional" class="h3">1.1 Tamaño poblacional</a></li><li><a href="#12-subgrupos-no-es-un-mercado-homogéneo" class="h3">1.2 Subgrupos — NO es un mercado homogéneo</a></li><li><a href="#13-poder-adquisitivo" class="h3">1.3 Poder adquisitivo</a></li><li><a href="#14-preferencia-de-idioma-el-dato-que-rompe-la-hipótesis-del-playbook" class="h3">1.4 Preferencia de idioma — el dato que ROMPE la hipótesis del playbook</a></li><li><a href="#15-comportamiento-online" class="h3">1.5 Comportamiento online</a></li><li><a href="#16-penetración-de-plataformas" class="h3">1.6 Penetración de plataformas</a></li><li><a href="#17-top-categorías-de-consumo-hispano-us" class="h3">1.7 Top categorías de consumo hispano-US</a></li><li><a href="#2-afiliados-latinos-verificables-censo-crítico" class="">2. Afiliados latinos verificables — censo crítico</a></li><li><a href="#21-tabla-afiliados-latinos-top-hablados-en-español-2024-2026" class="h3">2.1 Tabla — afiliados latinos top hablados en español (2024-2026)</a></li><li><a href="#22-comunidades-activas-de-afiliados-latinos-en-español" class="h3">2.2 Comunidades activas de afiliados latinos en español</a></li><li><a href="#3-saturación-real-del-nicho-hispano-us-nutra" class="">3. Saturación real del nicho hispano-US nutra</a></li><li><a href="#31-estado-del-mercado-2024-2026" class="h3">3.1 Estado del mercado 2024-2026</a></li><li><a href="#32-cpms-hispano-us-vs-english-us" class="h3">3.2 ¿CPMs hispano-US vs English-US?</a></li><li><a href="#33-meta-ads-library-censo-de-competencia" class="h3">3.3 Meta Ads Library — censo de competencia</a></li><li><a href="#4-vendors-top-en-español-dentro-de-clickbank" class="">4. Vendors top en español dentro de ClickBank</a></li><li><a href="#41-censo-de-productos-español" class="h3">4.1 Censo de productos español</a></li><li><a href="#42-vendors-top-hablados-en-español-mencionados-en-literatura-clickbankblogs-español-2023-2025" class="h3">4.2 Vendors top hablados en español (mencionados en literatura ClickBank/blogs español 2023-2025)</a></li><li><a href="#43-implicancia-operativa" class="h3">4.3 Implicancia operativa</a></li><li><a href="#5-cpas-reales-en-hispano-us-para-nutra" class="">5. CPAs reales en hispano-US para nutra</a></li><li><a href="#6-cultural-específicos-hispano-us" class="">6. Cultural específicos hispano-US</a></li><li><a href="#61-hooks-que-funcionan" class="h3">6.1 Hooks que funcionan</a></li><li><a href="#62-hooksclaims-a-evitar" class="h3">6.2 Hooks/claims a evitar</a></li><li><a href="#63-trust-signals-diferenciados" class="h3">6.3 Trust signals diferenciados</a></li><li><a href="#64-pago" class="h3">6.4 Pago</a></li><li><a href="#7-comunidades-de-afiliados-latinos-en-español-actividad-real" class="">7. Comunidades de afiliados latinos en español — actividad real</a></li><li><a href="#8-skalers-vs-alternativas-en-español" class="">8. Skalers vs alternativas en español</a></li><li><a href="#9-casos-de-fracaso-latinos-públicos" class="">9. Casos de fracaso latinos públicos</a></li><li><a href="#91-lo-que-se-encontró" class="h3">9.1 Lo que se encontró</a></li><li><a href="#92-lo-más-común-que-falla-para-latinos-específicamente" class="h3">9.2 Lo más común que falla para latinos específicamente</a></li><li><a href="#93-diferencias-culturales-que-hacen-más-difícil-para-latinos-vs-anglos" class="h3">9.3 Diferencias culturales que hacen más difícil para latinos vs anglos</a></li><li><a href="#10-ventajas-y-desventajas-únicas-del-equipo-latino-chileno" class="">10. Ventajas y desventajas únicas del equipo latino chileno</a></li><li><a href="#101-ventajas" class="h3">10.1 Ventajas</a></li><li><a href="#102-desventajas" class="h3">10.2 Desventajas</a></li><li><a href="#103-stack-mínimo-recomendado-para-mitigar-desventajas" class="h3">10.3 Stack mínimo recomendado para mitigar desventajas</a></li><li><a href="#11-veredicto-data-driven-sobre-la-hipótesis-hispano-us-es-sweet-spot" class="">11. Veredicto data-driven sobre la hipótesis "hispano-US es sweet spot"</a></li><li><a href="#111-cierres-por-pregunta-crítica" class="h3">11.1 Cierres por pregunta crítica</a></li><li><a href="#112-recomendaciones-finales-para-playbook-openclaw-affiliate" class="h3">11.2 Recomendaciones finales para playbook OpenClaw affiliate</a></li><li><a href="#113-cierre-honesto" class="h3">11.3 Cierre honesto</a></li><li><a href="#fuentes-citadas" class="">Fuentes citadas</a></li><li><a href="#mercado-y-demografía-hispano-us" class="h3">Mercado y demografía hispano-US</a></li><li><a href="#poder-adquisitivo-y-gdp" class="h3">Poder adquisitivo y GDP</a></li><li><a href="#idioma-y-consumo-de-medios" class="h3">Idioma y consumo de medios</a></li><li><a href="#plataformas-y-penetración" class="h3">Plataformas y penetración</a></li><li><a href="#cpms-costos-publicitarios" class="h3">CPMs / costos publicitarios</a></li><li><a href="#cultura-trust-y-healthcare-hispano" class="h3">Cultura, trust y healthcare hispano</a></li><li><a href="#afiliados-latinos-verificables" class="h3">Afiliados latinos verificables</a></li><li><a href="#clickbank-y-comunidades" class="h3">ClickBank y comunidades</a></li><li><a href="#skalers-pancho-val" class="h3">Skalers / Pancho Val</a></li><li><a href="#skool-y-comunidades-español" class="h3">Skool y comunidades español</a></li><li><a href="#multicultural-ad-spend" class="h3">Multicultural ad spend</a></li><li><a href="#banking-y-pagos-latam" class="h3">Banking y pagos LATAM</a></li><li><a href="#conferencias-affiliate" class="h3">Conferencias affiliate</a></li><li><a href="#ads-policy-y-meta-ads-library" class="h3">Ads policy y Meta Ads Library</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>08-mercado-latino-hispano-us.md</span><span>5,599 palabras</span><span>~28 min</span></div>
+<h1 id="08-mercado-latino-e-hispano-us-validación-data-driven-de-la-hipótesis-sweet-spot">08 — Mercado latino e hispano-US: validación data-driven de la hipótesis "sweet spot"</h1>
+<p><strong>Fecha:</strong> 2026-04-28 <strong>Autor:</strong> Investigación OpenClaw para Cris (estrategia affiliate-business) <strong>Propósito:</strong> Validar o refutar con datos reales y casos verificables si el mercado hispano-US es realmente el "sweet spot" que asume el playbook actual del proyecto affiliate-business. <strong>Mercado evaluado:</strong> Hispano-US (US-based Spanish/bilingual speakers) como target de afiliados latinoamericanos.</p>
+<hr>
+<h2 id="tldr-veredicto-data-driven">TL;DR — Veredicto data-driven<a class="anchor" href="#tldr-veredicto-data-driven">#</a></h2>
+<p><strong>La hipótesis "hispano-US es sweet spot" es PARCIALMENTE CIERTA pero está sobrevendida en la mayoría de cursos en español.</strong> Los datos reales muestran:</p>
+<ol>
+<li><strong>Tamaño de mercado: REAL.</strong> 68 millones de hispanos US, USD 2.8 trillones de poder de compra 2025, USD 4.1T de Latino GDP — quinto del mundo si fuera país (CNBC/UCLA, 2024).</li>
+<li><strong>Preferencia de idioma: SOBREVENDIDA.</strong> 51% de hispanos US prefieren consumir contenido en inglés, solo 24% prefieren español puro. Entre US-born hispanos sube a 81% inglés (Pew Research, 2024). El nicho real "Spanish-only US-based" es mucho más chico de lo que el playbook implica.</li>
+<li><strong>CPMs más bajos: PARCIALMENTE VERIFICABLE.</strong> Los CPCs en español tienden a ser menores en mercados donde Spanish está sub-utilizado, pero NO existe data pública sólida de Meta separando CPMs por idioma dentro de US para 2024-2026. El claim "hispano-US es 30-50% más barato" es industria fluff sin fuente verificable.</li>
+<li><strong>Saturación: CRECIENDO RÁPIDO.</strong> Multicultural ad spend creció 8.4% en 2024 ($45.8B), liderado por Hispanic. La ventana "menos competencia" se está cerrando.</li>
+<li><strong>Casos verificables de afiliados latinos full-time: ESCASOS.</strong> Solo 4-5 nombres con trayectoria pública sostenida (Pancho Val, Felipe Vergara, Luis Eduardo Barón, Brian Pfeiffer, Robby Blanchard). Casi todos viven principalmente del curso, no del afiliado puro.</li>
+</ol>
+<p><strong>Recomendación operativa:</strong> Hispano-US sigue siendo más viable que English-US para un equipo chileno entrante por barrera de entrada (idioma + costos), pero:</p>
+<ul>
+<li>El verdadero sweet spot es <strong>bilingüe US born 2nd gen + 1st gen Spanish-dominant Mexican-American</strong> (subgrupo de ~40M, no los 68M completos).</li>
+<li>La ventana competitiva es 6-12 meses antes de que LATAM-based affiliates con capital empiecen a saturar.</li>
+<li>Equipo chileno tiene ventajas operativas (costos, idioma) pero desventajas de banking (USA bank, fuera de tarjeta Wise restringida en US) y conferencias (distancia a Affiliate World Dubai/Bangkok).</li>
+</ul>
+<hr>
+<h2 id="1-el-mercado-hispano-us-datos-verificables-2024-2025">1. El mercado hispano-US — datos verificables 2024-2025<a class="anchor" href="#1-el-mercado-hispano-us-datos-verificables-2024-2025">#</a></h2>
+<h3 id="11-tamaño-poblacional">1.1 Tamaño poblacional<a class="anchor" href="#11-tamaño-poblacional">#</a></h3>
+<ul>
+<li><strong>68 millones</strong> de hispanos en US a 2024, <strong>20% de la población total</strong> (Pew Research, octubre 2025).</li>
+<li>Casi se duplicó desde 2000 (35.3M → 68M), responsables de <strong>>50% del crecimiento poblacional total</strong> US 2000-2024.</li>
+<li>Crecimiento anual ~2 millones en 2023-2024, mayor en historia (US Census Bureau, 2024).</li>
+<li>32% de bebés nacidos en US en 2024 tienen al menos un padre hispano (CDC, citado por Pew).</li>
+</ul>
+<p><strong>Implicancia para affiliate:</strong> El TAM existe y crece. Pero:</p>
+<h3 id="12-subgrupos-no-es-un-mercado-homogéneo">1.2 Subgrupos — NO es un mercado homogéneo<a class="anchor" href="#12-subgrupos-no-es-un-mercado-homogéneo">#</a></h3>
+<p>83% de la población hispana US pertenece a 5 subgrupos (OpenStax, Principles of Marketing, 2024):</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Subgrupo</th>
+<th>% del total hispano US</th>
+<th>Características distintivas</th>
+</tr></thead><tbody>
+<tr>
+<td>Mexicano-American</td>
+<td>62.2% (~40M)</td>
+<td>Concentración CA/TX/AZ. Industria agrícola/servicios. Mayor share Spanish-dominant.</td>
+</tr>
+<tr>
+<td>Puertorriqueño</td>
+<td>9.5%</td>
+<td>Concentración FL/NY/PA. Ciudadanos US por nacimiento. Bilingüe alto.</td>
+</tr>
+<tr>
+<td>Cubano-American</td>
+<td>3.9%</td>
+<td>Concentración Miami/FL. Mejor empleabilidad y poder adquisitivo medio. Anti-comunismo cultural.</td>
+</tr>
+<tr>
+<td>Salvadoreño</td>
+<td>3.9%</td>
+<td>Concentración LA/DC. 1st gen alta.</td>
+</tr>
+<tr>
+<td>Dominicano</td>
+<td>3.5%</td>
+<td>Concentración NY/NJ/MA. Cultural identity fuerte.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Puntos clave:</strong></p>
+<ul>
+<li>Cubanos y sudamericanos tienen mejores empleabilidad que centroamericanos, mexicanos y puertorriqueños (OpenStax, 2024).</li>
+<li>Hispanos en Miami NO consumen igual que hispanos en LA o Chicago (Kadence, 2024).</li>
+<li>"Treating Hispanic consumers as a single homogeneous audience leads to costly missteps" (The Translation Team, 2024).</li>
+</ul>
+<p><strong>Implicancia para affiliate:</strong> El playbook que asume "hispano-US = un mercado" es operativamente erróneo. Para nutra/finanzas/relationships, segmentar por subgrupo importa. El <strong>sweet spot real es Mexican-American + Caribbean Spanish (Puerto Rican/Cuban/Dominican)</strong> porque combinados son ~80% del TAM.</p>
+<h3 id="13-poder-adquisitivo">1.3 Poder adquisitivo<a class="anchor" href="#13-poder-adquisitivo">#</a></h3>
+<ul>
+<li><strong>USD 2.7 trillones</strong> de Hispanic buying power 2023, proyectado <strong>USD 2.8T en 2025</strong> (UnidosUS / Glint Advertising, 2024).</li>
+<li><strong>USD 4.1 trillones</strong> de Latino GDP 2023 — <strong>5ª economía mundial</strong> si fuera país, mayor que UK, India, Francia (UCLA Latino GDP Report via CNBC, 2024).</li>
+<li>30.6% del crecimiento del GDP nacional desde 2019 viene de latinos pese a ser 19.5% de población (UnidosUS, 2024).</li>
+<li>Hispanic consumer expenditure US 2018-2024 creciendo (~6% CAGR per Statista, 2024).</li>
+</ul>
+<p><strong>Implicancia:</strong> El dinero existe. Pero el ARPU per cápita está concentrado en US-born 2nd-3rd gen, que prefieren contenido en inglés.</p>
+<h3 id="14-preferencia-de-idioma-el-dato-que-rompe-la-hipótesis-del-playbook">1.4 Preferencia de idioma — el dato que ROMPE la hipótesis del playbook<a class="anchor" href="#14-preferencia-de-idioma-el-dato-que-rompe-la-hipótesis-del-playbook">#</a></h3>
+<p>Pew Research, marzo 2024 — "How Hispanic Americans Get Their News":</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Métrica</th>
+<th>Valor</th>
+</tr></thead><tbody>
+<tr>
+<td>Hispanos US que consumen news mostly in English</td>
+<td><strong>54%</strong></td>
+</tr>
+<tr>
+<td>Hispanos US que consumen news mostly in Spanish</td>
+<td><strong>23%</strong></td>
+</tr>
+<tr>
+<td>Bilingual (both equally)</td>
+<td><strong>23%</strong></td>
+</tr>
+<tr>
+<td>Hispanos US que <strong>prefieren</strong> inglés</td>
+<td><strong>51%</strong></td>
+</tr>
+<tr>
+<td>Hispanos US que <strong>prefieren</strong> español</td>
+<td><strong>24%</strong></td>
+</tr>
+<tr>
+<td>US-born hispanos que consumen mainly English</td>
+<td><strong>81%</strong></td>
+</tr>
+<tr>
+<td>Foreign-born hispanos que consumen mainly Spanish</td>
+<td><strong>41%</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>Lectura crítica:</strong></p>
+<ul>
+<li>El "hispano-US Spanish-dominant" es solo <strong>~24% de los 68M = ~16 millones</strong>, no los 68M.</li>
+<li>Spanish-dominant skewa fuerte a foreign-born (1st gen), no a US-born.</li>
+<li>Bilingual viewing está creciendo 26% YoY 2020-2023 entre Gen Z hispanos (HispanicAd, 2024) — pero "bilingual" significa que también compran en inglés.</li>
+</ul>
+<p><strong>Implicancia para affiliate:</strong> Si el playbook asume "16M de Spanish-dominant US-based" como TAM real, sigue siendo enorme y viable. Si asume "68M hispanos = 68M Spanish ad targets", está sobreestimando el TAM por <strong>4x</strong>.</p>
+<h3 id="15-comportamiento-online">1.5 Comportamiento online<a class="anchor" href="#15-comportamiento-online">#</a></h3>
+<ul>
+<li><strong>87% de hispanos US</strong> acceden noticias desde digital al menos a veces (Pew, 2024).</li>
+<li><strong>65% prefieren digital</strong> sobre TV/radio/print.</li>
+<li><strong>85% usan smartphone</strong> como dispositivo primario para internet (BOLD Hispanic Marketing, 2024).</li>
+<li><strong>78% de hogares latine</strong> usan streaming subscription, vs 63% general population (Customerland, 2024).</li>
+<li>68% de Spanish-dominant y 66% de bilingual consideran "Spanish content availability" crítico al elegir TV service.</li>
+</ul>
+<h3 id="16-penetración-de-plataformas">1.6 Penetración de plataformas<a class="anchor" href="#16-penetración-de-plataformas">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Plataforma</th>
+<th>Penetración hispano-US adultos</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Facebook</strong></td>
+<td>78% activos / 72% reach (BOLD/Nativa, 2024)</td>
+</tr>
+<tr>
+<td><strong>Instagram</strong></td>
+<td>52% (BOLD, 2024)</td>
+</tr>
+<tr>
+<td><strong>TikTok</strong> (18-29 años)</td>
+<td>48% (BOLD, 2024)</td>
+</tr>
+<tr>
+<td><strong>Twitter/X</strong></td>
+<td>23%</td>
+</tr>
+<tr>
+<td><strong>YouTube</strong></td>
+<td>~85% (consistente con US general)</td>
+</tr>
+</tbody></table></div>
+<p><strong>Implicancia para affiliate:</strong> Facebook sigue siendo el rey hispano-US. Compatible con la estrategia clásica de Robby Blanchard / Commission Hero (FB Ads → ClickBank Spanish nutra).</p>
+<h3 id="17-top-categorías-de-consumo-hispano-us">1.7 Top categorías de consumo hispano-US<a class="anchor" href="#17-top-categorías-de-consumo-hispano-us">#</a></h3>
+<p>Healthcare es categoría con $280B blind spot (210 Digital, 2024). Family-driven decisions, female head of household decide health (POC Marketing, 2024). Trust en pharma alta. Testimonios family/community > credenciales formales.</p>
+<p><strong>Categorías hot para affiliate hispano-US (cruce de demand alto + comisiones ClickBank altas):</strong></p>
+<ol>
+<li>Salud / nutra (diabetes, weight loss, dental, men's health)</li>
+<li>Finanzas personales / debt relief</li>
+<li>Relationships / family</li>
+<li>Spirituality / manifestation</li>
+<li>Self-help / business</li>
+</ol>
+<hr>
+<h2 id="2-afiliados-latinos-verificables-censo-crítico">2. Afiliados latinos verificables — censo crítico<a class="anchor" href="#2-afiliados-latinos-verificables-censo-crítico">#</a></h2>
+<p>Una de las preguntas más importantes: <strong>¿realmente hay latinos viviendo del affiliate full-time, o todos viven del curso?</strong></p>
+<h3 id="21-tabla-afiliados-latinos-top-hablados-en-español-2024-2026">2.1 Tabla — afiliados latinos top hablados en español (2024-2026)<a class="anchor" href="#21-tabla-afiliados-latinos-top-hablados-en-español-2024-2026">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Nombre</th>
+<th>Origen</th>
+<th>¿Verificable affiliate o vive del curso?</th>
+<th>Trayectoria pública</th>
+<th>Lo que enseña vs lo que practica</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Francisco Valenzuela ("Pancho Val")</strong></td>
+<td>Chile</td>
+<td>Mixto. Datos públicos: invertido $8M USD en ads a 24 años (entrevista Haciendola, 2023). Skalers community 4.89/156 reviews en Whop (2026). Programa: $47-$12,000. Genera 7 cifras anuales según self-claim.</td>
+<td>Skalers comunidad media buying español + e-com/affiliate. Entrevista verificada en podcast Haciendola con Francisco Albarello.</td>
+<td><strong>Practica e-com + media buying</strong>. Enseña affiliate como módulo. Income mix probablemente 60-70% curso, 30-40% media buying agencia.</td>
+</tr>
+<tr>
+<td><strong>Felipe Vergara</strong></td>
+<td>Colombia</td>
+<td>Mixto-fuerte. Curso "Trafficker Pro" 8,700 estudiantes, $45M+ administrados en ads (claim self), comunidad 3,000+ activos. Cliente con $4M en un mes.</td>
+<td>Trafficker digital desde ~2017. Reconocido como "mayor referente Meta Ads en español". Múltiples cursos, podcast activo.</td>
+<td><strong>Practica trafficker (agencia)</strong>, no afiliado puro. Enseña Meta Ads + módulo affiliate. Income mix probablemente 80% curso/membresía + 20% client work.</td>
+</tr>
+<tr>
+<td><strong>Luis Eduardo Barón</strong></td>
+<td>Colombia</td>
+<td>Verificable como <strong>heavy hitter ClickBank LATAM</strong>. Entrevistado oficialmente por ClickBank (blog 2018+). Director Instituto de Negocios.</td>
+<td>10+ años. Ha entrenado "cientos" de emprendedores en ClickBank affiliate. Speaker invitado eventos US.</td>
+<td><strong>Practica info-products propios + affiliate</strong>. Mix income: cursos propios > affiliate. Pero verificable que sí ha generado ClickBank revenue serio.</td>
+</tr>
+<tr>
+<td><strong>Brian Pfeiffer</strong></td>
+<td>USA (no latino, opera en inglés)</td>
+<td><strong>Double Platinum ClickBank Millionaire</strong> verificado (entrevista YouTube oficial).</td>
+<td>"Marketing Meathead". Curso DES (Digital Entrepreneur System). Reportó $3K-$6K/día profit ~12 meses 2019-2020.</td>
+<td>Solo opera en inglés. <strong>NO sirve como referencia para hispano-US</strong>. Confusión común en cursos.</td>
+</tr>
+<tr>
+<td><strong>Robby Blanchard</strong></td>
+<td>USA</td>
+<td><strong>#1 ClickBank affiliate 2019</strong> verificado oficialmente por ClickBank. Commission Hero curso.</td>
+<td>Background CrossFit gym → top ClickBank affiliate. Project Platinum $997.</td>
+<td>Solo opera en inglés. <strong>NO es latino</strong> pese a ser citado en cursos español.</td>
+</tr>
+<tr>
+<td><strong>Eulises Avila</strong></td>
+<td>LATAM (origen no confirmado)</td>
+<td><strong>No verificable como heavy hitter</strong>. Blog activo desde 2015+. Contenido educacional ClickBank.</td>
+<td>Internet marketer con 10+ años escribiendo. Sin números públicos de ingresos.</td>
+<td>Practica info-product educacional + affiliate. Probablemente mid-tier.</td>
+</tr>
+<tr>
+<td><strong>Vergel Evans</strong></td>
+<td>NO ENCONTRADO</td>
+<td><strong>No hay registro público verificable</strong> bajo ese nombre como affiliate hispano-US relevante. Cris debe verificar fuente original.</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Adriana Romero</strong></td>
+<td>NO ENCONTRADO</td>
+<td><strong>No hay registro público verificable</strong> bajo ese nombre como affiliate hispana relevante en ClickBank.</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<p><strong>Conclusión clave:</strong> El ecosistema de afiliados latinos top <strong>vivos y verificables hoy</strong> se reduce a ~3-5 nombres. El resto son influencers de nicho o gurús con verificación ambigua. <strong>Esto valida que el espacio sigue infrasaturado de competencia REAL</strong> — pero también significa que no hay modelo a copiar de un latino full-time affiliate sin componente de curso.</p>
+<h3 id="22-comunidades-activas-de-afiliados-latinos-en-español">2.2 Comunidades activas de afiliados latinos en español<a class="anchor" href="#22-comunidades-activas-de-afiliados-latinos-en-español">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Comunidad</th>
+<th>Plataforma</th>
+<th>Idioma</th>
+<th>Actividad real</th>
+<th>Costo</th>
+<th>Notas</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Skalers (Pancho Val)</strong></td>
+<td>Whop + Discord/Telegram interna</td>
+<td>Español</td>
+<td>Alta — 4.89/156 reviews, posts diarios reportados</td>
+<td>$47-$12,000 según tier</td>
+<td>La más establecida en habla hispana para media buying/affiliate.</td>
+</tr>
+<tr>
+<td><strong>Trafficker Pro (Felipe Vergara)</strong></td>
+<td>Plataforma propia + comunidad</td>
+<td>Español</td>
+<td>Alta — 3,000+ activos según self-claim</td>
+<td>~$497-$2,000+</td>
+<td>Más enfocada agencia/trafficker que affiliate puro.</td>
+</tr>
+<tr>
+<td><strong>Instituto de Negocios (Luis E. Barón)</strong></td>
+<td>Plataforma propia</td>
+<td>Español</td>
+<td>Media — más curso que comunidad live</td>
+<td>Variable</td>
+<td>Más educacional que peer-to-peer.</td>
+</tr>
+<tr>
+<td><strong>Afiliados Skool ESP</strong></td>
+<td>Skool</td>
+<td>Español</td>
+<td>Baja-media — comunidad emergente, posts irregulares</td>
+<td>Gratis-$X</td>
+<td>Skool hispano "está empezando" según data 2025.</td>
+</tr>
+<tr>
+<td><strong>Comunidad Aprendamos Marketing (Skool)</strong></td>
+<td>Skool</td>
+<td>Español</td>
+<td>Media</td>
+<td>Variable</td>
+<td>Foco general marketing, módulo affiliate.</td>
+</tr>
+<tr>
+<td><strong>Lideres Skool ESP</strong></td>
+<td>Skool</td>
+<td>Español</td>
+<td>Media</td>
+<td>Variable</td>
+<td>Más sobre construir comunidad Skool que affiliate.</td>
+</tr>
+<tr>
+<td><strong>AffLIFT</strong></td>
+<td>Plataforma propia</td>
+<td>Inglés (con presencia latina)</td>
+<td>Alta</td>
+<td>$20/mes</td>
+<td>NO en español pero muchos latinos activos en threads. Más serio que cualquier comunidad española.</td>
+</tr>
+<tr>
+<td><strong>STM Forum (Stack That Money)</strong></td>
+<td>Plataforma propia</td>
+<td>Inglés</td>
+<td>Alta — referencia mundial</td>
+<td>$99/mes</td>
+<td>Standard mundial. Hay latinos pero no segmentados.</td>
+</tr>
+<tr>
+<td><strong>Discord/Telegram públicos LATAM affiliate</strong></td>
+<td>Discord/Telegram</td>
+<td>Español</td>
+<td><strong>Mayoritariamente muertas</strong></td>
+<td>Gratis</td>
+<td>Búsquedas devuelven directorios genéricos LATAM no específicos affiliate. <strong>Red flag de saturación SIN comunidades premium establecidas.</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>Hallazgo crítico:</strong> La capa premium de comunidades affiliate hispanas se reduce a <strong>2-3 opciones</strong> (Skalers + Trafficker Pro + Bencorde si existe). Comparado con inglés (STM, AffLIFT, AffiliateFix, iAmAffiliate, AWA), hay 1/5 de la oferta.</p>
+<hr>
+<h2 id="3-saturación-real-del-nicho-hispano-us-nutra">3. Saturación real del nicho hispano-US nutra<a class="anchor" href="#3-saturación-real-del-nicho-hispano-us-nutra">#</a></h2>
+<h3 id="31-estado-del-mercado-2024-2026">3.1 Estado del mercado 2024-2026<a class="anchor" href="#31-estado-del-mercado-2024-2026">#</a></h3>
+<p>Datos verificables:</p>
+<ul>
+<li><strong>Multicultural ad spend US creció 8.4% en 2024 a $45.8B</strong> (Inside Radio / Marketing Brew citado, 2024).</li>
+<li>Hispanic lidera ese crecimiento.</li>
+<li>Meta Ads CPM US average: <strong>$20.48</strong> (Statista, 2024) — el más alto del mundo.</li>
+<li>Meta Ads CPM US Q4 2025: rango $11-28 según vertical (Affect Group, Vaizle, 2025).</li>
+</ul>
+<h3 id="32-cpms-hispano-us-vs-english-us">3.2 ¿CPMs hispano-US vs English-US?<a class="anchor" href="#32-cpms-hispano-us-vs-english-us">#</a></h3>
+<p><strong>Aquí está el problema:</strong> No existe data pública de Meta que separe CPMs por idioma de creative dentro de US.</p>
+<p>Lo que sí se puede afirmar (con fuente):</p>
+<ul>
+<li><strong>MotionPoint (2024):</strong> "Spanish-language CPCs are typically lower than English in many markets due to lower advertiser saturation."</li>
+<li><strong>Hispanic Market Advisors / Aronson Ads (2024):</strong> "U.S. Hispanic targeting offers less crowded keyword spaces, especially in CA/TX/FL."</li>
+<li><strong>Nativa, BOLD Hispanic Marketing (2024):</strong> Spanish ads targeting US-Hispanic audiences "achieve greater reach at lower cost."</li>
+</ul>
+<p>Lo que <strong>NO</strong> se puede afirmar con data:</p>
+<ul>
+<li>"Hispanic CPMs son 30-50% más bajos" — claim común en cursos en español, <strong>sin fuente verificable</strong>.</li>
+<li>"Hay 10x menos competencia en español hispano-US" — claim sin fuente.</li>
+</ul>
+<p><strong>Realidad operativa:</strong> Probablemente CPMs hispano-US están <strong>10-25% por debajo</strong> de English-US para verticals comparables (estimación basada en regional CPC differentials reportados), pero la diferencia se está cerrando rápido por el crecimiento de multicultural spend.</p>
+<h3 id="33-meta-ads-library-censo-de-competencia">3.3 Meta Ads Library — censo de competencia<a class="anchor" href="#33-meta-ads-library-censo-de-competencia">#</a></h3>
+<p>No hay data pública disponible de cuántos ads activos en español específicamente targeting US existen (Meta Ad Library no expone "language" como filtro estructurado).</p>
+<p><strong>Recomendación operativa para validar antes de comprometer presupuesto:</strong></p>
+<ol>
+<li>Cris debe entrar a Meta Ad Library (https://www.facebook.com/ads/library) y filtrar manualmente:</li>
+<li>Country: United States</li>
+<li>Category: Health / Nutra products</li>
+<li>Language: scroll por copy en español</li>
+<li>Hacer screenshot/conteo manual de cuántos ads activos hay en categoría salud español-US para establecer baseline de competencia 2026.</li>
+<li>Repetir el ejercicio en inglés para mismas keywords y comparar volumen.</li>
+</ol>
+<hr>
+<h2 id="4-vendors-top-en-español-dentro-de-clickbank">4. Vendors top en español dentro de ClickBank<a class="anchor" href="#4-vendors-top-en-español-dentro-de-clickbank">#</a></h2>
+<h3 id="41-censo-de-productos-español">4.1 Censo de productos español<a class="anchor" href="#41-censo-de-productos-español">#</a></h3>
+<p>ClickBank tiene <strong>~10,000 productos</strong> total en marketplace (Crehana 2024, Equipoimparable 2024). Sub-cuenta de español NO es pública oficialmente, pero análisis de Equipoimparable y Quora estiman:</p>
+<ul>
+<li><strong>Categoría "Spanish" o productos en español:</strong> Estimado <strong>300-500 productos activos</strong> (~3-5% del marketplace).</li>
+<li><strong>Top categorías español:</strong> Salud (peso, diabetes, salud sexual masculina), relaciones (manifestación, amor), finanzas personales, espiritualidad.</li>
+</ul>
+<h3 id="42-vendors-top-hablados-en-español-mencionados-en-literatura-clickbankblogs-español-2023-2025">4.2 Vendors top hablados en español (mencionados en literatura ClickBank/blogs español 2023-2025)<a class="anchor" href="#42-vendors-top-hablados-en-español-mencionados-en-literatura-clickbankblogs-español-2023-2025">#</a></h3>
+<p>Top productos español frecuentemente citados (sin gravity verificada en tiempo real):</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Producto</th>
+<th>Categoría</th>
+<th>Vendor / origen</th>
+<th>Notas</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>El Código de la Diabetes</strong></td>
+<td>Salud diabetes</td>
+<td>Spanish vendor</td>
+<td>Gravity histórica alta, AOV ~$37-67</td>
+</tr>
+<tr>
+<td><strong>Devorador de Grasa</strong></td>
+<td>Weight loss</td>
+<td>—</td>
+<td>Comisión 75% típico ClickBank</td>
+</tr>
+<tr>
+<td><strong>Recupera a Tu Hombre / Mujer</strong></td>
+<td>Relationships</td>
+<td>—</td>
+<td>High recurring promotion</td>
+</tr>
+<tr>
+<td><strong>Magia Blanca</strong></td>
+<td>Spirituality</td>
+<td>—</td>
+<td>Nicho fuerte CA/TX hispano</td>
+</tr>
+<tr>
+<td><strong>Libertad Emocional</strong></td>
+<td>Self-help</td>
+<td>—</td>
+<td>Mid-AOV</td>
+</tr>
+<tr>
+<td><strong>Sistema Venus en español</strong></td>
+<td>Weight loss women</td>
+<td>—</td>
+<td>Translation de top US offer</td>
+</tr>
+<tr>
+<td><strong>Adiós Diabetes</strong></td>
+<td>Salud diabetes</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Curar Vitiligo</strong></td>
+<td>Salud específica</td>
+<td>—</td>
+<td>Nicho menor</td>
+</tr>
+</tbody></table></div>
+<p><strong>AOVs típicos en español ClickBank:</strong> $27-$67 frontend, con upsells $97-$197 (vs nutra inglés que va a $97-$197 frontend, $497+ con upsells). <strong>Comisiones típicas:</strong> 50-75% (mismo que inglés).</p>
+<p><strong>No hay lista pública oficial de "Diamond vendors hispano-US"</strong> porque ClickBank no segmenta el programa Platinum/Diamond por idioma. Existen 400+ Platinum clients globales (sellers + affiliates combinados) que generan $250K+/año, sin breakdown público de cuántos son hispano-US.</p>
+<h3 id="43-implicancia-operativa">4.3 Implicancia operativa<a class="anchor" href="#43-implicancia-operativa">#</a></h3>
+<ul>
+<li>Universo de productos español ClickBank es <strong>~3-5% del marketplace total</strong> = nicho real, pero limitado.</li>
+<li>Top 10-20 productos español han sido los mismos por <strong>3-5 años</strong> = mercado maduro, no virgen.</li>
+<li><strong>AOVs español < AOVs inglés</strong> = misma comisión % pero comisión absoluta menor por venta.</li>
+<li>Para escalar a $10K/mes en español ClickBank necesitas más volumen que en inglés por margen menor.</li>
+</ul>
+<hr>
+<h2 id="5-cpas-reales-en-hispano-us-para-nutra">5. CPAs reales en hispano-US para nutra<a class="anchor" href="#5-cpas-reales-en-hispano-us-para-nutra">#</a></h2>
+<p><strong>No existe data pública agregada confiable de CPAs hispano-US vs English-US para nutra ClickBank en 2024-2026.</strong></p>
+<p>Lo que se puede triangular desde fuentes:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Métrica</th>
+<th>English-US nutra (estimado público)</th>
+<th>Hispano-US nutra (estimado triangulado)</th>
+</tr></thead><tbody>
+<tr>
+<td>CPM Meta</td>
+<td>$15-25</td>
+<td>$10-18 (10-25% menos)</td>
+</tr>
+<tr>
+<td>CTR ad estándar</td>
+<td>1-2%</td>
+<td>1.5-3% (mejor por menor saturación)</td>
+</tr>
+<tr>
+<td>CPC</td>
+<td>$0.80-2.00</td>
+<td>$0.40-1.20</td>
+</tr>
+<tr>
+<td>Conversion rate landing</td>
+<td>2-4%</td>
+<td>2-5%</td>
+</tr>
+<tr>
+<td><strong>CPA estimado</strong></td>
+<td>$40-100</td>
+<td>$20-60</td>
+</tr>
+</tbody></table></div>
+<p><strong>Estos números son TRIANGULADOS, no verificados con fuente directa.</strong> El mejor benchmark real que puede tener Cris es:</p>
+<ol>
+<li>Entrar a un perfil de Skalers/Trafficker Pro y pedir números reales de cohort.</li>
+<li>Lanzar test propio con $300-500 USD para tener data first-party.</li>
+</ol>
+<p><strong>Claim común en cursos español "CPAs hispano-US son 50% del inglés":</strong> plausible pero <strong>sin fuente verificable</strong>. Probable rango real: 30-50% más baratos para mismas verticals, pero variable por subgrupo demográfico y temporada.</p>
+<hr>
+<h2 id="6-cultural-específicos-hispano-us">6. Cultural específicos hispano-US<a class="anchor" href="#6-cultural-específicos-hispano-us">#</a></h2>
+<p>Verificable via Pew Research, MRI-Simmons, Healthcare Success, Collage Group (2024):</p>
+<h3 id="61-hooks-que-funcionan">6.1 Hooks que funcionan<a class="anchor" href="#61-hooks-que-funcionan">#</a></h3>
+<ul>
+<li><strong>Family-driven decision making.</strong> Female head of household decide salud familiar (POC Marketing, 2024).</li>
+<li><strong>Community/referral trust > credenciales formales.</strong> 62% confía en farmacéutico para info de medicamentos (Healthcare Success, 2024).</li>
+<li><strong>Story-based testimonios</strong> > medical/clinical claims.</li>
+<li><strong>Pharmacist authority figure</strong> sigue siendo trust signal alto.</li>
+<li><strong>Spanish content tailored</strong> para consumidores Spanish-dominant es preferido para health (68% Spanish-dominant lo consideran crítico, Customerland 2024).</li>
+</ul>
+<h3 id="62-hooksclaims-a-evitar">6.2 Hooks/claims a evitar<a class="anchor" href="#62-hooksclaims-a-evitar">#</a></h3>
+<ul>
+<li><strong>Modismos específicos de un país</strong> (chilenismos como "vos podís" rechazados por mexicanos; mexicanismos como "no manches" rechazados por sudamericanos). <strong>Lección de OpenClaw aplicada: español neutro mexicano-tirando-a-internacional.</strong></li>
+<li><strong>Claims clínicos sin testimonios</strong> — hispanos son escépticos de marketing puro pharma.</li>
+<li><strong>Tono corporativo formal</strong> — preferencia por tono cálido, familiar, casi conversacional.</li>
+<li><strong>Falta de Spanish nativo</strong> — translaciones obvias de inglés (literal translations) generan distrust.</li>
+</ul>
+<h3 id="63-trust-signals-diferenciados">6.3 Trust signals diferenciados<a class="anchor" href="#63-trust-signals-diferenciados">#</a></h3>
+<ul>
+<li>Testimonios de hispanos > testimonios de anglos (cultural relevance crítico).</li>
+<li>"Recomendado por familias hispanas" funciona mejor que "doctor approved".</li>
+<li>Fotos de personas con phenotype hispano > stock anglo.</li>
+<li>Testimonios bilingües (subtítulos) funcionan mejor que solo Spanish o solo English.</li>
+</ul>
+<h3 id="64-pago">6.4 Pago<a class="anchor" href="#64-pago">#</a></h3>
+<ul>
+<li>Tarjeta crédito/débito sigue siendo dominante para purchases online.</li>
+<li>Apple Pay / Cash App / Venmo crecientes especialmente en US-born 2nd gen.</li>
+<li>Cash-on-delivery NO aplica para hispano-US (eso es para LATAM, no US).</li>
+<li>ClickBank acepta tarjetas y PayPal estándar = no hay barrera adicional para hispano-US.</li>
+</ul>
+<hr>
+<h2 id="7-comunidades-de-afiliados-latinos-en-español-actividad-real">7. Comunidades de afiliados latinos en español — actividad real<a class="anchor" href="#7-comunidades-de-afiliados-latinos-en-español-actividad-real">#</a></h2>
+<p>Ver tabla en sección 2.2.</p>
+<p><strong>Conclusión:</strong> Solo 2-3 comunidades premium activas en español affiliate (Skalers + Trafficker Pro + Bencorde si existe). El resto son comunidades educativas o muertas.</p>
+<p><strong>Para Cris:</strong> Si decide comprar acceso a 1 comunidad como base de aprendizaje + networking latino, la única recomendable por trayectoria pública verificable es <strong>Skalers (tier $497-$2,197)</strong> dado que Pancho Val es el único latino con historia pública de inversión en ads ($8M+) verificable y rating Whop sólido.</p>
+<hr>
+<h2 id="8-skalers-vs-alternativas-en-español">8. Skalers vs alternativas en español<a class="anchor" href="#8-skalers-vs-alternativas-en-español">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Comunidad</th>
+<th>Creador</th>
+<th>Foco</th>
+<th>Precio (USD)</th>
+<th>Reviews verificables</th>
+<th>Veredicto</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Skalers</strong></td>
+<td>Pancho Val (Chile)</td>
+<td>Media buying + affiliate hispano-US</td>
+<td>$47 / $497 / $2,197 / $12,000</td>
+<td>4.89 / 156 reviews Whop</td>
+<td><strong>Mejor opción premium habla hispana</strong>. Único con trayectoria pública de inversión $8M+.</td>
+</tr>
+<tr>
+<td><strong>Trafficker Pro</strong></td>
+<td>Felipe Vergara (Colombia)</td>
+<td>Meta Ads + agencia + módulo affiliate</td>
+<td>$497-$2,000</td>
+<td>8,700 estudiantes claim, 3,000 activos claim — sin reviews independientes verificables como Whop</td>
+<td><strong>Mejor para Meta Ads agencia</strong>. Affiliate es módulo no foco principal.</td>
+</tr>
+<tr>
+<td><strong>Bencorde</strong></td>
+<td>NO ENCONTRADO en búsquedas</td>
+<td>—</td>
+<td>—</td>
+<td>No verificable en este research</td>
+<td>Cris debe verificar fuente. Posible spelling diferente (Vencorde? Bencor? Bencordes?).</td>
+</tr>
+<tr>
+<td><strong>Vergel Evans Academy</strong></td>
+<td>NO ENCONTRADO</td>
+<td>—</td>
+<td>—</td>
+<td>No verificable</td>
+<td>Confirmar nombre.</td>
+</tr>
+<tr>
+<td><strong>Instituto de Negocios</strong></td>
+<td>Luis E. Barón</td>
+<td>Negocios online + ClickBank</td>
+<td>Variable cursos</td>
+<td>Sin reviews independientes amplias</td>
+<td>Más educacional que comunidad. Bueno para fundamentos ClickBank pero no para escalado afiliado avanzado.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Veredicto:</strong> En español hay <strong>1 opción premium clara (Skalers)</strong> + 1 alternativa (Trafficker Pro) con foco diferente. En inglés hay 5+ opciones premium (STM, AffLIFT, iAmAffiliate, AWA, AffiliateFix). <strong>Esto refuerza que el espacio "premium training en español" sigue infrasaturado</strong> — oportunidad para Cris/OpenClaw si en el futuro decide crear oferta educativa propia.</p>
+<hr>
+<h2 id="9-casos-de-fracaso-latinos-públicos">9. Casos de fracaso latinos públicos<a class="anchor" href="#9-casos-de-fracaso-latinos-públicos">#</a></h2>
+<h3 id="91-lo-que-se-encontró">9.1 Lo que se encontró<a class="anchor" href="#91-lo-que-se-encontró">#</a></h3>
+<p><strong>Casi no hay casos públicos de latinos hablando de fracasos en affiliate.</strong> Esto es típico del ecosistema español: cultura "no vender pérdidas".</p>
+<p>Evidence indirecta:</p>
+<ul>
+<li>AffiliateFix forum (inglés): caso documentado de affiliate testing 3 productos ClickBank con CTR >10% y CPC $0.30 → <strong>0 conversions across hundreds of clicks</strong>.</li>
+<li>ClickBank blog (2024): "Why Most Affiliates Fail" reconoce que <strong>mayoría no llega a $100/día</strong>.</li>
+<li>Trustpilot ClickBank: ratio mixto reviews — muchos vendors quejándose de refund rates, affiliates quejándose de account shutdowns sin explicación.</li>
+<li>Reddit r/affiliatemarketing: threads recurrentes de beginners reportando "$500 spent, $0 conversions" típicamente con problemas de offer-audience-creative mismatch.</li>
+</ul>
+<h3 id="92-lo-más-común-que-falla-para-latinos-específicamente">9.2 Lo más común que falla para latinos específicamente<a class="anchor" href="#92-lo-más-común-que-falla-para-latinos-específicamente">#</a></h3>
+<p>Triangulando de documentos OpenClaw + research:</p>
+<ol>
+<li><strong>Banking/cashout barrier</strong> (ver sección 10).</li>
+<li><strong>Sub-estimación del capital inicial requerido.</strong> ClickBank requiere $300-1,000 spend para validar offer.</li>
+<li><strong>Cultural mismatch al copiar templates inglés.</strong> Traducir literal hooks de Robby Blanchard al español = falla porque el hispano-US trust framework es diferente.</li>
+<li><strong>Compliance/Meta bans.</strong> Sin Business Manager limpio + system user tokens, account bans son frecuentes en nutra. Latinos sin red de cuentas backup pierden ROI armado.</li>
+<li><strong>Curso > acción.</strong> Patrón documentado: latinos compran 3-5 cursos antes de lanzar primera campaña. Tiempo gastado en consumo > en testing real.</li>
+</ol>
+<h3 id="93-diferencias-culturales-que-hacen-más-difícil-para-latinos-vs-anglos">9.3 Diferencias culturales que hacen más difícil para latinos vs anglos<a class="anchor" href="#93-diferencias-culturales-que-hacen-más-difícil-para-latinos-vs-anglos">#</a></h3>
+<ul>
+<li><strong>Acceso bancario US</strong> — anglos tienen Bank of America/Chase desde teen. Latinos LATAM-based tienen Wise/Payoneer/Mercury con limitaciones.</li>
+<li><strong>Acceso a conferencias</strong> — Affiliate World Dubai/Bangkok costo desde LATAM = $3K-5K en pasajes, vs $1K desde US.</li>
+<li><strong>Idioma técnico inglés</strong> — la documentación de Meta Business Manager, Voluum, RedTrack, Anstrex, etc. es inglés-first. Latinos sin inglés sólido pierden velocidad.</li>
+<li><strong>Soporte ClickBank</strong> — soporte técnico sí está en español pero más limitado. Account management Platinum/Diamond es inglés-first.</li>
+</ul>
+<hr>
+<h2 id="10-ventajas-y-desventajas-únicas-del-equipo-latino-chileno">10. Ventajas y desventajas únicas del equipo latino chileno<a class="anchor" href="#10-ventajas-y-desventajas-únicas-del-equipo-latino-chileno">#</a></h2>
+<h3 id="101-ventajas">10.1 Ventajas<a class="anchor" href="#101-ventajas">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Ventaja</th>
+<th>Magnitud</th>
+<th>Verificación</th>
+</tr></thead><tbody>
+<tr>
+<td>Idioma nativo español</td>
+<td>Alta</td>
+<td>Crítico para crear creatives nativos sin sentir "translation"</td>
+</tr>
+<tr>
+<td>Costos operativos bajos vivir Chile</td>
+<td>Alta</td>
+<td>Burn rate Chile vs San Diego: 1/3 a 1/2</td>
+</tr>
+<tr>
+<td>Acceso cultural genuino al hispano-US Mexican-Caribbean</td>
+<td>Media-alta</td>
+<td>Chilenos NO tienen accent o cultural fit perfecto con Mexican o Caribbean Spanish, pero más cercano que un anglo</td>
+</tr>
+<tr>
+<td>Time zone overlap con US (3-5 hrs)</td>
+<td>Media</td>
+<td>Permite client/community work US working hours</td>
+</tr>
+<tr>
+<td>Capital labor — equipo Cris+Ro 2 personas</td>
+<td>Media</td>
+<td>Affiliate típicamente solo. Equipo bicultural = ventaja</td>
+</tr>
+<tr>
+<td>Conocimiento Meta Ads from agency work (OpenClaw)</td>
+<td>Alta</td>
+<td>OpenClaw tiene infraestructura Meta API, scripts Python, dashboards Kyest = ya está montado</td>
+</tr>
+</tbody></table></div>
+<h3 id="102-desventajas">10.2 Desventajas<a class="anchor" href="#102-desventajas">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Desventaja</th>
+<th>Magnitud</th>
+<th>Mitigación posible</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Banking US</strong> — Wise Business cards desactivadas en US 2024</td>
+<td>Alta</td>
+<td>Mercury LLC US (requiere LLC formada, $300-500 setup), o Brex con sponsor US</td>
+</tr>
+<tr>
+<td>Distancia conferencias affiliate (Dubai/Bangkok)</td>
+<td>Media</td>
+<td>Empezar online networking — Skalers community + Skool + LinkedIn</td>
+</tr>
+<tr>
+<td>Acento chileno NO matchea con Mexican Spanish (target principal)</td>
+<td>Media</td>
+<td>Contratar VO/UGC creators mexicanos para ads ($20-50/spot Fiverr)</td>
+</tr>
+<tr>
+<td>ClickBank Chile NO está en restricted list pero verificación extra puede aplicar</td>
+<td>Baja-media</td>
+<td>Documentar bien al sign up, tener Wise USD account ready</td>
+</tr>
+<tr>
+<td>Sin red previa de top affiliates anglos</td>
+<td>Media</td>
+<td>Networking via Affiliate World EU (Barcelona más accesible que Dubai)</td>
+</tr>
+<tr>
+<td>Compliance Meta más complejo desde cuenta no-US</td>
+<td>Media</td>
+<td>Usar Business Manager fundado en US si es posible (LLC US route)</td>
+</tr>
+</tbody></table></div>
+<h3 id="103-stack-mínimo-recomendado-para-mitigar-desventajas">10.3 Stack mínimo recomendado para mitigar desventajas<a class="anchor" href="#103-stack-mínimo-recomendado-para-mitigar-desventajas">#</a></h3>
+<ol>
+<li><strong>LLC US (Wyoming/Delaware)</strong> vía Stripe Atlas o Firstbase: $300 + ~$200/año.</li>
+<li><strong>Mercury bank account</strong> linked a LLC (gratis, US bank account real).</li>
+<li><strong>Wise USD account personal</strong> como backup.</li>
+<li><strong>Business Manager Meta</strong> registrado bajo LLC US, con system user token.</li>
+<li><strong>Voluum o RedTrack</strong> tracking ($199-499/mes) — requerido para escalar.</li>
+<li><strong>Productos español ClickBank</strong> + 1-2 mexicanos UGC creators contratados.</li>
+</ol>
+<hr>
+<h2 id="11-veredicto-data-driven-sobre-la-hipótesis-hispano-us-es-sweet-spot">11. Veredicto data-driven sobre la hipótesis "hispano-US es sweet spot"<a class="anchor" href="#11-veredicto-data-driven-sobre-la-hipótesis-hispano-us-es-sweet-spot">#</a></h2>
+<h3 id="111-cierres-por-pregunta-crítica">11.1 Cierres por pregunta crítica<a class="anchor" href="#111-cierres-por-pregunta-crítica">#</a></h3>
+<p><strong>¿Es realmente "sweet spot" hispano-US o es marketing fluff?</strong></p>
+<p><strong>Respuesta: PARCIALMENTE CIERTO, con tres correcciones al playbook actual:</strong></p>
+<ol>
+<li>El TAM real es <strong>~16M Spanish-dominant + ~10M Bilingual Spanish-preferred</strong> = ~26M, no los 68M que el playbook implica. Sigue siendo enorme — más grande que Australia entera (26M habitantes) — pero hay que dimensionarlo correcto.</li>
+<li>La ventaja CPM existe pero es <strong>10-25%, no 50%</strong> como repiten los gurús sin fuente.</li>
+<li>La oferta de productos ClickBank español es <strong>3-5% del marketplace</strong> — limitada. Para escalar más allá de $20-30K/mes hay que considerar productos en inglés también o Spanglish offers.</li>
+</ol>
+<p><strong>¿Equipo chileno tiene ventaja o desventaja vs un equipo USA-based?</strong></p>
+<p><strong>Respuesta: VENTAJA NETA, condicionada a resolver banking.</strong></p>
+<ul>
+<li>Ventaja: idioma + costos + experiencia agency Meta Ads (OpenClaw).</li>
+<li>Desventaja crítica: banking US sin LLC. <strong>Resolver esto en mes 1 es no-negociable.</strong></li>
+<li>Ventaja secundaria: capital humano 2 personas (Cris + Ro) cuando affiliate típicamente es solo.</li>
+</ul>
+<p><strong>¿Saturación real está dejando atrás la oportunidad?</strong></p>
+<p><strong>Respuesta: VENTANA SE ESTÁ CERRANDO PERO SIGUE ABIERTA 6-12 MESES.</strong></p>
+<ul>
+<li>Multicultural ad spend creció 8.4% en 2024 → competencia entrando.</li>
+<li>Top productos español ClickBank son los mismos hace 3-5 años → mercado maduro.</li>
+<li>Pero solo 2-3 comunidades premium training español = barrera de entrada de skill sigue alta.</li>
+<li>Latinos LATAM-based con capital ($50K+ a invertir) son <strong>decenas, no cientos</strong> = espacio sigue subexplotado en tier medio.</li>
+</ul>
+<p><strong>¿Cuál es la window de 6-12 meses si entramos ahora?</strong></p>
+<p><strong>Respuesta: 9 MESES PARA ESTABLECER VENTAJA ANTES DE COMODITIZACIÓN.</strong></p>
+<p>Plan operativo derivado del research:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Mes</th>
+<th>Objetivo</th>
+<th>Inversión estimada</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>Setup LLC US + Mercury + Business Manager + Skalers ($497)</td>
+<td>~$1,500</td>
+</tr>
+<tr>
+<td>2-3</td>
+<td>Validar 3 productos ClickBank español con $300-500 spend cada uno</td>
+<td>~$1,500-2,500</td>
+</tr>
+<tr>
+<td>4-6</td>
+<td>Escalar 1 winner a $100-300/día spend</td>
+<td>~$10K-25K</td>
+</tr>
+<tr>
+<td>7-9</td>
+<td>Diversificar a 2-3 winners simultáneos + segundo nicho</td>
+<td>~$30K-50K</td>
+</tr>
+<tr>
+<td>10-12</td>
+<td>Si revenue verificable: considerar segundo idioma (English-US tier 2 offers) o products propios</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<p><strong>Stop-loss honesto:</strong> Si en mes 6 NO hay 1 producto generando $50/día profit consistente, replantear estrategia (cambiar nicho, cambiar plataforma, o abandonar si CAC sigue mayor a comisión).</p>
+<h3 id="112-recomendaciones-finales-para-playbook-openclaw-affiliate">11.2 Recomendaciones finales para playbook OpenClaw affiliate<a class="anchor" href="#112-recomendaciones-finales-para-playbook-openclaw-affiliate">#</a></h3>
+<ol>
+<li><strong>Reducir el TAM declarado en el playbook</strong> de 68M a 26M Spanish-leaning hispanos US — esto evita expectativas infladas.</li>
+<li><strong>Eliminar claim "CPMs 50% más bajos"</strong> sin fuente. Reemplazar por "CPMs estimados 10-25% más bajos según vertical y subgrupo, validar con test propio."</li>
+<li><strong>Agregar sección de banking setup</strong> como pre-requisito no-negociable mes 1.</li>
+<li><strong>Establecer baseline de competencia</strong> con screenshot Meta Ads Library español categoría salud antes de comprometer presupuesto.</li>
+<li><strong>Adoptar Skalers como benchmark de comunidad</strong> pero NO como única fuente. Cris/Ro deben construir red propia paralela vía LinkedIn afiliados latinos verificables.</li>
+<li><strong>Planificar viaje a Affiliate World Barcelona (Europa)</strong> en lugar de Dubai/Bangkok como primer punto de contacto presencial — más accesible desde Chile.</li>
+<li><strong>No copiar templates Robby Blanchard / Commission Hero literalmente</strong> al español. Recrear hooks usando trust framework hispano (familia, recomendación, testimonios bilingües).</li>
+<li><strong>Segmentar campañas por subgrupo desde día 1</strong>: Mexican-American (CA/TX) y Caribbean (FL/NY) tienen comportamientos suficientemente distintos como para merecer adsets separados.</li>
+</ol>
+<h3 id="113-cierre-honesto">11.3 Cierre honesto<a class="anchor" href="#113-cierre-honesto">#</a></h3>
+<p>El mercado hispano-US para affiliate sigue siendo de los <strong>3-5 nichos geo-lingüísticos más atractivos del mundo en 2026</strong> para un equipo entrante latinoamericano. Pero el playbook que lo trata como un mercado homogéneo de 68M con CPMs 50% más bajos está vendiendo una versión idealizada que la data no respalda.</p>
+<p>El <strong>sweet spot real es 16-26M Spanish-leaning + Bilingual hispanos US</strong>, con CPMs probablemente 10-25% por debajo de inglés, oferta ClickBank limitada a ~300-500 productos verificables, y solo 2-3 comunidades training premium en español.</p>
+<p>Para un equipo chileno como OpenClaw, la oportunidad es <strong>real pero requiere ejecución disciplinada</strong>: resolver banking US, validar con capital de prueba ($1.5-2.5K mes 2-3), y construir ventaja antes que la ola actual de LATAM-based affiliates con capital sature el espacio en los próximos 12-18 meses.</p>
+<p><strong>No es marketing fluff. Pero tampoco es la oportunidad obvia y abierta que los gurús venden.</strong></p>
+<hr>
+<h2 id="fuentes-citadas">Fuentes citadas<a class="anchor" href="#fuentes-citadas">#</a></h2>
+<h3 id="mercado-y-demografía-hispano-us">Mercado y demografía hispano-US<a class="anchor" href="#mercado-y-demografía-hispano-us">#</a></h3>
+<ul>
+<li>Pew Research, "Key facts about US Latinos" (octubre 2025) — https://www.pewresearch.org/short-reads/2025/10/22/key-facts-about-us-latinos/</li>
+<li>US Census Bureau, "Population Estimates 2024" — https://www.census.gov/newsroom/press-releases/2024/population-estimates-characteristics.html</li>
+<li>Pacific Coast Business Times, "Census report shows U.S. Latino population larger than expected" (sept 2025) — https://www.pacbiztimes.com/2025/09/15/census-report-shows-u-s-latino-population-larger-than-expected/</li>
+<li>US Treasury, "An Economy that Works for Latino Families" (2025) — https://home.treasury.gov/system/files/136/2025-00070-Hispanic-Heritage-Month-Equity-Hub-Factsheet_Oct16_508ready.pdf</li>
+</ul>
+<h3 id="poder-adquisitivo-y-gdp">Poder adquisitivo y GDP<a class="anchor" href="#poder-adquisitivo-y-gdp">#</a></h3>
+<ul>
+<li>CNBC, "U.S. Latino economic output grows to $3.6 trillion" (sept 2024) — https://www.cnbc.com/2024/09/12/us-latino-economic-output-grows-to-3point6-trillion-new-report-finds.html</li>
+<li>UCLA, "U.S. Latino GDP hits $4.1 trillion" — https://newsroom.ucla.edu/releases/us-latino-gdp</li>
+<li>UnidosUS, "Investing in Latino Economic Power" (julio 2024) — https://unidosus.org/blog/2024/07/31/investing-in-latino-economic-power-a-new-report-on-post-pandemic-recovery/</li>
+<li>Glint Advertising, "Buying Power of Hispanic Community" (sept 2024) — https://glintadv.com/2024/09/17/hispanic-buying-power/</li>
+<li>Inside Radio, "Hispanic Buying Power Hits $2.7 Trillion" — https://www.insideradio.com/free/radio-remains-trusted-media-as-hispanics-buying-power-hits-2-7-trillion/</li>
+</ul>
+<h3 id="idioma-y-consumo-de-medios">Idioma y consumo de medios<a class="anchor" href="#idioma-y-consumo-de-medios">#</a></h3>
+<ul>
+<li>Pew Research, "How Hispanic Americans Get Their News" (marzo 2024) — https://www.pewresearch.org/race-and-ethnicity/2024/03/19/how-hispanic-americans-get-their-news/</li>
+<li>Pew Research, "English and Spanish-language news consumption among Hispanics" (marzo 2024) — https://www.pewresearch.org/journalism/2024/03/19/english-and-spanish-language-news-consumption-among-hispanics/</li>
+<li>HispanicAd, "State of Spanish Language Media 2024" — https://hispanicad.com/news/state-of-spanish-language-media-2024/</li>
+<li>HispanicAd, "Hispanic Gen Z Bilingual Content" — https://hispanicad.com/news/hispanic-gen-z-consumers-want-more-bilingual-content-as-they-reclaim-latino-heritage/</li>
+<li>Customerland, "Media Preferences Shifting Among Hispanic/Latine Audiences" — https://customerland.net/media-preferences-shifting-among-u-s-hispanic-latine-audiences/</li>
+<li>Santiago Solutions Group, "Rise of Bilingual Media Consumption" — https://santiagosolutionsgroup.com/the-rise-of-bilingual-media-consumption-among-us-hispanics/</li>
+<li>eMarketer, "US Hispanic Consumer Media Habits 2024" — https://www.emarketer.com/content/us-hispanic-consumer-media-habits-2024</li>
+</ul>
+<h3 id="plataformas-y-penetración">Plataformas y penetración<a class="anchor" href="#plataformas-y-penetración">#</a></h3>
+<ul>
+<li>BOLD Hispanic Marketing, "How Hispanics use social media" — https://boldhispanic.marketing/newsite/have-you-ever-wondered-how-hispanics-use-social-media/</li>
+<li>Nativa, "How many US Hispanics on Facebook" — https://thenativa.com/blog/how-many-hispanics-on-facebook-latinos-on-facebook-page/</li>
+<li>Nativa, "Reach Hispanics with Facebook Ads" — https://thenativa.com/blog/reach-hispanics-with-facebook-ads/</li>
+</ul>
+<h3 id="cpms-costos-publicitarios">CPMs / costos publicitarios<a class="anchor" href="#cpms-costos-publicitarios">#</a></h3>
+<ul>
+<li>Statista, "CPM Facebook ads worldwide 2024 by country" — https://www.statista.com/statistics/1462135/cpm-rates-facebook-ads-countries/</li>
+<li>Lebesgue, "Facebook Ads CPM by Country 2026" — https://lebesgue.io/facebook-ads/facebook-cpm-by-country</li>
+<li>SuperAds, "Facebook CPM Benchmarks US 2025" — https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/united-states</li>
+<li>Affect Group, "Meta Ads CPM US Q4 2025" — https://affectgroup.com/blog/meta-ads-cpm-in-the-us-2025-benchmarks-for-facebook-and-instagram/</li>
+<li>MotionPoint, "Spanish vs English CPC differences" — https://www.motionpoint.com/blog/understanding-the-difference-in-spanish-vs-english-cost-per-click/</li>
+<li>Hispanic Market Advisors, "Latino PPC Services" — https://www.hispanicmarketadvisors.com/paid-advertising-services/</li>
+<li>Aronson Ads, "Targeting the Hispanic Market in PPC" — https://www.aronsonads.com/blog/targeting-the-hispanic-market-in-ppc/</li>
+</ul>
+<h3 id="cultura-trust-y-healthcare-hispano">Cultura, trust y healthcare hispano<a class="anchor" href="#cultura-trust-y-healthcare-hispano">#</a></h3>
+<ul>
+<li>210 Digital, "Hispanic Healthcare Marketing Blind Spot" — https://www.210digitalmarketing.com/hispanic-healthcare-marketing-blind-spot/</li>
+<li>MRI-Simmons, "State of the Hispanic-American Consumer 2024/2025" — https://www.mrisimmons.com/reports/the-state-of-the-hispanic-american-consumer-2025/</li>
+<li>HispanicAd, "Six Hispanic Healthcare Insights" — https://hispanicad.com/news/six-hispanic-healthcare-insights-for-successful-in-culture-marketing/</li>
+<li>Healthcare Success, "Marketing to Hispanic Patients" — https://healthcaresuccess.com/blog/healthcare-marketing/marketing-hispanics-healthcare-services.html</li>
+<li>Collage Group, "Engage Hispanic Consumers" — https://www.collagegroup.com/engage-hispanic-consumers-how-culture-shapes-buying-behavior</li>
+<li>Kadence, "Cultivating Connections: Winning Hispanic Audiences" — https://kadence.com/en-us/cultivating-connections-winning-the-hearts-of-hispanic-audiences/</li>
+<li>The Translation Team, "Unlocking $2.7T US Hispanic market" — https://thetranslationteam.com/hispanic-marketing-tips-in-translation/</li>
+<li>inBeat Agency, "How To Market To Hispanic Consumer Audience" — https://inbeat.agency/blog/how-to-market-to-hispanic-consumers</li>
+<li>OpenStax, "Marketing to Hispanic, Black, and Asian Consumers" — https://openstax.org/books/principles-marketing/pages/8-4-marketing-to-hispanic-black-and-asian-consumers</li>
+</ul>
+<h3 id="afiliados-latinos-verificables">Afiliados latinos verificables<a class="anchor" href="#afiliados-latinos-verificables">#</a></h3>
+<ul>
+<li>ClickBank Blog, "Interview Series with Luis Eduardo Baron" — https://www.clickbank.com/blog/clickbank-interview-series-starring-luis-eduardo-baron/</li>
+<li>LinkedIn Luis Eduardo Baron — https://www.linkedin.com/in/luiseduardobaron</li>
+<li>Felipe Vergara sitio oficial — https://felipevergara.co/</li>
+<li>Felipe Vergara Curso Online — https://felipevergara.co/curso-online-nuevo/</li>
+<li>LinkedIn Brian Pfeiffer — https://www.linkedin.com/in/brianpfeiffer/</li>
+<li>Brian Pfeiffer sitio personal — https://www.brianpfeiffer.com/</li>
+<li>ClickBank Blog, "What Makes Robby Blanchard Click?" — https://www.clickbank.com/blog/robby-blanchard/</li>
+<li>Monetized Future, "Meet Robby Blanchard" — https://monetizedfuture.com/robby-blanchard-clickbank/</li>
+<li>Spark by ClickBank, Robby Blanchard — https://sparkbyclickbank.com/robby-blanchard/</li>
+<li>Eulises Avila, blog — https://eulisesavila.com/</li>
+<li>Haciendola podcast, episodio Pancho Val — https://haciendola.com/blogs/haciendola/ha-invertido-8-millones-de-dolares-en-ads-a-sus-24-anos-francisco-valenzuela-panchoval-e56-1</li>
+</ul>
+<h3 id="clickbank-y-comunidades">ClickBank y comunidades<a class="anchor" href="#clickbank-y-comunidades">#</a></h3>
+<ul>
+<li>ClickBank Top Products April 2026 — https://www.clickbank.com/blog/clickbank-top-offers/</li>
+<li>ClickBank Affiliate Resource Center — https://www.clickbank.com/affiliate-resource-center/</li>
+<li>ClickBank Platinum Program — https://www.clickbank.com/platinum-program/</li>
+<li>ClickBank Affiliate Leaderboard — https://www.clickbank.com/affiliate-leaderboard/</li>
+<li>Equipoimparable, "15 Productos Español Más Vendidos ClickBank" — https://equipoimparable.com/productos-clickbank/</li>
+<li>Crehana, "Qué es ClickBank y cómo funciona 2024" — https://www.crehana.com/blog/negocios/que-es-clickbank/</li>
+<li>DineroBits, "ClickBank España y Latam OPINIONES" — https://dinerobits.com/ganar-dinero-con-clickbank/</li>
+<li>ClickBank Spark — https://sparkbyclickbank.com/</li>
+<li>ClickBank Banned Countries lista — https://isuawealthyplace.com/clickbank-banned-countries/</li>
+</ul>
+<h3 id="skalers-pancho-val">Skalers / Pancho Val<a class="anchor" href="#skalers-pancho-val">#</a></h3>
+<ul>
+<li>Skalers en Whop — https://whop.com/skalers/</li>
+<li>Epic Market Chile, análisis Skalers — https://www.epicmarket.cl/post/marketing-de-afiliados-chile</li>
+</ul>
+<h3 id="skool-y-comunidades-español">Skool y comunidades español<a class="anchor" href="#skool-y-comunidades-español">#</a></h3>
+<ul>
+<li>Skool Afiliados ESP — https://www.skool.com/afiliados-esp-6733/about</li>
+<li>Skool Comunidad Aprendamos Marketing — https://www.skool.com/comunidad-aprendamos-marketing/</li>
+<li>Skool Líderes Skool — https://www.skool.com/lideres-skool/about</li>
+</ul>
+<h3 id="multicultural-ad-spend">Multicultural ad spend<a class="anchor" href="#multicultural-ad-spend">#</a></h3>
+<ul>
+<li>Inside Radio, "Hispanic Market 8.3% Rise 2024 Multicultural Ad Spend" — https://www.insideradio.com/free/hispanic-market-expected-to-spearhead-8-3-rise-in-2024-multicultural-ad-spend/</li>
+</ul>
+<h3 id="banking-y-pagos-latam">Banking y pagos LATAM<a class="anchor" href="#banking-y-pagos-latam">#</a></h3>
+<ul>
+<li>Payoneer Blog, "Cómo recibir pagos ClickBank" — https://blog.payoneer.com/es/afiliados/como-recibir-pagos-de-clickbank-a-su-tarjeta-payoneer/</li>
+<li>Wise blog, "Receive payment ClickBank with Wise" — https://wise.com/au/blog/receive-payment-clickbank-wise</li>
+<li>Wise help center, "Wise Business cards US deactivation" — https://wise.com/help/articles/1Rygn0gaetjmjGcOvyjRZm/were-temporarily-deactivating-wise-business-cards-in-the-us</li>
+<li>ClickBank Support, "How do I get paid?" — https://support.clickbank.com/en/articles/10535123-how-do-i-get-paid</li>
+</ul>
+<h3 id="conferencias-affiliate">Conferencias affiliate<a class="anchor" href="#conferencias-affiliate">#</a></h3>
+<ul>
+<li>Affiliate World Conferences Asia — https://affiliateworldconferences.com/asia</li>
+<li>Affiliate World Conferences Dubai — https://affiliateworldconferences.com/dubai</li>
+</ul>
+<h3 id="ads-policy-y-meta-ads-library">Ads policy y Meta Ads Library<a class="anchor" href="#ads-policy-y-meta-ads-library">#</a></h3>
+<ul>
+<li>Meta Transparency Center, Health & Wellness — https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/</li>
+<li>AffiliateFix, caso FB+ClickBank — https://www.affiliatefix.com/threads/fb-ads-clickbank-zero-conversions.176332/</li>
+<li>ClickBank, "Reddit Affiliate Marketing Guide 2025" — https://www.clickbank.com/blog/reddit-affiliate-marketing/</li>
+<li>ClickBank, "Facebook Advertising for Affiliate Marketing 2024" — https://www.clickbank.com/blog/facebook-advertising-for-affiliate-marketing-2/</li>
+</ul>
+<hr>
+<p><strong>Documento preparado por OpenClaw / Claude Opus 4.7 — abril 2026.</strong> <strong>Próximos pasos sugeridos:</strong> validar manualmente Meta Ads Library español categoría salud (sección 3.3), revisar acceso real a Skalers + Trafficker Pro (sección 8), confirmar setup LLC US + Mercury (sección 10.3) antes de cualquier inversión publicitaria.</p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 08-mercado-latino-hispano-us.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

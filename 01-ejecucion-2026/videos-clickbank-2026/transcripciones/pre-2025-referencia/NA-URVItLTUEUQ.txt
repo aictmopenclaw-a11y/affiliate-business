@@ -1,0 +1,173 @@
+[00:00] All right, I want to talk about Facebook Conversion's API.
+[00:03] Now, you may have already heard of this
+[00:05] and it's actually been around for a very long time
+[00:09] and it's also referred as CAPI.
+[00:11] Now let me explain to you a little bit
+[00:12] about what's going on here.
+[00:13] So you're probably familiar with the Facebook Pixel
+[00:16] or Metapixel.
+[00:17] What's happened since the iOS 14 update
+[00:20] is we're not allowed to send pixel data back to Facebook
+[00:25] unless the user on the app agrees to it.
+[00:28] So I think over 90% of people are saying,
+[00:31] no, don't track me.
+[00:33] So you get this little notification that says,
+[00:35] ask app not to track you.
+[00:37] So a lot of people are saying no to that.
+[00:39] Of course, that's what they would do
+[00:40] because you don't be tracked.
+[00:42] Now what's happening now is Facebook's not getting
+[00:44] the data it needs to track conversions
+[00:48] and other events that happen whenever somebody leaves
+[00:50] the app after they see an ad.
+[00:52] That's a big problem for advertisers
+[00:53] because now we can't accurately make decisions
+[00:56] on what's working, what's not working.
+[00:59] So what has been a big talking point is conversions API.
+[01:02] Now this has been around for a while,
+[01:04] now with pixel tracking beginning canceled out
+[01:09] or becoming less efficient,
+[01:11] people have been using the conversions API
+[01:13] and the difference is pixel tracking
+[01:16] goes straight from the Facebook app
+[01:18] and tracks everything and sends it back, right?
+[01:21] Every little event gets sent back to Facebook
+[01:23] through the pixel has its direct line from Facebook
+[01:26] to back to Facebook.
+[01:29] So with conversions API, what's happening is
+[01:33] the person clicks the ad, they go to your landing page
+[01:38] and an event happens.
+[01:40] Let's just say they're entering their email
+[01:42] to download a lead magnet or something.
+[01:45] So when they enter their email,
+[01:48] your server collects that email, right?
+[01:50] Whether whatever system we're using,
+[01:51] whatever CRM we're using,
+[01:53] now that CRM, that tool, whatever tool you're using
+[01:56] can report that information back to Facebook,
+[02:00] whether it's being stored on your own server
+[02:03] or a third party tool.
+[02:05] You may have gotten some messages from Meta
+[02:08] about setting up your conversions API.
+[02:10] I know I have, the way that works is
+[02:13] Facebook is helping you set up an instance,
+[02:15] your own server with AWS
+[02:17] and believe me, this goes over my head.
+[02:19] I don't understand all this.
+[02:20] I just know that they're sending up a cloud server
+[02:22] on AWS that stores all this information
+[02:25] and reports it back to Facebook, right?
+[02:27] I don't recommend that for somebody
+[02:29] that's just starting out, small business,
+[02:31] not spending a ton of money on ads.
+[02:33] For a couple of reasons, one, it's very technical
+[02:35] and the other reasons is you have to have
+[02:36] this AWS server that does cost money
+[02:39] and depending on how much traffic you send there,
+[02:42] the monthly bill can fluctuate
+[02:44] and it's probably could be pennies
+[02:46] but it could also end up costing money
+[02:49] that you don't really need to spend.
+[02:50] And the reason why I suggest not doing that
+[02:53] is because there's other solutions.
+[02:54] Likely the solution that you're using for,
+[02:57] say, Shopify or these other checkout tools,
+[03:01] a lot of them will already have
+[03:02] Cappy integrated into the system.
+[03:04] The purchase event is the most important one
+[03:06] to report back to Facebook
+[03:07] but you also have lead events
+[03:08] so lead events can get reported back to Facebook as well
+[03:11] amongst a bunch of different other events
+[03:12] you can send back there.
+[03:13] The other way you can do this
+[03:14] is if your tool does not have
+[03:16] a Cappy solution integrated
+[03:18] and typically you can search for it in the help articles
+[03:21] or reach out to their support
+[03:22] to see if they do have Cappy support
+[03:25] but if they don't, I'll show you a way
+[03:27] that you can set it up for almost any tool out there
+[03:30] as long as they work with Zapierre.
+[03:33] So what I'm gonna do is go really quickly
+[03:35] go into Zapierre and show you how to set up a Zap
+[03:38] to report Cappy information back to Facebook or Meta.
+[03:43] So let's jump into this tool
+[03:46] and here I have a Zap already set up, right?
+[03:50] Or not set up but I got it open.
+[03:52] So what we're gonna do is we're gonna first of all
+[03:55] figure out how we're gonna trigger that app.
+[03:58] So we're gonna figure out what we want to do
+[04:00] use to trigger this event.
+[04:02] I'm gonna use Unbounce
+[04:03] because we use this for a lot of our landing pages
+[04:05] and we're simply just gonna choose,
+[04:07] let's just choose a lead event, a new form submission.
+[04:12] So basically when the form is submitted
+[04:14] we'll call this a lead form.
+[04:16] We want a lead event to fire back at Meta
+[04:20] and notify Meta that a lead just came through
+[04:22] from that campaign.
+[04:24] So we'll hit continue there.
+[04:26] We're going to trigger.
+[04:29] It'll ask you to choose your login information on Unbounce.
+[04:34] Then you need to choose the landing page.
+[04:36] So let's, here we go.
+[04:38] So we got the landing page.
+[04:42] It's gonna test the trigger.
+[04:44] This one has information, so cool.
+[04:52] And now we're gonna continue with the selected record
+[04:55] and we're gonna type in Facebook conversions.
+[04:59] So Facebook conversions, send lead event, continue.
+[05:08] We'll have to choose our account.
+[05:11] Facebook conversions already have it set up.
+[05:12] You'll have to set it up on your own.
+[05:18] This is gonna be website
+[05:22] and we'll pick the business account
+[05:28] and their pixel.
+[05:34] In this section here, the more data you can feed back
+[05:37] to Facebook, the better.
+[05:39] But a lot of times you may not have this information.
+[05:42] So some of this may not have it included.
+[05:46] So this has time data, but it's not format it properly.
+[05:52] You can format data, it gets a little more complicated.
+[05:55] We're gonna bypass a lot of this stuff.
+[05:58] But again, the more you can data,
+[06:00] you can give Facebook the better
+[06:01] because it can start identifying who that person was.
+[06:05] But the main things is you definitely wanna include email.
+[06:09] So do email.
+[06:11] If you can capture phone number,
+[06:13] obviously you're not gonna be able to capture phone number
+[06:15] for all your leads.
+[06:15] But if you can catch phone number,
+[06:17] they wanna put that in there.
+[06:19] First name, I'm assuming we've got name, yeah.
+[06:23] But at the very least you need to send email over.
+[06:25] So again, you wanna capture as much data as possible
+[06:28] and send it back to Facebook here.
+[06:29] So if you're collecting any of this data,
+[06:31] city, state, country, zip code, any of that,
+[06:34] be sure to send that back to Facebook.
+[06:36] Now that we have that set up, hit continue.
+[06:40] You can test it, we're just gonna go ahead and skip.
+[06:44] And now anytime a lead comes through unbounce,
+[06:47] through Zapierre, it's gonna send a lead of it
+[06:50] back to Meta and let them know
+[06:51] that this conversion happened.
+[06:53] So again, to recap this,
+[06:57] you don't need to set up your own server
+[06:59] and do all this, you can if you're doing a lot of,
+[07:05] if you're spending a lot of ad spend,
+[07:07] it's not a bad idea to set that up.
+[07:09] But if you're not spending a ton of money on ad spend,
+[07:12] I wouldn't recommend drumming up your own server
+[07:14] and dealing with all that extra work.
+[07:16] Either use a third-party service that you're using already,
+[07:19] they typically will have a Cappy connection.
+[07:22] Or again, you can use Zapierre to connect
+[07:24] to your Cappy event.
+[07:26] So appreciate you listening to this video.
+[07:28] If it helped you out, feel free to hit
+[07:30] the notification bell, subscribe, all that good stuff.
+[07:33] Appreciate you and thank you.

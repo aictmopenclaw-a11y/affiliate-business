@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pancho Val (Francisco Valenzuela) y Skalers — Deep Dive de Due Diligence · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">00-viabilidad / research-fuentes · 21 min · 4,145 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#tldr-ejecutivo" class="">TL;DR EJECUTIVO</a></li><li><a href="#1-background-verificable" class="">1. BACKGROUND VERIFICABLE</a></li><li><a href="#11-identidad-básica" class="h3">1.1 Identidad básica</a></li><li><a href="#12-universidad-adolfo-ibáñez-uai-claim-del-usuario" class="h3">1.2 Universidad Adolfo Ibáñez (UAI) — claim del usuario</a></li><li><a href="#13-historia-de-las-pesasmancuernas-de-cemento-pandemia-2020" class="h3">1.3 Historia de las pesas/mancuernas de cemento (pandemia 2020)</a></li><li><a href="#14-twitterx-verificación-de-autenticidad" class="h3">1.4 Twitter/X — verificación de autenticidad</a></li><li><a href="#2-verificación-del-diamond-status" class="">2. VERIFICACIÓN DEL DIAMOND STATUS</a></li><li><a href="#21-episodio-affiliated-ep-218-clickbank-oficial" class="h3">2.1 Episodio Affiliated Ep. 218 (ClickBank oficial)</a></li><li><a href="#22-definición-oficial-diamond-clickbank" class="h3">2.2 Definición oficial Diamond ClickBank</a></li><li><a href="#23-customer-story-2023-verificado" class="h3">2.3 Customer Story 2023 (verificado)</a></li><li><a href="#24-otras-menciones-independientes" class="h3">2.4 Otras menciones independientes</a></li><li><a href="#25-conclusión-diamond-status" class="h3">2.5 Conclusión Diamond status</a></li><li><a href="#3-skalers-como-negocio-números-reales-verificados" class="">3. SKALERS COMO NEGOCIO (NÚMEROS REALES VERIFICADOS)</a></li><li><a href="#31-estructura-de-productos-en-whop" class="h3">3.1 Estructura de productos en Whop</a></li><li><a href="#32-pricing-oficial-verificado-triplicado" class="h3">3.2 Pricing oficial (verificado triplicado)</a></li><li><a href="#33-estimación-de-ingresos-reales-por-curso-ventas-whop-lifetime" class="h3">3.3 Estimación de ingresos REALES por curso (ventas Whop lifetime)</a></li><li><a href="#34-reviews-independientes" class="h3">3.4 Reviews independientes</a></li><li><a href="#35-modelo-de-negocio" class="h3">3.5 Modelo de negocio</a></li><li><a href="#4-apariciones-públicas-consistencia-de-números" class="">4. APARICIONES PÚBLICAS (consistencia de números)</a></li><li><a href="#5-ingresos-reales-curso-vs-affiliate-la-pregunta-clave" class="">5. INGRESOS REALES: CURSO vs AFFILIATE (LA PREGUNTA CLAVE)</a></li><li><a href="#51-estimación-de-income-desde-el-curso-verificado-en-whop" class="h3">5.1 Estimación de income desde el curso (verificado en Whop)</a></li><li><a href="#52-estimación-de-income-afiliado-real" class="h3">5.2 Estimación de income afiliado real</a></li><li><a href="#53-la-distinción-crítica-para-el-equipo" class="h3">5.3 La distinción CRÍTICA para el equipo</a></li><li><a href="#54-es-replicable" class="h3">5.4 ¿Es replicable?</a></li><li><a href="#6-contradicciones-red-flags-y-validaciones" class="">6. CONTRADICCIONES, RED FLAGS Y VALIDACIONES</a></li><li><a href="#validaciones-positivas-lo-que-sí-cuadra" class="h3">Validaciones positivas (lo que SÍ cuadra)</a></li><li><a href="#red-flags-lo-que-no-cuadra-o-requiere-escepticismo" class="h3">Red flags (lo que NO cuadra o requiere escepticismo)</a></li><li><a href="#lo-que-no-se-pudo-verificar" class="h3">Lo que NO se pudo verificar</a></li><li><a href="#7-stack-técnico-verificación" class="">7. STACK TÉCNICO (verificación)</a></li><li><a href="#8-trayectoria-temporal-validación-cronológica" class="">8. TRAYECTORIA TEMPORAL (validación cronológica)</a></li><li><a href="#9-comparación-con-otros-gurús-del-nicho" class="">9. COMPARACIÓN CON OTROS GURÚS DEL NICHO</a></li><li><a href="#casos-similares" class="h3">Casos similares</a></li><li><a href="#el-patrón-guru-affiliate-vendiendo-curso" class="h3">El patrón "guru-affiliate-vendiendo-curso"</a></li><li><a href="#10-veredicto" class="">10. VEREDICTO</a></li><li><a href="#pancho-val-es-un-caso-real-verificable" class="h3">¿Pancho Val es un caso real verificable?</a></li><li><a href="#su-modelo-es-replicable-o-es-survivorship-bias" class="h3">¿Su modelo es replicable o es survivorship bias?</a></li><li><a href="#skalers-pro-vale-los-497-usd" class="h3">¿Skalers Pro vale los $497 USD?</a></li><li><a href="#affiliate-mastery-vale-los-2197-usd" class="h3">¿Affiliate Mastery vale los $2,197 USD?</a></li><li><a href="#qué-partes-de-su-narrativa-son-sólidas-y-cuáles-son-marketing" class="h3">¿Qué partes de su narrativa son sólidas y cuáles son marketing?</a></li><li><a href="#recomendación-específica-al-equipo-openclaw" class="h3">Recomendación específica al equipo OpenClaw</a></li><li><a href="#sources" class="">Sources</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>06-pancho-val-deep-dive.md</span><span>4,145 palabras</span><span>~21 min</span></div>
+<h1 id="pancho-val-francisco-valenzuela-y-skalers-deep-dive-de-due-diligence">Pancho Val (Francisco Valenzuela) y Skalers — Deep Dive de Due Diligence</h1>
+<p><strong>Fecha:</strong> 2026-04-28 <strong>Autor:</strong> OpenClaw research <strong>Propósito:</strong> Verificación independiente para decisión de compra Skalers Pro ($497) o Affiliate Mastery ($2,197) <strong>Método:</strong> firecrawl scraping + cross-reference de fuentes primarias y terceros independientes <strong>Disclaimer:</strong> Esto NO es un hit piece. Es due diligence. Donde la evidencia respalda el claim, lo digo. Donde no, también.</p>
+<hr>
+<h2 id="tldr-ejecutivo">TL;DR EJECUTIVO<a class="anchor" href="#tldr-ejecutivo">#</a></h2>
+<p>Francisco "Pancho" Valenzuela es un <strong>media buyer real, no un guru fake</strong>. La evidencia cruzada (ClickBank oficial, podcast Affiliated Ep. 218, Whop Trends, su Twitter @panchoval123 con campañas reales documentadas, Alex Micol cross-promotion, Haciendola Ep. 56) confirma que opera campañas a escala industrial en USA. Sin embargo:</p>
+<ol>
+<li>El claim "$5M+ ClickBank Diamond" es plausible pero <strong>NO independientemente verificable</strong> más allá del podcast oficial de ClickBank.</li>
+<li>Su narrativa es <strong>inconsistente</strong> en detalles biográficos (Concón vs. Viña del Mar, "$1M" en mar 2025 vs. "$5M" en sep 2025, ambigüedad sobre la universidad).</li>
+<li><strong>El curso es genuinamente nuevo</strong> (lanzado mayo-junio 2025), por lo que reviews son inflables y track record post-compra es limitado.</li>
+<li>Skalers Pro a $497 es un <strong>ticket razonable para 8 horas de contenido + comunidad de 318 miembros</strong>. Affiliate Mastery a $2,197 es defendible pero más caro que cursos similares.</li>
+<li>Su modelo es replicable en mecánica pero <strong>no es replicable a su escala</strong> sin capital de partida ($10K+ para empezar a quemar en tests + tolerancia psicológica al riesgo).</li>
+</ol>
+<p><strong>Recomendación final</strong> al fondo del documento.</p>
+<hr>
+<h2 id="1-background-verificable">1. BACKGROUND VERIFICABLE<a class="anchor" href="#1-background-verificable">#</a></h2>
+<h3 id="11-identidad-básica">1.1 Identidad básica<a class="anchor" href="#11-identidad-básica">#</a></h3>
+<ul>
+<li><strong>Nombre completo:</strong> Francisco Valenzuela</li>
+<li><strong>Alias:</strong> Pancho Val / @panchoval (Instagram) / @panchoval123 (X/Twitter) / @franciscovalenzuelab (TikTok, Whop, YouTube canal <code>panchovalb</code>)</li>
+<li><strong>Edad declarada:</strong> 24-25 años (Mar 2025: 24; Sep 2025: 24; Apr 2026: 25). Coherente con DOB ~2000-2001.</li>
+<li><strong>Ubicación:</strong> Hay <strong>inconsistencia documentada</strong>:</li>
+<li>ClickBank Customer Stories oficial dice: <em>"At just 22 years old – and living in Concón, Chile"</em> (https://www.clickbank.com/customer-stories/)</li>
+<li>Haciendola Ep. 56 (sep 2025) lo describe como: <em>"un joven viñamarino"</em> y dice <em>"Desde la pieza de su casa en Viña del Mar"</em> (https://haciendola.com/blogs/haciendola/ha-invertido-8-millones-de-dolares-en-ads-a-sus-24-anos-francisco-valenzuela-panchoval-e56-1)</li>
+<li>Hablemos de Negocios (mar 2025): <em>"un joven viñamarino de 24 años"</em></li>
+<li>X/Twitter biografía: solo dice "Chile"</li>
+<li><strong>Análisis:</strong> Concón y Viña del Mar son ciudades vecinas en la Región de Valparaíso. Concón es comuna costera contigua a Viña. Es plausible que viva en Concón y trabaje desde Viña, o que se haya mudado. No es contradicción flagrante, pero ClickBank dijo Concón en 2023 y Haciendola dijo Viña en 2025. Probablemente ambos.</li>
+</ul>
+<h3 id="12-universidad-adolfo-ibáñez-uai-claim-del-usuario">1.2 Universidad Adolfo Ibáñez (UAI) — claim del usuario<a class="anchor" href="#12-universidad-adolfo-ibáñez-uai-claim-del-usuario">#</a></h3>
+<ul>
+<li><strong>NO encontré evidencia primaria</strong> de que Pancho estudió en UAI específicamente. ClickBank dice "quit university". Hablemos de Negocios dice "luego de abandonar la universidad". Haciendola Ep. 56 no menciona universidad por nombre.</li>
+<li>En su material oficial NUNCA se menciona UAI por nombre. El claim "UAI" parece provenir de inferencia o conocimiento extra del equipo del usuario. NO tengo evidencia que lo confirme NI lo desmienta.</li>
+<li>En LinkedIn busqué su perfil: el primero que aparece (<code>cl.linkedin.com/in/panchovalenzuela</code>) es un Director de Arte en BNP Paribas Cardif que estudió en DuocUC — <strong>NO es él</strong>. Pancho Val NO tiene LinkedIn público fácilmente identificable, lo cual es inusual para un emprendedor de 25 años en Chile.</li>
+</ul>
+<h3 id="13-historia-de-las-pesasmancuernas-de-cemento-pandemia-2020">1.3 Historia de las pesas/mancuernas de cemento (pandemia 2020)<a class="anchor" href="#13-historia-de-las-pesasmancuernas-de-cemento-pandemia-2020">#</a></h3>
+<ul>
+<li><strong>Confirmado por múltiples fuentes</strong>: ClickBank original story (2023): <em>"When the pandemic hit the world, Francisco created a concrete gym business to make some extra cash"</em>. Haciendola Ep. 56: <em>"Comenzó vendiendo pesas de cemento en pandemia... Desarrolló su capital inicial vendiendo pesas de cemento durante la pandemia junto a su hermano"</em>.</li>
+<li><strong>El hermano NO está identificado por nombre</strong> en ninguna fuente pública. No aparece como staff de Skalers en Whop ni en ningún podcast.</li>
+<li>En las imágenes de Whop staff hay un <strong>"Valenbarr383 / @avalenzuelab"</strong> que podría ser un familiar (mismo apellido, sufijo "barr" sugiere segundo apellido). NO confirmable como hermano sin más data.</li>
+</ul>
+<h3 id="14-twitterx-verificación-de-autenticidad">1.4 Twitter/X — verificación de autenticidad<a class="anchor" href="#14-twitterx-verificación-de-autenticidad">#</a></h3>
+<ul>
+<li>Cuenta @panchoval123, <strong>joined December 2, 2021</strong>, 244 tweets, 75 following. Bio: <em>"I run FB & YT ads"</em>, location: Chile.</li>
+<li><strong>Posts genuinos de un media buyer real</strong>, no de un guru. Ejemplos verificados:</li>
+<li>12 Jan 2025: <em>"Big loss today. One of my accounts went down earlier this week. I appealed on Thursday, but nothing happened—until today, when it suddenly came back online and blew through almost $5K"</em>. Con screenshot.</li>
+<li>19 Dec 2024: <em>"$2k spend, $3.4k revenue"</em> — 1.7x ROAS. Real.</li>
+<li>4 Jan 2025: <em>"2024 was tough—election season, account issues, inconsistent results, and personal challenges"</em>. Honesto.</li>
+<li>26 Mar 2026: <em>"Best profile solution for running Nutra on Meta with multiple Media Buyers?"</em> — pregunta operativa real.</li>
+<li><strong>Conclusión:</strong> El X account es altamente creíble. Comparte campañas con números, struggles, y preguntas técnicas. Esto NO es perfil de guru aspirational.</li>
+</ul>
+<hr>
+<h2 id="2-verificación-del-diamond-status">2. VERIFICACIÓN DEL DIAMOND STATUS<a class="anchor" href="#2-verificación-del-diamond-status">#</a></h2>
+<h3 id="21-episodio-affiliated-ep-218-clickbank-oficial">2.1 Episodio Affiliated Ep. 218 (ClickBank oficial)<a class="anchor" href="#21-episodio-affiliated-ep-218-clickbank-oficial">#</a></h3>
+<ul>
+<li><strong>Confirmado existente en múltiples plataformas:</strong></li>
+<li>YouTube: https://www.youtube.com/watch?v=5VbGkxY9PBE — <em>"Ep. 218 - From College Dropout to $5M+ ClickBank Diamond Affiliate ft. Francisco Valenzuela"</em></li>
+<li>Apple Podcasts, Spotify, iHeart, TuneIn, Amazon Music — todos listan el episodio</li>
+<li>Descripción Amazon: <em>"Francisco Valenzuela joins the ClickBank Affiliated podcast to talk about where he's been and what he's been doing since the ClickBank marketing team produced his customer story video in 2023. Since that April, Francisco has climbed to Diamond status, trained for a marathon, switched to Meta ads"</em></li>
+<li>El episodio enlaza directamente a <code>whop.com/skalers/</code> como su business</li>
+</ul>
+<h3 id="22-definición-oficial-diamond-clickbank">2.2 Definición oficial Diamond ClickBank<a class="anchor" href="#22-definición-oficial-diamond-clickbank">#</a></h3>
+<ul>
+<li>ClickBank en su propio blog (https://www.clickbank.com/blog/how-much-do-affiliate-marketers-make/) define: <em>"Platinums at $250K+/yr and Diamonds at $5M+/yr"</em>. El claim de Pancho coincide exactamente con el tier oficial.</li>
+</ul>
+<h3 id="23-customer-story-2023-verificado">2.3 Customer Story 2023 (verificado)<a class="anchor" href="#23-customer-story-2023-verificado">#</a></h3>
+<ul>
+<li>ClickBank Customer Stories page lo lista junto con Jenn LeCompte ($5M en 18 meses), Joel Peterson, Brett Boles y otros: <em>"He now makes millions with media buying across a range of affiliate models"</em></li>
+<li>Video YouTube original: https://www.youtube.com/watch?v=9oA8MB4Y51E — <em>"22 Year Old Ditched College to Make $1M+ Online with ClickBank - Affiliate Marketing Success 2023"</em> — sube ClickBank oficial.</li>
+</ul>
+<h3 id="24-otras-menciones-independientes">2.4 Otras menciones independientes<a class="anchor" href="#24-otras-menciones-independientes">#</a></h3>
+<ul>
+<li><strong>Alex Micol</strong> (UK affiliate marketer reconocido) hizo video <em>"24 Hours with TOP 1% Affiliate Marketer"</em> (Apr 2025, https://www.youtube.com/watch?v=I0pbawHK4vg) mostrando a Pancho. Alex es independiente y también promociona Affiliate Takeover conference. Cross-promo verificado.</li>
+<li><strong>Mateo Salvatto</strong> (Haciendola, Argentina) lo entrevistó en Ep. 56 (Sep 2025). Alta credibilidad de la fuente.</li>
+<li><strong>Hablemos de Negocios</strong> (Uri Sabat), Mar 2025, episodio dedicado.</li>
+<li>NO encontré fotos públicas de Pancho en eventos Diamond Day Vegas o ClickBank Diamond Summit Mexico (otros affiliates SÍ aparecen). Esto NO es prueba en contra (puede preferir privacidad o asistir sin foto pública).</li>
+</ul>
+<h3 id="25-conclusión-diamond-status">2.5 Conclusión Diamond status<a class="anchor" href="#25-conclusión-diamond-status">#</a></h3>
+<ul>
+<li><strong>El status Diamond ClickBank es muy probablemente real</strong> (corroborado por ClickBank oficial via su podcast oficial).</li>
+<li>ClickBank no publica lista de Diamonds (es privacy de affiliates), por lo que la verificación independiente termina aquí.</li>
+<li>Es plausible pero <strong>no auditable</strong> para un externo. Si pudiera verse el dashboard ClickBank de Pancho con captura datada, sería 100% confirmable. Sin eso, depende de la palabra de ClickBank oficial.</li>
+</ul>
+<hr>
+<h2 id="3-skalers-como-negocio-números-reales-verificados">3. SKALERS COMO NEGOCIO (NÚMEROS REALES VERIFICADOS)<a class="anchor" href="#3-skalers-como-negocio-números-reales-verificados">#</a></h2>
+<h3 id="31-estructura-de-productos-en-whop">3.1 Estructura de productos en Whop<a class="anchor" href="#31-estructura-de-productos-en-whop">#</a></h3>
+<ul>
+<li><strong>Whop principal:</strong> https://whop.com/skalers/ — 3,931 joined, 4.9 (156 reviews), 15 online en momento de scraping</li>
+<li><strong>Equipo:</strong> ~14 staff verificables. Co-fundador/socio principal aparenta ser <strong>Francisco Espinoza Boassi</strong> (<code>@voidgasket20</code>, mismo apellido distinto, etiquetado como Skalers staff). Otros staff: Sebastian Casasempere, Felipe (@felipesklrs), Carlos Silva, Baltazar Contreras, Pablo Severi, Benjamin Nestor, Seba Fica, Paulina Taurian.</li>
+<li><strong>Total joined ≠ paying members</strong> — la mayoría son freebies (2,632 personas en "Francisco Valenzuela Gifts" gratuito).</li>
+</ul>
+<h3 id="32-pricing-oficial-verificado-triplicado">3.2 Pricing oficial (verificado triplicado)<a class="anchor" href="#32-pricing-oficial-verificado-triplicado">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Producto</th>
+<th>Precio actual</th>
+<th>Members actuales</th>
+<th>Lanzamiento</th>
+<th>Comisión afiliado</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Skalers Start</strong> (Whop principal)</td>
+<td>$47 USD one-time</td>
+<td>549 (WhopTrends)</td>
+<td>May 2025</td>
+<td>7%</td>
+</tr>
+<tr>
+<td><strong>Affiliate Pro / Skalers Pro</strong></td>
+<td>$497 USD one-time</td>
+<td>220 (WhopTrends) → <strong>318 (Whop directo, abril 2026)</strong></td>
+<td>May 2025</td>
+<td>7%</td>
+</tr>
+<tr>
+<td><strong>Affiliate Mastery</strong></td>
+<td>$1,497–$2,197 USD (precio dinámico)</td>
+<td>121 (WhopTrends jul 2025) → <strong>497 (Whop directo, abr 2026)</strong></td>
+<td>Jun 2025</td>
+<td>7%</td>
+</tr>
+<tr>
+<td><strong>Ads License</strong> (mentoría 1:1)</td>
+<td>$12,000 USD one-time</td>
+<td>5 (estable)</td>
+<td>Jun 2025</td>
+<td>30%</td>
+</tr>
+</tbody></table></div>
+<p>Fuentes:</p>
+<ul>
+<li>WhopTrends: https://whoptrends.com/products/skalers, /skalers-pro, /skalersaffiliate, /adslicense</li>
+<li>Whop directo: https://whop.com/skalers-pro/, /skalersaffiliate/, /adslicense/</li>
+<li>Affiliate independiente (epicmarket.cl) confirma exactamente estos precios</li>
+</ul>
+<h3 id="33-estimación-de-ingresos-reales-por-curso-ventas-whop-lifetime">3.3 Estimación de ingresos REALES por curso (ventas Whop lifetime)<a class="anchor" href="#33-estimación-de-ingresos-reales-por-curso-ventas-whop-lifetime">#</a></h3>
+<p>Calculando con los números actuales de Whop (abr 2026):</p>
+<ul>
+<li>Skalers Start: 549 × $47 = <strong>$25,803</strong></li>
+<li>Affiliate Pro: 318 × $497 = <strong>$158,046</strong></li>
+<li>Affiliate Mastery: 497 × $2,197 (asumiendo precio promedio $1,800) = ~<strong>$894,600</strong></li>
+<li>Ads License: 5 × $12,000 = <strong>$60,000</strong></li>
+</ul>
+<p><strong>TOTAL acumulado en Whop desde mayo 2025 (~12 meses): ~$1.14M USD</strong></p>
+<p>Esto incluye descuentos no observados, refunds (Whop tiene 7-day money-back), y splits con la plataforma Whop (~3-7% fee). <strong>Revenue NETO probablemente $0.9M–$1.05M USD.</strong></p>
+<p><strong>Validación cruzada:</strong> La cifra "$10M en inversión publicitaria" en su bio Whop NO es revenue del curso — es lifetime ad spend en sus campañas afiliado. Son cosas distintas.</p>
+<h3 id="34-reviews-independientes">3.4 Reviews independientes<a class="anchor" href="#34-reviews-independientes">#</a></h3>
+<ul>
+<li><strong>Whop reviews:</strong> 4.89/5 con 153-156 reviews (Skalers Start), 4.9 con 156 (Pro), 5.0 con 155 (Mastery)</li>
+<li><span class="badge badge-warn">!</span> <strong>Whop tiene una app llamada "Review Reward"</strong> (https://whop.com/apps/app_zqhMKm5UPnJ4mq/) que da promo codes a quien deja review. <strong>NO comprobado que Skalers la use, pero es posible</strong>. El cluster de ratings 4.89-5.0 con conteo idéntico (155-156) es sospechosamente uniforme entre 4 productos distintos.</li>
+<li><strong>Trustpilot:</strong> 0 reviews encontradas para Skalers, Pancho Val, Francisco Valenzuela. <strong>Ausencia de complaints también es ausencia de validación independiente.</strong></li>
+<li><strong>Reddit:</strong> búsqueda en r/Affiliatemarketing y r/Scams no arrojó posts específicos sobre Skalers (positivos ni negativos). Esto es notable: cursos populares de afiliados generalmente acumulan threads. Skalers es muy nuevo (10 meses) y muy hispano (poca cobertura en Reddit).</li>
+<li><strong>YouTube/TikTok:</strong> las "reviews" externas que aparecen son afiliados promoviendo Skalers (epicmarket.cl con UTM <code>?a=cocula</code> — están cobrando 7% comisión por cada venta). NO son reviews independientes.</li>
+</ul>
+<h3 id="35-modelo-de-negocio">3.5 Modelo de negocio<a class="anchor" href="#35-modelo-de-negocio">#</a></h3>
+<ul>
+<li><strong>No es membresía recurrente.</strong> Todos los productos son <strong>one-time payment</strong>. Esto es importante: NO hay MRR. Es un negocio de funnel (lead → llamada → upsell hacia Mastery o Ads License).</li>
+<li>Embudo claro: contenido orgánico (TikTok/IG/YouTube) → Skalers Start $47 (low ticket) → Pro $497 → Mastery $2,197 → Ads License $12K (high ticket 1:1).</li>
+<li>Application form (<code>skalersinc.com/apply</code>) y booking call (<code>skalersinc.com/bookedcall</code>) sugieren que Mastery y Ads License requieren llamada de cierre — modelo high-ticket clásico.</li>
+</ul>
+<hr>
+<h2 id="4-apariciones-públicas-consistencia-de-números">4. APARICIONES PÚBLICAS (consistencia de números)<a class="anchor" href="#4-apariciones-públicas-consistencia-de-números">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Fuente</th>
+<th>Fecha</th>
+<th>Edad declarada</th>
+<th>Income claim</th>
+</tr></thead><tbody>
+<tr>
+<td>ClickBank Customer Story (YouTube)</td>
+<td>Apr 2023</td>
+<td>22</td>
+<td>"$1M+" lifetime, Platinum</td>
+</tr>
+<tr>
+<td>Affiliated Podcast Ep. 218</td>
+<td>2024 (probable)</td>
+<td>~23</td>
+<td>"$5M+ Diamond"</td>
+</tr>
+<tr>
+<td>Hablemos de Negocios (Uri Sabat)</td>
+<td>Mar 2025</td>
+<td>24</td>
+<td>"más de 1 millón de dólares de ganancias"</td>
+</tr>
+<tr>
+<td>YouTube canal propio</td>
+<td>Jul 2025</td>
+<td>25 (thumbnail)</td>
+<td>"$123,219/mes con 25 años"</td>
+</tr>
+<tr>
+<td>Haciendola Ep. 56 (Mateo Salvatto)</td>
+<td>Sep 2025</td>
+<td>24</td>
+<td>"$8M USD ad spend acumulado"</td>
+</tr>
+<tr>
+<td>Skalers Pro descripción Whop</td>
+<td>2025-2026</td>
+<td>n/a</td>
+<td>"$30,000-$50,000/día en ad spend"</td>
+</tr>
+<tr>
+<td>Affiliate Mastery descripción</td>
+<td>2025-2026</td>
+<td>n/a</td>
+<td>"Skalers IA entrenado con $10M en campañas"</td>
+</tr>
+</tbody></table></div>
+<p><strong>Análisis de consistencia:</strong></p>
+<ul>
+<li><span class="badge badge-ok">OK</span> Edad: progresión coherente (22→23→24→24→25→24). Probablemente nacido fines 2000 / inicios 2001.</li>
+<li><span class="badge badge-warn">!</span> Income claims son <strong>categorías distintas</strong> que el usuario podría estar confundiendo:</li>
+<li><strong>"$1M ganancias"</strong> (Hablemos de Negocios, mar 2025) = profit afiliado ese momento</li>
+<li><strong>"$5M Diamond"</strong> (Affiliated podcast) = revenue lifetime affiliate</li>
+<li><strong>"$8M ad spend"</strong> (Haciendola sep 2025) = total invertido en plataformas (input, no profit)</li>
+<li><strong>"$30-50K/día spend"</strong> = current run rate</li>
+<li><strong>"$10M campañas"</strong> = lifetime ad investment en Skalers IA training data</li>
+<li><strong>NO hay contradicción entre los números</strong> si se interpretan correctamente. El ad spend ($8-10M) es mayor que el revenue declarado ($5M+) lo cual es matemáticamente esperable: profit = revenue - ad spend - costs. Si su ROAS es ~1.3x-1.5x sostenido, $10M spend → $13-15M revenue → $3-5M profit. Plausible.</li>
+<li><span class="badge badge-warn">!</span> <strong>"$123,219/mes con 25 años"</strong> thumbnail: jamás se aclara si es revenue, profit, o cherry-picked best month. Es marketing thumbnail. Tomar con escepticismo.</li>
+</ul>
+<hr>
+<h2 id="5-ingresos-reales-curso-vs-affiliate-la-pregunta-clave">5. INGRESOS REALES: CURSO vs AFFILIATE (LA PREGUNTA CLAVE)<a class="anchor" href="#5-ingresos-reales-curso-vs-affiliate-la-pregunta-clave">#</a></h2>
+<p>Este es el análisis crítico para decidir si su modelo es replicable.</p>
+<h3 id="51-estimación-de-income-desde-el-curso-verificado-en-whop">5.1 Estimación de income desde el curso (verificado en Whop)<a class="anchor" href="#51-estimación-de-income-desde-el-curso-verificado-en-whop">#</a></h3>
+<p>Como calculamos en sección 3.3: <strong>~$1.14M USD bruto en 12 meses desde lanzamiento del curso (may 2025)</strong>.</p>
+<h3 id="52-estimación-de-income-afiliado-real">5.2 Estimación de income afiliado real<a class="anchor" href="#52-estimación-de-income-afiliado-real">#</a></h3>
+<ul>
+<li>Su claim: "$5M+ Diamond ClickBank lifetime" (verified concept, probably real)</li>
+<li>Su claim: "$8M ad spend" lifetime</li>
+<li>Su claim: "$30-50K/día ad spend" actual run rate</li>
+<li>Si gasta $40K/día y mantiene ROAS 1.3x: $40K × 1.3 = $52K/día revenue → $12K/día profit → ~$4.4M/año profit</li>
+<li>Si gasta $40K/día y mantiene ROAS 1.5x: ~$7.3M/año profit (poco realista sostenido en nutra)</li>
+</ul>
+<p><strong>Estimación conservadora:</strong> $1.5M–$3M USD/año en profit afiliado real (no claims de marketing). Sumado a ~$1M/año del curso = <strong>$2.5M–$4M USD/año net revenue total</strong>. Coherente con su lifestyle declarado y Diamond status.</p>
+<h3 id="53-la-distinción-crítica-para-el-equipo">5.3 La distinción CRÍTICA para el equipo<a class="anchor" href="#53-la-distinción-crítica-para-el-equipo">#</a></h3>
+<p><strong>Su negocio no es "vender el curso" — su negocio es affiliate marketing real, y el curso es un side-revenue stream.</strong></p>
+<p>Sin embargo:</p>
+<ul>
+<li>El <strong>profit por unidad de tiempo del curso es probablemente mejor que el affiliate</strong> (no requiere ad spend, márgenes 90%+)</li>
+<li>El <strong>curso depende de su credibilidad como affiliate</strong>, que depende de seguir afiliando</li>
+<li>Si para de afiliar mañana, el curso se evapora en 6-12 meses</li>
+<li>Esto significa que su negocio es <strong>dual-revenue con dependency cruzada</strong>: si Meta lo banea de por vida o si ClickBank cambia reglas, ambas líneas mueren</li>
+</ul>
+<h3 id="54-es-replicable">5.4 ¿Es replicable?<a class="anchor" href="#54-es-replicable">#</a></h3>
+<ul>
+<li><strong>Mecánicamente sí</strong>: el stack (SpyHero, Atria, Creatify, HeyGen, Landerlab, ClickFunnels) es accesible. Las técnicas (UGC ads sin cara, AI-generated, audiencias 65+, nutra/insurance/debt offers) son enseñables.</li>
+<li><strong>Económicamente NO a su escala</strong> sin:</li>
+<li>Capital inicial $10-30K para tests sin quemar el bolsillo</li>
+<li>Tolerancia a perder $5K en una semana (su tweet de jan 2025)</li>
+<li>Tiempo para aprender 6-12 meses antes de breakeven</li>
+<li>Múltiples cuentas Meta (que se banean) y backup profiles</li>
+<li>Networking en USA affiliate space (offers exclusivos, payouts altos)</li>
+<li><strong>Survivorship bias</strong>: por cada Pancho hay decenas de afiliados que perdieron $50K+ y abandonaron. ClickBank tiene >100,000 afiliados, solo ~50 son Diamonds. Tasa de éxito ~0.05%.</li>
+</ul>
+<hr>
+<h2 id="6-contradicciones-red-flags-y-validaciones">6. CONTRADICCIONES, RED FLAGS Y VALIDACIONES<a class="anchor" href="#6-contradicciones-red-flags-y-validaciones">#</a></h2>
+<h3 id="validaciones-positivas-lo-que-sí-cuadra">Validaciones positivas (lo que SÍ cuadra)<a class="anchor" href="#validaciones-positivas-lo-que-sí-cuadra">#</a></h3>
+<p><span class="badge badge-ok">OK</span> ClickBank oficial lo lista como customer story (verificable) <span class="badge badge-ok">OK</span> ClickBank oficial le hizo episodio podcast Diamond (verificable) <span class="badge badge-ok">OK</span> Twitter @panchoval123 muestra patrones genuinos de media buyer real <span class="badge badge-ok">OK</span> Haciendola y Hablemos de Negocios (podcasts independientes confiables) lo entrevistaron <span class="badge badge-ok">OK</span> Alex Micol (afiliado UK independiente) cross-promo <span class="badge badge-ok">OK</span> Whop Trends muestra crecimiento real de members entre fechas distintas <span class="badge badge-ok">OK</span> Equipo de 14 staff visible, no es operación unipersonal <span class="badge badge-ok">OK</span> Stack técnico mencionado es exactamente el que usa la industria nutra/CPA <span class="badge badge-ok">OK</span> Honestidad sobre fracasos (tweets de pérdidas, account bans) <span class="badge badge-ok">OK</span> Edad y trayectoria temporal son consistentes entre fuentes</p>
+<h3 id="red-flags-lo-que-no-cuadra-o-requiere-escepticismo">Red flags (lo que NO cuadra o requiere escepticismo)<a class="anchor" href="#red-flags-lo-que-no-cuadra-o-requiere-escepticismo">#</a></h3>
+<p><span class="badge badge-warn">!</span> <strong>LinkedIn ausente</strong> — un emprendedor chileno de 25 años ganando $X millones que no tiene LinkedIn público es muy inusual. Sugiere preferencia por low-profile (legítimo) o evita verificaciones (sospechoso, según tu tesis). <span class="badge badge-warn">!</span> <strong>Universidad UAI no confirmada</strong> — claim del usuario que no encontré respaldo. Si te lo dijeron como dato verificado, pedir fuente. <span class="badge badge-warn">!</span> <strong>Reviews uniformes 4.89-5.0 con counts idénticos (155-156)</strong> entre 4 productos distintos: estadísticamente raro. Puede explicarse por Whop Review Reward o por reviews compartidos cross-product. No es evidencia de fraude pero amerita escepticismo. <span class="badge badge-warn">!</span> <strong>Inconsistencia Concón vs. Viña del Mar</strong> — menor pero documentada <span class="badge badge-warn">!</span> <strong>Income claims usan categorías inconsistentes</strong> (revenue, profit, ad spend, lifetime, mensual) sin aclarar — práctica común en gurus que infla percepción <span class="badge badge-warn">!</span> <strong>El curso es muy nuevo</strong> (10 meses) — track record post-purchase de alumnos exitosos es limitado. Los testimoniales en su web pueden ser early adopters cherry-picked. <span class="badge badge-warn">!</span> <strong>No hay reviews independientes</strong> en Reddit/Trustpilot — todas las "reviews externas" son afiliados con UTM <span class="badge badge-warn">!</span> <strong>Hermano nunca identificado</strong> en historia de pesas pandemia — narrativa que se cuenta pero no se completa <span class="badge badge-warn">!</span> Marketing del curso usa frases de guru ("$10K/día", "Domina el mercado USA", "7 cifras", "ticket a 7 cifras") que son promesas implausibles para principiantes <span class="badge badge-warn">!</span> Diferencial entre membresía Whop "3,931 joined" vs <strong>suma real de members pagados (~1,370)</strong> sugiere uso del número grande para impresión</p>
+<h3 id="lo-que-no-se-pudo-verificar">Lo que NO se pudo verificar<a class="anchor" href="#lo-que-no-se-pudo-verificar">#</a></h3>
+<p><span class="badge badge-no">NO</span> Foto en Diamond event ClickBank <span class="badge badge-no">NO</span> Captura de dashboard ClickBank con números reales <span class="badge badge-no">NO</span> Identidad del hermano <span class="badge badge-no">NO</span> Universidad específica <span class="badge badge-no">NO</span> Apariciones en eventos físicos con foto independiente <span class="badge badge-no">NO</span> Reviews de ex-miembros en plataformas independientes <span class="badge badge-no">NO</span> Income statement auditado o cualquier documento financiero</p>
+<hr>
+<h2 id="7-stack-técnico-verificación">7. STACK TÉCNICO (verificación)<a class="anchor" href="#7-stack-técnico-verificación">#</a></h2>
+<p>Stack que menciona en Haciendola Ep. 56 — todos verificables:</p>
+<ul>
+<li><strong>SpyHero</strong> — herramienta real de spy ads (~$99/mes)</li>
+<li><strong>Meta Ads Library</strong> — gratis, oficial Meta</li>
+<li><strong>Atria</strong> (tryatria.com) — swipe file y AI ad scripts (~$50-100/mes)</li>
+<li><strong>Creatify</strong> (creatify.ai) — AI video ads (~$49-200/mes)</li>
+<li><strong>HeyGen</strong> (heygen.com) — AI avatars videos (~$24-90/mes)</li>
+<li><strong>Google VEO 3</strong> — video AI generation (Gemini, ~$20/mes)</li>
+<li><strong>ClickFunnels</strong> — funnels (~$97-297/mes)</li>
+<li><strong>Landerlab</strong> (landerlab.io) — landing pages especializadas affiliate (~$49/mes)</li>
+<li><strong>Upwork/Fiverr</strong> — freelancers para creativos</li>
+<li><strong>Asana</strong> — project management (~$10/usuario)</li>
+</ul>
+<p><strong>Costo mensual estimado del stack a su escala:</strong> $800–$2,000 USD/mes solo en herramientas. Plus ad spend $30-50K/día. Plus equipo (14 personas).</p>
+<p><strong>Stack es realista y completo.</strong> No omite nada crítico. Esto es coherente con un operador real, no con un guru que inventó el stack.</p>
+<hr>
+<h2 id="8-trayectoria-temporal-validación-cronológica">8. TRAYECTORIA TEMPORAL (validación cronológica)<a class="anchor" href="#8-trayectoria-temporal-validación-cronológica">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Año</th>
+<th>Evento</th>
+<th>Verificación</th>
+</tr></thead><tbody>
+<tr>
+<td>~2017 (16 años)</td>
+<td>Empieza primer negocio digital</td>
+<td>Hablemos de Negocios mar 2025: "Desde los 16 años" / IG bio: "Son 8 años desde que comencé mi primer negocio"</td>
+</tr>
+<tr>
+<td>2020 (pandemia)</td>
+<td>Pesas de cemento con hermano</td>
+<td>ClickBank story 2023 + Haciendola 2025</td>
+</tr>
+<tr>
+<td>2021-2022</td>
+<td>Entra a affiliate marketing ClickBank</td>
+<td>ClickBank story + Twitter join Dec 2021</td>
+</tr>
+<tr>
+<td>2022-2023</td>
+<td>Primer $1K/día → Platinum status</td>
+<td>ClickBank story 2023</td>
+</tr>
+<tr>
+<td>Apr 2023</td>
+<td>ClickBank Customer Story video oficial</td>
+<td>YouTube ClickBank canal</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>Switch de YouTube Ads a Meta Ads</td>
+<td>Affiliated podcast + Twitter</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>Diamond status ClickBank ($5M+)</td>
+<td>Affiliated podcast Ep. 218</td>
+</tr>
+<tr>
+<td>Mayo 2025</td>
+<td>Lanzamiento Skalers Start ($47) y Pro ($497)</td>
+<td>Whop launch dates</td>
+</tr>
+<tr>
+<td>Junio 2025</td>
+<td>Lanzamiento Affiliate Mastery ($1,497) y Ads License ($12K)</td>
+<td>Whop launch dates</td>
+</tr>
+<tr>
+<td>Sep 2025</td>
+<td>Aparición Haciendola Ep. 56</td>
+<td>Publicado 12 sep 2025</td>
+</tr>
+</tbody></table></div>
+<p><strong>La progresión es plausible y coherente.</strong> No hay saltos sospechosos. La velocidad Platinum→Diamond en 1 año (2023→2024) ES rápida pero no imposible (Robby Blanchard hizo similar). La densidad de lanzamientos en may-jun 2025 sugiere planificación coordinada de su business education arm.</p>
+<hr>
+<h2 id="9-comparación-con-otros-gurús-del-nicho">9. COMPARACIÓN CON OTROS GURÚS DEL NICHO<a class="anchor" href="#9-comparación-con-otros-gurús-del-nicho">#</a></h2>
+<h3 id="casos-similares">Casos similares<a class="anchor" href="#casos-similares">#</a></h3>
+<ul>
+<li><strong>Robby Blanchard</strong> (US) — afiliado #1 ClickBank histórico, vende curso Commission Hero ($997). Mismo patrón (affiliate exitoso → curso). Pancho lo menciona en su IG.</li>
+<li><strong>Carolina Millán</strong> (Chile) — afiliada chilena referente, vende cursos high-ticket. Mencionada por Pancho como referente.</li>
+<li><strong>Mateo Salvatto</strong> (Argentina, Haciendola) — emprendedor + cursos ecommerce, lo entrevistó.</li>
+<li><strong>Alex Micol</strong> (UK) — affiliate marketer + community, cross-promo con Pancho.</li>
+</ul>
+<h3 id="el-patrón-guru-affiliate-vendiendo-curso">El patrón "guru-affiliate-vendiendo-curso"<a class="anchor" href="#el-patrón-guru-affiliate-vendiendo-curso">#</a></h3>
+<p>Es un patrón <strong>conocido y legítimo</strong>. Los affiliates exitosos casi siempre acaban vendiendo educación porque:</p>
+<ol>
+<li>Diversifica income (90% margen vs ad spend de 60%)</li>
+<li>Es passive-leveraged (vendes 1 vez vs trabajar diariamente cuentas)</li>
+<li>Genera autoridad para más deals con vendors</li>
+</ol>
+<p><strong>El red flag REAL aparece cuando el guru NUNCA fue afiliado primero</strong>. En el caso de Pancho, hay evidencia robusta de que SÍ es afiliado real primero, curso después.</p>
+<hr>
+<h2 id="10-veredicto">10. VEREDICTO<a class="anchor" href="#10-veredicto">#</a></h2>
+<h3 id="pancho-val-es-un-caso-real-verificable">¿Pancho Val es un caso real verificable?<a class="anchor" href="#pancho-val-es-un-caso-real-verificable">#</a></h3>
+<p><strong>SÍ, mayoritariamente.</strong> Su existencia como Diamond ClickBank affiliate está corroborada por ClickBank oficial. Su actividad como media buyer real está corroborada por su Twitter, podcasts independientes, y stack técnico coherente. Su narrativa tiene inconsistencias menores pero ninguna que invalide el caso central.</p>
+<h3 id="su-modelo-es-replicable-o-es-survivorship-bias">¿Su modelo es replicable o es survivorship bias?<a class="anchor" href="#su-modelo-es-replicable-o-es-survivorship-bias">#</a></h3>
+<p><strong>Las DOS cosas a la vez.</strong></p>
+<ul>
+<li><strong>Mecánica replicable:</strong> sí, el stack, las técnicas y el approach están enseñados claramente y son accesibles.</li>
+<li><strong>Resultados replicables a su escala:</strong> NO. Requiere capital, tolerancia psicológica, suerte con offers, networking USA, y mantenerse vivo en Meta (cuentas se banean). La tasa de éxito Diamond es ~0.05% de afiliados activos.</li>
+<li><strong>Resultado realista para alguien que aplique bien:</strong> Bronze ($1K/mes) en 6-12 meses, Silver ($25K/año) en 12-24 meses, <strong>probabilidad >50% de no llegar a Platinum nunca</strong>.</li>
+</ul>
+<h3 id="skalers-pro-vale-los-497-usd">¿Skalers Pro vale los $497 USD?<a class="anchor" href="#skalers-pro-vale-los-497-usd">#</a></h3>
+<p><strong>Probablemente sí</strong>, comparado con alternativas del mercado:</p>
+<ul>
+<li>8 horas de contenido + 7 módulos + acceso a comunidad de 318+ media buyers</li>
+<li>Comparable: Robby Blanchard's Commission Hero $997, Affiliate World tickets $497-$1,500, Carolina Millán cursos $497-$1,997</li>
+<li>A $497 one-time, <strong>el ROI es positivo si genera 1 campaña rentable</strong> que cubra el costo</li>
+<li><strong>Riesgo:</strong> el curso es nuevo (10 meses), por lo que no hay alumni track record largo. Si compras, eres relativamente early.</li>
+</ul>
+<h3 id="affiliate-mastery-vale-los-2197-usd">¿Affiliate Mastery vale los $2,197 USD?<a class="anchor" href="#affiliate-mastery-vale-los-2197-usd">#</a></h3>
+<p><strong>Más cuestionable.</strong> A ese ticket compites con cursos consolidados con track record de 5+ años. Para que valga la pena necesitas:</p>
+<ul>
+<li>Ya tener experiencia básica en Meta Ads (sino, parte con Pro $497)</li>
+<li>Capital de al menos $5K para invertir en testing post-curso</li>
+<li>Compromiso de 6+ meses mínimo</li>
+</ul>
+<h3 id="qué-partes-de-su-narrativa-son-sólidas-y-cuáles-son-marketing">¿Qué partes de su narrativa son sólidas y cuáles son marketing?<a class="anchor" href="#qué-partes-de-su-narrativa-son-sólidas-y-cuáles-son-marketing">#</a></h3>
+<p><strong>Sólido:</strong></p>
+<ul>
+<li>Diamond ClickBank status</li>
+<li>$5M+ revenue affiliate lifetime</li>
+<li>Stack técnico real</li>
+<li>Operación con equipo</li>
+<li>Historia de pandemia como capital inicial (corroborada en 2 fuentes con 2 años de diferencia)</li>
+<li>Skalers como negocio funcional con ~1,300+ paying members</li>
+</ul>
+<p><strong>Marketing inflado:</strong></p>
+<ul>
+<li>"$123,219/mes con 25 años" thumbnail (cherry-picked sin contexto)</li>
+<li>"De $0 a $10K/día" (selectivo, ignora pérdidas)</li>
+<li>"Domina el mercado USA" (overpromise para principiante)</li>
+<li>Reviews 4.89-5.0 cluster sospechoso</li>
+<li>"3,920 miembros" cuando solo ~1,370 son members reales pagados (resto son freebies)</li>
+</ul>
+<p><strong>No verificable:</strong></p>
+<ul>
+<li>Universidad UAI específicamente</li>
+<li>Identidad del hermano</li>
+<li>Claims específicos de campañas individuales</li>
+</ul>
+<h3 id="recomendación-específica-al-equipo-openclaw">Recomendación específica al equipo OpenClaw<a class="anchor" href="#recomendación-específica-al-equipo-openclaw">#</a></h3>
+<p><strong>Fase 1 (semana 1):</strong> <strong>NO comprar todavía.</strong> Hacer estos pasos primero:</p>
+<ol>
+<li>Ver el episodio completo Affiliated Ep. 218 (gratis YouTube): https://www.youtube.com/watch?v=5VbGkxY9PBE</li>
+<li>Ver el episodio completo Haciendola Ep. 56 (gratis YouTube): https://www.youtube.com/watch?v=SCHG41WZhhE</li>
+<li>Seguir @panchoval123 en X por 2 semanas para validar consistencia</li>
+<li>Consumir el contenido gratis de su canal YouTube <code>@panchovalb</code> (10.3K subs, ~30 videos)</li>
+</ol>
+<p><strong>Fase 2 (semana 2-3):</strong> <strong>Si después de eso quieres comprar:</strong></p>
+<ul>
+<li><strong>Empezar con Skalers Start ($47)</strong>, NO con Pro $497. Es el verdadero "validation purchase". Si el contenido del Start es sustantivo, Pro probablemente lo es también. Si Start es relleno, no compres Pro.</li>
+<li>Whop tiene <strong>money-back guarantee 7 días</strong> — usar ese período activamente para evaluar.</li>
+</ul>
+<p><strong>Fase 3 (mes 1):</strong> <strong>Solo considerar Pro ($497) si:</strong></p>
+<ul>
+<li>El Start fue genuinamente útil</li>
+<li>Ya tienes setup básico Meta Ads (cuenta business, BM, pixel)</li>
+<li>Tienes presupuesto $1-2K mínimo para tests post-curso</li>
+<li>Tu objetivo es Meta Ads para CPA/affiliate, no e-commerce</li>
+</ul>
+<p><strong>NO comprar Affiliate Mastery ($2,197) ni Ads License ($12K) hasta tener 6 meses de resultados probados con Pro.</strong></p>
+<p><strong>Lo más valioso del análisis:</strong> Pancho Val es <strong>real</strong>, pero el ROI de su curso depende de <strong>tu capital + ejecución + suerte</strong>, no de lo que él te enseñe. Sus skills no son secretos. Lo que él tiene que tú no es: 5 años de experiencia, $10M+ en ad spend testeando, equipo de 14 personas, network USA. Ningún curso de $497 te transfiere eso.</p>
+<hr>
+<h2 id="sources">Sources<a class="anchor" href="#sources">#</a></h2>
+<p>Fuentes primarias verificadas:</p>
+<ul>
+<li>ClickBank Customer Stories: https://www.clickbank.com/customer-stories/</li>
+<li>ClickBank Affiliated Podcast Ep. 218: https://www.youtube.com/watch?v=5VbGkxY9PBE</li>
+<li>ClickBank Affiliated en Apple Podcasts: https://podcasts.apple.com/us/podcast/affiliated-clickbank-s-official-affiliate-marketing/id1547482335</li>
+<li>ClickBank Customer Story video 2023: https://www.youtube.com/watch?v=9oA8MB4Y51E</li>
+<li>Haciendola Ep. 56: https://haciendola.com/blogs/haciendola/ha-invertido-8-millones-de-dolares-en-ads-a-sus-24-anos-francisco-valenzuela-panchoval-e56-1</li>
+<li>Hablemos de Negocios (Uri Sabat): https://open.spotify.com/episode/2kHIWdonqedbyoU5UZCC6t</li>
+<li>Twitter/X @panchoval123: https://x.com/panchoval123 (verificado vía nitter.net)</li>
+<li>Skalers Inc landing: https://skalersinc.com/</li>
+<li>Whop Skalers principal: https://whop.com/skalers/</li>
+<li>Whop Skalers Pro: https://whop.com/skalers-pro/</li>
+<li>Whop Affiliate Mastery: https://whop.com/skalersaffiliate/</li>
+<li>Whop Ads License: https://whop.com/adslicense/</li>
+<li>Whop Trends Skalers Start: https://whoptrends.com/products/skalers</li>
+<li>Whop Trends Skalers Pro: https://whoptrends.com/products/skalers-pro</li>
+<li>Whop Trends Affiliate Mastery: https://whoptrends.com/products/skalersaffiliate</li>
+<li>Whop Trends Ads License: https://whoptrends.com/products/adslicense</li>
+<li>ClickBank Diamond definition: https://www.clickbank.com/blog/how-much-do-affiliate-marketers-make/</li>
+<li>Affiliate Takeover (donde aparece Pancho): https://www.affiliatetakeover.com/</li>
+<li>Alex Micol "24 Hours with TOP 1% Affiliate Marketer": https://www.youtube.com/watch?v=I0pbawHK4vg</li>
+<li>ClickBank Reel original Pancho 2023: https://www.instagram.com/reel/CsuAwH_A1Hw/</li>
+<li>Epicmarket review (afiliado UTM cocula): https://www.epicmarket.cl/post/marketing-de-afiliados-chile</li>
+</ul>
+<p>Datos almacenados en raw para auditoría posterior: <code>/Users/cristobaltejero/Projects/affiliate-business/00-viabilidad/research-fuentes/.firecrawl/</code></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: 06-pancho-val-deep-dive.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

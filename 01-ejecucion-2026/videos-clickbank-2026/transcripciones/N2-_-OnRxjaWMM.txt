@@ -1,0 +1,487 @@
+[00:00] What's going on? It's Thomas and in this video
+[00:02] I want to walk you through the exact
+[00:05] Facebook ad structure that I use to scale affiliate campaigns from 10k to 100k and even
+[00:13] 200k plus per day
+[00:15] So for those of you who are new to the channel, maybe don't know who I am
+[00:19] My name's Thomas Owen and I've been an affiliate for the last few years in which I've generated
+[00:25] Over 25 million dollars in affiliate commissions. I'm a three times click back diamond affiliate
+[00:33] I've scaled offers in pretty much every health niche you can think of from ED to weight loss to
+[00:40] Neuropathy to dental and every other health offer that there is
+[00:45] So right now, I'm going to walk you through the exact structure
+[00:50] I'm going to explain and show you exactly how I set up my campaigns to go from a few sales a day
+[00:58] To five and even six figures per day. Okay, this is a really easy structure
+[01:04] It isn't beginner friendly
+[01:06] So if you're a beginner who's spending five dollars ten dollars twenty dollars per day this video is not for you
+[01:13] However, if you're spending a couple thousand dollars a day if you're looking to really scale or have a method there
+[01:19] To scale into astronomical figures. This video is exactly what you're looking for
+[01:25] So let's jump into the computer and let's go through how exactly I structure this method
+[01:33] All right, so we're inside of the ad account right now. I'm gonna walk you through a live campaign
+[01:40] That's just been recently launched running a mail enhancement offer and anyone who
+[01:46] Has been around me my content or knows me, you know, I'm really really hot on the air the certain
+[01:54] men's health
+[01:56] Offer a niche
+[01:58] So this is what we're looking at now, right?
+[02:00] But before we dive in and go through the exact method step by step
+[02:03] I want to just again preface by saying this is this exact structure this exact
+[02:11] Method that I'm gonna walk through right now has literally been responsible in you know
+[02:16] my own experience of running ads over the last few years for
+[02:22] Multiple six-figure days for multiple six-figure and even seven-figure campaigns
+[02:27] There's slight tweaks that may be a little bit different
+[02:31] but in reality this exact structure that I'm gonna walk through is
+[02:36] Exactly how I have had my biggest days ever my biggest campaigns ever
+[02:42] Okay, now, I will say over the last 12 18 months
+[02:46] I haven't really used this method as much as what I did before then and it's only recently
+[02:53] Probably in the last six weeks or so that I've actually started using it again
+[02:58] I actually came about
+[02:59] from a guy that I have seen on a couple of podcasts and interviews called
+[03:04] Andre Lunev
+[03:06] Where I started taking note again and thought you know what I'm gonna go back to that exact method
+[03:12] Which is very similar to what I was running beforehand. So let's dive in and
+[03:18] Let's go through exactly how we're building this out. So we have one campaign
+[03:22] It's a CBO campaign, which means budget at the campaign level and we have a huge budget an inflated budget
+[03:29] So those who were familiar with sneak attack back in the day, you know a timbered
+[03:36] coined method or structure
+[03:40] Similar to that where we have this huge budget, right and and then for me I've set a bid cap
+[03:46] So I set bid caps. I'm huge on, you know manual bids and again, this is from Tim birds thing as well
+[03:52] We set a bid cap
+[03:55] But instead of having a really small bid or low bid with
+[04:00] Accelerated delivery selected, which is what Tim bird used to talk about hence sneak attack
+[04:06] I've gone for a bid of 1x my target CPA. So if my target CPA is in this case
+[04:13] $100. I'm setting a bid at $100, right? You can see my bids actually quite a lot higher than that
+[04:20] But in this case, I think my target CPA is around 110
+[04:24] I say 100 just for simple math if I need to be able to do any equations on the spot
+[04:31] So I have this inflated budget now it differs
+[04:35] I've gone for a lifetime budget and this is where I sort of differ like this has been
+[04:43] By far the the best way of for me scaling effectively and efficiently
+[04:50] I really like to day part meaning I like to you know run my ads in the hours that
+[04:56] Convert best for me for the offer for the ad account. I
+[05:01] Have a lot of data as you'd expect for this particular niche because I've you know ran in it for so long and across many many offers. I know
+[05:11] quite accurately
+[05:14] What hours convert best?
+[05:16] So for me, I like to day part because I like to put all of my spend and allocate all of my spend into the hours
+[05:24] That I know convert best. I
+[05:26] Won't go into exactly what our hours those are for this particular offering campaign
+[05:32] So for me to be able to do that effectively and efficiently I run a lifetime budget
+[05:39] So instead of a daily budget, I run lifetime. So the lifetime budget for this exact campaign is
+[05:46] $500,000 and I've got it set to 10 days
+[05:51] Again, this is what I've done for so long
+[05:53] You could argue that it'd be better to set it for a longer time frame and you could be right
+[05:58] However, what I like to do is I like to extend it as I get close to that end of 10 days
+[06:04] Or whatever the schedule set to and I can keep on extending it. That's just what I prefer to do
+[06:09] everything by the way that I say
+[06:11] You know, I'm not recommending anything. I'm just talking out of my own experience
+[06:16] Everything is my own opinion and what I've physically
+[06:20] Found to work and not work other people might try this and it doesn't work. Okay, that's fine
+[06:26] This is just what I have found to work best, right?
+[06:30] okay, so I
+[06:31] Have my inflated budget that could be anywhere from I usually try and aim to have it at 10 to 20x
+[06:39] What I want to spend on that day
+[06:42] So if I want to spend five thousand dollars today, then I'll set my budget to have at least 50 to a hundred K
+[06:51] For that day. All right, and at the start when we maybe don't have as much data in the ad account
+[06:57] And maybe we don't have as much, you know data on the offer at all
+[07:01] It's difficult for us to you know
+[07:05] Determine what the bid is going to be and how much we're going to spend right and
+[07:09] This is where this is, you know really not beginner friendly even if you know, you've got a couple of thousand dollars to spend per day
+[07:16] There's a very fine line in terms of bid between
+[07:21] you know
+[07:23] Frottling traffic meaning, you know, you're not really getting that much traffic through you
+[07:28] You know where near gonna spend your budget and
+[07:32] Then on the flip side of that, you know, it could be just a few dollars in the bid
+[07:37] You're a few percent of the bid increase
+[07:39] And then all of a sudden you've got a flood of traffic and I've told this story in my community before where I you know
+[07:46] On several occasions. I've learned the hard way where I've
+[07:51] Accident, you know accidentally or mistakenly increased my bid a little bit too much
+[07:56] So let's just say I had a bid of 99 dollars or I was increasing to 99 dollars
+[08:01] I've actually put an extra digit. So I've put my bid to
+[08:05] $999
+[08:06] Set a bid not caught it published it walked away come back a couple of hours later to see I've spent
+[08:12] $23,000 with literally four or five sales. So a big big loss right there, right?
+[08:17] So I've done that, you know more than once
+[08:20] I'm ashamed to say because really that mistake should only be made once but I've done it on a couple of times and
+[08:27] So there's a what I'm trying to say here is, you know, you need to be on the ball here
+[08:31] You need to be careful. It's a very good idea to have automated rules set as sort of safety nets
+[08:38] To catch any mistakes again. We're only human, right?
+[08:41] And when you tired or in a rush or pissed off or emotionally stressed or whatever
+[08:47] Mistakes happen. Okay. So bear that in mind
+[08:51] All right, let's go back to the top because I'm sort of tangent in as I often do
+[08:56] Tangent Tom. So we have this budget, right?
+[08:59] Big budget inflated budget whatever you want to call it and we have a bid we have the bid cap set and again
+[09:05] Like I like to start at 1x my target CPA
+[09:09] So again for simple maths if I'm looking to get purchases for $100, that's my bid. That's my starting bid
+[09:16] Again, you know, this is gonna differ because if I'm in an ad account where I have a ton of data
+[09:23] You know, and maybe I've spent 50k 100k a million whatever it is on this particular offer or niche
+[09:30] Then I might need to take the bid lower, right?
+[09:33] Depending on what my average cost is my average CPA because a hundred dollar bid and you've got a hundred k a day budget
+[09:41] That bid might be enough to enter auctions, right?
+[09:44] Facebook might see that bid as being quite competitive in order to enter more auctions
+[09:51] And you're gonna spend more of your budget, right? So
+[09:54] Again data. There's a few things that are gonna factor in here. I
+[09:59] Like to start at 1x my target CPA and nine times out of ten that bid is gonna be quite a low bid
+[10:07] Right, I'm not gonna spend anywhere near close to what I want to spend
+[10:11] And this is the part and parcel of this is sometimes it's a game of patience and there's a few things that we can do
+[10:18] So what I like to do is I like to start with usually around 20 to 30 ad sets within my campaign
+[10:25] And each ad set is a different creative. So you can see here
+[10:29] We've got 20 ad sets. You can see down at the bottom. Apologies if we're not really zoomed in too much
+[10:35] So we've got 20 ad sets, right? Let me move my head up here
+[10:39] So 20 ad sets and each ad set you can see inch quad GM 1 0 9
+[10:46] You know, we've got a couple of different inch quads and quads
+[10:49] It's a different as a particular style of or concept of creative that we have we've got, you know, again
+[10:57] If I scroll down a little bit, you can see we've got different
+[11:01] Creative identifiers, right? So each ad set is a different unique creative it and some of these are images
+[11:07] Some of them are videos we mix it up and then in each if we were to look at
+[11:13] Let's go with
+[11:16] Kind of think now
+[11:18] We'll roll with this wrong. Actually, I don't want to roll that wrong one because I saw different testimonials
+[11:24] We'll go with this one. Okay. So we've got this wrong creative. That's the identifier, right?
+[11:29] Oh
+[11:30] Basically, this is playing off of the the angle of you know, everything that you know to potentially be the solution is wrong
+[11:37] Right quite a common angle for people to play around with a very effective one might I add
+[11:44] But then we've got these five different angles within the copy. Okay, so we've got this
+[11:50] We've got this
+[11:51] You know creative and then we've got an angle for cheating and so the primary text and the headline is based around
+[11:58] Cheating and then twig log, which is more of a reference to us
+[12:02] But it's a sort of you know desired outcome angle is what you'd you know, I guess
+[12:09] Label this twig log from twig to log again. Remember what type of offer I'm running here
+[12:15] Should make sense as to what that is referring to
+[12:19] Locker so this is like a shame angle that we play on
+[12:22] You know the awkwardness the embarrassment inside of the the gym locker room the smallest in the locker room, etc
+[12:29] etc
+[12:31] Testimonials or a testimonial style angle which are always crush
+[12:34] But I usually sort of mid to bottom of funnel again
+[12:38] We're not retargeting in anything that we're doing here, but we just see these types of ads
+[12:43] Be positioned by Facebook as as middle of funnel bottom bottom of funnel
+[12:47] So they don't get all the spend they're not like a you know an ad that Facebook
+[12:52] Determines as cold or top of funnel
+[12:55] But they crush like the CPA is always very good with these testimonial angles
+[12:59] And then we've got the wife shock again
+[13:01] This is sort of like playing on it a desired outcome as well. So we have this mix of different angles within our messaging
+[13:08] Okay, and I like to do this again. You could say this isn't the right way of doing it
+[13:11] Really give a shit is the way I like to do it. Okay again
+[13:15] I'm not saying this is the right way or the best way. I'm saying it's my way
+[13:19] And it's the way that I prefer to do it. Okay, and I'm just sharing that with you because it works for me
+[13:24] And it might work for you. Okay, so let's go back to the ad set level
+[13:29] So we have these, you know different creatives and each creative has, you know, a few different angles of copy to
+[13:37] To suit and to match and and obviously for Facebook to determine where they want to show it
+[13:42] So we have 20 sets. We have 20 creatives again a couple of them are repeated
+[13:48] So but let's just say 20 creatives for again the ease of my
+[13:53] Mathematical brain and I mean not having to look like an absolute dweeb and pull out a calculator
+[13:58] So we've got our 20 creatives and we've got five different ad copy angles per creative
+[14:04] Okay, giving us in total in this campaign right now
+[14:08] 100 unique ads, right
+[14:11] Creative one copy one creative one copy two creative one copy three and so forth, right?
+[14:17] So the idea here is to feed as much ammunition as we can
+[14:23] We're within reason right we're not just you know
+[14:25] You could use the analogy of taking a handful of you know
+[14:29] What and chucking it against the wall and seeing what sticks and in essence that's what we're doing
+[14:35] But we're doing it in a calculated way
+[14:38] We're not just chucking anything, you know, it does some of this stuff doesn't make sense
+[14:42] So it's just been botched out by some crappy chat GPT prompt like we're actually going into deep
+[14:49] Like we're creating creative that we think's gonna work. That's good quality creative
+[14:54] That will we'd be happy to sort of push into a campaign, right?
+[14:58] And then we're also doing the same with our ad copy and our angles
+[15:02] So we're not chucking shit against the wall. It's it's better than shit. It's not just shit, right? We're chucking
+[15:08] Whatever, hopefully we're chucking gold coins and diamonds at the wall. That's what we're looking for
+[15:13] We're chucking win ads is what we're trying to do. All right, so
+[15:17] But the analogy sort of makes sense, okay
+[15:21] So we've got a hundred unique ads. We've got 20 ad sets and we've got our bid, right?
+[15:26] We've got our audience is all the same as you can see in my naming conventions. It's broad. It's male. It's 18 plus
+[15:34] So we we launch a campaign again as per
+[15:37] I want to try and launch as close to just after midnight as possible because I want to try and get as much
+[15:43] Of a full day as possible and we have our lifetime schedule remember remember because I'm running lifetime budgets
+[15:50] So we're doing our day part in so we are day part in within a specific time window. I
+[15:55] Like to day part in time blocks
+[15:57] I don't like to do two hours on you know, three hours off and the for our three hours off four hours an hour off
+[16:06] I don't like to stop and start with my day part and for anyone that's interested
+[16:10] I like to have a block of time. So I don't stop and start my day part in I find a
+[16:17] 6 8 10 hour window so from let's say 8 a.m. Till
+[16:24] 6 p.m. That would be I think a 10 hour window
+[16:29] That would be a great block to running. So if I don't have
+[16:33] You know
+[16:34] Confirmation of a good block of time
+[16:37] Then I keep on running, you know
+[16:40] 24-7 until I get that good block of time and again for reference
+[16:44] I go into this in way more detail in the sort of coaching and courses that I have but the you know
+[16:50] I'm looking to try and spend at least a thousand dollars per hour within that 24 hour window
+[16:57] For me to determine when's a good block of time? Do we have a block of time?
+[17:02] Some offers won't have, you know a 6 8 10 hour block of time
+[17:06] Some will be, you know, two hours of good two hours of bad three hours of good one hour
+[17:12] You know like it's all very spotty and stop start and I don't like stop start
+[17:16] I want to find a good block of time where the vast majority of those hours are green and profitable
+[17:22] And then I want to concentrate my budget into that block of time again
+[17:28] Don't want to go too far into it and make this video about day parting
+[17:32] Maybe that's a good topic for another day
+[17:34] So let me know in the comments by the way if you want to learn more about day parting
+[17:38] If that is a good topic then let me know and I can put that down as more videos to create in the future
+[17:45] Okay, so we've got our 10 ad sets. Sorry 20 ad sets. We've got our bid set. We're running lifetime
+[17:51] We're running day parting or scheduling
+[17:54] And I let it go and you can see also if you want to get a little bit more anal
+[17:59] We've got seven day click as the attribution setting
+[18:02] We've turned off engage view and the view through as well
+[18:06] And we let it run. Okay, and the idea here is we
+[18:10] Get a feel for is our bid too low
+[18:12] Is any of this creative is facebook going to see any of this creative that we've you know put forward
+[18:19] As eligible to enter into auctions
+[18:22] Remember facebook ads is an auction site, right?
+[18:26] What they call a second price auction where you know the the winning bid is actually
+[18:31] Just a little bit higher than the second highest bidder, right?
+[18:33] So obviously we could bid 120 is our or let's use it, you know our
+[18:40] example of $100 CPA
+[18:42] Or target CPA
+[18:44] And if the you know the second highest bidder is $90, then we're just going to pay
+[18:50] $91, right? We're not going to pay $100. We're going to pay 91 just above the second highest bidder, right?
+[18:56] Um, or at least that's how I understand it again. I'm not
+[19:01] A tech. I'm not a data analyst. I don't know how facebook ads actually works. I don't think anybody does really
+[19:07] I don't even think facebook know how it works
+[19:09] But you know, we that's how we can understand it
+[19:13] So I let this run and I give it, you know, I try and give it a couple of days 24 48 72
+[19:19] hours ideally
+[19:20] Just to get a feel for
+[19:22] Are we is facebook able to enter any auctions at our current bid?
+[19:28] With the creative that we've put forward, okay? And you know, we'll usually see quite, uh, you know
+[19:36] Quite low amount of impressions. What we usually see is we we still see sales
+[19:41] But at low volume, right? We'll we'll get a handful of sales, but at really good return
+[19:46] So, you know, we're bidding $100 and maybe we only spend let's say
+[19:52] $70 on day one, but we get a sale, right?
+[19:55] And then on day two, maybe we spend a little bit more
+[19:58] What I usually see is the longer you leave it the more you spend, okay the more facebook sort of
+[20:04] Finds it's it's legs. Okay finds who the audience are that we're looking for the type of people that will react
+[20:12] To these ads and the auctions as well
+[20:14] What you also have to think about is
+[20:16] Depending on when you launch your campaign
+[20:20] If you launch in the middle of monday
+[20:22] Then that might be quite a low volume day
+[20:25] It makes more sense that evenings and weekends or holidays are going to be high volume
+[20:31] Right because there's more impressions available meaning there's more auctions available
+[20:36] Meaning we have more chance of entering more auctions at our bid compared to a monday midday, right?
+[20:44] This makes a lot of sense. Okay
+[20:47] So and again, like there's a lot of the stuff that i'm saying here is stuff that i've picked up
+[20:52] Especially from andre lunev. So if you don't know who he is
+[20:55] I think he's most active on twitter or x
+[20:59] Go and find him. He's i'll try and remember to link to him in the in the show notes
+[21:04] Like a podcast now in the description below
+[21:07] Um, but there we go, right? So let's carry on
+[21:11] So then
+[21:12] I'm letting facebook do its thing and i'm hoping that it finds some winners and usually we'll start to see a little bit of movement
+[21:18] But sometimes that bid is going to be too low. So what i'll start to do is i'll start to inch forward with the bid
+[21:24] I'll inch it up. Okay
+[21:26] And you can see here what, you know, our target cpa was around 110 for this exact campaign
+[21:32] We're now at 159. Okay, so so i've inched it up quite a lot and
+[21:37] A reason for that today is saturday
+[21:40] So we're in the weekend
+[21:41] I know there's going to be more auctions and i want to try and win some more auctions, right?
+[21:45] So i'm i'm increasing that bid and i'm going a little bit heavier than maybe what i would do during the week
+[21:49] So i do play around and i do manipulate the bid depending on how much volume i'm i'm seeing and wanting to get right
+[21:57] I know this offer in particular converts really well on the weekend, especially a saturday
+[22:01] So this is where i really want to try and spend as much as i can today, right?
+[22:07] Now on the side of that what we'll also do is every week
+[22:12] Potentially multiple times per week. I'll introduce new creative. Okay, so again, you know that it might be that we see inch quad
+[22:22] is
+[22:23] Getting most of the spend okay, and this is usually what happens when you run cbo with multiple ad sets
+[22:29] You're going to see one or two
+[22:31] Steel not steel but take the lion's share of the budget and the impressions, right?
+[22:37] Because facebook has determined that these creatives
+[22:41] Are the ones most suited to enter auctions, right? That and again, that's pretty common sense
+[22:47] So what we'll do especially if they're within cpa or target cpa
+[22:52] Is we'll look at what's
+[22:55] Getting the impressions like what ads are actually is actually is facebook favouring
+[23:00] What's entering more auctions?
+[23:02] Okay, and then what we'll do is we'll create iterations of those creatives so inch quad
+[23:08] You can see we've got eggplant quad
+[23:10] Coincidence maybe not right and you know, I don't think we've got any other quads here at the moment, but there is
+[23:17] At least another two that I will be introducing into this campaign
+[23:23] very shortly right so
+[23:26] I'm looking at what's going on and then also, you know, maybe if it's a static image we introduce a 10 second video
+[23:32] Okay, so like we're looking at creating iterations of these winning concepts or concepts that facebook starting to
+[23:40] Favour, okay, so we're continuously bringing in new creative
+[23:45] And I think that's really important
+[23:48] Because you want to you know if there's only two ad sets in here that are getting spend
+[23:53] That's probably not going to be enough to spend as much as we want to spend right
+[23:59] So what we can take from that is facebook does not think the rest of these ads ad sets creatives
+[24:06] are worthy of winning auctions
+[24:10] So in essence we could replace them with new creative now. I'm not going to replace them
+[24:15] but I am going to
+[24:17] Enter new things or new creatives and add into the auction in the hope that facebook again favours them
+[24:23] And the idea is we want to try and find
+[24:26] As many ad sets or creatives as possible that facebook's going to favour at our budget and bid
+[24:33] Okay, and that's really what we're trying to do here
+[24:36] And when you do that you can go from that 70 dollars 100 dollars a day to 10 000 and even 100 000 dollars a day
+[24:44] Very very quickly. Okay, it happens super quick now
+[24:49] So so we're really looking at that right? We're trying to figure out exactly, you know, what creatives are working with facebook
+[24:57] and how we can
+[24:59] iterate them into giving facebook more fuel
+[25:03] To fuel the fire right to increase our spend but maintain our cpa to keep that bid ideally right
+[25:10] so again, you know
+[25:13] We're doing that and as it progresses we see more and more spend so what you know on day one
+[25:18] Maybe we only spend 100 dollars day two. Maybe it's 150 day three. Maybe it's 300 day four
+[25:24] We start inching the bid up a little bit. Maybe it's 600 dollars that we spend
+[25:29] And throughout this process we're seeing okay, where's facebook taking the spend? Where is the spend being spent?
+[25:35] Let's start seeing if we can get those iterations done right and introduce them into the campaign
+[25:40] Now we've just doubled, you know the spend so that 600 dollars
+[25:45] Can now be 1200 dollars potentially if facebook again favors what we've just introduced or you know as new creative and ads
+[25:53] And we continue to do that until we reach that level of spend that we're at so although this isn't like an overnight
+[26:00] you know from
+[26:02] You know zero to hero that everyone's looking for
+[26:07] It's a very good way
+[26:09] Of one testing your creative within the same campaign and two
+[26:14] Scaling winners in the same campaign and you can do that within this one campaign. You have let's say a 50k a day budget
+[26:23] So that the ceiling is very high the chance that facebook is you know, going to be throttled by your budget is slim
+[26:31] compare that to
+[26:33] a $2,000 a day budget cbo
+[26:36] although it could be doing great
+[26:40] You're going to hit a ceiling on good performance
+[26:43] And then the only way of you know increasing performance on that campaign is increasing budget
+[26:49] And we all know what happens when you start doubling tripling quadrupling budgets. It's very hit and miss
+[26:54] It's like putting a blindfold on and and you know shoving a dart in a dartboard
+[26:59] so
+[27:01] The the way we we can offset that and have
+[27:05] High ceiling of scale is by
+[27:08] Starting with a big budget okay and scaling into that budget and that's what we're trying to do
+[27:13] Is we're trying to find creatives and ads that facebook's going to enter into auctions
+[27:18] And just keep on feeding more and more of those style of ads in
+[27:23] That we can then increase our spend
+[27:25] Maintaining our bid and obviously maintaining our cpa and that's a goal
+[27:30] So so what happens obviously with the page limit, but it's obviously going to be quite a a common question. I imagine
+[27:37] Once we start, you know approaching page limit, which happens really quick because in our first batch
+[27:41] We've got 100 ads. So we've only got you know, 250 or whatever it is before we we hit that limit
+[27:48] And we just turn off the stuff that doesn't spend that's the easiest way of doing it
+[27:52] Is just turn off whatever is not spending it's not spending for a reason facebook just doesn't favor it in the auction
+[27:58] Turn it off right you could also argue that you could turn off the ads that are spending but outside of kpi
+[28:04] So maybe they're outside of target cpa. I would do that only if I had other ads that are spending and getting a good amount of spend
+[28:13] But within target cpa, right? So that's the game plan there now
+[28:19] To to add to this
+[28:21] I like to scale another way. So so we have this campaign that's popping along nicely
+[28:27] Right now what I'll do as well is I'll take let's say we've got this inch quad that's performing really well
+[28:34] I'm looking at the winners and and what I'm basing winners off is spend
+[28:38] and cpa
+[28:39] That's it. So if I if my ads
+[28:43] within target cpa
+[28:45] That's a good sign
+[28:48] But I want to make sure to spend that's really the big sign is
+[28:53] Is facebook spending on this ad and if it is and it's within kpi. It's within target cpa. Then you found a winning ad
+[29:01] I'm not choosing a winning ad after you know
+[29:05] A hundred dollars a sale. Oh, sorry a hundred dollars spent on that ad. That's not a winning ad
+[29:11] and you know the
+[29:12] What I'll also mention because this will be quite common is
+[29:16] Often it's and it makes sense
+[29:19] the winning ad is the one with
+[29:22] The lowest cpa. Okay, you know, oh, this has got five sales at twenty dollars each
+[29:27] Yeah, but it's only spent a hundred dollars. You know, maybe it's been running for a week
+[29:32] It's only spent a hundred dollars over a week. Why?
+[29:36] Because it ain't going to handle scale
+[29:38] Probably, okay, you know, that's I'm not going to say it's definitely not because I'm sure there'll be someone who's found an ad like that
+[29:44] And it does handle scale
+[29:46] But there's probably a very good reason why it hasn't spent a bulk or or majority of your budget
+[29:54] Because it's not going to be able to handle it at scale and that's why a lot of the time
+[29:59] When you try and take, you know, what you see as a winner because it's got really good cpa
+[30:04] But it's only got three or four sales and you try and scale it into a higher budget. It dies
+[30:10] Because that ad isn't cut out to scale into a higher budget. Okay
+[30:15] So the primary aim here in this whole
+[30:18] Method is to find as many ads as possible
+[30:23] that spend
+[30:25] That's it. We need to find an ad that spends money that facebook enters into auctions at our bid
+[30:32] Okay
+[30:33] And when we find them we need to make sure that they're within target cpa and then that checks off as a winning ad
+[30:40] So what I do then is I'll take, you know, obviously after a week or so
+[30:44] I've usually found quite a few winning ads. I'm playing around with bids, you know
+[30:49] I'm and you know in bringing in more ad sets more creatives
+[30:54] I'll then take the at let's say inch quad is absolutely smoking
+[30:59] And every single ad in there is either doing well or hasn't spent as much
+[31:04] I'll take the ad set. I'll put it into its own cbo campaign
+[31:08] Exact same sort of framework the day part in the lifetime budget the bid cap everything stays the same
+[31:14] But I isolate the the the ad and you could argue that's a bad thing to do because then it's audience overlap
+[31:20] It's the same ad
+[31:22] But it fucking works
+[31:24] And now
+[31:25] I've isolated that ad so there's not there's little chance that that main campaign that original campaign
+[31:32] Budgets going to be spread across a few different ad sets blah blah blah some might not perform as well as others
+[31:37] You know, there's going to be a trickle that goes through to the other ad sets that aren't really spending
+[31:42] But whereas with when I when I dupe it out into its own campaign
+[31:45] I can push all the budget back campaign and it's been working phenomenally well
+[31:49] I'm not saying it's the right thing to do. I know there's going to be a lot of like
+[31:53] Geeky gurus who say that's a stupid thing to do. It's working for me. So I'll carry on doing it. Thank you
+[31:59] So that's it. So we're launching big budgets
+[32:04] We're launching it, you know, ideally
+[32:06] 20 to 50
+[32:09] creatives
+[32:10] And I personally I'm launching multiple copy angles
+[32:15] And I'm letting facebook do its thing
+[32:17] I'm setting my bid usually at one x target cpa because I just want to get a feel for it
+[32:21] I want to see if this is going to be
+[32:24] A bid that facebook can work with with the creatives that we've given it
+[32:29] Okay
+[32:30] Now, you know, you don't have to play around with the bid if you don't want to one way in which you can
+[32:36] spend more is by feeding more ammunition
+[32:39] Okay, giving facebook more to work with again, like I was saying
+[32:42] Find what facebook is spending money on and create iterations of that
+[32:47] That should be a big part of it
+[32:49] Notice what ad set or what creative is getting the bulk of the spend
+[32:54] Why
+[32:55] Doesn't matter
+[32:56] But just take that creative and create more styles. Turn it into a video change it slightly change the contrast add a text overlay
+[33:05] Whatever it is change the hook change the voiceover, you know change the b-roll
+[33:09] What whatever style of creative it is do more of it. Okay
+[33:13] And then bring it into its own ad set
+[33:16] See if facebook spends on that as well
+[33:18] And this by far has been you know, I've tried tons of different structures
+[33:24] Methods that a lot of people talk about and I'm sure they all work for you know different people
+[33:30] For me, this has been the most stable and it just
+[33:35] You know coincidentally is pretty much the exact same method that I used
+[33:40] Years ago and and have done and have had some insane numbers with it
+[33:44] So this is my go-to from now is to launch exactly like this in this big campaign big budget big caps
+[33:53] multiple ad sets with unique creatives
+[33:56] And just feed as much as I can into facebook find winners
+[34:00] Scale them internally inside of this campaign, but also isolate in their own campaign and scale there as well
+[34:06] So what you can do is you can keep on feeding into this main campaign
+[34:11] And then take your winners to the side into their own campaign and do exactly the same
+[34:16] Keep on feeding and making iterations of those winners changing the headline
+[34:20] Check you know is in your ad copy as well
+[34:23] And by far like it if you have the budget if you have the the risk tolerance
+[34:28] You know, I think that's a big thing as well
+[34:31] If you're if putting a hundred thousand dollars a day is your daily budget
+[34:37] Makes you worried. This probably isn't a good method to follow
+[34:41] You could argue that everyone should be a little bit worried putting that in
+[34:45] But it should also excite you okay, so I think you know, that's important
+[34:49] If this is a little bit like oh, I'm not too sure about that. Don't do it. Okay
+[34:54] Don't risk losing your ass again. Like I said at the beginning
+[34:58] There's a fine line between under bidding and overbidding and I've fallen foul to it more than once
+[35:05] Which is a really silly thing to do like I already said
+[35:07] Um, but yeah, there we go. So
+[35:10] Let me know thoughts. Let me know questions
+[35:13] Uh, and I'll be happy to um to answer anything that you got
+[35:17] Okay, so we're back on the camera
+[35:19] So I've just laid out and walked through the exact framework in which I use and have used
+[35:25] To scale multiple affiliate offers to five and six figures per day
+[35:31] But there's a huge difference between knowing it and then being able to execute it. There really
+[35:39] Is something to say for having a mentor or a coach or a community or course to be able to help
+[35:46] Advise get feedback on some of those decisions when it comes to spending 10k 50k 100k plus per day
+[35:54] So what I'd love to do now is I'd like to invite you to book a call if you're interested in maybe
+[36:00] Scaling to that next level if you're already spending
+[36:04] 500 a thousand dollars a couple of thousand dollars plus per day
+[36:08] And you really want to start scaling to 20k 50k 100k a day
+[36:14] Then I'd love for you to book a call with either myself or one of my team
+[36:18] And we'll see if we can help you do it
+[36:20] I have a course a community and also a network called ad profits
+[36:25] In which I work with affiliates in order to help them
+[36:30] You know learn some of the strategies that we go through and scale their affiliate campaigns
+[36:34] We have weekly calls. We have an in-depth community
+[36:37] And we're in the process of uploading a brand new course with content like I've just been through but way more in depth
+[36:45] Covering every aspect of exactly what we do and what I've done for the last few years that have enabled me to
+[36:53] Scale to 25 million dollars plus in affiliate commissions
+[36:57] If that's something you're interested in but not just the facebook ad side, which is great
+[37:03] But also the back end there's the stuff that nobody ever talks about how we actually go around and and leverage deals
+[37:10] where we take a percentage of an offer as in
+[37:14] Ongoing not just the stuff that we generate as an affiliate, but what everybody else generates as an affiliate
+[37:21] This is next level stuff where you can partner and jv with vendors
+[37:27] And you can score big
+[37:29] Okay, there's some huge vendors on places like clickbank buy goods
+[37:33] Where if you were even to just take a small slice of the pie
+[37:37] Can be thousands of dollars per day in hands-free
+[37:41] Commissions, okay, and this is some of the stuff that I've done as well in my journey of building my affiliate empire
+[37:48] If you'd like to learn more if you'd like to see and
+[37:52] Learn what it would be like
+[37:54] You know working more direct with me and and within the ad profits ecosystem
+[38:00] Where we've got the course content. We've got the community
+[38:02] We've got weekly calls and we also have our own boutique private network full of exclusive offers and private offers
+[38:10] That you can't get anywhere else
+[38:12] Then book a call below the links in the description choose a day in time
+[38:17] And you'll talk to me or one of my team and I can't wait to help you scale to the next level. Cheers for now
