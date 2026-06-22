@@ -14,6 +14,7 @@ Uso:
 import os
 import re
 import sys
+import json
 import html as html_lib
 from pathlib import Path
 from datetime import datetime
@@ -499,6 +500,50 @@ if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
 }
 """
 
+# === SEARCH (index only) · DOM seguro, sin innerHTML ===
+SEARCH_JS = """
+(function(){
+  var IDX=[], q=document.getElementById('q'), res=document.getElementById('results'),
+      groups=document.querySelector('.groups-wrap');
+  if(!q) return;
+  var norm=function(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'');};
+  function el(tag, cls, txt){ var n=document.createElement(tag); if(cls)n.className=cls; if(txt!=null)n.textContent=txt; return n; }
+  fetch('search-index.json').then(function(r){return r.json();}).then(function(d){IDX=d;}).catch(function(){
+    res.replaceChildren(el('div','res-head','No se pudo cargar el indice de busqueda.')); res.classList.add('on');
+  });
+  function run(query){
+    var terms=norm(query).split(/\\s+/).filter(Boolean);
+    res.replaceChildren();
+    if(!terms.length){ res.classList.remove('on'); if(groups)groups.style.display=''; return; }
+    var scored=IDX.map(function(it){
+      var T=norm(it.t), D=norm(it.d), X=norm(it.x), s=0;
+      terms.forEach(function(t){
+        if(T.indexOf(t)>=0) s+=12;
+        if(D.indexOf(t)>=0) s+=4;
+        var c=X.split(t).length-1; s+=Math.min(c,6);
+      });
+      if(terms.every(function(t){return (T+' '+D+' '+X).indexOf(t)>=0;})) s+=8;
+      return {it:it, s:s};
+    }).sort(function(a,b){return b.s-a.s;});
+    var hits=scored.filter(function(x){return x.s>0;});
+    var MIN=5;
+    var show = hits.length>=MIN ? scored.slice(0, Math.min(12, hits.length)) : scored.slice(0, MIN);
+    var extra = hits.length<MIN ? ' . completado a '+MIN+' con los mas cercanos' : '';
+    res.appendChild(el('div','res-head', hits.length+' coincidencia(s) para \\u201c'+query+'\\u201d . mostrando '+show.length+extra));
+    show.forEach(function(o){
+      var a=document.createElement('a'); a.href=o.it.u; a.className='res-item'+(o.s===0?' weak':'');
+      a.appendChild(el('div','res-title', o.it.t));
+      a.appendChild(el('div','res-desc', o.it.d));
+      a.appendChild(el('div','res-meta', (o.it.g||'')+' . '+(o.it.u||'').split('/').pop()));
+      res.appendChild(a);
+    });
+    res.classList.add('on'); if(groups)groups.style.display='none';
+  }
+  var deb; q.addEventListener('input', function(e){ clearTimeout(deb); deb=setTimeout(function(){run(e.target.value);},140); });
+  q.addEventListener('search', function(e){ run(e.target.value); });
+})();
+"""
+
 THEME_INIT = "<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>"
 
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">'
@@ -961,8 +1006,21 @@ def find_md_files():
         md_files.append(path)
     return sorted(md_files)
 
+def plain_text(md, limit=2800):
+    """Texto plano buscable a partir de markdown."""
+    t = re.sub(r'```.*?```', ' ', md, flags=re.DOTALL)
+    t = re.sub(r'`[^`]+`', ' ', t)
+    t = re.sub(r'!\[[^\]]*\]\([^)]*\)', ' ', t)
+    t = re.sub(r'\[([^\]]+)\]\([^)]*\)', r'\1', t)
+    t = re.sub(r'^\s*[#>*\-+|]+', ' ', t, flags=re.MULTILINE)
+    t = re.sub(r'[#>*_~|]+', ' ', t)
+    t = re.sub(r'\s+', ' ', t).strip()
+    return t[:limit]
+
+
 def build_index(md_files, stats):
     groups = {}
+    search_items = []
     for md in md_files:
         parts = md.relative_to(REPO_ROOT).parts
         if len(parts) == 1:
@@ -990,11 +1048,17 @@ def build_index(md_files, stats):
                 m = re.match(r'^#\s+(.*)$', line)
                 if m: title = re.sub(r'\*\*|`', '', m.group(1)).strip(); break
             desc = ''
+            in_fence = False
             for line in md_text.split('\n'):
                 line = line.strip()
-                if not line or line.startswith('#') or line.startswith('---') or line.startswith('>') or line.startswith('-') or line.startswith('*') or line.startswith('|') or line.startswith('```'): continue
+                if line.startswith('```'): in_fence = not in_fence; continue
+                if in_fence: continue
+                if not line or line.startswith('#') or line.startswith('---') or line.startswith('>') or line.startswith('-') or line.startswith('*') or line.startswith('|') or ':' == line[-1:]: continue
+                if re.match(r'^(value|label|delta|spark|title|pct|desc|before|after)\s*:', line): continue
                 desc = line; break
             desc = re.sub(r'\*\*|`|\[([^\]]+)\]\([^)]+\)', r'\1', desc)[:150]
+            grp_label = group_name[3:] if len(group_name) > 2 and group_name[2] == '-' else group_name
+            search_items.append({'t': title, 'u': html_rel, 'd': desc, 'g': grp_label, 'x': plain_text(md_text)})
             cards.append(f'<a href="{html_rel}" class="card"><div class="card-name">{escape_html(title)}</div>'
                          f'<div class="card-desc">{escape_html(desc)}</div>'
                          f'<div class="card-meta"><span>{words:,} palabras</span><span>~{mins} min</span><span class="card-path">{rel.name}</span></div></a>')
@@ -1019,6 +1083,19 @@ def build_index(md_files, stats):
 .card-desc { font-size: 0.9rem; color: var(--ink-dim); line-height: 1.5; flex: 1; }
 .card-meta { display: flex; gap: var(--s3); font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.05em; padding-top: var(--s3); border-top: 1px solid var(--line); flex-wrap: wrap; }
 .card-path { color: var(--accent); margin-left: auto; }
+.search-wrap { max-width: 640px; margin: var(--s7) auto 0; }
+.search-input { width: 100%; padding: var(--s4) var(--s5); font-family: 'Public Sans', system-ui, sans-serif; font-size: 1.05rem; color: var(--ink); background: var(--bg-elev); border: 2px solid var(--line-strong); border-radius: 999px; box-shadow: var(--shadow); transition: border-color .2s, box-shadow .2s; }
+.search-input:focus { outline: none; border-color: var(--accent); box-shadow: var(--shadow-lift); }
+.search-input::placeholder { color: var(--ink-mute); }
+.search-results { max-width: 780px; margin: var(--s5) auto 0; text-align: left; display: none; }
+.search-results.on { display: block; }
+.res-head { font-family: 'JetBrains Mono', monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-mute); margin-bottom: var(--s3); }
+.res-item { display: block; padding: var(--s4) var(--s5); margin-bottom: var(--s3); background: var(--bg-elev); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); text-decoration: none; color: inherit; box-shadow: var(--shadow); transition: transform .15s, box-shadow .15s; }
+.res-item:hover { transform: translateX(4px); box-shadow: var(--shadow-lift); }
+.res-item.weak { border-left-color: var(--line-strong); opacity: .65; }
+.res-title { font-family: 'Newsreader', serif; font-size: 1.18rem; color: var(--ink); margin-bottom: var(--s1); line-height: 1.25; }
+.res-desc { font-size: .9rem; color: var(--ink-dim); line-height: 1.45; }
+.res-meta { font-family: 'JetBrains Mono', monospace; font-size: .66rem; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .05em; margin-top: var(--s2); }
 """
     index_html = f"""<!DOCTYPE html>
 <html lang="es">
@@ -1035,13 +1112,17 @@ def build_index(md_files, stats):
 <header class="hero">
 <div class="hero-eyebrow">Confidencial · Sistema operativo del proyecto</div>
 <h1>Affiliate Business</h1>
-<p>Playbook, viabilidad, SOPs, plan comercial e investigaciones data-driven. Click en cualquier card para abrirla.</p>
+<p>Playbook, viabilidad, SOPs, plan comercial e investigaciones data-driven. Busca abajo o abre cualquier card.</p>
+<div class="search-wrap"><input id="q" class="search-input" type="search" autocomplete="off" aria-label="Buscar en el ecosistema" placeholder="Busca: oferta, gravity, bridge page, errores, Meta, ClickBank..."></div>
 <div class="hero-stats"><span><strong>{len(md_files)}</strong>documentos</span><span><strong>{total_words:,}</strong>palabras</span><span><strong>~{total_min}</strong>min lectura</span></div>
 </header>
+<div id="results" class="search-results"></div>
 <main class="groups-wrap">{"".join(sections)}</main>
 <script>{JS}</script>
+<script>{SEARCH_JS}</script>
 </body>
 </html>"""
+    (REPO_ROOT / 'search-index.json').write_text(json.dumps(search_items, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     (REPO_ROOT / 'index.html').write_text(index_html, encoding='utf-8')
 
 def main():
