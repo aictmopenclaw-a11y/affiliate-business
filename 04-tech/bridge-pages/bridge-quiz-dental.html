@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--
+  ============================================================================
+  PLANTILLA 2 · BRIDGE QUIZ INTERACTIVO · DENTAL / ORAL HEALTH · USA (ingles)
+  ============================================================================
+  Que es: pre-lander tipo quiz/encuesta que va ENTRE el ad de Meta y el HopLink
+  de ClickBank. El usuario responde 3-4 preguntas, ve una pantalla de "resultado"
+  y de ahi transiciona suave a la oferta con un CTA al HopLink.
+
+  POR QUE FUNCIONA (segun videos: Thomas Owen usa quiz para subir CVR; el quiz
+  genera micro-compromiso y filtra al usuario equivocado a nivel de la pagina).
+
+  POR QUE ASI (anti-ban, 05-compliance-meta-nutra.md + 02-prodentim.md):
+  - El quiz pregunta sobre la SITUACION ("does your breath come back by mid-morning")
+    nunca diagnostica la CONDICION del usuario ("if you have gingivitis" = ban).
+  - Tono informativo/educativo, no venta agresiva. Sin precios gigantes ni countdown.
+  - Sin before/after de boca/dientes (politica explicita de Meta).
+  - Verbos estructura-funcion ("supports a healthy oral microbiome"), nunca
+    cura/trata/previene/elimina.
+  - Disclosure FTC "ADVERTISEMENT" antes del fold. Disclaimer FDA en footer.
+  - HopLink en CTA suave ("See your recommended approach"), nunca link crudo.
+
+  SEGURIDAD JS (pedido explicito):
+  - JS vanilla minimo, inline.
+  - NO se usa innerHTML con contenido dinamico. Las pantallas son ESTATICAS en el
+    HTML y solo se muestran/ocultan con la clase .active. Lo unico que cambia via JS
+    es el ancho de la barra (style.width con un valor de una lista blanca fija),
+    nunca innerHTML ni texto construido desde input del usuario.
+  - No hay entrada de usuario que se renderice. Cero superficie XSS.
+
+  COMO ADAPTAR (buscar "REEMPLAZAR"):
+  1. Reemplazar YOUR_HOPLINK_HERE por el HopLink real del VSL + &fbclid={fbclid}.
+  2. Ajustar preguntas/opciones al angulo de tu ad (continuidad ad-lander).
+  3. Reemplazar [IMAGE: ...] por imagenes propias.
+  4. Cambiar nombre del sitio/dominio y linkear privacy/terms/contact/refund reales.
+  ============================================================================
+-->
+<title>30-Second Oral Health Quiz | FreshSmile Insights</title>
+<meta name="description" content="Answer a few quick questions to discover the oral care approach that may suit your daily routine best." />
+<style>
+  :root{
+    /* Paleta limpia, dental/clinica pero calida: teal confiable, gris suave.
+       Sin rojos de urgencia. */
+    --ink:#15303a;
+    --body:#34474f;
+    --muted:#73848c;
+    --line:#e2e9ec;
+    --bg:#ffffff;
+    --bg-soft:#f3f8f8;
+    --brand:#0f6e74;        /* teal cabecera */
+    --brand-soft:#e6f3f3;
+    --cta:#0f8a7e;          /* verde-teal CTA, confiable */
+    --cta-hover:#0c766b;
+    --pick:#0f6e74;
+    --maxw:600px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg-soft);
+    color:var(--body);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .site-bar{
+    background:var(--brand);
+    color:#fff;
+    padding:12px 16px;
+    text-align:center;
+  }
+  .site-bar .logo{font-weight:700;font-size:19px;letter-spacing:.3px}
+  .site-bar .logo span{opacity:.8;font-weight:400}
+  /* Disclosure FTC antes del fold (no negociable) -->*/
+  .ad-disclosure{
+    background:#e9eff0;color:var(--muted);font-size:11px;text-transform:uppercase;
+    letter-spacing:1.3px;text-align:center;padding:7px 16px;border-bottom:1px solid var(--line);
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;background:var(--bg);min-height:60vh;padding:0 0 6px}
+  .pad{padding:24px 22px}
+  /* ---- Barra de progreso del quiz ---- */
+  .progress-shell{
+    height:6px;background:var(--brand-soft);border-radius:0;overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;width:25%;background:var(--cta);
+    transition:width .35s ease;
+  }
+  .step-label{font-size:12px;color:var(--muted);letter-spacing:.4px;margin:14px 0 4px;text-transform:uppercase;font-weight:600}
+  /* ---- Pantallas: solo .active se muestra. Resto display:none. ---- */
+  .screen{display:none;animation:fade .3s ease}
+  .screen.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  /* Intro */
+  h1{
+    color:var(--ink);font-size:27px;line-height:1.25;margin:6px 0 12px;font-weight:700;
+  }
+  .intro-img{
+    background:repeating-linear-gradient(45deg,#e9f1f1,#e9f1f1 12px,#e2ecec 12px,#e2ecec 24px);
+    border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:13px;
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;
+    min-height:170px;margin:0 0 18px;
+  }
+  .intro p{font-size:17px;margin:0 0 16px}
+  .meta-row{display:flex;gap:16px;font-size:13px;color:var(--muted);margin:0 0 20px;flex-wrap:wrap}
+  .meta-row span{display:inline-flex;align-items:center;gap:5px}
+  .badge{background:var(--brand-soft);color:var(--brand);font-weight:600;border-radius:20px;padding:3px 10px;font-size:12px}
+  /* Pregunta */
+  .q-text{color:var(--ink);font-size:22px;line-height:1.3;font-weight:700;margin:8px 0 18px}
+  .options{display:flex;flex-direction:column;gap:11px;margin-bottom:8px}
+  /* Botones grandes para mobile */
+  .opt{
+    display:block;width:100%;text-align:left;
+    background:#fff;border:1.5px solid var(--line);border-radius:10px;
+    padding:16px 18px;font-size:16.5px;color:var(--body);cursor:pointer;
+    transition:border-color .15s ease,background .15s ease;
+    font-family:inherit;line-height:1.4;
+  }
+  .opt:hover,.opt:focus{border-color:var(--pick);background:var(--bg-soft);outline:none}
+  .opt:active{background:var(--brand-soft)}
+  .reassure{font-size:13px;color:var(--muted);margin-top:14px;text-align:center}
+  /* ---- Pantalla de "analizando" (micro-transicion, sube percepcion de valor) ---- */
+  .analyzing{text-align:center;padding:46px 22px}
+  .spinner{
+    width:42px;height:42px;border:4px solid var(--brand-soft);border-top-color:var(--cta);
+    border-radius:50%;margin:0 auto 18px;animation:spin .8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .analyzing p{color:var(--muted);font-size:15px}
+  /* ---- Pantalla de resultado + transicion a la oferta ---- */
+  .result h2{color:var(--ink);font-size:24px;line-height:1.3;margin:4px 0 14px;font-weight:700}
+  .result-card{
+    background:var(--bg-soft);border:1px solid var(--line);border-left:3px solid var(--cta);
+    border-radius:0 10px 10px 0;padding:18px 18px;margin:0 0 18px;
+  }
+  .result-card .tag{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--cta);font-weight:700;margin-bottom:6px;display:block}
+  .result p{font-size:16.5px;margin:0 0 16px}
+  .res-img{
+    background:repeating-linear-gradient(45deg,#e9f1f1,#e9f1f1 12px,#e2ecec 12px,#e2ecec 24px);
+    border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:13px;
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;
+    min-height:150px;margin:0 0 18px;
+  }
+  /* CTA al HopLink: suave, sin precio gigante ni countdown */
+  .cta-btn{
+    display:block;width:100%;text-align:center;
+    background:var(--cta);color:#fff;text-decoration:none;
+    font-size:18px;font-weight:600;padding:17px 22px;border-radius:10px;
+    transition:background .15s ease;line-height:1.3;
+  }
+  .cta-btn:hover{background:var(--cta-hover)}
+  .cta-sub{font-size:12.5px;color:var(--muted);text-align:center;margin-top:11px}
+  /* testimonio plantilla en resultado */
+  .mini-testi{border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:20px 0 6px;font-size:15.5px}
+  .mini-testi .stars{color:#e0a83b;letter-spacing:2px;font-size:13px;margin-bottom:5px}
+  .mini-testi .who{font-size:12.5px;color:var(--muted);margin-top:8px}
+  .mini-testi .who b{color:var(--ink)}
+  .results-vary{font-size:11.5px;color:var(--muted);font-style:italic;margin:6px 0 0}
+  /* Footer */
+  footer{
+    max-width:var(--maxw);margin:0 auto;background:#21333a;color:#a6b6bc;
+    font-size:12.5px;line-height:1.6;padding:22px 22px 32px;
+  }
+  footer .fda{background:#1b2b31;border:1px solid #33474e;border-radius:6px;padding:13px 15px;margin-bottom:14px;color:#c0cdd2;font-size:12px}
+  footer .fda b{color:#e6eef0;display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;font-size:11px}
+  footer a{color:#9ec4c4;text-decoration:underline}
+  footer .links{margin:12px 0;display:flex;flex-wrap:wrap;gap:6px 14px}
+  footer .copy{opacity:.7;margin-top:10px}
+  @media (max-width:480px){
+    h1{font-size:23px}.q-text{font-size:20px}.pad{padding:20px 18px}
+  }
+</style>
+</head>
+<body>
+
+  <!-- REEMPLAZAR: nombre del sitio por tu dominio real -->
+  <header class="site-bar">
+    <div class="logo">FreshSmile <span>Insights</span></div>
+  </header>
+
+  <!-- Disclosure FTC obligatoria ANTES del fold. NO quitar. -->
+  <div class="ad-disclosure">Advertisement &middot; Sponsored Quiz</div>
+
+  <!-- Barra de progreso (se actualiza por JS, ancho via style.width = textContent-safe) -->
+  <div class="progress-shell" aria-hidden="true">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <main class="wrap">
+
+    <!-- =====================================================================
+         PANTALLA 0 · INTRO
+         ===================================================================== -->
+    <section class="screen active pad" id="screen-intro">
+      <span class="step-label">Free wellness quiz</span>
+      <!-- TITULAR tipo "take this 30-second quiz to find out". Curiosidad, nivel problema. -->
+      <h1>Take This 30-Second Quiz to Discover the Oral Care Routine That Fits You Best</h1>
+      <div class="intro-img">[IMAGE: friendly editorial photo, adult 40+ smiling naturally, bright and clean, no teeth close-up]</div>
+      <div class="intro p">
+        <p>Most of us follow the same brush-and-rinse routine we learned as kids and never stop to ask whether it still fits where we are now. Your answers below will point you toward a modern approach that more adults are choosing to <strong>support</strong> a healthy mouth day to day.</p>
+      </div>
+      <div class="meta-row">
+        <span class="badge">4 quick questions</span>
+        <span>&#9201; About 30 seconds</span>
+        <span>&#128274; No email required</span>
+      </div>
+      <!-- Boton inicia el quiz -->
+      <button class="cta-btn" type="button" data-next="1">Start the Quiz &rsaquo;</button>
+      <p class="reassure">Your answers are not stored or shared.</p>
+    </section>
+
+    <!-- =====================================================================
+         PANTALLA 1 · PREGUNTA 1
+         Las preguntas son sobre la SITUACION, nunca diagnostican al usuario.
+         REEMPLAZAR texto/opciones segun tu angulo. Cada .opt avanza con data-next.
+         ===================================================================== -->
+    <section class="screen pad" id="screen-q1">
+      <span class="step-label">Question 1 of 4</span>
+      <div class="q-text">By mid-morning, how does your breath usually feel after your normal routine?</div>
+      <div class="options">
+        <button class="opt" type="button" data-next="2">Still fresh all the way through</button>
+        <button class="opt" type="button" data-next="2">It fades a little sooner than I would like</button>
+        <button class="opt" type="button" data-next="2">It often comes back even after brushing</button>
+        <button class="opt" type="button" data-next="2">I am not really sure</button>
+      </div>
+      <p class="reassure">There are no wrong answers. Pick what sounds closest.</p>
+    </section>
+
+    <!-- PANTALLA 2 · PREGUNTA 2 -->
+    <section class="screen pad" id="screen-q2">
+      <span class="step-label">Question 2 of 4</span>
+      <div class="q-text">When it comes to your gums, what best describes your everyday experience?</div>
+      <div class="options">
+        <button class="opt" type="button" data-next="3">They feel comfortable and steady</button>
+        <button class="opt" type="button" data-next="3">They feel sensitive now and then</button>
+        <button class="opt" type="button" data-next="3">I notice them more than I used to</button>
+        <button class="opt" type="button" data-next="3">I would like them to feel better supported</button>
+      </div>
+      <p class="reassure">This helps us point you to the right information.</p>
+    </section>
+
+    <!-- PANTALLA 3 · PREGUNTA 3 -->
+    <section class="screen pad" id="screen-q3">
+      <span class="step-label">Question 3 of 4</span>
+      <div class="q-text">How do you feel about your current brushing-and-rinse routine?</div>
+      <div class="options">
+        <button class="opt" type="button" data-next="4">It works great, I am just curious</button>
+        <button class="opt" type="button" data-next="4">It is fine but I feel like something is missing</button>
+        <button class="opt" type="button" data-next="4">I keep doing everything and still want more</button>
+        <button class="opt" type="button" data-next="4">I am open to a fresh approach</button>
+      </div>
+      <p class="reassure">Almost there.</p>
+    </section>
+
+    <!-- PANTALLA 4 · PREGUNTA 4 -->
+    <section class="screen pad" id="screen-q4">
+      <span class="step-label">Question 4 of 4</span>
+      <div class="q-text">If a simple daily habit could help <strong>support</strong> a healthy oral microbiome, how interested would you be?</div>
+      <div class="options">
+        <button class="opt" type="button" data-next="analyzing">Very interested, tell me more</button>
+        <button class="opt" type="button" data-next="analyzing">Interested if it is easy to do</button>
+        <button class="opt" type="button" data-next="analyzing">Curious, I would like to understand it</button>
+        <button class="opt" type="button" data-next="analyzing">Open to learning the basics</button>
+      </div>
+      <p class="reassure">Tap an answer to see your result.</p>
+    </section>
+
+    <!-- =====================================================================
+         PANTALLA "ANALIZANDO" · micro-transicion (sube percepcion de valor)
+         ===================================================================== -->
+    <section class="screen" id="screen-analyzing">
+      <div class="analyzing">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Matching your answers to the best approach&hellip;</p>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         PANTALLA RESULTADO · transiciona a la oferta con CTA al HopLink
+         Estatica: no se inyecta nada por JS. Tono informativo.
+         ===================================================================== -->
+    <section class="screen pad result" id="screen-result">
+      <span class="step-label">Your result</span>
+      <h2>Based on your answers, a modern probiotic-based oral routine may be a good fit</h2>
+
+      <div class="result-card">
+        <span class="tag">What this means</span>
+        <p style="margin-bottom:0">Your responses line up with the people who tend to benefit most from looking beyond brushing alone, toward habits that help <strong>support</strong> the natural balance of bacteria in the mouth. It is a gentle, once-a-day idea rather than a big overhaul.</p>
+      </div>
+
+      <div class="res-img">[IMAGE: clean product-context photo, glass of water and a small bottle on a bathroom shelf, neutral editorial style]</div>
+
+      <p>A dental wellness team put together a short, plain-language explainer on how this approach works, who it suits, and what to realistically expect. It is free to watch, and there is no need to enter your email to see it.</p>
+
+      <!-- ===== CTA SUAVE al HopLink. REEMPLAZAR YOUR_HOPLINK_HERE ===== -->
+      <a class="cta-btn" href="YOUR_HOPLINK_HERE" rel="nofollow sponsored" target="_blank">See Your Recommended Approach &rsaquo;</a>
+      <p class="cta-sub">Opens the official explainer in a new tab.</p>
+
+      <!-- Testimonio PLANTILLA (no real). Primera persona, sin diagnostico, results may vary. -->
+      <div class="mini-testi">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <span>"I had basically given up on finding anything new for my routine. This was simple enough that I actually kept it up."</span>
+        <div class="who">&mdash; <b>Linda K.</b>, Ohio <em>(template testimonial)</em></div>
+      </div>
+      <p class="results-vary">Individual results may vary. This testimonial reflects one person's experience and is not a guarantee of any outcome.</p>
+
+      <!-- Segundo CTA suave inline -->
+      <p style="font-size:15px;color:var(--muted);margin-top:20px">Want the full details first? <a href="YOUR_HOPLINK_HERE" rel="nofollow sponsored" target="_blank" style="color:var(--cta);font-weight:600;text-decoration:underline">Watch the free explainer here</a> and decide for yourself.</p>
+    </section>
+
+  </main>
+
+  <!-- ============================================================================
+       FOOTER · disclaimers obligatorios (anti-ban). NO quitar.
+       ============================================================================ -->
+  <footer>
+    <div class="fda">
+      <b>Health Disclaimer</b>
+      These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. This quiz is for general informational purposes only and is not medical advice. Always consult your dentist or physician about your oral health. Individual results may vary.
+    </div>
+    <p>This page is an advertisement, not a news article or medical resource. We may receive compensation if you purchase a product through a link on this page, at no extra cost to you.</p>
+    <div class="links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/contact.html">Contact Us</a>
+      <a href="/refund.html">Refund Policy</a>
+      <a href="/disclaimer.html">Full Disclaimer</a>
+    </div>
+    <!-- REEMPLAZAR: nombre del sitio + ano -->
+    <p class="copy">&copy; 2026 FreshSmile Insights. All rights reserved. This site is not part of the Facebook or Meta website or Meta Platforms, Inc. This site is not endorsed by Meta in any way.</p>
+  </footer>
+
+  <!--
+    JS VANILLA SEGURO:
+    - Muestra/oculta pantallas estaticas con la clase .active. NADA de innerHTML dinamico.
+    - El unico texto que cambia es el ancho de la barra (style.width con string fijo)
+      y nada se construye desde input del usuario => cero superficie XSS.
+    - Cada boton lleva data-next con el id de destino (numero de pregunta,
+      "analyzing" o queda en result).
+  -->
+  <script>
+    (function () {
+      "use strict";
+
+      // Mapa de pasos -> id de seccion y % de progreso. Estatico, no editable por el usuario.
+      var STEPS = {
+        "intro":     { id: "screen-intro",     progress: "10%" },
+        "1":         { id: "screen-q1",        progress: "25%" },
+        "2":         { id: "screen-q2",        progress: "50%" },
+        "3":         { id: "screen-q3",        progress: "75%" },
+        "4":         { id: "screen-q4",        progress: "90%" },
+        "analyzing": { id: "screen-analyzing", progress: "100%" },
+        "result":    { id: "screen-result",    progress: "100%" }
+      };
+
+      var fill = document.getElementById("progressFill");
+
+      function show(stepKey) {
+        var step = STEPS[stepKey];
+        if (!step) { return; }
+
+        // Oculta todas las pantallas, muestra solo la activa (toggle de clase, sin innerHTML).
+        var screens = document.querySelectorAll(".screen");
+        for (var i = 0; i < screens.length; i++) {
+          screens[i].classList.remove("active");
+        }
+        var target = document.getElementById(step.id);
+        if (target) { target.classList.add("active"); }
+
+        // Actualiza barra de progreso con un valor de una whitelist (string fijo).
+        if (fill) { fill.style.width = step.progress; }
+
+        // Vuelve arriba para que la siguiente pregunta se vea desde el inicio (mobile).
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        // La pantalla "analyzing" avanza sola al resultado tras una breve pausa.
+        if (stepKey === "analyzing") {
+          window.setTimeout(function () { show("result"); }, 1600);
+        }
+      }
+
+      // Delegacion de eventos: cualquier boton con data-next avanza al paso indicado.
+      document.addEventListener("click", function (e) {
+        var btn = e.target.closest ? e.target.closest("[data-next]") : null;
+        if (!btn) { return; }
+        var next = btn.getAttribute("data-next");
+        if (STEPS.hasOwnProperty(next)) {
+          show(next);
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

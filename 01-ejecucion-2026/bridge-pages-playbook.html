@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playbook de bridge pages bulletproof (anti-ban + conversion) · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">01-ejecucion-2026 · 27 min · 5,341 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#cómo-leer-este-documento" class="">Cómo leer este documento</a></li><li><a href="#1-qué-es-y-por-qué-existe" class="">1. Qué es y por qué existe</a></li><li><a href="#el-rol-de-la-bridge-en-el-funnel" class="h3">El rol de la bridge en el funnel</a></li><li><a href="#por-qué-nunca-direct-link" class="h3">Por qué NUNCA direct link</a></li><li><a href="#2-las-4-reglas-anti-ban-de-la-landing-críticas" class="">2. Las 4 reglas anti-ban de la landing (críticas)</a></li><li><a href="#regla-1-tono-informativo-editorial-no-de-venta" class="h3">Regla 1: Tono informativo / editorial, NO de venta</a></li><li><a href="#regla-2-disclaimer-de-salud-visible" class="h3">Regla 2: Disclaimer de salud visible</a></li><li><a href="#regla-3-contenido-que-aporta-valor-por-sí-mismo-advertorial-real-no-cloaking" class="h3">Regla 3: Contenido que aporta valor por sí mismo (advertorial real, no cloaking)</a></li><li><a href="#regla-4-el-hoplink-va-en-un-cta-suave-no-como-link-crudo" class="h3">Regla 4: El HopLink va en un CTA suave, no como link crudo</a></li><li><a href="#3-anatomía-de-una-bridge-page-que-convierte" class="">3. Anatomía de una bridge page que convierte</a></li><li><a href="#4-los-4-tipos-de-bridge-page-y-cuándo-usar-cada-uno" class="">4. Los 4 tipos de bridge page y cuándo usar cada uno</a></li><li><a href="#a-advertorial-artículo" class="h3">(a) Advertorial / artículo</a></li><li><a href="#b-quiz-encuesta" class="h3">(b) Quiz / encuesta</a></li><li><a href="#c-listicle-comparación-best-x-for-y" class="h3">(c) Listicle / comparación "best X for Y"</a></li><li><a href="#d-pre-lander-de-historia-hacia-vsl-pre-vsl" class="h3">(d) Pre-lander de historia hacia VSL (pre-VSL)</a></li><li><a href="#5-niveles-de-consciencia-schwartz-aplicados-a-la-bridge" class="">5. Niveles de consciencia (Schwartz) aplicados a la bridge</a></li><li><a href="#tabla-nivel-hook-tipo-de-bridge" class="h3">Tabla nivel -> hook -> tipo de bridge</a></li><li><a href="#6-frameworks-de-copy-aplicados-a-la-bridge" class="">6. Frameworks de copy aplicados a la bridge</a></li><li><a href="#pas-problema-agitación-solución" class="h3">PAS (Problema - Agitación - Solución)</a></li><li><a href="#aida-atención-interés-deseo-acción" class="h3">AIDA (Atención - Interés - Deseo - Acción)</a></li><li><a href="#las-7-maletas-el-aha-moment" class="h3">Las 7 maletas / el aha moment</a></li><li><a href="#característica-beneficio-regla-del-5x-de-ogilvy" class="h3">Característica -> beneficio (regla del 5x de Ogilvy)</a></li><li><a href="#7-ejemplos-de-copy-concretos-por-nicho" class="">7. Ejemplos de copy concretos por nicho</a></li><li><a href="#nicho-1-dental-oral-gum-health" class="h3">Nicho 1: DENTAL (oral / gum health)</a></li><li><a href="#nicho-2-idiomas-learn-english-a-language" class="h3">Nicho 2: IDIOMAS (learn English / a language)</a></li><li><a href="#nicho-3-weight-loss" class="h3">Nicho 3: WEIGHT LOSS</a></li><li><a href="#8-checklist-de-bridge-page-bulletproof" class="">8. Checklist de bridge page bulletproof</a></li><li><a href="#bloque-a-anti-ban-crítico" class="h3">Bloque A: Anti-ban (crítico)</a></li><li><a href="#bloque-b-técnico" class="h3">Bloque B: Técnico</a></li><li><a href="#bloque-c-conversión" class="h3">Bloque C: Conversión</a></li><li><a href="#fuentes-del-repo-citadas" class="h3">Fuentes del repo citadas</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>bridge-pages-playbook.md</span><span>5,341 palabras</span><span>~27 min</span></div>
+<h1 id="playbook-de-bridge-pages-bulletproof-anti-ban-conversion">Playbook de bridge pages bulletproof (anti-ban + conversion)</h1>
+<blockquote><p><em>"Estás a un anuncio de cambiar tu vida."</em></p>
+<p>La bridge page es donde se gana o se pierde la plata. El cuello de botella del negocio no es generar leads baratos: es monetizarlos. Meta puede mandarte clicks a $0.40, pero si la página intermedia no pre-vende, no filtra y no trackea, ese tráfico se evapora antes del HopLink. La bridge es nuestra única ventaja competitiva: el VSL y el checkout son del vendor y los usan todos los afiliados iguales <code>[FUENTE REPO: affiliate-funnel-structure.md, "El funnel completo"]</code>.</p></blockquote>
+<hr>
+<h2 id="cómo-leer-este-documento">Cómo leer este documento<a class="anchor" href="#cómo-leer-este-documento">#</a></h2>
+<p>Convención de marcas:</p>
+<ul>
+<li><code>[FUENTE REPO]</code> material extraído de un archivo del repo (research, cursos, skills). Se cita el archivo y la sección.</li>
+<li><code>[BEST-PRACTICE]</code> práctica estándar de la industria de affiliate/CRO, no atada a una fuente puntual del repo.</li>
+<li><code>[CRITERIO]</code> decisión u opinión del director de copy/CRO para este negocio.</li>
+</ul>
+<p>Regla de oro de seguridad antes de empezar: <strong>nunca se manda el ad directo al HopLink.</strong> Es ban casi garantizado y, si cae una cuenta, pueden caer las asociadas <code>[FUENTE REPO: SINTESIS-VIDEOS-FOROS-2026.md §0 TL;DR]</code>.</p>
+<hr>
+<h2 id="1-qué-es-y-por-qué-existe">1. Qué es y por qué existe<a class="anchor" href="#1-qué-es-y-por-qué-existe">#</a></h2>
+<h3 id="el-rol-de-la-bridge-en-el-funnel">El rol de la bridge en el funnel<a class="anchor" href="#el-rol-de-la-bridge-en-el-funnel">#</a></h3>
+<p>La bridge page (o pre-lander, o landing intermedia) es la página propia que se interpone entre el anuncio de Meta y el HopLink de ClickBank. El flujo completo es:</p>
+<pre><code>Ad (Meta) -&gt; Bridge page / pre-lander PROPIA -&gt; HopLink ClickBank -&gt; VSL del vendor -&gt; checkout</code></pre>
+<p><code>[FUENTE REPO: SINTESIS-VIDEOS-FOROS-2026.md §3 "El funnel ClickBank to Meta"]</code></p>
+<p>Visto como embudo con números de referencia (ilustrativos del consenso de foros + video, no datos de nuestra cuenta):</p>
+<pre><code>Anuncio Meta              100
+Bridge page propia         60
+HopLink (VSL del vendor)   20
+Checkout                    8
+Venta confirmada            3</code></pre>
+<p><code>[FUENTE REPO: SINTESIS-VIDEOS-FOROS-2026.md §3, funnel de conversión]</code></p>
+<p>La bridge cumple cuatro funciones que ninguna otra pieza del funnel puede cumplir <code>[FUENTE REPO: affiliate-funnel-structure.md, "El funnel completo"]</code>:</p>
+<ol>
+<li><strong>Pre-vende</strong> al usuario (sube la percepción de valor antes del VSL).</li>
+<li><strong>Filtra tráfico</strong> (los que no califican rebotan antes de llegar al VSL del vendor).</li>
+<li><strong>Captura data nuestra</strong> (pixel, GA4, eventos de scroll y click).</li>
+<li><strong>Construye brand percibido</strong> (el usuario cree que somos la marca).</li>
+</ol>
+<p>Param lo demuestra en vivo: "no pongas el affiliate link, el affiliate link va aquí [en la landing], lo que va [en el ad] es la URL del website" <code>[FUENTE REPO: SINTESIS-VIDEOS-FOROS-2026.md §3, video Param N3-SH71IXrbp-A 16:18-16:26]</code>.</p>
+<h3 id="por-qué-nunca-direct-link">Por qué NUNCA direct link<a class="anchor" href="#por-qué-nunca-direct-link">#</a></h3>
+<p>Direct linking (mandar el ad directo al HopLink) es el error #1 y el más repetido en todos los foros. No importa si la oferta es "Facebook-friendly": tarde o temprano cae la cuenta. Citas del repo <code>[FUENTE REPO: 09-errores-foros-clickbank-meta.md §2.2 "EL error letal: direct linking"]</code>:</p>
+<ul>
+<li>"Don't direct link it, my housemate and I lost several accounts" (Social God, BlackHatWorld).</li>
+<li>"NO! You will get banned eventually" (T J Tutor, admin AffiliateFix).</li>
+<li>"I wouldn't do any direct linking without a lander, you're just asking for trouble. If 1 account gets banned using the URL, i heard you all get banned from FB ads" (wayne12, AffiliateFix).</li>
+</ul>
+<p>Razones técnicas y de negocio para la bridge propia, no solo de policy:</p>
+<ul>
+<li><strong>Control del pixel y la data.</strong> El HopLink es dominio del vendor: no se puede instalar tu pixel ahí. Sin bridge propia, Meta nunca ve el comportamiento del usuario <code>[FUENTE REPO: affiliate-funnel-structure.md, "Tracking"]</code>.</li>
+<li><strong>Customización obligatoria.</strong> Param insiste varias veces: customizar, no copiar; copy-paste de la landing del vendor hace que Facebook suspenda <code>[FUENTE REPO: SINTESIS-VIDEOS-FOROS-2026.md §3, video Param 05:32-05:53 y 24:42-25:14]</code>.</li>
+<li><strong>Page-match con el ad.</strong> Las primeras 2 líneas del primary text deben enganchar con el problema que la landing resuelve. Eso solo se controla en página propia <code>[FUENTE REPO: SINTESIS-VIDEOS-FOROS-2026.md §3, video Param 15:14-15:30]</code>.</li>
+</ul>
+<p>La bridge corre en dominio propio y verificado en el Business Portfolio (ejemplo de este negocio: la oferta 1 vive en <code>truhealthdaily.com</code> con bridge informativa) <code>[FUENTE REPO: meta-ads-estructura-bulletproof.md §7 "Qué montar HOY"]</code>.</p>
+<hr>
+<h2 id="2-las-4-reglas-anti-ban-de-la-landing-críticas">2. Las 4 reglas anti-ban de la landing (críticas)<a class="anchor" href="#2-las-4-reglas-anti-ban-de-la-landing-críticas">#</a></h2>
+<p>Estas cuatro reglas son la diferencia entre una cuenta que escala y una cuenta muerta. No son negociables.</p>
+<h3 id="regla-1-tono-informativo-editorial-no-de-venta">Regla 1: Tono informativo / editorial, NO de venta<a class="anchor" href="#regla-1-tono-informativo-editorial-no-de-venta">#</a></h3>
+<p>La regla más citada de los foros, atribuida a Chris Newman en BlackHatWorld <code>[FUENTE REPO: 09-errores-foros-clickbank-meta.md §2.4]</code>:</p>
+<blockquote><p>"The landing page must have an informative tone and NOT a sales / marketing tone, otherwise the algorithms of FB Ads will detect it as pure affiliate marketing."</p></blockquote>
+<p>Traducción operativa: si la bridge grita "COMPRA AHORA 50% OFF", el algoritmo de Meta la clasifica como puro marketing de afiliado y flagea la cuenta. La página tiene que leerse como un artículo, una nota, una historia o un quiz, no como una carta de ventas. Lenguaje sensacionalista en mayúsculas ("INCREÍBLE", "ESTO TE SHOCKEARÁ") está entre las razones de disapproval comunes en nutra <code>[FUENTE REPO: affiliate-compliance-nutra.md "Sensational language"]</code>.</p>
+<h3 id="regla-2-disclaimer-de-salud-visible">Regla 2: Disclaimer de salud visible<a class="anchor" href="#regla-2-disclaimer-de-salud-visible">#</a></h3>
+<p>Para todo lo que sea nutra/supplement el disclaimer FDA es obligatorio y debe estar visible en el footer <code>[FUENTE REPO: affiliate-compliance-nutra.md "Lo que SIEMPRE debe estar"]</code>:</p>
+<blockquote><p>"These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease."</p></blockquote>
+<p>Meta además exige (regla 2026) que el disclaimer "This product is not intended to diagnose, treat, cure, or prevent any disease" aparezca también en el copy del ad, no solo en la landing; sin eso = rechazo automático <code>[FUENTE REPO: meta-ads-estructura-bulletproof.md §5; 09-errores-foros §2.4, AuditSocials Meta policy 2026]</code>. Cerca de cualquier testimonio: "Results not typical" o "Individual results may vary" <code>[FUENTE REPO: affiliate-compliance-nutra.md, testimonios]</code>.</p>
+<h3 id="regla-3-contenido-que-aporta-valor-por-sí-mismo-advertorial-real-no-cloaking">Regla 3: Contenido que aporta valor por sí mismo (advertorial real, no cloaking)<a class="anchor" href="#regla-3-contenido-que-aporta-valor-por-sí-mismo-advertorial-real-no-cloaking">#</a></h3>
+<p>La bridge tiene que aportar valor real: contenido, quiz, artículo informativo. No puede ser un puente transparente a la oferta <code>[FUENTE REPO: 09-errores-foros §2.4, lección Chris Newman]</code>. Meta exige una landing "que poseas, con valor por sí misma".</p>
+<p>Esto NO es cloaking. Cloaking es mostrar a Meta una página y al usuario otra <code>[FUENTE REPO: 09-errores-foros §2.4]</code>, y viola explícitamente las políticas de Meta: ban permanente del ad account y posible acción legal <code>[FUENTE REPO: 09-errores-foros §2.4, Meta Transparency Center]</code>. <strong>Recomendación del repo y de este playbook: NO cloaking, nunca.</strong> Es incompatible con un negocio sostenible. El advertorial real le muestra a Meta y al usuario exactamente la misma página de valor.</p>
+<h3 id="regla-4-el-hoplink-va-en-un-cta-suave-no-como-link-crudo">Regla 4: El HopLink va en un CTA suave, no como link crudo<a class="anchor" href="#regla-4-el-hoplink-va-en-un-cta-suave-no-como-link-crudo">#</a></h3>
+<p>El CTA primario nunca es "Comprar ahora". El flujo es: el usuario hace click en un botón suave que lo lleva al VSL del vendor, y la compra ocurre allá <code>[FUENTE REPO: affiliate-funnel-structure.md, anatomía advertorial + anti-patterns]</code>.</p>
+<ul>
+<li>CTA correcto: "Watch the full video", "See how it works", "Read her story" <code>[CRITERIO]</code>.</li>
+<li>CTA prohibido en la bridge: "Buy now", botón de compra directa (rompe el tono informativo y el flow) <code>[FUENTE REPO: affiliate-funnel-structure.md, anti-patterns #4]</code>.</li>
+</ul>
+<p>El HopLink se ata al botón con el <code>tid=</code> único por variante; el usuario nunca ve la URL cruda de <code>hop.clickbank.net</code> <code>[FUENTE REPO: affiliate-clickbank.md "HopLink"]</code> <code>[BEST-PRACTICE]</code>.</p>
+<hr>
+<h2 id="3-anatomía-de-una-bridge-page-que-convierte">3. Anatomía de una bridge page que convierte<a class="anchor" href="#3-anatomía-de-una-bridge-page-que-convierte">#</a></h2>
+<p>Orden de las secciones, de arriba hacia abajo. Base: la anatomía advertorial del repo <code>[FUENTE REPO: affiliate-funnel-structure.md, "Anatomía detallada de una landing advertorial"]</code>, enriquecida con los frameworks de copy (sección 6).</p>
+<div class="table-wrap"><table><thead><tr>
+<th>#</th>
+<th>Sección</th>
+<th>Qué va</th>
+<th>Por qué</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td><strong>Hook / titular (H1)</strong></td>
+<td>6-12 palabras, hook directo al problema o a la curiosidad. No el nombre de la marca.</td>
+<td>Es el filtro de atención. Debe hacer page-match con las 2 primeras líneas del ad <code>[FUENTE REPO: SINTESIS §3]</code>. Bueno: "The morning trick women in Miami are using". Malo: "Product X will change your life" <code>[FUENTE REPO: affiliate-funnel-structure.md]</code>.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Sub-hook</strong></td>
+<td>Validación social o el problema en una línea ("Thousands of women over 45 are discovering...").</td>
+<td>Confirma al lector "esto es para mí" y baja el bounce inmediato. Activa el aha moment <code>[FUENTE REPO: cruce-cursos-aplicado.md, Aha Moment]</code>.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Apertura (problema)</strong></td>
+<td>2-3 párrafos donde un personaje arquetipo del target vive el problema. Identificación pura.</td>
+<td>Tráfico frío está en consciencia de problema, no de producto. Hay que nombrar el dolor antes de ofrecer nada <code>[FUENTE REPO: felipe-vergara-m04, niveles de consciencia]</code>.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Agitación</strong></td>
+<td>Profundizar el costo de no resolver: cómo afecta el día a día, qué se pierde. 1 momento de "¿y si hubiera otra forma?".</td>
+<td>Es la "A" de PAS. Sube la urgencia (maleta 6) sin prometer nada todavía <code>[FUENTE REPO: cruce-cursos-aplicado.md, 7 maletas]</code>.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Historia / mecanismo (reveal)</strong></td>
+<td>El personaje descubre el método/producto. Pseudo-mecánica: ciencia simplificada, sin claims dudosos.</td>
+<td>El "aha" del producto. Construye percepción de valor (regla del 5x de Ogilvy) amplificando lo que el vendor ya promete, sin inventar <code>[FUENTE REPO: felipe-vergara-m04, mejorar la oferta]</code>.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Prueba social</strong></td>
+<td>"Thousands already using it", testimonio simple tipo plantilla. Cerca de cada testimonio: "Results not typical".</td>
+<td>Activa autoridad y prueba social (Cialdini) <code>[FUENTE REPO: cruce-cursos-aplicado.md, 6 trucos]</code>. Reduce fricción para tráfico desconfiado.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Transición a la oferta</strong></td>
+<td>Puente del relato al CTA: "Here's where you can see the full method she used". Mención de beneficios concretos (3-5 bullets específicos).</td>
+<td>Conecta la historia con la acción. 3-5 beneficios específicos convierten más que 15 genéricos <code>[FUENTE REPO: affiliate-funnel-structure.md, anti-patterns #6]</code>.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>CTA</strong></td>
+<td>Un solo CTA, suave, botón grande (mínimo 48px, ancho completo): "Watch the full video". Mención de garantía 60 días del vendor cerca.</td>
+<td>Un CTA, claro <code>[FUENTE REPO: affiliate-funnel-structure.md, anti-patterns #3]</code>. La garantía baja la fricción (maleta confianza).</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Disclaimer / footer</strong></td>
+<td>FDA disclaimer, "individual results may vary", "consult your doctor", affiliate disclosure, privacy policy, terms. "Advertorial" visible si simula formato editorial.</td>
+<td>Obligatorio por FTC/FDA y Meta <code>[FUENTE REPO: affiliate-compliance-nutra.md + affiliate-funnel-structure.md]</code>. Sin esto = disapproval o riesgo legal.</td>
+</tr>
+</tbody></table></div>
+<p>Anti-patterns que matan la página (no hacer nunca) <code>[FUENTE REPO: affiliate-funnel-structure.md, "Anti-patterns que matan funnels"]</code>:</p>
+<ol>
+<li>Logo de marca real arriba (destruye la sensación de descubrimiento).</li>
+<li>Pop-up "antes de irte" (Meta lo penaliza con disapproval).</li>
+<li>CTAs múltiples (uno solo).</li>
+<li>Botón "comprar ahora" en la bridge (el flow es comprar en el VSL del vendor).</li>
+<li>Botón "saltar al video" muy arriba (perdés la pre-venta).</li>
+<li>Demasiados beneficios genéricos.</li>
+<li>Texto dentro de imágenes (no escaneable).</li>
+<li>Auto-play de video con audio (Meta lo flagea).</li>
+<li>Pretender ser news site sin el disclaimer "Advertorial".</li>
+</ol>
+<hr>
+<h2 id="4-los-4-tipos-de-bridge-page-y-cuándo-usar-cada-uno">4. Los 4 tipos de bridge page y cuándo usar cada uno<a class="anchor" href="#4-los-4-tipos-de-bridge-page-y-cuándo-usar-cada-uno">#</a></h2>
+<p>Base: <code>[FUENTE REPO: affiliate-funnel-structure.md, "4 tipos de landing intermedia"]</code>. Columna "flagea menos" es <code>[CRITERIO]</code> del director CRO según el riesgo de tono de venta.</p>
+<h3 id="a-advertorial-artículo">(a) Advertorial / artículo<a class="anchor" href="#a-advertorial-artículo">#</a></h3>
+<ul>
+<li><strong>Cuándo usar:</strong> ofertas nutra/health donde la historia del producto es clave. Convierte bien en audiencias 45+.</li>
+<li><strong>Estructura:</strong> hook headline (problema doloroso) -> sub-hook -> story de personaje arquetipo -> reveal del producto/método -> beneficios -> CTA al VSL ("Watch the full video").</li>
+<li><strong>Pros:</strong> alta conversión en frío; permite testear muchos hooks sobre la misma estructura; fácil de iterar; formato dominante en el nicho según el repo.</li>
+<li><strong>Contras:</strong> caro de producir; difícil de escalar a múltiples variantes.</li>
+<li><strong>Flagea menos:</strong> SÍ, es el que menos flagea cuando el tono es genuinamente editorial. Es la recomendación inicial del repo para empezar <code>[FUENTE REPO: affiliate-funnel-structure.md, "Recomendación inicial"]</code>.</li>
+</ul>
+<h3 id="b-quiz-encuesta">(b) Quiz / encuesta<a class="anchor" href="#b-quiz-encuesta">#</a></h3>
+<ul>
+<li><strong>Cuándo usar:</strong> ofertas que aplican a sub-segmentos distintos (ej. "tu tipo de piel"). Convierte en 25-45. Thomas Owen lo menciona como palanca de conversión <code>[FUENTE REPO: SINTESIS §3, video N2-26x8v-Lmzq0]</code>.</li>
+<li><strong>Estructura:</strong> pregunta inicial enganchadora -> 4-7 preguntas de calificación -> "Processing your result..." -> resultado personalizado + reveal -> CTA al VSL.</li>
+<li><strong>Pros:</strong> alta engagement; captura email opcional; los que terminan están altamente calificados; el compromiso/consistencia (Cialdini) sube la conversión <code>[FUENTE REPO: cruce-cursos-aplicado.md, 6 trucos]</code>.</li>
+<li><strong>Contras:</strong> complejo de armar bien; puede sentirse manipulador si está mal hecho.</li>
+<li><strong>Flagea menos:</strong> medio. El engagement es buena señal para Meta, pero un quiz que asume condiciones médicas puede chocar con "personal attributes" (ver nota abajo).</li>
+</ul>
+<h3 id="c-listicle-comparación-best-x-for-y">(c) Listicle / comparación "best X for Y"<a class="anchor" href="#c-listicle-comparación-best-x-for-y">#</a></h3>
+<ul>
+<li><strong>Cuándo usar:</strong> nichos saturados donde "comparación" es un keyword de búsqueda potente.</li>
+<li><strong>Estructura:</strong> headline "The 3 best [product] of 2026" -> pseudo-revisión objetiva (escala arbitraria) -> producto del vendor en #1 (siempre) -> CTA al VSL.</li>
+<li><strong>Pros:</strong> funciona muy bien con Google Ads search.</li>
+<li><strong>Contras:</strong> menos efectivo en Meta Ads (tráfico frío); más riesgo legal (puede parecer engañoso si está mal hecho).</li>
+<li><strong>Flagea menos:</strong> en Meta, el que más riesgo tiene si la "comparación" es claramente un pretexto de venta. Mejor reservarlo para search <code>[CRITERIO]</code>.</li>
+</ul>
+<h3 id="d-pre-lander-de-historia-hacia-vsl-pre-vsl">(d) Pre-lander de historia hacia VSL (pre-VSL)<a class="anchor" href="#d-pre-lander-de-historia-hacia-vsl-pre-vsl">#</a></h3>
+<ul>
+<li><strong>Cuándo usar:</strong> cuando el VSL del vendor es muy largo (15+ min) y se necesita pre-calificar.</li>
+<li><strong>Estructura:</strong> video corto 60-90 seg con host propio (avatar HeyGen funciona) -> setup del problema + "what you're about to see will surprise you" -> botón al VSL.</li>
+<li><strong>Pros:</strong> filtra a quienes no quieren video largo.</li>
+<li><strong>Contras:</strong> menor variabilidad creativa; tu host puede convertir menos que el del vendor.</li>
+<li><strong>Flagea menos:</strong> medio-alto si es solo texto de venta + botón. El video propio que aporta contexto ayuda a que se lea como contenido.</li>
+</ul>
+<blockquote><p>Nota "personal attributes" <code>[FUENTE REPO: affiliate-compliance-nutra.md]</code>: Meta no permite ads ni páginas que asuman algo del usuario. Evitar "Do you suffer from joint pain?" (asume condición). Usar "People with joint pain are discovering..." (no asume). Aplica especialmente al quiz y al ad que lleva a él.</p></blockquote>
+<hr>
+<h2 id="5-niveles-de-consciencia-schwartz-aplicados-a-la-bridge">5. Niveles de consciencia (Schwartz) aplicados a la bridge<a class="anchor" href="#5-niveles-de-consciencia-schwartz-aplicados-a-la-bridge">#</a></h2>
+<p>El error más caro del affiliate principiante: hablarle al tráfico como si ya conociera el producto. Los 5 niveles <code>[FUENTE REPO: felipe-vergara-m04-aplicado.md, "Niveles de Consciencia"]</code>:</p>
+<ol>
+<li><strong>Unaware (inconsciente):</strong> no sabe que tiene el problema.</li>
+<li><strong>Problem aware (problema):</strong> sabe que tiene el problema, no conoce soluciones.</li>
+<li><strong>Solution aware (solución):</strong> conoce soluciones, no nuestra marca.</li>
+<li><strong>Product aware (producto):</strong> conoce la marca, no ha comprado.</li>
+<li><strong>Most aware (decisión):</strong> ya compró.</li>
+</ol>
+<p>Regla central para nuestro negocio <code>[FUENTE REPO: felipe-vergara-m04, "Aplicación al affiliate (CRÍTICO)"]</code>:</p>
+<blockquote><p>El cold traffic de Meta para affiliate generalmente está en niveles 1-2 (inconsciente o problema). Las ofertas ClickBank suelen ser productos que el target NO sabe que existen como solución. Casi nadie está buscando "Prosta-X" o "Glucosamina Plus": están buscando alivio para la próstata o las articulaciones.</p></blockquote>
+<p>Error fatal: si la persona está en nivel inconsciente y le mostramos un mensaje de nivel decisión ("buy now 25% off"), el mensaje no funciona. El target ni sabe qué es el producto <code>[FUENTE REPO: felipe-vergara-m04, "Error fatal"]</code>. Por eso la bridge para tráfico frío abre con problema, no con producto.</p>
+<h3 id="tabla-nivel-hook-tipo-de-bridge">Tabla nivel -> hook -> tipo de bridge<a class="anchor" href="#tabla-nivel-hook-tipo-de-bridge">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Nivel</th>
+<th>Estado mental</th>
+<th>Ángulo del hook</th>
+<th>Verbo que delata el nivel <code>[FUENTE REPO: m04]</code></th>
+<th>Tipo de bridge recomendado</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Unaware</strong></td>
+<td>No sabe que tiene el problema</td>
+<td>Dato/hecho sorpresa ("Did you know...?")</td>
+<td>"Did you know...", hecho sorpresa</td>
+<td>Advertorial (necesita educar, copy largo)</td>
+</tr>
+<tr>
+<td><strong>Problem aware</strong></td>
+<td>Siente el dolor, no conoce solución</td>
+<td>Empatía con el problema ("People who can't sleep through the night...")</td>
+<td>"Are you tired of...", "People who struggle with..."</td>
+<td>Advertorial o Quiz</td>
+</tr>
+<tr>
+<td><strong>Solution aware</strong></td>
+<td>Conoce categorías de solución</td>
+<td>Beneficio directo + diferencial del método</td>
+<td>Beneficios directos sin pregunta</td>
+<td>Pre-VSL o Listicle (comparación de soluciones)</td>
+</tr>
+<tr>
+<td><strong>Product aware</strong></td>
+<td>Conoce la marca (retargeting)</td>
+<td>Autoridad + prueba social fuerte</td>
+<td>Nombre de la marca primero</td>
+<td>Pre-VSL corto o ad directo a oferta (retargeting)</td>
+</tr>
+<tr>
+<td><strong>Most aware</strong></td>
+<td>Ya compró</td>
+<td>Recordatorio + cross-sell/promo</td>
+<td>"Remember...", "You already know..."</td>
+<td>Retargeting, no bridge fría</td>
+</tr>
+</tbody></table></div>
+<p>Longitud del copy por nivel <code>[FUENTE REPO: m04, "Longitud del copy"]</code>: inconsciente/problema = copy más largo (hay que educar); solución = medio; producto/decisión = corto. "Ni una palabra más, ni una palabra menos" (Felipe Vergara).</p>
+<p>Mapa de tráfico -> estrategia <code>[FUENTE REPO: m04]</code>:</p>
+<ul>
+<li>Cold ad de Meta -> nivel inconsciente/problema -> ad presenta problema, landing educa, VSL del vendor cierra.</li>
+<li>Retargeting (visitó la bridge, no compró) -> solución/producto -> ad de beneficios + diferenciales.</li>
+<li>Retargeting (carrito abandonado) -> decisión -> recordatorio + urgencia suave (limitada por compliance).</li>
+</ul>
+<hr>
+<h2 id="6-frameworks-de-copy-aplicados-a-la-bridge">6. Frameworks de copy aplicados a la bridge<a class="anchor" href="#6-frameworks-de-copy-aplicados-a-la-bridge">#</a></h2>
+<h3 id="pas-problema-agitación-solución">PAS (Problema - Agitación - Solución)<a class="anchor" href="#pas-problema-agitación-solución">#</a></h3>
+<p>El esqueleto natural del advertorial. Mapea directo a la anatomía de la sección 3:</p>
+<ul>
+<li><strong>Problema</strong> = apertura (sección 3.3): el personaje vive el dolor.</li>
+<li><strong>Agitación</strong> = sección 3.4: el costo de no resolverlo.</li>
+<li><strong>Solución</strong> = historia/mecanismo + transición (3.5 y 3.7): el reveal del método y el puente al VSL.</li>
+</ul>
+<p><code>[FUENTE REPO: cruce-cursos-aplicado.md + felipe-vergara-m04]</code> <code>[BEST-PRACTICE]</code></p>
+<h3 id="aida-atención-interés-deseo-acción">AIDA (Atención - Interés - Deseo - Acción)<a class="anchor" href="#aida-atención-interés-deseo-acción">#</a></h3>
+<p>Vista del flujo completo de la página: <strong>Atención</strong> = hook H1; <strong>Interés</strong> = sub-hook + apertura; <strong>Deseo</strong> = historia + beneficios + prueba social; <strong>Acción</strong> = CTA suave al VSL. Útil para auditar que la página no se quede sin uno de los cuatro pasos <code>[BEST-PRACTICE]</code>.</p>
+<h3 id="las-7-maletas-el-aha-moment">Las 7 maletas / el aha moment<a class="anchor" href="#las-7-maletas-el-aha-moment">#</a></h3>
+<p>Las 7 maletas que el cliente carga al decidir comprar <code>[FUENTE REPO: cruce-cursos-aplicado.md, "7 maletas" (Felipe Vergara M03)]</code>: necesidad, conciencia del problema, conocimiento de soluciones, confianza en el vendedor, capacidad económica, urgencia, permiso para comprar. Cada bloque de la bridge debe activar 2-3:</p>
+<ul>
+<li>Hook + apertura -> necesidad + conciencia del problema.</li>
+<li>Historia + prueba social -> conocimiento de soluciones + confianza.</li>
+<li>CTA + garantía -> urgencia + permiso ("you give yourself this permission").</li>
+</ul>
+<p>El aha moment es el test creativo del hook <code>[FUENTE REPO: cruce-cursos-aplicado.md, "Aha Moment"]</code>: ¿el lector diría "that's me"? Si sí, el ángulo es correcto. Si es "interesting but doesn't apply to me", el ángulo está equivocado. Se prueba leyéndole el hook a alguien sin contexto: si no reacciona con "eso le pasa a [arquetipo]", el hook no está listo.</p>
+<h3 id="característica-beneficio-regla-del-5x-de-ogilvy">Característica -> beneficio (regla del 5x de Ogilvy)<a class="anchor" href="#característica-beneficio-regla-del-5x-de-ogilvy">#</a></h3>
+<p>No vender la característica, vender lo que el cliente obtiene <code>[FUENTE REPO: felipe-vergara-m04, "Los 10 artes" #5 Beneficio + "Cómo mejorar la Oferta"]</code>. "Un producto excelente se podrá vender con una campaña mediocre. La mejor campaña no salvará a un producto mediocre" (Ogilvy, citado por Vergara). La regla del 5x: el lector debe sentir que recibió 5 veces más valor del que pagó. Nuestro rol es <strong>amplificar la percepción de valor del vendor</strong>, sin inventar:</p>
+<ul>
+<li>Profundizar los beneficios reales que el vendor menciona pero no desarrolla.</li>
+<li>Educar sobre el problema (mercado inconsciente/problema).</li>
+<li>Pre-construir autoridad (referencias, validación social).</li>
+</ul>
+<p>Boosters de oferta que conviene destacar en la bridge antes del VSL <code>[FUENTE REPO: m04, "GRATIS + Garantía + Pago fácil"]</code>: la palabra "FREE" (envío gratis, bono gratis si el vendor lo incluye), la garantía de 60 días de ClickBank, y los métodos de pago fáciles (PayPal baja fricción). Nunca prometer una garantía que el vendor no honre (chargebacks + compliance).</p>
+<hr>
+<h2 id="7-ejemplos-de-copy-concretos-por-nicho">7. Ejemplos de copy concretos por nicho<a class="anchor" href="#7-ejemplos-de-copy-concretos-por-nicho">#</a></h2>
+<blockquote><p>El copy de ejemplo va en inglés (mercado USA, público real). Debajo de cada bloque, una nota corta en español de por qué funciona. Prueba social siempre como plantilla: "[Name], [city]". No son testimonios reales.</p></blockquote>
+<h3 id="nicho-1-dental-oral-gum-health">Nicho 1: DENTAL (oral / gum health)<a class="anchor" href="#nicho-1-dental-oral-gum-health">#</a></h3>
+<p><strong>3 titulares (hooks) por ángulo distinto:</strong></p>
+<ol>
+<li>Ángulo curiosidad/unaware: <em>"The 10-second nighttime habit dentists rarely talk about"</em></li>
+</ol>
+<p>Nota: hook de dato sorpresa para tráfico inconsciente; promete un secreto sin nombrar el producto.</p>
+<ol>
+<li>Ángulo problema/problem aware: <em>"People with bleeding gums are quietly trying this at home"</em></li>
+</ol>
+<p>Nota: nombra el problema sin asumir que el lector lo tiene (evita "personal attributes" de Meta) <code>[FUENTE REPO: affiliate-compliance-nutra.md]</code>.</p>
+<ol>
+<li>Ángulo mecanismo/solution aware: <em>"Why brushing alone may not be enough for your gums"</em></li>
+</ol>
+<p>Nota: introduce la idea de que la solución conocida (cepillarse) es incompleta, abre espacio al método nuevo.</p>
+<p><strong>Apertura de advertorial (2-3 párrafos):</strong></p>
+<blockquote><p>For years, [Name] from [City] did everything her dentist told her. She brushed twice a day, flossed when she remembered, and still dreaded every checkup. The verdict was always the same: a little more bleeding, a little more recession, another deep cleaning scheduled.</p>
+<p>What bothered her most was the feeling that she was losing a battle she didn't fully understand. The gums kept pulling back. The sensitivity kept creeping in. And no one ever explained why her routine wasn't enough.</p>
+<p>Then a hygienist mentioned something almost in passing, a detail about what actually happens below the gum line at night, that made her rethink everything she thought she knew about oral care.</p></blockquote>
+<p>Nota: PAS puro. Problema (rutina que no alcanza) + agitación (sensación de perder una batalla) + apertura al reveal. Tono editorial, cero venta <code>[FUENTE REPO: 09-errores-foros, Chris Newman]</code>.</p>
+<p><strong>Bloque de transición a la oferta:</strong></p>
+<blockquote><p>What the hygienist described isn't a new toothpaste or a stronger mouthwash. It's a different way of supporting the environment your gums live in every single night, and it's explained in full in a short presentation that [Name] says finally connected the dots for her.</p></blockquote>
+<p>Nota: puente del relato al CTA. No dice "compra", reposiciona el producto como "a different way" y deriva a la presentación (VSL) <code>[FUENTE REPO: affiliate-funnel-structure.md, transición + CTA suave]</code>.</p>
+<p><strong>CTA:</strong></p>
+<blockquote><p>Watch the short presentation here</p></blockquote>
+<p>Nota: CTA suave, un solo botón, lleva al HopLink/VSL, nunca a un checkout <code>[FUENTE REPO: affiliate-funnel-structure.md, anti-patterns #4]</code>.</p>
+<p><strong>Disclaimer (footer):</strong></p>
+<blockquote><p>Individual results may vary. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. Consult your dentist or physician before starting any new supplement. This page may contain affiliate links; if you purchase, we may earn a commission at no extra cost to you. [Privacy Policy] | [Terms]</p></blockquote>
+<p>Nota: cubre FDA + resultados individuales + consulta profesional + affiliate disclosure <code>[FUENTE REPO: affiliate-compliance-nutra.md, disclaimers obligatorios]</code>.</p>
+<h3 id="nicho-2-idiomas-learn-english-a-language">Nicho 2: IDIOMAS (learn English / a language)<a class="anchor" href="#nicho-2-idiomas-learn-english-a-language">#</a></h3>
+<blockquote><p>Nicho no salud: no aplica disclaimer FDA. Sí aplican affiliate disclosure y "results may vary".</p></blockquote>
+<p><strong>3 titulares (hooks) por ángulo distinto:</strong></p>
+<ol>
+<li>Ángulo curiosidad/unaware: <em>"The reason most adults never become fluent (it's not talent)"</em></li>
+</ol>
+<p>Nota: reencuadra la creencia limitante; tráfico que no sabe que el método es el problema, no su capacidad.</p>
+<ol>
+<li>Ángulo problema/problem aware: <em>"Stuck at the same level for years? You're not the problem"</em></li>
+</ol>
+<p>Nota: empatía con el estancamiento, quita la culpa al lector. Alta tasa de "that's me" (aha moment).</p>
+<ol>
+<li>Ángulo mecanismo/solution aware: <em>"Why classroom grammar fails and what fluent speakers do instead"</em></li>
+</ol>
+<p>Nota: contrasta la solución conocida (clases/gramática) con un mecanismo distinto.</p>
+<p><strong>Apertura de advertorial (2-3 párrafos):</strong></p>
+<blockquote><p>[Name] from [City] had tried it all. Three different apps, two night courses, a shelf of grammar books. He could pass a written test, but the moment a real conversation started, his mind went blank and the words wouldn't come.</p>
+<p>It's a frustration millions of adult learners know well: years of effort, and still that wall between understanding a language and actually speaking it. Most people quietly conclude they're just "not good at languages" and give up.</p>
+<p>What [Name] discovered was that the wall had nothing to do with talent. It had to do with the order in which he was learning, and once he flipped that order, speaking started to feel less like translating and more like reacting.</p></blockquote>
+<p>Nota: PAS para idiomas. Agitación = la conclusión de "no soy bueno para esto". Reveal = el orden de aprendizaje, mecanismo simple y creíble <code>[FUENTE REPO: felipe-vergara-m04, mecanismo simplificado]</code>.</p>
+<p><strong>Bloque de transición a la oferta:</strong></p>
+<blockquote><p>The method [Name] used isn't another app or another textbook. It's a short approach built around how the brain actually wires a second language, and the full walkthrough is laid out in a free video that shows exactly how it works.</p></blockquote>
+<p>Nota: reposiciona frente a apps/libros (la solución que el lector ya probó y le falló). "Free video" usa el booster "FREE" <code>[FUENTE REPO: m04, GRATIS]</code>.</p>
+<p><strong>CTA:</strong></p>
+<blockquote><p>Watch the free walkthrough</p></blockquote>
+<p>Nota: CTA suave + palabra "free", deriva al VSL del vendor.</p>
+<p><strong>Disclaimer (footer):</strong></p>
+<blockquote><p>Individual results may vary and depend on effort and consistency. This page may contain affiliate links; if you purchase, we may earn a commission at no extra cost to you. [Privacy Policy] | [Terms]</p></blockquote>
+<p>Nota: sin FDA (no es salud), pero con results-may-vary + affiliate disclosure obligatorios por FTC <code>[FUENTE REPO: affiliate-compliance-nutra.md, affiliate disclosure]</code>.</p>
+<h3 id="nicho-3-weight-loss">Nicho 3: WEIGHT LOSS<a class="anchor" href="#nicho-3-weight-loss">#</a></h3>
+<blockquote><p>Nicho de máximo riesgo de compliance. Cero claims de cantidad/tiempo ("lose X kg in Y days") <code>[FUENTE REPO: affiliate-compliance-nutra.md, claims prohibidos]</code>. Lenguaje de wellness suave, before/after prohibido <code>[FUENTE REPO: affiliate-compliance-nutra.md, "Antes/después: no los uses"]</code>.</p></blockquote>
+<p><strong>3 titulares (hooks) por ángulo distinto:</strong></p>
+<ol>
+<li>Ángulo curiosidad/unaware: <em>"The morning ritual women over 40 are talking about"</em></li>
+</ol>
+<p>Nota: curiosidad + segmento, sin prometer resultado. "Talking about" es prueba social blanda, no claim.</p>
+<ol>
+<li>Ángulo problema/problem aware: <em>"When eating less and moving more stops working"</em></li>
+</ol>
+<p>Nota: valida la frustración del plateau sin asumir nada del lector ni prometer pérdida de peso.</p>
+<ol>
+<li>Ángulo mecanismo/solution aware: <em>"The metabolism myth that keeps healthy women stuck"</em></li>
+</ol>
+<p>Nota: ataca una creencia (la solución conocida), abre al mecanismo del producto.</p>
+<p><strong>Apertura de advertorial (2-3 párrafos):</strong></p>
+<blockquote><p>By 43, [Name] from [City] had done everything the magazines told her. She counted calories, walked every morning, cut out the foods she loved. The scale would budge for a week, then settle right back where it started, as if her body had a setpoint it refused to leave.</p>
+<p>If you've ever felt like you're doing everything "right" and still spinning your wheels, you already know how discouraging that loop becomes. It's easy to blame willpower. [Name] did, for years.</p>
+<p>What changed things for her wasn't another diet. It was learning about a factor most plans ignore entirely, one that helped her body feel supported instead of fought, and the difference in how she felt day to day surprised her more than anything on the scale.</p></blockquote>
+<p>Nota: agitación = el loop de "doing everything right". Reveal cuidado: "feel supported", "how she felt day to day", evita prometer pérdida de peso (compliance) <code>[FUENTE REPO: affiliate-compliance-nutra.md, lenguaje "apoya" en vez de "cura"]</code>.</p>
+<p><strong>Bloque de transición a la oferta:</strong></p>
+<blockquote><p>The factor [Name] learned about is explained, in plain language, in a short video presentation. It walks through what may be quietly working against women over 40 and what a growing number of them are doing to support their bodies instead.</p></blockquote>
+<p>Nota: transición sin claim, sin número, sin timeframe. Deriva al VSL donde el vendor (responsable de su propio compliance) hace su pitch <code>[FUENTE REPO: affiliate-compliance-nutra.md, testimonios del VSL del vendor]</code>.</p>
+<p><strong>CTA:</strong></p>
+<blockquote><p>Watch the free presentation</p></blockquote>
+<p>Nota: CTA suave, deriva al HopLink/VSL.</p>
+<p><strong>Disclaimer (footer):</strong></p>
+<blockquote><p>Individual results are not typical and may vary. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. Consult your physician before starting any supplement, especially if pregnant, nursing, or taking medication. Any testimonials reflect individual experiences and are not a guarantee of results. This page may contain affiliate links; if you purchase, we may earn a commission at no extra cost to you. [Privacy Policy] | [Terms]</p></blockquote>
+<p>Nota: el footer más estricto de los tres, por ser nutra + weight loss. Incluye "results not typical", FDA, consulta médica con casos especiales, descargo de testimonios y affiliate disclosure <code>[FUENTE REPO: affiliate-compliance-nutra.md, disclaimers obligatorios + testimonios]</code>.</p>
+<hr>
+<h2 id="8-checklist-de-bridge-page-bulletproof">8. Checklist de bridge page bulletproof<a class="anchor" href="#8-checklist-de-bridge-page-bulletproof">#</a></h2>
+<p>Marcar cada item antes de mandar tráfico. Si uno falla, no se lanza.</p>
+<h3 id="bloque-a-anti-ban-crítico">Bloque A: Anti-ban (crítico)<a class="anchor" href="#bloque-a-anti-ban-crítico">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled>El ad apunta a la bridge en dominio propio, NUNCA al HopLink directo <code>[FUENTE REPO: SINTESIS §0]</code>.</li>
+<li><input type="checkbox"  disabled>Dominio verificado en el Business Portfolio de Meta <code>[FUENTE REPO: meta-ads-estructura-bulletproof.md §5]</code>.</li>
+<li><input type="checkbox"  disabled>Tono informativo/editorial, no de venta. Sin mayúsculas sensacionalistas <code>[FUENTE REPO: 09-errores-foros §2.4]</code>.</li>
+<li><input type="checkbox"  disabled>La página aporta valor por sí misma (advertorial/quiz/artículo real), no es puente transparente <code>[FUENTE REPO: 09-errores-foros §2.4]</code>.</li>
+<li><input type="checkbox"  disabled>Cero cloaking: misma página para Meta y para el usuario <code>[FUENTE REPO: 09-errores-foros §2.4]</code>.</li>
+<li><input type="checkbox"  disabled>CTA suave al VSL ("Watch the video"), nunca "Buy now" ni checkout en la bridge <code>[FUENTE REPO: affiliate-funnel-structure.md, anti-patterns #4]</code>.</li>
+<li><input type="checkbox"  disabled>Copy NO copiado-pegado de la landing del vendor (customizado) <code>[FUENTE REPO: SINTESIS §3, Param]</code>.</li>
+<li><input type="checkbox"  disabled>Page-match: las 2 primeras líneas del ad enganchan con el problema que resuelve la bridge <code>[FUENTE REPO: SINTESIS §3]</code>.</li>
+<li><input type="checkbox"  disabled>Sin "personal attributes" (no "Do you suffer from X?"; sí "People with X are discovering...") <code>[FUENTE REPO: affiliate-compliance-nutra.md]</code>.</li>
+<li><input type="checkbox"  disabled>Sin antes/después; sin claims de cura/tratamiento/garantía de resultado <code>[FUENTE REPO: affiliate-compliance-nutra.md]</code>.</li>
+<li><input type="checkbox"  disabled>Disclaimer FDA presente en footer (nutra) y también en el copy del ad <code>[FUENTE REPO: meta-ads-estructura-bulletproof.md §5]</code>.</li>
+<li><input type="checkbox"  disabled>Affiliate disclosure visible <code>[FUENTE REPO: affiliate-compliance-nutra.md]</code>.</li>
+</ul>
+<h3 id="bloque-b-técnico">Bloque B: Técnico<a class="anchor" href="#bloque-b-técnico">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled>Mobile-first: CTAs grandes (mín. 48px alto, ancho completo), headline legible sin zoom (mín. 18px) <code>[FUENTE REPO: affiliate-funnel-structure.md, mobile first]</code>.</li>
+<li><input type="checkbox"  disabled>Carga < 3s. Targets: LCP < 2.5s, CLS < 0.1, page weight < 500 KB <code>[FUENTE REPO: affiliate-funnel-structure.md, tiempos de carga]</code>.</li>
+<li><input type="checkbox"  disabled>Imágenes WebP, lazy load below the fold, CSS crítico inline, JS mínimo, CDN (Cloudflare) <code>[FUENTE REPO: affiliate-funnel-structure.md]</code>.</li>
+<li><input type="checkbox"  disabled>Sin pop-ups, sin redirects, sin auto-play con audio <code>[FUENTE REPO: affiliate-funnel-structure.md + affiliate-compliance-nutra.md]</code>.</li>
+<li><input type="checkbox"  disabled>Pixel Meta: PageView + ViewContent (50% scroll) + InitiateCheckout (click CTA) <code>[FUENTE REPO: affiliate-funnel-structure.md, tracking]</code>.</li>
+<li><input type="checkbox"  disabled>GA4: page_view + scroll_50/75/100 + cta_click <code>[FUENTE REPO: affiliate-funnel-structure.md]</code>.</li>
+<li><input type="checkbox"  disabled>HopLink con <code>tid=</code> único por variante (convención fb_a1_h3, etc.) <code>[FUENTE REPO: affiliate-clickbank.md, HopLink]</code>.</li>
+<li><input type="checkbox"  disabled>Postback ClickBank -> Meta CAPI configurado (Purchase con email hasheado); fbclid anexado al HopLink <code>[FUENTE REPO: meta-ads-estructura-bulletproof.md §3 paso 7 + SINTESIS §3]</code>.</li>
+<li><input type="checkbox"  disabled>Tracking validado con compra real de $1 ANTES de gastar; evento Purchase visible en Events Manager en ~30 min con buen EMQ. No avanzar si no trackea <code>[FUENTE REPO: meta-ads-estructura-bulletproof.md §3 paso 8]</code>.</li>
+<li><input type="checkbox"  disabled>QA en iPhone + Android gama media + 3G simulado + con bloqueador de ads <code>[FUENTE REPO: affiliate-funnel-structure.md, QA antes de live]</code>.</li>
+<li><input type="checkbox"  disabled>Tools page del vendor leída completa (restricciones de tráfico/compliance respetadas) <code>[FUENTE REPO: affiliate-funnel-structure.md, tools page]</code>.</li>
+</ul>
+<h3 id="bloque-c-conversión">Bloque C: Conversión<a class="anchor" href="#bloque-c-conversión">#</a></h3>
+<ul>
+<li><input type="checkbox"  disabled>Hook H1 de 6-12 palabras, al problema/curiosidad, no a la marca <code>[FUENTE REPO: affiliate-funnel-structure.md]</code>.</li>
+<li><input type="checkbox"  disabled>El nivel de consciencia del tráfico (frío = problema/unaware) matchea el ángulo del hook <code>[FUENTE REPO: felipe-vergara-m04]</code>.</li>
+<li><input type="checkbox"  disabled>Estructura PAS completa: problema -> agitación -> historia/mecanismo -> transición <code>[BEST-PRACTICE]</code>.</li>
+<li><input type="checkbox"  disabled>Aha moment validado: alguien sin contexto dice "that's me" al leer el hook <code>[FUENTE REPO: cruce-cursos-aplicado.md]</code>.</li>
+<li><input type="checkbox"  disabled>3-5 beneficios concretos y específicos (no 15 genéricos) en lenguaje característica->beneficio <code>[FUENTE REPO: affiliate-funnel-structure.md + felipe-vergara-m04]</code>.</li>
+<li><input type="checkbox"  disabled>Prueba social como plantilla ("[Name], [city]") con "results not typical" cerca <code>[FUENTE REPO: affiliate-compliance-nutra.md]</code>.</li>
+<li><input type="checkbox"  disabled>Garantía de 60 días del vendor mencionada cerca del CTA <code>[FUENTE REPO: felipe-vergara-m04]</code>.</li>
+<li><input type="checkbox"  disabled>Un solo CTA, repetido en los puntos lógicos del scroll, siempre el mismo destino <code>[FUENTE REPO: affiliate-funnel-structure.md, anti-patterns #3]</code>.</li>
+<li><input type="checkbox"  disabled>3+ variantes de hook listas para A/B sobre la misma estructura <code>[CRITERIO; alineado con regla de 3 variantes del equipo]</code>.</li>
+</ul>
+<hr>
+<h3 id="fuentes-del-repo-citadas">Fuentes del repo citadas<a class="anchor" href="#fuentes-del-repo-citadas">#</a></h3>
+<ul>
+<li><code>01-ejecucion-2026/clickbank-2026-research/SINTESIS-VIDEOS-FOROS-2026.md</code> (funnel CB-Meta, bridge page, tracking)</li>
+<li><code>01-ejecucion-2026/meta-ads-estructura-bulletproof.md</code> (funnel ad->bridge->HopLink, reglas anti-ban, setup CAPI)</li>
+<li><code>00-viabilidad/research-fuentes/09-errores-foros-clickbank-meta.md</code> (anti-ban: tono editorial Chris Newman, direct linking, cloaking, disclaimers Meta)</li>
+<li><code>07-learning/cursos-cruzados/felipe-vergara-m04-aplicado.md</code> (niveles de consciencia, triángulo dorado, feature->beneficio, copy por nivel)</li>
+<li><code>07-learning/cursos-cruzados/cruce-cursos-aplicado.md</code> (7 maletas, aha moment, 6 trucos psicológicos)</li>
+<li><code>07-learning/cursos-cruzados/felipe-vergara-m05-aplicado.md</code> (diversificación creativa, datos/CAPI)</li>
+<li><code>knowledge/skills/affiliate-funnel-structure.md</code> (4 tipos de bridge, anatomía advertorial, tracking, mobile, tiempos de carga, anti-patterns)</li>
+<li><code>knowledge/skills/affiliate-compliance-nutra.md</code> (claims prohibidos, disclaimers obligatorios, FTC, personal attributes, before/after)</li>
+<li><code>knowledge/skills/affiliate-clickbank.md</code> (HopLink, gravity, refund rates, workflow)</li>
+</ul>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: bridge-pages-playbook.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>

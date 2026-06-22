@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--
+  ============================================================================
+  PLANTILLA 1 · BRIDGE ADVERTORIAL · WEIGHT LOSS · mercado USA (ingles)
+  ============================================================================
+  Que es: pre-lander tipo articulo de revista de salud que va ENTRE el ad de
+  Meta y el HopLink de ClickBank. NO es la oferta. Educa desde el problema,
+  no vende el producto de entrada (trafico frio = nivel de consciencia 2-3,
+  problema/solucion, segun felipe-vergara-m04-aplicado.md).
+
+  POR QUE ASI (anti-ban, ver 05-compliance-meta-nutra.md + 09-errores-foros):
+  - Tono EDITORIAL/informativo, NO landing de venta agresiva. La landing con
+    "tono de venta" es detectada como puro afiliado y banea la cuenta.
+  - El contenido aporta valor por si mismo (se lee como articulo real).
+  - Disclosure FTC "ADVERTISEMENT" visible ANTES del fold (la tag de Meta no basta).
+  - Disclaimer FDA prominente en el footer (obligatorio nicho health US).
+  - "Results may vary" en cada testimonio (todos son PLANTILLA, no reales).
+  - Verbos estructura-funcion ("supports", "helps maintain"), NUNCA cura/trata/
+    previene/elimina. Sin claims de enfermedad. Sin before/after de cuerpo.
+  - El HopLink va en CTAs suaves ("Read the full report", "Check availability"),
+    nunca como link crudo ni como unico contenido.
+
+  COMO ADAPTAR (buscar los comentarios "REEMPLAZAR"):
+  1. Reemplazar todos los YOUR_HOPLINK_HERE por el HopLink real del vendor
+     (usa el HopLink del VSL, no el default). Append &fbclid={fbclid} para tracking.
+  2. Reemplazar [IMAGE: ...] por imagenes propias (no copiar las del vendor).
+  3. Ajustar autor, fecha, nombre del sitio y del "approach"/mecanismo al de la oferta.
+  4. Cambiar truhealthdaily.com por tu dominio real (debe coincidir con el del ad).
+  5. Linkear privacy / terms / contact / refund a paginas reales del dominio.
+  ============================================================================
+-->
+<title>The Morning Habit Wellness Experts Keep Talking About | TruHealth Daily</title>
+<meta name="description" content="A simple morning routine that more and more adults over 40 are using to support a healthy metabolism. Here is what the latest research suggests." />
+<style>
+  :root{
+    /* Paleta sobria y confiable: azul tinta, gris articulo, verde apagado para CTA.
+       NADA de rojos de urgencia agresivos (eso flagea). */
+    --ink:#1c2530;
+    --body:#33414f;
+    --muted:#6b7886;
+    --line:#e4e8ec;
+    --bg:#ffffff;
+    --bg-soft:#f6f8f9;
+    --brand:#1f4e79;       /* azul editorial cabecera */
+    --cta:#2e7d5b;         /* verde apagado, confiable, no urgencia */
+    --cta-hover:#256a4d;
+    --accent-bar:#c8d3db;
+    --maxw:620px;          /* ancho de columna tipo articulo, mobile-first */
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg-soft);
+    color:var(--body);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:18px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ---- Barra superior tipo sitio de noticias de salud ---- */
+  .site-bar{
+    background:var(--brand);
+    color:#fff;
+    padding:12px 16px;
+    text-align:center;
+  }
+  .site-bar .logo{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:700;
+    font-size:21px;
+    letter-spacing:.2px;
+  }
+  .site-bar .logo span{opacity:.78;font-weight:400}
+  .site-bar .tagline{
+    font-size:11px;text-transform:uppercase;letter-spacing:1.4px;opacity:.78;margin-top:2px;
+  }
+  /* ---- Disclosure FTC ANTES del fold (anti-ban, no negociable) ---- */
+  .ad-disclosure{
+    background:#eef1f3;
+    color:var(--muted);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+    text-align:center;
+    padding:7px 16px;
+    border-bottom:1px solid var(--line);
+  }
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    background:var(--bg);
+    padding:0 0 8px;
+  }
+  .article{padding:26px 22px 10px}
+  /* Categoria + titular */
+  .kicker{
+    color:var(--cta);
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:Georgia,"Times New Roman",serif;
+    color:var(--ink);
+    font-size:32px;
+    line-height:1.22;
+    margin:0 0 16px;
+    font-weight:700;
+  }
+  /* Byline tipo articulo: autor + fecha + tiempo de lectura */
+  .byline{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:11px 0;
+    margin-bottom:20px;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .byline .avatar{
+    width:38px;height:38px;border-radius:50%;
+    background:var(--accent-bar);
+    flex:0 0 auto;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:700;font-size:14px;
+  }
+  .byline b{color:var(--ink);font-weight:600}
+  .byline .dot{opacity:.5}
+  /* Placeholder de imagen (div gris, sin enlaces externos) */
+  .img-ph{
+    background:repeating-linear-gradient(45deg,#eef1f3,#eef1f3 12px,#e7ebee 12px,#e7ebee 24px);
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:var(--muted);
+    font-size:13px;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    padding:18px;
+    margin:0 0 8px;
+  }
+  .img-ph.hero{min-height:280px}
+  .img-ph.inline{min-height:180px}
+  .caption{font-size:12.5px;color:var(--muted);font-style:italic;margin:0 0 22px}
+  p{margin:0 0 18px}
+  .article h2{
+    font-family:Georgia,"Times New Roman",serif;
+    color:var(--ink);
+    font-size:23px;
+    line-height:1.3;
+    margin:30px 0 14px;
+  }
+  .lead{font-size:19.5px;color:var(--ink)}
+  strong{color:var(--ink)}
+  /* Bloque "what experts noticed" tipo recuadro editorial */
+  .note-box{
+    background:var(--bg-soft);
+    border-left:3px solid var(--cta);
+    padding:16px 18px;
+    border-radius:0 6px 6px 0;
+    margin:0 0 22px;
+    font-size:17px;
+  }
+  .note-box .label{
+    display:block;font-size:11px;text-transform:uppercase;letter-spacing:1.3px;
+    color:var(--cta);font-weight:700;margin-bottom:6px;
+  }
+  /* ---- Testimonios PLANTILLA (no reales) ---- */
+  .testi{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:16px 18px;
+    margin:0 0 16px;
+    background:#fff;
+  }
+  .testi .stars{color:#e0a83b;font-size:14px;letter-spacing:2px;margin-bottom:6px}
+  .testi p{font-size:16.5px;margin:0 0 10px;color:var(--body)}
+  .testi .who{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}
+  .testi .who .pic{
+    width:30px;height:30px;border-radius:50%;background:var(--accent-bar);
+    flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#fff;
+    font-size:12px;font-weight:700;
+  }
+  .testi .who b{color:var(--ink);font-weight:600}
+  .results-vary{font-size:11.5px;color:var(--muted);font-style:italic;margin:4px 0 22px}
+  /* ---- CTA suave al HopLink (NO precio gigante, NO countdown) ---- */
+  .cta-block{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px 20px;
+    text-align:center;
+    margin:24px 0;
+  }
+  .cta-block p{font-size:16px;margin:0 0 14px;color:var(--body)}
+  .cta-btn{
+    display:inline-block;
+    background:var(--cta);
+    color:#fff;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:600;
+    padding:15px 30px;
+    border-radius:8px;
+    line-height:1.3;
+    transition:background .15s ease;
+    max-width:100%;
+  }
+  .cta-btn:hover{background:var(--cta-hover)}
+  .cta-sub{font-size:12.5px;color:var(--muted);margin-top:11px}
+  .inline-link{color:var(--cta);font-weight:600;text-decoration:underline}
+  /* ---- Footer con disclaimers obligatorios ---- */
+  footer{
+    max-width:var(--maxw);
+    margin:0 auto;
+    background:#2a333d;
+    color:#aeb8c2;
+    font-size:12.5px;
+    line-height:1.6;
+    padding:24px 22px 34px;
+  }
+  footer .fda{
+    background:#222a33;
+    border:1px solid #3a444f;
+    border-radius:6px;
+    padding:13px 15px;
+    margin-bottom:16px;
+    color:#c4ccd4;
+    font-size:12px;
+  }
+  footer .fda b{color:#e8edf1;display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;font-size:11px}
+  footer a{color:#9fb6cf;text-decoration:underline}
+  footer .links{margin:12px 0;display:flex;flex-wrap:wrap;gap:6px 14px}
+  footer .copy{opacity:.7;margin-top:10px}
+  @media (max-width:480px){
+    body{font-size:17px}
+    h1{font-size:27px}
+    .article{padding:22px 18px 8px}
+    .article h2{font-size:21px}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== Barra superior: da apariencia de medio de salud real (credibilidad + anti-ban) ===== -->
+  <!-- REEMPLAZAR: nombre del sitio por tu dominio real -->
+  <header class="site-bar">
+    <div class="logo">TruHealth <span>Daily</span></div>
+    <div class="tagline">Evidence-based wellness, simplified</div>
+  </header>
+
+  <!-- ===== Disclosure FTC obligatoria ANTES del fold. NO quitar. ===== -->
+  <div class="ad-disclosure">Advertisement &middot; Sponsored Content</div>
+
+  <main class="wrap">
+    <article class="article">
+
+      <!-- Categoria editorial -->
+      <div class="kicker">Healthy Aging</div>
+
+      <!-- TITULAR: hook nivel problema/solucion (trafico frio). Curiosidad, NO claim de venta.
+           REEMPLAZAR para que coincida con el angulo de tu ad (continuidad ad-lander = anti-ban). -->
+      <h1>The Quiet Reason So Many Adults Over 40 Struggle With Their Weight (And What Researchers Are Looking At Now)</h1>
+
+      <!-- Byline: autor + fecha + tiempo de lectura = senal de articulo real -->
+      <!-- REEMPLAZAR: autor y fecha. Manten un autor consistente en el sitio. -->
+      <div class="byline">
+        <div class="avatar">JM</div>
+        <div>
+          <b>By Jordan Mills</b>, Health Contributor<br />
+          <span>Updated November 12, 2026</span> <span class="dot">&middot;</span> <span>6 min read</span>
+        </div>
+      </div>
+
+      <!-- Imagen hero: placeholder gris, sin enlaces externos. REEMPLAZAR por imagen propia (no del vendor). -->
+      <div class="img-ph hero">[IMAGE: editorial lifestyle photo, person 45+ preparing a glass of water in a bright kitchen in the morning]</div>
+      <p class="caption">Many wellness routines start with one small change in the morning.</p>
+
+      <!-- HOOK / LEAD: entra por el problema que el lector ya siente. Nivel 2 (problema). -->
+      <p class="lead">If you have noticed that the eating and exercise habits that used to keep your weight steady simply do not work the way they once did, you are not imagining it. For a lot of people, something shifts somewhere around their forties, and the usual advice starts to feel like it is missing a piece.</p>
+
+      <!-- PROBLEMA: empatia, valida la experiencia. Sin diagnosticar al usuario (anti-ban regla 4). -->
+      <p>It is one of the most common frustrations adults write to us about. You cut back. You walk more. You skip the second helping. And the scale barely moves, or it creeps in the wrong direction anyway. The natural conclusion is that it must be a willpower problem, so people push harder, eat even less, and feel worse.</p>
+
+      <!-- AGITACION: por que el enfoque tradicional se queda corto. Educa, no asusta. -->
+      <p>But over the last few years, more researchers have started pointing at a different angle entirely. The conversation is moving away from <em>how much</em> people eat and toward <em>how the body handles energy</em> as the years go by. And that reframe matters, because if the issue is not really about discipline, then grinding harder on the same old plan may never have been the answer.</p>
+
+      <h2>What changed the conversation</h2>
+
+      <!-- MECANISMO / HISTORIA: explica la causa raiz en lenguaje accionable. Estructura-funcion, sin enfermedad. -->
+      <p>The simplest way to put it is this: as we get older, the everyday processes that turn food into usable energy tend to slow down. It is gradual, it is normal, and most people never notice it happening until the results show up on the scale. When that internal pace drifts, the body becomes more likely to store what it takes in rather than burn it.</p>
+
+      <p>This is why two people can eat almost the same meals and live almost the same way, yet have completely different results a decade apart. It is also why so many strict diets feel like swimming upstream. They are working against the body's changing rhythm instead of <strong>supporting</strong> it.</p>
+
+      <!-- Recuadro editorial: aporta valor real (lo que hace que la pagina pase como articulo) -->
+      <div class="note-box">
+        <span class="label">What experts keep returning to</span>
+        A growing number of nutrition writers now suggest that small, consistent morning habits may help support the body's natural energy balance more sustainably than aggressive short-term diets. The emphasis has shifted from restriction to <strong>support</strong>.
+      </div>
+
+      <p>That shift is what caught our attention. Instead of yet another plan built on eating less and suffering more, the focus is on gently working <em>with</em> the body. And one approach in particular has been getting a lot of word-of-mouth attention lately.</p>
+
+      <div class="img-ph inline">[IMAGE: simple flat-lay of natural ingredients, glass of water, notebook, neutral editorial style]</div>
+      <p class="caption">The approach centers on a simple, repeatable morning ritual.</p>
+
+      <!-- TRANSICION SUAVE hacia la oferta + primer CTA al HopLink. Tono informativo, no "compra ya". -->
+      <h2>The morning ritual people are talking about</h2>
+
+      <p>The method itself is refreshingly low-effort, which may be part of why it has spread the way it has. It does not ask anyone to overhaul their life, count every calorie, or commit to a punishing routine. It is built around a single, repeatable step taken early in the day, paired with the ordinary habits most people already have.</p>
+
+      <p>A wellness team recently put the full explanation together in a short presentation that walks through the thinking behind it, who it tends to suit, and what to realistically expect. We will not try to recreate the whole thing here, because they explain it far better than a summary could.</p>
+
+      <!-- ===== CTA SUAVE #1 al HopLink. REEMPLAZAR YOUR_HOPLINK_HERE ===== -->
+      <div class="cta-block">
+        <p>The team behind the approach published a free explainer that covers how it works in plain language.</p>
+        <!-- HOPLINK aqui. Usa el HopLink del VSL del vendor + &fbclid={fbclid} para tracking -->
+        <a class="cta-btn" href="YOUR_HOPLINK_HERE" rel="nofollow sponsored" target="_blank">Watch the Free Explainer &rsaquo;</a>
+        <div class="cta-sub">Opens the official presentation in a new tab.</div>
+      </div>
+
+      <!-- PRUEBA SOCIAL: testimonios PLANTILLA, claramente marcados. Primera persona, timeframe realista,
+           sin diagnostico ni "cura". Cada uno con "results may vary". REEMPLAZAR por reviews reales del vendor
+           si existen y estan permitidos, manteniendo el disclosure. -->
+      <h2>What people are saying</h2>
+
+      <!-- TEMPLATE TESTIMONIAL · reemplazar con feedback real verificable. No inventar resultados. -->
+      <div class="testi">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"I liked that it did not ask me to give up the foods I actually enjoy. It fit into the morning I already had instead of replacing it."</p>
+        <div class="who"><span class="pic">SM</span><span>&mdash; <b>Sarah M.</b>, Texas <em>(template testimonial)</em></span></div>
+      </div>
+      <p class="results-vary">Individual results may vary. This testimonial reflects one person's experience and is not a guarantee of any outcome.</p>
+
+      <div class="testi">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"What sold me was how simple it was to stick with. I am not great with complicated routines, and this was just one easy step each morning."</p>
+        <div class="who"><span class="pic">DR</span><span>&mdash; <b>David R.</b>, Florida <em>(template testimonial)</em></span></div>
+      </div>
+      <p class="results-vary">Individual results may vary. This testimonial reflects one person's experience and is not a guarantee of any outcome.</p>
+
+      <h2>Should you look into it?</h2>
+
+      <!-- CIERRE editorial honesto: rebaja la presion, refuerza credibilidad, no promete milagros. -->
+      <p>No single habit is right for everyone, and nothing here is a replacement for talking with your own doctor about your health. But if the standard eat-less-move-more advice has stopped delivering the way it used to, it is at least worth understanding what the newer thinking is about before writing off your efforts as a willpower issue.</p>
+
+      <p>The free explainer lays it all out, and there is no cost to simply watch it and decide for yourself. Because of the recent interest, the team has noted that availability of the program can change, so it is worth checking while the presentation is still up.</p>
+
+      <!-- ===== CTA SUAVE #2 al HopLink. REEMPLAZAR YOUR_HOPLINK_HERE ===== -->
+      <div class="cta-block">
+        <p>Prefer to read it for yourself? Here is the full report and current availability.</p>
+        <a class="cta-btn" href="YOUR_HOPLINK_HERE" rel="nofollow sponsored" target="_blank">Read the Full Report &amp; Check Availability &rsaquo;</a>
+        <div class="cta-sub">You will be taken to the official site.</div>
+      </div>
+
+      <!-- CTA SUAVE #3 inline, dentro del texto: menos agresivo, refuerza sin gritar -->
+      <p style="font-size:15.5px;color:var(--muted)">Editor's note: the approach discussed above is explained in full on the official presentation. <a class="inline-link" href="YOUR_HOPLINK_HERE" rel="nofollow sponsored" target="_blank">You can view it here</a>.</p>
+
+    </article>
+  </main>
+
+  <!-- ============================================================================
+       FOOTER · disclaimers obligatorios (anti-ban). NO quitar ninguno.
+       ============================================================================ -->
+  <footer>
+    <!-- Disclaimer FDA prominente, no en letra microscopica (nicho health US) -->
+    <div class="fda">
+      <b>Health Disclaimer</b>
+      These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. Always consult your physician before making changes to your diet, exercise, or supplement routine. Individual results may vary.
+    </div>
+
+    <!-- Disclosure de afiliado FTC (ademas del "Advertisement" del top) -->
+    <p>This page is an advertisement and not a news article, blog, or consumer protection update. The content is for informational purposes only. We may receive compensation if you purchase a product through a link on this page, at no extra cost to you.</p>
+
+    <!-- Links obligatorios: privacy / terms / contact / refund. REEMPLAZAR por paginas reales del dominio. -->
+    <div class="links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/contact.html">Contact Us</a>
+      <a href="/refund.html">Refund Policy</a>
+      <a href="/disclaimer.html">Full Disclaimer</a>
+    </div>
+
+    <!-- REEMPLAZAR: nombre del sitio + ano -->
+    <p class="copy">&copy; 2026 TruHealth Daily. All rights reserved. Results described are not typical and are not a guarantee. This site is not part of the Facebook or Meta website or Meta Platforms, Inc. This site is not endorsed by Meta in any way.</p>
+  </footer>
+
+</body>
+</html>
