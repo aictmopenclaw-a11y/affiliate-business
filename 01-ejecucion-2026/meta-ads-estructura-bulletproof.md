@@ -232,4 +232,67 @@ Las críticas, en orden de impacto:
 
 ---
 
+## 8. Cómo se ve con 3 ofertas (multi-nicho, todo aislado)
+
+La regla madre del multi-oferta es **aislamiento por oferta: 1 oferta = 1 stack aislado**. Cada oferta tiene su propio dominio, su propio dataset, su propia página y su propio ad account, para que si una cuenta o un dominio se quema, las otras dos sigan vivas. Lo único que comparten es la raíz: tu perfil personal y un Business Portfolio.
+
+Ejemplo con tres nichos genuinamente distintos (las ofertas y dominios de abajo son ilustrativos del patrón, no comprados):
+
+```
+[Perfil personal de Facebook]   (raiz · 1 persona real · el unico punto comun)
+|
+`-- [Business Portfolio]   (1 contenedor limpio · compartido al arrancar)
+    |
+    |=== OFERTA 1 · DENTAL  (ej. ProDentim) ===================
+    |   |-- Dominio ......... dailydentalfix.com   (bridge propia)
+    |   |-- Dataset 1 + CAPI   (eventos SOLO de oferta 1)
+    |   |-- Pagina FB + IG ... "Daily Dental Fix"
+    |   `-- Ad Account 1   (tarjeta A)
+    |       `-- Campaign -> Ad Set -> 3-5 Ads
+    |
+    |=== OFERTA 2 · IDIOMAS  (ej. Rocket Languages) ==========
+    |   |-- Dominio ......... speakfasterguide.com
+    |   |-- Dataset 2 + CAPI   (eventos SOLO de oferta 2)
+    |   |-- Pagina FB + IG ... "Speak Faster"
+    |   `-- Ad Account 2   (tarjeta B)
+    |       `-- Campaign -> Ad Set -> 3-5 Ads
+    |
+    `=== OFERTA 3 · WEIGHT LOSS  (ej. Java Burn) =============
+        |-- Dominio ......... morningmetabolic.com
+        |-- Dataset 3 + CAPI   (eventos SOLO de oferta 3)
+        |-- Pagina FB + IG ... "Morning Metabolic"
+        `-- Ad Account 3   (tarjeta C)
+            `-- Campaign -> Ad Set -> 3-5 Ads
+```
+
+### Qué se separa por oferta y qué se comparte
+
+| Activo | Compartido o por oferta | Por qué (anti-ban) |
+|---|---|---|
+| **Perfil personal FB** | Compartido (1, la raíz) | Una sola persona real admin. Es el único punto común, por eso tiene que estar impecable y con 2FA `[FUENTE REPO, Multilogin]` |
+| **Business Portfolio** | Compartido (1) al arrancar | Manejable para un equipo chico. El aislamiento real vive en el ad account y el dominio. Se separa en 1 BM por oferta cuando escales (ver abajo) `[CRITERIO]` |
+| **Ad Account** | **1 por oferta (3)** | Si Meta restringe o banea un ad account, los otros dos siguen corriendo. Nunca dos nichos en la misma cuenta `[FUENTE REPO, foros]` |
+| **Dataset / Pixel + CAPI** | **1 por oferta (3)** | Tracking limpio por nicho. El Purchase de cada oferta no se mezcla y la señal de optimización es nítida `[CRITERIO + funnel skill]` |
+| **Dominio + bridge page** | **1 por oferta (3)** | Cada nicho su marca y su landing. Un dominio quemado no arrastra a los otros `[FUENTE REPO, consenso foros]` |
+| **Página FB + IG** | **1 por oferta (3)** | Mezclar dental, idiomas y weight loss en una sola página confunde al algoritmo y al usuario. Página por marca `[CRITERIO]` |
+| **Tarjeta de pago** | **1 por ad account (3)** | Meta vincula cuentas por método de pago. Tarjetas distintas cortan la propagación de bans entre stacks `[FUENTE REPO, foros]` |
+
+### La regla de oro: lanza de a UNA, no las tres a la vez
+
+Aunque la estructura contemple tres ofertas, **no montes los tres stacks el día 1**. Con $2-5K el capital alcanza para un test serio a la vez `[FUENTE REPO]`. La secuencia bulletproof:
+
+1. Monta y valida **solo la Oferta 1** (su stack completo + warm-up + tracking validado).
+2. Cuando la Oferta 1 esté estable o rentable, montas el stack de la **Oferta 2** (su propio warm-up, su propia página fría que hay que calentar de nuevo).
+3. Recién con dos corriendo sanas, agregas la **Oferta 3**.
+
+Cada stack nuevo arranca su propio reloj de warm-up. Saltarse esto (tres páginas frías gastando de golpe en nichos de riesgo) es el patrón que dispara revisiones masivas.
+
+### Cuándo pasar de 1 Business Portfolio a 3 (aislamiento extremo)
+
+Mientras los tres stacks viven en un solo Business Portfolio, el aislamiento llega hasta el ad account: si Meta banea un ad account, los otros siguen, pero si llega a caer el **Business Portfolio completo** (pasa con afiliados agresivos), caen los tres. Por eso, cuando una oferta gasta fuerte y el riesgo de perder todo el BM ya no es aceptable, se separa en **1 Business Portfolio por oferta** (o por par de ofertas). El endgame de los grandes es directamente agency accounts oficiales por vertical, pero eso es a años de distancia `[FUENTE REPO, N2-Aq0TfaAdSmY]`. Para tres ofertas iniciales, 1 BM con stacks aislados es el balance correcto entre gestión y riesgo.
+
+> **En una línea:** comparte la raíz (perfil + 1 BM), aísla todo lo demás por oferta (dominio, dataset, página, ad account, tarjeta), y lanza de a una. Así un ban es un incidente de una oferta, no el fin de la operación.
+
+---
+
 *Documento interno. Las marcas `[FUENTE REPO]` salen de los videos/foros investigados o de skills internos, con su cita; `[BEST-PRACTICE]` es estándar Meta Business 2026 / industria; `[CRITERIO]` es juicio operativo de este documento donde la fuente no da un número exacto (señalado, no inventado). Fuentes principales: `01-ejecucion-2026/clickbank-2026-research/SINTESIS-VIDEOS-FOROS-2026.md`, `00-viabilidad/research-fuentes/09-errores-foros-clickbank-meta.md`, `knowledge/skills/affiliate-funnel-structure.md`, transcripciones N2-Aq0TfaAdSmY (Jordan/Robin Bouwman), N2-_-OnRxjaWMM y N2-txOcKycyAgc (Thomas Owen), N3-SH71IXrbp-A (Param). GAP reconocido: no existe aún un SOP de infra anti-ban para montar 1 BM limpio sin acceso a agency accounts; esta guía es el primer paso.*
