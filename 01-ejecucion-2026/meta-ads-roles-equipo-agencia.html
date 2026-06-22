@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quien crea y administra que en Meta (equipo de 3, modelo agencia) · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">01-ejecucion-2026 · 26 min · 5,264 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#1-el-principio-bulletproof-multi-persona" class="">1. El principio bulletproof multi-persona</a></li><li><a href="#2-modelo-recomendado-para-nuestro-caso" class="">2. Modelo recomendado para nuestro caso</a></li><li><a href="#el-criterio-que-decide-aislamiento-del-riesgo-nutra" class="h3">El criterio que decide: aislamiento del riesgo nutra</a></li><li><a href="#modelo-recomendado-el-que-se-monta-portfolio-affiliate-dedicado-cris-owner" class="h3">Modelo recomendado (el que se monta): "portfolio affiliate dedicado, Cris owner"</a></li><li><a href="#donde-entra-partner-access-y-donde-no-ahora" class="h3">Donde entra Partner Access (y donde NO ahora)</a></li><li><a href="#alternativa-mas-simple-valida-si-quieres-minima-friccion-al-inicio" class="h3">Alternativa mas simple (valida si quieres minima friccion al inicio)</a></li><li><a href="#alternativa-que-no-se-recomienda" class="h3">Alternativa que NO se recomienda</a></li><li><a href="#3-matriz-raci-por-activo-de-meta" class="">3. Matriz RACI por activo de Meta</a></li><li><a href="#4-el-arbol-con-personas-asignadas-3-ofertas" class="">4. El arbol con personas asignadas (3 ofertas)</a></li><li><a href="#5-roles-exactos-de-meta-a-asignar-a-cada-persona" class="">5. Roles exactos de Meta a asignar a cada persona</a></li><li><a href="#cris-operador-tecnico-trafficker-owner" class="h3">Cris (operador tecnico, trafficker, owner)</a></li><li><a href="#romi-contenido-organico-warm-up-estrategia" class="h3">Romi (contenido, organico, warm-up, estrategia)</a></li><li><a href="#dali-creativos-brand-produccion-visual" class="h3">Dali (creativos, brand, produccion visual)</a></li><li><a href="#system-user-no-es-persona-lo-administra-cris" class="h3">System User (no es persona; lo administra Cris)</a></li><li><a href="#6-reglas-anti-ban-multi-persona-criticas" class="">6. Reglas anti-ban multi-persona (criticas)</a></li><li><a href="#7-pasos-concretos-de-setup-de-roles" class="">7. Pasos concretos de setup de roles</a></li><li><a href="#71-crear-el-business-portfolio-affiliate-cris" class="h3">7.1 Crear el Business Portfolio affiliate (Cris)</a></li><li><a href="#72-invitar-a-romi-y-dali-con-el-rol-correcto-cris-paso-a-paso" class="h3">7.2 Invitar a Romi y Dali con el rol correcto (Cris, paso a paso)</a></li><li><a href="#73-asignar-activos-y-tasks-por-persona-cris" class="h3">7.3 Asignar activos y tasks por persona (Cris)</a></li><li><a href="#74-dar-partner-access-por-oferta-cuando-aplique-futuro" class="h3">7.4 Dar Partner Access por oferta (cuando aplique, futuro)</a></li><li><a href="#75-crear-un-system-user-para-api-cris-solo-si-hay-automatizacion" class="h3">7.5 Crear un System User para API (Cris, solo si hay automatizacion)</a></li><li><a href="#8-asignacion-concreta-para-3-ofertas" class="">8. Asignacion concreta para 3 ofertas</a></li><li><a href="#oferta-1-dental-ej-prodentim" class="h3">Oferta 1 · DENTAL (ej. ProDentim)</a></li><li><a href="#oferta-2-idiomas-ej-rocket-languages" class="h3">Oferta 2 · IDIOMAS (ej. Rocket Languages)</a></li><li><a href="#oferta-3-weight-loss-ej-java-burn" class="h3">Oferta 3 · WEIGHT LOSS (ej. Java Burn)</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>meta-ads-roles-equipo-agencia.md</span><span>5,264 palabras</span><span>~26 min</span></div>
+<h1 id="quien-crea-y-administra-que-en-meta-equipo-de-3-modelo-agencia">Quien crea y administra que en Meta (equipo de 3, modelo agencia)</h1>
+<blockquote><p><em>El riesgo en Meta se propaga por vinculos, no por quien hizo clic en crear.</em> Repartir la creacion de activos entre tres personas no protege por si solo: lo que protege es que cada persona tenga el rol minimo necesario, acceda desde su propio dispositivo e IP con 2FA, y que las ofertas vivan aisladas. Mal hecho, tres personas co-administrando todo aumentan la superficie de vinculo en vez de bajarla.</p></blockquote>
+<p><strong>Equipo:</strong> Cristobal (Cris · tech, paid media, tracking, ya administra varios Business Portfolios como agencia) · Romina (Romi · contenido, organico, estrategia, diseno) · Dalila (Dali · creativos, brand, produccion visual) <strong>Mercado:</strong> USA ingles · <strong>Nicho:</strong> nutra/health + otros · <strong>Modelo:</strong> affiliate ClickBank multi-oferta (hasta 3 nichos) · <strong>Capital:</strong> $2-5K USD · <strong>Prioridad #1:</strong> anti-ban. <strong>Fecha:</strong> 2026-06-22</p>
+<p><strong>Como leer las marcas de confianza:</strong></p>
+<ul>
+<li><code>[FUENTE REPO]</code> = sale de las fuentes internas investigadas, con cita.</li>
+<li><code>[BEST-PRACTICE Meta]</code> = mecanica/estandar de Meta Business 2026 verificado en fuentes oficiales o consenso de la industria, no atado a una fuente del repo.</li>
+<li><code>[CRITERIO]</code> = juicio operativo de este documento donde no hay un dato exacto de fuente; se marca como tal, no se inventa.</li>
+</ul>
+<p>Nota de honestidad: la nomenclatura y los nombres de permisos de abajo estan verificados contra documentacion de Meta y guias 2025-2026. Donde Meta usa internamente nombres ligeramente distintos segun la pantalla (Business Suite vs Business Settings vs API), se indica. Lo que es juicio operativo va marcado <code>[CRITERIO]</code>.</p>
+<hr>
+<h2 id="1-el-principio-bulletproof-multi-persona">1. El principio bulletproof multi-persona<a class="anchor" href="#1-el-principio-bulletproof-multi-persona">#</a></h2>
+<p>La intuicion natural es: "si Cris crea el Business Portfolio, Dali crea el pixel de cada oferta y Romi crea la pagina de Facebook, repartimos el riesgo". <strong>Es media verdad, y la mitad falsa es peligrosa.</strong></p>
+<p><strong>Lo que NO te protege (el mito del reparto por tipo de activo):</strong></p>
+<ul>
+<li><strong>Quien hizo clic en "crear" no es lo que Meta vincula.</strong> Meta no banea "al que creo el pixel". Meta detecta patrones de vinculo entre cuentas y propaga restricciones por esos vinculos: mismo perfil personal administrando, mismo dispositivo/fingerprint, misma IP, misma tarjeta, mismo dominio quemado. Repartir quien crea cada activo no toca ninguna de esas senales si las tres personas siguen accediendo cruzado a todo <code>[FUENTE REPO, 09-errores §2.2: "una cuenta limpia puede ser flageada en horas si Facebook detecta que se accede desde el mismo fingerprint que una cuenta baneada", Multilogin]</code>.</li>
+<li><strong>Tres admins de todo = triple superficie de ataque.</strong> Si Romi, Dali y Cris son admin de los mismos activos, cualquiera de los tres perfiles personales que caiga (por una cuenta personal flageada, un login raro, un dispositivo infectado) pone en riesgo todo el negocio, no solo su parte. Mas admins de todo no es mas seguro: es mas puertas de entrada al mismo cuarto <code>[CRITERIO]</code>.</li>
+<li><strong>Login cruzado anula el aislamiento.</strong> Si Dali entra al portfolio desde el computador de Romi "un ratito para subir un creativo", acaba de unir dos fingerprints. El reparto de creacion no significo nada <code>[CRITERIO basado en FUENTE REPO, fingerprint]</code>.</li>
+</ul>
+<p><strong>Lo que SI te protege (el modelo correcto):</strong></p>
+<ol>
+<li><strong>Roles minimos por persona.</strong> Nadie es admin de algo que no necesita administrar. Cris admin (porque es el operador tecnico y dueno de la raiz); Romi y Dali con acceso parcial acotado a su funcion <code>[BEST-PRACTICE Meta: "Only full control should be given to people who need to manage access... most team members should have partial access"]</code>.</li>
+<li><strong>Cada persona desde su propio dispositivo, IP estable y 2FA.</strong> El perfil personal de cada uno es sano, con 2FA, y siempre accede desde el mismo lugar. Nunca login cruzado <code>[FUENTE REPO, estructura-bulletproof §5.4 y §5.5]</code>.</li>
+<li><strong>No compartir tarjeta, IP ni fingerprint entre cuentas que quieres aislar.</strong> Es la senal #1 de propagacion de bans <code>[FUENTE REPO, 09-errores §2.2]</code>.</li>
+<li><strong>Aislar ofertas en stacks separados</strong> (dominio, dataset, pagina, ad account, tarjeta por oferta) y, cuando el riesgo lo amerite, en Business Portfolios separados <code>[FUENTE REPO, estructura-bulletproof §8]</code>.</li>
+</ol>
+<blockquote><p><strong>En una linea:</strong> el reparto de "quien crea que" es secundario. Lo que hace el negocio bulletproof es el reparto de ROLES (minimos), la higiene de ACCESO (dispositivo + IP + 2FA por persona, sin cruces) y el AISLAMIENTO por oferta. Este documento ordena las tres cosas.</p></blockquote>
+<hr>
+<h2 id="2-modelo-recomendado-para-nuestro-caso">2. Modelo recomendado para nuestro caso<a class="anchor" href="#2-modelo-recomendado-para-nuestro-caso">#</a></h2>
+<p>Cris ya administra varios Business Portfolios como agencia. Eso abre dos caminos. El correcto depende de cuanto quieras mezclar el negocio affiliate con la infra de agencia de OpenClaw.</p>
+<h3 id="el-criterio-que-decide-aislamiento-del-riesgo-nutra">El criterio que decide: aislamiento del riesgo nutra<a class="anchor" href="#el-criterio-que-decide-aislamiento-del-riesgo-nutra">#</a></h3>
+<p>El nicho nutra/health es el mas vigilado por Meta <code>[FUENTE REPO, 09-errores §2.4]</code>. Un ban agresivo puede tumbar un Business Portfolio entero. Por eso la regla madre es: <strong>el negocio affiliate no debe colgar de la misma raiz ni del mismo portfolio que la operacion de agencia de clientes reales de OpenClaw.</strong> Si el affiliate se quema, no puede arrastrar las cuentas de los clientes que pagan.</p>
+<h3 id="modelo-recomendado-el-que-se-monta-portfolio-affiliate-dedicado-cris-owner">Modelo recomendado (el que se monta): "portfolio affiliate dedicado, Cris owner"<a class="anchor" href="#modelo-recomendado-el-que-se-monta-portfolio-affiliate-dedicado-cris-owner">#</a></h3>
+<pre><code>[Perfil personal FB de Cris]   (raiz · persona real · 2FA · NO es el mismo que usa para clientes OpenClaw si se puede separar)
+│
+`-- [Business Portfolio AFFILIATE]   (NUEVO · dedicado · aislado de los BM de clientes de agencia)
+    │   owner/admin: Cris (full control)
+    │   Romi y Dali: acceso parcial, acotado a su funcion
+    │
+    |-- Stack Oferta 1 (dominio + dataset + pagina + ad account + tarjeta propios)
+    |-- Stack Oferta 2 (idem, aislado)
+    `-- Stack Oferta 3 (idem, aislado)</code></pre>
+<p><strong>Por que este y no otro:</strong></p>
+<ul>
+<li><strong>Owner unico = control y rendicion de cuentas claros.</strong> Cris es el operador tecnico y trafficker; ser full control del portfolio affiliate le da manejo de billing, datasets, system users y de quien entra. <code>[BEST-PRACTICE Meta: full control administra settings, people, tools y assets]</code></li>
+<li><strong>Aislado de la agencia.</strong> Un Business Portfolio nuevo y dedicado al affiliate evita que un ban nutra contamine los portfolios de clientes reales. El aislamiento de cliente es regla dura de OpenClaw y aplica igual aqui <code>[CRITERIO + alineado a regla de aislamiento de cliente]</code>.</li>
+<li><strong>Romi y Dali NO entran como admin.</strong> Entran con acceso parcial a los activos que su funcion necesita (Romi a paginas; Dali a la creacion de creativos en el ad account). Asi tres personas trabajan sin triplicar la superficie de admin <code>[BEST-PRACTICE Meta, partial access]</code>.</li>
+</ul>
+<h3 id="donde-entra-partner-access-y-donde-no-ahora">Donde entra Partner Access (y donde NO ahora)<a class="anchor" href="#donde-entra-partner-access-y-donde-no-ahora">#</a></h3>
+<p>Partner Access es el mecanismo de Meta para que un Business Portfolio le de acceso a OTRO Business Portfolio a sus activos, sin que ese segundo portfolio se vuelva dueno <code>[BEST-PRACTICE Meta: "even if you give a partner full access, they don't own your assets; your business portfolio does"]</code>. Es como las agencias serias trabajan multi-cliente: cada cliente tiene su portfolio, la agencia pide partner access, y cada lado maneja a su propia gente internamente.</p>
+<ul>
+<li><strong>Para nuestro arranque (un equipo, un negocio, 3 personas): NO se necesita Partner Access todavia.</strong> Romi y Dali son parte del mismo negocio, no una agencia externa. Se agregan como personas con acceso parcial dentro del portfolio affiliate. Meter Partner Access aqui agrega complejidad sin beneficio <code>[CRITERIO]</code>.</li>
+<li><strong>Partner Access SI aplica en dos escenarios futuros:</strong></li>
+<li>Si quieres que los activos del affiliate vivan en un portfolio y la operacion la maneje el portfolio de agencia de Cris: el portfolio affiliate (dueno) da partner access al portfolio de agencia (operador). Asi el dueno conserva la propiedad y el operador trabaja sin login compartido <code>[BEST-PRACTICE Meta]</code>.</li>
+<li>Cuando escales a 1 Business Portfolio por oferta (ver §4): cada portfolio-oferta puede dar partner access a un portfolio "central" de operacion para administrarlos todos sin volver admin personal a nadie en cada uno <code>[CRITERIO basado en BEST-PRACTICE Meta]</code>.</li>
+</ul>
+<h3 id="alternativa-mas-simple-valida-si-quieres-minima-friccion-al-inicio">Alternativa mas simple (valida si quieres minima friccion al inicio)<a class="anchor" href="#alternativa-mas-simple-valida-si-quieres-minima-friccion-al-inicio">#</a></h3>
+<p>Un solo Business Portfolio affiliate, Cris admin, Romi y Dali con acceso parcial, y los tres stacks de oferta aislados a nivel ad account/dominio/dataset/tarjeta dentro de ese mismo portfolio. Es exactamente lo que ya define la estructura bulletproof del repo <code>[FUENTE REPO, estructura-bulletproof §8: "comparte la raiz (perfil + 1 BM), aisla todo lo demas por oferta"]</code>. Esta alternativa y el modelo recomendado son la misma cosa al arrancar; la unica diferencia es que el modelo recomendado insiste en que ese portfolio sea NUEVO y dedicado, separado de los BM de clientes de agencia.</p>
+<h3 id="alternativa-que-no-se-recomienda">Alternativa que NO se recomienda<a class="anchor" href="#alternativa-que-no-se-recomienda">#</a></h3>
+<p>Colgar el affiliate de un Business Portfolio que ya usas para clientes de agencia. Mezcla el riesgo nutra con cuentas que pagan. Un ban puede arrastrar ambos <code>[CRITERIO + FUENTE REPO, propagacion de bans]</code>. Evitar.</p>
+<hr>
+<h2 id="3-matriz-raci-por-activo-de-meta">3. Matriz RACI por activo de Meta<a class="anchor" href="#3-matriz-raci-por-activo-de-meta">#</a></h2>
+<p>Quien CREA, quien es OWNER/ADMIN, quien tiene ACCESO y con que rol exacto de Meta, desde donde, y la regla anti-ban. Las tres personas: Cris (C), Romi (R), Dali (D).</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Activo de Meta</th>
+<th>Quien lo CREA</th>
+<th>Quien es OWNER / ADMIN</th>
+<th>Quien tiene ACCESO y con que ROL exacto de Meta</th>
+<th>Desde donde (dispositivo / IP)</th>
+<th>Regla anti-ban</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Perfil personal de Facebook</strong></td>
+<td>Cada uno el suyo (ya existen)</td>
+<td>Cada quien es dueno del propio</td>
+<td>Cris: raiz/admin del negocio. Romi y Dali: su perfil solo se usa para recibir acceso parcial</td>
+<td>Cada uno SIEMPRE desde su computador + IP estable</td>
+<td>2FA en los 3 perfiles. Perfil sano (antiguedad, foto, actividad normal). Nunca administrar el portfolio affiliate desde un perfil/dispositivo que toco una cuenta baneada <code>[FUENTE REPO §5.4-5.5]</code></td>
+</tr>
+<tr>
+<td><strong>Business Portfolio (affiliate)</strong></td>
+<td>Cris</td>
+<td>Cris (rol <strong>Full control / Admin</strong>)</td>
+<td>Cris: Full control. Romi y Dali NO a nivel portfolio; entran solo a nivel activo (ver abajo)</td>
+<td>Cris, su computador + IP estable</td>
+<td>Portfolio NUEVO, dedicado, aislado de los BM de clientes. Solo Cris full control; nadie mas admin del portfolio <code>[BEST-PRACTICE Meta]</code></td>
+</tr>
+<tr>
+<td><strong>Ad Account (1 por oferta)</strong></td>
+<td>Cris</td>
+<td>Cris (Admin del ad account)</td>
+<td>Cris: rol <strong>Admin</strong> (en Business Settings, "Manage account" + todas las tasks). Dali: rol <strong>Advertiser</strong> (tasks Manage campaigns + Manage creative + View performance, SIN billing ni gestion de usuarios). Romi: opcional rol <strong>Analyst</strong> (solo View performance) si necesita leer resultados</td>
+<td>Cris y Dali desde su propio equipo + IP. Romi idem si entra como Analyst</td>
+<td>1 tarjeta limpia por ad account. Nunca 2 nichos en el mismo ad account. Dali nunca Admin (no toca billing) <code>[FUENTE REPO §8 + BEST-PRACTICE Meta roles]</code></td>
+</tr>
+<tr>
+<td><strong>Dataset / Pixel + CAPI (1 por oferta)</strong></td>
+<td>Cris</td>
+<td>Cris (Admin del dataset)</td>
+<td>Cris: control total del dataset (ver, editar eventos, conectar CAPI, generar tokens). Romi/Dali: sin acceso (no lo necesitan)</td>
+<td>Cris, su equipo + IP</td>
+<td>1 dataset por oferta, eventos solo de esa oferta. Validar con compra $1 antes de gastar. El Purchase llega por CAPI/postback desde ClickBank <code>[FUENTE REPO §8 + funnel]</code></td>
+</tr>
+<tr>
+<td><strong>Dominio verificado (1 por oferta)</strong></td>
+<td>Cris (registro y verificacion DNS)</td>
+<td>Cris (verificado bajo el portfolio affiliate)</td>
+<td>Cris. Romi/Dali sin rol</td>
+<td>Cris, su equipo + IP</td>
+<td>Verificacion por DNS bajo el portfolio. 1 dominio por oferta; un dominio quemado no arrastra a los otros <code>[FUENTE REPO §8]</code></td>
+</tr>
+<tr>
+<td><strong>Pagina de Facebook (1 por oferta/marca)</strong></td>
+<td>Cris la crea dentro del portfolio (o Romi y Cris la reclama al portfolio)</td>
+<td>El <strong>portfolio affiliate</strong> es dueno de la pagina (no la persona)</td>
+<td>Romi: rol de Pagina con tasks de <strong>Content</strong> (crear/editar/publicar posts) + <strong>Community Activity</strong> (responder/moderar) + <strong>Insights</strong>, para warm-up y orgnico. Cris: Full control de la pagina (admin). Dali: sin rol o solo Content si sube creativos organicos</td>
+<td>Romi y Cris desde su propio equipo + IP</td>
+<td>La pagina la posee el portfolio, no el perfil de Romi. Romi calienta la pagina con engagement antes de gastar. Branding consistente con la bridge <code>[FUENTE REPO §4 warm-up]</code></td>
+</tr>
+<tr>
+<td><strong>Cuenta de Instagram (vinculada a la pagina)</strong></td>
+<td>Cris/Romi (vincular al portfolio y a la pagina)</td>
+<td>Portfolio affiliate</td>
+<td>Romi: gestion de contenido IG (mismo set de tasks que pagina). Cris: admin</td>
+<td>Romi y Cris, su equipo + IP</td>
+<td>Vinculada al portfolio, no a un perfil personal suelto. Branding consistente <code>[CRITERIO]</code></td>
+</tr>
+<tr>
+<td><strong>Metodo de pago / tarjeta (1 por ad account)</strong></td>
+<td>Cris (carga la tarjeta)</td>
+<td>Cris</td>
+<td><strong>Solo Cris.</strong> Nadie mas ve ni toca billing</td>
+<td>Cris, su equipo + IP</td>
+<td>1 tarjeta limpia y dedicada por ad account. NUNCA la misma tarjeta entre cuentas a aislar: Meta vincula cuentas por metodo de pago <code>[FUENTE REPO §8 + 09-errores]</code></td>
+</tr>
+<tr>
+<td><strong>System User (API)</strong></td>
+<td>Cris (Business Settings > Users > System Users)</td>
+<td>Cris (lo crea y administra)</td>
+<td>System User = identidad no-humana. Rol <strong>Admin system user</strong> (acceso a todos los activos del portfolio) o <strong>Employee system user</strong> (solo activos asignados). Para affiliate: empezar con Employee, asignar solo el/los ad account que la herramienta necesita</td>
+<td>Token corre server-to-server, no es un login humano</td>
+<td>System User solo si conectas herramientas por API (ej. subida masiva de creativos). Token guardado en <code>.env</code>, nunca en chat/commits. Permiso minimo (Employee, no Admin, salvo necesidad real) <code>[FUENTE REPO §8 + BEST-PRACTICE Meta system users]</code></td>
+</tr>
+<tr>
+<td><strong>Campaign</strong></td>
+<td>Cris la arma; Dali puede crear/editar bajo rol Advertiser</td>
+<td>Cris (Admin del ad account)</td>
+<td>Cris (Admin) y Dali (Advertiser, task Manage campaigns) pueden crear/editar campanas. Romi no</td>
+<td>Cris y Dali, su equipo + IP</td>
+<td>Objetivo Sales, optimizar a Purchase (no a clicks). Crear en PAUSED; nunca activar sin OK explicito <code>[FUENTE REPO §3 paso 12]</code></td>
+</tr>
+<tr>
+<td><strong>Ad Set</strong></td>
+<td>Cris / Dali (rol Advertiser)</td>
+<td>Cris</td>
+<td>Cris (Admin), Dali (Advertiser)</td>
+<td>Cris y Dali, su equipo + IP</td>
+<td>1 CBO broad USA aislado por oferta. Placements limpios. No matar en <24-72h <code>[FUENTE REPO §2 y §4]</code></td>
+</tr>
+<tr>
+<td><strong>Creativos / Ads</strong></td>
+<td><strong>Dali los produce</strong>; Dali los sube bajo rol Advertiser (task Manage creative); Cris valida y publica</td>
+<td>Cris (Admin)</td>
+<td>Dali: <strong>Advertiser</strong> (Manage creative + Manage campaigns + View performance). Cris: Admin. Romi: aporta angulos/copy organico pero sube via rol de Pagina, no de ad account</td>
+<td>Dali y Cris, su equipo + IP</td>
+<td>3-5 ads por ad set, cada uno un angulo distinto. Disclaimer de salud en el copy de cada ad nutra. No copiar-pegar la landing/creativo del vendor <code>[FUENTE REPO §5.3 + §6]</code></td>
+</tr>
+</tbody></table></div>
+<p><strong>Nota de nomenclatura verificada:</strong> a nivel ad account, los roles que Meta expone son <strong>Admin</strong>, <strong>Advertiser</strong> y <strong>Analyst</strong>, que se traducen a las tasks <strong>Manage account</strong> (solo Admin), <strong>Manage campaigns</strong>, <strong>Manage creative</strong> (Admin y Advertiser) y <strong>View performance</strong> (los tres) <code>[BEST-PRACTICE Meta]</code>. A nivel portfolio, los niveles actuales son <strong>Full control</strong> y <strong>Partial access</strong> (Meta dejo atras los nombres viejos "admin/employee" en la UI nueva de Business Suite, aunque la API y algunas pantallas de Business Settings aun muestran "admin/employee") <code>[BEST-PRACTICE Meta]</code>. A nivel Pagina, el acceso se da por tasks (Content, Community Activity, Messages, Ads, Insights) y un nivel de <strong>Facebook access con control total</strong> equivalente a admin de la pagina <code>[BEST-PRACTICE Meta]</code>.</p>
+<hr>
+<h2 id="4-el-arbol-con-personas-asignadas-3-ofertas">4. El arbol con personas asignadas (3 ofertas)<a class="anchor" href="#4-el-arbol-con-personas-asignadas-3-ofertas">#</a></h2>
+<p>Mismo estilo que <code>meta-ads-estructura-bulletproof.md</code>. Las marcas <code>[C]</code> Cris, <code>[R]</code> Romi, <code>[D]</code> Dali indican quien administra/opera esa rama.</p>
+<pre><code>[Perfil personal FB de Cris]   [C]  (raiz · persona real · 2FA · IP estable · el unico punto comun)
+│
+`-- [Business Portfolio AFFILIATE]   [C owner/full control]   (dedicado · aislado de BM de clientes)
+    │      Romi [R] y Dali [D] entran como ACCESO PARCIAL a nivel activo, NO como admin del portfolio
+    │
+    |=== OFERTA 1 · DENTAL  (ej. ProDentim) ============================
+    |   |-- Dominio ......... dailydentalfix.com        [C crea + verifica]
+    |   |-- Dataset 1 + CAPI  (eventos SOLO oferta 1)    [C admin]
+    |   |-- Pagina FB + IG ... "Daily Dental Fix"        [C admin de pagina · R content/warm-up/organico]
+    |   |-- Tarjeta A ........ (limpia, dedicada)         [C only]
+    |   `-- Ad Account 1   [C admin · D advertiser · R analyst opcional]
+    |       `-- Campaign -&gt; Ad Set -&gt; 3-5 Ads            [C arma+publica · D crea/sube creativos]
+    |
+    |=== OFERTA 2 · IDIOMAS  (ej. Rocket Languages) ===================
+    |   |-- Dominio ......... speakfasterguide.com        [C]
+    |   |-- Dataset 2 + CAPI  (eventos SOLO oferta 2)     [C]
+    |   |-- Pagina FB + IG ... "Speak Faster"             [C admin · R content/warm-up]
+    |   |-- Tarjeta B ........ (limpia, dedicada)          [C only]
+    |   `-- Ad Account 2   [C admin · D advertiser · R analyst opcional]
+    |       `-- Campaign -&gt; Ad Set -&gt; 3-5 Ads             [C · D]
+    |
+    `=== OFERTA 3 · WEIGHT LOSS  (ej. Java Burn) ======================
+        |-- Dominio ......... morningmetabolic.com        [C]
+        |-- Dataset 3 + CAPI  (eventos SOLO oferta 3)     [C]
+        |-- Pagina FB + IG ... "Morning Metabolic"        [C admin · R content/warm-up]
+        |-- Tarjeta C ........ (limpia, dedicada)          [C only]
+        `-- Ad Account 3   [C admin · D advertiser · R analyst opcional]
+            `-- Campaign -&gt; Ad Set -&gt; 3-5 Ads             [C · D]
+
+[System User API]   [C crea/administra]  (Employee · solo ad accounts asignados · token en .env · si hay automatizacion)</code></pre>
+<p><strong>Lectura del arbol:</strong></p>
+<ul>
+<li><strong>Cris [C]</strong> es la columna vertebral: owner del portfolio, admin de cada ad account, dueno de datasets, dominios, tarjetas y system user. Es el unico que toca billing y configuracion sensible.</li>
+<li><strong>Romi [R]</strong> opera SOLO las paginas/IG por oferta: warm-up, contenido organico, comunidad. No entra al ad account salvo como Analyst de lectura.</li>
+<li><strong>Dali [D]</strong> opera SOLO la creacion de creativos/ads dentro de cada ad account (rol Advertiser). No toca billing, no es admin, no maneja paginas.</li>
+<li>El <strong>unico punto comun</strong> entre las tres ofertas es la raiz (perfil de Cris + el portfolio). Todo lo demas esta aislado por oferta para que un ban sea un incidente de una oferta, no el fin del negocio <code>[FUENTE REPO §8]</code>.</li>
+</ul>
+<p><strong>Cuando partir el portfolio en 3 (aislamiento extremo):</strong> mientras los 3 stacks viven en 1 portfolio, el aislamiento llega hasta el ad account; si cae el portfolio completo, caen los tres. Cuando una oferta gaste fuerte y perder todo el portfolio ya no sea aceptable, se separa en <strong>1 Business Portfolio por oferta</strong>, y se usa Partner Access para que Cris los administre todos sin volverse admin personal en cada uno <code>[FUENTE REPO §8 + BEST-PRACTICE Meta partner access]</code>.</p>
+<hr>
+<h2 id="5-roles-exactos-de-meta-a-asignar-a-cada-persona">5. Roles exactos de Meta a asignar a cada persona<a class="anchor" href="#5-roles-exactos-de-meta-a-asignar-a-cada-persona">#</a></h2>
+<p>Nombres reales de los permisos, por persona.</p>
+<h3 id="cris-operador-tecnico-trafficker-owner">Cris (operador tecnico, trafficker, owner)<a class="anchor" href="#cris-operador-tecnico-trafficker-owner">#</a></h3>
+<ul>
+<li><strong>Business Portfolio:</strong> <strong>Full control</strong> (administra settings, people, tools y todos los activos; puede reclamar/quitar activos y dar acceso) <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Cada Ad Account:</strong> rol <strong>Admin</strong> (incluye la task <strong>Manage account</strong>: billing, usuarios, todo) <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Cada Dataset/Pixel:</strong> acceso de administracion del dataset (ver y editar eventos, conectar CAPI, generar tokens de conversiones) <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Cada Pagina FB + IG:</strong> <strong>Facebook access con control total</strong> (admin de la pagina) <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Metodo de pago:</strong> unico autorizado a ver/editar billing <code>[FUENTE REPO §8]</code>.</li>
+<li><strong>System User:</strong> lo crea y administra; genera tokens; asigna activos <code>[BEST-PRACTICE Meta]</code>.</li>
+</ul>
+<h3 id="romi-contenido-organico-warm-up-estrategia">Romi (contenido, organico, warm-up, estrategia)<a class="anchor" href="#romi-contenido-organico-warm-up-estrategia">#</a></h3>
+<ul>
+<li><strong>A nivel portfolio:</strong> <strong>Partial access</strong> (no full control, no puede agregar admins) <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Cada Pagina FB + IG:</strong> acceso por tasks: <strong>Content</strong> (crear, editar, publicar posts y stories), <strong>Community Activity</strong> (responder comentarios, moderar), <strong>Insights</strong> (ver performance). Esto le permite el warm-up y la operacion organica sin ser admin de la pagina <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Ad Account (opcional):</strong> rol <strong>Analyst</strong> (solo <strong>View performance</strong>) si necesita leer resultados de campana. Nunca Advertiser ni Admin <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Lo que NO tiene:</strong> billing, gestion de usuarios, edicion de datasets, creacion de campanas.</li>
+</ul>
+<h3 id="dali-creativos-brand-produccion-visual">Dali (creativos, brand, produccion visual)<a class="anchor" href="#dali-creativos-brand-produccion-visual">#</a></h3>
+<ul>
+<li><strong>A nivel portfolio:</strong> <strong>Partial access</strong> <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Cada Ad Account:</strong> rol <strong>Advertiser</strong> = tasks <strong>Manage campaigns</strong> + <strong>Manage creative</strong> + <strong>View performance</strong>. Puede crear/editar campanas, ad sets y subir creativos a la biblioteca, ver resultados. NO puede tocar billing ni usuarios (eso es task <strong>Manage account</strong>, solo Admin) <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Biblioteca de creativos:</strong> cubierta por <strong>Manage creative</strong> dentro del rol Advertiser <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Lo que NO tiene:</strong> billing, gestion de usuarios, full control del portfolio, admin de paginas.</li>
+</ul>
+<h3 id="system-user-no-es-persona-lo-administra-cris">System User (no es persona; lo administra Cris)<a class="anchor" href="#system-user-no-es-persona-lo-administra-cris">#</a></h3>
+<ul>
+<li><strong>Tipo:</strong> <strong>Employee system user</strong> (acceso solo a los activos que se le asignen), no Admin system user, salvo que una herramienta requiera acceso a todo el portfolio <code>[BEST-PRACTICE Meta: "employee system users must be granted access to individual assets"]</code>.</li>
+<li><strong>Asignacion:</strong> solo el/los ad account que la automatizacion necesita, con las tasks minimas.</li>
+<li><strong>Token:</strong> se genera una vez, se guarda en <code>.env</code> local, nunca en chat ni commits. Los tokens de system user no expiran como los humanos (1-2h cortos / 60d largos), por eso sirven para server-to-server <code>[BEST-PRACTICE Meta]</code>.</li>
+</ul>
+<hr>
+<h2 id="6-reglas-anti-ban-multi-persona-criticas">6. Reglas anti-ban multi-persona (criticas)<a class="anchor" href="#6-reglas-anti-ban-multi-persona-criticas">#</a></h2>
+<ol>
+<li><strong>Cada persona, su propio dispositivo + IP estable + 2FA. Sin excepciones.</strong> Cris desde el equipo de Cris, Romi desde el de Romi, Dali desde el de Dali, cada uno con su IP habitual. 2FA en los tres perfiles personales. Es la base de toda la higiene <code>[FUENTE REPO §5.4-5.5]</code>.</li>
+<li><strong>NUNCA login cruzado.</strong> Dali no entra "un ratito" desde el computador de Romi. Cris no administra desde un equipo prestado. Cada login cruzado une dos fingerprints y anula el aislamiento <code>[FUENTE REPO, fingerprint Multilogin]</code>.</li>
+<li><strong>NUNCA compartir tarjeta.</strong> 1 tarjeta limpia y dedicada por ad account, todas a nombre/control de Cris pero distintas entre si. Compartir tarjeta entre cuentas es una de las senales con que Meta las vincula y propaga bans <code>[FUENTE REPO §8 + 09-errores §2.2]</code>.</li>
+<li><strong>Acceso por activo, nunca compartir contrasenas.</strong> Romi y Dali entran con SU cuenta y su rol parcial. Nunca se pasa el usuario/clave de Cris. Compartir login es exactamente lo que Meta penaliza y lo que Partner Access/roles existen para evitar <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>El perfil de Cris es el punto critico, trataselo como tal.</strong> Al ser owner del portfolio y admin de todo, si el perfil personal de Cris cae, cae el negocio entero. Por eso: 2FA fuerte, dispositivo limpio, IP estable, cero actividad de riesgo en ese perfil, y NO usarlo para experimentos o cuentas descartables. La concentracion de poder en Cris es buena para el control pero peligrosa para la resiliencia: es el single point of failure <code>[CRITERIO + FUENTE REPO §1 raiz]</code>.</li>
+<li><strong>Roles minimos = menos puertas.</strong> Romi sin acceso al ad account (salvo Analyst). Dali sin billing ni admin. Nadie admin de algo que no opera. Cada permiso de mas es una superficie de mas <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Plan de contingencia si cae el perfil de UNA persona:</strong></li>
+<li><strong>Si cae Dali o Romi (acceso parcial):</strong> el dano es acotado. Cris (full control) revoca el acceso del perfil caido en Business Settings > People, y reasigna las tasks a un perfil limpio de esa persona (o asume Cris temporalmente). El negocio sigue. Por eso importa que NO sean admin: su caida no tumba el portfolio <code>[CRITERIO + BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Si cae el perfil de Cris (full control):</strong> es el escenario grave. Mitigacion: tener un <strong>segundo perfil de confianza con full control del portfolio</strong> como respaldo (un perfil sano, real, de Romi o de un socio, con 2FA, que NO se use para operar dia a dia, solo como llave de recuperacion). Asi, si el perfil principal de Cris cae, ese segundo full control puede recuperar el portfolio y reasignar. Sin un segundo admin, perder el perfil de Cris = perder el portfolio <code>[CRITERIO]</code>. (Matiz: agregar un segundo full control sube levemente la superficie; el trade-off vale la pena solo si ese perfil esta impecable y casi no se loguea.)</li>
+<li><strong>Si cae un ad account (no el perfil):</strong> los otros stacks siguen porque estan aislados. Se documenta, se pausa, y se evalua apelacion. No se accede al resto desde el mismo contexto del que cayo <code>[FUENTE REPO §8]</code>.</li>
+<li><strong>El reparto de creacion NO sustituye nada de lo anterior.</strong> Que Dali suba los creativos o que Romi maneje las paginas esta bien por division de trabajo y por rol minimo, pero NO es lo que protege. Lo que protege son los 7 puntos de arriba. Si alguien dice "ya estamos seguros porque repartimos quien crea que", esta equivocado <code>[CRITERIO, este es el punto central del documento]</code>.</li>
+</ol>
+<hr>
+<h2 id="7-pasos-concretos-de-setup-de-roles">7. Pasos concretos de setup de roles<a class="anchor" href="#7-pasos-concretos-de-setup-de-roles">#</a></h2>
+<h3 id="71-crear-el-business-portfolio-affiliate-cris">7.1 Crear el Business Portfolio affiliate (Cris)<a class="anchor" href="#71-crear-el-business-portfolio-affiliate-cris">#</a></h3>
+<ol>
+<li>business.facebook.com > crear un nuevo Business Portfolio, dedicado al affiliate, con nombre de marca de salud y email de negocio de Cris. No reusar un portfolio de clientes <code>[BEST-PRACTICE Meta + CRITERIO aislamiento]</code>.</li>
+<li>Activar 2FA y, si Meta lo ofrece, exigir 2FA a todos los miembros del portfolio (Business Settings > Security Center) <code>[BEST-PRACTICE Meta]</code>.</li>
+</ol>
+<h3 id="72-invitar-a-romi-y-dali-con-el-rol-correcto-cris-paso-a-paso">7.2 Invitar a Romi y Dali con el rol correcto (Cris, paso a paso)<a class="anchor" href="#72-invitar-a-romi-y-dali-con-el-rol-correcto-cris-paso-a-paso">#</a></h3>
+<ol>
+<li>Business Settings (Configuracion del negocio) > <strong>People</strong> (Personas) > <strong>Add / Invite people</strong>.</li>
+<li>Ingresar el email de Romi (el ligado a SU cuenta de Facebook). Elegir nivel <strong>Partial access</strong> (acceso parcial), NO full control <code>[BEST-PRACTICE Meta]</code>.</li>
+<li>Repetir para Dali con <strong>Partial access</strong>.</li>
+<li>Ambos reciben invitacion por email y la aceptan desde SU propio dispositivo con SU 2FA.</li>
+</ol>
+<h3 id="73-asignar-activos-y-tasks-por-persona-cris">7.3 Asignar activos y tasks por persona (Cris)<a class="anchor" href="#73-asignar-activos-y-tasks-por-persona-cris">#</a></h3>
+<p>Despues de agregarlos al portfolio, asignar acceso por activo en Business Settings:</p>
+<ul>
+<li><strong>A Romi, sobre cada Pagina (y su IG):</strong> Business Settings > Accounts > Pages > seleccionar la pagina > <strong>Assign people</strong> > Romi > activar tasks <strong>Content</strong>, <strong>Community Activity</strong>, <strong>Insights</strong> (dejar OFF Ads y dejar OFF el control total) <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>A Romi (opcional), sobre cada Ad Account:</strong> Accounts > Ad accounts > seleccionar > Assign people > Romi > rol <strong>Analyst</strong> (solo View performance) <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>A Dali, sobre cada Ad Account:</strong> Accounts > Ad accounts > seleccionar > Assign people > Dali > rol <strong>Advertiser</strong> (Manage campaigns + Manage creative + View performance; Manage account queda OFF) <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Cris</strong> se asigna a si mismo <strong>Admin</strong> en cada ad account y control total en paginas y datasets (suele venir por ser full control del portfolio, pero conviene verificarlo activo por activo) <code>[BEST-PRACTICE Meta]</code>.</li>
+</ul>
+<p>Regla: asignar SIEMPRE por activo y por task, nunca dar "todo a todos". Meta misma recomienda dar solo el nivel que la persona necesita <code>[BEST-PRACTICE Meta]</code>.</p>
+<h3 id="74-dar-partner-access-por-oferta-cuando-aplique-futuro">7.4 Dar Partner Access por oferta (cuando aplique, futuro)<a class="anchor" href="#74-dar-partner-access-por-oferta-cuando-aplique-futuro">#</a></h3>
+<p>Solo cuando separes ofertas en portfolios distintos o quieras que el portfolio de agencia opere los activos:</p>
+<ol>
+<li>En el portfolio DUENO de los activos: Business Settings > <strong>Partners</strong> > <strong>Share assets with a partner</strong> (o "Give a partner access to your assets").</li>
+<li>Ingresar el <strong>Business Portfolio ID</strong> del portfolio operador (no un email personal). Seleccionar los activos y las tasks a compartir.</li>
+<li>El portfolio operador maneja a su propia gente internamente. El dueno conserva la propiedad y puede revocar el acceso cuando quiera <code>[BEST-PRACTICE Meta]</code>.</li>
+</ol>
+<h3 id="75-crear-un-system-user-para-api-cris-solo-si-hay-automatizacion">7.5 Crear un System User para API (Cris, solo si hay automatizacion)<a class="anchor" href="#75-crear-un-system-user-para-api-cris-solo-si-hay-automatizacion">#</a></h3>
+<ol>
+<li>Business Settings > <strong>Users</strong> > <strong>System Users</strong> > <strong>Add</strong>.</li>
+<li>Nombre del system user; rol <strong>Employee</strong> (no Admin, salvo necesidad real de acceso a todo el portfolio) <code>[BEST-PRACTICE Meta]</code>.</li>
+<li>Click en el system user > <strong>Assign assets</strong> > seleccionar SOLO el/los ad account (y app) que la herramienta necesita, con la task minima <code>[BEST-PRACTICE Meta]</code>.</li>
+<li><strong>Generate new token</strong> > elegir la app y los permisos minimos (ej. ads_management) > copiar el token de inmediato (no se vuelve a mostrar) y guardarlo en <code>.env</code> local. Nunca en chat ni commits <code>[BEST-PRACTICE Meta + regla de seguridad OpenClaw]</code>.</li>
+</ol>
+<hr>
+<h2 id="8-asignacion-concreta-para-3-ofertas">8. Asignacion concreta para 3 ofertas<a class="anchor" href="#8-asignacion-concreta-para-3-ofertas">#</a></h2>
+<p>Quien administra que en cada stack, por oferta. (Ofertas/dominios ilustrativos del patron, no comprados.)</p>
+<h3 id="oferta-1-dental-ej-prodentim">Oferta 1 · DENTAL (ej. ProDentim)<a class="anchor" href="#oferta-1-dental-ej-prodentim">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Activo</th>
+<th>Crea</th>
+<th>Owner/Admin</th>
+<th>Acceso + rol exacto</th>
+<th>Anti-ban</th>
+</tr></thead><tbody>
+<tr>
+<td>Dominio dailydentalfix.com</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Verificado por DNS bajo el portfolio</td>
+</tr>
+<tr>
+<td>Dataset 1 + CAPI</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Cris (admin dataset)</td>
+<td>Eventos solo oferta 1; validar compra $1</td>
+</tr>
+<tr>
+<td>Pagina FB + IG "Daily Dental Fix"</td>
+<td>Cris</td>
+<td>Portfolio</td>
+<td>Romi (Content+Community+Insights) · Cris (admin)</td>
+<td>Romi calienta la pagina antes de gastar</td>
+</tr>
+<tr>
+<td>Tarjeta A</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Solo Cris</td>
+<td>Tarjeta unica de esta oferta</td>
+</tr>
+<tr>
+<td>Ad Account 1</td>
+<td>Cris</td>
+<td>Cris (Admin)</td>
+<td>Dali (Advertiser) · Romi (Analyst opcional)</td>
+<td>1 nicho por cuenta</td>
+</tr>
+<tr>
+<td>Campaign/Ad Set/Ads</td>
+<td>Cris arma+publica; Dali crea/sube creativos</td>
+<td>Cris</td>
+<td>Dali (Manage creative/campaigns)</td>
+<td>Disclaimer salud en cada ad; PAUSED hasta OK</td>
+</tr>
+</tbody></table></div>
+<h3 id="oferta-2-idiomas-ej-rocket-languages">Oferta 2 · IDIOMAS (ej. Rocket Languages)<a class="anchor" href="#oferta-2-idiomas-ej-rocket-languages">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Activo</th>
+<th>Crea</th>
+<th>Owner/Admin</th>
+<th>Acceso + rol exacto</th>
+<th>Anti-ban</th>
+</tr></thead><tbody>
+<tr>
+<td>Dominio speakfasterguide.com</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Verificado por DNS, dominio propio</td>
+</tr>
+<tr>
+<td>Dataset 2 + CAPI</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Eventos solo oferta 2</td>
+</tr>
+<tr>
+<td>Pagina FB + IG "Speak Faster"</td>
+<td>Cris</td>
+<td>Portfolio</td>
+<td>Romi (Content+Community+Insights) · Cris (admin)</td>
+<td>Warm-up propio, reloj nuevo</td>
+</tr>
+<tr>
+<td>Tarjeta B</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Solo Cris</td>
+<td>Distinta de A y C</td>
+</tr>
+<tr>
+<td>Ad Account 2</td>
+<td>Cris</td>
+<td>Cris (Admin)</td>
+<td>Dali (Advertiser) · Romi (Analyst opcional)</td>
+<td>Aislado de oferta 1 y 3</td>
+</tr>
+<tr>
+<td>Campaign/Ad Set/Ads</td>
+<td>Cris + Dali</td>
+<td>Cris</td>
+<td>Dali (Advertiser)</td>
+<td>Idiomas no exige disclaimer salud, pero igual no copy-paste del vendor</td>
+</tr>
+</tbody></table></div>
+<h3 id="oferta-3-weight-loss-ej-java-burn">Oferta 3 · WEIGHT LOSS (ej. Java Burn)<a class="anchor" href="#oferta-3-weight-loss-ej-java-burn">#</a></h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Activo</th>
+<th>Crea</th>
+<th>Owner/Admin</th>
+<th>Acceso + rol exacto</th>
+<th>Anti-ban</th>
+</tr></thead><tbody>
+<tr>
+<td>Dominio morningmetabolic.com</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Verificado por DNS</td>
+</tr>
+<tr>
+<td>Dataset 3 + CAPI</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Eventos solo oferta 3</td>
+</tr>
+<tr>
+<td>Pagina FB + IG "Morning Metabolic"</td>
+<td>Cris</td>
+<td>Portfolio</td>
+<td>Romi (Content+Community+Insights) · Cris (admin)</td>
+<td>Nicho de mayor vigilancia; warm-up cuidadoso</td>
+</tr>
+<tr>
+<td>Tarjeta C</td>
+<td>Cris</td>
+<td>Cris</td>
+<td>Solo Cris</td>
+<td>Distinta de A y B</td>
+</tr>
+<tr>
+<td>Ad Account 3</td>
+<td>Cris</td>
+<td>Cris (Admin)</td>
+<td>Dali (Advertiser) · Romi (Analyst opcional)</td>
+<td>El stack mas sensible; aislado</td>
+</tr>
+<tr>
+<td>Campaign/Ad Set/Ads</td>
+<td>Cris + Dali</td>
+<td>Cris</td>
+<td>Dali (Advertiser)</td>
+<td>Disclaimer "This product is not intended to diagnose, treat, cure, or prevent any disease" en el copy de CADA ad; cero claims tipo "pierde X kilos"</td>
+</tr>
+</tbody></table></div>
+<p><strong>La regla de oro multi-oferta sigue vigente:</strong> lanza de a UNA, no las tres a la vez. Con $2-5K el capital alcanza para un test serio <code>[FUENTE REPO §8 + 09-errores §5]</code>. Monta y valida la Oferta 1 completa (stack + warm-up de Romi + tracking validado por Cris + creativos de Dali). Cuando este estable, montas la 2. Recien con dos sanas, la 3. Cada stack arranca su propio reloj de warm-up.</p>
+<hr>
+<p><em>Documento interno OpenClaw / affiliate-business. <code>[FUENTE REPO]</code> = fuentes internas investigadas (estructura-bulletproof, 09-errores-foros) con cita; <code>[BEST-PRACTICE Meta]</code> = mecanica/estandar Meta Business 2025-2026 verificado en documentacion oficial y guias de la industria; <code>[CRITERIO]</code> = juicio operativo de este documento donde no hay dato exacto de fuente. Fuentes Meta verificadas: Meta Business Help Center (roles de ad account, partner access, system users), documentacion de Business Management APIs (system users y tokens), guias 2025-2026 (Leadsie, Graphed, AdAmigo, ChatArchitect, TJ21). Fuentes repo: <code>01-ejecucion-2026/meta-ads-estructura-bulletproof.md</code>, <code>00-viabilidad/research-fuentes/09-errores-foros-clickbank-meta.md</code>. La mecanica de Meta no se invento; lo no verificable se marca como criterio o se dice.</em></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: meta-ads-roles-equipo-agencia.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>
