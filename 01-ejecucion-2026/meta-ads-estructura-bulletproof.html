@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estructura bulletproof de Meta Ads para affiliate (sin romper cuentas) · Affiliate Business</title>
+<script>(function(){try{var t=localStorage.getItem('ab-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Public+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* light "warm paper" default */
+    --bg: #faf7f0;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f1ece0;
+    --ink: #1c1a17;
+    --ink-dim: #4a463f;
+    --ink-mute: #87806f;
+    --line: #e4ddcd;
+    --line-strong: #cabfa6;
+    --accent: #b5651d;
+    --accent-soft: rgba(181, 101, 29, 0.10);
+    --green: #4f7a4a;
+    --green-soft: rgba(79, 122, 74, 0.12);
+    --red: #b23a1f;
+    --red-soft: rgba(178, 58, 31, 0.10);
+    --amber: #c08a1e;
+    --amber-soft: rgba(192, 138, 30, 0.12);
+    --blue: #2f6f8f;
+    --blue-soft: rgba(47, 111, 143, 0.10);
+    --romi: #b5651d;
+    --cris: #4f7a4a;
+    --dali: #9c3f86;
+    --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 4px 16px rgba(28,26,23,0.06);
+    --shadow-lift: 0 2px 6px rgba(28,26,23,0.07), 0 12px 32px rgba(28,26,23,0.10);
+
+    /* 8px spacing scale */
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+    --radius: 12px;
+    --radius-sm: 7px;
+    --measure: 68ch;
+}
+
+[data-theme="dark"] {
+    --bg: #14130f;
+    --bg-elev: #1d1c18;
+    --bg-sunk: #0c0b09;
+    --ink: #f3eee2;
+    --ink-dim: #c9c2b2;
+    --ink-mute: #8d8676;
+    --line: #2c2a25;
+    --line-strong: #433f37;
+    --accent: #e0a050;
+    --accent-soft: rgba(224, 160, 80, 0.13);
+    --green: #7fb377;
+    --green-soft: rgba(127, 179, 119, 0.14);
+    --red: #e07a55;
+    --red-soft: rgba(224, 122, 85, 0.13);
+    --amber: #e8b647;
+    --amber-soft: rgba(232, 182, 71, 0.14);
+    --blue: #6fb6d6;
+    --blue-soft: rgba(111, 182, 214, 0.13);
+    --romi: #e0a050;
+    --cris: #7fb377;
+    --dali: #d479bd;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* === READING PROGRESS BAR === */
+.progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--accent);
+    z-index: 100; width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* === TOP BAR === */
+.topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s3) var(--s6);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+}
+.topbar a.home { color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
+.topbar a.home:hover { opacity: 0.7; }
+.topbar .right { display: flex; align-items: center; gap: var(--s5); }
+.topbar .meta { color: var(--ink-mute); letter-spacing: 0.05em; }
+.theme-toggle {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    color: var(--ink-dim); width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: var(--s7);
+    padding: var(--s7) var(--s6);
+    align-items: start;
+}
+
+/* === SIDEBAR (TOC) === */
+.sidebar {
+    position: sticky; top: 84px; align-self: start;
+    max-height: calc(100vh - 110px); overflow-y: auto;
+    padding-right: var(--s3);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+.sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s4);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin: 1px 0; }
+.toc-list a {
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 0.86rem; line-height: 1.35; display: block;
+    padding: var(--s2) var(--s3); border-left: 2px solid var(--line);
+    transition: all 0.15s; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--line-strong); background: var(--bg-sunk); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.toc-list .h3 { padding-left: var(--s5); font-size: 0.8rem; }
+.toc-list .h4 { padding-left: var(--s6); font-size: 0.77rem; }
+
+/* === MAIN CONTENT === */
+.content { max-width: var(--measure); min-width: 0; padding-bottom: var(--s9); }
+.content > * { max-width: 100%; }
+
+.content-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute);
+    text-transform: uppercase; margin-bottom: var(--s6);
+    display: flex; gap: var(--s4); flex-wrap: wrap; align-items: center;
+}
+.content-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.content-meta span { display: inline-flex; align-items: center; gap: var(--s2); }
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--ink); line-height: 1.18; letter-spacing: -0.01em;
+    font-weight: 600; text-wrap: balance;
+}
+h1 { font-size: 2.8rem; line-height: 1.08; margin-bottom: var(--s5); font-weight: 600; }
+h2 {
+    font-size: 1.95rem; margin-top: var(--s8); margin-bottom: var(--s4);
+    padding-top: var(--s5); border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.45rem; margin-top: var(--s6); margin-bottom: var(--s3); }
+h4 { font-size: 1.15rem; margin-top: var(--s5); margin-bottom: var(--s2); color: var(--ink-dim); }
+
+p { margin: var(--s4) 0; color: var(--ink-dim); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    transition: all 0.15s;
+}
+a:hover { border-bottom-color: var(--accent); background: var(--accent-soft); }
+
+/* === LISTS === */
+ul, ol { margin: var(--s4) 0 var(--s4) var(--s5); color: var(--ink-dim); }
+li { margin: var(--s2) 0; line-height: 1.6; padding-left: var(--s1); }
+ul li::marker { color: var(--accent); }
+ol li::marker { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--s2); margin-bottom: var(--s2); }
+li input[type="checkbox"] { margin-right: var(--s2); accent-color: var(--accent); width: 15px; height: 15px; vertical-align: -2px; }
+
+/* === CODE === */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-sunk); color: var(--accent);
+    padding: 0.12em 0.4em; border-radius: 5px; font-size: 0.86em;
+    border: 1px solid var(--line);
+}
+pre {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: var(--s4) var(--s5);
+    overflow-x: auto; margin: var(--s5) 0; font-size: 0.84rem; line-height: 1.6;
+}
+pre code { background: transparent; border: none; padding: 0; color: var(--ink-dim); font-size: inherit; }
+
+/* === BLOCKQUOTES === */
+blockquote {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-left: 3px solid var(--accent); background: var(--bg-elev);
+    color: var(--ink); font-family: 'Newsreader', Georgia, serif;
+    font-style: italic; font-size: 1.12rem; line-height: 1.5;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; box-shadow: var(--shadow);
+}
+blockquote p { color: var(--ink); margin: var(--s2) 0; }
+blockquote strong { color: var(--accent); font-style: normal; }
+
+/* === TABLES === */
+.table-wrap { overflow-x: auto; margin: var(--s5) 0; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; background: var(--bg-elev); }
+thead { background: var(--bg-sunk); }
+th {
+    padding: var(--s3) var(--s4); text-align: left;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim);
+    border-bottom: 2px solid var(--line-strong); white-space: nowrap;
+}
+td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); color: var(--ink-dim); vertical-align: top; }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-sunk) 50%, transparent); }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--accent-soft); }
+tbody tr:hover td { color: var(--ink); }
+
+/* === HR === */
+hr { margin: var(--s7) 0; border: none; height: 1px; background: var(--line); }
+
+/* === CALLOUT BOXES === */
+.box {
+    margin: var(--s5) 0; padding: var(--s4) var(--s5);
+    border-radius: var(--radius-sm); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); background: var(--bg-elev);
+    box-shadow: var(--shadow); position: relative;
+}
+.box p:first-of-type { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.box-tldr { border-left-color: var(--accent); background: var(--accent-soft); }
+.box-veredicto { border-left-color: var(--romi); background: var(--accent-soft); }
+.box-critico, .box-stop { border-left-color: var(--red); background: var(--red-soft); }
+.box-recomendado, .box-tip { border-left-color: var(--green); background: var(--green-soft); }
+.box-warning, .box-alerta { border-left-color: var(--amber); background: var(--amber-soft); }
+.box-info, .box-note { border-left-color: var(--blue); background: var(--blue-soft); }
+.box-label {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: var(--s3); color: var(--accent);
+}
+.box-critico .box-label, .box-stop .box-label { color: var(--red); }
+.box-recomendado .box-label, .box-tip .box-label { color: var(--green); }
+.box-warning .box-label, .box-alerta .box-label { color: var(--amber); }
+.box-info .box-label, .box-note .box-label { color: var(--blue); }
+.box-veredicto .box-label { color: var(--romi); }
+
+/* === BADGES === */
+.badge {
+    display: inline-block; padding: 0.1em 0.5em; border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0.1em; vertical-align: middle;
+    border: 1px solid;
+}
+.badge-ok { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+.badge-no { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-warn { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+.badge-alert { background: var(--red-soft); color: var(--red); border-color: var(--red); }
+.badge-info { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+.badge-romi { background: var(--accent-soft); color: var(--romi); border-color: var(--romi); }
+.badge-cris { background: var(--green-soft); color: var(--cris); border-color: var(--cris); }
+.badge-dali { background: rgba(156,63,134,0.12); color: var(--dali); border-color: var(--dali); }
+
+/* === DATA VIZ: STAT CARDS / KPI STRIP === */
+.kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.stat {
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: var(--s2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.stat-value { font-family: 'Newsreader', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat.lg .stat-value { font-size: 3rem; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+.stat-delta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; }
+.stat-delta.up { color: var(--green); } .stat-delta.down { color: var(--red); } .stat-delta.flat { color: var(--ink-mute); }
+.stat-spark { margin-top: var(--s1); }
+.stat-spark svg { width: 100%; height: 32px; display: block; overflow: visible; }
+
+/* === DATA VIZ: BARS === */
+.bars { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s3); }
+.bar-row { display: grid; grid-template-columns: minmax(90px, 28%) 1fr auto; align-items: center; gap: var(--s4); }
+.bar-label { font-size: 0.86rem; color: var(--ink-dim); font-weight: 600; }
+.bar-track { background: var(--bg-sunk); border-radius: 999px; height: 18px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, var(--bg)), var(--accent)); min-width: 2px; transition: width 0.8s cubic-bezier(.2,.8,.2,1); }
+.bar-fill.c-green { background: linear-gradient(90deg, color-mix(in srgb, var(--green) 65%, var(--bg)), var(--green)); }
+.bar-fill.c-red { background: linear-gradient(90deg, color-mix(in srgb, var(--red) 65%, var(--bg)), var(--red)); }
+.bar-fill.c-blue { background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 65%, var(--bg)), var(--blue)); }
+.bar-value { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 48px; text-align: right; }
+
+/* === DATA VIZ: DONUT === */
+.donut-wrap { display: flex; align-items: center; gap: var(--s5); margin: var(--s6) 0; flex-wrap: wrap; }
+.donut {
+    --pct: 50; --col: var(--accent);
+    width: 132px; height: 132px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--col) calc(var(--pct) * 1%), var(--bg-sunk) 0);
+    display: grid; place-items: center; position: relative;
+}
+.donut::before { content: ''; position: absolute; inset: 16px; border-radius: 50%; background: var(--bg-elev); box-shadow: var(--shadow); }
+.donut-num { position: relative; font-family: 'Newsreader', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.donut-info .donut-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: var(--s2); }
+.donut-info .donut-desc { color: var(--ink-dim); font-size: 0.92rem; max-width: 36ch; }
+
+/* === EXAMPLE BOX === */
+.example {
+    margin: var(--s6) 0; border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: var(--bg-elev); overflow: hidden; box-shadow: var(--shadow);
+}
+.example-head {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s5); background: var(--bg-sunk);
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700;
+}
+.example-head svg { width: 14px; height: 14px; }
+.example-body { padding: var(--s5); }
+.example-body > *:first-child { margin-top: 0; } .example-body > *:last-child { margin-bottom: 0; }
+
+/* === BEFORE / AFTER === */
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s6) 0; }
+.ba-col { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--s5); background: var(--bg-elev); box-shadow: var(--shadow); }
+.ba-col.before { border-top: 3px solid var(--red); }
+.ba-col.after { border-top: 3px solid var(--green); }
+.ba-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--s3); font-weight: 700; }
+.ba-col.before .ba-tag { color: var(--red); } .ba-col.after .ba-tag { color: var(--green); }
+
+/* === DATA VIZ: FUNNEL === */
+.funnel { margin: var(--s6) 0; display: flex; flex-direction: column; gap: var(--s2); }
+.funnel-row { display: flex; align-items: center; gap: var(--s4); }
+.funnel-bar-wrap { flex: 1; display: flex; justify-content: center; }
+.funnel-bar {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, var(--bg)), var(--accent));
+    color: #fff; padding: var(--s3) var(--s4); border-radius: var(--radius-sm);
+    text-align: center; min-width: 60px; font-weight: 600; font-size: 0.95rem;
+    box-shadow: var(--shadow); transition: width 0.7s cubic-bezier(.2,.8,.2,1);
+}
+.funnel-bar .fn-val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.9; display: block; margin-top: 2px; }
+.funnel-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--ink-mute); min-width: 110px; }
+.funnel-drop { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--red); min-width: 56px; text-align: right; }
+
+/* === DATA VIZ: COMPARE (multi-metric cards) === */
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--s4); margin: var(--s6) 0; }
+.compare-card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); box-shadow: var(--shadow); }
+.compare-card.win { border-color: var(--green); border-top: 3px solid var(--green); }
+.compare-name { font-family: 'Newsreader', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+.compare-name .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; padding: 2px 7px; border-radius: 999px; background: var(--green-soft); color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-metric { margin: var(--s3) 0; }
+.compare-metric .cm-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 3px; }
+.compare-metric .cm-label { color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.compare-metric .cm-val { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.compare-metric .cm-track { background: var(--bg-sunk); border-radius: 999px; height: 6px; overflow: hidden; }
+.compare-metric .cm-fill { height: 100%; border-radius: 999px; background: var(--accent); }
+
+/* === DATA VIZ: TIMELINE === */
+.timeline { margin: var(--s6) 0; position: relative; padding-left: var(--s6); }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: var(--line-strong); }
+.tl-item { position: relative; margin-bottom: var(--s5); }
+.tl-item::before { content: ''; position: absolute; left: calc(-1 * var(--s6) + 4px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tl-when { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.tl-what { color: var(--ink-dim); font-size: 0.95rem; }
+.tl-what strong { color: var(--ink); }
+
+/* === TABLE SEMAPHORE CELLS === */
+td.sg-green { background: var(--green-soft); color: var(--green); font-weight: 700; }
+td.sg-amber { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+td.sg-red { background: var(--red-soft); color: var(--red); font-weight: 700; }
+tbody tr:hover td.sg-green, tbody tr:hover td.sg-amber, tbody tr:hover td.sg-red { color: var(--ink); }
+
+/* === DETAILS === */
+details { margin: var(--s5) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); overflow: hidden; }
+summary { padding: var(--s4) var(--s5); cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 1.2rem; }
+details[open] summary::after { content: '−'; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.details-body { padding: var(--s5); }
+
+/* === HEADING ANCHORS === */
+h2 .anchor, h3 .anchor, h4 .anchor { opacity: 0; margin-left: var(--s2); color: var(--ink-mute); font-size: 0.8em; text-decoration: none; border: none; transition: opacity 0.15s; }
+h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+
+/* === FOOTER === */
+.footer { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-mute); letter-spacing: 0.06em; text-align: center; }
+
+/* === REVEAL ANIMATION === */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 920px) {
+    .layout { grid-template-columns: 1fr; padding: var(--s5) var(--s4); gap: var(--s5); }
+    .sidebar { position: static; max-height: none; border-bottom: 1px solid var(--line); padding-bottom: var(--s4); margin-bottom: var(--s2); }
+    h1 { font-size: 2.1rem; } h2 { font-size: 1.6rem; }
+    .ba { grid-template-columns: 1fr; }
+    .topbar { padding: var(--s3) var(--s4); }
+}
+
+@media print {
+    .progress, .topbar, .sidebar, .theme-toggle { display: none; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .stat, .box, .example, table { box-shadow: none; break-inside: avoid; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<nav class="topbar">
+<a class="home" href="../index.html">← Affiliate Business</a>
+<div class="right">
+<span class="meta">01-ejecucion-2026 · 20 min · 4,035 palabras</span>
+<button class="theme-toggle" aria-label="Cambiar tema"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</div>
+</nav>
+<div class="layout">
+<aside class="sidebar"><div class="sidebar-title">Contenido</div><ul class="toc-list"><li><a href="#1-el-árbol-completo-jerarquía-meta" class="">1. El árbol completo (jerarquía Meta)</a></li><li><a href="#2-cada-nivel-cuántos-tener-regla-anti-ban" class="">2. Cada nivel: cuántos tener, regla anti-ban</a></li><li><a href="#3-paso-a-paso-de-setup-en-orden" class="">3. Paso a paso de setup (en orden)</a></li><li><a href="#4-protocolo-de-warm-up-lo-que-más-salva-cuentas" class="">4. Protocolo de warm-up (lo que más salva cuentas)</a></li><li><a href="#5-reglas-bulletproof-anti-ban" class="">5. Reglas bulletproof anti-ban</a></li><li><a href="#6-errores-que-rompen-cuentas-de-los-foros" class="">6. Errores que rompen cuentas (de los foros)</a></li><li><a href="#7-qué-montar-hoy-para-nuestro-caso" class="">7. Qué montar HOY para nuestro caso</a></li><li><a href="#estructura-mínima-viable-a-montar-hoy" class="h3">Estructura MÍNIMA viable a montar hoy</a></li><li><a href="#qué-no-hacer-todavía" class="h3">Qué NO hacer todavía</a></li><li><a href="#checklist-de-arranque" class="h3">Checklist de arranque</a></li></ul></aside>
+<main class="content">
+<div class="content-meta"><span><span class="dot"></span>meta-ads-estructura-bulletproof.md</span><span>4,035 palabras</span><span>~20 min</span></div>
+<h1 id="estructura-bulletproof-de-meta-ads-para-affiliate-sin-romper-cuentas">Estructura bulletproof de Meta Ads para affiliate (sin romper cuentas)</h1>
+<blockquote><p><em>Estás a un anuncio de cambiar tu vida.</em> Y a un error de estructura de perder la cuenta. Romper una cuenta de Meta te tira semanas atrás: pierdes el pixel entrenado, el historial de gasto, el aprendizaje del algoritmo y, en el peor caso, arrastras a las cuentas asociadas. Montar bien el árbol desde el día 1 es la diferencia entre escalar y recomenzar.</p></blockquote>
+<p><strong>Mercado:</strong> USA inglés · <strong>Nicho:</strong> nutra / health · <strong>Capital de arranque:</strong> $2-5K USD · <strong>Fecha:</strong> 2026-06-22</p>
+<p>Este documento define cómo un equipo que arranca HOY monta toda la jerarquía de Meta Business sin que le baneen cuentas. Cruza las fuentes internas del repo (síntesis de 17 videos + foros, errores documentados, skill de funnel) con el modelo actual de Meta Business 2026 (Business Portfolio, Datasets, CAPI).</p>
+<p><strong>Cómo leer las marcas de confianza:</strong></p>
+<ul>
+<li><code>[FUENTE REPO]</code> = sale de los videos/foros investigados o de un skill interno, con cita.</li>
+<li><code>[BEST-PRACTICE]</code> = estándar general de Meta Business 2026 / consenso de la industria, no atado a una fuente del repo.</li>
+<li><code>[CRITERIO]</code> = juicio operativo de este documento donde la fuente no da un número exacto; se marca como tal, no se inventa dato.</li>
+</ul>
+<p>Aviso honesto de los foros: el consenso 2026 es que Meta puede banear afiliados de ClickBank "tarde o temprano, uses landing page o no" (peux pas, BlackHatWorld) <code>[FUENTE REPO]</code>. Ninguna estructura es 100% inmune. Lo que esta guía hace es bajar drásticamente la probabilidad y aislar el daño cuando ocurra.</p>
+<hr>
+<h2 id="1-el-árbol-completo-jerarquía-meta">1. El árbol completo (jerarquía Meta)<a class="anchor" href="#1-el-árbol-completo-jerarquía-meta">#</a></h2>
+<p>Toda la operación cuelga de una sola raíz: un perfil personal de Facebook real. De ahí baja el Business Portfolio (el contenedor de negocio), y dentro viven los activos. Debajo del ad account está la jerarquía de campaña.</p>
+<pre><code>[Perfil personal de Facebook]  (raíz · persona real · admin)
+│
+`-- [Business Portfolio]  (antes "Business Manager" · el contenedor del negocio)
+    │
+    |-- [Ad Account(s)]  (donde vive el gasto y las campañas)
+    |   |
+    |   `-- [Campaign]  (objetivo: Sales / Purchase)
+    |       |
+    |       `-- [Ad Set]  (presupuesto CBO, audiencia, placements, optimización)
+    |           |
+    |           |-- [Ad]  (creativo 1 · hook A)
+    |           |-- [Ad]  (creativo 2 · hook B)
+    |           `-- [Ad]  (creativo 3 · hook C)
+    |
+    |-- [Páginas de Facebook]  (1 por marca/landing · calentada antes de gastar)
+    |   `-- [Cuentas de Instagram]  (vinculadas a la página)
+    |
+    |-- [Datasets]  (antes "Pixel" · evento del navegador + servidor)
+    |   `-- [CAPI]  (Conversions API · eventos server-to-server desde ClickBank)
+    |
+    |-- [Dominios verificados]  (tu bridge page · verificación por DNS/meta-tag)
+    |
+    |-- [Métodos de pago]  (tarjeta limpia y dedicada · 1 por ad account)
+    |
+    `-- [Usuarios y roles]  (admin persona real · System Users para API · 2FA)</code></pre>
+<p><strong>Qué es cada nivel (de arriba a abajo):</strong></p>
+<ul>
+<li><strong>Perfil personal de Facebook (raíz).</strong> Tu identidad real en Meta. Todo lo demás cuelga de aquí. Si este perfil cae (por actividad sospechosa, login desde fingerprint sucio, etc.), todo lo que administra queda en riesgo. Por eso el perfil tiene que ser sano: antigüedad, foto, amigos, actividad normal, 2FA. <code>[BEST-PRACTICE]</code> Los grandes usan perfiles falsos descartables a escala, pero eso es endgame, no arranque (ver sección 5).</li>
+<li><strong>Business Portfolio</strong> (Meta renombró "Business Manager" a "Business Portfolio" en 2024-2025). Es el contenedor que agrupa ad accounts, páginas, datasets, dominios y usuarios bajo una sola entidad de negocio. Permite separar tu vida personal de tu operación y dar permisos granulares. <code>[BEST-PRACTICE]</code></li>
+<li><strong>Ad Account.</strong> La unidad donde se crean campañas y se carga el método de pago. Tiene su propio límite de gasto y su propio historial de confianza con Meta. Cuentas nuevas arrancan con límites bajos que suben con buen comportamiento. <code>[BEST-PRACTICE]</code></li>
+<li><strong>Páginas de Facebook + cuentas de Instagram.</strong> La identidad pública desde la que corren los ads. Meta penaliza páginas frías o recién creadas que de golpe gastan. Param lo confirma: hay que "calentar" la página con engagement antes de correr ads <code>[FUENTE REPO, N3-SH71IXrbp-A 04:40]</code>.</li>
+<li><strong>Datasets (antes Pixel) + CAPI.</strong> El dataset es el contenedor de eventos de conversión. Incluye el pixel del navegador y la Conversions API (eventos server-to-server). En el flujo affiliate, la venta ocurre en el dominio de ClickBank, así que el Purchase llega por CAPI/postback, no por el pixel de tu landing <code>[FUENTE REPO, affiliate-funnel-structure.md]</code>. Thomas Owen lo llama directamente "data set aka pixel" al armar la campaña <code>[FUENTE REPO, N2-txOcKycyAgc 09:24]</code>.</li>
+<li><strong>Dominios verificados.</strong> Tu bridge page corre en un dominio propio que verificas en el Business Portfolio (DNS o meta-tag). La verificación de dominio es la que te da control sobre la configuración de eventos y sube la confianza ante Meta. <code>[BEST-PRACTICE]</code></li>
+<li><strong>Métodos de pago.</strong> Tarjeta dedicada a la operación. Nunca compartir la misma tarjeta entre cuentas que quieres mantener aisladas: Meta usa el método de pago como una de las señales para vincular cuentas y propagar bans <code>[FUENTE REPO, foros: si cae una cuenta caen las asociadas]</code>.</li>
+<li><strong>Usuarios y roles / System Users.</strong> Quién accede y con qué permiso. El admin es la persona real; los System Users son identidades no-humanas para conectar herramientas vía API (lo que Jordan usa para lanzar creativos en masa) <code>[FUENTE REPO, N2-Aq0TfaAdSmY 53:55]</code>. 2FA obligatorio en todos.</li>
+<li><strong>Campaign → Ad Set → Ad.</strong> La jerarquía operativa dentro del ad account. La campaña define el objetivo (para affiliate: Sales optimizado a Purchase). El ad set lleva el presupuesto (CBO), la audiencia, los placements y la optimización. Los ads son los creativos. Jordan es tajante: "ningún top affiliate optimiza a clicks de botón", se optimiza a Purchase <code>[FUENTE REPO, N2-Aq0TfaAdSmY 42:16]</code>.</li>
+</ul>
+<hr>
+<h2 id="2-cada-nivel-cuántos-tener-regla-anti-ban">2. Cada nivel: cuántos tener, regla anti-ban<a class="anchor" href="#2-cada-nivel-cuántos-tener-regla-anti-ban">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Nivel</th>
+<th>Qué es</th>
+<th>Cuántos al arrancar</th>
+<th>Regla bulletproof</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Perfil personal FB</strong></td>
+<td>Identidad raíz, admin de todo</td>
+<td>1 (real, sano, con antigüedad)</td>
+<td>2FA siempre. Login desde IP/dispositivo estable. Nunca administrar desde el mismo fingerprint que una cuenta baneada <code>[FUENTE REPO, Multilogin]</code></td>
+</tr>
+<tr>
+<td><strong>Business Portfolio</strong></td>
+<td>Contenedor del negocio</td>
+<td>1 limpio y aislado</td>
+<td>Aislado de cualquier otro negocio (en nuestro caso, aislado de OpenClaw) <code>[FUENTE REPO, plan §Fase 0]</code>. No mezclar verticales de riesgo</td>
+</tr>
+<tr>
+<td><strong>Ad Account</strong></td>
+<td>Donde vive el gasto</td>
+<td>1, máximo 2</td>
+<td>1 tarjeta por cuenta. Respetar el límite de gasto inicial, no forzarlo. No correr 2 ofertas de riesgo distinto en la misma cuenta <code>[CRITERIO]</code></td>
+</tr>
+<tr>
+<td><strong>Página FB + IG</strong></td>
+<td>Identidad pública del ad</td>
+<td>1 página + 1 IG</td>
+<td>Calentar con engagement $1-10/día ~1 semana antes de gastar <code>[FUENTE REPO, N3-SH71IXrbp-A 04:40]</code>. Nombre y branding consistentes con la landing</td>
+</tr>
+<tr>
+<td><strong>Dataset (Pixel) + CAPI</strong></td>
+<td>Eventos de conversión</td>
+<td>1 dataset, CAPI conectado</td>
+<td>Validar con compra real de $1 ANTES de gastar; ver el Purchase en Events Manager en 30 min <code>[FUENTE REPO, SINTESIS §3 + funnel skill]</code></td>
+</tr>
+<tr>
+<td><strong>Dominio verificado</strong></td>
+<td>Tu bridge page</td>
+<td>1 dominio propio</td>
+<td>Verificado por DNS. Bridge con tono informativo, NUNCA direct link del HopLink <code>[FUENTE REPO, consenso foros]</code></td>
+</tr>
+<tr>
+<td><strong>Método de pago</strong></td>
+<td>Tarjeta de la operación</td>
+<td>1 limpia y dedicada</td>
+<td>No compartir tarjeta ni IP entre cuentas a aislar <code>[FUENTE REPO, foros]</code></td>
+</tr>
+<tr>
+<td><strong>Usuarios / roles</strong></td>
+<td>Acceso y permisos</td>
+<td>1 admin real (+ System User si API)</td>
+<td>2FA en todos. Roles mínimos necesarios. System User solo si conectas herramientas <code>[BEST-PRACTICE]</code></td>
+</tr>
+<tr>
+<td><strong>Campaign</strong></td>
+<td>Objetivo de la campaña</td>
+<td>1 (Sales/Purchase)</td>
+<td>Optimizar a Purchase, no a clicks ni leads <code>[FUENTE REPO, N2-Aq0TfaAdSmY 42:16]</code>. Alineado a Andromeda: consolidar, no fragmentar <code>[FUENTE REPO, N2-txOcKycyAgc 37:21]</code></td>
+</tr>
+<tr>
+<td><strong>Ad Set</strong></td>
+<td>Presupuesto + audiencia</td>
+<td>1 CBO, broad, USA aislado</td>
+<td>Audiencia broad, geo USA aislado, edad según oferta <code>[FUENTE REPO, N3-SH71IXrbp-A 09:54]</code>. Placements limpios (sin Audience Network)</td>
+</tr>
+<tr>
+<td><strong>Ad</strong></td>
+<td>Creativos</td>
+<td>3-5 por ad set</td>
+<td>Cada uno un ángulo distinto (problema / beneficio / prueba social) <code>[FUENTE REPO + regla OpenClaw 3 variantes]</code>. Diversidad creativa es lo que el algoritmo necesita <code>[FUENTE REPO, Thomas Owen]</code></td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="3-paso-a-paso-de-setup-en-orden">3. Paso a paso de setup (en orden)<a class="anchor" href="#3-paso-a-paso-de-setup-en-orden">#</a></h2>
+<p>Este es el orden exacto para montar el árbol. No saltarse pasos: cada uno construye confianza para el siguiente.</p>
+<ol>
+<li><strong>Sanear el perfil personal de Facebook.</strong> Usa un perfil real con antigüedad, foto, amigos y actividad normal. Activa 2FA. Define un dispositivo e IP estables desde donde lo administrarás siempre. <em>Por qué:</em> es la raíz; un perfil frío o sospechoso contamina todo lo que cuelga de él <code>[BEST-PRACTICE]</code>.</li>
+<li><strong>Crear el Business Portfolio</strong> (business.facebook.com → crear portfolio). Nómbralo como tu marca de salud, con tu nombre real y email de negocio. <em>Por qué:</em> separa la operación de tu identidad personal, da permisos granulares y es donde vivirán los demás activos <code>[BEST-PRACTICE]</code>. Mantenlo aislado de cualquier otro negocio <code>[FUENTE REPO, Fase 0]</code>.</li>
+<li><strong>Crear / conectar la Página de Facebook</strong> (y la cuenta de Instagram vinculada). Branding consistente con la bridge page. <em>Por qué:</em> es la identidad pública del anuncio; tener página + IG amplía placements y da credibilidad.</li>
+<li><strong>Calentar la página (warm-up).</strong> Antes de tocar conversiones, corre engagement con $1-10/día durante ~1 semana <code>[FUENTE REPO, N3-SH71IXrbp-A 04:40]</code>. <em>Por qué:</em> una página recién creada que de golpe gasta en conversiones es señal roja para Meta (detalle en sección 4).</li>
+<li><strong>Comprar y verificar el dominio.</strong> Registra tu dominio (ej. Namecheap/Cloudflare), monta la bridge page, y verifícalo en el Business Portfolio por DNS o meta-tag. <em>Por qué:</em> la verificación de dominio te da control de la configuración de eventos y sube tu confianza ante Meta <code>[BEST-PRACTICE]</code>. La bridge debe tener tono informativo, mobile-first, carga < 3s <code>[FUENTE REPO, funnel skill]</code>.</li>
+<li><strong>Crear el Dataset (antes Pixel).</strong> En Events Manager crea el dataset y coloca el pixel en el <code>&lt;head&gt;</code> de la bridge. Configura los eventos: PageView, ViewContent (50% scroll), InitiateCheckout (click al CTA) <code>[FUENTE REPO, funnel skill]</code>. <em>Por qué:</em> es el cerebro de medición; sin eventos, el algoritmo optimiza a ciegas.</li>
+<li><strong>Conectar CAPI (Conversions API).</strong> El Purchase NO se dispara en tu landing (la venta ocurre en ClickBank). Configura el postback ClickBank → Meta CAPI: en ClickBank, Integrations → Postback/Pixels → Facebook, rol Affiliate, dominio verificado, y anexa <code>&amp;fbclid={fbclid}&amp;traffic_source=facebook</code> al HopLink <code>[FUENTE REPO, SINTESIS §3]</code>. <em>Por qué:</em> sin CAPI, Meta no aprende qué clicks convirtieron y la optimización a Purchase se vuelve ciega <code>[FUENTE REPO, funnel skill]</code>. Los fallos de CAPI son silenciosos: "no anuncian errores obvios, simplemente dejan de mandar data precisa" (Cometly) <code>[FUENTE REPO]</code>.</li>
+<li><strong>Validar el tracking con una compra de $1 ANTES de gastar.</strong> Haz una compra real de prueba y verifica que el evento Purchase aparece en Events Manager en ~30 min, con buen Event Match Quality (EMQ) <code>[FUENTE REPO, SINTESIS §3 + caso Drought]</code>. <em>Por qué:</em> el caso Drought de los foros optimizó con tracking roto y terminó decidiendo a ciegas. No avanzar si no trackea <code>[FUENTE REPO]</code>.</li>
+<li><strong>Crear el Ad Account.</strong> Dentro del Business Portfolio. Zona horaria USA, moneda USD. <em>Por qué:</em> lo creas tarde a propósito, cuando el resto del árbol ya está sano, para no tener una cuenta "vacía y nueva" llamando la atención.</li>
+<li><strong>Agregar el método de pago.</strong> Una tarjeta limpia y dedicada a esta cuenta. <em>Por qué:</em> compartir tarjeta/IP entre cuentas es una de las señales que Meta usa para vincularlas y propagar un ban <code>[FUENTE REPO, foros]</code>.</li>
+<li><strong>Configurar usuarios y roles.</strong> Admin = persona real con 2FA. Si vas a conectar herramientas por API más adelante, crea un System User con permiso mínimo. <em>Por qué:</em> roles mínimos reducen la superficie de riesgo; el System User es la vía limpia para automatización <code>[FUENTE REPO, N2-Aq0TfaAdSmY 53:55]</code>.</li>
+<li><strong>Crear la primera campaña en PAUSED.</strong> Objetivo Sales, optimización a Purchase, dataset conectado, 1 ad set CBO broad USA, 3-5 ads con ángulos distintos. Déjala en PAUSED hasta revisar todo y dar OK explícito. <em>Por qué:</em> nunca activar sin verificación final (regla operativa OpenClaw). Revisas placements, audiencia, tracking y copy antes de prender.</li>
+</ol>
+<hr>
+<h2 id="4-protocolo-de-warm-up-lo-que-más-salva-cuentas">4. Protocolo de warm-up (lo que más salva cuentas)<a class="anchor" href="#4-protocolo-de-warm-up-lo-que-más-salva-cuentas">#</a></h2>
+<p>El warm-up es la práctica que más reduce bans en cuentas nuevas. La lógica: una cuenta/página/perfil nuevo que de golpe gasta fuerte en un nicho vigilado (nutra) es exactamente el patrón que dispara revisiones. Subir gradual le enseña a Meta que eres un anunciante normal.</p>
+<p><strong>Lo que SÍ dicen las fuentes del repo:</strong></p>
+<ul>
+<li><strong>Página:</strong> calentar con engagement a $1-10/día durante al menos ~1 semana antes de correr conversiones <code>[FUENTE REPO, N3-SH71IXrbp-A 04:40]</code>. Param lo trata como requisito, no opción.</li>
+<li><strong>Plan interno:</strong> Fase de warm-up de Semana 2-3, con engagement $1-10/día, "mínimo 1 semana" antes del lanzamiento del test <code>[FUENTE REPO, SINTESIS §6 timeline]</code>.</li>
+<li><strong>Presupuesto de arranque del test (post warm-up):</strong> CBO $50-100/día <code>[FUENTE REPO, SINTESIS §6]</code>. Foros: para payout alto lo ideal es $150-200/día, pero con $2-5K hay que estirar <code>[FUENTE REPO]</code>.</li>
+</ul>
+<p><strong>Calendario sugerido para los primeros 7-14 días <code>[CRITERIO]</code> (las fuentes dan los extremos: $1-10/día de warm-up y $50-100/día de test; la rampa intermedia es criterio operativo de este documento, no un dato de fuente):</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Días</th>
+<th>Foco</th>
+<th>Gasto</th>
+<th>Qué hacer</th>
+<th>Qué NO hacer</th>
+</tr></thead><tbody>
+<tr>
+<td>1-3</td>
+<td>Calentar página</td>
+<td>$1-5/día</td>
+<td>Engagement / page likes / post boost suave. Postear contenido normal</td>
+<td>No correr conversiones. No tocar el ad account</td>
+</tr>
+<tr>
+<td>4-7</td>
+<td>Seguir calentando</td>
+<td>$5-10/día</td>
+<td>Subir engagement gradual. Validar tracking con compra $1</td>
+<td>No saltar a Purchase todavía. No subir de golpe</td>
+</tr>
+<tr>
+<td>8-10</td>
+<td>Primer test suave</td>
+<td>$50/día CBO</td>
+<td>Lanzar campaña Sales→Purchase, 3-5 creativos</td>
+<td>No matar ads en < 24-72h <code>[FUENTE REPO]</code>. No subir budget</td>
+</tr>
+<tr>
+<td>11-14</td>
+<td>Lectura inicial</td>
+<td>$50-100/día</td>
+<td>Dejar correr, juntar data. Aplicar criterio de kill 3x payout</td>
+<td>No escalar aún. No tocar ganadores prematuramente</td>
+</tr>
+</tbody></table></div>
+<p><strong>Reglas de comportamiento durante el warm-up:</strong></p>
+<ul>
+<li><strong>No prender y apagar ads por impaciencia.</strong> Tratar los ads como dados es el error #2 de Blanchard; no se decide con < 24-72h de data <code>[FUENTE REPO, N3-L2mO5trX3io 02:33]</code>.</li>
+<li><strong>Subir gradual, nunca de golpe.</strong> Duplicar el gasto día a día es aceptable cuando hay data; saltar de $10 a $500 es señal roja <code>[CRITERIO]</code>.</li>
+<li><strong>No copiar-pegar la landing del vendor.</strong> "Facebook no quiere copy-paste, tu cuenta puede ir a suspensión dura" (Param) <code>[FUENTE REPO, N3-SH71IXrbp-A 05:46]</code>.</li>
+<li><strong>Learning phase de Meta:</strong> ~50 conversiones/semana por ad set para salir del learning <code>[FUENTE REPO, foros]</code>. Con CPA de afiliado esto implica que el capital alcanza para 1 test serio, no para varios a la vez.</li>
+</ul>
+<hr>
+<h2 id="5-reglas-bulletproof-anti-ban">5. Reglas bulletproof anti-ban<a class="anchor" href="#5-reglas-bulletproof-anti-ban">#</a></h2>
+<p>Las críticas, en orden de impacto:</p>
+<ol>
+<li><strong>NUNCA direct linking del HopLink desde Meta. Bridge page propia obligatoria.</strong> Es el error #1 y más repetido de todos los foros. "No hagas direct link, mi compañero y yo perdimos varias cuentas" (Social God) <code>[FUENTE REPO]</code>. "NO! Te van a banear eventualmente" (T J Tutor, admin AffiliateFix) <code>[FUENTE REPO]</code>. Param lo confirma en vivo: en el ad va la URL de TU website, el affiliate link va dentro de la landing <code>[FUENTE REPO, N3-SH71IXrbp-A 16:18]</code>. El direct linking que sí es estable es en Bing/Google con tráfico de intención, no en Meta <code>[FUENTE REPO, foros caso B]</code>.</li>
+<li><strong>Bridge page con tono informativo, no de venta.</strong> "La landing debe tener tono informativo y NO de venta/marketing, sino los algoritmos de FB la detectan como puro marketing de afiliado" (Chris Newman) <code>[FUENTE REPO]</code>. La bridge debe aportar valor real (advertorial, quiz, artículo), no ser un puente transparente <code>[FUENTE REPO, funnel skill]</code>.</li>
+<li><strong>Dominio verificado + disclaimers de salud.</strong> Verifica el dominio en el Business Portfolio. En nutra, Meta exige el disclaimer "This product is not intended to diagnose, treat, cure, or prevent any disease" en el copy del ad, no solo en la landing; sin eso = rechazo automático (regla 2026) <code>[FUENTE REPO, AuditSocials]</code>. Claims tipo "pierde X kilos" o "cura Y" son ban instantáneo. Copy de wellness suave o certificación LegitScript <code>[FUENTE REPO]</code>.</li>
+<li><strong>Perfil personal sano + 2FA.</strong> Cuenta vieja no te salva por sí sola: hay un caso de foros de una cuenta de FB de 5 años deshabilitada por promover afiliado <code>[FUENTE REPO, tc888 Warrior Forum]</code>. Pero un perfil sano, estable y con 2FA reduce el riesgo de revisión.</li>
+<li><strong>No compartir tarjetas ni IP entre cuentas.</strong> "Una cuenta limpia puede ser flageada en horas si Facebook detecta que se accede desde el mismo fingerprint que una cuenta baneada" (Multilogin) <code>[FUENTE REPO]</code>. Si cae una cuenta, pueden caer las asociadas por estas señales <code>[FUENTE REPO, foros]</code>.</li>
+<li><strong>Antidetect browser / perfiles aislados: cuándo SÍ y cuándo NO.</strong></li>
+<li><strong>NO al arrancar.</strong> Con 1 BM limpio y 1-2 ad accounts, el antidetect agrega costo y complejidad sin beneficio claro. Las "farmed accounts" baratas tienen alto riesgo de ban <code>[FUENTE REPO, Multilogin]</code>. Es el GAP de infra que las fuentes reconocen como no resuelto para principiantes <code>[FUENTE REPO, SINTESIS §2]</code>.</li>
+<li><strong>SÍ más adelante,</strong> si operas múltiples cuentas en serio: ahí necesitas business managers separados + antidetect browser + proxies dedicados por cuenta + método de pago limpio, o contaminas unas con otras <code>[FUENTE REPO, foros gap 4]</code>.</li>
+<li><strong>El endgame de seguridad (agency accounts) NO se persigue todavía.</strong> El #1 actual de ClickBank (Jordan) no gana la guerra de bans con antidetect, sino con <strong>agency accounts oficiales de Meta + exemption tags</strong>: su empresa se volvió Meta Certified Partner, "es tan fácil correr Facebook, las cuentas son estables, nada se banea" <code>[FUENTE REPO, N2-Aq0TfaAdSmY 57:57]</code>. Los exemption tags se los dan gratis por mostrar que no corren "cosas locas" <code>[FUENTE REPO, 54:56]</code>. El umbral para acceder a eso es ~$3M/año de spend y una relación cultivada con reps de Meta <code>[FUENTE REPO, 56:32]</code>. Conclusión honesta: la guerra de bans se gana subiendo de liga, no peleándola con herramientas de ocultación. Para nosotros, eso está a años; arrancamos con 1 BM limpio. <strong>Y NUNCA cloaking:</strong> Jordan lo usa pero es zona roja absoluta (ban permanente + riesgo legal) e incompatible con un negocio sostenible <code>[FUENTE REPO]</code>.</li>
+</ol>
+<hr>
+<h2 id="6-errores-que-rompen-cuentas-de-los-foros">6. Errores que rompen cuentas (de los foros)<a class="anchor" href="#6-errores-que-rompen-cuentas-de-los-foros">#</a></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Error</th>
+<th>Por qué mata la cuenta</th>
+<th>Cómo evitarlo</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Direct linking del HopLink desde Meta</strong></td>
+<td>Ban casi garantizado; si cae una cuenta, caen las asociadas. Consenso de todos los foros <code>[FUENTE REPO]</code></td>
+<td>Bridge page propia con tono informativo, siempre. La URL del ad es tu dominio, no el HopLink</td>
+</tr>
+<tr>
+<td><strong>Landing con tono de venta</strong></td>
+<td>Los algoritmos la detectan como "puro marketing de afiliado" y la flagean (Chris Newman) <code>[FUENTE REPO]</code></td>
+<td>Advertorial/quiz/artículo que aporta valor por sí mismo. No puente transparente</td>
+</tr>
+<tr>
+<td><strong>Copiar-pegar la landing del vendor</strong></td>
+<td>"Facebook no quiere copy-paste, tu cuenta puede ir a suspensión dura" (Param) <code>[FUENTE REPO, N3-SH71IXrbp-A 05:46]</code></td>
+<td>Customizar siempre: hook, story, beneficios propios. Nunca duplicar</td>
+</tr>
+<tr>
+<td><strong>Claims de salud sin disclaimer</strong></td>
+<td>Rechazo automático (regla Meta 2026): el disclaimer va en el copy del ad, no solo en la landing <code>[FUENTE REPO, AuditSocials]</code></td>
+<td>Disclaimer obligatorio en cada ad. Wellness suave o LegitScript. Cero "cura/pierde X kilos"</td>
+</tr>
+<tr>
+<td><strong>Cloaking (white/black page)</strong></td>
+<td>Viola explícitamente políticas Meta: ban permanente, posible acción legal <code>[FUENTE REPO, Meta Transparency]</code></td>
+<td>NO cloaking. Incompatible con negocio sostenible, aunque el caso affLIFT 154% ROI lo haya usado</td>
+</tr>
+<tr>
+<td><strong>Página fría que gasta de golpe</strong></td>
+<td>Cuenta/página nueva con gasto súbito en nicho vigilado = patrón de revisión</td>
+<td>Warm-up $1-10/día ~1 semana antes de conversiones (Param) <code>[FUENTE REPO]</code></td>
+</tr>
+<tr>
+<td><strong>Compartir tarjeta/IP/fingerprint</strong></td>
+<td>"Cuenta limpia flageada en horas si se accede desde el fingerprint de una baneada" (Multilogin) <code>[FUENTE REPO]</code></td>
+<td>1 tarjeta por cuenta, IP/dispositivo estable, no administrar desde fingerprint sucio</td>
+</tr>
+<tr>
+<td><strong>Comprar cuentas "aged" sin aislar</strong></td>
+<td>Alto riesgo de ban; contaminas la nueva si compartes fingerprint con una baneada <code>[FUENTE REPO, Multilogin]</code></td>
+<td>Al arrancar, no comprar cuentas; operar 1 BM propio limpio</td>
+</tr>
+<tr>
+<td><strong>Cuenta vieja como falsa seguridad</strong></td>
+<td>Cuenta de FB de 5 años deshabilitada por promover afiliado <code>[FUENTE REPO, tc888 Warrior Forum]</code></td>
+<td>La antigüedad ayuda pero no inmuniza; igual respetar todas las reglas</td>
+</tr>
+<tr>
+<td><strong>Tracking roto (caso Drought)</strong></td>
+<td>Optimizas a ciegas; no sabes qué apagar ni escalar; pierdes confianza en tus números <code>[FUENTE REPO]</code></td>
+<td>Validar fbclid + CAPI/postback con compra $1 ANTES de gastar</td>
+</tr>
+<tr>
+<td><strong>Pausar/cortar ads en < 24-72h</strong></td>
+<td>Decides sin data; tratas ads como dados (error #2 de Blanchard) <code>[FUENTE REPO, N3-L2mO5trX3io 02:33]</code></td>
+<td>Kill budget escrito; matar el ad set (no bajarle budget) solo tras 3x payout sin venta</td>
+</tr>
+</tbody></table></div>
+<p><strong>Casos reales investigados (referencia):</strong></p>
+<ul>
+<li><strong>Drought</strong> (BlackHatWorld): tracking roto + targeting solo desktop "por flojera de hacer la landing mobile" → 1 venta tras ~$180, proyecto en pausa <code>[FUENTE REPO]</code>.</li>
+<li><strong>affLIFT Reduslim</strong> (España): 154% ROI ($33,466 profit), pero usó white/black page (cloaking) → unit economics posibles, método NO replicable de forma compliant <code>[FUENTE REPO]</code>.</li>
+<li><strong>tc888</strong> (Warrior Forum): cuenta de 5 años deshabilitada por afiliado, cierre permanente tras apelar con ID <code>[FUENTE REPO]</code>.</li>
+</ul>
+<hr>
+<h2 id="7-qué-montar-hoy-para-nuestro-caso">7. Qué montar HOY para nuestro caso<a class="anchor" href="#7-qué-montar-hoy-para-nuestro-caso">#</a></h2>
+<p><strong>Situación:</strong> Cris tiene su cuenta personal de Facebook. Capital $2-5K, recién empezando, nicho nutra/health, mercado USA. La cuenta ClickBank planificada usa el nickname <code>truenorth</code> y el dominio <code>truhealthdaily.com</code> está en cola de compra (tareas internas pendientes).</p>
+<h3 id="estructura-mínima-viable-a-montar-hoy">Estructura MÍNIMA viable a montar hoy<a class="anchor" href="#estructura-mínima-viable-a-montar-hoy">#</a></h3>
+<pre><code>[Perfil personal FB de Cris]  (sano, 2FA, IP estable)
+`-- [1 Business Portfolio]  (aislado de OpenClaw)
+    |-- [1 Ad Account]  (USD, 1 tarjeta dedicada limpia)
+    |-- [1 Página FB + 1 IG]  (calentar $1-10/día ~1 semana)
+    |-- [1 Dataset/Pixel + CAPI]  (postback ClickBank, validado con compra $1)
+    |-- [1 Dominio verificado]  (truhealthdaily.com · bridge informativa)
+    `-- [1 campaña en PAUSED]  (Sales→Purchase, 1 CBO broad USA, 3-5 ads)</code></pre>
+<h3 id="qué-no-hacer-todavía">Qué NO hacer todavía<a class="anchor" href="#qué-no-hacer-todavía">#</a></h3>
+<ul>
+<li><strong>NO</strong> montar 10 ad accounts ni múltiples Business Portfolios. 1 limpio y aislado.</li>
+<li><strong>NO</strong> antidetect browser ni proxies. Innecesario y riesgoso con 1 BM <code>[FUENTE REPO]</code>.</li>
+<li><strong>NO</strong> comprar cuentas "aged". Alto riesgo de ban por fingerprint <code>[FUENTE REPO]</code>.</li>
+<li><strong>NO</strong> perseguir agency accounts / exemption tags. Umbral ~$3M/año, a años de distancia <code>[FUENTE REPO]</code>.</li>
+<li><strong>NO</strong> cloaking, jamás. Ni siquiera el caso de 154% ROI lo justifica.</li>
+<li><strong>NO</strong> direct linking. Siempre bridge propia.</li>
+<li><strong>NO</strong> probar varias ofertas a la vez. El capital alcanza para 1 test serio bien hecho <code>[FUENTE REPO]</code>.</li>
+</ul>
+<h3 id="checklist-de-arranque">Checklist de arranque<a class="anchor" href="#checklist-de-arranque">#</a></h3>
+<pre><code class="language-checklist">[ ] Perfil personal FB sano: foto, antigüedad, amigos, actividad normal
+[ ] 2FA activado en el perfil personal
+[ ] IP/dispositivo estable definido para administrar siempre desde ahí
+[ ] 1 Business Portfolio creado y aislado de OpenClaw
+[ ] 1 Página FB + 1 cuenta IG vinculada, branding consistente
+[ ] Warm-up de la página: engagement $1-10/día durante ~1 semana
+[ ] Dominio truhealthdaily.com comprado
+[ ] Dominio verificado en el Business Portfolio (DNS/meta-tag)
+[ ] Bridge page lista: tono informativo, mobile-first, carga &lt; 3s
+[ ] 1 Dataset/Pixel creado, eventos PageView + ViewContent + InitiateCheckout
+[ ] CAPI conectado: postback ClickBank -&gt; Meta, fbclid en el HopLink
+[ ] Tracking validado con compra real de $1, Purchase visible en Events Manager
+[ ] 1 Ad Account creado (USD), 1 tarjeta limpia y dedicada agregada
+[ ] Roles: admin persona real con 2FA; System User solo si hay API
+[ ] Disclaimer de salud listo en el copy de cada ad
+[ ] 1 campaña Sales-&gt;Purchase en PAUSED: 1 CBO broad USA, 3-5 ads, ángulos distintos
+[ ] Kill budget escrito antes de prender ($500-800 primer test)
+[ ] OK explícito del equipo antes de pasar la campaña a ACTIVE</code></pre>
+<hr>
+<p><em>Documento interno. Las marcas <code>[FUENTE REPO]</code> salen de los videos/foros investigados o de skills internos, con su cita; <code>[BEST-PRACTICE]</code> es estándar Meta Business 2026 / industria; <code>[CRITERIO]</code> es juicio operativo de este documento donde la fuente no da un número exacto (señalado, no inventado). Fuentes principales: <code>01-ejecucion-2026/clickbank-2026-research/SINTESIS-VIDEOS-FOROS-2026.md</code>, <code>00-viabilidad/research-fuentes/09-errores-foros-clickbank-meta.md</code>, <code>knowledge/skills/affiliate-funnel-structure.md</code>, transcripciones N2-Aq0TfaAdSmY (Jordan/Robin Bouwman), N2-_-OnRxjaWMM y N2-txOcKycyAgc (Thomas Owen), N3-SH71IXrbp-A (Param). GAP reconocido: no existe aún un SOP de infra anti-ban para montar 1 BM limpio sin acceso a agency accounts; esta guía es el primer paso.</em></p>
+<div class="footer">Affiliate Business · Generado 2026-06-22 · Fuente: meta-ads-estructura-bulletproof.md</div>
+</main>
+</div>
+<script>
+// theme toggle
+(function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (btn) btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('ab-theme', next); } catch(e){}
+    });
+})();
+
+// reading progress
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const sc = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    const p = document.querySelector('.progress');
+    if (p) p.style.width = sc + '%';
+}, { passive: true });
+
+// TOC scroll-spy + smooth scroll
+const heads = document.querySelectorAll('h2[id], h3[id], h4[id]');
+const links = document.querySelectorAll('.toc-list a');
+function spy(){
+    let active = null; const off = window.scrollY + 110;
+    heads.forEach(h => { if (h.offsetTop <= off) active = h.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', spy, { passive: true }); spy();
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(l.getAttribute('href'));
+    if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); history.pushState(null, '', l.getAttribute('href')); }
+}));
+
+// staggered reveal (con seguro: nunca dejar contenido oculto)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const els = document.querySelectorAll('.content h2, .kpi-strip, .bars, .funnel, .timeline, .compare, .donut-wrap, .example, .ba, .table-wrap, blockquote, .box');
+    const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    setTimeout(() => els.forEach(el => el.classList.add('in')), 1200);
+}
+</script>
+</body>
+</html>
