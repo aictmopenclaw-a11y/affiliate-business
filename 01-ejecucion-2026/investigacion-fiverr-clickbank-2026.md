@@ -100,6 +100,31 @@ Desde el navegador real recorrí: la búsqueda "clickbank affiliate marketing", 
 
 ---
 
+## 8. Catálogo maestro (todos los perfiles que investigué, uno por uno)
+
+Tabla consolidada de la navegación en vivo. "Tipo" es la categoría real (no la que dice el título). "Veredicto" es para nuestro caso (paid Meta + ClickBank).
+
+| Handle | Nombre | Nivel | Reseñas | Tipo real | Gigs principales (precio) | Veredicto |
+|---|---|---|---|---|---|---|
+| sandhya_angel | Sandhya V. | Fiverr's Choice | 726 | Funnel builder | Landing/sales funnel ClickBank ($100-400) | **TOP. Build de bridge/funnel** |
+| kokoha | Boris P. | Vetted Pro | 4.782 | SEO / backlinks | Off-Page SEO ($100), link promotion ($65) | No (no es paid) |
+| webbylynx | Alex Lynx | Level 2 | 3.970 | Website builder | Affiliate websites WP: Shopify/travel/hosting/crypto ($80) | No (SEO contenido) |
+| wordpressbiz | Humza J. | Top Rated | 648 | Website builder | ClickBank affiliate website ($100), autoblog ($100) | No (websites) |
+| mahobubur2 | Mahobubur R | Level 2 | 191 | Funnel + atajos | Funnel systeme.io ($30); crear cuenta CB a tu nombre ($80-100) | Funnel sí, el atajo NO |
+| josephamodu | Joseph A. | s/d | 9 (de 2022) | Funnel | ClickBank marketing Basic/Std/Premium ($10/$120/$185) | Débil, reseñas viejas |
+| deejah_mi | Deejah A | nuevo | 11 | Creativos / mix | AI Video ($70), Web Banners ($50), link promo ($5) | Tal vez creativos |
+| umiiichoudhary | Umar Choudhary | nuevo | 10 | Setup básico | Affiliate Program Strategy & Setup ($30) | Débil |
+| yomiway01 | Yomi W | nuevo | 1 | SEO básico | Strategy/Keyword research ($55), link promo ($5) | Débil |
+| kurdessof1 | Sofia | Level 1 | 85 | Diseño gráfico/web | Diseño (no abrí gigs) | Posible diseño |
+| wordpressking1 | Deepak Verma | Level 2 | s/d | Website builder | WordPress (no abrí gigs) | No (websites) |
+| (búsqueda) Sahil J. | | s/d | 5.0 | Funnel premium | desde $100 | Por verificar |
+| (búsqueda) Jonesli | | s/d | 5.0 | Mixto | desde $25 | Medio |
+| (búsqueda) Fawaz / Ayobami / Waxler | | s/d | 4.9-5.0 | Spam barato | $5-15 | Evitar |
+
+**Lo que confirma la muestra ampliada (13+ perfiles):** los dos perfiles con más reseñas del nicho (Boris 4.782 y Alex 3.970) NO hacen paid media: son SEO y websites. El único de volumen alto enfocado en funnels ClickBank con mención de Facebook ads es Sandhya. El resto son website builders, creativos sueltos, setup básico o spam. No apareció un solo media buyer de Meta + ClickBank de respuesta directa con track record. Es estructural del marketplace, no falta de búsqueda.
+
+---
+
 ## Conclusión
 
 Fiverr sirve para una cosa concreta en nuestro plan: **tercerizar la construcción de páginas/funnels a un proveedor serio (tipo Sandhya), pagando por output, mostrándole nuestro estándar.** Todo lo demás (estrategia, oferta, cuentas, media buying) es nuestro y no se delega. El resto del marketplace es SEO, website building o spam que no aplica o que incluso nos haría daño.
