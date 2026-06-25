@@ -24,6 +24,36 @@ Esto es lo más importante de toda la página. En affiliate ClickBank + Meta, te
 
 ---
 
+## Análisis en vivo · navegué Fiverr y revisé los perfiles ClickBank
+
+Entré a la búsqueda real de "clickbank affiliate marketing" en Fiverr y revisé los perfiles con sus métricas reales (verificadas en el sitio, no de Google):
+
+| Vendedor | Rating | Precio entrada | Lectura rápida |
+|---|---|---|---|
+| **Sandhya** (sandhya_angel) | **4.85 · 616 reseñas** | $95 (paquetes reales $100-400) | El mejor del nicho que vi. Repeat clients, reseñas mencionan estrategia de Facebook ads + funnels. Operación real. |
+| Sahil J. | 5.0 | $100 | Premium, falta verificar nº de reseñas |
+| Jonesli | 5.0 | $25 | Medio |
+| Fawaz Opeyemi | 4.9 | $15 | Barato |
+| Ayobami M | 4.9 | $5 | Spam probable |
+| Waxler | 5.0 | $5 | Spam probable |
+
+**Deep dive de Sandhya (perfil abierto y leído):** 616 reseñas, 4.85 estrellas, comunicación 4.9, repeat clients de USA, Emiratos y Saint Lucia, paquetes reales de $200-400. Una reseña destaca "deep understanding of Facebook advertising, not just technically but strategically". Es una operación real con equipo, no un gig de plantilla.
+
+### Diagnóstico del mercado Fiverr-ClickBank
+- **~80% es spam barato** ($5-25): plantillas genéricas de funnel. Justo el tipo de landing que Meta detecta y banea. No sirven para nosotros.
+- **~20% son perlas** (tier Sandhya/Sahil): cientos de reseñas, precio realista $100-400, repeat clients. Estos sí valen, pero para producción, no para estrategia.
+
+### Cómo nos apalancamos (las 4 jugadas)
+1. **Producción, no estrategia.** Contratar al tier serio (Sandhya y equivalentes con 100+ reseñas) para el BUILD de bridge/landing/funnel, pagando por output. La oferta, el ángulo y la estructura los ponemos nosotros (ya están documentados y son mejores que cualquier gig).
+2. **Inteligencia gratis.** Sus gigs, reseñas y portafolios revelan qué ofertas y nichos están calientes y qué funnels se venden. Es spy de mercado sin pagar nada.
+3. **Delegar solo lo que no toca tus cuentas.** Bridge pages, advertorials, edición de creativos, voiceover VSL. Nunca acceso a tus ad accounts (regla anti-ban).
+4. **Apalancamiento inverso a futuro.** Cuando tengamos resultados y bridge pages bulletproof propias, podemos vender ese servicio en Fiverr como segunda fuente de ingreso con el know-how que ya construimos.
+
+### Recomendación concreta para arrancar
+Para la **oferta 1**, contactar a Sandhya (o un equivalente con 100+ reseñas y repeat clients) para el build de la primera bridge page, mostrándole nuestra plantilla de `04-tech/bridge-pages/` como referencia exacta del estilo advertorial anti-ban. Presupuesto $100-400. Encargo chico primero para probar antes de escalar.
+
+---
+
 ## 1. Landing / bridge pages · SÍ tercerizar
 
 | Handle | Servicio (del título) | Precio | Perfil |
