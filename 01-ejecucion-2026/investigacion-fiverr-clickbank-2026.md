@@ -33,6 +33,17 @@ Desde el navegador real recorrí: la búsqueda "clickbank affiliate marketing", 
 - Una reseña: "deep understanding of Facebook advertising, not just technically but strategically".
 - **Lectura:** operación real con equipo. La mejor opción para tercerizar el BUILD de funnels/landings.
 
+**Sus 3 paquetes (extraídos de la tabla del gig):**
+
+| Paquete | Precio | Días | Qué incluye |
+|---|---|---|---|
+| SILVER (Basic) | $95 | 3 | Niche & product research + landing page básica |
+| GOLD (Standard) | $175 | 5 | Research + landing page potente + conversion setup |
+| PLATINUM (Premium) | $225 | 7 | Research + high converting lander + conversion setup + FB ads + training |
+| Entrega exprés | +$50 | -1 a -2 días | en cualquier tier |
+
+**Cuál nos sirve:** el **GOLD ($175)** es el punto dulce: landing potente + conversion setup. NO le pagamos por el product research (la oferta la elegimos nosotros con el offer-scorer) ni por el FB ads del Platinum (eso es nuestro core). Le pasamos NUESTRA oferta ya elegida y NUESTRA plantilla de `04-tech/bridge-pages/` como referencia exacta del estilo advertorial anti-ban, y le pedimos solo el build del lander + setup. Encargo chico primero.
+
 ### Boris P. (kokoha) — Vetted Pro, 4.782 reseñas
 - Servicios: **Off-Page SEO ($100)**, **Affiliate Link Promotion ($65)**. 13 gigs, casi todos SEO.
 - **Lectura:** es un proveedor de SEO y backlinks, NO un media buyer. El "Vetted Pro" engaña: su volumen es de SEO, no de paid ClickBank. No sirve para nuestro caso (paid Meta).
