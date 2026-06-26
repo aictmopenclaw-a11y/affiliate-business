@@ -132,19 +132,22 @@ Tabla consolidada de la navegación en vivo. "Tipo" es la categoría real (no la
 | Jonesli (búsqueda) | | s/d | 5.0 | Mixto | desde $25 | Medio |
 | Fawaz / Ayobami / Waxler | | s/d | 4.9-5.0 | Spam barato | $5-15 | Evitar |
 
-**Enlaces directos a los perfiles (verificados en vivo):**
+**Enlaces VERIFICADOS en vivo (abrí cada uno y cargó OK):**
 - Sandhya V. (la candidata): [perfil](https://www.fiverr.com/sandhya_angel) · [gig ClickBank funnel](https://www.fiverr.com/sandhya_angel/build-your-clickbank-affiliate-marketing-landing-page-or-sales-funnel)
-- Boris P.: https://www.fiverr.com/kokoha
-- Alex Lynx: https://www.fiverr.com/webbylynx
-- Humza J.: https://www.fiverr.com/wordpressbiz
-- Mahobubur R: https://www.fiverr.com/mahobubur2
-- Joseph A.: https://www.fiverr.com/josephamodu
-- Deejah A: https://www.fiverr.com/deejah_mi
-- Umar Choudhary: https://www.fiverr.com/umiiichoudhary
-- Yomi W: https://www.fiverr.com/yomiway01
-- Sofia: https://www.fiverr.com/kurdessof1
-- Deepak Verma: https://www.fiverr.com/wordpressking1
-- Lista curada completa de Fiverr: https://www.fiverr.com/hire/clickbank
+- Boris P.: [fiverr.com/kokoha](https://www.fiverr.com/kokoha)
+- Alex Lynx: [fiverr.com/webbylynx](https://www.fiverr.com/webbylynx)
+- Humza J.: [fiverr.com/wordpressbiz](https://www.fiverr.com/wordpressbiz)
+- Mahobubur R: [fiverr.com/mahobubur2](https://www.fiverr.com/mahobubur2)
+- Joseph A.: [fiverr.com/josephamodu](https://www.fiverr.com/josephamodu)
+- Deejah A: [fiverr.com/deejah_mi](https://www.fiverr.com/deejah_mi)
+- Umar Choudhary: [fiverr.com/umiiichoudhary](https://www.fiverr.com/umiiichoudhary)
+- Yomi W: [fiverr.com/yomiway01](https://www.fiverr.com/yomiway01)
+
+**De la lista curada de Fiverr (handles reales, no los abrí uno por uno):**
+- Sofia: [fiverr.com/kurdessof1](https://www.fiverr.com/kurdessof1) · Deepak Verma: [fiverr.com/wordpressking1](https://www.fiverr.com/wordpressking1)
+- Lista curada completa (siempre al día): [fiverr.com/hire/clickbank](https://www.fiverr.com/hire/clickbank)
+
+> Nota: `bemsterade` (de la búsqueda inicial de Google) ya no existe como gig, por eso quedó fuera. Todo lo de "verificados" lo cargué en el navegador en esta sesión.
 
 **Lo que confirma la muestra ampliada (13+ perfiles):** los dos perfiles con más reseñas del nicho (Boris 4.782 y Alex 3.970) NO hacen paid media: son SEO y websites. El único de volumen alto enfocado en funnels ClickBank con mención de Facebook ads es Sandhya. El resto son website builders, creativos sueltos, setup básico o spam. No apareció un solo media buyer de Meta + ClickBank de respuesta directa con track record. Es estructural del marketplace, no falta de búsqueda.
 
